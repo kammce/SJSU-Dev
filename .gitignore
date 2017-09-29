@@ -2,8 +2,8 @@ firmware/*
 firmware/**/bin
 firmware/**/obj
 firmware/**/makefile
-firmware/**/test/test-suite
-firmware/**/test/cgreen-test-suite
+firmware/**/test-suite
+firmware/**/cgreen-test-suite
 
 !firmware/lib
 !firmware/HelloWorld

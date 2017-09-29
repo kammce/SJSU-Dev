@@ -1,0 +1,94 @@
+\hypertarget{scheduler__task_8hpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/scheduler\+\_\+task.hpp File Reference}
+\label{scheduler__task_8hpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/scheduler\+\_\+task.\+hpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/scheduler\+\_\+task.\+hpp}}
+
+
+C++ Task class based on Free\+R\+T\+OS
+
+This file provides the structure to create and manage a Free\+R\+T\+OS task.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+Include dependency graph for scheduler\+\_\+task.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dae/scheduler__task_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{d4/dea/scheduler__task_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscheduler__task}{scheduler\+\_\+task}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{scheduler__task_8hpp_a7d6498410972beff36402038b4dffb8d}{scheduler\+\_\+add\+\_\+task} (\hyperlink{classscheduler__task}{scheduler\+\_\+task} $\ast$task)
+\item 
+void \hyperlink{scheduler__task_8hpp_a2a08a0d6b64f9b6d73393c59e20a6efb}{scheduler\+\_\+start} (bool dbg\+\_\+print=false, bool register\+\_\+internal\+\_\+tlm=false)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C++ Task class based on Free\+R\+T\+OS
+
+This file provides the structure to create and manage a Free\+R\+T\+OS task. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classscheduler__task}{scheduler\+\_\+task} \hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{for} further documentation
+\end{DoxySeeAlso}
+20140215 \+: Added add/get shared\+Handles() by index (faster). Made some functions static with documentation on how to use them. 20140211 \+: Fixed bug with statistical update (ticks to ms conversion) 20140209 \+: Added debug print option. \begin{DoxySeeAlso}{See also}
+\hyperlink{scheduler__task_8hpp_a2a08a0d6b64f9b6d73393c59e20a6efb}{scheduler\+\_\+start()}; 20140205 \+: Added resume(), provided simplified cpu usage 20131201 \+: Remove vector dependency, use internal linked list without a library dependency 20131007 \+: Enhanced C\+PU usage A\+PI 20130415 \+: Added queue set functionality 
+\end{DoxySeeAlso}
+
+
+\subsection{Function Documentation}
+\index{scheduler\+\_\+task.\+hpp@{scheduler\+\_\+task.\+hpp}!scheduler\+\_\+add\+\_\+task@{scheduler\+\_\+add\+\_\+task}}
+\index{scheduler\+\_\+add\+\_\+task@{scheduler\+\_\+add\+\_\+task}!scheduler\+\_\+task.\+hpp@{scheduler\+\_\+task.\+hpp}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+add\+\_\+task(scheduler\+\_\+task $\ast$task)}{scheduler_add_task(scheduler_task *task)}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+add\+\_\+task (
+\begin{DoxyParamCaption}
+\item[{{\bf scheduler\+\_\+task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)}\hypertarget{scheduler__task_8hpp_a7d6498410972beff36402038b4dffb8d}{}\label{scheduler__task_8hpp_a7d6498410972beff36402038b4dffb8d}
+Adds your task to the scheduler 
+\begin{DoxyParams}{Parameters}
+{\em task} & The pointer of your allocated class. 
+\begin{DoxyCode}
+1 scheduler\_add\_task(new my\_task());
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+\index{scheduler\+\_\+task.\+hpp@{scheduler\+\_\+task.\+hpp}!scheduler\+\_\+start@{scheduler\+\_\+start}}
+\index{scheduler\+\_\+start@{scheduler\+\_\+start}!scheduler\+\_\+task.\+hpp@{scheduler\+\_\+task.\+hpp}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+start(bool dbg\+\_\+print=false, bool register\+\_\+internal\+\_\+tlm=false)}{scheduler_start(bool dbg_print=false, bool register_internal_tlm=false)}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{bool}]{dbg\+\_\+print = {\ttfamily false}, }
+\item[{bool}]{register\+\_\+internal\+\_\+tlm = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{scheduler__task_8hpp_a2a08a0d6b64f9b6d73393c59e20a6efb}{}\label{scheduler__task_8hpp_a2a08a0d6b64f9b6d73393c59e20a6efb}
+Starts Free\+R\+T\+OS scheduler with the tasks added by \hyperlink{scheduler__task_8hpp_a7d6498410972beff36402038b4dffb8d}{scheduler\+\_\+add\+\_\+task()}
+
+
+\begin{DoxyParams}{Parameters}
+{\em register\+\_\+internal\+\_\+tlm} & If true, then this method will register the statistical telemetry for each task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is different from the reg\+Tlm() method that is called regardless.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em dbg\+\_\+print} & If true, process of initing and starting the tasks is printed through stdio output \\
+\hline
+\end{DoxyParams}

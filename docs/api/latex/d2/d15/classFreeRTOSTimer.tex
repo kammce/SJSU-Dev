@@ -1,0 +1,190 @@
+\hypertarget{classFreeRTOSTimer}{}\section{Free\+R\+T\+O\+S\+Timer Class Reference}
+\label{classFreeRTOSTimer}\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+
+
+{\ttfamily \#include $<$freertos\+\_\+timer.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFreeRTOSTimer_a3f7e3569e552bac47dcb770d4a4a4ad0}{Free\+R\+T\+O\+S\+Timer} (\hyperlink{timers_8h_a5cf6d1f61ccd4871022ed8ad454c6027}{Timer\+Callback\+Function\+\_\+t} p\+Function, \hyperlink{freertos__timer_8hpp_a62332987634a9d461e934b53ee0e0772}{time\+Ms\+\_\+t} t, \hyperlink{freertos__timer_8hpp_ad3a7c38fbde9814e427a75171fe8939d}{Timer\+Type} type=\hyperlink{freertos__timer_8hpp_ad3a7c38fbde9814e427a75171fe8939dab782ae2f652b671e2a189f237bd4311b}{Timer\+Periodic})
+\item 
+\hyperlink{classFreeRTOSTimer_aa8a047ff6418d0d0d62716f47fd863c5}{$\sim$\+Free\+R\+T\+O\+S\+Timer} ()
+\begin{DoxyCompactList}\small\item\em Destructor to delete the timer. \end{DoxyCompactList}\item 
+void \hyperlink{classFreeRTOSTimer_a719e6350ecd4d41c1d2dbf8fe8ea140b}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts the timer, and calls \hyperlink{classFreeRTOSTimer_a86766a976a47b003a44d52a84bf734cc}{reset()} if timer is already started. \end{DoxyCompactList}\item 
+void \hyperlink{classFreeRTOSTimer_a43992de1a6cc76749fd129b8b386b8e2}{stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the timer. \end{DoxyCompactList}\item 
+void \hyperlink{classFreeRTOSTimer_a86766a976a47b003a44d52a84bf734cc}{reset} ()
+\begin{DoxyCompactList}\small\item\em Resets(restarts) the timer. \end{DoxyCompactList}\item 
+void \hyperlink{classFreeRTOSTimer_a90600dc55886fa4a9aebdb14f7d5155c}{change\+Period} (\hyperlink{freertos__timer_8hpp_a62332987634a9d461e934b53ee0e0772}{time\+Ms\+\_\+t} t)
+\begin{DoxyCompactList}\small\item\em Changes the timer\textquotesingle{}s time. \end{DoxyCompactList}\item 
+bool \hyperlink{classFreeRTOSTimer_afe875ff318f8158660f94f19982f55ae}{is\+Running} ()
+\item 
+\hyperlink{timers_8h_aae4bf1dce696ab615d5fd073606fd3cb}{Timer\+Handle\+\_\+t} \hyperlink{classFreeRTOSTimer_a52230dd9874e8066e441e2ab64522b2a}{get\+Timer\+Handle} ()
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf Timer functions to be used from within an I\+SR.}\par
+{\em These will automatically call Free\+R\+T\+OS Y\+I\+E\+LD function if required. }\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classFreeRTOSTimer_a92b1845cf4973a39c0ac44ee615c8e9f}{start\+From\+I\+SR} ()
+\begin{DoxyCompactList}\small\item\em Restarts the timer from an I\+SR. \end{DoxyCompactList}\item 
+void \hyperlink{classFreeRTOSTimer_aa3652e193022be79d5c7a31c1bcfaede}{stop\+From\+I\+SR} ()
+\begin{DoxyCompactList}\small\item\em Stops the timer from an I\+SR. \end{DoxyCompactList}\item 
+void \hyperlink{classFreeRTOSTimer_ab5861a16ffb9d3aa55eefd8432087c8d}{reset\+From\+I\+SR} ()
+\begin{DoxyCompactList}\small\item\em Resets the timer from an I\+SR. \end{DoxyCompactList}\item 
+void \hyperlink{classFreeRTOSTimer_abbc13f7e4ab40097098152c3bdbd8b8a}{change\+Period\+From\+I\+SR} (\hyperlink{freertos__timer_8hpp_a62332987634a9d461e934b53ee0e0772}{time\+Ms\+\_\+t} t)
+\begin{DoxyCompactList}\small\item\em Changes the timer\textquotesingle{}s time from an I\+SR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+Timer class to attach C-\/\+Functions to timers, but use C++ class structure to easily control the timers.
+
+This is C++ wrapper around Free\+R\+T\+OS timers. config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS @ Free\+Rtos\+Config.\+h must be set to 1 to use this class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{Free\+R\+T\+O\+S\+Timer(\+Timer\+Callback\+Function\+\_\+t p\+Function, time\+Ms\+\_\+t t, Timer\+Type type=\+Timer\+Periodic)}{FreeRTOSTimer(TimerCallbackFunction_t pFunction, timeMs_t t, TimerType type=TimerPeriodic)}}]{\setlength{\rightskip}{0pt plus 5cm}Free\+R\+T\+O\+S\+Timer\+::\+Free\+R\+T\+O\+S\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+Callback\+Function\+\_\+t}}]{p\+Function, }
+\item[{{\bf time\+Ms\+\_\+t}}]{t, }
+\item[{{\bf Timer\+Type}}]{type = {\ttfamily {\bf Timer\+Periodic}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_a3f7e3569e552bac47dcb770d4a4a4ad0}{}\label{classFreeRTOSTimer_a3f7e3569e552bac47dcb770d4a4a4ad0}
+Constructor to create the timer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Function} & The pointer to C-\/\+Function \\
+\hline
+{\em t} & The timer expiration in milliseconds \\
+\hline
+{\em type} & Timer type, either one shot or periodic, defaults to periodic \\
+\hline
+\end{DoxyParams}
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!````~Free\+R\+T\+O\+S\+Timer@{$\sim$\+Free\+R\+T\+O\+S\+Timer}}
+\index{````~Free\+R\+T\+O\+S\+Timer@{$\sim$\+Free\+R\+T\+O\+S\+Timer}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Free\+R\+T\+O\+S\+Timer()}{~FreeRTOSTimer()}}]{\setlength{\rightskip}{0pt plus 5cm}Free\+R\+T\+O\+S\+Timer\+::$\sim$\+Free\+R\+T\+O\+S\+Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_aa8a047ff6418d0d0d62716f47fd863c5}{}\label{classFreeRTOSTimer_aa8a047ff6418d0d0d62716f47fd863c5}
+
+
+Destructor to delete the timer. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!change\+Period@{change\+Period}}
+\index{change\+Period@{change\+Period}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{change\+Period(time\+Ms\+\_\+t t)}{changePeriod(timeMs_t t)}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::change\+Period (
+\begin{DoxyParamCaption}
+\item[{{\bf time\+Ms\+\_\+t}}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_a90600dc55886fa4a9aebdb14f7d5155c}{}\label{classFreeRTOSTimer_a90600dc55886fa4a9aebdb14f7d5155c}
+
+
+Changes the timer\textquotesingle{}s time. 
+
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!change\+Period\+From\+I\+SR@{change\+Period\+From\+I\+SR}}
+\index{change\+Period\+From\+I\+SR@{change\+Period\+From\+I\+SR}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{change\+Period\+From\+I\+S\+R(time\+Ms\+\_\+t t)}{changePeriodFromISR(timeMs_t t)}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::change\+Period\+From\+I\+SR (
+\begin{DoxyParamCaption}
+\item[{{\bf time\+Ms\+\_\+t}}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_abbc13f7e4ab40097098152c3bdbd8b8a}{}\label{classFreeRTOSTimer_abbc13f7e4ab40097098152c3bdbd8b8a}
+
+
+Changes the timer\textquotesingle{}s time from an I\+SR. 
+
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!get\+Timer\+Handle@{get\+Timer\+Handle}}
+\index{get\+Timer\+Handle@{get\+Timer\+Handle}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{get\+Timer\+Handle()}{getTimerHandle()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timer\+Handle\+\_\+t} Free\+R\+T\+O\+S\+Timer\+::get\+Timer\+Handle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classFreeRTOSTimer_a52230dd9874e8066e441e2ab64522b2a}{}\label{classFreeRTOSTimer_a52230dd9874e8066e441e2ab64522b2a}
+\begin{DoxyReturn}{Returns}
+The Free\+R\+T\+OS Timer Handle for this timer. 
+\end{DoxyReturn}
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!is\+Running@{is\+Running}}
+\index{is\+Running@{is\+Running}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{is\+Running()}{isRunning()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Free\+R\+T\+O\+S\+Timer\+::is\+Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_afe875ff318f8158660f94f19982f55ae}{}\label{classFreeRTOSTimer_afe875ff318f8158660f94f19982f55ae}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the timer is active 
+\end{DoxyReturn}
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!reset@{reset}}
+\index{reset@{reset}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_a86766a976a47b003a44d52a84bf734cc}{}\label{classFreeRTOSTimer_a86766a976a47b003a44d52a84bf734cc}
+
+
+Resets(restarts) the timer. 
+
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!reset\+From\+I\+SR@{reset\+From\+I\+SR}}
+\index{reset\+From\+I\+SR@{reset\+From\+I\+SR}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{reset\+From\+I\+S\+R()}{resetFromISR()}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::reset\+From\+I\+SR (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_ab5861a16ffb9d3aa55eefd8432087c8d}{}\label{classFreeRTOSTimer_ab5861a16ffb9d3aa55eefd8432087c8d}
+
+
+Resets the timer from an I\+SR. 
+
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!start@{start}}
+\index{start@{start}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{start()}{start()}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_a719e6350ecd4d41c1d2dbf8fe8ea140b}{}\label{classFreeRTOSTimer_a719e6350ecd4d41c1d2dbf8fe8ea140b}
+
+
+Starts the timer, and calls \hyperlink{classFreeRTOSTimer_a86766a976a47b003a44d52a84bf734cc}{reset()} if timer is already started. 
+
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!start\+From\+I\+SR@{start\+From\+I\+SR}}
+\index{start\+From\+I\+SR@{start\+From\+I\+SR}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{start\+From\+I\+S\+R()}{startFromISR()}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::start\+From\+I\+SR (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_a92b1845cf4973a39c0ac44ee615c8e9f}{}\label{classFreeRTOSTimer_a92b1845cf4973a39c0ac44ee615c8e9f}
+
+
+Restarts the timer from an I\+SR. 
+
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!stop@{stop}}
+\index{stop@{stop}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{stop()}{stop()}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_a43992de1a6cc76749fd129b8b386b8e2}{}\label{classFreeRTOSTimer_a43992de1a6cc76749fd129b8b386b8e2}
+
+
+Stops the timer. 
+
+\index{Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}!stop\+From\+I\+SR@{stop\+From\+I\+SR}}
+\index{stop\+From\+I\+SR@{stop\+From\+I\+SR}!Free\+R\+T\+O\+S\+Timer@{Free\+R\+T\+O\+S\+Timer}}
+\subsubsection[{\texorpdfstring{stop\+From\+I\+S\+R()}{stopFromISR()}}]{\setlength{\rightskip}{0pt plus 5cm}void Free\+R\+T\+O\+S\+Timer\+::stop\+From\+I\+SR (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFreeRTOSTimer_aa3652e193022be79d5c7a31c1bcfaede}{}\label{classFreeRTOSTimer_aa3652e193022be79d5c7a31c1bcfaede}
+
+
+Stops the timer from an I\+SR. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{freertos__timer_8hpp}{freertos\+\_\+timer.\+hpp}\end{DoxyCompactItemize}

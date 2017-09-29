@@ -1,0 +1,798 @@
+\hypertarget{nrf24L01Plus_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/nrf24\+L01\+Plus.h File Reference}
+\label{nrf24L01Plus_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/nrf24\+L01\+Plus.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/nrf24\+L01\+Plus.\+h}}
+
+
+Nordic driver.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ssp0.\+h\char`\"{}}\\*
+Include dependency graph for nrf24\+L01\+Plus.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d03/nrf24L01Plus_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d8b/nrf24L01Plus_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_a66ab65903d46288ed502f98179ac9866}{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+S\+PI}(byte)~ssp0\+\_\+exchange\+\_\+byte(byte)
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_a5a84535bf85dc1e2a3878eaab17f759b}{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+M\+U\+L\+T\+I\+\_\+\+B\+Y\+TE}(ptr,  \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len})~ssp0\+\_\+exchange\+\_\+data(ptr, \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len})
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_a35ca86ad44718cdf44b46f7dbf03c31f}{N\+O\+R\+D\+I\+C\+\_\+\+L\+O\+C\+K\+\_\+\+S\+PI}()
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_ae9123a97957c66ea6b7f5abb02a4cb85}{N\+O\+R\+D\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+S\+PI}()
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_a3c8d8569d926c19df8ceae9b4ea3d484}{N\+O\+R\+D\+I\+C\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+US}(us)~\hyperlink{utilities_8h_a77c2ab6eebd9ebe86dc4f64bc31295bd}{delay\+\_\+us}(us)
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_a6ffde3de82124cf4f4b068c953347dd4}{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+E\+N\+A\+B\+LE}()~board\+\_\+io\+\_\+nordic\+\_\+cs()
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_a0faa6359c1d59ff9c0b448ba1dd078cd}{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+D\+I\+S\+A\+B\+LE}()~board\+\_\+io\+\_\+nordic\+\_\+ds()
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_a6a61f2624233d5541684fbee0d8b0b1c}{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+H\+I\+GH}()~board\+\_\+io\+\_\+nordic\+\_\+ce\+\_\+high()
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_aa9110bafcdafc24c7452192875400efa}{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+L\+OW}()~board\+\_\+io\+\_\+nordic\+\_\+ce\+\_\+low()
+\item 
+\#define \hyperlink{nrf24L01Plus_8h_ab4d0f840fd5ccd7cace84afb2913af84}{N\+O\+R\+D\+I\+C\+\_\+\+I\+N\+T\+\_\+\+S\+I\+G\+N\+AL}()~(!board\+\_\+io\+\_\+nordic\+\_\+irq\+\_\+sig()) /$\ast$ Signal \hyperlink{trace_2readme_8txt_a7e33a55c77d8cbd03ec57a69d78a39dc}{is} active low $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{nrf24L01Plus_8h_aaa8875391d685c2d9e86843eb1bce3d7}{nordic\+\_\+init} (unsigned char payload, unsigned short mhz, unsigned short bitrate\+\_\+kbps)
+\item 
+bool \hyperlink{nrf24L01Plus_8h_a3823b293e9c4c6dc18db9cdf27565377}{nordic\+\_\+is\+\_\+air\+\_\+free} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_a54de7d39c5df651c293f167412cc49a2}{nordic\+\_\+rx\+\_\+to\+\_\+\+Stanby1} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_a4c1cf1b0db7fb16b14d77dd27296058d}{nordic\+\_\+standby1\+\_\+to\+\_\+rx} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_aedfeef334dbb183d4cf1c94b89b6b581}{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode1} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_aa50dacafaa7cfc62e330bded08d29eb0}{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode2} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_a1df64558e6241a4523e3f700b5be3ed7}{nordic\+\_\+tx\+\_\+mode2\+\_\+to\+\_\+standby1\+\_\+through\+\_\+power\+\_\+down} ()
+\item 
+bool \hyperlink{nrf24L01Plus_8h_a66184b52a03453fff2a6ae106bb9f0a8}{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+full} ()
+\item 
+bool \hyperlink{nrf24L01Plus_8h_a9587c7f55edfa20439259f9ea68a1fe8}{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+empty} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_a3a3db6a7abaa3d95c311bd2023a532f7}{nordic\+\_\+clear\+\_\+all\+\_\+intr\+\_\+flags} ()
+\begin{DoxyCompactList}\small\item\em Clears all interrupt flags to de-\/assert interrupt signal. \end{DoxyCompactList}\item 
+void \hyperlink{nrf24L01Plus_8h_ab3408004a65a7cad4a145840600c3b92}{nordic\+\_\+queue\+\_\+tx\+\_\+fifo} (char $\ast$data, unsigned short length)
+\item 
+void \hyperlink{nrf24L01Plus_8h_ad758df8206bce60faf4b4fa7136bcf65}{nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet} (char $\ast$data, unsigned short length)
+\item 
+bool \hyperlink{nrf24L01Plus_8h_af920e1b313c227795e2a77b6538d8b50}{nordic\+\_\+is\+\_\+packet\+\_\+sent} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_aa34be20b44012f17157407423e91ee59}{nordic\+\_\+clear\+\_\+packet\+\_\+sent\+\_\+flag} ()
+\begin{DoxyCompactList}\small\item\em Clears the Tx Packet sent flag. \end{DoxyCompactList}\item 
+bool \hyperlink{nrf24L01Plus_8h_a09139b0c7d1eaa3b8fd62772f15b8cc8}{nordic\+\_\+is\+\_\+max\+\_\+retries\+\_\+reached} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_adc60a8f79d13bf923c51085361fbc8a7}{nordic\+\_\+clear\+\_\+max\+\_\+retries\+\_\+flag} ()
+\begin{DoxyCompactList}\small\item\em Clears the Max retries reached flag. \end{DoxyCompactList}\item 
+void \hyperlink{nrf24L01Plus_8h_a57c898f0e2a0bfd52140a1435422709e}{nordic\+\_\+flush\+\_\+tx\+\_\+fifo} ()
+\begin{DoxyCompactList}\small\item\em Flushes(clears) the TX F\+I\+FO Data. \end{DoxyCompactList}\item 
+bool \hyperlink{nrf24L01Plus_8h_a3480631b5fa8f1e40918e8a20fa83593}{nordic\+\_\+is\+\_\+packet\+\_\+available} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_a91815031a081f3c5048e1d3b1d8f822d}{nordic\+\_\+clear\+\_\+packet\+\_\+available\+\_\+flag} ()
+\begin{DoxyCompactList}\small\item\em Clears the RX Packet Received Flag. \end{DoxyCompactList}\item 
+char \hyperlink{nrf24L01Plus_8h_a7cb6f32954b3143f8f1f04db1d894959}{nordic\+\_\+read\+\_\+rx\+\_\+fifo} (char $\ast$data, unsigned short length)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a63496e1ce78eb8a1efc4da6904017592}{nordic\+\_\+flush\+\_\+rx\+\_\+fifo} ()
+\begin{DoxyCompactList}\small\item\em Flushes(clears) the RX F\+I\+FO Data. \end{DoxyCompactList}\item 
+void \hyperlink{nrf24L01Plus_8h_a1a83e49616ad2e1673441021946f5da2}{nordic\+\_\+set\+\_\+intr\+\_\+signals} (bool rx, bool tx, bool max\+Transmissions)
+\item 
+char \hyperlink{nrf24L01Plus_8h_aaaa31dbfb3d316bffd4a6e11cf2c7fd1}{nordic\+\_\+get\+\_\+intr\+\_\+reg\+\_\+status} (void)
+\item 
+void \hyperlink{nrf24L01Plus_8h_af8d5f35a7af9f2799a433efbc5b0db73}{nordic\+\_\+set\+\_\+crc} (unsigned char length)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a6a9782b6113f2edeceb39ad1a4577592}{nordic\+\_\+power\+\_\+up} ()
+\begin{DoxyCompactList}\small\item\em Powers up the Nordic Chip. \end{DoxyCompactList}\item 
+void \hyperlink{nrf24L01Plus_8h_ae82074c7d5ce3123f76ee57b5308bc27}{nordic\+\_\+power\+\_\+down} ()
+\begin{DoxyCompactList}\small\item\em Powers down the Nordic chip (uses few nano-\/amps in power-\/down) \end{DoxyCompactList}\item 
+void \hyperlink{nrf24L01Plus_8h_aebf6745523e975cb8fcc2fe6e0b0dd16}{nordic\+\_\+set\+\_\+channel} (unsigned short M\+Hz)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a33e6ccb71524ddfeee75ea36b73df32a}{nordic\+\_\+set\+\_\+continous\+\_\+carrier\+\_\+transmit} (bool enable)
+\begin{DoxyCompactList}\small\item\em Enables or disables continuous carrier transmission. \end{DoxyCompactList}\item 
+void \hyperlink{nrf24L01Plus_8h_aa9bb82676747c44083acc6501d0208ca}{nordic\+\_\+set\+\_\+air\+\_\+data\+\_\+rate} (unsigned short kbps)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a5571e2c2de1f41cafdc98a23c5f9a2dc}{nordic\+\_\+set\+\_\+power\+\_\+level} (unsigned char power\+Level)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a200fbe93b599f9d9fbe2991d6e181936}{nordic\+\_\+set\+\_\+auto\+\_\+transmit\+\_\+options} (unsigned short tx\+Delay\+Us, unsigned char retries)
+\item 
+char \hyperlink{nrf24L01Plus_8h_a8d03ffdd49a00500bb81d5a72f5468ce}{nordic\+\_\+get\+\_\+lost\+\_\+packet\+\_\+cnt} (bool clear)
+\item 
+char \hyperlink{nrf24L01Plus_8h_ae73151dcd52f4027b1fcd67a89169a21}{nordic\+\_\+get\+\_\+retransmit\+\_\+count} ()
+\item 
+void \hyperlink{nrf24L01Plus_8h_aca4c6d48018e30440433b4cf901b2f94}{nordic\+\_\+set\+\_\+payload\+\_\+for\+\_\+pipe} (unsigned char pipe\+Number, unsigned char payload)
+\item 
+void \hyperlink{nrf24L01Plus_8h_afe2169d8bb54cd01ce202c4dd41a8497}{nordic\+\_\+set\+\_\+addr\+\_\+width} (unsigned short width)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a7ee496adf6391d6f02fcf131c91c1d69}{nordic\+\_\+set\+\_\+tx\+\_\+address} (char $\ast$address, unsigned short length)
+\item 
+void \hyperlink{nrf24L01Plus_8h_ac82be7f0e97992711b7a32e81ced309c}{nordic\+\_\+set\+\_\+rx\+\_\+pipe0\+\_\+addr} (char $\ast$address, unsigned short length)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a7566bd8bd16ce06579f91c144b564a27}{nordic\+\_\+set\+\_\+rx\+\_\+pipe1\+\_\+addr} (char $\ast$address, unsigned short length)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a277df6194d7d2c6231680c947a0cf34d}{nordic\+\_\+set\+\_\+auto\+\_\+ack\+\_\+for\+\_\+pipes} (bool pipe0, bool pipe1, bool pipe2, bool pipe3, bool pipe4, bool pipe5)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a6546c068ecc413b43dd2c565a4e4bb3c}{nordic\+\_\+enable\+\_\+pipes} (bool pipe0, bool pipe1, bool pipe2, bool pipe3, bool pipe4, bool pipe5)
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{nrf24L01Plus_8h_ac58fc8deaa21b5f58f0c887a3840ec28}{nordic\+\_\+set\+\_\+rx\+\_\+pipe2\+\_\+lsb\+\_\+addr} (char address)
+\item 
+void \hyperlink{nrf24L01Plus_8h_a85359e6a6ba009ae720a29e7a9379745}{nordic\+\_\+set\+\_\+rx\+\_\+pipe3\+\_\+lsb\+\_\+addr} (char address)
+\item 
+void \hyperlink{nrf24L01Plus_8h_ac5837940ac850a70ed00e887af19cb31}{nordic\+\_\+set\+\_\+rx\+\_\+pipe4\+\_\+lsb\+\_\+addr} (char address)
+\item 
+void \hyperlink{nrf24L01Plus_8h_add0a0a1ae179e21f55a72e4053cb744b}{nordic\+\_\+set\+\_\+rx\+\_\+pipe5\+\_\+lsb\+\_\+addr} (char address)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+Nordic driver. 
+
+\begin{DoxyParagraph}{Example Code for a Nordic\+:}
+
+\begin{DoxyCode}
+\textcolor{comment}{// Initialize and send a packet:}
+\hyperlink{nrf24L01Plus_8c_aaa8875391d685c2d9e86843eb1bce3d7}{nordic\_init}(32, 2450, 250);
+\hyperlink{nrf24L01Plus_8c_aedfeef334dbb183d4cf1c94b89b6b581}{nordic\_standby1\_to\_tx\_mode1}();
+\hyperlink{nrf24L01Plus_8c_ab3408004a65a7cad4a145840600c3b92}{nordic\_queue\_tx\_fifo}(arrayData, 32);
+\hyperlink{nrf24L01Plus_8c_ad758df8206bce60faf4b4fa7136bcf65}{nordic\_mode1\_send\_single\_packet}();
+
+\textcolor{comment}{// Wait for packet to be sent}
+\textcolor{keywordflow}{while}(!nordic\_intr\_signal());
+\textcolor{keywordflow}{while}(!\hyperlink{nrf24L01Plus_8c_a9587c7f55edfa20439259f9ea68a1fe8}{nordic\_is\_tx\_fifo\_empty}());
+\hyperlink{nrf24L01Plus_8c_aa34be20b44012f17157407423e91ee59}{nordic\_clear\_packet\_sent\_flag}();
+
+\textcolor{comment}{// Optionally switch to RX Mode to receive data:}
+\hyperlink{nrf24L01Plus_8c_a4c1cf1b0db7fb16b14d77dd27296058d}{nordic\_standby1\_to\_rx}();
+
+\textcolor{keywordflow}{while}(!nordic\_intr\_signal());
+\textcolor{keywordflow}{if}(\hyperlink{nrf24L01Plus_8c_a3480631b5fa8f1e40918e8a20fa83593}{nordic\_is\_packet\_available}()) \{
+  \hyperlink{nrf24L01Plus_8c_a7cb6f32954b3143f8f1f04db1d894959}{nordic\_read\_rx\_fifo}(arrayData, 32);
+  \hyperlink{nrf24L01Plus_8c_a91815031a081f3c5048e1d3b1d8f822d}{nordic\_clear\_packet\_available\_flag}();
+\}
+\hyperlink{nrf24L01Plus_8c_a54de7d39c5df651c293f167412cc49a2}{nordic\_rx\_to\_Stanby1}();
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+
+
+\subsection{Macro Definition Documentation}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+H\+I\+GH@{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+H\+I\+GH}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+H\+I\+GH@{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+H\+I\+GH}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+H\+I\+GH}{NORDIC_CE_HIGH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+H\+I\+GH(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~board\+\_\+io\+\_\+nordic\+\_\+ce\+\_\+high()}\hypertarget{nrf24L01Plus_8h_a6a61f2624233d5541684fbee0d8b0b1c}{}\label{nrf24L01Plus_8h_a6a61f2624233d5541684fbee0d8b0b1c}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+L\+OW@{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+L\+OW}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+L\+OW@{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+L\+OW}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+L\+OW}{NORDIC_CE_LOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+C\+E\+\_\+\+L\+OW(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~board\+\_\+io\+\_\+nordic\+\_\+ce\+\_\+low()}\hypertarget{nrf24L01Plus_8h_aa9110bafcdafc24c7452192875400efa}{}\label{nrf24L01Plus_8h_aa9110bafcdafc24c7452192875400efa}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+D\+I\+S\+A\+B\+LE@{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+D\+I\+S\+A\+B\+LE@{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+D\+I\+S\+A\+B\+LE}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+D\+I\+S\+A\+B\+LE}{NORDIC_CS_DISABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+D\+I\+S\+A\+B\+LE(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~board\+\_\+io\+\_\+nordic\+\_\+ds()}\hypertarget{nrf24L01Plus_8h_a0faa6359c1d59ff9c0b448ba1dd078cd}{}\label{nrf24L01Plus_8h_a0faa6359c1d59ff9c0b448ba1dd078cd}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+E\+N\+A\+B\+LE@{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+E\+N\+A\+B\+LE}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+E\+N\+A\+B\+LE@{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+E\+N\+A\+B\+LE}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+E\+N\+A\+B\+LE}{NORDIC_CS_ENABLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+C\+S\+\_\+\+E\+N\+A\+B\+LE(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~board\+\_\+io\+\_\+nordic\+\_\+cs()}\hypertarget{nrf24L01Plus_8h_a6ffde3de82124cf4f4b068c953347dd4}{}\label{nrf24L01Plus_8h_a6ffde3de82124cf4f4b068c953347dd4}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+US@{N\+O\+R\+D\+I\+C\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+US}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+US@{N\+O\+R\+D\+I\+C\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+US}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+US}{NORDIC_DELAY_US}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+US(
+\begin{DoxyParamCaption}
+\item[{}]{us}
+\end{DoxyParamCaption}
+)~{\bf delay\+\_\+us}(us)}\hypertarget{nrf24L01Plus_8h_a3c8d8569d926c19df8ceae9b4ea3d484}{}\label{nrf24L01Plus_8h_a3c8d8569d926c19df8ceae9b4ea3d484}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+M\+U\+L\+T\+I\+\_\+\+B\+Y\+TE@{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+M\+U\+L\+T\+I\+\_\+\+B\+Y\+TE}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+M\+U\+L\+T\+I\+\_\+\+B\+Y\+TE@{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+M\+U\+L\+T\+I\+\_\+\+B\+Y\+TE}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+M\+U\+L\+T\+I\+\_\+\+B\+Y\+TE}{NORDIC_EXCHANGE_MULTI_BYTE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+M\+U\+L\+T\+I\+\_\+\+B\+Y\+TE(
+\begin{DoxyParamCaption}
+\item[{}]{ptr, }
+\item[{}]{{\bf len}}
+\end{DoxyParamCaption}
+)~ssp0\+\_\+exchange\+\_\+data(ptr, {\bf len})}\hypertarget{nrf24L01Plus_8h_a5a84535bf85dc1e2a3878eaab17f759b}{}\label{nrf24L01Plus_8h_a5a84535bf85dc1e2a3878eaab17f759b}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+S\+PI@{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+S\+PI}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+S\+PI@{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+S\+PI}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+S\+PI}{NORDIC_EXCHANGE_SPI}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+E\+X\+C\+H\+A\+N\+G\+E\+\_\+\+S\+PI(
+\begin{DoxyParamCaption}
+\item[{}]{byte}
+\end{DoxyParamCaption}
+)~ssp0\+\_\+exchange\+\_\+byte(byte)}\hypertarget{nrf24L01Plus_8h_a66ab65903d46288ed502f98179ac9866}{}\label{nrf24L01Plus_8h_a66ab65903d46288ed502f98179ac9866}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+I\+N\+T\+\_\+\+S\+I\+G\+N\+AL@{N\+O\+R\+D\+I\+C\+\_\+\+I\+N\+T\+\_\+\+S\+I\+G\+N\+AL}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+I\+N\+T\+\_\+\+S\+I\+G\+N\+AL@{N\+O\+R\+D\+I\+C\+\_\+\+I\+N\+T\+\_\+\+S\+I\+G\+N\+AL}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+I\+N\+T\+\_\+\+S\+I\+G\+N\+AL}{NORDIC_INT_SIGNAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+I\+N\+T\+\_\+\+S\+I\+G\+N\+AL(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~(!board\+\_\+io\+\_\+nordic\+\_\+irq\+\_\+sig()) /$\ast$ Signal {\bf is} active low $\ast$/}\hypertarget{nrf24L01Plus_8h_ab4d0f840fd5ccd7cace84afb2913af84}{}\label{nrf24L01Plus_8h_ab4d0f840fd5ccd7cace84afb2913af84}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+L\+O\+C\+K\+\_\+\+S\+PI@{N\+O\+R\+D\+I\+C\+\_\+\+L\+O\+C\+K\+\_\+\+S\+PI}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+L\+O\+C\+K\+\_\+\+S\+PI@{N\+O\+R\+D\+I\+C\+\_\+\+L\+O\+C\+K\+\_\+\+S\+PI}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+L\+O\+C\+K\+\_\+\+S\+PI}{NORDIC_LOCK_SPI}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+L\+O\+C\+K\+\_\+\+S\+PI(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a35ca86ad44718cdf44b46f7dbf03c31f}{}\label{nrf24L01Plus_8h_a35ca86ad44718cdf44b46f7dbf03c31f}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!N\+O\+R\+D\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+S\+PI@{N\+O\+R\+D\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+S\+PI}}
+\index{N\+O\+R\+D\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+S\+PI@{N\+O\+R\+D\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+S\+PI}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{N\+O\+R\+D\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+S\+PI}{NORDIC_UNLOCK_SPI}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+R\+D\+I\+C\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+S\+PI(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ae9123a97957c66ea6b7f5abb02a4cb85}{}\label{nrf24L01Plus_8h_ae9123a97957c66ea6b7f5abb02a4cb85}
+
+
+\subsection{Function Documentation}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+clear\+\_\+all\+\_\+intr\+\_\+flags@{nordic\+\_\+clear\+\_\+all\+\_\+intr\+\_\+flags}}
+\index{nordic\+\_\+clear\+\_\+all\+\_\+intr\+\_\+flags@{nordic\+\_\+clear\+\_\+all\+\_\+intr\+\_\+flags}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+clear\+\_\+all\+\_\+intr\+\_\+flags()}{nordic_clear_all_intr_flags()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+clear\+\_\+all\+\_\+intr\+\_\+flags (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a3a3db6a7abaa3d95c311bd2023a532f7}{}\label{nrf24L01Plus_8h_a3a3db6a7abaa3d95c311bd2023a532f7}
+
+
+Clears all interrupt flags to de-\/assert interrupt signal. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+clear\+\_\+max\+\_\+retries\+\_\+flag@{nordic\+\_\+clear\+\_\+max\+\_\+retries\+\_\+flag}}
+\index{nordic\+\_\+clear\+\_\+max\+\_\+retries\+\_\+flag@{nordic\+\_\+clear\+\_\+max\+\_\+retries\+\_\+flag}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+clear\+\_\+max\+\_\+retries\+\_\+flag()}{nordic_clear_max_retries_flag()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+clear\+\_\+max\+\_\+retries\+\_\+flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_adc60a8f79d13bf923c51085361fbc8a7}{}\label{nrf24L01Plus_8h_adc60a8f79d13bf923c51085361fbc8a7}
+
+
+Clears the Max retries reached flag. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+clear\+\_\+packet\+\_\+available\+\_\+flag@{nordic\+\_\+clear\+\_\+packet\+\_\+available\+\_\+flag}}
+\index{nordic\+\_\+clear\+\_\+packet\+\_\+available\+\_\+flag@{nordic\+\_\+clear\+\_\+packet\+\_\+available\+\_\+flag}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+clear\+\_\+packet\+\_\+available\+\_\+flag()}{nordic_clear_packet_available_flag()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+clear\+\_\+packet\+\_\+available\+\_\+flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a91815031a081f3c5048e1d3b1d8f822d}{}\label{nrf24L01Plus_8h_a91815031a081f3c5048e1d3b1d8f822d}
+
+
+Clears the RX Packet Received Flag. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+clear\+\_\+packet\+\_\+sent\+\_\+flag@{nordic\+\_\+clear\+\_\+packet\+\_\+sent\+\_\+flag}}
+\index{nordic\+\_\+clear\+\_\+packet\+\_\+sent\+\_\+flag@{nordic\+\_\+clear\+\_\+packet\+\_\+sent\+\_\+flag}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+clear\+\_\+packet\+\_\+sent\+\_\+flag()}{nordic_clear_packet_sent_flag()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+clear\+\_\+packet\+\_\+sent\+\_\+flag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aa34be20b44012f17157407423e91ee59}{}\label{nrf24L01Plus_8h_aa34be20b44012f17157407423e91ee59}
+
+
+Clears the Tx Packet sent flag. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+enable\+\_\+pipes@{nordic\+\_\+enable\+\_\+pipes}}
+\index{nordic\+\_\+enable\+\_\+pipes@{nordic\+\_\+enable\+\_\+pipes}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+enable\+\_\+pipes(bool pipe0, bool pipe1, bool pipe2, bool pipe3, bool pipe4, bool pipe5)}{nordic_enable_pipes(bool pipe0, bool pipe1, bool pipe2, bool pipe3, bool pipe4, bool pipe5)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+enable\+\_\+pipes (
+\begin{DoxyParamCaption}
+\item[{bool}]{pipe0, }
+\item[{bool}]{pipe1, }
+\item[{bool}]{pipe2, }
+\item[{bool}]{pipe3, }
+\item[{bool}]{pipe4, }
+\item[{bool}]{pipe5}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a6546c068ecc413b43dd2c565a4e4bb3c}{}\label{nrf24L01Plus_8h_a6546c068ecc413b43dd2c565a4e4bb3c}
+Enables or disables the pipes 
+\begin{DoxyParams}{Parameters}
+{\em pipe0,pipe1,pipe2,pipe3,pipe4,pipe5} & Set to true, to enable the pipe. \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+flush\+\_\+rx\+\_\+fifo@{nordic\+\_\+flush\+\_\+rx\+\_\+fifo}}
+\index{nordic\+\_\+flush\+\_\+rx\+\_\+fifo@{nordic\+\_\+flush\+\_\+rx\+\_\+fifo}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+flush\+\_\+rx\+\_\+fifo()}{nordic_flush_rx_fifo()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+flush\+\_\+rx\+\_\+fifo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a63496e1ce78eb8a1efc4da6904017592}{}\label{nrf24L01Plus_8h_a63496e1ce78eb8a1efc4da6904017592}
+
+
+Flushes(clears) the RX F\+I\+FO Data. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+flush\+\_\+tx\+\_\+fifo@{nordic\+\_\+flush\+\_\+tx\+\_\+fifo}}
+\index{nordic\+\_\+flush\+\_\+tx\+\_\+fifo@{nordic\+\_\+flush\+\_\+tx\+\_\+fifo}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+flush\+\_\+tx\+\_\+fifo()}{nordic_flush_tx_fifo()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+flush\+\_\+tx\+\_\+fifo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a57c898f0e2a0bfd52140a1435422709e}{}\label{nrf24L01Plus_8h_a57c898f0e2a0bfd52140a1435422709e}
+
+
+Flushes(clears) the TX F\+I\+FO Data. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+get\+\_\+intr\+\_\+reg\+\_\+status@{nordic\+\_\+get\+\_\+intr\+\_\+reg\+\_\+status}}
+\index{nordic\+\_\+get\+\_\+intr\+\_\+reg\+\_\+status@{nordic\+\_\+get\+\_\+intr\+\_\+reg\+\_\+status}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+get\+\_\+intr\+\_\+reg\+\_\+status(void)}{nordic_get_intr_reg_status(void)}}]{\setlength{\rightskip}{0pt plus 5cm}char nordic\+\_\+get\+\_\+intr\+\_\+reg\+\_\+status (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aaaa31dbfb3d316bffd4a6e11cf2c7fd1}{}\label{nrf24L01Plus_8h_aaaa31dbfb3d316bffd4a6e11cf2c7fd1}
+\begin{DoxyReturn}{Returns}
+the interrupt status register (not the interrupt signal). 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+get\+\_\+lost\+\_\+packet\+\_\+cnt@{nordic\+\_\+get\+\_\+lost\+\_\+packet\+\_\+cnt}}
+\index{nordic\+\_\+get\+\_\+lost\+\_\+packet\+\_\+cnt@{nordic\+\_\+get\+\_\+lost\+\_\+packet\+\_\+cnt}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+get\+\_\+lost\+\_\+packet\+\_\+cnt(bool clear)}{nordic_get_lost_packet_cnt(bool clear)}}]{\setlength{\rightskip}{0pt plus 5cm}char nordic\+\_\+get\+\_\+lost\+\_\+packet\+\_\+cnt (
+\begin{DoxyParamCaption}
+\item[{bool}]{clear}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a8d03ffdd49a00500bb81d5a72f5468ce}{}\label{nrf24L01Plus_8h_a8d03ffdd49a00500bb81d5a72f5468ce}
+Gets the total number of lost packets. 
+\begin{DoxyParams}{Parameters}
+{\em clear} & If true, clears the count \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total lost packets 0-\/15 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+get\+\_\+retransmit\+\_\+count@{nordic\+\_\+get\+\_\+retransmit\+\_\+count}}
+\index{nordic\+\_\+get\+\_\+retransmit\+\_\+count@{nordic\+\_\+get\+\_\+retransmit\+\_\+count}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+get\+\_\+retransmit\+\_\+count()}{nordic_get_retransmit_count()}}]{\setlength{\rightskip}{0pt plus 5cm}char nordic\+\_\+get\+\_\+retransmit\+\_\+count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ae73151dcd52f4027b1fcd67a89169a21}{}\label{nrf24L01Plus_8h_ae73151dcd52f4027b1fcd67a89169a21}
+Gets the total number of retransmissions. \begin{DoxyNote}{Note}
+The count is cleared when new transmission starts. 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+init@{nordic\+\_\+init}}
+\index{nordic\+\_\+init@{nordic\+\_\+init}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+init(unsigned char payload, unsigned short mhz, unsigned short bitrate\+\_\+kbps)}{nordic_init(unsigned char payload, unsigned short mhz, unsigned short bitrate_kbps)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{payload, }
+\item[{unsigned short}]{mhz, }
+\item[{unsigned short}]{bitrate\+\_\+kbps}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aaa8875391d685c2d9e86843eb1bce3d7}{}\label{nrf24L01Plus_8h_aaa8875391d685c2d9e86843eb1bce3d7}
+Initializes the chip to begin data exchange. Enables only Pipe0, sets default address for the Pipe and disables Enhanced Shockburst. 
+\begin{DoxyParams}{Parameters}
+{\em payload} & The payload per packet 1-\/32 \\
+\hline
+{\em mhz} & The channel number from 2402-\/2525 \\
+\hline
+{\em bitrate\+\_\+kbps} & Can only be 250, 1000, or 2000 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Rx interrupt is reflected on interrupt signal, but not Tx 
+\end{DoxyPostcond}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+is\+\_\+air\+\_\+free@{nordic\+\_\+is\+\_\+air\+\_\+free}}
+\index{nordic\+\_\+is\+\_\+air\+\_\+free@{nordic\+\_\+is\+\_\+air\+\_\+free}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+is\+\_\+air\+\_\+free()}{nordic_is_air_free()}}]{\setlength{\rightskip}{0pt plus 5cm}bool nordic\+\_\+is\+\_\+air\+\_\+free (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a3823b293e9c4c6dc18db9cdf27565377}{}\label{nrf24L01Plus_8h_a3823b293e9c4c6dc18db9cdf27565377}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the nordic finds that the air is free to send data over the wireless medium 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This hasn\textquotesingle{}t been fully tested. 
+\end{DoxyWarning}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+is\+\_\+max\+\_\+retries\+\_\+reached@{nordic\+\_\+is\+\_\+max\+\_\+retries\+\_\+reached}}
+\index{nordic\+\_\+is\+\_\+max\+\_\+retries\+\_\+reached@{nordic\+\_\+is\+\_\+max\+\_\+retries\+\_\+reached}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+is\+\_\+max\+\_\+retries\+\_\+reached()}{nordic_is_max_retries_reached()}}]{\setlength{\rightskip}{0pt plus 5cm}bool nordic\+\_\+is\+\_\+max\+\_\+retries\+\_\+reached (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a09139b0c7d1eaa3b8fd62772f15b8cc8}{}\label{nrf24L01Plus_8h_a09139b0c7d1eaa3b8fd62772f15b8cc8}
+\begin{DoxyReturn}{Returns}
+True if max retries reached while transmitting packet in enhanced shockburst mode. 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+is\+\_\+packet\+\_\+available@{nordic\+\_\+is\+\_\+packet\+\_\+available}}
+\index{nordic\+\_\+is\+\_\+packet\+\_\+available@{nordic\+\_\+is\+\_\+packet\+\_\+available}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+is\+\_\+packet\+\_\+available()}{nordic_is_packet_available()}}]{\setlength{\rightskip}{0pt plus 5cm}bool nordic\+\_\+is\+\_\+packet\+\_\+available (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a3480631b5fa8f1e40918e8a20fa83593}{}\label{nrf24L01Plus_8h_a3480631b5fa8f1e40918e8a20fa83593}
+\begin{DoxyReturn}{Returns}
+True if an RX Packet is available. 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+is\+\_\+packet\+\_\+sent@{nordic\+\_\+is\+\_\+packet\+\_\+sent}}
+\index{nordic\+\_\+is\+\_\+packet\+\_\+sent@{nordic\+\_\+is\+\_\+packet\+\_\+sent}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+is\+\_\+packet\+\_\+sent()}{nordic_is_packet_sent()}}]{\setlength{\rightskip}{0pt plus 5cm}bool nordic\+\_\+is\+\_\+packet\+\_\+sent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_af920e1b313c227795e2a77b6538d8b50}{}\label{nrf24L01Plus_8h_af920e1b313c227795e2a77b6538d8b50}
+\begin{DoxyReturn}{Returns}
+True if a TX Packet was sent. 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+empty@{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+empty}}
+\index{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+empty@{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+empty}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+empty()}{nordic_is_tx_fifo_empty()}}]{\setlength{\rightskip}{0pt plus 5cm}bool nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a9587c7f55edfa20439259f9ea68a1fe8}{}\label{nrf24L01Plus_8h_a9587c7f55edfa20439259f9ea68a1fe8}
+\begin{DoxyReturn}{Returns}
+True if TX F\+I\+FO is fully empty. 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+full@{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+full}}
+\index{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+full@{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+full}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+full()}{nordic_is_tx_fifo_full()}}]{\setlength{\rightskip}{0pt plus 5cm}bool nordic\+\_\+is\+\_\+tx\+\_\+fifo\+\_\+full (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a66184b52a03453fff2a6ae106bb9f0a8}{}\label{nrf24L01Plus_8h_a66184b52a03453fff2a6ae106bb9f0a8}
+\begin{DoxyReturn}{Returns}
+True if TX F\+I\+FO is Full 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet@{nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet}}
+\index{nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet@{nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet(char $\ast$data, unsigned short length)}{nordic_mode1_send_single_packet(char *data, unsigned short length)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{unsigned short}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ad758df8206bce60faf4b4fa7136bcf65}{}\label{nrf24L01Plus_8h_ad758df8206bce60faf4b4fa7136bcf65}
+Sends the data in the Tx F\+I\+FO. \begin{DoxyPostcond}{Postcondition}
+Returns back to Standby-\/1 after sending the data. 
+\end{DoxyPostcond}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+power\+\_\+down@{nordic\+\_\+power\+\_\+down}}
+\index{nordic\+\_\+power\+\_\+down@{nordic\+\_\+power\+\_\+down}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+power\+\_\+down()}{nordic_power_down()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+power\+\_\+down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ae82074c7d5ce3123f76ee57b5308bc27}{}\label{nrf24L01Plus_8h_ae82074c7d5ce3123f76ee57b5308bc27}
+
+
+Powers down the Nordic chip (uses few nano-\/amps in power-\/down) 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+power\+\_\+up@{nordic\+\_\+power\+\_\+up}}
+\index{nordic\+\_\+power\+\_\+up@{nordic\+\_\+power\+\_\+up}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+power\+\_\+up()}{nordic_power_up()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+power\+\_\+up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a6a9782b6113f2edeceb39ad1a4577592}{}\label{nrf24L01Plus_8h_a6a9782b6113f2edeceb39ad1a4577592}
+
+
+Powers up the Nordic Chip. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+queue\+\_\+tx\+\_\+fifo@{nordic\+\_\+queue\+\_\+tx\+\_\+fifo}}
+\index{nordic\+\_\+queue\+\_\+tx\+\_\+fifo@{nordic\+\_\+queue\+\_\+tx\+\_\+fifo}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+queue\+\_\+tx\+\_\+fifo(char $\ast$data, unsigned short length)}{nordic_queue_tx_fifo(char *data, unsigned short length)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+queue\+\_\+tx\+\_\+fifo (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{unsigned short}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ab3408004a65a7cad4a145840600c3b92}{}\label{nrf24L01Plus_8h_ab3408004a65a7cad4a145840600c3b92}
+Queues Data on the TX Fifo (F\+I\+FO can hold 3 Packets) \begin{DoxyPrecond}{Precondition}
+TX Fifo must not be F\+U\+LL 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The char array data pointer \\
+\hline
+{\em length} & The length of the data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+In Tx Mode-\/2 data is sent automatically. In Tx Mode-\/1 you must use \hyperlink{nrf24L01Plus_8h_ad758df8206bce60faf4b4fa7136bcf65}{nordic\+\_\+mode1\+\_\+send\+\_\+single\+\_\+packet()} 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+read\+\_\+rx\+\_\+fifo@{nordic\+\_\+read\+\_\+rx\+\_\+fifo}}
+\index{nordic\+\_\+read\+\_\+rx\+\_\+fifo@{nordic\+\_\+read\+\_\+rx\+\_\+fifo}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+read\+\_\+rx\+\_\+fifo(char $\ast$data, unsigned short length)}{nordic_read_rx_fifo(char *data, unsigned short length)}}]{\setlength{\rightskip}{0pt plus 5cm}char nordic\+\_\+read\+\_\+rx\+\_\+fifo (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{unsigned short}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a7cb6f32954b3143f8f1f04db1d894959}{}\label{nrf24L01Plus_8h_a7cb6f32954b3143f8f1f04db1d894959}
+Dequeues Data from the RX Fifo \begin{DoxyPrecond}{Precondition}
+RX Fifo must contain data 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The char array data pointer \\
+\hline
+{\em length} & The length of the data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data pipe data was received on (0-\/5) 
+\end{DoxyReturn}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+rx\+\_\+to\+\_\+\+Stanby1@{nordic\+\_\+rx\+\_\+to\+\_\+\+Stanby1}}
+\index{nordic\+\_\+rx\+\_\+to\+\_\+\+Stanby1@{nordic\+\_\+rx\+\_\+to\+\_\+\+Stanby1}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+rx\+\_\+to\+\_\+\+Stanby1()}{nordic_rx_to_Stanby1()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+rx\+\_\+to\+\_\+\+Stanby1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a54de7d39c5df651c293f167412cc49a2}{}\label{nrf24L01Plus_8h_a54de7d39c5df651c293f167412cc49a2}
+Puts Nordic from Rx Mode to Standby-\/1 Mode. Standby-\/1 Mode can be used to send single Tx Packets and return to Rx easily. \index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+addr\+\_\+width@{nordic\+\_\+set\+\_\+addr\+\_\+width}}
+\index{nordic\+\_\+set\+\_\+addr\+\_\+width@{nordic\+\_\+set\+\_\+addr\+\_\+width}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+addr\+\_\+width(unsigned short width)}{nordic_set_addr_width(unsigned short width)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+addr\+\_\+width (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{width}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_afe2169d8bb54cd01ce202c4dd41a8497}{}\label{nrf24L01Plus_8h_afe2169d8bb54cd01ce202c4dd41a8497}
+Sets the width of the address. 
+\begin{DoxyParams}{Parameters}
+{\em width} & The address width, must be 3-\/5 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Lower increases data throughput, higher might catch other wireless traffic. 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+air\+\_\+data\+\_\+rate@{nordic\+\_\+set\+\_\+air\+\_\+data\+\_\+rate}}
+\index{nordic\+\_\+set\+\_\+air\+\_\+data\+\_\+rate@{nordic\+\_\+set\+\_\+air\+\_\+data\+\_\+rate}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+air\+\_\+data\+\_\+rate(unsigned short kbps)}{nordic_set_air_data_rate(unsigned short kbps)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+air\+\_\+data\+\_\+rate (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{kbps}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aa9bb82676747c44083acc6501d0208ca}{}\label{nrf24L01Plus_8h_aa9bb82676747c44083acc6501d0208ca}
+Sets the over-\/the-\/air data-\/rate 
+\begin{DoxyParams}{Parameters}
+{\em kbps} & Must be 250, 1000, or 2000 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Lower data rate yields longer range, but potentially decreases delivery rate. 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+auto\+\_\+ack\+\_\+for\+\_\+pipes@{nordic\+\_\+set\+\_\+auto\+\_\+ack\+\_\+for\+\_\+pipes}}
+\index{nordic\+\_\+set\+\_\+auto\+\_\+ack\+\_\+for\+\_\+pipes@{nordic\+\_\+set\+\_\+auto\+\_\+ack\+\_\+for\+\_\+pipes}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+auto\+\_\+ack\+\_\+for\+\_\+pipes(bool pipe0, bool pipe1, bool pipe2, bool pipe3, bool pipe4, bool pipe5)}{nordic_set_auto_ack_for_pipes(bool pipe0, bool pipe1, bool pipe2, bool pipe3, bool pipe4, bool pipe5)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+auto\+\_\+ack\+\_\+for\+\_\+pipes (
+\begin{DoxyParamCaption}
+\item[{bool}]{pipe0, }
+\item[{bool}]{pipe1, }
+\item[{bool}]{pipe2, }
+\item[{bool}]{pipe3, }
+\item[{bool}]{pipe4, }
+\item[{bool}]{pipe5}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a277df6194d7d2c6231680c947a0cf34d}{}\label{nrf24L01Plus_8h_a277df6194d7d2c6231680c947a0cf34d}
+Sets the auto-\/ack (enhanced shockburst for the pipes) 
+\begin{DoxyParams}{Parameters}
+{\em pipe0,pipe1,pipe2,pipe3,pipe4,pipe5} & Set to true, to enable auto-\/ack on the pipe. \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+auto\+\_\+transmit\+\_\+options@{nordic\+\_\+set\+\_\+auto\+\_\+transmit\+\_\+options}}
+\index{nordic\+\_\+set\+\_\+auto\+\_\+transmit\+\_\+options@{nordic\+\_\+set\+\_\+auto\+\_\+transmit\+\_\+options}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+auto\+\_\+transmit\+\_\+options(unsigned short tx\+Delay\+Us, unsigned char retries)}{nordic_set_auto_transmit_options(unsigned short txDelayUs, unsigned char retries)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+auto\+\_\+transmit\+\_\+options (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{tx\+Delay\+Us, }
+\item[{unsigned char}]{retries}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a200fbe93b599f9d9fbe2991d6e181936}{}\label{nrf24L01Plus_8h_a200fbe93b599f9d9fbe2991d6e181936}
+Sets the Enhanced Shockburst auto-\/transmit options 
+\begin{DoxyParams}{Parameters}
+{\em tx\+Delay\+Us} & The delay in uS from 250 -\/ 4000 for retransmission \\
+\hline
+{\em retries} & The number of retries 1-\/15 \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+channel@{nordic\+\_\+set\+\_\+channel}}
+\index{nordic\+\_\+set\+\_\+channel@{nordic\+\_\+set\+\_\+channel}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+channel(unsigned short M\+Hz)}{nordic_set_channel(unsigned short MHz)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+channel (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{M\+Hz}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aebf6745523e975cb8fcc2fe6e0b0dd16}{}\label{nrf24L01Plus_8h_aebf6745523e975cb8fcc2fe6e0b0dd16}
+Sets the Channel Number in Mhz \begin{DoxyWarning}{Warning}
+Be careful with F\+CC restricted range! 
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em M\+Hz} & Must be between 2400 -\/ 2525 \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+continous\+\_\+carrier\+\_\+transmit@{nordic\+\_\+set\+\_\+continous\+\_\+carrier\+\_\+transmit}}
+\index{nordic\+\_\+set\+\_\+continous\+\_\+carrier\+\_\+transmit@{nordic\+\_\+set\+\_\+continous\+\_\+carrier\+\_\+transmit}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+continous\+\_\+carrier\+\_\+transmit(bool enable)}{nordic_set_continous_carrier_transmit(bool enable)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+continous\+\_\+carrier\+\_\+transmit (
+\begin{DoxyParamCaption}
+\item[{bool}]{enable}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a33e6ccb71524ddfeee75ea36b73df32a}{}\label{nrf24L01Plus_8h_a33e6ccb71524ddfeee75ea36b73df32a}
+
+
+Enables or disables continuous carrier transmission. 
+
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+crc@{nordic\+\_\+set\+\_\+crc}}
+\index{nordic\+\_\+set\+\_\+crc@{nordic\+\_\+set\+\_\+crc}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+crc(unsigned char length)}{nordic_set_crc(unsigned char length)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+crc (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_af8d5f35a7af9f2799a433efbc5b0db73}{}\label{nrf24L01Plus_8h_af8d5f35a7af9f2799a433efbc5b0db73}
+Sets the length of the C\+RC of over-\/the-\/air packets 
+\begin{DoxyParams}{Parameters}
+{\em length} & Must be 0, 1, or 2. Use 0 to disable C\+RC checking \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+intr\+\_\+signals@{nordic\+\_\+set\+\_\+intr\+\_\+signals}}
+\index{nordic\+\_\+set\+\_\+intr\+\_\+signals@{nordic\+\_\+set\+\_\+intr\+\_\+signals}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+intr\+\_\+signals(bool rx, bool tx, bool max\+Transmissions)}{nordic_set_intr_signals(bool rx, bool tx, bool maxTransmissions)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+intr\+\_\+signals (
+\begin{DoxyParamCaption}
+\item[{bool}]{rx, }
+\item[{bool}]{tx, }
+\item[{bool}]{max\+Transmissions}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a1a83e49616ad2e1673441021946f5da2}{}\label{nrf24L01Plus_8h_a1a83e49616ad2e1673441021946f5da2}
+Sets the triggers that enable the Interrupt Pin 
+\begin{DoxyParams}{Parameters}
+{\em rx,tx,max\+Transmissions} & If true, interrupt pin will trigger upon these detections. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+These are all enabled by default at power-\/up 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+payload\+\_\+for\+\_\+pipe@{nordic\+\_\+set\+\_\+payload\+\_\+for\+\_\+pipe}}
+\index{nordic\+\_\+set\+\_\+payload\+\_\+for\+\_\+pipe@{nordic\+\_\+set\+\_\+payload\+\_\+for\+\_\+pipe}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+payload\+\_\+for\+\_\+pipe(unsigned char pipe\+Number, unsigned char payload)}{nordic_set_payload_for_pipe(unsigned char pipeNumber, unsigned char payload)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+payload\+\_\+for\+\_\+pipe (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{pipe\+Number, }
+\item[{unsigned char}]{payload}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aca4c6d48018e30440433b4cf901b2f94}{}\label{nrf24L01Plus_8h_aca4c6d48018e30440433b4cf901b2f94}
+Sets the payload for the pipes. 
+\begin{DoxyParams}{Parameters}
+{\em pipe\+Number} & The pipe number from 0-\/5 \\
+\hline
+{\em payload} & The payload 0-\/32 (0 means pipe not used) \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+power\+\_\+level@{nordic\+\_\+set\+\_\+power\+\_\+level}}
+\index{nordic\+\_\+set\+\_\+power\+\_\+level@{nordic\+\_\+set\+\_\+power\+\_\+level}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+power\+\_\+level(unsigned char power\+Level)}{nordic_set_power_level(unsigned char powerLevel)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+power\+\_\+level (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{power\+Level}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a5571e2c2de1f41cafdc98a23c5f9a2dc}{}\label{nrf24L01Plus_8h_a5571e2c2de1f41cafdc98a23c5f9a2dc}
+Sets the power level of the chip 
+\begin{DoxyParams}{Parameters}
+{\em power\+Level} & Must be 0-\/3 with 3 being the highest \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+rx\+\_\+pipe0\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe0\+\_\+addr}}
+\index{nordic\+\_\+set\+\_\+rx\+\_\+pipe0\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe0\+\_\+addr}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+rx\+\_\+pipe0\+\_\+addr(char $\ast$address, unsigned short length)}{nordic_set_rx_pipe0_addr(char *address, unsigned short length)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+rx\+\_\+pipe0\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{address, }
+\item[{unsigned short}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ac82be7f0e97992711b7a32e81ced309c}{}\label{nrf24L01Plus_8h_ac82be7f0e97992711b7a32e81ced309c}
+Sets the reciver\textquotesingle{}s Pipe 0 Address. 
+\begin{DoxyParams}{Parameters}
+{\em address} & The char array of address. \\
+\hline
+{\em length} & The length of address, must be same as what was set at nordic\+\_\+set\+Address\+Width() \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+rx\+\_\+pipe1\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe1\+\_\+addr}}
+\index{nordic\+\_\+set\+\_\+rx\+\_\+pipe1\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe1\+\_\+addr}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+rx\+\_\+pipe1\+\_\+addr(char $\ast$address, unsigned short length)}{nordic_set_rx_pipe1_addr(char *address, unsigned short length)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+rx\+\_\+pipe1\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{address, }
+\item[{unsigned short}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a7566bd8bd16ce06579f91c144b564a27}{}\label{nrf24L01Plus_8h_a7566bd8bd16ce06579f91c144b564a27}
+Sets the reciver\textquotesingle{}s Pipe 1 Address. 
+\begin{DoxyParams}{Parameters}
+{\em address} & The char array of address. \\
+\hline
+{\em length} & The length of address, must be same as what was set at nordic\+\_\+set\+Address\+Width() \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+rx\+\_\+pipe2\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe2\+\_\+lsb\+\_\+addr}}
+\index{nordic\+\_\+set\+\_\+rx\+\_\+pipe2\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe2\+\_\+lsb\+\_\+addr}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+rx\+\_\+pipe2\+\_\+lsb\+\_\+addr(char address)}{nordic_set_rx_pipe2_lsb_addr(char address)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+rx\+\_\+pipe2\+\_\+lsb\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{char}]{address}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ac58fc8deaa21b5f58f0c887a3840ec28}{}\label{nrf24L01Plus_8h_ac58fc8deaa21b5f58f0c887a3840ec28}
+Sets the last byte of the address of Pipe2-\/\+Pipe5 \begin{DoxyNote}{Note}
+The top bytes are the same as Pipe1\textquotesingle{}s address. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The last byte of this pipe\textquotesingle{}s address. \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+rx\+\_\+pipe3\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe3\+\_\+lsb\+\_\+addr}}
+\index{nordic\+\_\+set\+\_\+rx\+\_\+pipe3\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe3\+\_\+lsb\+\_\+addr}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+rx\+\_\+pipe3\+\_\+lsb\+\_\+addr(char address)}{nordic_set_rx_pipe3_lsb_addr(char address)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+rx\+\_\+pipe3\+\_\+lsb\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{char}]{address}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a85359e6a6ba009ae720a29e7a9379745}{}\label{nrf24L01Plus_8h_a85359e6a6ba009ae720a29e7a9379745}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+rx\+\_\+pipe4\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe4\+\_\+lsb\+\_\+addr}}
+\index{nordic\+\_\+set\+\_\+rx\+\_\+pipe4\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe4\+\_\+lsb\+\_\+addr}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+rx\+\_\+pipe4\+\_\+lsb\+\_\+addr(char address)}{nordic_set_rx_pipe4_lsb_addr(char address)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+rx\+\_\+pipe4\+\_\+lsb\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{char}]{address}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_ac5837940ac850a70ed00e887af19cb31}{}\label{nrf24L01Plus_8h_ac5837940ac850a70ed00e887af19cb31}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+rx\+\_\+pipe5\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe5\+\_\+lsb\+\_\+addr}}
+\index{nordic\+\_\+set\+\_\+rx\+\_\+pipe5\+\_\+lsb\+\_\+addr@{nordic\+\_\+set\+\_\+rx\+\_\+pipe5\+\_\+lsb\+\_\+addr}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+rx\+\_\+pipe5\+\_\+lsb\+\_\+addr(char address)}{nordic_set_rx_pipe5_lsb_addr(char address)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+rx\+\_\+pipe5\+\_\+lsb\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{char}]{address}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_add0a0a1ae179e21f55a72e4053cb744b}{}\label{nrf24L01Plus_8h_add0a0a1ae179e21f55a72e4053cb744b}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+set\+\_\+tx\+\_\+address@{nordic\+\_\+set\+\_\+tx\+\_\+address}}
+\index{nordic\+\_\+set\+\_\+tx\+\_\+address@{nordic\+\_\+set\+\_\+tx\+\_\+address}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+set\+\_\+tx\+\_\+address(char $\ast$address, unsigned short length)}{nordic_set_tx_address(char *address, unsigned short length)}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+set\+\_\+tx\+\_\+address (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{address, }
+\item[{unsigned short}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a7ee496adf6391d6f02fcf131c91c1d69}{}\label{nrf24L01Plus_8h_a7ee496adf6391d6f02fcf131c91c1d69}
+Sets the address of the transmitter. 
+\begin{DoxyParams}{Parameters}
+{\em address} & The char array of address. \\
+\hline
+{\em length} & The length of address, must be same as what was set at nordic\+\_\+set\+Address\+Width() \\
+\hline
+\end{DoxyParams}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+standby1\+\_\+to\+\_\+rx@{nordic\+\_\+standby1\+\_\+to\+\_\+rx}}
+\index{nordic\+\_\+standby1\+\_\+to\+\_\+rx@{nordic\+\_\+standby1\+\_\+to\+\_\+rx}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+standby1\+\_\+to\+\_\+rx()}{nordic_standby1_to_rx()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+standby1\+\_\+to\+\_\+rx (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a4c1cf1b0db7fb16b14d77dd27296058d}{}\label{nrf24L01Plus_8h_a4c1cf1b0db7fb16b14d77dd27296058d}
+Puts Nordic from Standby-\/1 Mode to Rx Mode. \begin{DoxyNote}{Note}
+To change from Rx to Tx mode, you must use nordic\+\_\+\+Rx\+To\+\_\+\+Stanby1() first! 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode1@{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode1}}
+\index{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode1@{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode1}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode1()}{nordic_standby1_to_tx_mode1()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aedfeef334dbb183d4cf1c94b89b6b581}{}\label{nrf24L01Plus_8h_aedfeef334dbb183d4cf1c94b89b6b581}
+Puts Nordic from Standby-\/1 Mode to Tx Mode-\/1. \begin{DoxyNote}{Note}
+Tx Mode-\/1 is recommended for low throughput data transfers with Software A\+C\+Ks since this mode can more easily transition to Rx Mode. 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode2@{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode2}}
+\index{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode2@{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode2}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode2()}{nordic_standby1_to_tx_mode2()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+standby1\+\_\+to\+\_\+tx\+\_\+mode2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_aa50dacafaa7cfc62e330bded08d29eb0}{}\label{nrf24L01Plus_8h_aa50dacafaa7cfc62e330bded08d29eb0}
+Puts Nordic from Standby-\/1 Mode to Tx Mode-\/2 \begin{DoxyNote}{Note}
+Tx Mode-\/2 is recommended for high throughput data transfers since this mode can send multiple packets in \char`\"{}\+Tx Mode\char`\"{} without going to Standby. The only compromise is that you must use nordic\+\_\+\+Tx\+Mode2\+\_\+to\+Standby1\+\_\+through\+Power\+Down() to transition back to Rx. Also, Nordic uses more power in this mode compared to Mode-\/1. 
+\end{DoxyNote}
+\index{nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}!nordic\+\_\+tx\+\_\+mode2\+\_\+to\+\_\+standby1\+\_\+through\+\_\+power\+\_\+down@{nordic\+\_\+tx\+\_\+mode2\+\_\+to\+\_\+standby1\+\_\+through\+\_\+power\+\_\+down}}
+\index{nordic\+\_\+tx\+\_\+mode2\+\_\+to\+\_\+standby1\+\_\+through\+\_\+power\+\_\+down@{nordic\+\_\+tx\+\_\+mode2\+\_\+to\+\_\+standby1\+\_\+through\+\_\+power\+\_\+down}!nrf24\+L01\+Plus.\+h@{nrf24\+L01\+Plus.\+h}}
+\subsubsection[{\texorpdfstring{nordic\+\_\+tx\+\_\+mode2\+\_\+to\+\_\+standby1\+\_\+through\+\_\+power\+\_\+down()}{nordic_tx_mode2_to_standby1_through_power_down()}}]{\setlength{\rightskip}{0pt plus 5cm}void nordic\+\_\+tx\+\_\+mode2\+\_\+to\+\_\+standby1\+\_\+through\+\_\+power\+\_\+down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{nrf24L01Plus_8h_a1df64558e6241a4523e3f700b5be3ed7}{}\label{nrf24L01Plus_8h_a1df64558e6241a4523e3f700b5be3ed7}
+This transitions from Tx Mode-\/2 to Standby-\/1 without sending a packet. This powers-\/down nordic, then powers it up, which takes about 150uS 

@@ -1,0 +1,87 @@
+\hypertarget{sd__defines_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/sd\+\_\+defines.h File Reference}
+\label{sd__defines_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/sd\+\_\+defines.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/sd\+\_\+defines.\+h}}
+{\ttfamily \#include \char`\"{}ssp1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bio.\+h\char`\"{}}\\*
+Include dependency graph for sd\+\_\+defines.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/dd0/sd__defines_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{d5/d75/sd__defines_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sd__defines_8h_ab78fc448c5bdb57ad4b7b015f2228684}{S\+D\+\_\+\+S\+E\+L\+E\+CT}()~board\+\_\+io\+\_\+sd\+\_\+cs()
+\item 
+\#define \hyperlink{sd__defines_8h_a23a8dcaac50b2d06c28ff32243e2406d}{S\+D\+\_\+\+D\+E\+S\+E\+L\+E\+CT}()~board\+\_\+io\+\_\+sd\+\_\+ds()
+\item 
+\#define \hyperlink{sd__defines_8h_a3c78e3fbe44624572e63e3a59662cfb4}{S\+D\+\_\+\+P\+R\+E\+S\+E\+NT}()~(!board\+\_\+io\+\_\+sd\+\_\+card\+\_\+cd\+\_\+sig())   /$\ast$ Low means \hyperlink{trace_2readme_8txt_a0d1fd70c70215609966800df0223784b}{card} \hyperlink{trace_2readme_8txt_a7e33a55c77d8cbd03ec57a69d78a39dc}{is} present $\ast$/
+\item 
+\#define \hyperlink{sd__defines_8h_ae3d9176798d1718d779e2db397de4bb5}{F\+C\+L\+K\+\_\+\+S\+L\+OW}()~ssp1\+\_\+set\+\_\+max\+\_\+clock(1)          /$\ast$ Set slow S\+PI clock (100k-\/400k) $\ast$/
+\item 
+\#define \hyperlink{sd__defines_8h_a1ffcdd6f111fd9b4229f49a5e37046b7}{F\+C\+L\+K\+\_\+\+F\+A\+ST}()~ssp1\+\_\+set\+\_\+max\+\_\+clock(24)         /$\ast$ Set fast S\+PI clock (depends on the C\+SD) $\ast$/
+\item 
+\#define \hyperlink{sd__defines_8h_ae53eb472945c81aa68af66d586fa0523}{xmit\+\_\+spi}(dat)~ssp1\+\_\+exchange\+\_\+byte(dat)
+\item 
+\#define \hyperlink{sd__defines_8h_a40237b36c9547364acfe7e1891e1b909}{rcvr\+\_\+spi}()~ssp1\+\_\+exchange\+\_\+byte(0xff)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}!F\+C\+L\+K\+\_\+\+F\+A\+ST@{F\+C\+L\+K\+\_\+\+F\+A\+ST}}
+\index{F\+C\+L\+K\+\_\+\+F\+A\+ST@{F\+C\+L\+K\+\_\+\+F\+A\+ST}!sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{F\+C\+L\+K\+\_\+\+F\+A\+ST}{FCLK_FAST}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+C\+L\+K\+\_\+\+F\+A\+ST(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~ssp1\+\_\+set\+\_\+max\+\_\+clock(24)         /$\ast$ Set fast S\+PI clock (depends on the C\+SD) $\ast$/}\hypertarget{sd__defines_8h_a1ffcdd6f111fd9b4229f49a5e37046b7}{}\label{sd__defines_8h_a1ffcdd6f111fd9b4229f49a5e37046b7}
+\index{sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}!F\+C\+L\+K\+\_\+\+S\+L\+OW@{F\+C\+L\+K\+\_\+\+S\+L\+OW}}
+\index{F\+C\+L\+K\+\_\+\+S\+L\+OW@{F\+C\+L\+K\+\_\+\+S\+L\+OW}!sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{F\+C\+L\+K\+\_\+\+S\+L\+OW}{FCLK_SLOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+C\+L\+K\+\_\+\+S\+L\+OW(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~ssp1\+\_\+set\+\_\+max\+\_\+clock(1)          /$\ast$ Set slow S\+PI clock (100k-\/400k) $\ast$/}\hypertarget{sd__defines_8h_ae3d9176798d1718d779e2db397de4bb5}{}\label{sd__defines_8h_ae3d9176798d1718d779e2db397de4bb5}
+\index{sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}!rcvr\+\_\+spi@{rcvr\+\_\+spi}}
+\index{rcvr\+\_\+spi@{rcvr\+\_\+spi}!sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{rcvr\+\_\+spi}{rcvr_spi}}]{\setlength{\rightskip}{0pt plus 5cm}\#define rcvr\+\_\+spi(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~ssp1\+\_\+exchange\+\_\+byte(0xff)}\hypertarget{sd__defines_8h_a40237b36c9547364acfe7e1891e1b909}{}\label{sd__defines_8h_a40237b36c9547364acfe7e1891e1b909}
+\index{sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}!S\+D\+\_\+\+D\+E\+S\+E\+L\+E\+CT@{S\+D\+\_\+\+D\+E\+S\+E\+L\+E\+CT}}
+\index{S\+D\+\_\+\+D\+E\+S\+E\+L\+E\+CT@{S\+D\+\_\+\+D\+E\+S\+E\+L\+E\+CT}!sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{S\+D\+\_\+\+D\+E\+S\+E\+L\+E\+CT}{SD_DESELECT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+\_\+\+D\+E\+S\+E\+L\+E\+CT(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~board\+\_\+io\+\_\+sd\+\_\+ds()}\hypertarget{sd__defines_8h_a23a8dcaac50b2d06c28ff32243e2406d}{}\label{sd__defines_8h_a23a8dcaac50b2d06c28ff32243e2406d}
+\index{sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}!S\+D\+\_\+\+P\+R\+E\+S\+E\+NT@{S\+D\+\_\+\+P\+R\+E\+S\+E\+NT}}
+\index{S\+D\+\_\+\+P\+R\+E\+S\+E\+NT@{S\+D\+\_\+\+P\+R\+E\+S\+E\+NT}!sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{S\+D\+\_\+\+P\+R\+E\+S\+E\+NT}{SD_PRESENT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+\_\+\+P\+R\+E\+S\+E\+NT(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~(!board\+\_\+io\+\_\+sd\+\_\+card\+\_\+cd\+\_\+sig())   /$\ast$ Low means {\bf card} {\bf is} present $\ast$/}\hypertarget{sd__defines_8h_a3c78e3fbe44624572e63e3a59662cfb4}{}\label{sd__defines_8h_a3c78e3fbe44624572e63e3a59662cfb4}
+\index{sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}!S\+D\+\_\+\+S\+E\+L\+E\+CT@{S\+D\+\_\+\+S\+E\+L\+E\+CT}}
+\index{S\+D\+\_\+\+S\+E\+L\+E\+CT@{S\+D\+\_\+\+S\+E\+L\+E\+CT}!sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{S\+D\+\_\+\+S\+E\+L\+E\+CT}{SD_SELECT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+D\+\_\+\+S\+E\+L\+E\+CT(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~board\+\_\+io\+\_\+sd\+\_\+cs()}\hypertarget{sd__defines_8h_ab78fc448c5bdb57ad4b7b015f2228684}{}\label{sd__defines_8h_ab78fc448c5bdb57ad4b7b015f2228684}
+\index{sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}!xmit\+\_\+spi@{xmit\+\_\+spi}}
+\index{xmit\+\_\+spi@{xmit\+\_\+spi}!sd\+\_\+defines.\+h@{sd\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{xmit\+\_\+spi}{xmit_spi}}]{\setlength{\rightskip}{0pt plus 5cm}\#define xmit\+\_\+spi(
+\begin{DoxyParamCaption}
+\item[{}]{dat}
+\end{DoxyParamCaption}
+)~ssp1\+\_\+exchange\+\_\+byte(dat)}\hypertarget{sd__defines_8h_ae53eb472945c81aa68af66d586fa0523}{}\label{sd__defines_8h_ae53eb472945c81aa68af66d586fa0523}

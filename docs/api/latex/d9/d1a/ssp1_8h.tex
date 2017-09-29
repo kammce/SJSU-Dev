@@ -1,0 +1,89 @@
+\hypertarget{ssp1_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/ssp1.h File Reference}
+\label{ssp1_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/ssp1.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/ssp1.\+h}}
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}base/ssp\+\_\+prv.\+h\char`\"{}}\\*
+Include dependency graph for ssp1.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d55/ssp1_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/df3/ssp1_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{ssp1_8h_af6c241463b0936d27a7d72214e6ffd97}{ssp1\+\_\+dma\+\_\+transfer\+\_\+block} (unsigned char $\ast$p\+Buffer, uint32\+\_\+t num\+\_\+bytes, char is\+\_\+write\+\_\+op)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{ssp1.\+h@{ssp1.\+h}!ssp1\+\_\+dma\+\_\+transfer\+\_\+block@{ssp1\+\_\+dma\+\_\+transfer\+\_\+block}}
+\index{ssp1\+\_\+dma\+\_\+transfer\+\_\+block@{ssp1\+\_\+dma\+\_\+transfer\+\_\+block}!ssp1.\+h@{ssp1.\+h}}
+\subsubsection[{\texorpdfstring{ssp1\+\_\+dma\+\_\+transfer\+\_\+block(unsigned char $\ast$p\+Buffer, uint32\+\_\+t num\+\_\+bytes, char is\+\_\+write\+\_\+op)}{ssp1_dma_transfer_block(unsigned char *pBuffer, uint32_t num_bytes, char is_write_op)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned ssp1\+\_\+dma\+\_\+transfer\+\_\+block (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{p\+Buffer, }
+\item[{uint32\+\_\+t}]{num\+\_\+bytes, }
+\item[{char}]{is\+\_\+write\+\_\+op}
+\end{DoxyParamCaption}
+)}\hypertarget{ssp1_8h_af6c241463b0936d27a7d72214e6ffd97}{}\label{ssp1_8h_af6c241463b0936d27a7d72214e6ffd97}
+Transfers data over S\+PI (S\+SP\#1) 
+\begin{DoxyParams}{Parameters}
+{\em p\+Buffer} & The read or write buffer \\
+\hline
+{\em num\+\_\+bytes} & The length of the transfer in bytes \\
+\hline
+{\em is\+\_\+write\+\_\+op} & Non-\/zero for Write-\/operation, zero for read operation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If is\+\_\+write\+\_\+op is true\+:
+\begin{DoxyItemize}
+\item S\+PI data is sent from p\+Buffer
+\item S\+PI data is copied from S\+SP DR to dummy buffer and discarded If is\+\_\+write\+\_\+op is false (read operation) \+:
+\item S\+PI data is copied from S\+SP DR to p\+Buffer
+\item 0x\+FF is sent out for each byte transfered
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+0 upon success, or non-\/zero upon failure. 
+\end{DoxyReturn}
+TO DO \+: Optimize S\+S\+P1 D\+MA
+\begin{DoxyItemize}
+\item Try setting source and destination burst size to 4
+\item Try setting 16-\/bit S\+PI, and source and destination width to 1 W\+O\+RD
+\end{DoxyItemize}
+
+L\+P\+C\+\_\+\+S\+S\+P1-\/$>$C\+R0 \+: B3\+:B0. 0b0111 = 8-\/bit and 0b1111 = 16-\/bit L\+P\+C\+\_\+\+S\+S\+P1-\/$>$C\+R0 $\vert$= (1$<$$<$3); // 16-\/bit L\+P\+C\+\_\+\+S\+S\+P1-\/$>$C\+R0 \&= $\sim$(1$<$$<$3); // 8-\/bit
+
+Bits of D\+M\+A\+C\+C\+Control\+: Transfer size\+: B11\+:B0 Source Burst Size\+: B14\+:B12 -\/ 0\+:1, 1\+:4, 2\+:8, 3\+:16 bytes Dest. Burst Size\+: B17\+:B15 -\/ 0\+:1, 1\+:4, 2\+:8, 3\+:16 bytes Source Width\+: B20\+:B18 -\/ 0\+:Byte, 1\+:Word, 2\+:D\+W\+O\+RD Dest. Width\+: B23\+:B21 -\/ 0\+:Byte, 1\+:Word, 2\+:D\+W\+O\+RD Source increment\+: B26 Destination increment\+: B27 Terminal count interrupt enable\+: B31
+
+Bits of D\+M\+A\+C\+C\+Config\+: Enable\+: B0 Source Peripheral\+: B5\+:B1 (ignored if source is memory) Dest. Peripheral\+: B10\+:B6 (ignored if dest. is memory) Transfer type\+: B13\+:B11 -\/ See below Interrupt Error Mask\+: B14 Terminal Count Interrupt \+: B15
+
+Bits for transfer type\+: 000 -\/ Memory to Memory 001 -\/ Memory to Peripheral 010 -\/ Peripheral to Memory 011 -\/ Source peripheral to destination peripheral
+
+Clear existing terminal count and error interrupts otherwise D\+MA will not start.
+
+From S\+PI to buffer\+: For write operation \+:
+\begin{DoxyItemize}
+\item Receive data into dummy buffer
+\item Don\textquotesingle{}t increment destination For read operation\+:
+\item Read data into p\+Buffer
+\item Increment destination
+\end{DoxyItemize}
+
+From buffer to S\+PI \+: For write operation \+:
+\begin{DoxyItemize}
+\item Source data is p\+Buffer
+\item Increment source data For read operation\+:
+\item Source data is buffer with 0x\+FF
+\item Don\textquotesingle{}t increment source data
+\end{DoxyItemize}
+
+Channel must be fully configured and then enabled separately. Setting D\+M\+A\+CR\textquotesingle{}s Rx/\+Tx bits should trigger the D\+MA

@@ -1,0 +1,122 @@
+\hypertarget{scheduler__task_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/scheduler\+\_\+task.cpp File Reference}
+\label{scheduler__task_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/scheduler\+\_\+task.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/scheduler\+\_\+task.\+cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}scheduler\+\_\+task.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+tlm\+\_\+comp.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+tlm\+\_\+var.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+tlm\+\_\+stream.\+h\char`\"{}}\\*
+Include dependency graph for scheduler\+\_\+task.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d6c/scheduler__task_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtask__list}{task\+\_\+list}
+\begin{DoxyCompactList}\small\item\em Linked list of the tasks. \end{DoxyCompactList}\item 
+struct \hyperlink{structptr__enum__pair__t}{ptr\+\_\+enum\+\_\+pair\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Array of pointers shared by index. \end{DoxyCompactList}\item 
+struct \hyperlink{structptr__name__pair}{ptr\+\_\+name\+\_\+pair}
+\begin{DoxyCompactList}\small\item\em Pair of a pointer and name used by get\+Shared\+Object() and add\+Shared\+Object() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structtask__list}{task\+\_\+list} \hyperlink{scheduler__task_8cpp_ad4314bb94102db4253d07e763d6037de}{task\+\_\+list\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Linked list of the tasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{scheduler__task_8cpp_a64f2da4607c06c0cfa2ca098fc82bc2c}{scheduler\+\_\+c\+\_\+task\+\_\+private} (void $\ast$task\+\_\+ptr)
+\item 
+bool \hyperlink{scheduler__task_8cpp_a58269f2f38b636cf22a568774e7d4dea}{scheduler\+\_\+init\+\_\+all} (bool register\+\_\+internal\+\_\+tlm)
+\item 
+void \hyperlink{scheduler__task_8cpp_a7d6498410972beff36402038b4dffb8d}{scheduler\+\_\+add\+\_\+task} (\hyperlink{classscheduler__task}{scheduler\+\_\+task} $\ast$task)
+\item 
+void \hyperlink{scheduler__task_8cpp_ae562e96acb5a24e992dad4674eac377d}{scheduler\+\_\+start} (bool dp, bool register\+\_\+internal\+\_\+tlm)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structptr__name__pair}{ptr\+\_\+name\+\_\+pair} \hyperlink{scheduler__task_8cpp_ad3ddc41e919322c82f9a5c49199efb06}{ptr\+\_\+name\+\_\+pair\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Pair of a pointer and name used by get\+Shared\+Object() and add\+Shared\+Object() \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}!ptr\+\_\+name\+\_\+pair\+\_\+t@{ptr\+\_\+name\+\_\+pair\+\_\+t}}
+\index{ptr\+\_\+name\+\_\+pair\+\_\+t@{ptr\+\_\+name\+\_\+pair\+\_\+t}!scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}}
+\subsubsection[{\texorpdfstring{ptr\+\_\+name\+\_\+pair\+\_\+t}{ptr_name_pair_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf ptr\+\_\+name\+\_\+pair}  {\bf ptr\+\_\+name\+\_\+pair\+\_\+t}}\hypertarget{scheduler__task_8cpp_ad3ddc41e919322c82f9a5c49199efb06}{}\label{scheduler__task_8cpp_ad3ddc41e919322c82f9a5c49199efb06}
+
+
+Pair of a pointer and name used by get\+Shared\+Object() and add\+Shared\+Object() 
+
+\index{scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}!task\+\_\+list\+\_\+t@{task\+\_\+list\+\_\+t}}
+\index{task\+\_\+list\+\_\+t@{task\+\_\+list\+\_\+t}!scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}}
+\subsubsection[{\texorpdfstring{task\+\_\+list\+\_\+t}{task_list_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf task\+\_\+list}  {\bf task\+\_\+list\+\_\+t}}\hypertarget{scheduler__task_8cpp_ad4314bb94102db4253d07e763d6037de}{}\label{scheduler__task_8cpp_ad4314bb94102db4253d07e763d6037de}
+
+
+Linked list of the tasks. 
+
+
+
+\subsection{Function Documentation}
+\index{scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}!scheduler\+\_\+add\+\_\+task@{scheduler\+\_\+add\+\_\+task}}
+\index{scheduler\+\_\+add\+\_\+task@{scheduler\+\_\+add\+\_\+task}!scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+add\+\_\+task(scheduler\+\_\+task $\ast$task)}{scheduler_add_task(scheduler_task *task)}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+add\+\_\+task (
+\begin{DoxyParamCaption}
+\item[{{\bf scheduler\+\_\+task} $\ast$}]{task}
+\end{DoxyParamCaption}
+)}\hypertarget{scheduler__task_8cpp_a7d6498410972beff36402038b4dffb8d}{}\label{scheduler__task_8cpp_a7d6498410972beff36402038b4dffb8d}
+Adds your task to the scheduler 
+\begin{DoxyParams}{Parameters}
+{\em task} & The pointer of your allocated class. 
+\begin{DoxyCode}
+1 scheduler\_add\_task(new my\_task());
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+\index{scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}!scheduler\+\_\+c\+\_\+task\+\_\+private@{scheduler\+\_\+c\+\_\+task\+\_\+private}}
+\index{scheduler\+\_\+c\+\_\+task\+\_\+private@{scheduler\+\_\+c\+\_\+task\+\_\+private}!scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+c\+\_\+task\+\_\+private(void $\ast$task\+\_\+ptr)}{scheduler_c_task_private(void *task_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+c\+\_\+task\+\_\+private (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{task\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{scheduler__task_8cpp_a64f2da4607c06c0cfa2ca098fc82bc2c}{}\label{scheduler__task_8cpp_a64f2da4607c06c0cfa2ca098fc82bc2c}
+This is the C task that is created multiple times. Each task receives its own parameter therefore differentiating between different tasks. \index{scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}!scheduler\+\_\+init\+\_\+all@{scheduler\+\_\+init\+\_\+all}}
+\index{scheduler\+\_\+init\+\_\+all@{scheduler\+\_\+init\+\_\+all}!scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+init\+\_\+all(bool register\+\_\+internal\+\_\+tlm)}{scheduler_init_all(bool register_internal_tlm)}}]{\setlength{\rightskip}{0pt plus 5cm}bool scheduler\+\_\+init\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{bool}]{register\+\_\+internal\+\_\+tlm}
+\end{DoxyParamCaption}
+)}\hypertarget{scheduler__task_8cpp_a58269f2f38b636cf22a568774e7d4dea}{}\label{scheduler__task_8cpp_a58269f2f38b636cf22a568774e7d4dea}
+Give access to our private members to these functions \index{scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}!scheduler\+\_\+start@{scheduler\+\_\+start}}
+\index{scheduler\+\_\+start@{scheduler\+\_\+start}!scheduler\+\_\+task.\+cpp@{scheduler\+\_\+task.\+cpp}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+start(bool dp, bool register\+\_\+internal\+\_\+tlm)}{scheduler_start(bool dp, bool register_internal_tlm)}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{bool}]{dbg\+\_\+print = {\ttfamily false}, }
+\item[{bool}]{register\+\_\+internal\+\_\+tlm = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{scheduler__task_8cpp_ae562e96acb5a24e992dad4674eac377d}{}\label{scheduler__task_8cpp_ae562e96acb5a24e992dad4674eac377d}
+Starts Free\+R\+T\+OS scheduler with the tasks added by \hyperlink{scheduler__task_8hpp_a7d6498410972beff36402038b4dffb8d}{scheduler\+\_\+add\+\_\+task()}
+
+
+\begin{DoxyParams}{Parameters}
+{\em register\+\_\+internal\+\_\+tlm} & If true, then this method will register the statistical telemetry for each task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is different from the reg\+Tlm() method that is called regardless.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em dbg\+\_\+print} & If true, process of initing and starting the tasks is printed through stdio output \\
+\hline
+\end{DoxyParams}

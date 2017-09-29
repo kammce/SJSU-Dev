@@ -1,0 +1,242 @@
+\hypertarget{classSoftTimer}{}\section{Soft\+Timer Class Reference}
+\label{classSoftTimer}\index{Soft\+Timer@{Soft\+Timer}}
+
+
+{\ttfamily \#include $<$soft\+\_\+timer.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSoftTimer_af85e03b6431e5c4d7bdbc01ed307a98d}{Soft\+Timer} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classSoftTimer_a164d00efe48fbe356c4ed13a2fef4061}{Soft\+Timer} (uint32\+\_\+t ms)
+\begin{DoxyCompactList}\small\item\em Constructor to set timer while instantiating this object. \end{DoxyCompactList}\item 
+bool \hyperlink{classSoftTimer_aedfee5ede7ca637f49f2c23401024324}{expired} (void) const 
+\item 
+void \hyperlink{classSoftTimer_ada94dffbd1aa1872dfae5d91d326814c}{restart} (void)
+\item 
+void \hyperlink{classSoftTimer_a2177823aa1355a6bf131aef556eb31dd}{reset} (uint64\+\_\+t ms)
+\item 
+void \hyperlink{classSoftTimer_a495e2a21b3fdd35a606e2585ceb7dd28}{reset} (void)
+\begin{DoxyCompactList}\small\item\em Resets the timer from this point of time using the previous timeout interval. \end{DoxyCompactList}\item 
+void \hyperlink{classSoftTimer_adf5d79e1ed0db66d121f50c84a59431b}{stop} (void)
+\begin{DoxyCompactList}\small\item\em Stops the timer. \end{DoxyCompactList}\item 
+bool \hyperlink{classSoftTimer_a33f73e69c0a28ff19b7ad353ba8dfaf5}{is\+Running} (void) const 
+\item 
+uint64\+\_\+t \hyperlink{classSoftTimer_a6956ecddab11d72a552f2eba6f2292d7}{get\+Timer\+Value\+Ms} (void) const 
+\item 
+uint64\+\_\+t \hyperlink{classSoftTimer_af1f8973d0f3df86c5a11fd550bde9f76}{get\+Target\+Timer\+Value\+Ms} (void) const 
+\item 
+uint64\+\_\+t \hyperlink{classSoftTimer_ab469e06d3640fc8becd2094dc38b0d5a}{get\+Time\+To\+Expiration\+Ms} (void) const 
+\item 
+uint64\+\_\+t \hyperlink{classSoftTimer_abd7ffd911c459ae00a3141d4409176ff}{get\+Time\+Since\+Expiration\+Ms} (void) const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\+\_\+t \hyperlink{classSoftTimer_ad34c4214b548dcc7264a411e0dc9905a}{get\+Current\+Time\+Ms} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \hyperlink{classSoftTimer_ad73d26a0b4c48fc39046a66fbd6a303a}{m\+Target\+Ms}
+\begin{DoxyCompactList}\small\item\em Expire time with respect to OS tick. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{classSoftTimer_a6f8355dc6d49b0c9544f2289c700f1a8}{m\+Interval\+Ms}
+\begin{DoxyCompactList}\small\item\em Timer interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+Soft timer class to provide thin layer of a timer. There is no hard-\/timer running in the background and this class imply relies on system timer to provide timer capability.
+
+\begin{DoxyWarning}{Warning}
+If you run Free\+R\+T\+OS in \char`\"{}config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+L\+E\+S\+S\+\_\+\+I\+D\+L\+E\char`\"{}, then this timer will not work well since the OS ticks will not happen to drive the timer. In that case, you are better off using the true Free\+R\+T\+OS timer which will not suppress the timer ticks if a timer expires. 
+\end{DoxyWarning}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Soft\+Timer@{Soft\+Timer}!Soft\+Timer@{Soft\+Timer}}
+\index{Soft\+Timer@{Soft\+Timer}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{Soft\+Timer()}{SoftTimer()}}]{\setlength{\rightskip}{0pt plus 5cm}Soft\+Timer\+::\+Soft\+Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_af85e03b6431e5c4d7bdbc01ed307a98d}{}\label{classSoftTimer_af85e03b6431e5c4d7bdbc01ed307a98d}
+
+
+Default constructor. 
+
+\index{Soft\+Timer@{Soft\+Timer}!Soft\+Timer@{Soft\+Timer}}
+\index{Soft\+Timer@{Soft\+Timer}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{Soft\+Timer(uint32\+\_\+t ms)}{SoftTimer(uint32_t ms)}}]{\setlength{\rightskip}{0pt plus 5cm}Soft\+Timer\+::\+Soft\+Timer (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{ms}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_a164d00efe48fbe356c4ed13a2fef4061}{}\label{classSoftTimer_a164d00efe48fbe356c4ed13a2fef4061}
+
+
+Constructor to set timer while instantiating this object. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Soft\+Timer@{Soft\+Timer}!expired@{expired}}
+\index{expired@{expired}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{expired(void) const }{expired(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Soft\+Timer\+::expired (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_aedfee5ede7ca637f49f2c23401024324}{}\label{classSoftTimer_aedfee5ede7ca637f49f2c23401024324}
+\begin{DoxyReturn}{Returns}
+true if the timer has expired 
+\end{DoxyReturn}
+\index{Soft\+Timer@{Soft\+Timer}!get\+Current\+Time\+Ms@{get\+Current\+Time\+Ms}}
+\index{get\+Current\+Time\+Ms@{get\+Current\+Time\+Ms}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{get\+Current\+Time\+Ms(void)}{getCurrentTimeMs(void)}}]{\setlength{\rightskip}{0pt plus 5cm}static uint64\+\_\+t Soft\+Timer\+::get\+Current\+Time\+Ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classSoftTimer_ad34c4214b548dcc7264a411e0dc9905a}{}\label{classSoftTimer_ad34c4214b548dcc7264a411e0dc9905a}
+Static function to get the timer value. This is the only method that is needed by the system.
+
+\begin{DoxyNote}{Note}
+You can use this method without instantiating an object of the class\+: 
+\begin{DoxyCode}
+uint64\_t timer = \hyperlink{classSoftTimer_ad34c4214b548dcc7264a411e0dc9905a}{SoftTimer::getCurrentTimeMs}();
+\end{DoxyCode}
+
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+the current timer value of the system 
+\end{DoxyReturn}
+\index{Soft\+Timer@{Soft\+Timer}!get\+Target\+Timer\+Value\+Ms@{get\+Target\+Timer\+Value\+Ms}}
+\index{get\+Target\+Timer\+Value\+Ms@{get\+Target\+Timer\+Value\+Ms}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{get\+Target\+Timer\+Value\+Ms(void) const }{getTargetTimerValueMs(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Soft\+Timer\+::get\+Target\+Timer\+Value\+Ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_af1f8973d0f3df86c5a11fd550bde9f76}{}\label{classSoftTimer_af1f8973d0f3df86c5a11fd550bde9f76}
+\begin{DoxyReturn}{Returns}
+the absolute time value when timer will expire with respect to system timer (in milliseconds) 
+\end{DoxyReturn}
+\index{Soft\+Timer@{Soft\+Timer}!get\+Timer\+Value\+Ms@{get\+Timer\+Value\+Ms}}
+\index{get\+Timer\+Value\+Ms@{get\+Timer\+Value\+Ms}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{get\+Timer\+Value\+Ms(void) const }{getTimerValueMs(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Soft\+Timer\+::get\+Timer\+Value\+Ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_a6956ecddab11d72a552f2eba6f2292d7}{}\label{classSoftTimer_a6956ecddab11d72a552f2eba6f2292d7}
+\begin{DoxyReturn}{Returns}
+the timer value set by the constructor or \hyperlink{classSoftTimer_a2177823aa1355a6bf131aef556eb31dd}{reset(uint64\+\_\+t)} 
+\end{DoxyReturn}
+\index{Soft\+Timer@{Soft\+Timer}!get\+Time\+Since\+Expiration\+Ms@{get\+Time\+Since\+Expiration\+Ms}}
+\index{get\+Time\+Since\+Expiration\+Ms@{get\+Time\+Since\+Expiration\+Ms}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{get\+Time\+Since\+Expiration\+Ms(void) const }{getTimeSinceExpirationMs(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Soft\+Timer\+::get\+Time\+Since\+Expiration\+Ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_abd7ffd911c459ae00a3141d4409176ff}{}\label{classSoftTimer_abd7ffd911c459ae00a3141d4409176ff}
+\begin{DoxyReturn}{Returns}
+the time value since expiration (in milliseconds) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If timer hasn\textquotesingle{}t expired, zero value is returned. 
+\end{DoxyNote}
+\index{Soft\+Timer@{Soft\+Timer}!get\+Time\+To\+Expiration\+Ms@{get\+Time\+To\+Expiration\+Ms}}
+\index{get\+Time\+To\+Expiration\+Ms@{get\+Time\+To\+Expiration\+Ms}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{get\+Time\+To\+Expiration\+Ms(void) const }{getTimeToExpirationMs(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Soft\+Timer\+::get\+Time\+To\+Expiration\+Ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_ab469e06d3640fc8becd2094dc38b0d5a}{}\label{classSoftTimer_ab469e06d3640fc8becd2094dc38b0d5a}
+\begin{DoxyReturn}{Returns}
+the time value until expiration (in milliseconds) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If timer hasn\textquotesingle{}t expired, zero value is returned. 
+\end{DoxyNote}
+\index{Soft\+Timer@{Soft\+Timer}!is\+Running@{is\+Running}}
+\index{is\+Running@{is\+Running}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{is\+Running(void) const }{isRunning(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Soft\+Timer\+::is\+Running (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_a33f73e69c0a28ff19b7ad353ba8dfaf5}{}\label{classSoftTimer_a33f73e69c0a28ff19b7ad353ba8dfaf5}
+\begin{DoxyReturn}{Returns}
+true if the timer is set and running 
+\end{DoxyReturn}
+\index{Soft\+Timer@{Soft\+Timer}!reset@{reset}}
+\index{reset@{reset}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{reset(uint64\+\_\+t ms)}{reset(uint64_t ms)}}]{\setlength{\rightskip}{0pt plus 5cm}void Soft\+Timer\+::reset (
+\begin{DoxyParamCaption}
+\item[{uint64\+\_\+t}]{ms}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_a2177823aa1355a6bf131aef556eb31dd}{}\label{classSoftTimer_a2177823aa1355a6bf131aef556eb31dd}
+Resets the timer from this point of time using the new timer value given. 
+\begin{DoxyParams}{Parameters}
+{\em ms} & The milliseconds at which timer should expire next. \\
+\hline
+\end{DoxyParams}
+\index{Soft\+Timer@{Soft\+Timer}!reset@{reset}}
+\index{reset@{reset}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{reset(void)}{reset(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Soft\+Timer\+::reset (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_a495e2a21b3fdd35a606e2585ceb7dd28}{}\label{classSoftTimer_a495e2a21b3fdd35a606e2585ceb7dd28}
+
+
+Resets the timer from this point of time using the previous timeout interval. 
+
+\index{Soft\+Timer@{Soft\+Timer}!restart@{restart}}
+\index{restart@{restart}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{restart(void)}{restart(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Soft\+Timer\+::restart (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_ada94dffbd1aa1872dfae5d91d326814c}{}\label{classSoftTimer_ada94dffbd1aa1872dfae5d91d326814c}
+Restarts the timer to provide consistent frequency of \hyperlink{classSoftTimer_aedfee5ede7ca637f49f2c23401024324}{expired()}. \hyperlink{classSoftTimer_ada94dffbd1aa1872dfae5d91d326814c}{restart()} is better suited to provide same frequency because in case we check for \hyperlink{classSoftTimer_aedfee5ede7ca637f49f2c23401024324}{expired()} at a later time that runs past our timer 3 times, then \hyperlink{classSoftTimer_aedfee5ede7ca637f49f2c23401024324}{expired()} in combination with \hyperlink{classSoftTimer_ada94dffbd1aa1872dfae5d91d326814c}{restart()} will return true 3 times. See example below \+:
+
+
+\begin{DoxyCode}
+timer.reset(10); \textcolor{comment}{// Init once}
+
+\textcolor{comment}{// After reset(), use this as recurring timer :}
+\textcolor{keywordflow}{if} (timer.expired()) \{
+    timer.restart();
+\}
+\end{DoxyCode}
+ \index{Soft\+Timer@{Soft\+Timer}!stop@{stop}}
+\index{stop@{stop}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{stop(void)}{stop(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Soft\+Timer\+::stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSoftTimer_adf5d79e1ed0db66d121f50c84a59431b}{}\label{classSoftTimer_adf5d79e1ed0db66d121f50c84a59431b}
+
+
+Stops the timer. 
+
+
+
+\subsection{Field Documentation}
+\index{Soft\+Timer@{Soft\+Timer}!m\+Interval\+Ms@{m\+Interval\+Ms}}
+\index{m\+Interval\+Ms@{m\+Interval\+Ms}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{m\+Interval\+Ms}{mIntervalMs}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Soft\+Timer\+::m\+Interval\+Ms\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classSoftTimer_a6f8355dc6d49b0c9544f2289c700f1a8}{}\label{classSoftTimer_a6f8355dc6d49b0c9544f2289c700f1a8}
+
+
+Timer interval. 
+
+\index{Soft\+Timer@{Soft\+Timer}!m\+Target\+Ms@{m\+Target\+Ms}}
+\index{m\+Target\+Ms@{m\+Target\+Ms}!Soft\+Timer@{Soft\+Timer}}
+\subsubsection[{\texorpdfstring{m\+Target\+Ms}{mTargetMs}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Soft\+Timer\+::m\+Target\+Ms\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classSoftTimer_ad73d26a0b4c48fc39046a66fbd6a303a}{}\label{classSoftTimer_ad73d26a0b4c48fc39046a66fbd6a303a}
+
+
+Expire time with respect to OS tick. 
+
+uint64\+\_\+t is large enough such that timer will never overflow 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{soft__timer_8hpp}{soft\+\_\+timer.\+hpp}\end{DoxyCompactItemize}

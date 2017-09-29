@@ -1,0 +1,70 @@
+\hypertarget{lpc__rit_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/lpc\+\_\+rit.h File Reference}
+\label{lpc__rit_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/lpc\+\_\+rit.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/lpc\+\_\+rit.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+rit.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d0b/lpc__rit_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{dd/dad/lpc__rit_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__rit_8h_afa8fbb17f0d12550854215861daf19a0}{rit\+\_\+enable} (\hyperlink{lpc__sys_8h_a2425c2b3462f867da9fd2ab76d9d47b1}{void\+\_\+func\+\_\+t} function, uint32\+\_\+t time\+\_\+ms)
+\item 
+void \hyperlink{lpc__rit_8h_acbee9e3115fad4677ea27d9c01f08eb7}{rit\+\_\+disable} (void)
+\begin{DoxyCompactList}\small\item\em Disables the R\+IT setup by sys\+\_\+rit\+\_\+setup() \end{DoxyCompactList}\item 
+bool \hyperlink{lpc__rit_8h_af51bcd3dccfbf2ef5d7c1194dd9ffc5e}{rit\+\_\+is\+\_\+running} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This A\+PI provides a means to start, stop, and hookup an I\+SR function to R\+IT 
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+rit.\+h@{lpc\+\_\+rit.\+h}!rit\+\_\+disable@{rit\+\_\+disable}}
+\index{rit\+\_\+disable@{rit\+\_\+disable}!lpc\+\_\+rit.\+h@{lpc\+\_\+rit.\+h}}
+\subsubsection[{\texorpdfstring{rit\+\_\+disable(void)}{rit_disable(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rit\+\_\+disable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__rit_8h_acbee9e3115fad4677ea27d9c01f08eb7}{}\label{lpc__rit_8h_acbee9e3115fad4677ea27d9c01f08eb7}
+
+
+Disables the R\+IT setup by sys\+\_\+rit\+\_\+setup() 
+
+\index{lpc\+\_\+rit.\+h@{lpc\+\_\+rit.\+h}!rit\+\_\+enable@{rit\+\_\+enable}}
+\index{rit\+\_\+enable@{rit\+\_\+enable}!lpc\+\_\+rit.\+h@{lpc\+\_\+rit.\+h}}
+\subsubsection[{\texorpdfstring{rit\+\_\+enable(void\+\_\+func\+\_\+t function, uint32\+\_\+t time\+\_\+ms)}{rit_enable(void_func_t function, uint32_t time_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}void rit\+\_\+enable (
+\begin{DoxyParamCaption}
+\item[{{\bf void\+\_\+func\+\_\+t}}]{function, }
+\item[{uint32\+\_\+t}]{time\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__rit_8h_afa8fbb17f0d12550854215861daf19a0}{}\label{lpc__rit_8h_afa8fbb17f0d12550854215861daf19a0}
+Setup a repetitive callback function at the given time. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em function} & The void function name \\
+\hline
+\mbox{\tt in}  & {\em time\+\_\+ms} & The time in milliseconds \\
+\hline
+\end{DoxyParams}
+\index{lpc\+\_\+rit.\+h@{lpc\+\_\+rit.\+h}!rit\+\_\+is\+\_\+running@{rit\+\_\+is\+\_\+running}}
+\index{rit\+\_\+is\+\_\+running@{rit\+\_\+is\+\_\+running}!lpc\+\_\+rit.\+h@{lpc\+\_\+rit.\+h}}
+\subsubsection[{\texorpdfstring{rit\+\_\+is\+\_\+running(void)}{rit_is_running(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool rit\+\_\+is\+\_\+running (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__rit_8h_af51bcd3dccfbf2ef5d7c1194dd9ffc5e}{}\label{lpc__rit_8h_af51bcd3dccfbf2ef5d7c1194dd9ffc5e}
+\begin{DoxyReturn}{Returns}
+true if the R\+IT is running. 
+\end{DoxyReturn}

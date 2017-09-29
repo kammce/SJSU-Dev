@@ -1,0 +1,318 @@
+\hypertarget{lpc__peripherals_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+peripherals.h File Reference}
+\label{lpc__peripherals_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+peripherals.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+peripherals.\+h}}
+
+
+This file provides L\+PC peripheral numbers according to L\+P\+C17xx datasheet.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+Include dependency graph for lpc\+\_\+peripherals.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{de/dfe/lpc__peripherals_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d34/lpc__peripherals_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9}{lpc\+\_\+pconp\+\_\+t} \{ \\*
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a3efef55239d87fe1010408e30bc826e7}{pconp\+\_\+timer0} = 1, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a764677fa991260f690271a25ea870dba}{pconp\+\_\+timer1} = 2, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9ae78df873aa2f960c746b6e8effc34e9b}{pconp\+\_\+uart0} = 3, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a135603954d4ee0aaaa522b7bf9c7dc3a}{pconp\+\_\+uart1} = 4, 
+\\*
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a24bb25a8b615a45701816c6177f34d14}{pconp\+\_\+pwm1} = 6, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9aaec1b7df5efe438289f9f66c42b81cf3}{pconp\+\_\+i2c0} = 7, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a562845bff11f94e6843257437721983d}{pconp\+\_\+spi} = 8, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a75993a16fe6baa96672be77bec50dde9}{pconp\+\_\+rtc} = 9, 
+\\*
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a224ba1615d2cc71064cfce94dca79f84}{pconp\+\_\+ssp1} = 10, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a2c9606c43fec2b819518ea730972b61f}{pconp\+\_\+adc} = 12, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a8856e0be2e9b31122b33853bc7de7155}{pconp\+\_\+can1} = 13, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a5c71fb11e821cda86c7c4c2ed13fe9df}{pconp\+\_\+can2} = 14, 
+\\*
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4a76f487615843b3fd6f12d0c00173ee}{pconp\+\_\+gpio} = 15, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a8cc95c7aa925273a43071b7c158472b3}{pconp\+\_\+rit} = 16, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a117a8adcdd05db8db635d4760c73cecb}{pconp\+\_\+mcpwm} = 17, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a930157c10c2e92e8ba42a128b747a005}{pconp\+\_\+qei} = 18, 
+\\*
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9ae0b1951206de9fabc6a8969e25c9d702}{pconp\+\_\+i2c1} = 19, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a1af338e9bc1fba6d4a39ea4f976d114d}{pconp\+\_\+ssp0} = 21, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a84b32dbbcc5d220d38e143ed085fb7b8}{pconp\+\_\+timer2} = 22, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9af924055845c16e7a725c2f27cfbe3206}{pconp\+\_\+timer3} = 23, 
+\\*
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a00e588d962fb8c5e8b5702ad644a77aa}{pconp\+\_\+uart2} = 24, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4efbb7d9c98830306cf2f37deecdf8b1}{pconp\+\_\+uart3} = 25, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a385e2657214f598e970a2d1df3aa6123}{pconp\+\_\+i2c2} = 26, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4a0e57e679ebbfb6e9cfdab2f1594155}{pconp\+\_\+i2s} = 27, 
+\\*
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a69f2385b56d63da5e48727c35e7fdac0}{pconp\+\_\+gpdma} = 29, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9abc3ab55c8e16e793eb8edfb6e8b44f73}{pconp\+\_\+enet} = 30, 
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a2ff52a540292cf18cfd3f003531eabb8}{pconp\+\_\+usb} = 31
+ \}\begin{DoxyCompactList}\small\item\em This enumeration matches the P\+C\+O\+NP register numbers for peripherals. \end{DoxyCompactList}
+\item 
+enum \hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3}{lpc\+\_\+pclk\+\_\+t} \{ \\*
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a1d280f41902bd7f401f052d7a7012619}{pclk\+\_\+watchdog} = 0, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad6109410a8535eefceab576ef031b2fe}{pclk\+\_\+timer0} = 1, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a5bee60a32d1ba463c2a1ed1d42ce82ac}{pclk\+\_\+timer1} = 2, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a09730c9f983cf31516c162c2bc2ac2c5}{pclk\+\_\+uart0} = 3, 
+\\*
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a8547ec2f7ac1d9cb4378ec3c1eb22766}{pclk\+\_\+uart1} = 4, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a33f4af2ad6fd7541593225116beb3d6e}{pclk\+\_\+pwm1} = 6, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a9d270628ab264eccbc0f434bf28a5ac4}{pclk\+\_\+i2c0} = 7, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7182c8881e7bc3d78a75c18b96143098}{pclk\+\_\+spi} = 8, 
+\\*
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7c2f0e14f126841a2de6a98d1a292f8c}{pclk\+\_\+ssp1} = 10, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad887eca901ec5157535bb765c7aa4e34}{pclk\+\_\+dac} = 11, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3acead8ac1728ef7a818aaf2b3a0787596}{pclk\+\_\+adc} = 12, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a881c2efa49285ec6f981ab8ede8739ae}{pclk\+\_\+can1} = 13, 
+\\*
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad59d2ed8a8863f92a64cd36b750ce0b8}{pclk\+\_\+can2} = 14, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a4e37b21fa284958569ed92521f9e9c1b}{pclk\+\_\+can\+\_\+flt} = 15, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a81c2649a2015e16b0703479d884aff43}{pclk\+\_\+qei} = 16, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a42d0fcf2f9b310a12a1b5efde754dc41}{pclk\+\_\+gpioint} = 17, 
+\\*
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7934a2cd4a86d30df7789e2d09703e59}{pclk\+\_\+pcb} = 18, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7355d26c092374a2945ea34153bcc7b6}{pclk\+\_\+i2c1} = 19, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3af389ead35ff941bd2c6d405f274646c9}{pclk\+\_\+ssp0} = 21, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ae1ee46ca796fcec9222affd1ea9cf56d}{pclk\+\_\+timer2} = 22, 
+\\*
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3abb96323117a7d81a4b5b87552917ac5d}{pclk\+\_\+timer3} = 23, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a1cc428c8df021eeead4ef7554d82e0fb}{pclk\+\_\+uart2} = 24, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a484561e2272e2b7adfcc35dde8e72925}{pclk\+\_\+uart3} = 25, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ac8cd87d373f20e309c54490ea833e9a6}{pclk\+\_\+i2c2} = 26, 
+\\*
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a78a7d715b9f7c00750a424806c473992}{pclk\+\_\+rit} = 29, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a04489d11a5e56eee4d907f6d18e300fa}{pclk\+\_\+syscon} = 30, 
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a5deae0e44a743065753de84f150d5efb}{pclk\+\_\+mc} = 31
+ \}\begin{DoxyCompactList}\small\item\em This enumeration matches peripheral clock registers (P\+C\+L\+K\+S\+E\+L0 and P\+C\+L\+K\+S\+E\+L1) \end{DoxyCompactList}
+\item 
+enum \hyperlink{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08}{clkdiv\+\_\+t} \{ \hyperlink{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a5abd3299ed3ab564e4251ba1b8f32cdd}{clkdiv\+\_\+4} = 0, 
+\hyperlink{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a309051814c5a101a3ec128585152ce24}{clkdiv\+\_\+1} = 1, 
+\hyperlink{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a17182974123fe8218f585db2de42097b}{clkdiv\+\_\+2} = 2, 
+\hyperlink{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a043192ade5ac1e8562e87d1ac6a187d7}{clkdiv\+\_\+8} = 3
+ \}\begin{DoxyCompactList}\small\item\em This enumeration matches the clock divider. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__peripherals_8h_a6dd47b8bb51956102c6a48afd5e8faae}{lpc\+\_\+pconp} (\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9}{lpc\+\_\+pconp\+\_\+t} peripheral, bool on)
+\item 
+void \hyperlink{lpc__peripherals_8h_a8e05c66e495a2ac00b91b08f113fd21b}{lpc\+\_\+pclk} (\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3}{lpc\+\_\+pclk\+\_\+t} peripheral, \hyperlink{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08}{clkdiv\+\_\+t} divider)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file provides L\+PC peripheral numbers according to L\+P\+C17xx datasheet. 
+
+DO N\+OT I\+N\+C\+L\+U\+DE T\+H\+IS F\+I\+LE D\+I\+R\+E\+C\+T\+LY. IT IS A\+U\+T\+O\+M\+A\+T\+I\+C\+A\+L\+LY I\+N\+C\+L\+U\+D\+ED W\+H\+EN Y\+OU I\+N\+C\+L\+U\+DE \hyperlink{LPC17xx_8h}{L\+P\+C17xx.\+h} 
+
+\subsection{Enumeration Type Documentation}
+\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!clkdiv\+\_\+t@{clkdiv\+\_\+t}}
+\index{clkdiv\+\_\+t@{clkdiv\+\_\+t}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}
+\subsubsection[{\texorpdfstring{clkdiv\+\_\+t}{clkdiv_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf clkdiv\+\_\+t}}\hypertarget{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08}{}\label{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08}
+
+
+This enumeration matches the clock divider. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{clkdiv\+\_\+4@{clkdiv\+\_\+4}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!clkdiv\+\_\+4@{clkdiv\+\_\+4}}\item[{\em 
+clkdiv\+\_\+4\hypertarget{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a5abd3299ed3ab564e4251ba1b8f32cdd}{}\label{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a5abd3299ed3ab564e4251ba1b8f32cdd}
+}]\index{clkdiv\+\_\+1@{clkdiv\+\_\+1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!clkdiv\+\_\+1@{clkdiv\+\_\+1}}\item[{\em 
+clkdiv\+\_\+1\hypertarget{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a309051814c5a101a3ec128585152ce24}{}\label{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a309051814c5a101a3ec128585152ce24}
+}]\index{clkdiv\+\_\+2@{clkdiv\+\_\+2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!clkdiv\+\_\+2@{clkdiv\+\_\+2}}\item[{\em 
+clkdiv\+\_\+2\hypertarget{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a17182974123fe8218f585db2de42097b}{}\label{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a17182974123fe8218f585db2de42097b}
+}]\index{clkdiv\+\_\+8@{clkdiv\+\_\+8}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!clkdiv\+\_\+8@{clkdiv\+\_\+8}}\item[{\em 
+clkdiv\+\_\+8\hypertarget{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a043192ade5ac1e8562e87d1ac6a187d7}{}\label{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08a043192ade5ac1e8562e87d1ac6a187d7}
+}]\end{description}
+\end{Desc}
+\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!lpc\+\_\+pclk\+\_\+t@{lpc\+\_\+pclk\+\_\+t}}
+\index{lpc\+\_\+pclk\+\_\+t@{lpc\+\_\+pclk\+\_\+t}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+pclk\+\_\+t}{lpc_pclk_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf lpc\+\_\+pclk\+\_\+t}}\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3}
+
+
+This enumeration matches peripheral clock registers (P\+C\+L\+K\+S\+E\+L0 and P\+C\+L\+K\+S\+E\+L1) 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{pclk\+\_\+watchdog@{pclk\+\_\+watchdog}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+watchdog@{pclk\+\_\+watchdog}}\item[{\em 
+pclk\+\_\+watchdog\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a1d280f41902bd7f401f052d7a7012619}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a1d280f41902bd7f401f052d7a7012619}
+}]\index{pclk\+\_\+timer0@{pclk\+\_\+timer0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+timer0@{pclk\+\_\+timer0}}\item[{\em 
+pclk\+\_\+timer0\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad6109410a8535eefceab576ef031b2fe}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad6109410a8535eefceab576ef031b2fe}
+}]\index{pclk\+\_\+timer1@{pclk\+\_\+timer1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+timer1@{pclk\+\_\+timer1}}\item[{\em 
+pclk\+\_\+timer1\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a5bee60a32d1ba463c2a1ed1d42ce82ac}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a5bee60a32d1ba463c2a1ed1d42ce82ac}
+}]\index{pclk\+\_\+uart0@{pclk\+\_\+uart0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+uart0@{pclk\+\_\+uart0}}\item[{\em 
+pclk\+\_\+uart0\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a09730c9f983cf31516c162c2bc2ac2c5}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a09730c9f983cf31516c162c2bc2ac2c5}
+}]\index{pclk\+\_\+uart1@{pclk\+\_\+uart1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+uart1@{pclk\+\_\+uart1}}\item[{\em 
+pclk\+\_\+uart1\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a8547ec2f7ac1d9cb4378ec3c1eb22766}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a8547ec2f7ac1d9cb4378ec3c1eb22766}
+}]\index{pclk\+\_\+pwm1@{pclk\+\_\+pwm1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+pwm1@{pclk\+\_\+pwm1}}\item[{\em 
+pclk\+\_\+pwm1\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a33f4af2ad6fd7541593225116beb3d6e}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a33f4af2ad6fd7541593225116beb3d6e}
+}]\index{pclk\+\_\+i2c0@{pclk\+\_\+i2c0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+i2c0@{pclk\+\_\+i2c0}}\item[{\em 
+pclk\+\_\+i2c0\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a9d270628ab264eccbc0f434bf28a5ac4}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a9d270628ab264eccbc0f434bf28a5ac4}
+}]\index{pclk\+\_\+spi@{pclk\+\_\+spi}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+spi@{pclk\+\_\+spi}}\item[{\em 
+pclk\+\_\+spi\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7182c8881e7bc3d78a75c18b96143098}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7182c8881e7bc3d78a75c18b96143098}
+}]\index{pclk\+\_\+ssp1@{pclk\+\_\+ssp1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+ssp1@{pclk\+\_\+ssp1}}\item[{\em 
+pclk\+\_\+ssp1\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7c2f0e14f126841a2de6a98d1a292f8c}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7c2f0e14f126841a2de6a98d1a292f8c}
+}]\index{pclk\+\_\+dac@{pclk\+\_\+dac}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+dac@{pclk\+\_\+dac}}\item[{\em 
+pclk\+\_\+dac\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad887eca901ec5157535bb765c7aa4e34}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad887eca901ec5157535bb765c7aa4e34}
+}]\index{pclk\+\_\+adc@{pclk\+\_\+adc}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+adc@{pclk\+\_\+adc}}\item[{\em 
+pclk\+\_\+adc\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3acead8ac1728ef7a818aaf2b3a0787596}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3acead8ac1728ef7a818aaf2b3a0787596}
+}]\index{pclk\+\_\+can1@{pclk\+\_\+can1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+can1@{pclk\+\_\+can1}}\item[{\em 
+pclk\+\_\+can1\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a881c2efa49285ec6f981ab8ede8739ae}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a881c2efa49285ec6f981ab8ede8739ae}
+}]\index{pclk\+\_\+can2@{pclk\+\_\+can2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+can2@{pclk\+\_\+can2}}\item[{\em 
+pclk\+\_\+can2\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad59d2ed8a8863f92a64cd36b750ce0b8}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ad59d2ed8a8863f92a64cd36b750ce0b8}
+}]\index{pclk\+\_\+can\+\_\+flt@{pclk\+\_\+can\+\_\+flt}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+can\+\_\+flt@{pclk\+\_\+can\+\_\+flt}}\item[{\em 
+pclk\+\_\+can\+\_\+flt\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a4e37b21fa284958569ed92521f9e9c1b}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a4e37b21fa284958569ed92521f9e9c1b}
+}]\index{pclk\+\_\+qei@{pclk\+\_\+qei}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+qei@{pclk\+\_\+qei}}\item[{\em 
+pclk\+\_\+qei\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a81c2649a2015e16b0703479d884aff43}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a81c2649a2015e16b0703479d884aff43}
+}]\index{pclk\+\_\+gpioint@{pclk\+\_\+gpioint}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+gpioint@{pclk\+\_\+gpioint}}\item[{\em 
+pclk\+\_\+gpioint\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a42d0fcf2f9b310a12a1b5efde754dc41}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a42d0fcf2f9b310a12a1b5efde754dc41}
+}]\index{pclk\+\_\+pcb@{pclk\+\_\+pcb}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+pcb@{pclk\+\_\+pcb}}\item[{\em 
+pclk\+\_\+pcb\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7934a2cd4a86d30df7789e2d09703e59}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7934a2cd4a86d30df7789e2d09703e59}
+}]\index{pclk\+\_\+i2c1@{pclk\+\_\+i2c1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+i2c1@{pclk\+\_\+i2c1}}\item[{\em 
+pclk\+\_\+i2c1\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7355d26c092374a2945ea34153bcc7b6}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a7355d26c092374a2945ea34153bcc7b6}
+}]\index{pclk\+\_\+ssp0@{pclk\+\_\+ssp0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+ssp0@{pclk\+\_\+ssp0}}\item[{\em 
+pclk\+\_\+ssp0\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3af389ead35ff941bd2c6d405f274646c9}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3af389ead35ff941bd2c6d405f274646c9}
+}]\index{pclk\+\_\+timer2@{pclk\+\_\+timer2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+timer2@{pclk\+\_\+timer2}}\item[{\em 
+pclk\+\_\+timer2\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ae1ee46ca796fcec9222affd1ea9cf56d}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ae1ee46ca796fcec9222affd1ea9cf56d}
+}]\index{pclk\+\_\+timer3@{pclk\+\_\+timer3}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+timer3@{pclk\+\_\+timer3}}\item[{\em 
+pclk\+\_\+timer3\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3abb96323117a7d81a4b5b87552917ac5d}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3abb96323117a7d81a4b5b87552917ac5d}
+}]\index{pclk\+\_\+uart2@{pclk\+\_\+uart2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+uart2@{pclk\+\_\+uart2}}\item[{\em 
+pclk\+\_\+uart2\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a1cc428c8df021eeead4ef7554d82e0fb}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a1cc428c8df021eeead4ef7554d82e0fb}
+}]\index{pclk\+\_\+uart3@{pclk\+\_\+uart3}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+uart3@{pclk\+\_\+uart3}}\item[{\em 
+pclk\+\_\+uart3\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a484561e2272e2b7adfcc35dde8e72925}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a484561e2272e2b7adfcc35dde8e72925}
+}]\index{pclk\+\_\+i2c2@{pclk\+\_\+i2c2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+i2c2@{pclk\+\_\+i2c2}}\item[{\em 
+pclk\+\_\+i2c2\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ac8cd87d373f20e309c54490ea833e9a6}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3ac8cd87d373f20e309c54490ea833e9a6}
+}]\index{pclk\+\_\+rit@{pclk\+\_\+rit}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+rit@{pclk\+\_\+rit}}\item[{\em 
+pclk\+\_\+rit\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a78a7d715b9f7c00750a424806c473992}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a78a7d715b9f7c00750a424806c473992}
+}]\index{pclk\+\_\+syscon@{pclk\+\_\+syscon}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+syscon@{pclk\+\_\+syscon}}\item[{\em 
+pclk\+\_\+syscon\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a04489d11a5e56eee4d907f6d18e300fa}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a04489d11a5e56eee4d907f6d18e300fa}
+}]\index{pclk\+\_\+mc@{pclk\+\_\+mc}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pclk\+\_\+mc@{pclk\+\_\+mc}}\item[{\em 
+pclk\+\_\+mc\hypertarget{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a5deae0e44a743065753de84f150d5efb}{}\label{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3a5deae0e44a743065753de84f150d5efb}
+}]\end{description}
+\end{Desc}
+\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!lpc\+\_\+pconp\+\_\+t@{lpc\+\_\+pconp\+\_\+t}}
+\index{lpc\+\_\+pconp\+\_\+t@{lpc\+\_\+pconp\+\_\+t}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+pconp\+\_\+t}{lpc_pconp_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf lpc\+\_\+pconp\+\_\+t}}\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9}
+
+
+This enumeration matches the P\+C\+O\+NP register numbers for peripherals. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{pconp\+\_\+timer0@{pconp\+\_\+timer0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+timer0@{pconp\+\_\+timer0}}\item[{\em 
+pconp\+\_\+timer0\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a3efef55239d87fe1010408e30bc826e7}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a3efef55239d87fe1010408e30bc826e7}
+}]\index{pconp\+\_\+timer1@{pconp\+\_\+timer1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+timer1@{pconp\+\_\+timer1}}\item[{\em 
+pconp\+\_\+timer1\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a764677fa991260f690271a25ea870dba}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a764677fa991260f690271a25ea870dba}
+}]\index{pconp\+\_\+uart0@{pconp\+\_\+uart0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+uart0@{pconp\+\_\+uart0}}\item[{\em 
+pconp\+\_\+uart0\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9ae78df873aa2f960c746b6e8effc34e9b}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9ae78df873aa2f960c746b6e8effc34e9b}
+}]\index{pconp\+\_\+uart1@{pconp\+\_\+uart1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+uart1@{pconp\+\_\+uart1}}\item[{\em 
+pconp\+\_\+uart1\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a135603954d4ee0aaaa522b7bf9c7dc3a}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a135603954d4ee0aaaa522b7bf9c7dc3a}
+}]\index{pconp\+\_\+pwm1@{pconp\+\_\+pwm1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+pwm1@{pconp\+\_\+pwm1}}\item[{\em 
+pconp\+\_\+pwm1\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a24bb25a8b615a45701816c6177f34d14}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a24bb25a8b615a45701816c6177f34d14}
+}]\index{pconp\+\_\+i2c0@{pconp\+\_\+i2c0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+i2c0@{pconp\+\_\+i2c0}}\item[{\em 
+pconp\+\_\+i2c0\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9aaec1b7df5efe438289f9f66c42b81cf3}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9aaec1b7df5efe438289f9f66c42b81cf3}
+}]\index{pconp\+\_\+spi@{pconp\+\_\+spi}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+spi@{pconp\+\_\+spi}}\item[{\em 
+pconp\+\_\+spi\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a562845bff11f94e6843257437721983d}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a562845bff11f94e6843257437721983d}
+}]\index{pconp\+\_\+rtc@{pconp\+\_\+rtc}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+rtc@{pconp\+\_\+rtc}}\item[{\em 
+pconp\+\_\+rtc\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a75993a16fe6baa96672be77bec50dde9}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a75993a16fe6baa96672be77bec50dde9}
+}]\index{pconp\+\_\+ssp1@{pconp\+\_\+ssp1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+ssp1@{pconp\+\_\+ssp1}}\item[{\em 
+pconp\+\_\+ssp1\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a224ba1615d2cc71064cfce94dca79f84}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a224ba1615d2cc71064cfce94dca79f84}
+}]\index{pconp\+\_\+adc@{pconp\+\_\+adc}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+adc@{pconp\+\_\+adc}}\item[{\em 
+pconp\+\_\+adc\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a2c9606c43fec2b819518ea730972b61f}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a2c9606c43fec2b819518ea730972b61f}
+}]\index{pconp\+\_\+can1@{pconp\+\_\+can1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+can1@{pconp\+\_\+can1}}\item[{\em 
+pconp\+\_\+can1\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a8856e0be2e9b31122b33853bc7de7155}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a8856e0be2e9b31122b33853bc7de7155}
+}]\index{pconp\+\_\+can2@{pconp\+\_\+can2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+can2@{pconp\+\_\+can2}}\item[{\em 
+pconp\+\_\+can2\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a5c71fb11e821cda86c7c4c2ed13fe9df}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a5c71fb11e821cda86c7c4c2ed13fe9df}
+}]\index{pconp\+\_\+gpio@{pconp\+\_\+gpio}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+gpio@{pconp\+\_\+gpio}}\item[{\em 
+pconp\+\_\+gpio\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4a76f487615843b3fd6f12d0c00173ee}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4a76f487615843b3fd6f12d0c00173ee}
+}]\index{pconp\+\_\+rit@{pconp\+\_\+rit}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+rit@{pconp\+\_\+rit}}\item[{\em 
+pconp\+\_\+rit\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a8cc95c7aa925273a43071b7c158472b3}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a8cc95c7aa925273a43071b7c158472b3}
+}]\index{pconp\+\_\+mcpwm@{pconp\+\_\+mcpwm}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+mcpwm@{pconp\+\_\+mcpwm}}\item[{\em 
+pconp\+\_\+mcpwm\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a117a8adcdd05db8db635d4760c73cecb}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a117a8adcdd05db8db635d4760c73cecb}
+}]\index{pconp\+\_\+qei@{pconp\+\_\+qei}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+qei@{pconp\+\_\+qei}}\item[{\em 
+pconp\+\_\+qei\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a930157c10c2e92e8ba42a128b747a005}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a930157c10c2e92e8ba42a128b747a005}
+}]\index{pconp\+\_\+i2c1@{pconp\+\_\+i2c1}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+i2c1@{pconp\+\_\+i2c1}}\item[{\em 
+pconp\+\_\+i2c1\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9ae0b1951206de9fabc6a8969e25c9d702}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9ae0b1951206de9fabc6a8969e25c9d702}
+}]\index{pconp\+\_\+ssp0@{pconp\+\_\+ssp0}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+ssp0@{pconp\+\_\+ssp0}}\item[{\em 
+pconp\+\_\+ssp0\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a1af338e9bc1fba6d4a39ea4f976d114d}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a1af338e9bc1fba6d4a39ea4f976d114d}
+}]\index{pconp\+\_\+timer2@{pconp\+\_\+timer2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+timer2@{pconp\+\_\+timer2}}\item[{\em 
+pconp\+\_\+timer2\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a84b32dbbcc5d220d38e143ed085fb7b8}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a84b32dbbcc5d220d38e143ed085fb7b8}
+}]\index{pconp\+\_\+timer3@{pconp\+\_\+timer3}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+timer3@{pconp\+\_\+timer3}}\item[{\em 
+pconp\+\_\+timer3\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9af924055845c16e7a725c2f27cfbe3206}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9af924055845c16e7a725c2f27cfbe3206}
+}]\index{pconp\+\_\+uart2@{pconp\+\_\+uart2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+uart2@{pconp\+\_\+uart2}}\item[{\em 
+pconp\+\_\+uart2\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a00e588d962fb8c5e8b5702ad644a77aa}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a00e588d962fb8c5e8b5702ad644a77aa}
+}]\index{pconp\+\_\+uart3@{pconp\+\_\+uart3}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+uart3@{pconp\+\_\+uart3}}\item[{\em 
+pconp\+\_\+uart3\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4efbb7d9c98830306cf2f37deecdf8b1}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4efbb7d9c98830306cf2f37deecdf8b1}
+}]\index{pconp\+\_\+i2c2@{pconp\+\_\+i2c2}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+i2c2@{pconp\+\_\+i2c2}}\item[{\em 
+pconp\+\_\+i2c2\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a385e2657214f598e970a2d1df3aa6123}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a385e2657214f598e970a2d1df3aa6123}
+}]\index{pconp\+\_\+i2s@{pconp\+\_\+i2s}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+i2s@{pconp\+\_\+i2s}}\item[{\em 
+pconp\+\_\+i2s\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4a0e57e679ebbfb6e9cfdab2f1594155}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a4a0e57e679ebbfb6e9cfdab2f1594155}
+}]\index{pconp\+\_\+gpdma@{pconp\+\_\+gpdma}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+gpdma@{pconp\+\_\+gpdma}}\item[{\em 
+pconp\+\_\+gpdma\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a69f2385b56d63da5e48727c35e7fdac0}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a69f2385b56d63da5e48727c35e7fdac0}
+}]\index{pconp\+\_\+enet@{pconp\+\_\+enet}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+enet@{pconp\+\_\+enet}}\item[{\em 
+pconp\+\_\+enet\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9abc3ab55c8e16e793eb8edfb6e8b44f73}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9abc3ab55c8e16e793eb8edfb6e8b44f73}
+}]\index{pconp\+\_\+usb@{pconp\+\_\+usb}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!pconp\+\_\+usb@{pconp\+\_\+usb}}\item[{\em 
+pconp\+\_\+usb\hypertarget{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a2ff52a540292cf18cfd3f003531eabb8}{}\label{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9a2ff52a540292cf18cfd3f003531eabb8}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!lpc\+\_\+pclk@{lpc\+\_\+pclk}}
+\index{lpc\+\_\+pclk@{lpc\+\_\+pclk}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+pclk(lpc\+\_\+pclk\+\_\+t peripheral, clkdiv\+\_\+t divider)}{lpc_pclk(lpc_pclk_t peripheral, clkdiv_t divider)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+pclk (
+\begin{DoxyParamCaption}
+\item[{{\bf lpc\+\_\+pclk\+\_\+t}}]{peripheral, }
+\item[{{\bf clkdiv\+\_\+t}}]{divider}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__peripherals_8h_a8e05c66e495a2ac00b91b08f113fd21b}{}\label{lpc__peripherals_8h_a8e05c66e495a2ac00b91b08f113fd21b}
+Sets the peripheral clock divider. 
+\begin{DoxyParams}{Parameters}
+{\em peripheral} & The peripheral type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3}{lpc\+\_\+pclk\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em divider} & The divider type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The reset value for all peripherals is clkdiv\+\_\+4 
+\end{DoxyNote}
+This is a quick and dirty trick to use uint64\+\_\+t such that we don\textquotesingle{}t have to use if/else statements to pick either P\+C\+L\+K\+S\+E\+L0 or P\+C\+L\+K\+S\+E\+L1 register.\index{lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}!lpc\+\_\+pconp@{lpc\+\_\+pconp}}
+\index{lpc\+\_\+pconp@{lpc\+\_\+pconp}!lpc\+\_\+peripherals.\+h@{lpc\+\_\+peripherals.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+pconp(lpc\+\_\+pconp\+\_\+t peripheral, bool on)}{lpc_pconp(lpc_pconp_t peripheral, bool on)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+pconp (
+\begin{DoxyParamCaption}
+\item[{{\bf lpc\+\_\+pconp\+\_\+t}}]{peripheral, }
+\item[{bool}]{on}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__peripherals_8h_a6dd47b8bb51956102c6a48afd5e8faae}{}\label{lpc__peripherals_8h_a6dd47b8bb51956102c6a48afd5e8faae}
+Powers ON or powers O\+FF the peripheral 
+\begin{DoxyParams}{Parameters}
+{\em peripheral} & The peripheral type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9}{lpc\+\_\+pconp\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em on} & If true, peripheral is turned on, otherwise turned off \\
+\hline
+\end{DoxyParams}

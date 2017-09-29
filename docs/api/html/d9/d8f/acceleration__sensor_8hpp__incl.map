@@ -1,0 +1,28 @@
+<map id="/var/www/html/SJSU&#45;DEV&#45;Linux/firmware/default/lib/L4_IO/acceleration_sensor.hpp" name="/var/www/html/SJSU&#45;DEV&#45;Linux/firmware/default/lib/L4_IO/acceleration_sensor.hpp">
+<area shape="rect" id="node3" href="$d2/d86/i2c2__device_8hpp.html" title="i2c2_device.hpp" alt="" coords="107,124,223,151"/>
+<area shape="rect" id="node4" href="$dd/dff/i2c2_8hpp.html" title="I2C2 Interrupt driven IO driver. " alt="" coords="374,199,445,225"/>
+<area shape="rect" id="node5" href="$d5/d19/singleton__template_8hpp.html" title="singleton_template.hpp" alt="" coords="483,273,639,300"/>
+<area shape="rect" id="node6" href="$d7/dee/i2c__base_8hpp.html" title="Provides I2C Base class functionality for I2C peripherals. " alt="" coords="360,273,459,300"/>
+<area shape="rect" id="node7" href="$d1/de8/FreeRTOS_8h.html" title="FreeRTOS.h" alt="" coords="628,348,724,375"/>
+<area shape="rect" id="node12" href="$da/dc3/LPC17xx_8h.html" title="CMSIS Cortex&#45;M3 Core Peripheral Access Layer Header File for NXP LPC17xx Device Series. " alt="" coords="286,572,373,599"/>
+<area shape="rect" id="node27" href="$db/da4/task_8h.html" title="task.h" alt="" coords="875,348,933,375"/>
+<area shape="rect" id="node29" href="$da/d30/semphr_8h.html" title="semphr.h" alt="" coords="1021,348,1097,375"/>
+<area shape="rect" id="node9" href="$db/dc7/FreeRTOSConfig_8h.html" title="FreeRTOSConfig.h" alt="" coords="453,423,587,449"/>
+<area shape="rect" id="node22" href="$db/d67/projdefs_8h.html" title="projdefs.h" alt="" coords="807,423,886,449"/>
+<area shape="rect" id="node23" href="$d2/de2/portable_8h.html" title="portable.h" alt="" coords="910,423,989,449"/>
+<area shape="rect" id="node10" href="$d0/d88/sys__config_8h.html" title="This file provides the configurable parameters for your project. " alt="" coords="599,497,695,524"/>
+<area shape="rect" id="node11" href="$dd/d94/lpc__isr_8h.html" title="Interrupt Service Routine (ISR) functions. " alt="" coords="231,497,302,524"/>
+<area shape="rect" id="node17" href="$d0/d42/fault__registers_8h.html" title="This file simply provides registers that are used to detect faults. These registers should be defined..." alt="" coords="327,497,441,524"/>
+<area shape="rect" id="node18" href="$d8/dfa/trcUser_8h.html" title="trace/trcUser.h" alt="" coords="465,497,575,524"/>
+<area shape="rect" id="node13" href="$d2/dbb/bit__manip_8h.html" title="Provides bit&#45;manipulation macros. " alt="" coords="231,647,321,673"/>
+<area shape="rect" id="node14" href="$d6/d42/lpc__peripherals_8h.html" title="This file provides LPC peripheral numbers according to LPC17xx datasheet. " alt="" coords="460,647,623,673"/>
+<area shape="rect" id="node16" href="$da/db4/core__cm3_8h.html" title="CMSIS Cortex&#45;M3 Core Peripheral Access Layer Header File. " alt="" coords="345,647,436,673"/>
+<area shape="rect" id="node19" href="$da/d3b/trcKernelPort_8h.html" title="trcKernelPort.h" alt="" coords="656,572,765,599"/>
+<area shape="rect" id="node20" href="$dd/dde/trcHardwarePort_8h.html" title="trcHardwarePort.h" alt="" coords="647,647,775,673"/>
+<area shape="rect" id="node21" href="$db/dd1/trcConfig_8h.html" title="trcConfig.h" alt="" coords="667,721,754,748"/>
+<area shape="rect" id="node24" href="$dd/dd0/deprecated__definitions_8h.html" title="deprecated_definitions.h" alt="" coords="769,497,932,524"/>
+<area shape="rect" id="node25" href="$dc/d35/portmacro_8h.html" title="portmacro.h" alt="" coords="956,497,1047,524"/>
+<area shape="rect" id="node26" href="$d5/d31/mpu__wrappers_8h.html" title="mpu_wrappers.h" alt="" coords="1071,497,1190,524"/>
+<area shape="rect" id="node28" href="$da/d23/list_8h.html" title="list.h" alt="" coords="1013,423,1064,449"/>
+<area shape="rect" id="node30" href="$d8/d38/queue_8h.html" title="queue.h" alt="" coords="1089,423,1157,449"/>
+</map>

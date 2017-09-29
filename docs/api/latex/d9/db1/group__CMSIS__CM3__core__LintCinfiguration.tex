@@ -1,0 +1,52 @@
+\hypertarget{group__CMSIS__CM3__core__LintCinfiguration}{}\section{C\+M\+S\+IS C\+M3 Core Lint Configuration}
+\label{group__CMSIS__CM3__core__LintCinfiguration}\index{C\+M\+S\+I\+S C\+M3 Core Lint Configuration@{C\+M\+S\+I\+S C\+M3 Core Lint Configuration}}
+List of Lint messages which will be suppressed and not shown\+:
+\begin{DoxyItemize}
+\item Error 10\+: ~\newline
+ register uint32\+\_\+t \+\_\+\+\_\+reg\+Base\+Pri \+\_\+\+\_\+asm(\char`\"{}basepri\char`\"{}); ~\newline
+ Error 10\+: Expecting \textquotesingle{};\textquotesingle{}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Error 530\+: ~\newline
+ return(\+\_\+\+\_\+reg\+Base\+Pri); ~\newline
+ Warning 530\+: Symbol \textquotesingle{}\+\_\+\+\_\+reg\+Base\+Pri\textquotesingle{} (line 264) not initialized
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Error 550\+: ~\newline
+ \+\_\+\+\_\+reg\+Base\+Pri = (base\+Pri \& 0x1ff); ~\newline
+ Warning 550\+: Symbol \textquotesingle{}\+\_\+\+\_\+reg\+Base\+Pri\textquotesingle{} (line 271) not accessed
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Error 754\+: ~\newline
+ uint32\+\_\+t R\+E\+S\+E\+R\+V\+E\+D0\mbox{[}24\mbox{]}; ~\newline
+ Info 754\+: local structure member \textquotesingle{}$<$some, not used in the H\+AL$>$\textquotesingle{} (line 109, file ./cm3\+\_\+core.h) not referenced
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Error 750\+: ~\newline
+ \#define {\bfseries C\+M3\+\_\+\+C\+O\+R\+E\+\_\+H} ~\newline
+ Info 750\+: local macro \textquotesingle{}{\bfseries C\+M3\+\_\+\+C\+O\+R\+E\+\_\+H}\textquotesingle{} (line 43, file./cm3\+\_\+core.h) not referenced
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Error 528\+: ~\newline
+ static \+\_\+\+\_\+\+I\+N\+L\+I\+NE void N\+V\+I\+C\+\_\+\+Disable\+I\+R\+Q(uint32\+\_\+t I\+R\+Qn) ~\newline
+ Warning 528\+: Symbol \textquotesingle{}N\+V\+I\+C\+\_\+\+Disable\+I\+R\+Q(unsigned int)\textquotesingle{} (line 419, file ./cm3\+\_\+core.h) not referenced
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Error 751\+: ~\newline
+ \} \hyperlink{structInterruptType__Type}{Interrupt\+Type\+\_\+\+Type}; ~\newline
+ Info 751\+: local typedef \textquotesingle{}\hyperlink{structInterruptType__Type}{Interrupt\+Type\+\_\+\+Type}\textquotesingle{} (line 170, file ./cm3\+\_\+core.h) not referenced
+\end{DoxyItemize}
+
+Note\+: To re-\/enable a Message, insert a space before \textquotesingle{}lint\textquotesingle{} $\ast$ 

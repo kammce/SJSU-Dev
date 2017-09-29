@@ -1,0 +1,65 @@
+\hypertarget{structmesh__driver__t}{}\section{mesh\+\_\+driver\+\_\+t Struct Reference}
+\label{structmesh__driver__t}\index{mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}}
+
+
+{\ttfamily \#include $<$mesh\+\_\+typedefs.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}{mesh\+\_\+fptr\+\_\+t} \hyperlink{structmesh__driver__t_a8b1713e38a869bcd8c0e9f4fc139e5bd}{app\+\_\+recv}
+\begin{DoxyCompactList}\small\item\em Application call-\/back. Return true upon success. \end{DoxyCompactList}\item 
+\hyperlink{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}{mesh\+\_\+fptr\+\_\+t} \hyperlink{structmesh__driver__t_a2bd99112f2188d5129974939d6a1bae0}{get\+\_\+timer}
+\begin{DoxyCompactList}\small\item\em Get timer value in ms. Return true upon success. \end{DoxyCompactList}\item 
+\hyperlink{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}{mesh\+\_\+fptr\+\_\+t} \hyperlink{structmesh__driver__t_a33b6b9bf00488248cd33d17129f74bc4}{radio\+\_\+init}
+\begin{DoxyCompactList}\small\item\em Initialize the R\+A\+D\+IO. Return true upon success. \end{DoxyCompactList}\item 
+\hyperlink{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}{mesh\+\_\+fptr\+\_\+t} \hyperlink{structmesh__driver__t_a5516b86cc03fcc2512b04d9978645c69}{radio\+\_\+send}
+\begin{DoxyCompactList}\small\item\em Send a packet. Return value not checked. \end{DoxyCompactList}\item 
+\hyperlink{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}{mesh\+\_\+fptr\+\_\+t} \hyperlink{structmesh__driver__t_abd2f06c3ce4baa0c735629e9df295b3f}{radio\+\_\+recv}
+\begin{DoxyCompactList}\small\item\em Receive a packet. Return true if valid packet returned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure of the mesh driver used to send/receive data. Examples of these functions are given at \hyperlink{mesh_8h}{mesh.\+h} The functions should return 0 upon failure. 
+
+\subsection{Field Documentation}
+\index{mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}!app\+\_\+recv@{app\+\_\+recv}}
+\index{app\+\_\+recv@{app\+\_\+recv}!mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}}
+\subsubsection[{\texorpdfstring{app\+\_\+recv}{app_recv}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mesh\+\_\+fptr\+\_\+t} mesh\+\_\+driver\+\_\+t\+::app\+\_\+recv}\hypertarget{structmesh__driver__t_a8b1713e38a869bcd8c0e9f4fc139e5bd}{}\label{structmesh__driver__t_a8b1713e38a869bcd8c0e9f4fc139e5bd}
+
+
+Application call-\/back. Return true upon success. 
+
+\index{mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}!get\+\_\+timer@{get\+\_\+timer}}
+\index{get\+\_\+timer@{get\+\_\+timer}!mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}}
+\subsubsection[{\texorpdfstring{get\+\_\+timer}{get_timer}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mesh\+\_\+fptr\+\_\+t} mesh\+\_\+driver\+\_\+t\+::get\+\_\+timer}\hypertarget{structmesh__driver__t_a2bd99112f2188d5129974939d6a1bae0}{}\label{structmesh__driver__t_a2bd99112f2188d5129974939d6a1bae0}
+
+
+Get timer value in ms. Return true upon success. 
+
+\index{mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}!radio\+\_\+init@{radio\+\_\+init}}
+\index{radio\+\_\+init@{radio\+\_\+init}!mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}}
+\subsubsection[{\texorpdfstring{radio\+\_\+init}{radio_init}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mesh\+\_\+fptr\+\_\+t} mesh\+\_\+driver\+\_\+t\+::radio\+\_\+init}\hypertarget{structmesh__driver__t_a33b6b9bf00488248cd33d17129f74bc4}{}\label{structmesh__driver__t_a33b6b9bf00488248cd33d17129f74bc4}
+
+
+Initialize the R\+A\+D\+IO. Return true upon success. 
+
+\index{mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}!radio\+\_\+recv@{radio\+\_\+recv}}
+\index{radio\+\_\+recv@{radio\+\_\+recv}!mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}}
+\subsubsection[{\texorpdfstring{radio\+\_\+recv}{radio_recv}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mesh\+\_\+fptr\+\_\+t} mesh\+\_\+driver\+\_\+t\+::radio\+\_\+recv}\hypertarget{structmesh__driver__t_abd2f06c3ce4baa0c735629e9df295b3f}{}\label{structmesh__driver__t_abd2f06c3ce4baa0c735629e9df295b3f}
+
+
+Receive a packet. Return true if valid packet returned. 
+
+\index{mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}!radio\+\_\+send@{radio\+\_\+send}}
+\index{radio\+\_\+send@{radio\+\_\+send}!mesh\+\_\+driver\+\_\+t@{mesh\+\_\+driver\+\_\+t}}
+\subsubsection[{\texorpdfstring{radio\+\_\+send}{radio_send}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mesh\+\_\+fptr\+\_\+t} mesh\+\_\+driver\+\_\+t\+::radio\+\_\+send}\hypertarget{structmesh__driver__t_a5516b86cc03fcc2512b04d9978645c69}{}\label{structmesh__driver__t_a5516b86cc03fcc2512b04d9978645c69}
+
+
+Send a packet. Return value not checked. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/\hyperlink{mesh__typedefs_8h}{mesh\+\_\+typedefs.\+h}\end{DoxyCompactItemize}

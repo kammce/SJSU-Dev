@@ -1,0 +1,380 @@
+\hypertarget{file__logger_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/file\+\_\+logger.h File Reference}
+\label{file__logger_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/file\+\_\+logger.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/file\+\_\+logger.\+h}}
+
+
+This is a logger that logs data to a file on the system such as an SD Card.
+
+20140714\+: Fixed bugs and added more A\+PI 20140529\+: Changed completely to C and Free\+R\+T\+OS based logger 20120923\+: modified flush() to use semaphores 20120619\+: Initial.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+Include dependency graph for file\+\_\+logger.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{da/dfc/file__logger_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{d7/ddf/file__logger_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{file__logger_8h_a0fd3b7ded6cea15ebbe828d1720fd2e4}{L\+O\+G\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+M\+SG}(msg,  p...)~\hyperlink{file__logger_8c_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa8597fbc71d80f4997540c7e0e0dfdb77}{log\+\_\+info}, N\+U\+LL, N\+U\+LL, 0, msg, \#\# p)
+\item 
+\#define \hyperlink{file__logger_8h_a7c82f0104f7aef1929bd04be21c47122}{L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+SG}(msg,  p...)~\hyperlink{file__logger_8c_a8484854aa180cb3346460aad96d548e5}{logger\+\_\+log\+\_\+raw}(msg, \#\# p)
+\item 
+\#define \hyperlink{file__logger_8h_a0aff9308e67c2fb91b33dfac1b243057}{L\+O\+G\+\_\+\+F\+L\+U\+SH}()~\hyperlink{file__logger_8c_a90d00b7aa255a9499e43bc8f272b18f4}{logger\+\_\+send\+\_\+flush\+\_\+request}()
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{file__logger_8h_adcea8eac6a098f64480abe91689599b1}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~(1 $\ast$ 1024)
+\begin{DoxyCompactList}\small\item\em Recommend multiples of 512. \end{DoxyCompactList}\item 
+\#define \hyperlink{file__logger_8h_a018d6e264199f08672f5449a03759b4e}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS}~10
+\begin{DoxyCompactList}\small\item\em Number of buffers (need to have enough while file is being written) \end{DoxyCompactList}\item 
+\#define \hyperlink{file__logger_8h_a9627e5addcc670c7ccd891a7dafb8653}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+L\+O\+G\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+L\+EN}~150
+\begin{DoxyCompactList}\small\item\em Max length of a log message. \end{DoxyCompactList}\item 
+\#define \hyperlink{file__logger_8h_aa179d86ba948e0aeecdd858a07437253}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+I\+L\+E\+N\+A\+ME}~\char`\"{}0\+:log.\+csv\char`\"{}
+\begin{DoxyCompactList}\small\item\em Destination filename (0\+: for S\+PI flash, 1\+: for SD card) \end{DoxyCompactList}\item 
+\#define \hyperlink{file__logger_8h_af723cf517823e7397a988a78e9f3a7ae}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}~(3 $\ast$ 512 / 4)
+\begin{DoxyCompactList}\small\item\em Stack size in 32-\/bit (1 = 4 bytes for 32-\/bit C\+PU) \end{DoxyCompactList}\item 
+\#define \hyperlink{file__logger_8h_a3a74d1eddc00efe35c2eb105d1d69c7c}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+T\+I\+M\+E\+\_\+\+S\+EC}~(1 $\ast$ 60)
+\begin{DoxyCompactList}\small\item\em Logs are flushed after this time. \end{DoxyCompactList}\item 
+\#define \hyperlink{file__logger_8h_abbfaffea107d123db0c88c14d0e2d1a8}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+L\+O\+C\+K\+\_\+\+T\+I\+M\+E\+\_\+\+MS}~(10)
+\begin{DoxyCompactList}\small\item\em If no buffer available within this time, block time counter will increment. \end{DoxyCompactList}\item 
+\#define \hyperlink{file__logger_8h_a60b2b9fcab5347fadfe7f7c08aa08d30}{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+K\+E\+E\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+P\+EN}~(0)
+\begin{DoxyCompactList}\small\item\em If non-\/zero, the file will be kept open. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{file__logger_8h_a01f9864fc9fbff1f84331901df98971c}{L\+O\+G\+\_\+\+E\+R\+R\+OR}(msg,  p...)~\hyperlink{file__logger_8c_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa796a5caf388845022f7715ceefee599b}{log\+\_\+error}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)
+\item 
+\#define \hyperlink{file__logger_8h_ac9dc290b232b99b1465083971bcee0e1}{L\+O\+G\+\_\+\+W\+A\+RN}(msg,  p...)~\hyperlink{file__logger_8c_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aad162bf83671d0949d1245ec5ac0b9978}{log\+\_\+warn},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)
+\item 
+\#define \hyperlink{file__logger_8h_ab8bd16d2e7c4ca6989c85f3fd7045487}{L\+O\+G\+\_\+\+I\+N\+FO}(msg,  p...)~\hyperlink{file__logger_8c_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa8597fbc71d80f4997540c7e0e0dfdb77}{log\+\_\+info},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)
+\item 
+\#define \hyperlink{file__logger_8h_a0e6ead9ad3503f47db964b08b4b44d3d}{L\+O\+G\+\_\+\+D\+E\+B\+UG}(msg,  p...)~\hyperlink{file__logger_8c_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aac1e7c8c98fa3d998014f91b4d42ad9d1}{log\+\_\+debug}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)
+\end{DoxyCompactItemize}
+
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{logger\+\_\+msg\+\_\+t} \{ \\*
+\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aac1e7c8c98fa3d998014f91b4d42ad9d1}{log\+\_\+debug}, 
+\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa8597fbc71d80f4997540c7e0e0dfdb77}{log\+\_\+info}, 
+\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aad162bf83671d0949d1245ec5ac0b9978}{log\+\_\+warn}, 
+\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa796a5caf388845022f7715ceefee599b}{log\+\_\+error}, 
+\\*
+\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa203bf72f8232c16bfda482222e4b12bb}{log\+\_\+last}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{file__logger_8h_af9a6bb09efbc17222fc2794ec09bfdb0}{logger\+\_\+init} (uint8\+\_\+t logger\+\_\+priority)
+\item 
+void \hyperlink{file__logger_8h_a93c4ad1ab6250c97dacfe0e72cdb0896}{logger\+\_\+set\+\_\+printf} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{logger\+\_\+msg\+\_\+t} type, bool enable)
+\item 
+void \hyperlink{file__logger_8h_a90d00b7aa255a9499e43bc8f272b18f4}{logger\+\_\+send\+\_\+flush\+\_\+request} (void)
+\item 
+uint32\+\_\+t \hyperlink{file__logger_8h_af1ceb6030285f8c0d853e465e7a81c89}{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{logger\+\_\+msg\+\_\+t} severity)
+\item 
+uint16\+\_\+t \hyperlink{file__logger_8h_a14df36902c22f172291afc69884ba9a2}{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count} (void)
+\item 
+uint16\+\_\+t \hyperlink{file__logger_8h_ad5f1b9fc4277708bcbcf913c2a76bb04}{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms} (void)
+\item 
+uint16\+\_\+t \hyperlink{file__logger_8h_a62f4587986d5c731b4bf1aeb53fc523b}{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark} (void)
+\item 
+void \hyperlink{file__logger_8h_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{logger\+\_\+msg\+\_\+t} type, const char $\ast$filename, const char $\ast$func\+\_\+name, unsigned line\+\_\+num, const char $\ast$msg,...)
+\item 
+void \hyperlink{file__logger_8h_a8484854aa180cb3346460aad96d548e5}{logger\+\_\+log\+\_\+raw} (const char $\ast$msg,...)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a logger that logs data to a file on the system such as an SD Card.
+
+20140714\+: Fixed bugs and added more A\+PI 20140529\+: Changed completely to C and Free\+R\+T\+OS based logger 20120923\+: modified flush() to use semaphores 20120619\+: Initial. 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+L\+O\+C\+K\+\_\+\+T\+I\+M\+E\+\_\+\+MS@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+L\+O\+C\+K\+\_\+\+T\+I\+M\+E\+\_\+\+MS}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+L\+O\+C\+K\+\_\+\+T\+I\+M\+E\+\_\+\+MS@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+L\+O\+C\+K\+\_\+\+T\+I\+M\+E\+\_\+\+MS}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+L\+O\+C\+K\+\_\+\+T\+I\+M\+E\+\_\+\+MS}{FILE_LOGGER_BLOCK_TIME_MS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+L\+O\+C\+K\+\_\+\+T\+I\+M\+E\+\_\+\+MS~(10)}\hypertarget{file__logger_8h_abbfaffea107d123db0c88c14d0e2d1a8}{}\label{file__logger_8h_abbfaffea107d123db0c88c14d0e2d1a8}
+
+
+If no buffer available within this time, block time counter will increment. 
+
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}{FILE_LOGGER_BUFFER_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~(1 $\ast$ 1024)}\hypertarget{file__logger_8h_adcea8eac6a098f64480abe91689599b1}{}\label{file__logger_8h_adcea8eac6a098f64480abe91689599b1}
+
+
+Recommend multiples of 512. 
+
+The main parameters are the buffer size, and number of message buffers. The buffer size controls how much data we can cache before we are forced to write it to the output file.
+
+The message buffers are the maximum number of L\+O\+G\+G\+I\+NG calls (macros) that can occur at once after which the caller to L\+OG macro will be blocked. Note that even a small number like 5 is good enough because as soon as there is time for the logging task to run, it will transfer the L\+O\+G\+G\+ED message into the file buffer immediately. So this number is kind of like a double buffer. On the other hand, please note that while the file is being written, the number of buffers need to be enough because the logger task will be busy writing the buffer to the file.
+
+For example, if we anticipate logging every 10ms, and 1K of data takes 100ms to write, then we should configure the number of logging buffers greater than 10 because while the logger task is busy writing 1K of data for 100ms, we need to be able to write for 100ms, which will take at least 10 buffers.
+
+The flush timeout is the timeout after which point we are forced to flush the data buffer to the file. So in an event when no logging calls occur and there is data in the buffer, we will write it to the file after this time. \index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+I\+L\+E\+N\+A\+ME}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+I\+L\+E\+N\+A\+ME@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+I\+L\+E\+N\+A\+ME}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+I\+L\+E\+N\+A\+ME}{FILE_LOGGER_FILENAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+I\+L\+E\+N\+A\+ME~\char`\"{}0\+:log.\+csv\char`\"{}}\hypertarget{file__logger_8h_aa179d86ba948e0aeecdd858a07437253}{}\label{file__logger_8h_aa179d86ba948e0aeecdd858a07437253}
+
+
+Destination filename (0\+: for S\+PI flash, 1\+: for SD card) 
+
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+T\+I\+M\+E\+\_\+\+S\+EC@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+T\+I\+M\+E\+\_\+\+S\+EC}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+T\+I\+M\+E\+\_\+\+S\+EC@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+T\+I\+M\+E\+\_\+\+S\+EC}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+T\+I\+M\+E\+\_\+\+S\+EC}{FILE_LOGGER_FLUSH_TIME_SEC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+F\+L\+U\+S\+H\+\_\+\+T\+I\+M\+E\+\_\+\+S\+EC~(1 $\ast$ 60)}\hypertarget{file__logger_8h_a3a74d1eddc00efe35c2eb105d1d69c7c}{}\label{file__logger_8h_a3a74d1eddc00efe35c2eb105d1d69c7c}
+
+
+Logs are flushed after this time. 
+
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+K\+E\+E\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+P\+EN@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+K\+E\+E\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+P\+EN}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+K\+E\+E\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+P\+EN@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+K\+E\+E\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+P\+EN}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+K\+E\+E\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+P\+EN}{FILE_LOGGER_KEEP_FILE_OPEN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+K\+E\+E\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+P\+EN~(0)}\hypertarget{file__logger_8h_a60b2b9fcab5347fadfe7f7c08aa08d30}{}\label{file__logger_8h_a60b2b9fcab5347fadfe7f7c08aa08d30}
+
+
+If non-\/zero, the file will be kept open. 
+
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+L\+O\+G\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+L\+EN@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+L\+O\+G\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+L\+EN}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+L\+O\+G\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+L\+EN@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+L\+O\+G\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+L\+EN}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+L\+O\+G\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+L\+EN}{FILE_LOGGER_LOG_MSG_MAX_LEN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+L\+O\+G\+\_\+\+M\+S\+G\+\_\+\+M\+A\+X\+\_\+\+L\+EN~150}\hypertarget{file__logger_8h_a9627e5addcc670c7ccd891a7dafb8653}{}\label{file__logger_8h_a9627e5addcc670c7ccd891a7dafb8653}
+
+
+Max length of a log message. 
+
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS}{FILE_LOGGER_NUM_BUFFERS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS~10}\hypertarget{file__logger_8h_a018d6e264199f08672f5449a03759b4e}{}\label{file__logger_8h_a018d6e264199f08672f5449a03759b4e}
+
+
+Number of buffers (need to have enough while file is being written) 
+
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}}
+\index{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}{FILE_LOGGER_STACK_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE~(3 $\ast$ 512 / 4)}\hypertarget{file__logger_8h_af723cf517823e7397a988a78e9f3a7ae}{}\label{file__logger_8h_af723cf517823e7397a988a78e9f3a7ae}
+
+
+Stack size in 32-\/bit (1 = 4 bytes for 32-\/bit C\+PU) 
+
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!L\+O\+G\+\_\+\+D\+E\+B\+UG@{L\+O\+G\+\_\+\+D\+E\+B\+UG}}
+\index{L\+O\+G\+\_\+\+D\+E\+B\+UG@{L\+O\+G\+\_\+\+D\+E\+B\+UG}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{L\+O\+G\+\_\+\+D\+E\+B\+UG}{LOG_DEBUG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+G\+\_\+\+D\+E\+B\+UG(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{p...}
+\end{DoxyParamCaption}
+)~{\bf logger\+\_\+log} ({\bf log\+\_\+debug}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)}\hypertarget{file__logger_8h_a0e6ead9ad3503f47db964b08b4b44d3d}{}\label{file__logger_8h_a0e6ead9ad3503f47db964b08b4b44d3d}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!L\+O\+G\+\_\+\+E\+R\+R\+OR@{L\+O\+G\+\_\+\+E\+R\+R\+OR}}
+\index{L\+O\+G\+\_\+\+E\+R\+R\+OR@{L\+O\+G\+\_\+\+E\+R\+R\+OR}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{L\+O\+G\+\_\+\+E\+R\+R\+OR}{LOG_ERROR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+G\+\_\+\+E\+R\+R\+OR(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{p...}
+\end{DoxyParamCaption}
+)~{\bf logger\+\_\+log} ({\bf log\+\_\+error}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)}\hypertarget{file__logger_8h_a01f9864fc9fbff1f84331901df98971c}{}\label{file__logger_8h_a01f9864fc9fbff1f84331901df98971c}
+Macros to log a message using \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} style A\+PI \begin{DoxyNote}{Note}
+If Free\+R\+T\+OS is not running, the message is immediately output to file. If Free\+R\+T\+OS is running, the data will be written to buffer using the logger task and eventually flushed out to the file either after the timeout or when the buffer is full.
+\end{DoxyNote}
+
+\begin{DoxyCode}
+1 LOG\_INFO("Error %i encountered", error\_number);
+\end{DoxyCode}
+ \index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!L\+O\+G\+\_\+\+F\+L\+U\+SH@{L\+O\+G\+\_\+\+F\+L\+U\+SH}}
+\index{L\+O\+G\+\_\+\+F\+L\+U\+SH@{L\+O\+G\+\_\+\+F\+L\+U\+SH}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{L\+O\+G\+\_\+\+F\+L\+U\+SH}{LOG_FLUSH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+G\+\_\+\+F\+L\+U\+SH(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf logger\+\_\+send\+\_\+flush\+\_\+request}()}\hypertarget{file__logger_8h_a0aff9308e67c2fb91b33dfac1b243057}{}\label{file__logger_8h_a0aff9308e67c2fb91b33dfac1b243057}
+Macro to flush the logs. You can flush it using \hyperlink{file__logger_8h_a90d00b7aa255a9499e43bc8f272b18f4}{logger\+\_\+send\+\_\+flush\+\_\+request()} but the M\+A\+C\+RO is provided just to be consistent with the other logger macros where a function is not used.
+
+\begin{DoxyNote}{Note}
+Flushing is not needed when the OS is running. 
+\end{DoxyNote}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!L\+O\+G\+\_\+\+I\+N\+FO@{L\+O\+G\+\_\+\+I\+N\+FO}}
+\index{L\+O\+G\+\_\+\+I\+N\+FO@{L\+O\+G\+\_\+\+I\+N\+FO}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{L\+O\+G\+\_\+\+I\+N\+FO}{LOG_INFO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+G\+\_\+\+I\+N\+FO(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{p...}
+\end{DoxyParamCaption}
+)~{\bf logger\+\_\+log} ({\bf log\+\_\+info},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)}\hypertarget{file__logger_8h_ab8bd16d2e7c4ca6989c85f3fd7045487}{}\label{file__logger_8h_ab8bd16d2e7c4ca6989c85f3fd7045487}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+SG@{L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+SG}}
+\index{L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+SG@{L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+SG}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+SG}{LOG_RAW_MSG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+SG(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{p...}
+\end{DoxyParamCaption}
+)~{\bf logger\+\_\+log\+\_\+raw}(msg, \#\# p)}\hypertarget{file__logger_8h_a7c82f0104f7aef1929bd04be21c47122}{}\label{file__logger_8h_a7c82f0104f7aef1929bd04be21c47122}
+Logs a raw message without any header such as the timestamp.
+
+\begin{DoxyNote}{Note}
+If Free\+R\+T\+OS is not running, the message is immediately output to file. If Free\+R\+T\+OS is running, the data will be written to buffer using the logger task and eventually flushed out to the file either after the timeout or when the buffer is full. 
+\end{DoxyNote}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!L\+O\+G\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+M\+SG@{L\+O\+G\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+M\+SG}}
+\index{L\+O\+G\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+M\+SG@{L\+O\+G\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+M\+SG}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{L\+O\+G\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+M\+SG}{LOG_SIMPLE_MSG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+G\+\_\+\+S\+I\+M\+P\+L\+E\+\_\+\+M\+SG(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{p...}
+\end{DoxyParamCaption}
+)~{\bf logger\+\_\+log} ({\bf log\+\_\+info}, N\+U\+LL, N\+U\+LL, 0, msg, \#\# p)}\hypertarget{file__logger_8h_a0fd3b7ded6cea15ebbe828d1720fd2e4}{}\label{file__logger_8h_a0fd3b7ded6cea15ebbe828d1720fd2e4}
+This macro will log I\+N\+FO message without filename, function name, and line number. This can save space to log simple messages when you don\textquotesingle{}t want to know the function name, line number and filename of where the logger function was called from.
+
+\begin{DoxyNote}{Note}
+If Free\+R\+T\+OS is not running, the message is immediately output to file. If Free\+R\+T\+OS is running, the data will be written to buffer using the logger task and eventually flushed out to the file either after the timeout or when the buffer is full. 
+\end{DoxyNote}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!L\+O\+G\+\_\+\+W\+A\+RN@{L\+O\+G\+\_\+\+W\+A\+RN}}
+\index{L\+O\+G\+\_\+\+W\+A\+RN@{L\+O\+G\+\_\+\+W\+A\+RN}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{L\+O\+G\+\_\+\+W\+A\+RN}{LOG_WARN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+G\+\_\+\+W\+A\+RN(
+\begin{DoxyParamCaption}
+\item[{}]{msg, }
+\item[{}]{p...}
+\end{DoxyParamCaption}
+)~{\bf logger\+\_\+log} ({\bf log\+\_\+warn},  \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, msg, \#\# p)}\hypertarget{file__logger_8h_ac9dc290b232b99b1465083971bcee0e1}{}\label{file__logger_8h_ac9dc290b232b99b1465083971bcee0e1}
+
+
+\subsection{Enumeration Type Documentation}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+msg\+\_\+t@{logger\+\_\+msg\+\_\+t}}
+\index{logger\+\_\+msg\+\_\+t@{logger\+\_\+msg\+\_\+t}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+msg\+\_\+t}{logger_msg_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf logger\+\_\+msg\+\_\+t}}\hypertarget{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{}\label{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}
+Enumeration of the type of the log message. You should not use this directly for logging call since the macros pass it to \hyperlink{file__logger_8h_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log()} But these can be passed to \hyperlink{file__logger_8h_af1ceb6030285f8c0d853e465e7a81c89}{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count()} \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{log\+\_\+debug@{log\+\_\+debug}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!log\+\_\+debug@{log\+\_\+debug}}\item[{\em 
+log\+\_\+debug\hypertarget{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aac1e7c8c98fa3d998014f91b4d42ad9d1}{}\label{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aac1e7c8c98fa3d998014f91b4d42ad9d1}
+}]Debug logs are printed to stdio (printf) unless disabled by \hyperlink{file__logger_8h_a93c4ad1ab6250c97dacfe0e72cdb0896}{logger\+\_\+set\+\_\+printf()} \index{log\+\_\+info@{log\+\_\+info}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!log\+\_\+info@{log\+\_\+info}}\item[{\em 
+log\+\_\+info\hypertarget{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa8597fbc71d80f4997540c7e0e0dfdb77}{}\label{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa8597fbc71d80f4997540c7e0e0dfdb77}
+}]\index{log\+\_\+warn@{log\+\_\+warn}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!log\+\_\+warn@{log\+\_\+warn}}\item[{\em 
+log\+\_\+warn\hypertarget{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aad162bf83671d0949d1245ec5ac0b9978}{}\label{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aad162bf83671d0949d1245ec5ac0b9978}
+}]\index{log\+\_\+error@{log\+\_\+error}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!log\+\_\+error@{log\+\_\+error}}\item[{\em 
+log\+\_\+error\hypertarget{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa796a5caf388845022f7715ceefee599b}{}\label{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa796a5caf388845022f7715ceefee599b}
+}]\index{log\+\_\+last@{log\+\_\+last}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!log\+\_\+last@{log\+\_\+last}}\item[{\em 
+log\+\_\+last\hypertarget{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa203bf72f8232c16bfda482222e4b12bb}{}\label{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52aa203bf72f8232c16bfda482222e4b12bb}
+}]Marks the last entry, do not use. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count}}
+\index{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count(void)}{logger_get_blocked_call_count(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_a14df36902c22f172291afc69884ba9a2}{}\label{file__logger_8h_a14df36902c22f172291afc69884ba9a2}
+\begin{DoxyReturn}{Returns}
+the number of logging calls that ended up blocking or sleeping the task waiting for a logger buffer to be available.
+\end{DoxyReturn}
+If the number is greater than zero, it indicates that you either need to slow down logger calls, or increase the number of log buffers. \index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms@{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms}}
+\index{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms@{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms(void)}{logger_get_highest_file_write_time_ms(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_ad5f1b9fc4277708bcbcf913c2a76bb04}{}\label{file__logger_8h_ad5f1b9fc4277708bcbcf913c2a76bb04}
+\begin{DoxyReturn}{Returns}
+the highest time that was spend writing the logger buffer to file. This can be useful to assess how many F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS we need because we only need enough buffers available while the file buffer is being written. 
+\end{DoxyReturn}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count}}
+\index{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count(logger\+\_\+msg\+\_\+t severity)}{logger_get_logged_call_count(logger_msg_t severity)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf logger\+\_\+msg\+\_\+t}}]{severity}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_af1ceb6030285f8c0d853e465e7a81c89}{}\label{file__logger_8h_af1ceb6030285f8c0d853e465e7a81c89}
+\begin{DoxyReturn}{Returns}
+the number of logged messages for the given severity. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em severity} & The severity for which to get the number of calls. \\
+\hline
+\end{DoxyParams}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark@{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark}}
+\index{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark@{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark(void)}{logger_get_num_buffers_watermark(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_a62f4587986d5c731b4bf1aeb53fc523b}{}\label{file__logger_8h_a62f4587986d5c731b4bf1aeb53fc523b}
+\begin{DoxyReturn}{Returns}
+the highest watermark of the number of buffers available to the logger This can be useful to assess how many F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS we need in the worst case. 
+\end{DoxyReturn}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+init@{logger\+\_\+init}}
+\index{logger\+\_\+init@{logger\+\_\+init}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+init(uint8\+\_\+t logger\+\_\+priority)}{logger_init(uint8_t logger_priority)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{logger\+\_\+priority}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_af9a6bb09efbc17222fc2794ec09bfdb0}{}\label{file__logger_8h_af9a6bb09efbc17222fc2794ec09bfdb0}
+Initializes the logger; this must be done before further logging calls are used. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em logger\+\_\+priority} & The priority at which logger should buffer user data and then write to file. \\
+\hline
+\end{DoxyParams}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+log@{logger\+\_\+log}}
+\index{logger\+\_\+log@{logger\+\_\+log}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+log(logger\+\_\+msg\+\_\+t type, const char $\ast$filename, const char $\ast$func\+\_\+name, unsigned line\+\_\+num, const char $\ast$msg,...)}{logger_log(logger_msg_t type, const char *filename, const char *func_name, unsigned line_num, const char *msg,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+log (
+\begin{DoxyParamCaption}
+\item[{{\bf logger\+\_\+msg\+\_\+t}}]{type, }
+\item[{const char $\ast$}]{filename, }
+\item[{const char $\ast$}]{func\+\_\+name, }
+\item[{unsigned}]{line\+\_\+num, }
+\item[{const char $\ast$}]{msg, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_af836483a630c721658702cf2d9a88fa6}{}\label{file__logger_8h_af836483a630c721658702cf2d9a88fa6}
+Logs a message. You should not use this directly, the macros pass the arguments to this function. \index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+log\+\_\+raw@{logger\+\_\+log\+\_\+raw}}
+\index{logger\+\_\+log\+\_\+raw@{logger\+\_\+log\+\_\+raw}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+log\+\_\+raw(const char $\ast$msg,...)}{logger_log_raw(const char *msg,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+log\+\_\+raw (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{msg, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_a8484854aa180cb3346460aad96d548e5}{}\label{file__logger_8h_a8484854aa180cb3346460aad96d548e5}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{file__logger_8h_a7c82f0104f7aef1929bd04be21c47122}{L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+S\+G()} You should not use this directly, the macros pass the arguments to this function. 
+\end{DoxySeeAlso}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+send\+\_\+flush\+\_\+request@{logger\+\_\+send\+\_\+flush\+\_\+request}}
+\index{logger\+\_\+send\+\_\+flush\+\_\+request@{logger\+\_\+send\+\_\+flush\+\_\+request}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+send\+\_\+flush\+\_\+request(void)}{logger_send_flush_request(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+send\+\_\+flush\+\_\+request (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_a90d00b7aa255a9499e43bc8f272b18f4}{}\label{file__logger_8h_a90d00b7aa255a9499e43bc8f272b18f4}
+Flushes the cached log data to the file \begin{DoxyPostcond}{Postcondition}
+This will send a special request on the logger queue to flush the data, so the actual flushing will finish by the logger task at a later time.
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Flushing is not needed when the OS is running. 
+\end{DoxyNote}
+\index{file\+\_\+logger.\+h@{file\+\_\+logger.\+h}!logger\+\_\+set\+\_\+printf@{logger\+\_\+set\+\_\+printf}}
+\index{logger\+\_\+set\+\_\+printf@{logger\+\_\+set\+\_\+printf}!file\+\_\+logger.\+h@{file\+\_\+logger.\+h}}
+\subsubsection[{\texorpdfstring{logger\+\_\+set\+\_\+printf(logger\+\_\+msg\+\_\+t type, bool enable)}{logger_set_printf(logger_msg_t type, bool enable)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+set\+\_\+printf (
+\begin{DoxyParamCaption}
+\item[{{\bf logger\+\_\+msg\+\_\+t}}]{type, }
+\item[{bool}]{enable}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8h_a93c4ad1ab6250c97dacfe0e72cdb0896}{}\label{file__logger_8h_a93c4ad1ab6250c97dacfe0e72cdb0896}
+Enables the given logging severity call to be also printed on \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & The severity for which the logging call will be printed \\
+\hline
+\mbox{\tt in}  & {\em enable} & If true, the severity level will also get printed to the screen\\
+\hline
+\end{DoxyParams}
+Note that if a lot of data is being printed, the logger call may take a while until the stdio \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} returns back. 

@@ -1,0 +1,17 @@
+matrix:
+    include:
+        - os: linux
+          sudo: true
+          dist: trusty
+          group: edge
+        - os: osx
+install:
+  - ./setup
+script:
+  - cd ./firmware/FreeRTOS/
+  - source env.sh
+  - make build
+  - ls ./bin/firmware.elf
+  - ls ./bin/firmware.hex
+  - ls ./bin/firmware.lst
+  - ls ./bin/firmware.map

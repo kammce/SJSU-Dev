@@ -1,0 +1,235 @@
+\hypertarget{croutine_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/include/croutine.h File Reference}
+\label{croutine_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/include/croutine.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/include/croutine.\+h}}
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\\*
+Include dependency graph for croutine.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{d6/d3b/croutine_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{da/dab/croutine_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcorCoRoutineControlBlock}{cor\+Co\+Routine\+Control\+Block}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{croutine_8h_a19a57a201a325e8af1207ed68c4aedde}{cr\+S\+T\+A\+RT}(px\+C\+R\+CB)~switch( ( ( \hyperlink{croutine_8h_a4d7cfb67be3465d9caeadd21c19e4401}{C\+R\+C\+B\+\_\+t} $\ast$ )( px\+C\+R\+CB ) )-\/$>$ux\+State ) \{ case 0\+:
+\item 
+\#define \hyperlink{croutine_8h_ae6038cc976689b50000475ebfc4e2f23}{cr\+E\+ND}()~\}
+\item 
+\#define \hyperlink{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E0}(x\+Handle)~( ( \hyperlink{croutine_8h_a4d7cfb67be3465d9caeadd21c19e4401}{C\+R\+C\+B\+\_\+t} $\ast$ )( x\+Handle ) )-\/$>$ux\+State = (\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2); return; case (\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2)\+:
+\item 
+\#define \hyperlink{croutine_8h_a345ffc731dc40152bfb1162453ecc1f7}{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E1}(x\+Handle)~( ( \hyperlink{croutine_8h_a4d7cfb67be3465d9caeadd21c19e4401}{C\+R\+C\+B\+\_\+t} $\ast$ )( x\+Handle ) )-\/$>$ux\+State = ((\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2)+1); return; case ((\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2)+1)\+:
+\item 
+\#define \hyperlink{croutine_8h_a05a06feb11028f2d1d440ea335f562ba}{cr\+D\+E\+L\+AY}(x\+Handle,  x\+Ticks\+To\+Delay)
+\item 
+\#define \hyperlink{croutine_8h_a26af3d36f22a04168eebdf5b08465d6e}{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+ND}(x\+Handle,  px\+Queue,  pv\+Item\+To\+Queue,  x\+Ticks\+To\+Wait,  px\+Result)
+\item 
+\#define \hyperlink{croutine_8h_a586d57fd9a3e2aa5ae66484ed3be36c9}{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+VE}(x\+Handle,  px\+Queue,  pv\+Buffer,  x\+Ticks\+To\+Wait,  px\+Result)
+\item 
+\#define \hyperlink{croutine_8h_ac8eb0a81c5cf69de7e4edd73ce44a3be}{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+N\+D\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}(px\+Queue,  pv\+Item\+To\+Queue,  x\+Co\+Routine\+Previously\+Woken)~\hyperlink{queue_8h_a80af2aff3f472600a12dea0642fa8b27}{x\+Queue\+C\+R\+Send\+From\+I\+SR}( ( px\+Queue ), ( pv\+Item\+To\+Queue ), ( x\+Co\+Routine\+Previously\+Woken ) )
+\item 
+\#define \hyperlink{croutine_8h_a9c0fa977ca69adbddb4811affa2a71f7}{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}(px\+Queue,  pv\+Buffer,  px\+Co\+Routine\+Woken)~\hyperlink{queue_8h_ad66b08c1d6a17efa8985605bf182b997}{x\+Queue\+C\+R\+Receive\+From\+I\+SR}( ( px\+Queue ), ( pv\+Buffer ), ( px\+Co\+Routine\+Woken ) )
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$ \hyperlink{croutine_8h_a33b9d058688c92258155b5756d9936dd}{Co\+Routine\+Handle\+\_\+t}
+\item 
+typedef void($\ast$ \hyperlink{croutine_8h_a397a7505718dd366d8411ce324c49758}{cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE}) (\hyperlink{croutine_8h_a33b9d058688c92258155b5756d9936dd}{Co\+Routine\+Handle\+\_\+t}, \hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t})
+\item 
+typedef struct \hyperlink{structcorCoRoutineControlBlock}{cor\+Co\+Routine\+Control\+Block} \hyperlink{croutine_8h_a4d7cfb67be3465d9caeadd21c19e4401}{C\+R\+C\+B\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{croutine_8h_ae0e03637a3d2c134e9b52006f353d8c0}{x\+Co\+Routine\+Create} (\hyperlink{croutine_8h_a397a7505718dd366d8411ce324c49758}{cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE} px\+Co\+Routine\+Code, \hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t} ux\+Priority, \hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t} ux\+Index)
+\item 
+void \hyperlink{croutine_8h_a5333c649a2c063006ca3cd7a3b5b9240}{v\+Co\+Routine\+Schedule} (void)
+\item 
+void \hyperlink{croutine_8h_a6b5b1c5857d38b79c96636754208e32d}{v\+Co\+Routine\+Add\+To\+Delayed\+List} (\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} x\+Ticks\+To\+Delay, \hyperlink{list_8h_afd590ef6400071b4d63d65ef90bea7f4}{List\+\_\+t} $\ast$px\+Event\+List)
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{croutine_8h_af2a96db518b18f5a7e1cd2fdf3c82873}{x\+Co\+Routine\+Remove\+From\+Event\+List} (const \hyperlink{list_8h_afd590ef6400071b4d63d65ef90bea7f4}{List\+\_\+t} $\ast$px\+Event\+List)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{croutine.\+h@{croutine.\+h}!cr\+D\+E\+L\+AY@{cr\+D\+E\+L\+AY}}
+\index{cr\+D\+E\+L\+AY@{cr\+D\+E\+L\+AY}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+D\+E\+L\+AY}{crDELAY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+D\+E\+L\+AY(
+\begin{DoxyParamCaption}
+\item[{}]{x\+Handle, }
+\item[{}]{x\+Ticks\+To\+Delay}
+\end{DoxyParamCaption}
+)}\hypertarget{croutine_8h_a05a06feb11028f2d1d440ea335f562ba}{}\label{croutine_8h_a05a06feb11028f2d1d440ea335f562ba}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if}( ( xTicksToDelay ) > 0 )                                                         \(\backslash\)
+    \{                                                                                   
+      \hyperlink{croutine_8h_a6b5b1c5857d38b79c96636754208e32d}{\(\backslash\)}
+\hyperlink{croutine_8h_a6b5b1c5857d38b79c96636754208e32d}{        vCoRoutineAddToDelayedList}( ( xTicksToDelay ), NULL );                          
+      \(\backslash\)
+    \}                                                                                   
+      \hyperlink{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{\(\backslash\)}
+\hyperlink{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{    crSET\_STATE0}( ( xHandle ) );
+\end{DoxyCode}
+\index{croutine.\+h@{croutine.\+h}!cr\+E\+ND@{cr\+E\+ND}}
+\index{cr\+E\+ND@{cr\+E\+ND}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+E\+ND}{crEND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+E\+ND(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~\}}\hypertarget{croutine_8h_ae6038cc976689b50000475ebfc4e2f23}{}\label{croutine_8h_ae6038cc976689b50000475ebfc4e2f23}
+\index{croutine.\+h@{croutine.\+h}!cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+VE@{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+VE}}
+\index{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+VE@{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+VE}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+VE}{crQUEUE_RECEIVE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+VE(
+\begin{DoxyParamCaption}
+\item[{}]{x\+Handle, }
+\item[{}]{px\+Queue, }
+\item[{}]{pv\+Buffer, }
+\item[{}]{x\+Ticks\+To\+Wait, }
+\item[{}]{px\+Result}
+\end{DoxyParamCaption}
+)}\hypertarget{croutine_8h_a586d57fd9a3e2aa5ae66484ed3be36c9}{}\label{croutine_8h_a586d57fd9a3e2aa5ae66484ed3be36c9}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                       \(\backslash\)
+    *( pxResult ) = \hyperlink{queue_8h_a88a02b37c486c38b8c4112e16dfed099}{xQueueCRReceive}( ( pxQueue) , ( pvBuffer ), ( xTicksToWait ) );      \(\backslash\)
+    if( *( pxResult ) == \hyperlink{projdefs_8h_a4a7ca54ee5527cd7a14830956e05ea55}{errQUEUE\_BLOCKED} )                                             \(\backslash\)
+    \{                                                                                   
+      \hyperlink{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{\(\backslash\)}
+\hyperlink{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{        crSET\_STATE0}( ( xHandle ) );                                                  \(\backslash\)
+        *( pxResult ) = \hyperlink{queue_8h_a88a02b37c486c38b8c4112e16dfed099}{xQueueCRReceive}( ( pxQueue) , ( pvBuffer ), 0 );             \(\backslash\)
+    \}                                                                                   \(\backslash\)
+    if( *( pxResult ) == \hyperlink{projdefs_8h_a3b2e2afaa2851576dfc2779a7fea59b4}{errQUEUE\_YIELD} )                                             \(\backslash\)
+    \{                                                                                   
+      \hyperlink{croutine_8h_a345ffc731dc40152bfb1162453ecc1f7}{\(\backslash\)}
+\hyperlink{croutine_8h_a345ffc731dc40152bfb1162453ecc1f7}{        crSET\_STATE1}( ( xHandle ) );                                                  \(\backslash\)
+        *( pxResult ) = \hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS};                                                           \(\backslash\)
+    \}                                                                                   \(\backslash\)
+\}
+\end{DoxyCode}
+\index{croutine.\+h@{croutine.\+h}!cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR@{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}}
+\index{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR@{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}{crQUEUE_RECEIVE_FROM_ISR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR(
+\begin{DoxyParamCaption}
+\item[{}]{px\+Queue, }
+\item[{}]{pv\+Buffer, }
+\item[{}]{px\+Co\+Routine\+Woken}
+\end{DoxyParamCaption}
+)~{\bf x\+Queue\+C\+R\+Receive\+From\+I\+SR}( ( px\+Queue ), ( pv\+Buffer ), ( px\+Co\+Routine\+Woken ) )}\hypertarget{croutine_8h_a9c0fa977ca69adbddb4811affa2a71f7}{}\label{croutine_8h_a9c0fa977ca69adbddb4811affa2a71f7}
+\index{croutine.\+h@{croutine.\+h}!cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+ND@{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+ND}}
+\index{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+ND@{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+ND}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+ND}{crQUEUE_SEND}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+ND(
+\begin{DoxyParamCaption}
+\item[{}]{x\+Handle, }
+\item[{}]{px\+Queue, }
+\item[{}]{pv\+Item\+To\+Queue, }
+\item[{}]{x\+Ticks\+To\+Wait, }
+\item[{}]{px\+Result}
+\end{DoxyParamCaption}
+)}\hypertarget{croutine_8h_a26af3d36f22a04168eebdf5b08465d6e}{}\label{croutine_8h_a26af3d36f22a04168eebdf5b08465d6e}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                       \(\backslash\)
+    *( pxResult ) = \hyperlink{queue_8h_abb5d7bd9b62f2b642104fde73c1c666b}{xQueueCRSend}( ( pxQueue) , ( pvItemToQueue) , ( xTicksToWait ) );   \(\backslash\)
+    if( *( pxResult ) == \hyperlink{projdefs_8h_a4a7ca54ee5527cd7a14830956e05ea55}{errQUEUE\_BLOCKED} )                                             \(\backslash\)
+    \{                                                                                   
+      \hyperlink{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{\(\backslash\)}
+\hyperlink{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{        crSET\_STATE0}( ( xHandle ) );                                                  \(\backslash\)
+        *pxResult = \hyperlink{queue_8h_abb5d7bd9b62f2b642104fde73c1c666b}{xQueueCRSend}( ( pxQueue ), ( pvItemToQueue ), 0 );                  \(\backslash\)
+    \}                                                                                   \(\backslash\)
+    if( *pxResult == \hyperlink{projdefs_8h_a3b2e2afaa2851576dfc2779a7fea59b4}{errQUEUE\_YIELD} )                                                 \(\backslash\)
+    \{                                                                                   
+      \hyperlink{croutine_8h_a345ffc731dc40152bfb1162453ecc1f7}{\(\backslash\)}
+\hyperlink{croutine_8h_a345ffc731dc40152bfb1162453ecc1f7}{        crSET\_STATE1}( ( xHandle ) );                                                  \(\backslash\)
+        *pxResult = \hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS};                                                               \(\backslash\)
+    \}                                                                                   \(\backslash\)
+\}
+\end{DoxyCode}
+\index{croutine.\+h@{croutine.\+h}!cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+N\+D\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR@{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+N\+D\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}}
+\index{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+N\+D\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR@{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+N\+D\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+N\+D\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR}{crQUEUE_SEND_FROM_ISR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+N\+D\+\_\+\+F\+R\+O\+M\+\_\+\+I\+SR(
+\begin{DoxyParamCaption}
+\item[{}]{px\+Queue, }
+\item[{}]{pv\+Item\+To\+Queue, }
+\item[{}]{x\+Co\+Routine\+Previously\+Woken}
+\end{DoxyParamCaption}
+)~{\bf x\+Queue\+C\+R\+Send\+From\+I\+SR}( ( px\+Queue ), ( pv\+Item\+To\+Queue ), ( x\+Co\+Routine\+Previously\+Woken ) )}\hypertarget{croutine_8h_ac8eb0a81c5cf69de7e4edd73ce44a3be}{}\label{croutine_8h_ac8eb0a81c5cf69de7e4edd73ce44a3be}
+\index{croutine.\+h@{croutine.\+h}!cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E0@{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E0}}
+\index{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E0@{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E0}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E0}{crSET_STATE0}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E0(
+\begin{DoxyParamCaption}
+\item[{}]{x\+Handle}
+\end{DoxyParamCaption}
+)~( ( {\bf C\+R\+C\+B\+\_\+t} $\ast$ )( x\+Handle ) )-\/$>$ux\+State = (\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2); return; case (\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2)\+:}\hypertarget{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}{}\label{croutine_8h_aa8ec8c0192674b896b04df1f82d679f7}
+\index{croutine.\+h@{croutine.\+h}!cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E1@{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E1}}
+\index{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E1@{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E1}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E1}{crSET_STATE1}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+S\+E\+T\+\_\+\+S\+T\+A\+T\+E1(
+\begin{DoxyParamCaption}
+\item[{}]{x\+Handle}
+\end{DoxyParamCaption}
+)~( ( {\bf C\+R\+C\+B\+\_\+t} $\ast$ )( x\+Handle ) )-\/$>$ux\+State = ((\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2)+1); return; case ((\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+ $\ast$ 2)+1)\+:}\hypertarget{croutine_8h_a345ffc731dc40152bfb1162453ecc1f7}{}\label{croutine_8h_a345ffc731dc40152bfb1162453ecc1f7}
+\index{croutine.\+h@{croutine.\+h}!cr\+S\+T\+A\+RT@{cr\+S\+T\+A\+RT}}
+\index{cr\+S\+T\+A\+RT@{cr\+S\+T\+A\+RT}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+S\+T\+A\+RT}{crSTART}}]{\setlength{\rightskip}{0pt plus 5cm}\#define cr\+S\+T\+A\+RT(
+\begin{DoxyParamCaption}
+\item[{}]{px\+C\+R\+CB}
+\end{DoxyParamCaption}
+)~switch( ( ( {\bf C\+R\+C\+B\+\_\+t} $\ast$ )( px\+C\+R\+CB ) )-\/$>$ux\+State ) \{ case 0\+:}\hypertarget{croutine_8h_a19a57a201a325e8af1207ed68c4aedde}{}\label{croutine_8h_a19a57a201a325e8af1207ed68c4aedde}
+
+
+\subsection{Typedef Documentation}
+\index{croutine.\+h@{croutine.\+h}!Co\+Routine\+Handle\+\_\+t@{Co\+Routine\+Handle\+\_\+t}}
+\index{Co\+Routine\+Handle\+\_\+t@{Co\+Routine\+Handle\+\_\+t}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{Co\+Routine\+Handle\+\_\+t}{CoRoutineHandle_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ {\bf Co\+Routine\+Handle\+\_\+t}}\hypertarget{croutine_8h_a33b9d058688c92258155b5756d9936dd}{}\label{croutine_8h_a33b9d058688c92258155b5756d9936dd}
+\index{croutine.\+h@{croutine.\+h}!C\+R\+C\+B\+\_\+t@{C\+R\+C\+B\+\_\+t}}
+\index{C\+R\+C\+B\+\_\+t@{C\+R\+C\+B\+\_\+t}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{C\+R\+C\+B\+\_\+t}{CRCB_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf cor\+Co\+Routine\+Control\+Block}  {\bf C\+R\+C\+B\+\_\+t}}\hypertarget{croutine_8h_a4d7cfb67be3465d9caeadd21c19e4401}{}\label{croutine_8h_a4d7cfb67be3465d9caeadd21c19e4401}
+\index{croutine.\+h@{croutine.\+h}!cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE@{cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE}}
+\index{cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE@{cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE}{crCOROUTINE_CODE}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE) ({\bf Co\+Routine\+Handle\+\_\+t}, {\bf U\+Base\+Type\+\_\+t})}\hypertarget{croutine_8h_a397a7505718dd366d8411ce324c49758}{}\label{croutine_8h_a397a7505718dd366d8411ce324c49758}
+
+
+\subsection{Function Documentation}
+\index{croutine.\+h@{croutine.\+h}!v\+Co\+Routine\+Add\+To\+Delayed\+List@{v\+Co\+Routine\+Add\+To\+Delayed\+List}}
+\index{v\+Co\+Routine\+Add\+To\+Delayed\+List@{v\+Co\+Routine\+Add\+To\+Delayed\+List}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{v\+Co\+Routine\+Add\+To\+Delayed\+List(\+Tick\+Type\+\_\+t x\+Ticks\+To\+Delay, List\+\_\+t $\ast$px\+Event\+List)}{vCoRoutineAddToDelayedList(TickType_t xTicksToDelay, List_t *pxEventList)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Co\+Routine\+Add\+To\+Delayed\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf Tick\+Type\+\_\+t}}]{x\+Ticks\+To\+Delay, }
+\item[{{\bf List\+\_\+t} $\ast$}]{px\+Event\+List}
+\end{DoxyParamCaption}
+)}\hypertarget{croutine_8h_a6b5b1c5857d38b79c96636754208e32d}{}\label{croutine_8h_a6b5b1c5857d38b79c96636754208e32d}
+\index{croutine.\+h@{croutine.\+h}!v\+Co\+Routine\+Schedule@{v\+Co\+Routine\+Schedule}}
+\index{v\+Co\+Routine\+Schedule@{v\+Co\+Routine\+Schedule}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{v\+Co\+Routine\+Schedule(void)}{vCoRoutineSchedule(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Co\+Routine\+Schedule (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{croutine_8h_a5333c649a2c063006ca3cd7a3b5b9240}{}\label{croutine_8h_a5333c649a2c063006ca3cd7a3b5b9240}
+\index{croutine.\+h@{croutine.\+h}!x\+Co\+Routine\+Create@{x\+Co\+Routine\+Create}}
+\index{x\+Co\+Routine\+Create@{x\+Co\+Routine\+Create}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{x\+Co\+Routine\+Create(cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+D\+E px\+Co\+Routine\+Code, U\+Base\+Type\+\_\+t ux\+Priority, U\+Base\+Type\+\_\+t ux\+Index)}{xCoRoutineCreate(crCOROUTINE_CODE pxCoRoutineCode, UBaseType_t uxPriority, UBaseType_t uxIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Co\+Routine\+Create (
+\begin{DoxyParamCaption}
+\item[{{\bf cr\+C\+O\+R\+O\+U\+T\+I\+N\+E\+\_\+\+C\+O\+DE}}]{px\+Co\+Routine\+Code, }
+\item[{{\bf U\+Base\+Type\+\_\+t}}]{ux\+Priority, }
+\item[{{\bf U\+Base\+Type\+\_\+t}}]{ux\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{croutine_8h_ae0e03637a3d2c134e9b52006f353d8c0}{}\label{croutine_8h_ae0e03637a3d2c134e9b52006f353d8c0}
+\index{croutine.\+h@{croutine.\+h}!x\+Co\+Routine\+Remove\+From\+Event\+List@{x\+Co\+Routine\+Remove\+From\+Event\+List}}
+\index{x\+Co\+Routine\+Remove\+From\+Event\+List@{x\+Co\+Routine\+Remove\+From\+Event\+List}!croutine.\+h@{croutine.\+h}}
+\subsubsection[{\texorpdfstring{x\+Co\+Routine\+Remove\+From\+Event\+List(const List\+\_\+t $\ast$px\+Event\+List)}{xCoRoutineRemoveFromEventList(const List_t *pxEventList)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Co\+Routine\+Remove\+From\+Event\+List (
+\begin{DoxyParamCaption}
+\item[{const {\bf List\+\_\+t} $\ast$}]{px\+Event\+List}
+\end{DoxyParamCaption}
+)}\hypertarget{croutine_8h_af2a96db518b18f5a7e1cd2fdf3c82873}{}\label{croutine_8h_af2a96db518b18f5a7e1cd2fdf3c82873}

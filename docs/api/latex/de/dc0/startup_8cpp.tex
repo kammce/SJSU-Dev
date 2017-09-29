@@ -1,0 +1,671 @@
+\hypertarget{startup_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/startup.cpp File Reference}
+\label{startup_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/startup.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/startup.\+cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}uart0\+\_\+min.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}printf\+\_\+lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fault\+\_\+registers.\+h\char`\"{}}\\*
+Include dependency graph for startup.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/daa/startup_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{startup_8cpp_adcf0519e4829ada8ee9de47b9c1a521b}{isr\+\_\+func\+\_\+t}) (void)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{startup_8cpp_a671a9bbc67f1f94aeb4173cbd6f0f2a7}{isr\+\_\+reset} (void)
+\begin{DoxyCompactList}\small\item\em C\+PU execution begins from this function. \end{DoxyCompactList}\item 
+void \hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler} (void)
+\begin{DoxyCompactList}\small\item\em isr\+\_\+forwarder\+\_\+routine() will call this function unless user interrupt is registered \end{DoxyCompactList}\item 
+void \hyperlink{startup_8cpp_adaf31a68c197a94d8abe9a5d6f1955a2}{isr\+\_\+hard\+\_\+fault\+\_\+handler} (unsigned long $\ast$hardfault\+\_\+args)
+\begin{DoxyCompactList}\small\item\em The hard fault handler. \end{DoxyCompactList}\item 
+void \hyperlink{startup_8cpp_a7b570f5e8833b5fc93ff2c37b41d1151}{\+\_\+v\+Stack\+Top} (void)
+\begin{DoxyCompactList}\small\item\em Linker script (loader.\+ld) defines the initial stack pointer that we set at the interrupt vector. \end{DoxyCompactList}\item 
+\hyperlink{startup_8cpp_a64ac935dd3dd6a86c5e723fd946c5f4d}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((section(\char`\"{}.isr\+\_\+vector\char`\"{}))) void($\ast$const \hyperlink{startup_8cpp_a28c770c8f2522f11e2a95f7486620c5b}{g\+\_\+pfn\+Vectors}\mbox{[}$\,$\mbox{]})(void)
+\item 
+\hyperlink{startup_8cpp_aa84443a5f6418f62b9f13b16597a540e}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((section(\char`\"{}.after\+\_\+vectors\char`\"{}))) void \hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler}(void)
+\begin{DoxyCompactList}\small\item\em If an I\+RQ is not registered, we end up at this stub function. \end{DoxyCompactList}\item 
+\hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{for} (\hyperlink{startup_8cpp_ac4948d3f194cb02e216c672e03cf9eb6}{loop}=0;\hyperlink{startup_8cpp_ac4948d3f194cb02e216c672e03cf9eb6}{loop}$<$ \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len};\hyperlink{startup_8cpp_ac4948d3f194cb02e216c672e03cf9eb6}{loop}=\hyperlink{startup_8cpp_ac4948d3f194cb02e216c672e03cf9eb6}{loop}+4)$\ast$pul\+Dest++
+\item 
+\hyperlink{startup_8cpp_a7639d63df92bff37aca33ce5e3710461}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((section(\char`\"{}.after\+\_\+vectors\char`\"{}), naked)) void \hyperlink{startup_8cpp_a671a9bbc67f1f94aeb4173cbd6f0f2a7}{isr\+\_\+reset}(void)
+\item 
+void \hyperlink{startup_8cpp_a381f506ff16d341dcdf6e25eb10ce749}{isr\+\_\+register} (\hyperlink{LPC17xx_8h_ac3af4a32370fb28c4ade8bf2add80251}{I\+R\+Qn\+\_\+\+Type} num, void($\ast$isr\+\_\+func\+\_\+ptr)(void))
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{startup_8cpp_a1a6b87d76cb07a75c42a484b587b6bd3}{W\+D\+T\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a509fbd5f229ef4e42a2bc2d27131c7e1}{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_aefb4b5f36af6e563ae43e600d1116044}{T\+I\+M\+E\+R1\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a790b8795383b1309a8ef8ac489197ef1}{T\+I\+M\+E\+R2\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a157620f7ab2b9a0d535e8392463f13d7}{T\+I\+M\+E\+R3\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_afd2c7dd1041a4bb8a7b41496dd9ee0b7}{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a473989762196576dba281f8bfa1a9f58}{U\+A\+R\+T1\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a5dadec7373a89d1b15706816eaccb382}{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a1e39d459271dcc0ce408dbe75692638f}{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_af665d822ff762a19ab9942a4bf42e9a8}{P\+W\+M1\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a4d1f9a7702a354022ff322a565f8c82b}{I2\+C0\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a3ff545437a5317d8858190f7b37e6f1a}{I2\+C1\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a7966663b4d6a94ce06db20d4a9778cf5}{I2\+C2\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_aad04b9039426a65c75a09de83352a574}{S\+P\+I\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_af190ad3b52590fbca0e45ae78fb6996e}{S\+S\+P0\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a4d175f1fbbc9afc7bc94dcf86ecab787}{S\+S\+P1\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a5f768d63471e55b6f73a7d330740dc1a}{P\+L\+L0\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a2939fe04561c8a3aa2ec444502fff702}{R\+T\+C\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_ab1da2f464c2371ec931fc255c8e1daa1}{E\+I\+N\+T0\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a41dd584c201b48866eb7f9186bc4a6fe}{E\+I\+N\+T1\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a6eb70aae79e8ddf00ef3fb0532da741f}{E\+I\+N\+T2\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a677ef6c06e26cd21e691aef4adf8e6e1}{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\begin{DoxyCompactList}\small\item\em Actual I\+SR Handler (mapped to startup file\textquotesingle{}s interrupt vector function name) \end{DoxyCompactList}\item 
+void \hyperlink{startup_8cpp_aa678e155fcbd2ffea770871f55dffaaf}{A\+D\+C\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a0fafe3414f3bada7f7331998bc423c09}{B\+O\+D\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_ab0dfffb090b77c4ab180f57a1bbbb399}{U\+S\+B\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_ab9314658512686aaee850536a9e3fafc}{C\+A\+N\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a79f6ec640dcaa97bb56d63e397b137e4}{D\+M\+A\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_acafc4e7f8e2609db4f18cba0120ac957}{I2\+S\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_ad8cad494cb2f0e2d0545f19f244dec06}{E\+N\+E\+T\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a828dfc3a67b13bd782f91494c7684f72}{R\+I\+T\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a9632b9b3d544cf43a73a374ebbfbc7c8}{M\+C\+P\+W\+M\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a76b2f0983dd44cbcb97d0d0791e77f04}{Q\+E\+I\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a6b1afcb014f00a57e85e72b5c153dd57}{P\+L\+L1\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_aeba58dece50211fa659ae430c6def778}{U\+S\+B\+Act\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\item 
+void \hyperlink{startup_8cpp_a20906927585075c29f8cd55ba2ed528a}{C\+A\+N\+Act\+\_\+\+I\+R\+Q\+Handler} (void) \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(\hyperlink{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{isr\+\_\+default\+\_\+handler})
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{startup_8cpp_a78100b2d36913d0b45565be8975e5de8}{x\+Port\+Sys\+Tick\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em OS timer or tick interrupt (for time slicing tasks) \end{DoxyCompactList}\item 
+void \hyperlink{startup_8cpp_a4e6b17b7b6e1a92564afdeff7e9dba91}{x\+Port\+Pend\+S\+V\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Context switch is performed using this interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{startup_8cpp_a859e86b6143d6bc4cf96b2867f408c75}{v\+Port\+S\+V\+C\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em OS \char`\"{}supervisor\char`\"{} call to start first Free\+R\+T\+OS task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{startup_8cpp_a5207a70668dfea08d147cb42983c19df}{low\+\_\+level\+\_\+init} (void)
+\item 
+void \hyperlink{startup_8cpp_acad89fab6d9a3d739154bab04a6283c0}{high\+\_\+level\+\_\+init} (void)
+\item 
+int \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$const \hyperlink{startup_8cpp_a28c770c8f2522f11e2a95f7486620c5b}{g\+\_\+pfn\+Vectors} \mbox{[}$\,$\mbox{]})(void)
+\item 
+unsigned int \hyperlink{startup_8cpp_a885b350339beb75f5940572b641aaa58}{start}
+\item 
+unsigned int unsigned int \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len}
+\item 
+unsigned int $\ast$ \hyperlink{startup_8cpp_a670a67e0e28b4d5ab5566ca691583c84}{pul\+Src} = (unsigned int$\ast$) romstart
+\item 
+unsigned int \hyperlink{startup_8cpp_ac4948d3f194cb02e216c672e03cf9eb6}{loop}
+\item 
+unsigned int \hyperlink{startup_8cpp_aa8f8f3229652f39c672fdb9309f96247}{\+\_\+\+\_\+data\+\_\+section\+\_\+table}
+\item 
+unsigned int \hyperlink{startup_8cpp_a09092262b7b68d7b89c9dcea506c5388}{\+\_\+\+\_\+data\+\_\+section\+\_\+table\+\_\+end}
+\item 
+unsigned int \hyperlink{startup_8cpp_a6365f813efb5c531f6eb7f031e28e6c1}{\+\_\+\+\_\+bss\+\_\+section\+\_\+table\+\_\+end}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK}~\hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak))
+\item 
+\#define \hyperlink{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{A\+L\+I\+AS}(f)~\hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak, alias (\#f)))
+\item 
+\hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK} void \hyperlink{startup_8cpp_a63acf21decb7b56bc8efaaa8d8f1fff8}{isr\+\_\+nmi} (void)
+\item 
+\hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK} void \hyperlink{startup_8cpp_a4e0e8c78242d5274467f6488cccb8c27}{isr\+\_\+hard\+\_\+fault} (void)
+\item 
+\hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK} void \hyperlink{startup_8cpp_a78f329aae7094cd6fd1ac5d91aad0e9e}{isr\+\_\+mem\+\_\+fault} (void)
+\item 
+\hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK} void \hyperlink{startup_8cpp_a166a0cd65a984573fdaff834dc441655}{isr\+\_\+bus\+\_\+fault} (void)
+\item 
+\hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK} void \hyperlink{startup_8cpp_ab06db9749f12d9d5e2493964435719ed}{isr\+\_\+usage\+\_\+fault} (void)
+\item 
+\hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK} void \hyperlink{startup_8cpp_a3ce3ebe2b51c7b56b2e96c7ec6941d43}{isr\+\_\+debug\+\_\+mon} (void)
+\item 
+\hyperlink{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK} void \hyperlink{startup_8cpp_a74aa45ce10d78cab69308dfbe4a9b6b4}{isr\+\_\+sys\+\_\+tick} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{startup.\+cpp@{startup.\+cpp}!A\+L\+I\+AS@{A\+L\+I\+AS}}
+\index{A\+L\+I\+AS@{A\+L\+I\+AS}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{A\+L\+I\+AS}{ALIAS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+I\+AS(
+\begin{DoxyParamCaption}
+\item[{}]{f}
+\end{DoxyParamCaption}
+)~{\bf \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak, alias (\#f)))}\hypertarget{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}{}\label{startup_8cpp_a0bcadbfb9fcd175b07b4d0463e54397f}
+\index{startup.\+cpp@{startup.\+cpp}!W\+E\+AK@{W\+E\+AK}}
+\index{W\+E\+AK@{W\+E\+AK}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{W\+E\+AK}{WEAK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+E\+AK~{\bf \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak))}\hypertarget{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}{}\label{startup_8cpp_ad1480e9557edcc543498ca259cee6c7d}
+Weak I\+SR handlers; these are over-\/riden when user defines them elsewhere 
+
+\subsection{Typedef Documentation}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+func\+\_\+t@{isr\+\_\+func\+\_\+t}}
+\index{isr\+\_\+func\+\_\+t@{isr\+\_\+func\+\_\+t}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+func\+\_\+t}{isr_func_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ isr\+\_\+func\+\_\+t) (void)}\hypertarget{startup_8cpp_adcf0519e4829ada8ee9de47b9c1a521b}{}\label{startup_8cpp_adcf0519e4829ada8ee9de47b9c1a521b}
+Array of I\+R\+Qs that the user can register, which we default to the weak I\+SR handler. The user can either define the real one to override the weak handler, or the user can call the \hyperlink{startup_8cpp_a381f506ff16d341dcdf6e25eb10ce749}{isr\+\_\+register()} A\+PI to change the function pointer at this array. 
+
+\subsection{Function Documentation}
+\index{startup.\+cpp@{startup.\+cpp}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+attribute\+\_\+\+\_\+((section("".\+isr\+\_\+vector""))) void($\ast$const g\+\_\+pfn\+Vectors[])(void)}{__attribute__((section(".isr_vector"))) void(*const g_pfnVectors[])(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+attribute\+\_\+\+\_\+} (
+\begin{DoxyParamCaption}
+\item[{(section(\char`\"{}.isr\+\_\+vector\char`\"{}))}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{startup_8cpp_a64ac935dd3dd6a86c5e723fd946c5f4d}{}\label{startup_8cpp_a64ac935dd3dd6a86c5e723fd946c5f4d}
+\index{startup.\+cpp@{startup.\+cpp}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+attribute\+\_\+\+\_\+((section("".\+after\+\_\+vectors""))) void isr\+\_\+default\+\_\+handler(void)}{__attribute__((section(".after_vectors"))) void isr_default_handler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+attribute\+\_\+\+\_\+} (
+\begin{DoxyParamCaption}
+\item[{(section(\char`\"{}.after\+\_\+vectors\char`\"{}))}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_aa84443a5f6418f62b9f13b16597a540e}{}\label{startup_8cpp_aa84443a5f6418f62b9f13b16597a540e}
+
+
+If an I\+RQ is not registered, we end up at this stub function. 
+
+Wrap the Free\+R\+T\+OS tick function such that we get a true measure of how much C\+PU tasks are using. \index{startup.\+cpp@{startup.\+cpp}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+attribute\+\_\+\+\_\+((section("".\+after\+\_\+vectors""), naked)) void isr\+\_\+reset(void)}{__attribute__((section(".after_vectors"), naked)) void isr_reset(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+attribute\+\_\+\+\_\+} (
+\begin{DoxyParamCaption}
+\item[{(section(\char`\"{}.after\+\_\+vectors\char`\"{}), naked)}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a7639d63df92bff37aca33ce5e3710461}{}\label{startup_8cpp_a7639d63df92bff37aca33ce5e3710461}
+The hyperload bootloader sets the M\+S\+P/\+P\+SP upon a true reset, which is when the L\+P\+C17xx (Cortex-\/\+M3) sets the values of the stack pointer. But since we are booting after a bootloader, we have to manually setup the stack pointers ourselves.\index{startup.\+cpp@{startup.\+cpp}!\+\_\+v\+Stack\+Top@{\+\_\+v\+Stack\+Top}}
+\index{\+\_\+v\+Stack\+Top@{\+\_\+v\+Stack\+Top}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+v\+Stack\+Top(void)}{_vStackTop(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void \+\_\+v\+Stack\+Top (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a7b570f5e8833b5fc93ff2c37b41d1151}{}\label{startup_8cpp_a7b570f5e8833b5fc93ff2c37b41d1151}
+
+
+Linker script (loader.\+ld) defines the initial stack pointer that we set at the interrupt vector. 
+
+\index{startup.\+cpp@{startup.\+cpp}!A\+D\+C\+\_\+\+I\+R\+Q\+Handler@{A\+D\+C\+\_\+\+I\+R\+Q\+Handler}}
+\index{A\+D\+C\+\_\+\+I\+R\+Q\+Handler@{A\+D\+C\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{A\+D\+C\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{ADC_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void A\+D\+C\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_aa678e155fcbd2ffea770871f55dffaaf}{}\label{startup_8cpp_aa678e155fcbd2ffea770871f55dffaaf}
+This is the A\+DC interrupt mapped to \hyperlink{startup_8cpp}{startup.\+cpp} I\+RQ name. This is called by the C\+PU core when A\+DC interrupt occurs. \index{startup.\+cpp@{startup.\+cpp}!B\+O\+D\+\_\+\+I\+R\+Q\+Handler@{B\+O\+D\+\_\+\+I\+R\+Q\+Handler}}
+\index{B\+O\+D\+\_\+\+I\+R\+Q\+Handler@{B\+O\+D\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{B\+O\+D\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{BOD_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+O\+D\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a0fafe3414f3bada7f7331998bc423c09}{}\label{startup_8cpp_a0fafe3414f3bada7f7331998bc423c09}
+\index{startup.\+cpp@{startup.\+cpp}!C\+A\+N\+\_\+\+I\+R\+Q\+Handler@{C\+A\+N\+\_\+\+I\+R\+Q\+Handler}}
+\index{C\+A\+N\+\_\+\+I\+R\+Q\+Handler@{C\+A\+N\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{CAN_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+A\+N\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_ab9314658512686aaee850536a9e3fafc}{}\label{startup_8cpp_ab9314658512686aaee850536a9e3fafc}
+Actual I\+SR Handler (mapped to startup file\textquotesingle{}s interrupt vector function name) This interrupt is shared between C\+A\+N1, and C\+A\+N2 \index{startup.\+cpp@{startup.\+cpp}!C\+A\+N\+Act\+\_\+\+I\+R\+Q\+Handler@{C\+A\+N\+Act\+\_\+\+I\+R\+Q\+Handler}}
+\index{C\+A\+N\+Act\+\_\+\+I\+R\+Q\+Handler@{C\+A\+N\+Act\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+Act\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{CANAct_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+A\+N\+Act\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a20906927585075c29f8cd55ba2ed528a}{}\label{startup_8cpp_a20906927585075c29f8cd55ba2ed528a}
+\index{startup.\+cpp@{startup.\+cpp}!D\+M\+A\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{D\+M\+A\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{DMA_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void D\+M\+A\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a79f6ec640dcaa97bb56d63e397b137e4}{}\label{startup_8cpp_a79f6ec640dcaa97bb56d63e397b137e4}
+\index{startup.\+cpp@{startup.\+cpp}!E\+I\+N\+T0\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T0\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+I\+N\+T0\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T0\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{E\+I\+N\+T0\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{EINT0_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void E\+I\+N\+T0\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_ab1da2f464c2371ec931fc255c8e1daa1}{}\label{startup_8cpp_ab1da2f464c2371ec931fc255c8e1daa1}
+\index{startup.\+cpp@{startup.\+cpp}!E\+I\+N\+T1\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T1\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+I\+N\+T1\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T1\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{E\+I\+N\+T1\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{EINT1_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void E\+I\+N\+T1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a41dd584c201b48866eb7f9186bc4a6fe}{}\label{startup_8cpp_a41dd584c201b48866eb7f9186bc4a6fe}
+\index{startup.\+cpp@{startup.\+cpp}!E\+I\+N\+T2\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T2\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+I\+N\+T2\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T2\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{E\+I\+N\+T2\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{EINT2_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void E\+I\+N\+T2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a6eb70aae79e8ddf00ef3fb0532da741f}{}\label{startup_8cpp_a6eb70aae79e8ddf00ef3fb0532da741f}
+\index{startup.\+cpp@{startup.\+cpp}!E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{EINT3_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a677ef6c06e26cd21e691aef4adf8e6e1}{}\label{startup_8cpp_a677ef6c06e26cd21e691aef4adf8e6e1}
+
+
+Actual I\+SR Handler (mapped to startup file\textquotesingle{}s interrupt vector function name) 
+
+\index{startup.\+cpp@{startup.\+cpp}!E\+N\+E\+T\+\_\+\+I\+R\+Q\+Handler@{E\+N\+E\+T\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+N\+E\+T\+\_\+\+I\+R\+Q\+Handler@{E\+N\+E\+T\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{E\+N\+E\+T\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{ENET_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void E\+N\+E\+T\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_ad8cad494cb2f0e2d0545f19f244dec06}{}\label{startup_8cpp_ad8cad494cb2f0e2d0545f19f244dec06}
+\index{startup.\+cpp@{startup.\+cpp}!for@{for}}
+\index{for@{for}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{for(loop=0;loop$<$ len;loop=loop+4)$\ast$pul\+Dest++}{for(loop=0;loop< len;loop=loop+4)*pulDest++}}]{\setlength{\rightskip}{0pt plus 5cm}for (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{}\label{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}
+\index{startup.\+cpp@{startup.\+cpp}!high\+\_\+level\+\_\+init@{high\+\_\+level\+\_\+init}}
+\index{high\+\_\+level\+\_\+init@{high\+\_\+level\+\_\+init}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{high\+\_\+level\+\_\+init(void)}{high_level_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void high\+\_\+level\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_acad89fab6d9a3d739154bab04a6283c0}{}\label{startup_8cpp_acad89fab6d9a3d739154bab04a6283c0}
+\index{startup.\+cpp@{startup.\+cpp}!I2\+C0\+\_\+\+I\+R\+Q\+Handler@{I2\+C0\+\_\+\+I\+R\+Q\+Handler}}
+\index{I2\+C0\+\_\+\+I\+R\+Q\+Handler@{I2\+C0\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C0\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{I2C0_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C0\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a4d1f9a7702a354022ff322a565f8c82b}{}\label{startup_8cpp_a4d1f9a7702a354022ff322a565f8c82b}
+\index{startup.\+cpp@{startup.\+cpp}!I2\+C1\+\_\+\+I\+R\+Q\+Handler@{I2\+C1\+\_\+\+I\+R\+Q\+Handler}}
+\index{I2\+C1\+\_\+\+I\+R\+Q\+Handler@{I2\+C1\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C1\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{I2C1_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a3ff545437a5317d8858190f7b37e6f1a}{}\label{startup_8cpp_a3ff545437a5317d8858190f7b37e6f1a}
+\index{startup.\+cpp@{startup.\+cpp}!I2\+C2\+\_\+\+I\+R\+Q\+Handler@{I2\+C2\+\_\+\+I\+R\+Q\+Handler}}
+\index{I2\+C2\+\_\+\+I\+R\+Q\+Handler@{I2\+C2\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C2\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{I2C2_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a7966663b4d6a94ce06db20d4a9778cf5}{}\label{startup_8cpp_a7966663b4d6a94ce06db20d4a9778cf5}
+I\+RQ Handler needs to be enclosed in extern \char`\"{}\+C\char`\"{} because this is C++ file, and we don\textquotesingle{}t want C++ to \char`\"{}mangle\char`\"{} this function name. This I\+SR Function need needs to be named precisely to override \char`\"{}\+W\+E\+A\+K\char`\"{} I\+SR handler defined at \hyperlink{startup_8cpp}{startup.\+cpp} \index{startup.\+cpp@{startup.\+cpp}!I2\+S\+\_\+\+I\+R\+Q\+Handler@{I2\+S\+\_\+\+I\+R\+Q\+Handler}}
+\index{I2\+S\+\_\+\+I\+R\+Q\+Handler@{I2\+S\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+S\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{I2S_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+S\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_acafc4e7f8e2609db4f18cba0120ac957}{}\label{startup_8cpp_acafc4e7f8e2609db4f18cba0120ac957}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+bus\+\_\+fault@{isr\+\_\+bus\+\_\+fault}}
+\index{isr\+\_\+bus\+\_\+fault@{isr\+\_\+bus\+\_\+fault}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+bus\+\_\+fault(void)}{isr_bus_fault(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\+E\+AK} void isr\+\_\+bus\+\_\+fault (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a166a0cd65a984573fdaff834dc441655}{}\label{startup_8cpp_a166a0cd65a984573fdaff834dc441655}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+debug\+\_\+mon@{isr\+\_\+debug\+\_\+mon}}
+\index{isr\+\_\+debug\+\_\+mon@{isr\+\_\+debug\+\_\+mon}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+debug\+\_\+mon(void)}{isr_debug_mon(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\+E\+AK} void isr\+\_\+debug\+\_\+mon (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a3ce3ebe2b51c7b56b2e96c7ec6941d43}{}\label{startup_8cpp_a3ce3ebe2b51c7b56b2e96c7ec6941d43}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+default\+\_\+handler@{isr\+\_\+default\+\_\+handler}}
+\index{isr\+\_\+default\+\_\+handler@{isr\+\_\+default\+\_\+handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+default\+\_\+handler(void)}{isr_default_handler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void isr\+\_\+default\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}{}\label{startup_8cpp_a5dedfa2f4e2bf0d30ff8ab0121ac5166}
+
+
+isr\+\_\+forwarder\+\_\+routine() will call this function unless user interrupt is registered 
+
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+hard\+\_\+fault@{isr\+\_\+hard\+\_\+fault}}
+\index{isr\+\_\+hard\+\_\+fault@{isr\+\_\+hard\+\_\+fault}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+hard\+\_\+fault(void)}{isr_hard_fault(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\+E\+AK} void isr\+\_\+hard\+\_\+fault (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a4e0e8c78242d5274467f6488cccb8c27}{}\label{startup_8cpp_a4e0e8c78242d5274467f6488cccb8c27}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+hard\+\_\+fault\+\_\+handler@{isr\+\_\+hard\+\_\+fault\+\_\+handler}}
+\index{isr\+\_\+hard\+\_\+fault\+\_\+handler@{isr\+\_\+hard\+\_\+fault\+\_\+handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+hard\+\_\+fault\+\_\+handler(unsigned long $\ast$hardfault\+\_\+args)}{isr_hard_fault_handler(unsigned long *hardfault_args)}}]{\setlength{\rightskip}{0pt plus 5cm}void isr\+\_\+hard\+\_\+fault\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{unsigned long $\ast$}]{hardfault\+\_\+args}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_adaf31a68c197a94d8abe9a5d6f1955a2}{}\label{startup_8cpp_adaf31a68c197a94d8abe9a5d6f1955a2}
+
+
+The hard fault handler. 
+
+This is called from the Hard\+Fault\+\_\+\+Handler\+Asm with a pointer the Fault stack as the parameter. We can then read the values from the stack and place them into local variables for ease of reading. We then read the various Fault Status and Address Registers to help decode cause of the fault. The function ends with a B\+K\+PT instruction to force control back into the debugger \index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+mem\+\_\+fault@{isr\+\_\+mem\+\_\+fault}}
+\index{isr\+\_\+mem\+\_\+fault@{isr\+\_\+mem\+\_\+fault}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+mem\+\_\+fault(void)}{isr_mem_fault(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\+E\+AK} void isr\+\_\+mem\+\_\+fault (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a78f329aae7094cd6fd1ac5d91aad0e9e}{}\label{startup_8cpp_a78f329aae7094cd6fd1ac5d91aad0e9e}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+nmi@{isr\+\_\+nmi}}
+\index{isr\+\_\+nmi@{isr\+\_\+nmi}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+nmi(void)}{isr_nmi(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\+E\+AK} void isr\+\_\+nmi (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a63acf21decb7b56bc8efaaa8d8f1fff8}{}\label{startup_8cpp_a63acf21decb7b56bc8efaaa8d8f1fff8}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+register@{isr\+\_\+register}}
+\index{isr\+\_\+register@{isr\+\_\+register}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+register(\+I\+R\+Qn\+\_\+\+Type num, void($\ast$isr\+\_\+func\+\_\+ptr)(void))}{isr_register(IRQn_Type num, void(*isr_func_ptr)(void))}}]{\setlength{\rightskip}{0pt plus 5cm}void isr\+\_\+register (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+R\+Qn\+\_\+\+Type}}]{num, }
+\item[{void($\ast$)(void)}]{isr\+\_\+func\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a381f506ff16d341dcdf6e25eb10ce749}{}\label{startup_8cpp_a381f506ff16d341dcdf6e25eb10ce749}
+This function allows the user to register a function for the interrupt service routine. Registration of an I\+RQ is not necessary if the weak I\+SR has been over-\/riden. \index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+reset@{isr\+\_\+reset}}
+\index{isr\+\_\+reset@{isr\+\_\+reset}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+reset(void)}{isr_reset(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void isr\+\_\+reset (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a671a9bbc67f1f94aeb4173cbd6f0f2a7}{}\label{startup_8cpp_a671a9bbc67f1f94aeb4173cbd6f0f2a7}
+
+
+C\+PU execution begins from this function. 
+
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+sys\+\_\+tick@{isr\+\_\+sys\+\_\+tick}}
+\index{isr\+\_\+sys\+\_\+tick@{isr\+\_\+sys\+\_\+tick}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+sys\+\_\+tick(void)}{isr_sys_tick(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\+E\+AK} void isr\+\_\+sys\+\_\+tick (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a74aa45ce10d78cab69308dfbe4a9b6b4}{}\label{startup_8cpp_a74aa45ce10d78cab69308dfbe4a9b6b4}
+\index{startup.\+cpp@{startup.\+cpp}!isr\+\_\+usage\+\_\+fault@{isr\+\_\+usage\+\_\+fault}}
+\index{isr\+\_\+usage\+\_\+fault@{isr\+\_\+usage\+\_\+fault}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{isr\+\_\+usage\+\_\+fault(void)}{isr_usage_fault(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf W\+E\+AK} void isr\+\_\+usage\+\_\+fault (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_ab06db9749f12d9d5e2493964435719ed}{}\label{startup_8cpp_ab06db9749f12d9d5e2493964435719ed}
+\index{startup.\+cpp@{startup.\+cpp}!low\+\_\+level\+\_\+init@{low\+\_\+level\+\_\+init}}
+\index{low\+\_\+level\+\_\+init@{low\+\_\+level\+\_\+init}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{low\+\_\+level\+\_\+init(void)}{low_level_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void low\+\_\+level\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a5207a70668dfea08d147cb42983c19df}{}\label{startup_8cpp_a5207a70668dfea08d147cb42983c19df}
+External functions that we will call
+
+Initializes the minimal system including C\+PU Clock, U\+A\+RT, and Flash accelerator Be careful of the order of the operations!!! Turn off I/O buffering otherwise sometimes printf/scanf doesn\textquotesingle{}t behave correctly due to strange buffering and/or flushing effects.\index{startup.\+cpp@{startup.\+cpp}!main@{main}}
+\index{main@{main}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+\index{startup.\+cpp@{startup.\+cpp}!M\+C\+P\+W\+M\+\_\+\+I\+R\+Q\+Handler@{M\+C\+P\+W\+M\+\_\+\+I\+R\+Q\+Handler}}
+\index{M\+C\+P\+W\+M\+\_\+\+I\+R\+Q\+Handler@{M\+C\+P\+W\+M\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{M\+C\+P\+W\+M\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{MCPWM_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void M\+C\+P\+W\+M\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a9632b9b3d544cf43a73a374ebbfbc7c8}{}\label{startup_8cpp_a9632b9b3d544cf43a73a374ebbfbc7c8}
+\index{startup.\+cpp@{startup.\+cpp}!P\+L\+L0\+\_\+\+I\+R\+Q\+Handler@{P\+L\+L0\+\_\+\+I\+R\+Q\+Handler}}
+\index{P\+L\+L0\+\_\+\+I\+R\+Q\+Handler@{P\+L\+L0\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{P\+L\+L0\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{PLL0_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void P\+L\+L0\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a5f768d63471e55b6f73a7d330740dc1a}{}\label{startup_8cpp_a5f768d63471e55b6f73a7d330740dc1a}
+\index{startup.\+cpp@{startup.\+cpp}!P\+L\+L1\+\_\+\+I\+R\+Q\+Handler@{P\+L\+L1\+\_\+\+I\+R\+Q\+Handler}}
+\index{P\+L\+L1\+\_\+\+I\+R\+Q\+Handler@{P\+L\+L1\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{P\+L\+L1\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{PLL1_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void P\+L\+L1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a6b1afcb014f00a57e85e72b5c153dd57}{}\label{startup_8cpp_a6b1afcb014f00a57e85e72b5c153dd57}
+\index{startup.\+cpp@{startup.\+cpp}!P\+W\+M1\+\_\+\+I\+R\+Q\+Handler@{P\+W\+M1\+\_\+\+I\+R\+Q\+Handler}}
+\index{P\+W\+M1\+\_\+\+I\+R\+Q\+Handler@{P\+W\+M1\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{P\+W\+M1\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{PWM1_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void P\+W\+M1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_af665d822ff762a19ab9942a4bf42e9a8}{}\label{startup_8cpp_af665d822ff762a19ab9942a4bf42e9a8}
+\index{startup.\+cpp@{startup.\+cpp}!Q\+E\+I\+\_\+\+I\+R\+Q\+Handler@{Q\+E\+I\+\_\+\+I\+R\+Q\+Handler}}
+\index{Q\+E\+I\+\_\+\+I\+R\+Q\+Handler@{Q\+E\+I\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{Q\+E\+I\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{QEI_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+E\+I\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a76b2f0983dd44cbcb97d0d0791e77f04}{}\label{startup_8cpp_a76b2f0983dd44cbcb97d0d0791e77f04}
+\index{startup.\+cpp@{startup.\+cpp}!R\+I\+T\+\_\+\+I\+R\+Q\+Handler@{R\+I\+T\+\_\+\+I\+R\+Q\+Handler}}
+\index{R\+I\+T\+\_\+\+I\+R\+Q\+Handler@{R\+I\+T\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{R\+I\+T\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{RIT_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+I\+T\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a828dfc3a67b13bd782f91494c7684f72}{}\label{startup_8cpp_a828dfc3a67b13bd782f91494c7684f72}
+R\+IT Interrupt function (see \hyperlink{startup_8cpp}{startup.\+cpp}) \index{startup.\+cpp@{startup.\+cpp}!R\+T\+C\+\_\+\+I\+R\+Q\+Handler@{R\+T\+C\+\_\+\+I\+R\+Q\+Handler}}
+\index{R\+T\+C\+\_\+\+I\+R\+Q\+Handler@{R\+T\+C\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{R\+T\+C\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{RTC_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+C\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a2939fe04561c8a3aa2ec444502fff702}{}\label{startup_8cpp_a2939fe04561c8a3aa2ec444502fff702}
+\index{startup.\+cpp@{startup.\+cpp}!S\+P\+I\+\_\+\+I\+R\+Q\+Handler@{S\+P\+I\+\_\+\+I\+R\+Q\+Handler}}
+\index{S\+P\+I\+\_\+\+I\+R\+Q\+Handler@{S\+P\+I\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{S\+P\+I\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{SPI_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void S\+P\+I\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_aad04b9039426a65c75a09de83352a574}{}\label{startup_8cpp_aad04b9039426a65c75a09de83352a574}
+\index{startup.\+cpp@{startup.\+cpp}!S\+S\+P0\+\_\+\+I\+R\+Q\+Handler@{S\+S\+P0\+\_\+\+I\+R\+Q\+Handler}}
+\index{S\+S\+P0\+\_\+\+I\+R\+Q\+Handler@{S\+S\+P0\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{S\+S\+P0\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{SSP0_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void S\+S\+P0\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_af190ad3b52590fbca0e45ae78fb6996e}{}\label{startup_8cpp_af190ad3b52590fbca0e45ae78fb6996e}
+\index{startup.\+cpp@{startup.\+cpp}!S\+S\+P1\+\_\+\+I\+R\+Q\+Handler@{S\+S\+P1\+\_\+\+I\+R\+Q\+Handler}}
+\index{S\+S\+P1\+\_\+\+I\+R\+Q\+Handler@{S\+S\+P1\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{S\+S\+P1\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{SSP1_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void S\+S\+P1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a4d175f1fbbc9afc7bc94dcf86ecab787}{}\label{startup_8cpp_a4d175f1fbbc9afc7bc94dcf86ecab787}
+\index{startup.\+cpp@{startup.\+cpp}!T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{TIMER0_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a509fbd5f229ef4e42a2bc2d27131c7e1}{}\label{startup_8cpp_a509fbd5f229ef4e42a2bc2d27131c7e1}
+Actual I\+SR function (\begin{DoxySeeAlso}{See also}
+\hyperlink{startup_8cpp}{startup.\+cpp}) 
+\end{DoxySeeAlso}
+\index{startup.\+cpp@{startup.\+cpp}!T\+I\+M\+E\+R1\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R1\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M\+E\+R1\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R1\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R1\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{TIMER1_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M\+E\+R1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_aefb4b5f36af6e563ae43e600d1116044}{}\label{startup_8cpp_aefb4b5f36af6e563ae43e600d1116044}
+\index{startup.\+cpp@{startup.\+cpp}!T\+I\+M\+E\+R2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R2\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M\+E\+R2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R2\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R2\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{TIMER2_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M\+E\+R2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a790b8795383b1309a8ef8ac489197ef1}{}\label{startup_8cpp_a790b8795383b1309a8ef8ac489197ef1}
+\index{startup.\+cpp@{startup.\+cpp}!T\+I\+M\+E\+R3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R3\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M\+E\+R3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R3\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R3\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{TIMER3_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M\+E\+R3\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a157620f7ab2b9a0d535e8392463f13d7}{}\label{startup_8cpp_a157620f7ab2b9a0d535e8392463f13d7}
+\index{startup.\+cpp@{startup.\+cpp}!U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{UART0_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_afd2c7dd1041a4bb8a7b41496dd9ee0b7}{}\label{startup_8cpp_afd2c7dd1041a4bb8a7b41496dd9ee0b7}
+I\+RQ Handler needs to be enclosed in extern \char`\"{}\+C\char`\"{} because this is C++ file, and we don\textquotesingle{}t want C++ to \char`\"{}mangle\char`\"{} our function name. This I\+SR Function need needs to be named precisely to override \char`\"{}\+W\+E\+A\+K\char`\"{} I\+SR handler defined at \hyperlink{startup_8cpp}{startup.\+cpp} \index{startup.\+cpp@{startup.\+cpp}!U\+A\+R\+T1\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T1\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+A\+R\+T1\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T1\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{U\+A\+R\+T1\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{UART1_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T1\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a473989762196576dba281f8bfa1a9f58}{}\label{startup_8cpp_a473989762196576dba281f8bfa1a9f58}
+\index{startup.\+cpp@{startup.\+cpp}!U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{UART2_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a5dadec7373a89d1b15706816eaccb382}{}\label{startup_8cpp_a5dadec7373a89d1b15706816eaccb382}
+I\+RQ Handler needs to be enclosed in extern \char`\"{}\+C\char`\"{} because this is C++ file, and we don\textquotesingle{}t want C++ to \char`\"{}mangle\char`\"{} our function name. This I\+SR Function need needs to be named precisely to override \char`\"{}\+W\+E\+A\+K\char`\"{} I\+SR handler defined at \hyperlink{startup_8cpp}{startup.\+cpp} \index{startup.\+cpp@{startup.\+cpp}!U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{UART3_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a1e39d459271dcc0ce408dbe75692638f}{}\label{startup_8cpp_a1e39d459271dcc0ce408dbe75692638f}
+I\+RQ Handler needs to be enclosed in extern \char`\"{}\+C\char`\"{} because this is C++ file, and we don\textquotesingle{}t want C++ to \char`\"{}mangle\char`\"{} our function name. This I\+SR Function need needs to be named precisely to override \char`\"{}\+W\+E\+A\+K\char`\"{} I\+SR handler defined at \hyperlink{startup_8cpp}{startup.\+cpp} \index{startup.\+cpp@{startup.\+cpp}!U\+S\+B\+\_\+\+I\+R\+Q\+Handler@{U\+S\+B\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+S\+B\+\_\+\+I\+R\+Q\+Handler@{U\+S\+B\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{USB_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+S\+B\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_ab0dfffb090b77c4ab180f57a1bbbb399}{}\label{startup_8cpp_ab0dfffb090b77c4ab180f57a1bbbb399}
+\index{startup.\+cpp@{startup.\+cpp}!U\+S\+B\+Act\+\_\+\+I\+R\+Q\+Handler@{U\+S\+B\+Act\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+S\+B\+Act\+\_\+\+I\+R\+Q\+Handler@{U\+S\+B\+Act\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{U\+S\+B\+Act\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{USBAct_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+S\+B\+Act\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_aeba58dece50211fa659ae430c6def778}{}\label{startup_8cpp_aeba58dece50211fa659ae430c6def778}
+\index{startup.\+cpp@{startup.\+cpp}!v\+Port\+S\+V\+C\+Handler@{v\+Port\+S\+V\+C\+Handler}}
+\index{v\+Port\+S\+V\+C\+Handler@{v\+Port\+S\+V\+C\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{v\+Port\+S\+V\+C\+Handler(void)}{vPortSVCHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+S\+V\+C\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a859e86b6143d6bc4cf96b2867f408c75}{}\label{startup_8cpp_a859e86b6143d6bc4cf96b2867f408c75}
+
+
+OS \char`\"{}supervisor\char`\"{} call to start first Free\+R\+T\+OS task. 
+
+\index{startup.\+cpp@{startup.\+cpp}!W\+D\+T\+\_\+\+I\+R\+Q\+Handler@{W\+D\+T\+\_\+\+I\+R\+Q\+Handler}}
+\index{W\+D\+T\+\_\+\+I\+R\+Q\+Handler@{W\+D\+T\+\_\+\+I\+R\+Q\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{W\+D\+T\+\_\+\+I\+R\+Q\+Handler(void) A\+L\+I\+A\+S(isr\+\_\+default\+\_\+handler)}{WDT_IRQHandler(void) ALIAS(isr_default_handler)}}]{\setlength{\rightskip}{0pt plus 5cm}void W\+D\+T\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a1a6b87d76cb07a75c42a484b587b6bd3}{}\label{startup_8cpp_a1a6b87d76cb07a75c42a484b587b6bd3}
+Weak I\+SR handlers; these are over-\/riden when the user defines them elsewhere \index{startup.\+cpp@{startup.\+cpp}!x\+Port\+Pend\+S\+V\+Handler@{x\+Port\+Pend\+S\+V\+Handler}}
+\index{x\+Port\+Pend\+S\+V\+Handler@{x\+Port\+Pend\+S\+V\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{x\+Port\+Pend\+S\+V\+Handler(void)}{xPortPendSVHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void x\+Port\+Pend\+S\+V\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a4e6b17b7b6e1a92564afdeff7e9dba91}{}\label{startup_8cpp_a4e6b17b7b6e1a92564afdeff7e9dba91}
+
+
+Context switch is performed using this interrupt. 
+
+\index{startup.\+cpp@{startup.\+cpp}!x\+Port\+Sys\+Tick\+Handler@{x\+Port\+Sys\+Tick\+Handler}}
+\index{x\+Port\+Sys\+Tick\+Handler@{x\+Port\+Sys\+Tick\+Handler}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{x\+Port\+Sys\+Tick\+Handler(void)}{xPortSysTickHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void x\+Port\+Sys\+Tick\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{startup_8cpp_a78100b2d36913d0b45565be8975e5de8}{}\label{startup_8cpp_a78100b2d36913d0b45565be8975e5de8}
+
+
+OS timer or tick interrupt (for time slicing tasks) 
+
+Free\+R\+T\+OS Interrupt Handlers 
+
+\subsection{Variable Documentation}
+\index{startup.\+cpp@{startup.\+cpp}!\+\_\+\+\_\+bss\+\_\+section\+\_\+table\+\_\+end@{\+\_\+\+\_\+bss\+\_\+section\+\_\+table\+\_\+end}}
+\index{\+\_\+\+\_\+bss\+\_\+section\+\_\+table\+\_\+end@{\+\_\+\+\_\+bss\+\_\+section\+\_\+table\+\_\+end}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+bss\+\_\+section\+\_\+table\+\_\+end}{__bss_section_table_end}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int \+\_\+\+\_\+bss\+\_\+section\+\_\+table\+\_\+end}\hypertarget{startup_8cpp_a6365f813efb5c531f6eb7f031e28e6c1}{}\label{startup_8cpp_a6365f813efb5c531f6eb7f031e28e6c1}
+\index{startup.\+cpp@{startup.\+cpp}!\+\_\+\+\_\+data\+\_\+section\+\_\+table@{\+\_\+\+\_\+data\+\_\+section\+\_\+table}}
+\index{\+\_\+\+\_\+data\+\_\+section\+\_\+table@{\+\_\+\+\_\+data\+\_\+section\+\_\+table}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+data\+\_\+section\+\_\+table}{__data_section_table}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int \+\_\+\+\_\+data\+\_\+section\+\_\+table}\hypertarget{startup_8cpp_aa8f8f3229652f39c672fdb9309f96247}{}\label{startup_8cpp_aa8f8f3229652f39c672fdb9309f96247}
+\index{startup.\+cpp@{startup.\+cpp}!\+\_\+\+\_\+data\+\_\+section\+\_\+table\+\_\+end@{\+\_\+\+\_\+data\+\_\+section\+\_\+table\+\_\+end}}
+\index{\+\_\+\+\_\+data\+\_\+section\+\_\+table\+\_\+end@{\+\_\+\+\_\+data\+\_\+section\+\_\+table\+\_\+end}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+data\+\_\+section\+\_\+table\+\_\+end}{__data_section_table_end}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int \+\_\+\+\_\+data\+\_\+section\+\_\+table\+\_\+end}\hypertarget{startup_8cpp_a09092262b7b68d7b89c9dcea506c5388}{}\label{startup_8cpp_a09092262b7b68d7b89c9dcea506c5388}
+\index{startup.\+cpp@{startup.\+cpp}!g\+\_\+pfn\+Vectors@{g\+\_\+pfn\+Vectors}}
+\index{g\+\_\+pfn\+Vectors@{g\+\_\+pfn\+Vectors}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{g\+\_\+pfn\+Vectors}{g_pfnVectors}}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ const g\+\_\+pfn\+Vectors\mbox{[}$\,$\mbox{]})(void)}\hypertarget{startup_8cpp_a28c770c8f2522f11e2a95f7486620c5b}{}\label{startup_8cpp_a28c770c8f2522f11e2a95f7486620c5b}
+C\+PU interrupt vector table that is loaded at the beginning of the C\+PU start location by using the linker script that will place it at the isr\+\_\+vector location. C\+PU loads the stack pointer and begins execution from Reset vector. \index{startup.\+cpp@{startup.\+cpp}!len@{len}}
+\index{len@{len}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{len}{len}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int len}\hypertarget{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{}\label{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} *pulDest = (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}*) \hyperlink{startup_8cpp_a885b350339beb75f5940572b641aaa58}{start}
+\end{DoxyCode}
+\index{startup.\+cpp@{startup.\+cpp}!loop@{loop}}
+\index{loop@{loop}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{loop}{loop}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int loop}\hypertarget{startup_8cpp_ac4948d3f194cb02e216c672e03cf9eb6}{}\label{startup_8cpp_ac4948d3f194cb02e216c672e03cf9eb6}
+\index{startup.\+cpp@{startup.\+cpp}!pul\+Src@{pul\+Src}}
+\index{pul\+Src@{pul\+Src}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{pul\+Src}{pulSrc}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int$\ast$ pul\+Src = (unsigned int$\ast$) romstart}\hypertarget{startup_8cpp_a670a67e0e28b4d5ab5566ca691583c84}{}\label{startup_8cpp_a670a67e0e28b4d5ab5566ca691583c84}
+\index{startup.\+cpp@{startup.\+cpp}!start@{start}}
+\index{start@{start}!startup.\+cpp@{startup.\+cpp}}
+\subsubsection[{\texorpdfstring{start}{start}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int start}\hypertarget{startup_8cpp_a885b350339beb75f5940572b641aaa58}{}\label{startup_8cpp_a885b350339beb75f5940572b641aaa58}

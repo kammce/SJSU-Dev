@@ -1,0 +1,310 @@
+\hypertarget{classCircularBuffer}{}\section{Circular\+Buffer$<$ T\+Y\+PE $>$ Class Template Reference}
+\label{classCircularBuffer}\index{Circular\+Buffer$<$ T\+Y\+P\+E $>$@{Circular\+Buffer$<$ T\+Y\+P\+E $>$}}
+
+
+{\ttfamily \#include $<$circular\+\_\+buffer.\+hpp$>$}
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classCircularBuffer_1_1const__iterator}{const\+\_\+iterator}
+\item 
+class \hyperlink{classCircularBuffer_1_1iterator}{iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \hyperlink{classCircularBuffer_a2030ed25523469c9401f82aff85f7020}{size\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCircularBuffer_ab360f7d423d23878d71a5f9858519379}{Circular\+Buffer} (uint32\+\_\+t \hyperlink{classCircularBuffer_a87e9e9d7eb50070d2b4a21b0462432e9}{capacity})
+\begin{DoxyCompactList}\small\item\em Constructor with initial capacity as buffer size. \end{DoxyCompactList}\item 
+\hyperlink{classCircularBuffer_acb40a5e54d92f38fee343082a4840cbe}{Circular\+Buffer} (const \hyperlink{classCircularBuffer}{Circular\+Buffer} \&copy)
+\begin{DoxyCompactList}\small\item\em Copy Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classCircularBuffer}{Circular\+Buffer} \& \hyperlink{classCircularBuffer_a390a6d1e651447fb23c155a6928097c1}{operator=} (const \hyperlink{classCircularBuffer}{Circular\+Buffer} \&copy)
+\begin{DoxyCompactList}\small\item\em = Operator to copy the buffer \end{DoxyCompactList}\item 
+\hyperlink{classCircularBuffer_a09f9833297c2cf6c1f535be9478474c1}{$\sim$\+Circular\+Buffer} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the buffer. \end{DoxyCompactList}\item 
+bool \hyperlink{classCircularBuffer_a874e11e8de40e5d6d478a39087960af8}{push\+\_\+back} (const T\+Y\+PE data, bool force\+Write=false)
+\item 
+T\+Y\+PE \hyperlink{classCircularBuffer_af4aab198b93af59b55a69584ab015c2b}{pop\+\_\+front} (void)
+\item 
+bool \hyperlink{classCircularBuffer_ada422a5714f04db84a510d6491b624cd}{pop\+\_\+front} (T\+Y\+PE $\ast$data\+Ptr)
+\item 
+T\+Y\+PE \hyperlink{classCircularBuffer_a578d0618578c41b0580466af3d264a5b}{peek\+\_\+front} (void)
+\item 
+bool \hyperlink{classCircularBuffer_ac0e89e5c880ef100b5cbb8cbd07ab801}{peek\+\_\+front} (T\+Y\+PE $\ast$data\+Ptr)
+\item 
+uint32\+\_\+t \hyperlink{classCircularBuffer_a88253a12755af0082b7156dbaa197506}{size} (void) const 
+\item 
+uint32\+\_\+t \hyperlink{classCircularBuffer_a87e9e9d7eb50070d2b4a21b0462432e9}{capacity} (void) const 
+\item 
+void \hyperlink{classCircularBuffer_a51a1c7cb366dde83435e7213118a23c2}{clear} (void)
+\begin{DoxyCompactList}\small\item\em Clears the contents of the buffer. \end{DoxyCompactList}\item 
+void \hyperlink{classCircularBuffer_a0c62cd81bfc1f16b8c5c6f93dae3f00c}{operator+=} (T\+Y\+PE item)
+\begin{DoxyCompactList}\small\item\em += Operator which is same as \hyperlink{classCircularBuffer_a874e11e8de40e5d6d478a39087960af8}{push\+\_\+back()} of an item \end{DoxyCompactList}\item 
+T\+Y\+PE \& \hyperlink{classCircularBuffer_a9f547e56c0eca3166ae0c79d87b8c264}{operator\mbox{[}$\,$\mbox{]}} (uint32\+\_\+t index) const 
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCircularBuffer_1_1iterator}{iterator} \hyperlink{classCircularBuffer_a2f247c16874a1ed5366a972eb36b3781}{begin} ()
+\item 
+\hyperlink{classCircularBuffer_1_1iterator}{iterator} \hyperlink{classCircularBuffer_a6c64c8c145dbeb2b56b1fdf3ed359218}{end} ()
+\item 
+\hyperlink{classCircularBuffer_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classCircularBuffer_a26d55467abd9e69f45581045a7d048c4}{begin} () const 
+\item 
+\hyperlink{classCircularBuffer_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classCircularBuffer_a7b15719340d0459b80cce993bf3d122d}{end} () const 
+\end{DoxyCompactItemize}
+
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classCircularBuffer_a67171474c4da6cc8efe0c7fafefd2b2d}{iterator}
+\begin{DoxyCompactList}\small\item\em Iterator is our friend... \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T\+Y\+PE$>$\\*
+class Circular\+Buffer$<$ T\+Y\+P\+E $>$}
+
+Circular buffer class
+
+Usage\+: 
+\begin{DoxyCode}
+\hyperlink{classCircularBuffer}{CircularBuffer <int>} b(3);
+b.push\_back(1);
+b.push\_back(2);
+b.push\_back(3);
+b.push\_back(0);       \textcolor{comment}{// Will fail since buffer is full}
+b.push\_back(4, \textcolor{keyword}{true}); \textcolor{comment}{// Overwrite oldest data}
+
+\textcolor{comment}{// Read the elements without popping the data, access them using index operator}
+\textcolor{comment}{// Should be "2 3 4" since we previously over-wrote "1" with "4"}
+\hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf}(\textcolor{stringliteral}{"\(\backslash\)nContents using index operator: "});
+\textcolor{keywordflow}{for} (uint32\_t i = 0; i < b.size(); i++) \{
+    \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf}(\textcolor{stringliteral}{"%i "}, b[i]);
+\}
+
+\textcolor{comment}{// Use the iterator to read data without popping the data off the buffer}
+\textcolor{comment}{// Should be "2 3 4"; same as using the index operator.}
+\hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf}(\textcolor{stringliteral}{"\(\backslash\)nContents using iterator: "});
+\textcolor{keywordflow}{for}(\hyperlink{classCircularBuffer_1_1iterator}{CircularBuffer<int>::iterator} cb = b.begin(); cb != b.end(); ++cb)
+\{
+    \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf}(\textcolor{stringliteral}{"%i "}, *(cb));
+\}
+
+\textcolor{comment}{// Pop the data from the buffer, should pop "2 3 4"}
+\textcolor{keywordtype}{int} i = 0;
+\textcolor{keywordflow}{while} (b.pop\_front(&i)) \{
+    \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf}(\textcolor{stringliteral}{"\(\backslash\)nPopped %i"}, i);
+\}
+\end{DoxyCode}
+ 
+
+\subsection{Member Typedef Documentation}
+\index{Circular\+Buffer@{Circular\+Buffer}!size\+\_\+type@{size\+\_\+type}}
+\index{size\+\_\+type@{size\+\_\+type}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{size\+\_\+type}{size_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ typedef int {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf size\+\_\+type}}\hypertarget{classCircularBuffer_a2030ed25523469c9401f82aff85f7020}{}\label{classCircularBuffer_a2030ed25523469c9401f82aff85f7020}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Circular\+Buffer@{Circular\+Buffer}!Circular\+Buffer@{Circular\+Buffer}}
+\index{Circular\+Buffer@{Circular\+Buffer}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{Circular\+Buffer(uint32\+\_\+t capacity)}{CircularBuffer(uint32_t capacity)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf Circular\+Buffer} (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{capacity}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_ab360f7d423d23878d71a5f9858519379}{}\label{classCircularBuffer_ab360f7d423d23878d71a5f9858519379}
+
+
+Constructor with initial capacity as buffer size. 
+
+\index{Circular\+Buffer@{Circular\+Buffer}!Circular\+Buffer@{Circular\+Buffer}}
+\index{Circular\+Buffer@{Circular\+Buffer}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{Circular\+Buffer(const Circular\+Buffer \&copy)}{CircularBuffer(const CircularBuffer &copy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf Circular\+Buffer} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$ \&}]{copy}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_acb40a5e54d92f38fee343082a4840cbe}{}\label{classCircularBuffer_acb40a5e54d92f38fee343082a4840cbe}
+
+
+Copy Constructor. 
+
+\index{Circular\+Buffer@{Circular\+Buffer}!````~Circular\+Buffer@{$\sim$\+Circular\+Buffer}}
+\index{````~Circular\+Buffer@{$\sim$\+Circular\+Buffer}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{$\sim$\+Circular\+Buffer()}{~CircularBuffer()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::$\sim${\bf Circular\+Buffer} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_a09f9833297c2cf6c1f535be9478474c1}{}\label{classCircularBuffer_a09f9833297c2cf6c1f535be9478474c1}
+
+
+Destructor of the buffer. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Circular\+Buffer@{Circular\+Buffer}!begin@{begin}}
+\index{begin@{begin}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{begin()}{begin()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf iterator} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a2f247c16874a1ed5366a972eb36b3781}{}\label{classCircularBuffer_a2f247c16874a1ed5366a972eb36b3781}
+Get iterators \index{Circular\+Buffer@{Circular\+Buffer}!begin@{begin}}
+\index{begin@{begin}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf const\+\_\+iterator} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a26d55467abd9e69f45581045a7d048c4}{}\label{classCircularBuffer_a26d55467abd9e69f45581045a7d048c4}
+\index{Circular\+Buffer@{Circular\+Buffer}!capacity@{capacity}}
+\index{capacity@{capacity}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{capacity(void) const }{capacity(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ uint32\+\_\+t {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::capacity (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a87e9e9d7eb50070d2b4a21b0462432e9}{}\label{classCircularBuffer_a87e9e9d7eb50070d2b4a21b0462432e9}
+\begin{DoxyReturn}{Returns}
+the capacity of the circular buffer 
+\end{DoxyReturn}
+\index{Circular\+Buffer@{Circular\+Buffer}!clear@{clear}}
+\index{clear@{clear}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{clear(void)}{clear(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a51a1c7cb366dde83435e7213118a23c2}{}\label{classCircularBuffer_a51a1c7cb366dde83435e7213118a23c2}
+
+
+Clears the contents of the buffer. 
+
+\index{Circular\+Buffer@{Circular\+Buffer}!end@{end}}
+\index{end@{end}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{end()}{end()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf iterator} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a6c64c8c145dbeb2b56b1fdf3ed359218}{}\label{classCircularBuffer_a6c64c8c145dbeb2b56b1fdf3ed359218}
+\index{Circular\+Buffer@{Circular\+Buffer}!end@{end}}
+\index{end@{end}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf const\+\_\+iterator} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a7b15719340d0459b80cce993bf3d122d}{}\label{classCircularBuffer_a7b15719340d0459b80cce993bf3d122d}
+\index{Circular\+Buffer@{Circular\+Buffer}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{operator+=(\+T\+Y\+P\+E item)}{operator+=(TYPE item)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{T\+Y\+PE}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a0c62cd81bfc1f16b8c5c6f93dae3f00c}{}\label{classCircularBuffer_a0c62cd81bfc1f16b8c5c6f93dae3f00c}
+
+
++= Operator which is same as \hyperlink{classCircularBuffer_a874e11e8de40e5d6d478a39087960af8}{push\+\_\+back()} of an item 
+
+\index{Circular\+Buffer@{Circular\+Buffer}!operator=@{operator=}}
+\index{operator=@{operator=}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{operator=(const Circular\+Buffer \&copy)}{operator=(const CircularBuffer &copy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$ \& {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$ \&}]{copy}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_a390a6d1e651447fb23c155a6928097c1}{}\label{classCircularBuffer_a390a6d1e651447fb23c155a6928097c1}
+
+
+= Operator to copy the buffer 
+
+\index{Circular\+Buffer@{Circular\+Buffer}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{operator[](uint32\+\_\+t index) const }{operator[](uint32_t index) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ T\+Y\+PE\& {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a9f547e56c0eca3166ae0c79d87b8c264}{}\label{classCircularBuffer_a9f547e56c0eca3166ae0c79d87b8c264}
+Index operator. This will always return in the F\+I\+FO order, so index 0 represents the O\+L\+D\+E\+ST data. The max index value should not go beyond \mbox{[}get\+Capacity() -\/ 1\mbox{]} \index{Circular\+Buffer@{Circular\+Buffer}!peek\+\_\+front@{peek\+\_\+front}}
+\index{peek\+\_\+front@{peek\+\_\+front}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{peek\+\_\+front(void)}{peek_front(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ T\+Y\+PE {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::peek\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_a578d0618578c41b0580466af3d264a5b}{}\label{classCircularBuffer_a578d0618578c41b0580466af3d264a5b}
+\begin{DoxyReturn}{Returns}
+the oldest element, but doesn\textquotesingle{}t remove it from the buffer 
+\end{DoxyReturn}
+\index{Circular\+Buffer@{Circular\+Buffer}!peek\+\_\+front@{peek\+\_\+front}}
+\index{peek\+\_\+front@{peek\+\_\+front}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{peek\+\_\+front(\+T\+Y\+P\+E $\ast$data\+Ptr)}{peek_front(TYPE *dataPtr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ bool {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::peek\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{T\+Y\+PE $\ast$}]{data\+Ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_ac0e89e5c880ef100b5cbb8cbd07ab801}{}\label{classCircularBuffer_ac0e89e5c880ef100b5cbb8cbd07ab801}
+\begin{DoxyReturn}{Returns}
+true if an element is available, and is read into data\+Ptr 
+\end{DoxyReturn}
+\index{Circular\+Buffer@{Circular\+Buffer}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{pop\+\_\+front(void)}{pop_front(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ T\+Y\+PE {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::pop\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_af4aab198b93af59b55a69584ab015c2b}{}\label{classCircularBuffer_af4aab198b93af59b55a69584ab015c2b}
+\begin{DoxyReturn}{Returns}
+the oldest element 
+\end{DoxyReturn}
+\index{Circular\+Buffer@{Circular\+Buffer}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{pop\+\_\+front(\+T\+Y\+P\+E $\ast$data\+Ptr)}{pop_front(TYPE *dataPtr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ bool {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::pop\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{T\+Y\+PE $\ast$}]{data\+Ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_ada422a5714f04db84a510d6491b624cd}{}\label{classCircularBuffer_ada422a5714f04db84a510d6491b624cd}
+\begin{DoxyReturn}{Returns}
+true if an element is available to be read, and is read to data\+Ptr 
+\end{DoxyReturn}
+\index{Circular\+Buffer@{Circular\+Buffer}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{push\+\_\+back(const T\+Y\+P\+E data, bool force\+Write=false)}{push_back(const TYPE data, bool forceWrite=false)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ bool {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::push\+\_\+back (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE}]{data, }
+\item[{bool}]{force\+Write = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{classCircularBuffer_a874e11e8de40e5d6d478a39087960af8}{}\label{classCircularBuffer_a874e11e8de40e5d6d478a39087960af8}
+Write to end of buffer. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to write. \\
+\hline
+{\em force\+Write} & Optional parameter, if true, and the buffer is full, will force a write, discarding oldest data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful or false if no capacity 
+\end{DoxyReturn}
+If we don\textquotesingle{}t have the capacity, then perform a read() to pop the oldest element, and then cap the count.\index{Circular\+Buffer@{Circular\+Buffer}!size@{size}}
+\index{size@{size}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{size(void) const }{size(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ uint32\+\_\+t {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_a88253a12755af0082b7156dbaa197506}{}\label{classCircularBuffer_a88253a12755af0082b7156dbaa197506}
+\begin{DoxyReturn}{Returns}
+the number of elements in the array 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Circular\+Buffer@{Circular\+Buffer}!iterator@{iterator}}
+\index{iterator@{iterator}!Circular\+Buffer@{Circular\+Buffer}}
+\subsubsection[{\texorpdfstring{iterator}{iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ friend class {\bf iterator}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classCircularBuffer_a67171474c4da6cc8efe0c7fafefd2b2d}{}\label{classCircularBuffer_a67171474c4da6cc8efe0c7fafefd2b2d}
+
+
+Iterator is our friend... 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{circular__buffer_8hpp}{circular\+\_\+buffer.\+hpp}\end{DoxyCompactItemize}

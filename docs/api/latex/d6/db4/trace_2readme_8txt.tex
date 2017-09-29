@@ -1,0 +1,86 @@
+\hypertarget{trace_2readme_8txt}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/trace/readme.txt File Reference}
+\label{trace_2readme_8txt}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/trace/readme.\+txt@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/trace/readme.\+txt}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf} (\char`\"{}Recorder started\+: \%s\textbackslash{}n\char`\"{}, ui\+Trace\+Start()?\char`\"{}OK\char`\"{}\+:\char`\"{}E\+R\+R\+OR\char`\"{})
+\item 
+\hyperlink{trace_2readme_8txt_aab6d12e817533a453ac47609299f6779}{printf} (\char`\"{}\%s\+: \%u bytes from \%p\textbackslash{}n\char`\"{}, ok?\char`\"{}Wrote\char`\"{}\+:\char`\"{}Failed to write \char`\"{}, buffer\+\_\+size, \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+To use the Free\+R\+T\+OS \hyperlink{trace_2readme_8txt_aab7bcc83643280624f762e053e1b2686}{trace}
+\item 
+To use the Free\+R\+T\+OS so play with it a little $\ast$uses roughly of \hyperlink{trace_2readme_8txt_a17f7301b9acba7201908dab292b43f58}{R\+AM}
+\item 
+To use the Free\+R\+T\+OS so play with it a little $\ast$uses roughly of and uses roughly of \hyperlink{trace_2readme_8txt_a17f7301b9acba7201908dab292b43f58}{R\+AM} $\ast$The larger the \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size}
+\item 
+To use the Free\+R\+T\+OS so play with it a little $\ast$uses roughly of and uses roughly of \hyperlink{trace_2readme_8txt_a17f7301b9acba7201908dab292b43f58}{R\+AM} $\ast$The larger the the larger recording buffer $\ast$You can choose ring \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer} = \hyperlink{trcUser_8h_ac0e8710931d5a1084ffa076f75ba035c}{v\+Trace\+Get\+Trace\+Buffer}()
+\item 
+To use the Free\+R\+T\+OS so play with it a little $\ast$uses roughly of and uses roughly of \hyperlink{trace_2readme_8txt_a17f7301b9acba7201908dab292b43f58}{R\+AM} $\ast$The larger the the larger recording \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer} $\ast$You can choose ring or stop \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer} at trc\+Config h \hyperlink{trace_2readme_8txt_ad6faecc4c34426783188b0ad8552a8d8}{Warnings}
+\item 
+To use the Free\+R\+T\+OS so play with it a little $\ast$uses roughly of and uses roughly of \hyperlink{trace_2readme_8txt_a17f7301b9acba7201908dab292b43f58}{R\+AM} $\ast$The larger the the larger recording \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer} $\ast$You can choose ring or stop \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer} at trc\+Config h it did not work if we started it at \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} cpp \hyperlink{trace_2readme_8txt_a01807876ea43790d1481e4f6b6e7b08f}{Instructions}
+\item 
+The code to save the \hyperlink{trace_2readme_8txt_aab7bcc83643280624f762e053e1b2686}{trace} \hyperlink{trace_2readme_8txt_a7e33a55c77d8cbd03ec57a69d78a39dc}{is}
+\item 
+size\+\_\+t \hyperlink{trace_2readme_8txt_a799a743b3abd553a37fc01ad3097df08}{buffer\+\_\+size} = \hyperlink{trcUser_8h_a031796f64e2393ebeb4dfc424cf3c3ae}{ui\+Trace\+Get\+Trace\+Buffer\+Size}()
+\item 
+const bool \hyperlink{trace_2readme_8txt_ab1dec86efb716110c1bbcfec4dda55f1}{ok} = (\hyperlink{ff_8h_a49d0171ecbd362cda5680a0d360db44ca62fce5cd9df008f8fc85f99706bda5f1}{F\+R\+\_\+\+OK} == \hyperlink{classStorage_a0194f1c6e14b23a759685a88c2e1bf0c}{Storage\+::write}(\char`\"{}1\+:trcf3.\+bin\char`\"{}, buffer, \hyperlink{trace_2readme_8txt_a799a743b3abd553a37fc01ad3097df08}{buffer\+\_\+size}))
+\item 
+The code above writes the \hyperlink{trace_2readme_8txt_aab7bcc83643280624f762e053e1b2686}{trace} at the SD \hyperlink{trace_2readme_8txt_a0d1fd70c70215609966800df0223784b}{card}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!printf@{printf}}
+\index{printf@{printf}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{printf(""Recorder started\+: \%s\textbackslash{}n"", ui\+Trace\+Start()?""OK""\+:""E\+R\+R\+OR"")}{printf("Recorder started: %s\textbackslash{}n", uiTraceStart()?"OK":"ERROR")}}]{\setlength{\rightskip}{0pt plus 5cm}printf (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}Recorder started\+: \%s\textbackslash{}n\char`\"{}}]{, }
+\item[{{\bf ui\+Trace\+Start}()?\char`\"{}OK\char`\"{}\+:\char`\"{}E\+R\+R\+OR\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{}\label{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!printf@{printf}}
+\index{printf@{printf}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{printf(""\%s\+: \%u bytes from \%p\textbackslash{}n"", ok?""Wrote""\+:""Failed to write "", buffer\+\_\+size, buffer)}{printf("%s: %u bytes from %p\textbackslash{}n", ok?"Wrote":"Failed to write ", buffer_size, buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}printf (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}\%s\+: \%u bytes from \%p\textbackslash{}n\char`\"{}}]{, }
+\item[{{\bf ok}?\char`\"{}Wrote\char`\"{}\+:\char`\"{}Failed to write \char`\"{}}]{, }
+\item[{{\bf buffer\+\_\+size}}]{, }
+\item[{{\bf buffer}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{trace_2readme_8txt_aab6d12e817533a453ac47609299f6779}{}\label{trace_2readme_8txt_aab6d12e817533a453ac47609299f6779}
+
+
+\subsection{Variable Documentation}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!buffer@{buffer}}
+\index{buffer@{buffer}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{buffer}{buffer}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ buffer = {\bf v\+Trace\+Get\+Trace\+Buffer}()}\hypertarget{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{}\label{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!buffer\+\_\+size@{buffer\+\_\+size}}
+\index{buffer\+\_\+size@{buffer\+\_\+size}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{buffer\+\_\+size}{buffer_size}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t buffer\+\_\+size = {\bf ui\+Trace\+Get\+Trace\+Buffer\+Size}()}\hypertarget{trace_2readme_8txt_a799a743b3abd553a37fc01ad3097df08}{}\label{trace_2readme_8txt_a799a743b3abd553a37fc01ad3097df08}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!card@{card}}
+\index{card@{card}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{card}{card}}]{\setlength{\rightskip}{0pt plus 5cm}The code above writes the {\bf trace} at the SD card}\hypertarget{trace_2readme_8txt_a0d1fd70c70215609966800df0223784b}{}\label{trace_2readme_8txt_a0d1fd70c70215609966800df0223784b}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!Instructions@{Instructions}}
+\index{Instructions@{Instructions}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{Instructions}{Instructions}}]{\setlength{\rightskip}{0pt plus 5cm}To use the Free\+R\+T\+OS so play with it a little$\ast$ uses roughly of and uses roughly of {\bf R\+AM}$\ast$ The larger the the larger recording {\bf buffer}$\ast$ You can choose ring or stop {\bf buffer} at trc\+Config h it did not work if we started it at {\bf main} cpp Instructions}\hypertarget{trace_2readme_8txt_a01807876ea43790d1481e4f6b6e7b08f}{}\label{trace_2readme_8txt_a01807876ea43790d1481e4f6b6e7b08f}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!is@{is}}
+\index{is@{is}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{is}{is}}]{\setlength{\rightskip}{0pt plus 5cm}The code to save the {\bf trace} is}\hypertarget{trace_2readme_8txt_a7e33a55c77d8cbd03ec57a69d78a39dc}{}\label{trace_2readme_8txt_a7e33a55c77d8cbd03ec57a69d78a39dc}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!ok@{ok}}
+\index{ok@{ok}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{ok}{ok}}]{\setlength{\rightskip}{0pt plus 5cm}const bool ok = ({\bf F\+R\+\_\+\+OK} == {\bf Storage\+::write}(\char`\"{}1\+:trcf3.\+bin\char`\"{}, buffer, {\bf buffer\+\_\+size}))}\hypertarget{trace_2readme_8txt_ab1dec86efb716110c1bbcfec4dda55f1}{}\label{trace_2readme_8txt_ab1dec86efb716110c1bbcfec4dda55f1}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!R\+AM@{R\+AM}}
+\index{R\+AM@{R\+AM}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{R\+AM}{RAM}}]{\setlength{\rightskip}{0pt plus 5cm}To use the Free\+R\+T\+OS so play with it a little$\ast$ uses roughly of R\+AM}\hypertarget{trace_2readme_8txt_a17f7301b9acba7201908dab292b43f58}{}\label{trace_2readme_8txt_a17f7301b9acba7201908dab292b43f58}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!size@{size}}
+\index{size@{size}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{size}{size}}]{\setlength{\rightskip}{0pt plus 5cm}To use the Free\+R\+T\+OS so play with it a little$\ast$ uses roughly of and uses roughly of {\bf R\+AM}$\ast$ The larger the size}\hypertarget{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{}\label{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!trace@{trace}}
+\index{trace@{trace}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{trace}{trace}}]{\setlength{\rightskip}{0pt plus 5cm}To use the Free\+R\+T\+OS trace}\hypertarget{trace_2readme_8txt_aab7bcc83643280624f762e053e1b2686}{}\label{trace_2readme_8txt_aab7bcc83643280624f762e053e1b2686}
+\index{trace/readme.\+txt@{trace/readme.\+txt}!Warnings@{Warnings}}
+\index{Warnings@{Warnings}!trace/readme.\+txt@{trace/readme.\+txt}}
+\subsubsection[{\texorpdfstring{Warnings}{Warnings}}]{\setlength{\rightskip}{0pt plus 5cm}To use the Free\+R\+T\+OS so play with it a little$\ast$ uses roughly of and uses roughly of {\bf R\+AM}$\ast$ The larger the the larger recording {\bf buffer}$\ast$ You can choose ring or stop {\bf buffer} at trc\+Config h Warnings}\hypertarget{trace_2readme_8txt_ad6faecc4c34426783188b0ad8552a8d8}{}\label{trace_2readme_8txt_ad6faecc4c34426783188b0ad8552a8d8}

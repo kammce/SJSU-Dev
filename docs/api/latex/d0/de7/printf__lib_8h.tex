@@ -1,0 +1,83 @@
+\hypertarget{printf__lib_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/printf\+\_\+lib.h File Reference}
+\label{printf__lib_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/printf\+\_\+lib.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/printf\+\_\+lib.\+h}}
+
+
+Contains printf library to use inside I\+SR, or print data on heap.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/dee/printf__lib_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{printf__lib_8h_ad1fb09740720dacd61a657fc3f3a70b1}{u0\+\_\+dbg\+\_\+printf} (const char $\ast$format,...)
+\item 
+void \hyperlink{printf__lib_8h_a6e8564c1cb49896a428231ff0adc2cb4}{u0\+\_\+dbg\+\_\+put} (const char $\ast$string)
+\item 
+char $\ast$ \hyperlink{printf__lib_8h_a897ec561e5345ad7d21b4944238f447d}{mprintf} (const char $\ast$format,...)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains printf library to use inside I\+SR, or print data on heap. 
+
+
+
+\subsection{Function Documentation}
+\index{printf\+\_\+lib.\+h@{printf\+\_\+lib.\+h}!mprintf@{mprintf}}
+\index{mprintf@{mprintf}!printf\+\_\+lib.\+h@{printf\+\_\+lib.\+h}}
+\subsubsection[{\texorpdfstring{mprintf(const char $\ast$format,...)}{mprintf(const char *format,...)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mprintf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{printf__lib_8h_a897ec561e5345ad7d21b4944238f447d}{}\label{printf__lib_8h_a897ec561e5345ad7d21b4944238f447d}
+Prints a formatted string on a heap pointer and returns it back. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em format} & The printf format string \\
+\hline
+\mbox{\tt in}  & {\em ...} & The printf arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the printed string
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Use this function carefully as it can fragment memory on a system if used excessively. 
+
+Pointer obtained from this function must be freed. 
+\end{DoxyWarning}
+\index{printf\+\_\+lib.\+h@{printf\+\_\+lib.\+h}!u0\+\_\+dbg\+\_\+printf@{u0\+\_\+dbg\+\_\+printf}}
+\index{u0\+\_\+dbg\+\_\+printf@{u0\+\_\+dbg\+\_\+printf}!printf\+\_\+lib.\+h@{printf\+\_\+lib.\+h}}
+\subsubsection[{\texorpdfstring{u0\+\_\+dbg\+\_\+printf(const char $\ast$format,...)}{u0_dbg_printf(const char *format,...)}}]{\setlength{\rightskip}{0pt plus 5cm}int u0\+\_\+dbg\+\_\+printf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{printf__lib_8h_ad1fb09740720dacd61a657fc3f3a70b1}{}\label{printf__lib_8h_ad1fb09740720dacd61a657fc3f3a70b1}
+Prints a debug statement. This is same as \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()}, but will ensure that all data sent over uart0 is flushed completely. This solves the problem where one can \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} something immediately because it is possible that regular \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} may queue the data and the system crashes before anything useful was printed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em format} & The printf format string \\
+\hline
+\mbox{\tt in}  & {\em ...} & The printf arguments \\
+\hline
+\end{DoxyParams}
+\index{printf\+\_\+lib.\+h@{printf\+\_\+lib.\+h}!u0\+\_\+dbg\+\_\+put@{u0\+\_\+dbg\+\_\+put}}
+\index{u0\+\_\+dbg\+\_\+put@{u0\+\_\+dbg\+\_\+put}!printf\+\_\+lib.\+h@{printf\+\_\+lib.\+h}}
+\subsubsection[{\texorpdfstring{u0\+\_\+dbg\+\_\+put(const char $\ast$string)}{u0_dbg_put(const char *string)}}]{\setlength{\rightskip}{0pt plus 5cm}void u0\+\_\+dbg\+\_\+put (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\hypertarget{printf__lib_8h_a6e8564c1cb49896a428231ff0adc2cb4}{}\label{printf__lib_8h_a6e8564c1cb49896a428231ff0adc2cb4}
+Prints a string to uart and returns after entire string is printed. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em string} & N\+U\+LL terminated string to print \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,75 @@
+\hypertarget{lpc__timers_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/lpc\+\_\+timers.c File Reference}
+\label{lpc__timers_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/lpc\+\_\+timers.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/lpc\+\_\+timers.\+c}}
+{\ttfamily \#include \char`\"{}lpc\+\_\+timers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+timers.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/db1/lpc__timers_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__timers_8c_a2691ef06aac4c4c2f8bc180b8d104972}{lpc\+\_\+timer\+\_\+enable} (const \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{lpc\+\_\+timer\+\_\+t} timer, const uint32\+\_\+t us\+\_\+per\+\_\+tick)
+\item 
+uint32\+\_\+t \hyperlink{lpc__timers_8c_a48e241114b6e204fd6cb231d9117c2a5}{lpc\+\_\+timer\+\_\+get\+\_\+value} (const \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{lpc\+\_\+timer\+\_\+t} timer)
+\item 
+void \hyperlink{lpc__timers_8c_a6722724a468933500d21e11c3f47fd5e}{lpc\+\_\+timer\+\_\+set\+\_\+value} (const \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{lpc\+\_\+timer\+\_\+t} timer, uint32\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+timers.\+c@{lpc\+\_\+timers.\+c}!lpc\+\_\+timer\+\_\+enable@{lpc\+\_\+timer\+\_\+enable}}
+\index{lpc\+\_\+timer\+\_\+enable@{lpc\+\_\+timer\+\_\+enable}!lpc\+\_\+timers.\+c@{lpc\+\_\+timers.\+c}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+timer\+\_\+enable(const lpc\+\_\+timer\+\_\+t timer, const uint32\+\_\+t us\+\_\+per\+\_\+tick)}{lpc_timer_enable(const lpc_timer_t timer, const uint32_t us_per_tick)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+timer\+\_\+enable (
+\begin{DoxyParamCaption}
+\item[{const {\bf lpc\+\_\+timer\+\_\+t}}]{timer, }
+\item[{const uint32\+\_\+t}]{us\+\_\+per\+\_\+tick}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__timers_8c_a2691ef06aac4c4c2f8bc180b8d104972}{}\label{lpc__timers_8c_a2691ef06aac4c4c2f8bc180b8d104972}
+Enables and starts the timer with the given tick rate 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em timer} & The timer type \\
+\hline
+\mbox{\tt in}  & {\em us\+\_\+per\+\_\+tick} & The resolution of each tick\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The logic requires the C\+PU to be running at greater than or equal to 1\+Mhz 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Postcondition}
+The timer\textquotesingle{}s clock divider is set to (C\+PU clock)/1 
+\end{DoxyPostcond}
+\index{lpc\+\_\+timers.\+c@{lpc\+\_\+timers.\+c}!lpc\+\_\+timer\+\_\+get\+\_\+value@{lpc\+\_\+timer\+\_\+get\+\_\+value}}
+\index{lpc\+\_\+timer\+\_\+get\+\_\+value@{lpc\+\_\+timer\+\_\+get\+\_\+value}!lpc\+\_\+timers.\+c@{lpc\+\_\+timers.\+c}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+timer\+\_\+get\+\_\+value(const lpc\+\_\+timer\+\_\+t timer)}{lpc_timer_get_value(const lpc_timer_t timer)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t lpc\+\_\+timer\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const {\bf lpc\+\_\+timer\+\_\+t}}]{timer}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__timers_8c_a48e241114b6e204fd6cb231d9117c2a5}{}\label{lpc__timers_8c_a48e241114b6e204fd6cb231d9117c2a5}
+Get the value of the timer 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em timer} & The timer type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the timer 
+\end{DoxyReturn}
+\index{lpc\+\_\+timers.\+c@{lpc\+\_\+timers.\+c}!lpc\+\_\+timer\+\_\+set\+\_\+value@{lpc\+\_\+timer\+\_\+set\+\_\+value}}
+\index{lpc\+\_\+timer\+\_\+set\+\_\+value@{lpc\+\_\+timer\+\_\+set\+\_\+value}!lpc\+\_\+timers.\+c@{lpc\+\_\+timers.\+c}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+timer\+\_\+set\+\_\+value(const lpc\+\_\+timer\+\_\+t timer, uint32\+\_\+t value)}{lpc_timer_set_value(const lpc_timer_t timer, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+timer\+\_\+set\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const {\bf lpc\+\_\+timer\+\_\+t}}]{timer, }
+\item[{const uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__timers_8c_a6722724a468933500d21e11c3f47fd5e}{}\label{lpc__timers_8c_a6722724a468933500d21e11c3f47fd5e}
+Set the value of the timer; you normally shouldn\textquotesingle{}t do this as the hardware is ticking the timer in the background but you can use it to reset it to zero. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em timer} & The timer type \\
+\hline
+\mbox{\tt in}  & {\em value} & The value to set. \\
+\hline
+\end{DoxyParams}

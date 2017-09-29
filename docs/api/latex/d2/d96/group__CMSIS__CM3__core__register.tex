@@ -1,0 +1,106 @@
+\hypertarget{group__CMSIS__CM3__core__register}{}\section{C\+M\+S\+IS C\+M3 Core Register}
+\label{group__CMSIS__CM3__core__register}\index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+Collaboration diagram for C\+M\+S\+IS C\+M3 Core Register\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d96/group__CMSIS__CM3__core__register}
+\end{center}
+\end{figure}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__CMSIS__CM3__NVIC}{C\+M\+S\+I\+S C\+M3 N\+V\+IC}
+\item 
+\hyperlink{group__CMSIS__CM3__SCB}{C\+M\+S\+I\+S C\+M3 S\+CB}
+\item 
+\hyperlink{group__CMSIS__CM3__SysTick}{C\+M\+S\+I\+S C\+M3 Sys\+Tick}
+\item 
+\hyperlink{group__CMSIS__CM3__ITM}{C\+M\+S\+I\+S C\+M3 I\+TM}
+\item 
+\hyperlink{group__CMSIS__CM3__InterruptType}{C\+M\+S\+I\+S C\+M3 Interrupt Type}
+\item 
+\hyperlink{group__CMSIS__CM3__MPU}{C\+M\+S\+I\+S C\+M3 M\+PU}
+\item 
+\hyperlink{group__CMSIS__CM3__CoreDebug}{C\+M\+S\+I\+S C\+M3 Core Debug}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}{S\+C\+S\+\_\+\+B\+A\+SE}~(0x\+E000\+E000)
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gadd76251e412a195ec0a8f47227a8359e}{I\+T\+M\+\_\+\+B\+A\+SE}~(0x\+E0000000)
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_ga680604dbcda9e9b31a1639fcffe5230b}{Core\+Debug\+\_\+\+B\+A\+SE}~(0x\+E000\+E\+D\+F0)
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_ga58effaac0b93006b756d33209e814646}{Sys\+Tick\+\_\+\+B\+A\+SE}~(\hyperlink{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}{S\+C\+S\+\_\+\+B\+A\+SE} +  0x0010)
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gaa0288691785a5f868238e0468b39523d}{N\+V\+I\+C\+\_\+\+B\+A\+SE}~(\hyperlink{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}{S\+C\+S\+\_\+\+B\+A\+SE} +  0x0100)
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gad55a7ddb8d4b2398b0c1cfec76c0d9fd}{S\+C\+B\+\_\+\+B\+A\+SE}~(\hyperlink{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}{S\+C\+S\+\_\+\+B\+A\+SE} +  0x0\+D00)
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_ga164238adbad56f07c7dd4e912af748dd}{Interrupt\+Type}~((\hyperlink{structInterruptType__Type}{Interrupt\+Type\+\_\+\+Type} $\ast$) \hyperlink{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}{S\+C\+S\+\_\+\+B\+A\+SE})
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gaaaf6477c2bde2f00f99e3c2fd1060b01}{S\+CB}~((\hyperlink{structSCB__Type}{S\+C\+B\+\_\+\+Type} $\ast$)           \hyperlink{group__CMSIS__CM3__core__register_gad55a7ddb8d4b2398b0c1cfec76c0d9fd}{S\+C\+B\+\_\+\+B\+A\+SE})
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gacd96c53beeaff8f603fcda425eb295de}{Sys\+Tick}~((\hyperlink{structSysTick__Type}{Sys\+Tick\+\_\+\+Type} $\ast$)       \hyperlink{group__CMSIS__CM3__core__register_ga58effaac0b93006b756d33209e814646}{Sys\+Tick\+\_\+\+B\+A\+SE})
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gac8e97e8ce56ae9f57da1363a937f8a17}{N\+V\+IC}~((\hyperlink{structNVIC__Type}{N\+V\+I\+C\+\_\+\+Type} $\ast$)          \hyperlink{group__CMSIS__CM3__core__register_gaa0288691785a5f868238e0468b39523d}{N\+V\+I\+C\+\_\+\+B\+A\+SE})
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gabae7cdf882def602cb787bb039ff6a43}{I\+TM}~((\hyperlink{structITM__Type}{I\+T\+M\+\_\+\+Type} $\ast$)           \hyperlink{group__CMSIS__CM3__core__register_gadd76251e412a195ec0a8f47227a8359e}{I\+T\+M\+\_\+\+B\+A\+SE})
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gab6e30a2b802d9021619dbb0be7f5d63d}{Core\+Debug}~((\hyperlink{structCoreDebug__Type}{Core\+Debug\+\_\+\+Type} $\ast$)     \hyperlink{group__CMSIS__CM3__core__register_ga680604dbcda9e9b31a1639fcffe5230b}{Core\+Debug\+\_\+\+B\+A\+SE})
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gaa0805ccd2bc4e42d63adb0618d2af571}{M\+P\+U\+\_\+\+B\+A\+SE}~(\hyperlink{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}{S\+C\+S\+\_\+\+B\+A\+SE} +  0x0\+D90)
+\item 
+\#define \hyperlink{group__CMSIS__CM3__core__register_gaad8182e72fe5037a6ba1eb65a1554e0b}{M\+PU}~((\hyperlink{structMPU__Type}{M\+P\+U\+\_\+\+Type}$\ast$)            \hyperlink{group__CMSIS__CM3__core__register_gaa0805ccd2bc4e42d63adb0618d2af571}{M\+P\+U\+\_\+\+B\+A\+SE})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Macro Definition Documentation}
+\index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!Core\+Debug@{Core\+Debug}}
+\index{Core\+Debug@{Core\+Debug}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{Core\+Debug}{CoreDebug}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Core\+Debug~(({\bf Core\+Debug\+\_\+\+Type} $\ast$)     {\bf Core\+Debug\+\_\+\+B\+A\+SE})}\hypertarget{group__CMSIS__CM3__core__register_gab6e30a2b802d9021619dbb0be7f5d63d}{}\label{group__CMSIS__CM3__core__register_gab6e30a2b802d9021619dbb0be7f5d63d}
+Core Debug configuration struct \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!Core\+Debug\+\_\+\+B\+A\+SE@{Core\+Debug\+\_\+\+B\+A\+SE}}
+\index{Core\+Debug\+\_\+\+B\+A\+SE@{Core\+Debug\+\_\+\+B\+A\+SE}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{Core\+Debug\+\_\+\+B\+A\+SE}{CoreDebug_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Core\+Debug\+\_\+\+B\+A\+SE~(0x\+E000\+E\+D\+F0)}\hypertarget{group__CMSIS__CM3__core__register_ga680604dbcda9e9b31a1639fcffe5230b}{}\label{group__CMSIS__CM3__core__register_ga680604dbcda9e9b31a1639fcffe5230b}
+Core Debug Base Address \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!Interrupt\+Type@{Interrupt\+Type}}
+\index{Interrupt\+Type@{Interrupt\+Type}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{Interrupt\+Type}{InterruptType}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Interrupt\+Type~(({\bf Interrupt\+Type\+\_\+\+Type} $\ast$) {\bf S\+C\+S\+\_\+\+B\+A\+SE})}\hypertarget{group__CMSIS__CM3__core__register_ga164238adbad56f07c7dd4e912af748dd}{}\label{group__CMSIS__CM3__core__register_ga164238adbad56f07c7dd4e912af748dd}
+Interrupt Type Register \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!I\+TM@{I\+TM}}
+\index{I\+TM@{I\+TM}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{I\+TM}{ITM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+TM~(({\bf I\+T\+M\+\_\+\+Type} $\ast$)           {\bf I\+T\+M\+\_\+\+B\+A\+SE})}\hypertarget{group__CMSIS__CM3__core__register_gabae7cdf882def602cb787bb039ff6a43}{}\label{group__CMSIS__CM3__core__register_gabae7cdf882def602cb787bb039ff6a43}
+I\+TM configuration struct \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!I\+T\+M\+\_\+\+B\+A\+SE@{I\+T\+M\+\_\+\+B\+A\+SE}}
+\index{I\+T\+M\+\_\+\+B\+A\+SE@{I\+T\+M\+\_\+\+B\+A\+SE}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{I\+T\+M\+\_\+\+B\+A\+SE}{ITM_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+T\+M\+\_\+\+B\+A\+SE~(0x\+E0000000)}\hypertarget{group__CMSIS__CM3__core__register_gadd76251e412a195ec0a8f47227a8359e}{}\label{group__CMSIS__CM3__core__register_gadd76251e412a195ec0a8f47227a8359e}
+I\+TM Base Address \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!M\+PU@{M\+PU}}
+\index{M\+PU@{M\+PU}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{M\+PU}{MPU}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+PU~(({\bf M\+P\+U\+\_\+\+Type}$\ast$)            {\bf M\+P\+U\+\_\+\+B\+A\+SE})}\hypertarget{group__CMSIS__CM3__core__register_gaad8182e72fe5037a6ba1eb65a1554e0b}{}\label{group__CMSIS__CM3__core__register_gaad8182e72fe5037a6ba1eb65a1554e0b}
+Memory Protection Unit \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!M\+P\+U\+\_\+\+B\+A\+SE@{M\+P\+U\+\_\+\+B\+A\+SE}}
+\index{M\+P\+U\+\_\+\+B\+A\+SE@{M\+P\+U\+\_\+\+B\+A\+SE}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{M\+P\+U\+\_\+\+B\+A\+SE}{MPU_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+P\+U\+\_\+\+B\+A\+SE~({\bf S\+C\+S\+\_\+\+B\+A\+SE} +  0x0\+D90)}\hypertarget{group__CMSIS__CM3__core__register_gaa0805ccd2bc4e42d63adb0618d2af571}{}\label{group__CMSIS__CM3__core__register_gaa0805ccd2bc4e42d63adb0618d2af571}
+Memory Protection Unit \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!N\+V\+IC@{N\+V\+IC}}
+\index{N\+V\+IC@{N\+V\+IC}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{N\+V\+IC}{NVIC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+V\+IC~(({\bf N\+V\+I\+C\+\_\+\+Type} $\ast$)          {\bf N\+V\+I\+C\+\_\+\+B\+A\+SE})}\hypertarget{group__CMSIS__CM3__core__register_gac8e97e8ce56ae9f57da1363a937f8a17}{}\label{group__CMSIS__CM3__core__register_gac8e97e8ce56ae9f57da1363a937f8a17}
+N\+V\+IC configuration struct \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!N\+V\+I\+C\+\_\+\+B\+A\+SE@{N\+V\+I\+C\+\_\+\+B\+A\+SE}}
+\index{N\+V\+I\+C\+\_\+\+B\+A\+SE@{N\+V\+I\+C\+\_\+\+B\+A\+SE}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{N\+V\+I\+C\+\_\+\+B\+A\+SE}{NVIC_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+V\+I\+C\+\_\+\+B\+A\+SE~({\bf S\+C\+S\+\_\+\+B\+A\+SE} +  0x0100)}\hypertarget{group__CMSIS__CM3__core__register_gaa0288691785a5f868238e0468b39523d}{}\label{group__CMSIS__CM3__core__register_gaa0288691785a5f868238e0468b39523d}
+N\+V\+IC Base Address \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!S\+CB@{S\+CB}}
+\index{S\+CB@{S\+CB}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{S\+CB}{SCB}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+CB~(({\bf S\+C\+B\+\_\+\+Type} $\ast$)           {\bf S\+C\+B\+\_\+\+B\+A\+SE})}\hypertarget{group__CMSIS__CM3__core__register_gaaaf6477c2bde2f00f99e3c2fd1060b01}{}\label{group__CMSIS__CM3__core__register_gaaaf6477c2bde2f00f99e3c2fd1060b01}
+S\+CB configuration struct \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!S\+C\+B\+\_\+\+B\+A\+SE@{S\+C\+B\+\_\+\+B\+A\+SE}}
+\index{S\+C\+B\+\_\+\+B\+A\+SE@{S\+C\+B\+\_\+\+B\+A\+SE}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{S\+C\+B\+\_\+\+B\+A\+SE}{SCB_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+B\+\_\+\+B\+A\+SE~({\bf S\+C\+S\+\_\+\+B\+A\+SE} +  0x0\+D00)}\hypertarget{group__CMSIS__CM3__core__register_gad55a7ddb8d4b2398b0c1cfec76c0d9fd}{}\label{group__CMSIS__CM3__core__register_gad55a7ddb8d4b2398b0c1cfec76c0d9fd}
+System Control Block Base Address \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!S\+C\+S\+\_\+\+B\+A\+SE@{S\+C\+S\+\_\+\+B\+A\+SE}}
+\index{S\+C\+S\+\_\+\+B\+A\+SE@{S\+C\+S\+\_\+\+B\+A\+SE}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{S\+C\+S\+\_\+\+B\+A\+SE}{SCS_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+C\+S\+\_\+\+B\+A\+SE~(0x\+E000\+E000)}\hypertarget{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}{}\label{group__CMSIS__CM3__core__register_ga3c14ed93192c8d9143322bbf77ebf770}
+System Control Space Base Address \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!Sys\+Tick@{Sys\+Tick}}
+\index{Sys\+Tick@{Sys\+Tick}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{Sys\+Tick}{SysTick}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sys\+Tick~(({\bf Sys\+Tick\+\_\+\+Type} $\ast$)       {\bf Sys\+Tick\+\_\+\+B\+A\+SE})}\hypertarget{group__CMSIS__CM3__core__register_gacd96c53beeaff8f603fcda425eb295de}{}\label{group__CMSIS__CM3__core__register_gacd96c53beeaff8f603fcda425eb295de}
+Sys\+Tick configuration struct \index{C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}!Sys\+Tick\+\_\+\+B\+A\+SE@{Sys\+Tick\+\_\+\+B\+A\+SE}}
+\index{Sys\+Tick\+\_\+\+B\+A\+SE@{Sys\+Tick\+\_\+\+B\+A\+SE}!C\+M\+S\+I\+S C\+M3 Core Register@{C\+M\+S\+I\+S C\+M3 Core Register}}
+\subsubsection[{\texorpdfstring{Sys\+Tick\+\_\+\+B\+A\+SE}{SysTick_BASE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sys\+Tick\+\_\+\+B\+A\+SE~({\bf S\+C\+S\+\_\+\+B\+A\+SE} +  0x0010)}\hypertarget{group__CMSIS__CM3__core__register_ga58effaac0b93006b756d33209e814646}{}\label{group__CMSIS__CM3__core__register_ga58effaac0b93006b756d33209e814646}
+Sys\+Tick Base Address 

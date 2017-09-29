@@ -1,0 +1,56 @@
+\hypertarget{unioncan__data__t}{}\section{can\+\_\+data\+\_\+t Union Reference}
+\label{unioncan__data__t}\index{can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}}
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \hyperlink{unioncan__data__t_a41667832d267ee3fd67d7b0c34054068}{qword}
+\begin{DoxyCompactList}\small\item\em All 64-\/bits of data of a C\+AN message. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{unioncan__data__t_a32b41652b919ee512156989478f9b993}{dwords} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em dwords\mbox{[}0\mbox{]} = Byte 0-\/3, dwords\mbox{[}1\mbox{]} = Byte 4-\/7 \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{unioncan__data__t_a9631170190ce3ecad7370b651ab70b3f}{words} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em words\mbox{[}0\mbox{]} = Byte 0-\/1 ... words\mbox{[}3\mbox{]} = Byte 6-\/7 \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{unioncan__data__t_a59f2f0065f03d0a30d43e0d4e1d8bca2}{bytes} \mbox{[}8\mbox{]}
+\begin{DoxyCompactList}\small\item\em 8 bytes of a C\+AN message \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+8-\/byte structure accessible by 8-\/bit, 16-\/bit, 32-\/bit or as whole 64-\/bit DO N\+OT C\+H\+A\+N\+GE T\+H\+IS S\+T\+R\+U\+C\+T\+U\+RE -\/ it maps to the hardware 
+
+\subsection{Field Documentation}
+\index{can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}!bytes@{bytes}}
+\index{bytes@{bytes}!can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}}
+\subsubsection[{\texorpdfstring{bytes}{bytes}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t can\+\_\+data\+\_\+t\+::bytes\mbox{[}8\mbox{]}}\hypertarget{unioncan__data__t_a59f2f0065f03d0a30d43e0d4e1d8bca2}{}\label{unioncan__data__t_a59f2f0065f03d0a30d43e0d4e1d8bca2}
+
+
+8 bytes of a C\+AN message 
+
+\index{can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}!dwords@{dwords}}
+\index{dwords@{dwords}!can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}}
+\subsubsection[{\texorpdfstring{dwords}{dwords}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t can\+\_\+data\+\_\+t\+::dwords\mbox{[}2\mbox{]}}\hypertarget{unioncan__data__t_a32b41652b919ee512156989478f9b993}{}\label{unioncan__data__t_a32b41652b919ee512156989478f9b993}
+
+
+dwords\mbox{[}0\mbox{]} = Byte 0-\/3, dwords\mbox{[}1\mbox{]} = Byte 4-\/7 
+
+\index{can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}!qword@{qword}}
+\index{qword@{qword}!can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}}
+\subsubsection[{\texorpdfstring{qword}{qword}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t can\+\_\+data\+\_\+t\+::qword}\hypertarget{unioncan__data__t_a41667832d267ee3fd67d7b0c34054068}{}\label{unioncan__data__t_a41667832d267ee3fd67d7b0c34054068}
+
+
+All 64-\/bits of data of a C\+AN message. 
+
+\index{can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}!words@{words}}
+\index{words@{words}!can\+\_\+data\+\_\+t@{can\+\_\+data\+\_\+t}}
+\subsubsection[{\texorpdfstring{words}{words}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t can\+\_\+data\+\_\+t\+::words\mbox{[}4\mbox{]}}\hypertarget{unioncan__data__t_a9631170190ce3ecad7370b651ab70b3f}{}\label{unioncan__data__t_a9631170190ce3ecad7370b651ab70b3f}
+
+
+words\mbox{[}0\mbox{]} = Byte 0-\/1 ... words\mbox{[}3\mbox{]} = Byte 6-\/7 
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/\hyperlink{can_8h}{can.\+h}\end{DoxyCompactItemize}

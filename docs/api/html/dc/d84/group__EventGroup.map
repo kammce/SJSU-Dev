@@ -1,0 +1,12 @@
+<map id="EventGroup" name="EventGroup">
+<area shape="rect" id="node1" href="$d6/d9a/group__xEventGroupWaitBits.html" title="xEventGroupWaitBits" alt="" coords="173,5,321,32"/>
+<area shape="rect" id="node2" href="$d7/de3/group__xEventGroupSetBitsFromISR.html" title="xEventGroupSetBitsFromISR" alt="" coords="149,56,344,83"/>
+<area shape="rect" id="node3" href="$dd/d08/group__xEventGroupSetBits.html" title="xEventGroupSetBits" alt="" coords="176,107,317,133"/>
+<area shape="rect" id="node4" href="$dc/d43/group__EventGroupHandle__t.html" title="EventGroupHandle_t" alt="" coords="175,157,318,184"/>
+<area shape="rect" id="node5" href="$d2/dd3/group__xEventGroupSync.html" title="xEventGroupSync" alt="" coords="183,208,311,235"/>
+<area shape="rect" id="node6" href="$d6/dc7/group__xEventGroupClearBits.html" title="xEventGroupClearBits" alt="" coords="171,259,323,285"/>
+<area shape="rect" id="node7" href="$d4/dc0/group__xEventGroupClearBitsFromISR.html" title="xEventGroupClearBitsFromISR" alt="" coords="144,309,349,336"/>
+<area shape="rect" id="node8" href="$df/d78/group__xEventGroupCreate.html" title="xEventGroupCreate" alt="" coords="178,360,315,387"/>
+<area shape="rect" id="node9" href="$d8/dfc/group__xEventGroupGetBits.html" title="xEventGroupGetBits" alt="" coords="175,411,318,437"/>
+<area shape="rect" id="node11" href="$d4/d99/group__xEventGroupGetBitsFromISR.html" title="xEventGroupGetBitsFromISR" alt="" coords="149,461,344,488"/>
+</map>

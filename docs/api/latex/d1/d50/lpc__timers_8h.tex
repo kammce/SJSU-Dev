@@ -1,0 +1,112 @@
+\hypertarget{lpc__timers_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/lpc\+\_\+timers.h File Reference}
+\label{lpc__timers_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/lpc\+\_\+timers.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/lpc\+\_\+timers.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+timers.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/de0/lpc__timers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{dd/d52/lpc__timers_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{lpc\+\_\+timer\+\_\+t} \{ \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1ba0faf2d8dbf1ebddc3c1af8379a8d3142}{lpc\+\_\+timer0}, 
+\hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1baac3e49d7437cffb045fbcacb707b7d85}{lpc\+\_\+timer1}, 
+\hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1ba08e860382be5589cfe3c41ab9f76278f}{lpc\+\_\+timer2}, 
+\hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1baaa9a79cee505624c59cde1490d56cffe}{lpc\+\_\+timer3}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__timers_8h_a2691ef06aac4c4c2f8bc180b8d104972}{lpc\+\_\+timer\+\_\+enable} (const \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{lpc\+\_\+timer\+\_\+t} timer, const uint32\+\_\+t us\+\_\+per\+\_\+tick)
+\item 
+uint32\+\_\+t \hyperlink{lpc__timers_8h_a48e241114b6e204fd6cb231d9117c2a5}{lpc\+\_\+timer\+\_\+get\+\_\+value} (const \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{lpc\+\_\+timer\+\_\+t} timer)
+\item 
+void \hyperlink{lpc__timers_8h_aa3240cf68d416f44c8bc6e8124bac0d2}{lpc\+\_\+timer\+\_\+set\+\_\+value} (const \hyperlink{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{lpc\+\_\+timer\+\_\+t} timer, const uint32\+\_\+t value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This A\+PI provides a means to start a simple timer, and get/set the timer value 20140610\+: Initial 
+
+\subsection{Enumeration Type Documentation}
+\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer\+\_\+t@{lpc\+\_\+timer\+\_\+t}}
+\index{lpc\+\_\+timer\+\_\+t@{lpc\+\_\+timer\+\_\+t}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+timer\+\_\+t}{lpc_timer_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf lpc\+\_\+timer\+\_\+t}}\hypertarget{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}{}\label{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1b}
+The type of timers supported by L\+P\+C17xx Note that for the S\+J-\/\+One project, lpc\+\_\+timer1 is being used by lpc\+\_\+sys.\+c to carry out several background services and capture IR receiver signals. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{lpc\+\_\+timer0@{lpc\+\_\+timer0}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer0@{lpc\+\_\+timer0}}\item[{\em 
+lpc\+\_\+timer0\hypertarget{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1ba0faf2d8dbf1ebddc3c1af8379a8d3142}{}\label{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1ba0faf2d8dbf1ebddc3c1af8379a8d3142}
+}]\index{lpc\+\_\+timer1@{lpc\+\_\+timer1}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer1@{lpc\+\_\+timer1}}\item[{\em 
+lpc\+\_\+timer1\hypertarget{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1baac3e49d7437cffb045fbcacb707b7d85}{}\label{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1baac3e49d7437cffb045fbcacb707b7d85}
+}]\index{lpc\+\_\+timer2@{lpc\+\_\+timer2}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer2@{lpc\+\_\+timer2}}\item[{\em 
+lpc\+\_\+timer2\hypertarget{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1ba08e860382be5589cfe3c41ab9f76278f}{}\label{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1ba08e860382be5589cfe3c41ab9f76278f}
+}]\index{lpc\+\_\+timer3@{lpc\+\_\+timer3}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer3@{lpc\+\_\+timer3}}\item[{\em 
+lpc\+\_\+timer3\hypertarget{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1baaa9a79cee505624c59cde1490d56cffe}{}\label{lpc__timers_8h_a8ba20f90d3792b61d30f9d92dea27f1baaa9a79cee505624c59cde1490d56cffe}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer\+\_\+enable@{lpc\+\_\+timer\+\_\+enable}}
+\index{lpc\+\_\+timer\+\_\+enable@{lpc\+\_\+timer\+\_\+enable}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+timer\+\_\+enable(const lpc\+\_\+timer\+\_\+t timer, const uint32\+\_\+t us\+\_\+per\+\_\+tick)}{lpc_timer_enable(const lpc_timer_t timer, const uint32_t us_per_tick)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+timer\+\_\+enable (
+\begin{DoxyParamCaption}
+\item[{const {\bf lpc\+\_\+timer\+\_\+t}}]{timer, }
+\item[{const uint32\+\_\+t}]{us\+\_\+per\+\_\+tick}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__timers_8h_a2691ef06aac4c4c2f8bc180b8d104972}{}\label{lpc__timers_8h_a2691ef06aac4c4c2f8bc180b8d104972}
+Enables and starts the timer with the given tick rate 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em timer} & The timer type \\
+\hline
+\mbox{\tt in}  & {\em us\+\_\+per\+\_\+tick} & The resolution of each tick\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The logic requires the C\+PU to be running at greater than or equal to 1\+Mhz 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Postcondition}
+The timer\textquotesingle{}s clock divider is set to (C\+PU clock)/1 
+\end{DoxyPostcond}
+\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer\+\_\+get\+\_\+value@{lpc\+\_\+timer\+\_\+get\+\_\+value}}
+\index{lpc\+\_\+timer\+\_\+get\+\_\+value@{lpc\+\_\+timer\+\_\+get\+\_\+value}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+timer\+\_\+get\+\_\+value(const lpc\+\_\+timer\+\_\+t timer)}{lpc_timer_get_value(const lpc_timer_t timer)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t lpc\+\_\+timer\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const {\bf lpc\+\_\+timer\+\_\+t}}]{timer}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__timers_8h_a48e241114b6e204fd6cb231d9117c2a5}{}\label{lpc__timers_8h_a48e241114b6e204fd6cb231d9117c2a5}
+Get the value of the timer 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em timer} & The timer type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the timer 
+\end{DoxyReturn}
+\index{lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}!lpc\+\_\+timer\+\_\+set\+\_\+value@{lpc\+\_\+timer\+\_\+set\+\_\+value}}
+\index{lpc\+\_\+timer\+\_\+set\+\_\+value@{lpc\+\_\+timer\+\_\+set\+\_\+value}!lpc\+\_\+timers.\+h@{lpc\+\_\+timers.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+timer\+\_\+set\+\_\+value(const lpc\+\_\+timer\+\_\+t timer, const uint32\+\_\+t value)}{lpc_timer_set_value(const lpc_timer_t timer, const uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+timer\+\_\+set\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const {\bf lpc\+\_\+timer\+\_\+t}}]{timer, }
+\item[{const uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__timers_8h_aa3240cf68d416f44c8bc6e8124bac0d2}{}\label{lpc__timers_8h_aa3240cf68d416f44c8bc6e8124bac0d2}
+Set the value of the timer; you normally shouldn\textquotesingle{}t do this as the hardware is ticking the timer in the background but you can use it to reset it to zero. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em timer} & The timer type \\
+\hline
+\mbox{\tt in}  & {\em value} & The value to set. \\
+\hline
+\end{DoxyParams}

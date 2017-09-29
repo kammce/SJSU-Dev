@@ -1,0 +1,92 @@
+\hypertarget{classi2c2__device}{}\section{i2c2\+\_\+device Class Reference}
+\label{classi2c2__device}\index{i2c2\+\_\+device@{i2c2\+\_\+device}}
+
+
+{\ttfamily \#include $<$i2c2\+\_\+device.\+hpp$>$}
+
+
+
+Inheritance diagram for i2c2\+\_\+device\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d13/classi2c2__device__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classi2c2__device_a8381947bf37d06a16d0fdfe904973de1}{i2c2\+\_\+device} (uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Constructor of this base class that takes addr as a parameter. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{classi2c2__device_a89abc70e5c1037bf4f15f5a50ec66291}{read\+Reg} (unsigned char reg)
+\item 
+void \hyperlink{classi2c2__device_a1c9fdc353d554833694222351187fca0}{write\+Reg} (unsigned char reg, unsigned char data)
+\begin{DoxyCompactList}\small\item\em Writes a register of this device. \end{DoxyCompactList}\item 
+bool \hyperlink{classi2c2__device_a9dc13487b2ce4f06459b3a814635020f}{check\+Device\+Response} ()
+\item 
+uint16\+\_\+t \hyperlink{classi2c2__device_aecd419069db41de482fa57e5c7ec7dc4}{get16\+Bit\+Register} (unsigned char reg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I2C Device Base Class This class can be inherited by an I2C Device to be able to read and write registers more easily as this class will puts an abstraction layer on I2C and provides simple functionality to read and write registers over I2C Bus. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{i2c2\+\_\+device@{i2c2\+\_\+device}!i2c2\+\_\+device@{i2c2\+\_\+device}}
+\index{i2c2\+\_\+device@{i2c2\+\_\+device}!i2c2\+\_\+device@{i2c2\+\_\+device}}
+\subsubsection[{\texorpdfstring{i2c2\+\_\+device(uint8\+\_\+t addr)}{i2c2_device(uint8_t addr)}}]{\setlength{\rightskip}{0pt plus 5cm}i2c2\+\_\+device\+::i2c2\+\_\+device (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classi2c2__device_a8381947bf37d06a16d0fdfe904973de1}{}\label{classi2c2__device_a8381947bf37d06a16d0fdfe904973de1}
+
+
+Constructor of this base class that takes addr as a parameter. 
+
+
+
+\subsection{Member Function Documentation}
+\index{i2c2\+\_\+device@{i2c2\+\_\+device}!check\+Device\+Response@{check\+Device\+Response}}
+\index{check\+Device\+Response@{check\+Device\+Response}!i2c2\+\_\+device@{i2c2\+\_\+device}}
+\subsubsection[{\texorpdfstring{check\+Device\+Response()}{checkDeviceResponse()}}]{\setlength{\rightskip}{0pt plus 5cm}bool i2c2\+\_\+device\+::check\+Device\+Response (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classi2c2__device_a9dc13487b2ce4f06459b3a814635020f}{}\label{classi2c2__device_a9dc13487b2ce4f06459b3a814635020f}
+\begin{DoxyReturn}{Returns}
+true if the device responds to its address 
+\end{DoxyReturn}
+\index{i2c2\+\_\+device@{i2c2\+\_\+device}!get16\+Bit\+Register@{get16\+Bit\+Register}}
+\index{get16\+Bit\+Register@{get16\+Bit\+Register}!i2c2\+\_\+device@{i2c2\+\_\+device}}
+\subsubsection[{\texorpdfstring{get16\+Bit\+Register(unsigned char reg)}{get16BitRegister(unsigned char reg)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t i2c2\+\_\+device\+::get16\+Bit\+Register (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{reg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classi2c2__device_aecd419069db41de482fa57e5c7ec7dc4}{}\label{classi2c2__device_aecd419069db41de482fa57e5c7ec7dc4}
+Reads 16-\/bit register from reg and reg+1 granted that reg has M\+SB \index{i2c2\+\_\+device@{i2c2\+\_\+device}!read\+Reg@{read\+Reg}}
+\index{read\+Reg@{read\+Reg}!i2c2\+\_\+device@{i2c2\+\_\+device}}
+\subsubsection[{\texorpdfstring{read\+Reg(unsigned char reg)}{readReg(unsigned char reg)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t i2c2\+\_\+device\+::read\+Reg (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{reg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classi2c2__device_a89abc70e5c1037bf4f15f5a50ec66291}{}\label{classi2c2__device_a89abc70e5c1037bf4f15f5a50ec66291}
+\begin{DoxyReturn}{Returns}
+the register content of this device 
+\end{DoxyReturn}
+\index{i2c2\+\_\+device@{i2c2\+\_\+device}!write\+Reg@{write\+Reg}}
+\index{write\+Reg@{write\+Reg}!i2c2\+\_\+device@{i2c2\+\_\+device}}
+\subsubsection[{\texorpdfstring{write\+Reg(unsigned char reg, unsigned char data)}{writeReg(unsigned char reg, unsigned char data)}}]{\setlength{\rightskip}{0pt plus 5cm}void i2c2\+\_\+device\+::write\+Reg (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{reg, }
+\item[{unsigned char}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classi2c2__device_a1c9fdc353d554833694222351187fca0}{}\label{classi2c2__device_a1c9fdc353d554833694222351187fca0}
+
+
+Writes a register of this device. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/\hyperlink{i2c2__device_8hpp}{i2c2\+\_\+device.\+hpp}\end{DoxyCompactItemize}

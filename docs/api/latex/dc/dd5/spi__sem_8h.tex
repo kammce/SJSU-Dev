@@ -1,0 +1,46 @@
+\hypertarget{spi__sem_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/spi\+\_\+sem.h File Reference}
+\label{spi__sem_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/spi\+\_\+sem.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/spi\+\_\+sem.\+h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{d6/d26/spi__sem_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi__sem_8h_a5975e7b1a4853300e15a8651730244da}{spi1\+\_\+lock} (void)
+\begin{DoxyCompactList}\small\item\em Lock S\+PI access. \end{DoxyCompactList}\item 
+void \hyperlink{spi__sem_8h_ae3d381bfdb5ea2a77ede21b85a1a3b2b}{spi1\+\_\+unlock} (void)
+\begin{DoxyCompactList}\small\item\em Unlock S\+PI access. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+
+\subsection{Function Documentation}
+\index{spi\+\_\+sem.\+h@{spi\+\_\+sem.\+h}!spi1\+\_\+lock@{spi1\+\_\+lock}}
+\index{spi1\+\_\+lock@{spi1\+\_\+lock}!spi\+\_\+sem.\+h@{spi\+\_\+sem.\+h}}
+\subsubsection[{\texorpdfstring{spi1\+\_\+lock(void)}{spi1_lock(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void spi1\+\_\+lock (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__sem_8h_a5975e7b1a4853300e15a8651730244da}{}\label{spi__sem_8h_a5975e7b1a4853300e15a8651730244da}
+
+
+Lock S\+PI access. 
+
+S\+PI Access should be locked in multi-\/tasking environment if you are using S\+PI B\+US. \begin{DoxyWarning}{Warning}
+Only use this A\+PI if you are running Free\+R\+T\+OS and scheduler has started. 
+\end{DoxyWarning}
+\index{spi\+\_\+sem.\+h@{spi\+\_\+sem.\+h}!spi1\+\_\+unlock@{spi1\+\_\+unlock}}
+\index{spi1\+\_\+unlock@{spi1\+\_\+unlock}!spi\+\_\+sem.\+h@{spi\+\_\+sem.\+h}}
+\subsubsection[{\texorpdfstring{spi1\+\_\+unlock(void)}{spi1_unlock(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void spi1\+\_\+unlock (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__sem_8h_ae3d381bfdb5ea2a77ede21b85a1a3b2b}{}\label{spi__sem_8h_ae3d381bfdb5ea2a77ede21b85a1a3b2b}
+
+
+Unlock S\+PI access. 
+

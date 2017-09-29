@@ -1,0 +1,75 @@
+\hypertarget{rtc_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/rtc.c File Reference}
+\label{rtc_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/rtc.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/rtc.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+Include dependency graph for rtc.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d37/rtc_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rtc_8c_acf9024748b942a7ae375cf75951afa9c}{rtc\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the R\+TC. \end{DoxyCompactList}\item 
+rtc\+\_\+t \hyperlink{rtc_8c_ada234d8c4e843bbdcdd2e2eb594f6e39}{rtc\+\_\+gettime} (void)
+\item 
+void \hyperlink{rtc_8c_ac6af5f005f6bec5e00b4bf88701bb439}{rtc\+\_\+settime} (const rtc\+\_\+t $\ast$rtc)
+\item 
+const char $\ast$ \hyperlink{rtc_8c_a09f5c02f335ab8426ebde4383644012b}{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{rtc.\+c@{rtc.\+c}!rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str@{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str}}
+\index{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str@{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str(void)}{rtc_get_date_time_str(void)}}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8c_a09f5c02f335ab8426ebde4383644012b}{}\label{rtc_8c_a09f5c02f335ab8426ebde4383644012b}
+Get the R\+TC time as string in the format\+: \char`\"{}\+Wed Feb 13 15\+:46\+:11 2013\char`\"{} \begin{DoxyReturn}{Returns}
+the pointer to the time string (do not modify it) 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This method is not thread safe 
+\end{DoxyWarning}
+\index{rtc.\+c@{rtc.\+c}!rtc\+\_\+gettime@{rtc\+\_\+gettime}}
+\index{rtc\+\_\+gettime@{rtc\+\_\+gettime}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+gettime(void)}{rtc_gettime(void)}}]{\setlength{\rightskip}{0pt plus 5cm}rtc\+\_\+t rtc\+\_\+gettime (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8c_ada234d8c4e843bbdcdd2e2eb594f6e39}{}\label{rtc_8c_ada234d8c4e843bbdcdd2e2eb594f6e39}
+\begin{DoxyReturn}{Returns}
+the latest time in R\+TC structure 
+\end{DoxyReturn}
+\index{rtc.\+c@{rtc.\+c}!rtc\+\_\+init@{rtc\+\_\+init}}
+\index{rtc\+\_\+init@{rtc\+\_\+init}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+init(void)}{rtc_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtc\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8c_acf9024748b942a7ae375cf75951afa9c}{}\label{rtc_8c_acf9024748b942a7ae375cf75951afa9c}
+
+
+Initialize the R\+TC. 
+
+\index{rtc.\+c@{rtc.\+c}!rtc\+\_\+settime@{rtc\+\_\+settime}}
+\index{rtc\+\_\+settime@{rtc\+\_\+settime}!rtc.\+c@{rtc.\+c}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+settime(const rtc\+\_\+t $\ast$rtc)}{rtc_settime(const rtc_t *rtc)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtc\+\_\+settime (
+\begin{DoxyParamCaption}
+\item[{const rtc\+\_\+t $\ast$}]{rtcstruct}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8c_ac6af5f005f6bec5e00b4bf88701bb439}{}\label{rtc_8c_ac6af5f005f6bec5e00b4bf88701bb439}
+Sets the R\+TC time 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em rtcstruct} & The rtc time structure pointer \\
+\hline
+\end{DoxyParams}

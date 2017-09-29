@@ -1,0 +1,79 @@
+\hypertarget{low__level__init_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/low\+\_\+level\+\_\+init.cpp File Reference}
+\label{low__level__init_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/low\+\_\+level\+\_\+init.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/low\+\_\+level\+\_\+init.\+cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}uart0\+\_\+min.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+isr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core\+\_\+cm3.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fault\+\_\+registers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+Include dependency graph for low\+\_\+level\+\_\+init.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d81/low__level__init_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{low__level__init_8cpp_a396d05aca3b3ba80e38d0516e602013b}{syscalls\+\_\+init} (void)
+\item 
+void \hyperlink{low__level__init_8cpp_ac43117d508e35aaed35ccf37b7f91b85}{sys\+\_\+clock\+\_\+configure} ()
+\item 
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5}{sys\+\_\+boot\+\_\+t} \hyperlink{low__level__init_8cpp_a2c3a6134ddde64cb6ceb4df9267ca331}{sys\+\_\+get\+\_\+boot\+\_\+type} ()
+\item 
+rtc\+\_\+t \hyperlink{low__level__init_8cpp_a1aaa294812741a6186a5792890fe88b8}{sys\+\_\+get\+\_\+boot\+\_\+time} ()
+\item 
+void \hyperlink{low__level__init_8cpp_a5207a70668dfea08d147cb42983c19df}{low\+\_\+level\+\_\+init} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}!low\+\_\+level\+\_\+init@{low\+\_\+level\+\_\+init}}
+\index{low\+\_\+level\+\_\+init@{low\+\_\+level\+\_\+init}!low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}}
+\subsubsection[{\texorpdfstring{low\+\_\+level\+\_\+init(void)}{low_level_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void low\+\_\+level\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{low__level__init_8cpp_a5207a70668dfea08d147cb42983c19df}{}\label{low__level__init_8cpp_a5207a70668dfea08d147cb42983c19df}
+Initializes the minimal system including C\+PU Clock, U\+A\+RT, and Flash accelerator Be careful of the order of the operations!!! Turn off I/O buffering otherwise sometimes printf/scanf doesn\textquotesingle{}t behave correctly due to strange buffering and/or flushing effects.\index{low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}!sys\+\_\+clock\+\_\+configure@{sys\+\_\+clock\+\_\+configure}}
+\index{sys\+\_\+clock\+\_\+configure@{sys\+\_\+clock\+\_\+configure}!low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+clock\+\_\+configure()}{sys_clock_configure()}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+clock\+\_\+configure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{low__level__init_8cpp_ac43117d508e35aaed35ccf37b7f91b85}{}\label{low__level__init_8cpp_ac43117d508e35aaed35ccf37b7f91b85}
+$<$ Not used (reserved)
+
+Disconnect P\+L\+L0 (in case bootloader uses P\+L\+L0) Choose internal oscillator going forward (for now)
+
+Connect P\+L\+L0 as our clock source. Right before we make the P\+LL clock as C\+PU clock, set our divider so our C\+PU clock doesn\textquotesingle{}t go out of range once the faster P\+LL clock is established.\index{low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}!sys\+\_\+get\+\_\+boot\+\_\+time@{sys\+\_\+get\+\_\+boot\+\_\+time}}
+\index{sys\+\_\+get\+\_\+boot\+\_\+time@{sys\+\_\+get\+\_\+boot\+\_\+time}!low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+boot\+\_\+time()}{sys_get_boot_time()}}]{\setlength{\rightskip}{0pt plus 5cm}rtc\+\_\+t sys\+\_\+get\+\_\+boot\+\_\+time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{low__level__init_8cpp_a1aaa294812741a6186a5792890fe88b8}{}\label{low__level__init_8cpp_a1aaa294812741a6186a5792890fe88b8}
+\begin{DoxyReturn}{Returns}
+the boot-\/time recorded in the system 
+\end{DoxyReturn}
+\index{low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}!sys\+\_\+get\+\_\+boot\+\_\+type@{sys\+\_\+get\+\_\+boot\+\_\+type}}
+\index{sys\+\_\+get\+\_\+boot\+\_\+type@{sys\+\_\+get\+\_\+boot\+\_\+type}!low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+boot\+\_\+type()}{sys_get_boot_type()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sys\+\_\+boot\+\_\+t} sys\+\_\+get\+\_\+boot\+\_\+type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{low__level__init_8cpp_a2c3a6134ddde64cb6ceb4df9267ca331}{}\label{low__level__init_8cpp_a2c3a6134ddde64cb6ceb4df9267ca331}
+Defined at system\+\_\+init.\+c\begin{DoxyReturn}{Returns}
+the reboot reason as detected during system startup 
+\end{DoxyReturn}
+\index{low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}!syscalls\+\_\+init@{syscalls\+\_\+init}}
+\index{syscalls\+\_\+init@{syscalls\+\_\+init}!low\+\_\+level\+\_\+init.\+cpp@{low\+\_\+level\+\_\+init.\+cpp}}
+\subsubsection[{\texorpdfstring{syscalls\+\_\+init(void)}{syscalls_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void syscalls\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{low__level__init_8cpp_a396d05aca3b3ba80e38d0516e602013b}{}\label{low__level__init_8cpp_a396d05aca3b3ba80e38d0516e602013b}

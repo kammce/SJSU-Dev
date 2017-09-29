@@ -1,0 +1,84 @@
+\hypertarget{classMicroSecondStopWatch}{}\section{Micro\+Second\+Stop\+Watch Class Reference}
+\label{classMicroSecondStopWatch}\index{Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}}
+
+
+{\ttfamily \#include $<$stop\+\_\+watch.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMicroSecondStopWatch_a0349789f3bc1ed8278a86b0bdd6e2c8d}{Micro\+Second\+Stop\+Watch} ()
+\begin{DoxyCompactList}\small\item\em Default constructor that starts the stopwatch. \end{DoxyCompactList}\item 
+void \hyperlink{classMicroSecondStopWatch_a2376f62d01542ab7ac2add6215c98ec1}{start} (void)
+\begin{DoxyCompactList}\small\item\em Starts the stopwatch operation (can be used to restart the stopwatch too) \end{DoxyCompactList}\item 
+void \hyperlink{classMicroSecondStopWatch_a98441a3bb1567879ead4da6e7424eff7}{stop} (void)
+\begin{DoxyCompactList}\small\item\em Stops the stopwatch operation enabling the captured value to be obtained. \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{classMicroSecondStopWatch_a49742a14a8a48401034ef431a321b071}{get\+Captured\+Time} (void) const 
+\item 
+uint64\+\_\+t \hyperlink{classMicroSecondStopWatch_a526134ba49ff00249859eedf0736c8c6}{get\+Elapsed\+Time} (void) const 
+\begin{DoxyCompactList}\small\item\em Get the elapsed time since the stopwatch was started. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stopwatch to measure an elapsed time. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}!Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}}
+\index{Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}!Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}}
+\subsubsection[{\texorpdfstring{Micro\+Second\+Stop\+Watch()}{MicroSecondStopWatch()}}]{\setlength{\rightskip}{0pt plus 5cm}Micro\+Second\+Stop\+Watch\+::\+Micro\+Second\+Stop\+Watch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMicroSecondStopWatch_a0349789f3bc1ed8278a86b0bdd6e2c8d}{}\label{classMicroSecondStopWatch_a0349789f3bc1ed8278a86b0bdd6e2c8d}
+
+
+Default constructor that starts the stopwatch. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}!get\+Captured\+Time@{get\+Captured\+Time}}
+\index{get\+Captured\+Time@{get\+Captured\+Time}!Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}}
+\subsubsection[{\texorpdfstring{get\+Captured\+Time(void) const }{getCapturedTime(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Micro\+Second\+Stop\+Watch\+::get\+Captured\+Time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMicroSecondStopWatch_a49742a14a8a48401034ef431a321b071}{}\label{classMicroSecondStopWatch_a49742a14a8a48401034ef431a321b071}
+Get the captured value between \hyperlink{classMicroSecondStopWatch_a2376f62d01542ab7ac2add6215c98ec1}{start()} and \hyperlink{classMicroSecondStopWatch_a98441a3bb1567879ead4da6e7424eff7}{stop()} If the stopwatch was never stopped, zero value will be returned. \index{Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}!get\+Elapsed\+Time@{get\+Elapsed\+Time}}
+\index{get\+Elapsed\+Time@{get\+Elapsed\+Time}!Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}}
+\subsubsection[{\texorpdfstring{get\+Elapsed\+Time(void) const }{getElapsedTime(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Micro\+Second\+Stop\+Watch\+::get\+Elapsed\+Time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMicroSecondStopWatch_a526134ba49ff00249859eedf0736c8c6}{}\label{classMicroSecondStopWatch_a526134ba49ff00249859eedf0736c8c6}
+
+
+Get the elapsed time since the stopwatch was started. 
+
+\index{Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}!start@{start}}
+\index{start@{start}!Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}}
+\subsubsection[{\texorpdfstring{start(void)}{start(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Micro\+Second\+Stop\+Watch\+::start (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMicroSecondStopWatch_a2376f62d01542ab7ac2add6215c98ec1}{}\label{classMicroSecondStopWatch_a2376f62d01542ab7ac2add6215c98ec1}
+
+
+Starts the stopwatch operation (can be used to restart the stopwatch too) 
+
+\index{Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}!stop@{stop}}
+\index{stop@{stop}!Micro\+Second\+Stop\+Watch@{Micro\+Second\+Stop\+Watch}}
+\subsubsection[{\texorpdfstring{stop(void)}{stop(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Micro\+Second\+Stop\+Watch\+::stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMicroSecondStopWatch_a98441a3bb1567879ead4da6e7424eff7}{}\label{classMicroSecondStopWatch_a98441a3bb1567879ead4da6e7424eff7}
+
+
+Stops the stopwatch operation enabling the captured value to be obtained. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{stop__watch_8hpp}{stop\+\_\+watch.\+hpp}\end{DoxyCompactItemize}

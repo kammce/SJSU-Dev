@@ -1,0 +1,102 @@
+\hypertarget{eint_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/eint.c File Reference}
+\label{eint_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/eint.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/eint.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}eint.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+isr.\+h\char`\"{}}\\*
+Include dependency graph for eint.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d34/eint_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structeint3__entry}{eint3\+\_\+entry}
+\begin{DoxyCompactList}\small\item\em Linked list structure of E\+I\+N\+Ts (External interrupts) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structeint3__entry}{eint3\+\_\+entry} \hyperlink{eint_8c_ac7a4637d75f10f42c2969ecfc48db56f}{eint3\+\_\+entry\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Linked list structure of E\+I\+N\+Ts (External interrupts) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{eint_8c_a169d3d2b0711ca9dc0ca4243f0ba4fee}{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Actual I\+SR Handler (mapped to startup file\textquotesingle{}s interrupt vector function name) \end{DoxyCompactList}\item 
+void \hyperlink{eint_8c_a2e8ac9ea5c562eef59ca358002666138}{eint3\+\_\+enable\+\_\+port0} (uint8\+\_\+t pin\+\_\+num, \hyperlink{eint_8h_a248b63ccff4ff2b83fdc00eaed52839b}{eint\+\_\+intr\+\_\+t} type, \hyperlink{lpc__sys_8h_a2425c2b3462f867da9fd2ab76d9d47b1}{void\+\_\+func\+\_\+t} func)
+\item 
+void \hyperlink{eint_8c_a899707656c81306665a023a4f018a433}{eint3\+\_\+enable\+\_\+port2} (uint8\+\_\+t pin\+\_\+num, \hyperlink{eint_8h_a248b63ccff4ff2b83fdc00eaed52839b}{eint\+\_\+intr\+\_\+t} type, \hyperlink{lpc__sys_8h_a2425c2b3462f867da9fd2ab76d9d47b1}{void\+\_\+func\+\_\+t} func)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{eint.\+c@{eint.\+c}!eint3\+\_\+entry\+\_\+t@{eint3\+\_\+entry\+\_\+t}}
+\index{eint3\+\_\+entry\+\_\+t@{eint3\+\_\+entry\+\_\+t}!eint.\+c@{eint.\+c}}
+\subsubsection[{\texorpdfstring{eint3\+\_\+entry\+\_\+t}{eint3_entry_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf eint3\+\_\+entry}  {\bf eint3\+\_\+entry\+\_\+t}}\hypertarget{eint_8c_ac7a4637d75f10f42c2969ecfc48db56f}{}\label{eint_8c_ac7a4637d75f10f42c2969ecfc48db56f}
+
+
+Linked list structure of E\+I\+N\+Ts (External interrupts) 
+
+
+
+\subsection{Function Documentation}
+\index{eint.\+c@{eint.\+c}!eint3\+\_\+enable\+\_\+port0@{eint3\+\_\+enable\+\_\+port0}}
+\index{eint3\+\_\+enable\+\_\+port0@{eint3\+\_\+enable\+\_\+port0}!eint.\+c@{eint.\+c}}
+\subsubsection[{\texorpdfstring{eint3\+\_\+enable\+\_\+port0(uint8\+\_\+t pin\+\_\+num, eint\+\_\+intr\+\_\+t type, void\+\_\+func\+\_\+t func)}{eint3_enable_port0(uint8_t pin_num, eint_intr_t type, void_func_t func)}}]{\setlength{\rightskip}{0pt plus 5cm}void eint3\+\_\+enable\+\_\+port0 (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{pin\+\_\+num, }
+\item[{{\bf eint\+\_\+intr\+\_\+t}}]{type, }
+\item[{{\bf void\+\_\+func\+\_\+t}}]{func}
+\end{DoxyParamCaption}
+)}\hypertarget{eint_8c_a2e8ac9ea5c562eef59ca358002666138}{}\label{eint_8c_a2e8ac9ea5c562eef59ca358002666138}
+Enables the callback when the interrupt occurs. The entry added last is checked first if multiple interrupts occur at the same time. Each call will allocate 16 bytes for the interrupt service entry. \begin{DoxyNote}{Note}
+E\+I\+N\+T3 shares interrupt with Port0 and Port2 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pin\+\_\+num} & The pin number from 0-\/31. \\
+\hline
+\mbox{\tt in}  & {\em type} & The type of interrupt. \\
+\hline
+\mbox{\tt in}  & {\em func} & The callback function. \\
+\hline
+\end{DoxyParams}
+\index{eint.\+c@{eint.\+c}!eint3\+\_\+enable\+\_\+port2@{eint3\+\_\+enable\+\_\+port2}}
+\index{eint3\+\_\+enable\+\_\+port2@{eint3\+\_\+enable\+\_\+port2}!eint.\+c@{eint.\+c}}
+\subsubsection[{\texorpdfstring{eint3\+\_\+enable\+\_\+port2(uint8\+\_\+t pin\+\_\+num, eint\+\_\+intr\+\_\+t type, void\+\_\+func\+\_\+t func)}{eint3_enable_port2(uint8_t pin_num, eint_intr_t type, void_func_t func)}}]{\setlength{\rightskip}{0pt plus 5cm}void eint3\+\_\+enable\+\_\+port2 (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{pin\+\_\+num, }
+\item[{{\bf eint\+\_\+intr\+\_\+t}}]{type, }
+\item[{{\bf void\+\_\+func\+\_\+t}}]{func}
+\end{DoxyParamCaption}
+)}\hypertarget{eint_8c_a899707656c81306665a023a4f018a433}{}\label{eint_8c_a899707656c81306665a023a4f018a433}
+
+
+
+
+Enables the callback when the interrupt occurs. The entry added last is checked first if multiple interrupts occur at the same time. Each call will allocate 16 bytes for the interrupt service entry. \begin{DoxyNote}{Note}
+E\+I\+N\+T3 shares interrupt with Port0 and Port2 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pin\+\_\+num} & The pin number from 0-\/31. \\
+\hline
+\mbox{\tt in}  & {\em type} & The type of interrupt. \\
+\hline
+\mbox{\tt in}  & {\em func} & The callback function. \\
+\hline
+\end{DoxyParams}
+\index{eint.\+c@{eint.\+c}!E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler@{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler}!eint.\+c@{eint.\+c}}
+\subsubsection[{\texorpdfstring{E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler(void)}{EINT3_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void E\+I\+N\+T3\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{eint_8c_a169d3d2b0711ca9dc0ca4243f0ba4fee}{}\label{eint_8c_a169d3d2b0711ca9dc0ca4243f0ba4fee}
+
+
+Actual I\+SR Handler (mapped to startup file\textquotesingle{}s interrupt vector function name) 
+

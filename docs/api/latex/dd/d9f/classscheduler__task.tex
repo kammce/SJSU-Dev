@@ -1,0 +1,462 @@
+\hypertarget{classscheduler__task}{}\section{scheduler\+\_\+task Class Reference}
+\label{classscheduler__task}\index{scheduler\+\_\+task@{scheduler\+\_\+task}}
+
+
+{\ttfamily \#include $<$scheduler\+\_\+task.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{classscheduler__task_a6d4dbf8fee1d9467f9f2b0e7b6927399}{get\+Task\+Name} (void) const 
+\item 
+uint32\+\_\+t \hyperlink{classscheduler__task_aa7102583062aa10d7d9ffea06724243f}{get\+Free\+Stack} (void) const 
+\item 
+uint32\+\_\+t \hyperlink{classscheduler__task_ab09e36827f63b02125597b18900b4655}{get\+Run\+Count} (void) const 
+\item 
+\hyperlink{task_8h_ae95f44d4cfeb4a599c6cc258d241cb6b}{Task\+Handle\+\_\+t} \hyperlink{classscheduler__task_af47a93a5021662b99a99132dee23b4ed}{get\+Task\+Handle} (void) const 
+\item 
+uint8\+\_\+t \hyperlink{classscheduler__task_ac693890966f3af1bf55ffabcbe0f7e2d}{get\+Task\+Priority} (void) const 
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classscheduler__task_a2c3631f16757154382a87629d72a87ce}{suspend} (void) const 
+\item 
+void \hyperlink{classscheduler__task_a03b3ac48b904f3b232838d3d014e0d52}{resume} (void) const 
+\end{DoxyCompactItemize}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classscheduler__task}{scheduler\+\_\+task} $\ast$ \hyperlink{classscheduler__task_a1481a58774523ce3eacfa725e1dc8e38}{get\+Task\+Ptr\+By\+Name} (const char $\ast$)
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classscheduler__task_aec090c5aa60ee653fca268b3c07d08ca}{add\+Shared\+Object} (const char $\ast$name, void $\ast$obj\+\_\+ptr)
+\item 
+static void $\ast$ \hyperlink{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{get\+Shared\+Object} (const char $\ast$name)
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classscheduler__task_aa2d3741fd75cbbe382fed9a037d7bd72}{add\+Shared\+Object} (uint8\+\_\+t index, void $\ast$obj\+\_\+ptr)
+\item 
+static void $\ast$ \hyperlink{classscheduler__task_a28ff469f99da08d112d391a5b294bd6b}{get\+Shared\+Object} (uint8\+\_\+t index)
+\end{DoxyCompactItemize}
+
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscheduler__task_a7b06382316d8416fb02b516018f8f501}{scheduler\+\_\+task} (const char $\ast$name, uint32\+\_\+t stack, uint8\+\_\+t priority, void $\ast$param=0)
+\item 
+virtual \hyperlink{classscheduler__task_ab2a5d3602377fd7c44bebc110828309b}{$\sim$scheduler\+\_\+task} ()
+\item 
+virtual bool \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init} (void)
+\item 
+virtual bool \hyperlink{classscheduler__task_a45281a4c3bf7abdebcf379f4076573e5}{reg\+Tlm} (void)
+\item 
+virtual bool \hyperlink{classscheduler__task_a2a0499b206a36efd9542b00eac8f2a14}{task\+Entry} (void)
+\item 
+virtual bool \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run} (void $\ast$param)=0
+\item 
+void \hyperlink{classscheduler__task_aefca576927c9b6abc35d023b74d05b4c}{set\+Run\+Duration} (uint32\+\_\+t milliseconds)
+\item 
+uint32\+\_\+t \hyperlink{classscheduler__task_a4d5f6079edce5220a22e70326cd7133c}{get\+Run\+Duration} (void) const 
+\item 
+void \hyperlink{classscheduler__task_acd5a2ed7fd6de9a07e015fcc84e0c91e}{set\+Stat\+Update\+Rate} (uint32\+\_\+t rate\+Ms)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classscheduler__task_a08bec36d294f3e92bb1139c2462d946d}{scheduler\+\_\+init\+\_\+all} (bool register\+\_\+task\+\_\+tlm)
+\item 
+void \hyperlink{classscheduler__task_a0278f7dfe86285c571a5abcf071f0e93}{scheduler\+\_\+c\+\_\+task\+\_\+private} (void $\ast$param)
+\end{DoxyCompactItemize}
+
+\begin{DoxyCompactItemize}
+\item 
+static uint8\+\_\+t \hyperlink{classscheduler__task_a38fa70a4cef62c62ee1d83ff7c5bb2cf}{get\+Sys\+Cpu\+Percent} (void)
+\begin{DoxyCompactList}\small\item\em Get total system C\+PU percent. \end{DoxyCompactList}\item 
+static uint8\+\_\+t \hyperlink{classscheduler__task_a63583f9268259c6300db86c392befddd}{get\+Sys\+Idle\+Percent} (void)
+\begin{DoxyCompactList}\small\item\em Get total system I\+D\+LE percent. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{classscheduler__task_a6c077dab86586e0f74686c0843804c80}{get\+Task\+Cpu\+Percent} (void) const 
+\begin{DoxyCompactList}\small\item\em Get C\+PU usage of this task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Scheduler task. This class should be inherited and at minimum, you would need to override the \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} function to execute as part of your task. Note that the \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} function should return as the scheduler is responsible for the Free\+R\+T\+OS task loop.
+
+All tasks perform \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init()} one after another, followed by \hyperlink{classscheduler__task_a2a0499b206a36efd9542b00eac8f2a14}{task\+Entry()}. Only after all tasks perform their \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init()} and \hyperlink{classscheduler__task_a2a0499b206a36efd9542b00eac8f2a14}{task\+Entry()}, the \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} method begins to loop, so this solves the initialization dependency problem.
+
+The order of operations is the following \+:
+\begin{DoxyItemize}
+\item All tasks call their\+: \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init()}
+\item All tasks call their\+: \hyperlink{classscheduler__task_a45281a4c3bf7abdebcf379f4076573e5}{reg\+Tlm()}
+\item Free\+R\+T\+OS is started
+\item All tasks call their\+: \hyperlink{classscheduler__task_a2a0499b206a36efd9542b00eac8f2a14}{task\+Entry()}
+\item All tasks enter loop to call \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} method
+\end{DoxyItemize}
+
+Note that until you get to the \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} function, you are essentially in a \char`\"{}thread safe\char`\"{} mode since context or task switch will not occur.
+
+Example task that prints a message every 1000ms \+: 
+\begin{DoxyCode}
+\textcolor{keyword}{class }my\_task : \textcolor{keyword}{public} \hyperlink{classscheduler__task}{scheduler\_task}
+\{
+    \textcolor{keyword}{public} :
+    \textcolor{comment}{// Call scheduler\_task() constructor with your task name, stack size, and priority}
+    my\_task() : \hyperlink{classscheduler__task}{scheduler\_task}(\textcolor{stringliteral}{"task name"}, 2048, 1)
+    \{
+        \hyperlink{classscheduler__task_aefca576927c9b6abc35d023b74d05b4c}{setRunDuration}(1000); \textcolor{comment}{// Optional frequency control for run()}
+    \}
+
+    \textcolor{keywordtype}{bool} \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run}(\textcolor{keywordtype}{void} *param)
+    \{
+        puts(\textcolor{stringliteral}{"Hello World"});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+    \}
+\};
+
+\textcolor{comment}{// Add the task to the scheduler and start it :}
+\hyperlink{scheduler__task_8hpp_a7d6498410972beff36402038b4dffb8d}{scheduler\_add\_task}(\textcolor{keyword}{new} my\_task());
+\hyperlink{scheduler__task_8hpp_a2a08a0d6b64f9b6d73393c59e20a6efb}{scheduler\_start}();
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+task(const char $\ast$name, uint32\+\_\+t stack, uint8\+\_\+t priority, void $\ast$param=0)}{scheduler_task(const char *name, uint32_t stack, uint8_t priority, void *param=0)}}]{\setlength{\rightskip}{0pt plus 5cm}scheduler\+\_\+task\+::scheduler\+\_\+task (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{uint32\+\_\+t}]{stack, }
+\item[{uint8\+\_\+t}]{priority, }
+\item[{void $\ast$}]{param = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classscheduler__task_a7b06382316d8416fb02b516018f8f501}{}\label{classscheduler__task_a7b06382316d8416fb02b516018f8f501}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & The task\textquotesingle{}s name \\
+\hline
+{\em stack} & The task\textquotesingle{}s stack size in bytes \\
+\hline
+{\em priority} & Free\+R\+T\+OS task priority \\
+\hline
+{\em param} & O\+P\+T\+I\+O\+N\+AL param to pass to your \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} when it\textquotesingle{}s called. \\
+\hline
+\end{DoxyParams}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!````~scheduler\+\_\+task@{$\sim$scheduler\+\_\+task}}
+\index{````~scheduler\+\_\+task@{$\sim$scheduler\+\_\+task}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{$\sim$scheduler\+\_\+task()}{~scheduler_task()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual scheduler\+\_\+task\+::$\sim$scheduler\+\_\+task (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classscheduler__task_ab2a5d3602377fd7c44bebc110828309b}{}\label{classscheduler__task_ab2a5d3602377fd7c44bebc110828309b}
+
+
+\subsection{Member Function Documentation}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!add\+Shared\+Object@{add\+Shared\+Object}}
+\index{add\+Shared\+Object@{add\+Shared\+Object}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{add\+Shared\+Object(const char $\ast$name, void $\ast$obj\+\_\+ptr)}{addSharedObject(const char *name, void *obj_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool scheduler\+\_\+task\+::add\+Shared\+Object (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{void $\ast$}]{obj\+\_\+ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classscheduler__task_aec090c5aa60ee653fca268b3c07d08ca}{}\label{classscheduler__task_aec090c5aa60ee653fca268b3c07d08ca}
+Add/\+Get a shared object pointer by name such that multiple classes of this type can communicate between themselves. \begin{DoxyNote}{Note}
+It is recommended to use the later version of \hyperlink{classscheduler__task_aec090c5aa60ee653fca268b3c07d08ca}{add\+Shared\+Object()} and \hyperlink{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{get\+Shared\+Object()} because it is faster. Consider this version of overloaded A\+PI deprecated -- \+:)
+\end{DoxyNote}
+
+\begin{DoxyCode}
+\hyperlink{queue_8h_aaf19d499892a4ce1409326ece00f5264}{QueueHandle\_t} sensor\_queue;
+
+\textcolor{comment}{// Task A can share its handle by a name:}
+\hyperlink{classscheduler__task_aec090c5aa60ee653fca268b3c07d08ca}{addSharedObject}(\textcolor{stringliteral}{"senqueue"}, sensor\_queue);
+
+\textcolor{comment}{// Task B can retrieve the handle in its context:}
+\hyperlink{queue_8h_aaf19d499892a4ce1409326ece00f5264}{QueueHandle\_t} sensor\_queue = \hyperlink{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{getSharedObject}(\textcolor{stringliteral}{"senqueue"});
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+These functions are declared static because that way, any code in any context can get a shared object. So a C function (ie terminal cmd) can get a shared object and queue data for a task. Here is the usage (use the scope operator directly)\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} my\_func(\textcolor{keywordtype}{void})
+\{
+    \hyperlink{semphr_8h_aae55761cabfa9bf85c8f4430f78c0953}{xSemaphoreGive}(\hyperlink{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{scheduler\_task::getSharedObject}(\textcolor{stringliteral}{"foo"}));
+\}
+\end{DoxyCode}
+ 
+\end{DoxyNote}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!add\+Shared\+Object@{add\+Shared\+Object}}
+\index{add\+Shared\+Object@{add\+Shared\+Object}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{add\+Shared\+Object(uint8\+\_\+t index, void $\ast$obj\+\_\+ptr)}{addSharedObject(uint8_t index, void *obj_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool scheduler\+\_\+task\+::add\+Shared\+Object (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{index, }
+\item[{void $\ast$}]{obj\+\_\+ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classscheduler__task_aa2d3741fd75cbbe382fed9a037d7bd72}{}\label{classscheduler__task_aa2d3741fd75cbbe382fed9a037d7bd72}
+Add or get a shared object by an index number. This provides a better alternative to sharing handles because strcmp() doesn\textquotesingle{}t take place, instead the \hyperlink{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{get\+Shared\+Object()} simply returns the handle at the index.
+
+This index is best utilized by using an enumeration, such as this\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{enum} \{
+    shr\_Sem,
+    shr\_Queue,
+\};
+
+\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{SemaphoreHandle\_t} semaphore;
+\hyperlink{queue_8h_aaf19d499892a4ce1409326ece00f5264}{QueueHandle\_t} senqueue;
+
+\textcolor{comment}{// Task A can share its handles:}
+\hyperlink{classscheduler__task_aec090c5aa60ee653fca268b3c07d08ca}{addSharedObject}(shr\_Sem,   semaphore);
+\hyperlink{classscheduler__task_aec090c5aa60ee653fca268b3c07d08ca}{addSharedObject}(shr\_Queue, senqueue);
+
+\textcolor{comment}{// Task B can retrieve the handles in its class:}
+\hyperlink{queue_8h_aaf19d499892a4ce1409326ece00f5264}{QueueHandle\_t} qh = \hyperlink{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{getSharedObject}(shr\_Queue);
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+These functions are declared static because that way, any code in any context can get a shared object. So a C function (ie terminal cmd) can get a shared object and queue data for a task. Here is the usage (use the scope operator directly)\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} my\_func(\textcolor{keywordtype}{void})
+\{
+    \hyperlink{semphr_8h_aae55761cabfa9bf85c8f4430f78c0953}{xSemaphoreGive}(\hyperlink{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{scheduler\_task::getSharedObject}(shr\_Sem));
+\}
+\end{DoxyCode}
+ 
+\end{DoxyNote}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Free\+Stack@{get\+Free\+Stack}}
+\index{get\+Free\+Stack@{get\+Free\+Stack}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Free\+Stack(void) const }{getFreeStack(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t scheduler\+\_\+task\+::get\+Free\+Stack (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classscheduler__task_aa7102583062aa10d7d9ffea06724243f}{}\label{classscheduler__task_aa7102583062aa10d7d9ffea06724243f}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Run\+Count@{get\+Run\+Count}}
+\index{get\+Run\+Count@{get\+Run\+Count}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Run\+Count(void) const }{getRunCount(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t scheduler\+\_\+task\+::get\+Run\+Count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classscheduler__task_ab09e36827f63b02125597b18900b4655}{}\label{classscheduler__task_ab09e36827f63b02125597b18900b4655}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Run\+Duration@{get\+Run\+Duration}}
+\index{get\+Run\+Duration@{get\+Run\+Duration}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Run\+Duration(void) const }{getRunDuration(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t scheduler\+\_\+task\+::get\+Run\+Duration (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classscheduler__task_a4d5f6079edce5220a22e70326cd7133c}{}\label{classscheduler__task_a4d5f6079edce5220a22e70326cd7133c}
+\begin{DoxyReturn}{Returns}
+the run duration set by \hyperlink{classscheduler__task_aefca576927c9b6abc35d023b74d05b4c}{set\+Run\+Duration()} 
+\end{DoxyReturn}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Shared\+Object@{get\+Shared\+Object}}
+\index{get\+Shared\+Object@{get\+Shared\+Object}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Shared\+Object(const char $\ast$name)}{getSharedObject(const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ scheduler\+\_\+task\+::get\+Shared\+Object (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}{}\label{classscheduler__task_abd48cb80c9b16ad3193f49d33afe2fe0}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Shared\+Object@{get\+Shared\+Object}}
+\index{get\+Shared\+Object@{get\+Shared\+Object}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Shared\+Object(uint8\+\_\+t index)}{getSharedObject(uint8_t index)}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ scheduler\+\_\+task\+::get\+Shared\+Object (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classscheduler__task_a28ff469f99da08d112d391a5b294bd6b}{}\label{classscheduler__task_a28ff469f99da08d112d391a5b294bd6b}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Sys\+Cpu\+Percent@{get\+Sys\+Cpu\+Percent}}
+\index{get\+Sys\+Cpu\+Percent@{get\+Sys\+Cpu\+Percent}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Sys\+Cpu\+Percent(void)}{getSysCpuPercent(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t scheduler\+\_\+task\+::get\+Sys\+Cpu\+Percent (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classscheduler__task_a38fa70a4cef62c62ee1d83ff7c5bb2cf}{}\label{classscheduler__task_a38fa70a4cef62c62ee1d83ff7c5bb2cf}
+
+
+Get total system C\+PU percent. 
+
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Sys\+Idle\+Percent@{get\+Sys\+Idle\+Percent}}
+\index{get\+Sys\+Idle\+Percent@{get\+Sys\+Idle\+Percent}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Sys\+Idle\+Percent(void)}{getSysIdlePercent(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t scheduler\+\_\+task\+::get\+Sys\+Idle\+Percent (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classscheduler__task_a63583f9268259c6300db86c392befddd}{}\label{classscheduler__task_a63583f9268259c6300db86c392befddd}
+
+
+Get total system I\+D\+LE percent. 
+
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Task\+Cpu\+Percent@{get\+Task\+Cpu\+Percent}}
+\index{get\+Task\+Cpu\+Percent@{get\+Task\+Cpu\+Percent}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Task\+Cpu\+Percent(void) const }{getTaskCpuPercent(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t scheduler\+\_\+task\+::get\+Task\+Cpu\+Percent (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classscheduler__task_a6c077dab86586e0f74686c0843804c80}{}\label{classscheduler__task_a6c077dab86586e0f74686c0843804c80}
+
+
+Get C\+PU usage of this task. 
+
+C\+PU usage A\+PI \begin{DoxyNote}{Note}
+static functions can be called from any function, even not belonging to this class. 
+\end{DoxyNote}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Task\+Handle@{get\+Task\+Handle}}
+\index{get\+Task\+Handle@{get\+Task\+Handle}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Task\+Handle(void) const }{getTaskHandle(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task\+Handle\+\_\+t} scheduler\+\_\+task\+::get\+Task\+Handle (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classscheduler__task_af47a93a5021662b99a99132dee23b4ed}{}\label{classscheduler__task_af47a93a5021662b99a99132dee23b4ed}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Task\+Name@{get\+Task\+Name}}
+\index{get\+Task\+Name@{get\+Task\+Name}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Task\+Name(void) const }{getTaskName(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ scheduler\+\_\+task\+::get\+Task\+Name (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classscheduler__task_a6d4dbf8fee1d9467f9f2b0e7b6927399}{}\label{classscheduler__task_a6d4dbf8fee1d9467f9f2b0e7b6927399}
+Get methods Tasks can get each others\textquotesingle{} pointers by using their task names. After obtaining the pointer, they can get each other\textquotesingle{}s C\+PU usage, and task handle. \index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Task\+Priority@{get\+Task\+Priority}}
+\index{get\+Task\+Priority@{get\+Task\+Priority}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Task\+Priority(void) const }{getTaskPriority(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t scheduler\+\_\+task\+::get\+Task\+Priority (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classscheduler__task_ac693890966f3af1bf55ffabcbe0f7e2d}{}\label{classscheduler__task_ac693890966f3af1bf55ffabcbe0f7e2d}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!get\+Task\+Ptr\+By\+Name@{get\+Task\+Ptr\+By\+Name}}
+\index{get\+Task\+Ptr\+By\+Name@{get\+Task\+Ptr\+By\+Name}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{get\+Task\+Ptr\+By\+Name(const char $\ast$)}{getTaskPtrByName(const char *)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf scheduler\+\_\+task} $\ast$ scheduler\+\_\+task\+::get\+Task\+Ptr\+By\+Name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classscheduler__task_a1481a58774523ce3eacfa725e1dc8e38}{}\label{classscheduler__task_a1481a58774523ce3eacfa725e1dc8e38}
+Get a task pointer by name This is declared static such that any code in any context can retrieve a task pointer by name. Here is the usage (use the scope operator directly)\+: 
+\begin{DoxyCode}
+\hyperlink{classscheduler__task}{scheduler\_task}* pTask = \hyperlink{classscheduler__task_a1481a58774523ce3eacfa725e1dc8e38}{scheduler\_task::getTaskPtrByName}(\textcolor{stringliteral}{"
+      taskname"});
+pTask->\hyperlink{classscheduler__task_a2c3631f16757154382a87629d72a87ce}{suspend}();
+\end{DoxyCode}
+
+
+Static functions\+: \index{scheduler\+\_\+task@{scheduler\+\_\+task}!init@{init}}
+\index{init@{init}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{init(void)}{init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool scheduler\+\_\+task\+::init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{}\label{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}
+Optional\+: Override this function to initialize anything before Free\+R\+T\+OS starts. \begin{DoxyReturn}{Returns}
+true upon success. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+DO N\+OT U\+SE Free\+R\+T\+OS blocking A\+PI in this function 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+You should use \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init()} instead of the constructor to initialize and allocate memory because the status of \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init()} is checked and reported, but a failure at constructor will not be easily caught (or reported). 
+\end{DoxyNote}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!reg\+Tlm@{reg\+Tlm}}
+\index{reg\+Tlm@{reg\+Tlm}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{reg\+Tlm(void)}{regTlm(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool scheduler\+\_\+task\+::reg\+Tlm (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classscheduler__task_a45281a4c3bf7abdebcf379f4076573e5}{}\label{classscheduler__task_a45281a4c3bf7abdebcf379f4076573e5}
+Optional\+: Override this function to register your telemetry before Free\+R\+T\+OS starts. \begin{DoxyReturn}{Returns}
+true upon success. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+DO N\+OT U\+SE Free\+R\+T\+OS blocking A\+PI in this function 
+\end{DoxyWarning}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!resume@{resume}}
+\index{resume@{resume}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{resume(void) const }{resume(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+task\+::resume (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classscheduler__task_a03b3ac48b904f3b232838d3d014e0d52}{}\label{classscheduler__task_a03b3ac48b904f3b232838d3d014e0d52}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!run@{run}}
+\index{run@{run}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{run(void $\ast$param)=0}{run(void *param)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool scheduler\+\_\+task\+::run (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{}\label{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}
+M\+U\+ST override this function to run your tasks\textquotesingle{} code 
+\begin{DoxyParams}{Parameters}
+{\em param} & The same pointer as the constructor\textquotesingle{}s param \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if something unexpected occurs. In this case, the task will be suspended from doing further work. 
+\end{DoxyReturn}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!set\+Run\+Duration@{set\+Run\+Duration}}
+\index{set\+Run\+Duration@{set\+Run\+Duration}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{set\+Run\+Duration(uint32\+\_\+t milliseconds)}{setRunDuration(uint32_t milliseconds)}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+task\+::set\+Run\+Duration (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{milliseconds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classscheduler__task_aefca576927c9b6abc35d023b74d05b4c}{}\label{classscheduler__task_aefca576927c9b6abc35d023b74d05b4c}
+This can be used to set a desired time that the \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} method will be called. For example, if frequency is set to 1000, then the \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} will be called every 1 second regardless the duration that your \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} method. If your \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} takes longer than the milliseconds you set, then it will be called without a delay. 
+\begin{DoxyParams}{Parameters}
+{\em milliseconds} & The frequency to call your \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} function. Set this to zero to disable this functionality. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+By default, \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} method is called continuously without a delay. 
+\end{DoxyNote}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!set\+Stat\+Update\+Rate@{set\+Stat\+Update\+Rate}}
+\index{set\+Stat\+Update\+Rate@{set\+Stat\+Update\+Rate}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{set\+Stat\+Update\+Rate(uint32\+\_\+t rate\+Ms)}{setStatUpdateRate(uint32_t rateMs)}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+task\+::set\+Stat\+Update\+Rate (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{rate\+Ms}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classscheduler__task_acd5a2ed7fd6de9a07e015fcc84e0c91e}{}\label{classscheduler__task_acd5a2ed7fd6de9a07e015fcc84e0c91e}
+Set the update rate in milliseconds that the free stack size is calculated at. Default rate is 60 seconds; zero is to disable it. \index{scheduler\+\_\+task@{scheduler\+\_\+task}!suspend@{suspend}}
+\index{suspend@{suspend}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{suspend(void) const }{suspend(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+task\+::suspend (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classscheduler__task_a2c3631f16757154382a87629d72a87ce}{}\label{classscheduler__task_a2c3631f16757154382a87629d72a87ce}
+Suspend and resume functions. Obviously you can suspend yourself but someone else will have to resume you ;) \index{scheduler\+\_\+task@{scheduler\+\_\+task}!task\+Entry@{task\+Entry}}
+\index{task\+Entry@{task\+Entry}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{task\+Entry(void)}{taskEntry(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool scheduler\+\_\+task\+::task\+Entry (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classscheduler__task_a2a0499b206a36efd9542b00eac8f2a14}{}\label{classscheduler__task_a2a0499b206a36efd9542b00eac8f2a14}
+Optional \+: Override this function which is called O\+N\+CE after Free\+R\+T\+OS starts If your task depends on someone else\textquotesingle{}s \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init()}, then you can put your relevant code here that is called after everyone\textquotesingle{}s \hyperlink{classscheduler__task_ab72fdc17bcb76996bfd41387d604f982}{init()}. You C\+AN use Free\+R\+T\+OS A\+PI but note that all other tasks will wait for everyone\textquotesingle{}s \hyperlink{classscheduler__task_a2a0499b206a36efd9542b00eac8f2a14}{task\+Entry()} to take place before the \hyperlink{classscheduler__task_a17e9027d2a79dded027a8d0737ab0e77}{run()} method is called.
+
+\begin{DoxyWarning}{Warning}
+Do not suspend your task otherwise all tasks will get suspended. 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+true upon success. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{scheduler\+\_\+task@{scheduler\+\_\+task}!scheduler\+\_\+c\+\_\+task\+\_\+private@{scheduler\+\_\+c\+\_\+task\+\_\+private}}
+\index{scheduler\+\_\+c\+\_\+task\+\_\+private@{scheduler\+\_\+c\+\_\+task\+\_\+private}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+c\+\_\+task\+\_\+private}{scheduler_c_task_private}}]{\setlength{\rightskip}{0pt plus 5cm}void scheduler\+\_\+c\+\_\+task\+\_\+private (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classscheduler__task_a0278f7dfe86285c571a5abcf071f0e93}{}\label{classscheduler__task_a0278f7dfe86285c571a5abcf071f0e93}
+This is the C task that is created multiple times. Each task receives its own parameter therefore differentiating between different tasks. \index{scheduler\+\_\+task@{scheduler\+\_\+task}!scheduler\+\_\+init\+\_\+all@{scheduler\+\_\+init\+\_\+all}}
+\index{scheduler\+\_\+init\+\_\+all@{scheduler\+\_\+init\+\_\+all}!scheduler\+\_\+task@{scheduler\+\_\+task}}
+\subsubsection[{\texorpdfstring{scheduler\+\_\+init\+\_\+all}{scheduler_init_all}}]{\setlength{\rightskip}{0pt plus 5cm}bool scheduler\+\_\+init\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{bool}]{register\+\_\+task\+\_\+tlm}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classscheduler__task_a08bec36d294f3e92bb1139c2462d946d}{}\label{classscheduler__task_a08bec36d294f3e92bb1139c2462d946d}
+Give access to our private members to these functions 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{scheduler__task_8hpp}{scheduler\+\_\+task.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/\hyperlink{scheduler__task_8cpp}{scheduler\+\_\+task.\+cpp}\end{DoxyCompactItemize}

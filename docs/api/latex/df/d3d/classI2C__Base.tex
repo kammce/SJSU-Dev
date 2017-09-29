@@ -1,0 +1,196 @@
+\hypertarget{classI2C__Base}{}\section{I2\+C\+\_\+\+Base Class Reference}
+\label{classI2C__Base}\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+
+
+{\ttfamily \#include $<$i2c\+\_\+base.\+hpp$>$}
+
+
+
+Inheritance diagram for I2\+C\+\_\+\+Base\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=140pt]{d0/d68/classI2C__Base__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classI2C__Base_a91503a44a5f9ff228354245c8c6ec9bc}{handle\+Interrupt} ()
+\item 
+uint8\+\_\+t \hyperlink{classI2C__Base_ad5322c60fd88a0920df335964613c76c}{read\+Reg} (uint8\+\_\+t device\+Address, uint8\+\_\+t register\+Address)
+\item 
+bool \hyperlink{classI2C__Base_a1f71fbf12351a0e5f1c0e0452e999b17}{write\+Reg} (uint8\+\_\+t device\+Address, uint8\+\_\+t register\+Address, uint8\+\_\+t value)
+\item 
+bool \hyperlink{classI2C__Base_a8def06ef5ebcdc8fb5f3a21f4a4be166}{read\+Registers} (uint8\+\_\+t device\+Address, uint8\+\_\+t first\+Reg, uint8\+\_\+t $\ast$p\+Data, uint32\+\_\+t transfer\+Size)
+\item 
+bool \hyperlink{classI2C__Base_a11db0de4b6517813d50752b9f053dc5f}{write\+Registers} (uint8\+\_\+t device\+Address, uint8\+\_\+t first\+Reg, uint8\+\_\+t $\ast$p\+Data, uint32\+\_\+t transfer\+Size)
+\item 
+bool \hyperlink{classI2C__Base_a7b1ffc13066ed8b2a2443fdec63f6d27}{check\+Device\+Response} (uint8\+\_\+t device\+Address)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classI2C__Base_a12caefb41201a7eefe2bc511e48bbd8f}{I2\+C\+\_\+\+Base} (\hyperlink{structLPC__I2C__TypeDef}{L\+P\+C\+\_\+\+I2\+C\+\_\+\+Type\+Def} $\ast$p\+I2\+C\+Base\+Addr)
+\item 
+bool \hyperlink{classI2C__Base_aa7dd7ef20cedca783ff49413d5765fac}{init} (uint32\+\_\+t pclk, uint32\+\_\+t bus\+Rate\+In\+Khz)
+\item 
+void \hyperlink{classI2C__Base_a44944d722c91374502bba78dbe27d923}{disable\+Operation} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I2C Base class that can be used to write drivers for all I2C peripherals. Steps needed to write a I2C driver\+:
+\begin{DoxyItemize}
+\item Inherit this class
+\item Call \hyperlink{classI2C__Base_aa7dd7ef20cedca783ff49413d5765fac}{init()} and configure P\+I\+N\+S\+EL to select your I2C pins
+\item When your I2C(\#) hardware interrupt occurs, call \hyperlink{classI2C__Base_a91503a44a5f9ff228354245c8c6ec9bc}{handle\+Interrupt()}
+\end{DoxyItemize}
+
+To connect I2C Interrupt with your I2C, reference this example\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{extern} \textcolor{stringliteral}{"C"}
+ \{
+    \textcolor{keywordtype}{void} \hyperlink{startup_8cpp_a4d1f9a7702a354022ff322a565f8c82b}{I2C0\_IRQHandler}()
+    \{
+        I2C0::getInstance().handleInterrupt();
+    \}
+ \}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+Base(\+L\+P\+C\+\_\+\+I2\+C\+\_\+\+Type\+Def $\ast$p\+I2\+C\+Base\+Addr)}{I2C_Base(LPC_I2C_TypeDef *pI2CBaseAddr)}}]{\setlength{\rightskip}{0pt plus 5cm}I2\+C\+\_\+\+Base\+::\+I2\+C\+\_\+\+Base (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C\+\_\+\+I2\+C\+\_\+\+Type\+Def} $\ast$}]{p\+I2\+C\+Base\+Addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classI2C__Base_a12caefb41201a7eefe2bc511e48bbd8f}{}\label{classI2C__Base_a12caefb41201a7eefe2bc511e48bbd8f}
+Protected constructor that requires parent class to provide I2C base register address for which to operate this I2C driver 
+
+\subsection{Member Function Documentation}
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!check\+Device\+Response@{check\+Device\+Response}}
+\index{check\+Device\+Response@{check\+Device\+Response}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{check\+Device\+Response(uint8\+\_\+t device\+Address)}{checkDeviceResponse(uint8_t deviceAddress)}}]{\setlength{\rightskip}{0pt plus 5cm}bool I2\+C\+\_\+\+Base\+::check\+Device\+Response (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{device\+Address}
+\end{DoxyParamCaption}
+)}\hypertarget{classI2C__Base_a7b1ffc13066ed8b2a2443fdec63f6d27}{}\label{classI2C__Base_a7b1ffc13066ed8b2a2443fdec63f6d27}
+This function can be used to check if an I2C device responds to its address, which can therefore be used to discover all I2C hardware devices. Sometimes this method is used by devices to check if they are ready for further operations such as an E\+E\+P\+R\+OM or F\+L\+A\+SH memory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Address} & The device address to check for I2C response \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if I2C device with given address is ready 
+\end{DoxyReturn}
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!disable\+Operation@{disable\+Operation}}
+\index{disable\+Operation@{disable\+Operation}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{disable\+Operation()}{disableOperation()}}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C\+\_\+\+Base\+::disable\+Operation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classI2C__Base_a44944d722c91374502bba78dbe27d923}{}\label{classI2C__Base_a44944d722c91374502bba78dbe27d923}
+Disables I2C operation This can be used to disable all I2C operations in case of severe I2C Bus Failure \begin{DoxyWarning}{Warning}
+Once disabled, I2C cannot be enabled again 
+\end{DoxyWarning}
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!handle\+Interrupt@{handle\+Interrupt}}
+\index{handle\+Interrupt@{handle\+Interrupt}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{handle\+Interrupt()}{handleInterrupt()}}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C\+\_\+\+Base\+::handle\+Interrupt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classI2C__Base_a91503a44a5f9ff228354245c8c6ec9bc}{}\label{classI2C__Base_a91503a44a5f9ff228354245c8c6ec9bc}
+When the I2C interrupt occurs, this function should be called to handle future action to take due to the interrupt cause. \index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!init@{init}}
+\index{init@{init}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{init(uint32\+\_\+t pclk, uint32\+\_\+t bus\+Rate\+In\+Khz)}{init(uint32_t pclk, uint32_t busRateInKhz)}}]{\setlength{\rightskip}{0pt plus 5cm}bool I2\+C\+\_\+\+Base\+::init (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{pclk, }
+\item[{uint32\+\_\+t}]{bus\+Rate\+In\+Khz}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classI2C__Base_aa7dd7ef20cedca783ff49413d5765fac}{}\label{classI2C__Base_aa7dd7ef20cedca783ff49413d5765fac}
+Initializes I2C Communication B\+US 
+\begin{DoxyParams}{Parameters}
+{\em pclk} & The peripheral clock to the I2C Bus \\
+\hline
+{\em bus\+Rate\+In\+Khz} & The speed to set for this I2C Bus \\
+\hline
+\end{DoxyParams}
+Per I2C high speed mode\+: HS mode master devices generate a serial clock signal with a H\+I\+GH to L\+OW ratio of 1 to 2. So to be able to optimize speed, we use different duty cycle for high/low
+
+Compute the I2C clock dividers. The L\+OW period can be longer than the H\+I\+GH period because the rise time of S\+D\+A/\+S\+CL is an RC curve, whereas the fall time is a sharper curve.\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!read\+Reg@{read\+Reg}}
+\index{read\+Reg@{read\+Reg}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{read\+Reg(uint8\+\_\+t device\+Address, uint8\+\_\+t register\+Address)}{readReg(uint8_t deviceAddress, uint8_t registerAddress)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t I2\+C\+\_\+\+Base\+::read\+Reg (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{device\+Address, }
+\item[{uint8\+\_\+t}]{register\+Address}
+\end{DoxyParamCaption}
+)}\hypertarget{classI2C__Base_ad5322c60fd88a0920df335964613c76c}{}\label{classI2C__Base_ad5322c60fd88a0920df335964613c76c}
+Reads a single byte from an I2C Slave 
+\begin{DoxyParams}{Parameters}
+{\em device\+Address} & The I2C Device Address \\
+\hline
+{\em register\+Address} & The register address to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The byte read from slave device (might be 0 if error) 
+\end{DoxyReturn}
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!read\+Registers@{read\+Registers}}
+\index{read\+Registers@{read\+Registers}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{read\+Registers(uint8\+\_\+t device\+Address, uint8\+\_\+t first\+Reg, uint8\+\_\+t $\ast$p\+Data, uint32\+\_\+t transfer\+Size)}{readRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t *pData, uint32_t transferSize)}}]{\setlength{\rightskip}{0pt plus 5cm}bool I2\+C\+\_\+\+Base\+::read\+Registers (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{device\+Address, }
+\item[{uint8\+\_\+t}]{first\+Reg, }
+\item[{uint8\+\_\+t $\ast$}]{p\+Data, }
+\item[{uint32\+\_\+t}]{transfer\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{classI2C__Base_a8def06ef5ebcdc8fb5f3a21f4a4be166}{}\label{classI2C__Base_a8def06ef5ebcdc8fb5f3a21f4a4be166}
+
+
+
+
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!write\+Reg@{write\+Reg}}
+\index{write\+Reg@{write\+Reg}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{write\+Reg(uint8\+\_\+t device\+Address, uint8\+\_\+t register\+Address, uint8\+\_\+t value)}{writeReg(uint8_t deviceAddress, uint8_t registerAddress, uint8_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}bool I2\+C\+\_\+\+Base\+::write\+Reg (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{device\+Address, }
+\item[{uint8\+\_\+t}]{register\+Address, }
+\item[{uint8\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classI2C__Base_a1f71fbf12351a0e5f1c0e0452e999b17}{}\label{classI2C__Base_a1f71fbf12351a0e5f1c0e0452e999b17}
+Writes a single byte to an I2C Slave 
+\begin{DoxyParams}{Parameters}
+{\em device\+Address} & The I2C Device Address \\
+\hline
+{\em register\+Address} & The register address to write \\
+\hline
+{\em value} & The value to write to register\+Address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\index{I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}!write\+Registers@{write\+Registers}}
+\index{write\+Registers@{write\+Registers}!I2\+C\+\_\+\+Base@{I2\+C\+\_\+\+Base}}
+\subsubsection[{\texorpdfstring{write\+Registers(uint8\+\_\+t device\+Address, uint8\+\_\+t first\+Reg, uint8\+\_\+t $\ast$p\+Data, uint32\+\_\+t transfer\+Size)}{writeRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t *pData, uint32_t transferSize)}}]{\setlength{\rightskip}{0pt plus 5cm}bool I2\+C\+\_\+\+Base\+::write\+Registers (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{device\+Address, }
+\item[{uint8\+\_\+t}]{first\+Reg, }
+\item[{uint8\+\_\+t $\ast$}]{p\+Data, }
+\item[{uint32\+\_\+t}]{transfer\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{classI2C__Base_a11db0de4b6517813d50752b9f053dc5f}{}\label{classI2C__Base_a11db0de4b6517813d50752b9f053dc5f}
+
+
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/\hyperlink{i2c__base_8hpp}{i2c\+\_\+base.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/\hyperlink{i2c__base_8cpp}{i2c\+\_\+base.\+cpp}\end{DoxyCompactItemize}

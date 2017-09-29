@@ -1,0 +1,30 @@
+<map id="/var/www/html/SJSU&#45;DEV&#45;Linux/firmware/default/lib/newlib/newlib_syscalls.c" name="/var/www/html/SJSU&#45;DEV&#45;Linux/firmware/default/lib/newlib/newlib_syscalls.c">
+<area shape="rect" id="node17" href="$d1/de8/FreeRTOS_8h.html" title="FreeRTOS.h" alt="" coords="650,273,746,300"/>
+<area shape="rect" id="node20" href="$d0/d88/sys__config_8h.html" title="This file provides the configurable parameters for your project. " alt="" coords="830,423,926,449"/>
+<area shape="rect" id="node37" href="$db/da4/task_8h.html" title="task.h" alt="" coords="2635,124,2694,151"/>
+<area shape="rect" id="node39" href="$da/db9/ff_8h.html" title="ff.h" alt="" coords="1101,124,1143,151"/>
+<area shape="rect" id="node44" href="$dc/d1b/rtc_8h.html" title="This file provides access to the System&#39;s Real&#45;time Clock that maintains time even through power&#45;loss..." alt="" coords="1253,423,1301,449"/>
+<area shape="rect" id="node45" href="$d3/d1c/uart0__min_8h.html" title="This file provides minimal UART0 implementation The getchar and putchar functions provide polling ver..." alt="" coords="2718,124,2809,151"/>
+<area shape="rect" id="node46" href="$d4/d6e/lpc__sys_8h.html" title="Provides the following system services : " alt="" coords="1125,348,1204,375"/>
+<area shape="rect" id="node19" href="$db/dc7/FreeRTOSConfig_8h.html" title="FreeRTOSConfig.h" alt="" coords="684,348,819,375"/>
+<area shape="rect" id="node32" href="$db/d67/projdefs_8h.html" title="projdefs.h" alt="" coords="843,348,921,375"/>
+<area shape="rect" id="node33" href="$d2/de2/portable_8h.html" title="portable.h" alt="" coords="344,348,423,375"/>
+<area shape="rect" id="node21" href="$dd/d94/lpc__isr_8h.html" title="Interrupt Service Routine (ISR) functions. " alt="" coords="720,423,791,449"/>
+<area shape="rect" id="node27" href="$d0/d42/fault__registers_8h.html" title="This file simply provides registers that are used to detect faults. These registers should be defined..." alt="" coords="950,423,1065,449"/>
+<area shape="rect" id="node28" href="$d8/dfa/trcUser_8h.html" title="trace/trcUser.h" alt="" coords="501,423,610,449"/>
+<area shape="rect" id="node22" href="$da/dc3/LPC17xx_8h.html" title="CMSIS Cortex&#45;M3 Core Peripheral Access Layer Header File for NXP LPC17xx Device Series. " alt="" coords="852,497,939,524"/>
+<area shape="rect" id="node23" href="$d2/dbb/bit__manip_8h.html" title="Provides bit&#45;manipulation macros. " alt="" coords="736,572,825,599"/>
+<area shape="rect" id="node24" href="$d6/d42/lpc__peripherals_8h.html" title="This file provides LPC peripheral numbers according to LPC17xx datasheet. " alt="" coords="965,572,1127,599"/>
+<area shape="rect" id="node26" href="$da/db4/core__cm3_8h.html" title="CMSIS Cortex&#45;M3 Core Peripheral Access Layer Header File. " alt="" coords="850,572,941,599"/>
+<area shape="rect" id="node29" href="$da/d3b/trcKernelPort_8h.html" title="trcKernelPort.h" alt="" coords="491,497,601,524"/>
+<area shape="rect" id="node30" href="$dd/dde/trcHardwarePort_8h.html" title="trcHardwarePort.h" alt="" coords="482,572,610,599"/>
+<area shape="rect" id="node31" href="$db/dd1/trcConfig_8h.html" title="trcConfig.h" alt="" coords="503,647,589,673"/>
+<area shape="rect" id="node34" href="$dd/dd0/deprecated__definitions_8h.html" title="deprecated_definitions.h" alt="" coords="149,423,311,449"/>
+<area shape="rect" id="node35" href="$dc/d35/portmacro_8h.html" title="portmacro.h" alt="" coords="335,423,426,449"/>
+<area shape="rect" id="node36" href="$d5/d31/mpu__wrappers_8h.html" title="mpu_wrappers.h" alt="" coords="5,423,124,449"/>
+<area shape="rect" id="node38" href="$da/d23/list_8h.html" title="list.h" alt="" coords="2639,199,2690,225"/>
+<area shape="rect" id="node40" href="$d6/d3d/integer_8h.html" title="integer.h" alt="" coords="993,199,1065,225"/>
+<area shape="rect" id="node41" href="$de/d51/ffconf_8h.html" title="ffconf.h" alt="" coords="1089,199,1155,225"/>
+<area shape="rect" id="node42" href="$da/d30/semphr_8h.html" title="semphr.h" alt="" coords="1053,273,1129,300"/>
+<area shape="rect" id="node43" href="$d8/d38/queue_8h.html" title="queue.h" alt="" coords="1033,348,1101,375"/>
+</map>

@@ -1,0 +1,100 @@
+\hypertarget{classSwitches}{}\section{Switches Class Reference}
+\label{classSwitches}\index{Switches@{Switches}}
+
+
+{\ttfamily \#include $<$switches.\+hpp$>$}
+
+
+
+Inheritance diagram for Switches\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{d0/d2a/classSwitches__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Switches\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{df/deb/classSwitches__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSwitches_a3cd269a2a55814ddd7dcb49956ccabeb}{init} ()
+\begin{DoxyCompactList}\small\item\em Initializes this device,. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{classSwitches_a5ee7552b08abe320181847f8151e44ab}{get\+Switch\+Values} ()
+\item 
+bool \hyperlink{classSwitches_a57335b937d005cd72f8a7cb311b2dc78}{get\+Switch} (int num)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classSwitches_a34518cba0f0db92a42ff640c8598694d}{Singleton\+Template$<$ Switches $>$}
+\begin{DoxyCompactList}\small\item\em Friend class used for Singleton Template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classSwitches}{Switches} class used to get switch values from on-\/board switches 
+
+\subsection{Member Function Documentation}
+\index{Switches@{Switches}!get\+Switch@{get\+Switch}}
+\index{get\+Switch@{get\+Switch}!Switches@{Switches}}
+\subsubsection[{\texorpdfstring{get\+Switch(int num)}{getSwitch(int num)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Switches\+::get\+Switch (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}\hypertarget{classSwitches_a57335b937d005cd72f8a7cb311b2dc78}{}\label{classSwitches_a57335b937d005cd72f8a7cb311b2dc78}
+
+\begin{DoxyParams}{Parameters}
+{\em num} & The switch number to test from 1-\/4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the switch is active, or false otherwise 
+\end{DoxyReturn}
+\index{Switches@{Switches}!get\+Switch\+Values@{get\+Switch\+Values}}
+\index{get\+Switch\+Values@{get\+Switch\+Values}!Switches@{Switches}}
+\subsubsection[{\texorpdfstring{get\+Switch\+Values()}{getSwitchValues()}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Switches\+::get\+Switch\+Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSwitches_a5ee7552b08abe320181847f8151e44ab}{}\label{classSwitches_a5ee7552b08abe320181847f8151e44ab}
+\begin{DoxyReturn}{Returns}
+The 8-\/bit char containing bit values of the 4 switches, 1 bit per switch 
+\end{DoxyReturn}
+\index{Switches@{Switches}!init@{init}}
+\index{init@{init}!Switches@{Switches}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Switches\+::init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSwitches_a3cd269a2a55814ddd7dcb49956ccabeb}{}\label{classSwitches_a3cd269a2a55814ddd7dcb49956ccabeb}
+
+
+Initializes this device,. 
+
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Switches@{Switches}!Singleton\+Template$<$ Switches $>$@{Singleton\+Template$<$ Switches $>$}}
+\index{Singleton\+Template$<$ Switches $>$@{Singleton\+Template$<$ Switches $>$}!Switches@{Switches}}
+\subsubsection[{\texorpdfstring{Singleton\+Template$<$ Switches $>$}{SingletonTemplate< Switches >}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Singleton\+Template}$<$ {\bf Switches} $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classSwitches_a34518cba0f0db92a42ff640c8598694d}{}\label{classSwitches_a34518cba0f0db92a42ff640c8598694d}
+
+
+Friend class used for Singleton Template. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/\hyperlink{switches_8hpp}{switches.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/\hyperlink{io__source_8cpp}{io\+\_\+source.\+cpp}\end{DoxyCompactItemize}

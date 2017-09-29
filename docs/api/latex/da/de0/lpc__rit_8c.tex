@@ -1,0 +1,69 @@
+\hypertarget{lpc__rit_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/lpc\+\_\+rit.c File Reference}
+\label{lpc__rit_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/lpc\+\_\+rit.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/lpc\+\_\+rit.\+c}}
+{\ttfamily \#include \char`\"{}lpc\+\_\+rit.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+isr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+rit.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d17/lpc__rit_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__rit_8c_aa990804112a30da54974f3edae56dcd5}{R\+I\+T\+\_\+\+I\+R\+Q\+Handler} ()
+\item 
+void \hyperlink{lpc__rit_8c_afa8fbb17f0d12550854215861daf19a0}{rit\+\_\+enable} (\hyperlink{lpc__sys_8h_a2425c2b3462f867da9fd2ab76d9d47b1}{void\+\_\+func\+\_\+t} function, uint32\+\_\+t time\+\_\+ms)
+\item 
+void \hyperlink{lpc__rit_8c_acbee9e3115fad4677ea27d9c01f08eb7}{rit\+\_\+disable} (void)
+\begin{DoxyCompactList}\small\item\em Disables the R\+IT setup by sys\+\_\+rit\+\_\+setup() \end{DoxyCompactList}\item 
+bool \hyperlink{lpc__rit_8c_af51bcd3dccfbf2ef5d7c1194dd9ffc5e}{rit\+\_\+is\+\_\+running} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}!rit\+\_\+disable@{rit\+\_\+disable}}
+\index{rit\+\_\+disable@{rit\+\_\+disable}!lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}}
+\subsubsection[{\texorpdfstring{rit\+\_\+disable(void)}{rit_disable(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rit\+\_\+disable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__rit_8c_acbee9e3115fad4677ea27d9c01f08eb7}{}\label{lpc__rit_8c_acbee9e3115fad4677ea27d9c01f08eb7}
+
+
+Disables the R\+IT setup by sys\+\_\+rit\+\_\+setup() 
+
+\index{lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}!rit\+\_\+enable@{rit\+\_\+enable}}
+\index{rit\+\_\+enable@{rit\+\_\+enable}!lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}}
+\subsubsection[{\texorpdfstring{rit\+\_\+enable(void\+\_\+func\+\_\+t function, uint32\+\_\+t time\+\_\+ms)}{rit_enable(void_func_t function, uint32_t time_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}void rit\+\_\+enable (
+\begin{DoxyParamCaption}
+\item[{{\bf void\+\_\+func\+\_\+t}}]{function, }
+\item[{uint32\+\_\+t}]{time\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__rit_8c_afa8fbb17f0d12550854215861daf19a0}{}\label{lpc__rit_8c_afa8fbb17f0d12550854215861daf19a0}
+Setup a repetitive callback function at the given time. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em function} & The void function name \\
+\hline
+\mbox{\tt in}  & {\em time\+\_\+ms} & The time in milliseconds \\
+\hline
+\end{DoxyParams}
+\index{lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}!R\+I\+T\+\_\+\+I\+R\+Q\+Handler@{R\+I\+T\+\_\+\+I\+R\+Q\+Handler}}
+\index{R\+I\+T\+\_\+\+I\+R\+Q\+Handler@{R\+I\+T\+\_\+\+I\+R\+Q\+Handler}!lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}}
+\subsubsection[{\texorpdfstring{R\+I\+T\+\_\+\+I\+R\+Q\+Handler()}{RIT_IRQHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+I\+T\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__rit_8c_aa990804112a30da54974f3edae56dcd5}{}\label{lpc__rit_8c_aa990804112a30da54974f3edae56dcd5}
+R\+IT Interrupt function (see \hyperlink{startup_8cpp}{startup.\+cpp}) \index{lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}!rit\+\_\+is\+\_\+running@{rit\+\_\+is\+\_\+running}}
+\index{rit\+\_\+is\+\_\+running@{rit\+\_\+is\+\_\+running}!lpc\+\_\+rit.\+c@{lpc\+\_\+rit.\+c}}
+\subsubsection[{\texorpdfstring{rit\+\_\+is\+\_\+running(void)}{rit_is_running(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool rit\+\_\+is\+\_\+running (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__rit_8c_af51bcd3dccfbf2ef5d7c1194dd9ffc5e}{}\label{lpc__rit_8c_af51bcd3dccfbf2ef5d7c1194dd9ffc5e}
+\begin{DoxyReturn}{Returns}
+true if the R\+IT is running. 
+\end{DoxyReturn}

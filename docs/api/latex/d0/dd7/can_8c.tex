@@ -1,0 +1,752 @@
+\hypertarget{can_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/can.c File Reference}
+\label{can_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/can.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/can.\+c}}
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}can.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+Include dependency graph for can.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d75/can_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcan__struct__t}{can\+\_\+struct\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Typedef of C\+AN queues and data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{can_8c_aa1135c1760c7beda9b76ff996ab56e54}{C\+A\+N\+\_\+\+T\+E\+S\+T\+I\+NG}~0
+\item 
+\#define \hyperlink{can_8c_a97eba685266f7789133ea5a96d98c9af}{C\+A\+N\+\_\+\+I\+N\+D\+EX}(can)~(can)
+\begin{DoxyCompactList}\small\item\em C\+AN index\+: enum to struct index conversion. \end{DoxyCompactList}\item 
+\#define \hyperlink{can_8c_a189aab0da493b0bd62b3112c2dc4db83}{C\+A\+N\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+P\+TR}(can)~(\&(\hyperlink{can_8c_acd18620f29b06d1f41843244e0d5f487}{g\+\_\+can\+\_\+structs}\mbox{[}\hyperlink{can_8c_a97eba685266f7789133ea5a96d98c9af}{C\+A\+N\+\_\+\+I\+N\+D\+EX}(can)\mbox{]}))
+\item 
+\#define \hyperlink{can_8c_a52e9d72512d598642112988bc69f2ab9}{C\+A\+N\+\_\+\+V\+A\+L\+ID}(x)~(\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdda5d6d98ee073edc2321bb51b10db12888}{can1} == x $\vert$$\vert$ \hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdda23699735f0e1c354cceae24f5c2cd9fe}{can2} == x)
+\item 
+\#define \hyperlink{can_8c_ae26e743443cbabcb72545255a18f6f6a}{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+}(a,  b)~a\#\#b
+\item 
+\#define \hyperlink{can_8c_afe6605aee08599fb0b50dce4a9ea5310}{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT}(a,  b)~\hyperlink{can_8c_ae26e743443cbabcb72545255a18f6f6a}{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+}(a, b)
+\item 
+\#define \hyperlink{can_8c_a37d380a16015ac78a3012a237f52e325}{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}(e)~enum \{ \hyperlink{can_8c_afe6605aee08599fb0b50dce4a9ea5310}{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT}(assert\+\_\+line\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+) = 1/(!!(e)) \}
+\item 
+\#define \hyperlink{can_8c_a0597545ec26b3ca6b5bfc502cc32bb6b}{C\+A\+N\+\_\+swap32}(t32)
+\item 
+\#define \hyperlink{can_8c_a2b2ed86491e75559839f48a22279cfdd}{C\+A\+N\+\_\+add\+\_\+filter\+\_\+list}(list,  ptr,  end,  cnt,  entry\+\_\+size,  swap)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caee}{can\+\_\+intr\+\_\+t} \{ \\*
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeeadb8d53e164a40a2bd4ca948e757606cf}{intr\+\_\+rx} = (1 $<$$<$ 0), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea9380fa084afe43e6d7bf2c93f844b804}{intr\+\_\+tx1} = (1 $<$$<$ 1), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea27a37c444f3606f955859c0074201ce7}{intr\+\_\+warn} = (1 $<$$<$ 2), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeeac393ba10239bcf500bf56f285fa2dbb0}{intr\+\_\+ovrn} = (1 $<$$<$ 3), 
+\\*
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea4b76a6f895d79a882dbb51615c23b7df}{intr\+\_\+wkup} = (1 $<$$<$ 4), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea3e6796a6040a521a0c8c7f2afdad0680}{intr\+\_\+epi} = (1 $<$$<$ 5), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea2deb912564d43d434c919a224231b545}{intr\+\_\+ali} = (1 $<$$<$ 6), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea1ac1abfc5d28e1f547dc879cab394ce6}{intr\+\_\+berr} = (1 $<$$<$ 7), 
+\\*
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea99ad2c9e7bb3e54d2eb6fa51d6822847}{intr\+\_\+idi} = (1 $<$$<$ 8), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea070e3dee52e9d3943ea5cc391faedd6c}{intr\+\_\+tx2} = (1 $<$$<$ 9), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea77a34e304599f8b9e63c58a612776441}{intr\+\_\+tx3} = (1 $<$$<$ 10), 
+\hyperlink{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea683d24be1f92cb0572e3a64678e7ccea}{intr\+\_\+all\+\_\+tx} = (intr\+\_\+tx1 $\vert$ intr\+\_\+tx2 $\vert$ intr\+\_\+tx3)
+ \}\begin{DoxyCompactList}\small\item\em Interrupt masks of the C\+A\+Nx\+I\+ER and C\+A\+Nx\+I\+CR registers. \end{DoxyCompactList}
+\item 
+enum \{ \hyperlink{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a60f0fee24f5ffc23492cbda90824e7de}{tx1\+\_\+avail} = (1 $<$$<$ 2), 
+\hyperlink{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a8c3b9f7eafe71f077a8196bdeb614ade}{tx2\+\_\+avail} = (1 $<$$<$ 10), 
+\hyperlink{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0aa1a623707f902029110dfdc7938eca2b}{tx3\+\_\+avail} = (1 $<$$<$ 18), 
+\hyperlink{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a876799b2bde89bffff8046f6d470540e}{tx\+\_\+all\+\_\+avail} = (tx1\+\_\+avail $\vert$ tx2\+\_\+avail $\vert$ tx3\+\_\+avail)
+ \}\begin{DoxyCompactList}\small\item\em Bit mask of SR register indicating which hardware buffer is available. \end{DoxyCompactList}
+\item 
+enum \{ \hyperlink{can_8c_aeb8e1c282570d629a6b603a94a4650d6a7f4c13ab8cd97c73470f5227522a15f6}{afmr\+\_\+enabled} = 0x00, 
+\hyperlink{can_8c_aeb8e1c282570d629a6b603a94a4650d6a3ab55be32c068b5f205d328d21e92300}{afmr\+\_\+disabled} = 0x01, 
+\hyperlink{can_8c_aeb8e1c282570d629a6b603a94a4650d6a02941aa757fc35652db9a2e040f2cbaa}{afmr\+\_\+bypass} = 0x02, 
+\hyperlink{can_8c_aeb8e1c282570d629a6b603a94a4650d6af442cb9818f8d50a696b49047077b863}{afmr\+\_\+fullcan} = 0x04
+ \}
+\item 
+enum \{ \hyperlink{can_8c_a109bfaad92bd6d348dab484aec11edbba00b5f9b8e3fccd1f65f390a426fe5932}{can\+\_\+mod\+\_\+normal} = 0x00, 
+\hyperlink{can_8c_a109bfaad92bd6d348dab484aec11edbba27630ba877bc661c1f8154ce9be54b27}{can\+\_\+mod\+\_\+reset} = 0x01, 
+\hyperlink{can_8c_a109bfaad92bd6d348dab484aec11edbba32703f6c9adcd6b49c15ef7ea6eed545}{can\+\_\+mod\+\_\+normal\+\_\+tpm} = (can\+\_\+mod\+\_\+normal $\vert$ (1 $<$$<$ 3)), 
+\hyperlink{can_8c_a109bfaad92bd6d348dab484aec11edbbaa89b697642b4a3db20b39956e56a97a2}{can\+\_\+mod\+\_\+selftest} = (1 $<$$<$ 2) $\vert$ can\+\_\+mod\+\_\+normal
+ \}\begin{DoxyCompactList}\small\item\em C\+AN M\+OD register values. \end{DoxyCompactList}
+\item 
+enum \{ \hyperlink{can_8c_a550cb4231d535863c55643bbd2d3c6baa708dd620c939360c0391a378eda2d1a0}{can1\+\_\+pconp\+\_\+mask} = (1 $<$$<$ 13), 
+\hyperlink{can_8c_a550cb4231d535863c55643bbd2d3c6baa8c36599c08469b2dee79257f5bf1fcd4}{can2\+\_\+pconp\+\_\+mask} = (1 $<$$<$ 14)
+ \}\begin{DoxyCompactList}\small\item\em Mask of the P\+C\+O\+NP register. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{can_8c_a3b67c4096a73ac1b3d4b2f05ab6722cc}{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT} (2==sizeof(can\+\_\+std\+\_\+id\+\_\+t))
+\item 
+\hyperlink{can_8c_a7de297eb643cc13af70a2d00bb68502c}{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT} (4==sizeof(can\+\_\+ext\+\_\+id\+\_\+t))
+\item 
+\hyperlink{can_8c_a126a59bfbf6464b5d72f058e5f97e573}{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT} (8==sizeof(\hyperlink{unioncan__data__t}{can\+\_\+data\+\_\+t}))
+\item 
+\hyperlink{can_8c_a7d7fc6041ec9c267a8a95fe8a0029624}{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT} (16==sizeof(can\+\_\+msg\+\_\+t))
+\item 
+\hyperlink{can_8c_ac05e25f100f05d146ae3709c74f8fa3e}{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT} (12==sizeof(can\+\_\+fullcan\+\_\+msg\+\_\+t))
+\item 
+void \hyperlink{can_8c_a7d1120d0271e11535def5f56d375e9a9}{C\+A\+N\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+bool \hyperlink{can_8c_a0e186b576e535b32e6a884a89a4dcb0e}{C\+A\+N\+\_\+init} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, uint32\+\_\+t baudrate\+\_\+kbps, uint16\+\_\+t rxq\+\_\+size, uint16\+\_\+t txq\+\_\+size, \hyperlink{can_8h_a70166a12001edeee7860a1257037be44}{can\+\_\+void\+\_\+func\+\_\+t} bus\+\_\+off\+\_\+cb, \hyperlink{can_8h_a70166a12001edeee7860a1257037be44}{can\+\_\+void\+\_\+func\+\_\+t} data\+\_\+ovr\+\_\+cb)
+\item 
+bool \hyperlink{can_8c_a6a1f976390ec544abf3706943538f862}{C\+A\+N\+\_\+tx} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, can\+\_\+msg\+\_\+t $\ast$p\+Can\+Msg, uint32\+\_\+t timeout\+\_\+ms)
+\item 
+bool \hyperlink{can_8c_ac23f888ef0a36063238bf2d671051b4b}{C\+A\+N\+\_\+rx} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, can\+\_\+msg\+\_\+t $\ast$p\+Can\+Msg, uint32\+\_\+t timeout\+\_\+ms)
+\item 
+bool \hyperlink{can_8c_a5d99e1adce27fe7d0dc61885cf60b109}{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\item 
+void \hyperlink{can_8c_a33ace748a245e229fd9fa3733b6647e7}{C\+A\+N\+\_\+reset\+\_\+bus} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\item 
+uint16\+\_\+t \hyperlink{can_8c_ab234b183927d70dcf2c931ce4371e66d}{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em RX Free\+R\+T\+OS Queue watermark. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{can_8c_a815c96adb4e5754e999ce4ce702456b4}{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em TX Free\+R\+T\+OS Queue watermark. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{can_8c_aa506373e0e6f9f6e3d46af9a9ebc3c53}{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em Number of messages written to the C\+AN HW. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{can_8c_aea2b93db51a964df358a8611d850a2d2}{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em Number of messages successfully queued from C\+AN interrupt (not including dropped) \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{can_8c_aec1872008530bb84d39166c7b71642e3}{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\item 
+void \hyperlink{can_8c_ac687dc476e43a3f176e2211716f30594}{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs} (void)
+\item 
+can\+\_\+std\+\_\+id\+\_\+t \hyperlink{can_8c_aca546899ecc207b8b3c78fa9dcd8c5a3}{C\+A\+N\+\_\+gen\+\_\+sid} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, uint16\+\_\+t id)
+\item 
+can\+\_\+ext\+\_\+id\+\_\+t \hyperlink{can_8c_a5d9156b784b67997345a29aa52d33838}{C\+A\+N\+\_\+gen\+\_\+eid} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, uint32\+\_\+t id)
+\item 
+bool \hyperlink{can_8c_a498bc7e462028ced7dcfde20eb3dddb9}{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, can\+\_\+std\+\_\+id\+\_\+t id1, can\+\_\+std\+\_\+id\+\_\+t id2)
+\item 
+can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$ \hyperlink{can_8c_a0f952dda1eba7495cb922c168d5dfd3b}{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr} (can\+\_\+std\+\_\+id\+\_\+t fc\+\_\+id)
+\item 
+bool \hyperlink{can_8c_a12f68a7de7245e0b046e0842bec448c0}{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy} (can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$p\+Msg, can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$p\+Msg\+Copy)
+\item 
+uint8\+\_\+t \hyperlink{can_8c_af6d6c7ddef6d04f48e307845726156d2}{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries} (void)
+\item 
+bool \hyperlink{can_8c_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter} (const can\+\_\+std\+\_\+id\+\_\+t $\ast$std\+\_\+id\+\_\+list, uint16\+\_\+t sid\+\_\+cnt, const \hyperlink{structcan__std__grp__id__t}{can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} $\ast$std\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t sgp\+\_\+cnt, const can\+\_\+ext\+\_\+id\+\_\+t $\ast$ext\+\_\+id\+\_\+list, uint16\+\_\+t eid\+\_\+cnt, const \hyperlink{structcan__ext__grp__id__t}{can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} $\ast$ext\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t egp\+\_\+cnt)
+\end{DoxyCompactItemize}
+{\bf }\par
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structcan__struct__t}{can\+\_\+struct\+\_\+t} \hyperlink{can_8c_acd18620f29b06d1f41843244e0d5f487}{g\+\_\+can\+\_\+structs} \mbox{[}\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bddab38d40c499b095adf4aca181ecb10d59}{can\+\_\+max}\mbox{]} = \{ \{\hyperlink{LPC17xx_8h_a2f006d6888921f8336dce504eb56f4aa}{L\+P\+C\+\_\+\+C\+A\+N1}\}, \{\hyperlink{LPC17xx_8h_a838776140ad5e0156715278f8bb0652d}{L\+P\+C\+\_\+\+C\+A\+N2}\}\}
+\begin{DoxyCompactList}\small\item\em Structure of both C\+A\+Ns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+add\+\_\+filter\+\_\+list@{C\+A\+N\+\_\+add\+\_\+filter\+\_\+list}}
+\index{C\+A\+N\+\_\+add\+\_\+filter\+\_\+list@{C\+A\+N\+\_\+add\+\_\+filter\+\_\+list}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+add\+\_\+filter\+\_\+list}{CAN_add_filter_list}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+add\+\_\+filter\+\_\+list(
+\begin{DoxyParamCaption}
+\item[{}]{list, }
+\item[{}]{ptr, }
+\item[{}]{end, }
+\item[{}]{cnt, }
+\item[{}]{entry\+\_\+size, }
+\item[{}]{swap}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a2b2ed86491e75559839f48a22279cfdd}{}\label{can_8c_a2b2ed86491e75559839f48a22279cfdd}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \textcolor{keywordflow}{if} (NULL != list) \{                              \(\backslash\)
+                     if ((uint32\_t)ptr + (cnt * entry\_size) < end) \{  \hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{\(\backslash\)}
+\hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{                         for} (i = 0; i < (cnt * entry\_size)/4; i++) \{ \(\backslash\)
+                             if(swap) \{                               \(\backslash\)
+                                 temp32 = ((uint32\_t*)list) [i];      \hyperlink{can_8c_a0597545ec26b3ca6b5bfc502cc32bb6b}{\(\backslash\)}
+\hyperlink{can_8c_a0597545ec26b3ca6b5bfc502cc32bb6b}{                                 CAN\_swap32}(temp32);            
+            \(\backslash\)
+                                 ptr[i] = temp32;                     \(\backslash\)
+                             \}                                        \(\backslash\)
+                             else \{                                   \(\backslash\)
+                                 ptr[i] = ((uint32\_t*)list) [i];      \(\backslash\)
+                             \}                                        \(\backslash\)
+                         \}                                            \(\backslash\)
+                         ptr += (cnt * entry\_size)/4;                 \(\backslash\)
+                \} \textcolor{keywordflow}{else} \{ \hyperlink{trace_2readme_8txt_ab1dec86efb716110c1bbcfec4dda55f1}{ok} = \textcolor{keyword}{false}; \} \} \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT@{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT}}
+\index{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT@{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT}{CAN_ASSERT_CONCAT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~{\bf C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+}(a, b)}\hypertarget{can_8c_afe6605aee08599fb0b50dce4a9ea5310}{}\label{can_8c_afe6605aee08599fb0b50dce4a9ea5310}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+@{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+}}
+\index{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+@{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+}{CAN_ASSERT_CONCAT_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+A\+T\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~a\#\#b}\hypertarget{can_8c_ae26e743443cbabcb72545255a18f6f6a}{}\label{can_8c_ae26e743443cbabcb72545255a18f6f6a}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}}
+\index{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}{CAN_CT_ASSERT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT(
+\begin{DoxyParamCaption}
+\item[{}]{e}
+\end{DoxyParamCaption}
+)~enum \{ {\bf C\+A\+N\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+O\+N\+C\+AT}(assert\+\_\+line\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+) = 1/(!!(e)) \}}\hypertarget{can_8c_a37d380a16015ac78a3012a237f52e325}{}\label{can_8c_a37d380a16015ac78a3012a237f52e325}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+I\+N\+D\+EX@{C\+A\+N\+\_\+\+I\+N\+D\+EX}}
+\index{C\+A\+N\+\_\+\+I\+N\+D\+EX@{C\+A\+N\+\_\+\+I\+N\+D\+EX}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+I\+N\+D\+EX}{CAN_INDEX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+\+I\+N\+D\+EX(
+\begin{DoxyParamCaption}
+\item[{}]{can}
+\end{DoxyParamCaption}
+)~(can)}\hypertarget{can_8c_a97eba685266f7789133ea5a96d98c9af}{}\label{can_8c_a97eba685266f7789133ea5a96d98c9af}
+
+
+C\+AN index\+: enum to struct index conversion. 
+
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+P\+TR@{C\+A\+N\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+P\+TR}}
+\index{C\+A\+N\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+P\+TR@{C\+A\+N\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+P\+TR}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+P\+TR}{CAN_STRUCT_PTR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+P\+TR(
+\begin{DoxyParamCaption}
+\item[{}]{can}
+\end{DoxyParamCaption}
+)~(\&({\bf g\+\_\+can\+\_\+structs}\mbox{[}{\bf C\+A\+N\+\_\+\+I\+N\+D\+EX}(can)\mbox{]}))}\hypertarget{can_8c_a189aab0da493b0bd62b3112c2dc4db83}{}\label{can_8c_a189aab0da493b0bd62b3112c2dc4db83}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+swap32@{C\+A\+N\+\_\+swap32}}
+\index{C\+A\+N\+\_\+swap32@{C\+A\+N\+\_\+swap32}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+swap32}{CAN_swap32}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+swap32(
+\begin{DoxyParamCaption}
+\item[{}]{t32}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a0597545ec26b3ca6b5bfc502cc32bb6b}{}\label{can_8c_a0597545ec26b3ca6b5bfc502cc32bb6b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                    \(\backslash\)
+                        t32 = (t32 >> 16) | (t32 << 16);\(\backslash\)
+        \} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+T\+E\+S\+T\+I\+NG@{C\+A\+N\+\_\+\+T\+E\+S\+T\+I\+NG}}
+\index{C\+A\+N\+\_\+\+T\+E\+S\+T\+I\+NG@{C\+A\+N\+\_\+\+T\+E\+S\+T\+I\+NG}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+T\+E\+S\+T\+I\+NG}{CAN_TESTING}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+\+T\+E\+S\+T\+I\+NG~0}\hypertarget{can_8c_aa1135c1760c7beda9b76ff996ab56e54}{}\label{can_8c_aa1135c1760c7beda9b76ff996ab56e54}
+If non-\/zero, test code is enabled, and each message sent is self-\/recepted. You need to either connect a C\+AN transceiver, or connect R\+D/\+TD wires of the board with a 1K resistor for the tests to work.
+
+Note that Full\+C\+AN and C\+AN filter is not tested together, but they both work individually. \index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+V\+A\+L\+ID@{C\+A\+N\+\_\+\+V\+A\+L\+ID}}
+\index{C\+A\+N\+\_\+\+V\+A\+L\+ID@{C\+A\+N\+\_\+\+V\+A\+L\+ID}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+V\+A\+L\+ID}{CAN_VALID}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+N\+\_\+\+V\+A\+L\+ID(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~({\bf can1} == x $\vert$$\vert$ {\bf can2} == x)}\hypertarget{can_8c_a52e9d72512d598642112988bc69f2ab9}{}\label{can_8c_a52e9d72512d598642112988bc69f2ab9}
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0}{}\label{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0}
+
+
+Bit mask of SR register indicating which hardware buffer is available. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{tx1\+\_\+avail@{tx1\+\_\+avail}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!tx1\+\_\+avail@{tx1\+\_\+avail}}\item[{\em 
+tx1\+\_\+avail\hypertarget{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a60f0fee24f5ffc23492cbda90824e7de}{}\label{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a60f0fee24f5ffc23492cbda90824e7de}
+}]Transmit buffer 1 is available. \index{tx2\+\_\+avail@{tx2\+\_\+avail}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!tx2\+\_\+avail@{tx2\+\_\+avail}}\item[{\em 
+tx2\+\_\+avail\hypertarget{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a8c3b9f7eafe71f077a8196bdeb614ade}{}\label{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a8c3b9f7eafe71f077a8196bdeb614ade}
+}]Transmit buffer 2 is available. \index{tx3\+\_\+avail@{tx3\+\_\+avail}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!tx3\+\_\+avail@{tx3\+\_\+avail}}\item[{\em 
+tx3\+\_\+avail\hypertarget{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0aa1a623707f902029110dfdc7938eca2b}{}\label{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0aa1a623707f902029110dfdc7938eca2b}
+}]Transmit buffer 3 is available. \index{tx\+\_\+all\+\_\+avail@{tx\+\_\+all\+\_\+avail}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!tx\+\_\+all\+\_\+avail@{tx\+\_\+all\+\_\+avail}}\item[{\em 
+tx\+\_\+all\+\_\+avail\hypertarget{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a876799b2bde89bffff8046f6d470540e}{}\label{can_8c_a9e93d8eae633734dfeb29e24a1f3a7c0a876799b2bde89bffff8046f6d470540e}
+}]\end{description}
+\end{Desc}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{can_8c_aeb8e1c282570d629a6b603a94a4650d6}{}\label{can_8c_aeb8e1c282570d629a6b603a94a4650d6}
+Data values of the A\+F\+MR register \begin{DoxyNote}{Note}
+Since A\+F\+MR is common to both controllers, when bypass mode is enabled, then A\+LL messages from A\+LL C\+AN controllers will be accepted
+\end{DoxyNote}
+Bit1\+: Bypass Bit0\+: A\+CC Off 0 1 No messages accepted 1 X All messages accepted 0 0 HW Filter or Full\+C\+AN \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{afmr\+\_\+enabled@{afmr\+\_\+enabled}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!afmr\+\_\+enabled@{afmr\+\_\+enabled}}\item[{\em 
+afmr\+\_\+enabled\hypertarget{can_8c_aeb8e1c282570d629a6b603a94a4650d6a7f4c13ab8cd97c73470f5227522a15f6}{}\label{can_8c_aeb8e1c282570d629a6b603a94a4650d6a7f4c13ab8cd97c73470f5227522a15f6}
+}]Hardware acceptance filtering. \index{afmr\+\_\+disabled@{afmr\+\_\+disabled}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!afmr\+\_\+disabled@{afmr\+\_\+disabled}}\item[{\em 
+afmr\+\_\+disabled\hypertarget{can_8c_aeb8e1c282570d629a6b603a94a4650d6a3ab55be32c068b5f205d328d21e92300}{}\label{can_8c_aeb8e1c282570d629a6b603a94a4650d6a3ab55be32c068b5f205d328d21e92300}
+}]No messages will be accepted. \index{afmr\+\_\+bypass@{afmr\+\_\+bypass}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!afmr\+\_\+bypass@{afmr\+\_\+bypass}}\item[{\em 
+afmr\+\_\+bypass\hypertarget{can_8c_aeb8e1c282570d629a6b603a94a4650d6a02941aa757fc35652db9a2e040f2cbaa}{}\label{can_8c_aeb8e1c282570d629a6b603a94a4650d6a02941aa757fc35652db9a2e040f2cbaa}
+}]Bypass mode, all messages will be accepted. Both 0x02 or 0x03 will work. \index{afmr\+\_\+fullcan@{afmr\+\_\+fullcan}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!afmr\+\_\+fullcan@{afmr\+\_\+fullcan}}\item[{\em 
+afmr\+\_\+fullcan\hypertarget{can_8c_aeb8e1c282570d629a6b603a94a4650d6af442cb9818f8d50a696b49047077b863}{}\label{can_8c_aeb8e1c282570d629a6b603a94a4650d6af442cb9818f8d50a696b49047077b863}
+}]Hardware will receive and store messages per Full\+C\+AN mode. \end{description}
+\end{Desc}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{can_8c_a109bfaad92bd6d348dab484aec11edbb}{}\label{can_8c_a109bfaad92bd6d348dab484aec11edbb}
+
+
+C\+AN M\+OD register values. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{can\+\_\+mod\+\_\+normal@{can\+\_\+mod\+\_\+normal}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!can\+\_\+mod\+\_\+normal@{can\+\_\+mod\+\_\+normal}}\item[{\em 
+can\+\_\+mod\+\_\+normal\hypertarget{can_8c_a109bfaad92bd6d348dab484aec11edbba00b5f9b8e3fccd1f65f390a426fe5932}{}\label{can_8c_a109bfaad92bd6d348dab484aec11edbba00b5f9b8e3fccd1f65f390a426fe5932}
+}]C\+AN M\+OD register value to enable the B\+US. \index{can\+\_\+mod\+\_\+reset@{can\+\_\+mod\+\_\+reset}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!can\+\_\+mod\+\_\+reset@{can\+\_\+mod\+\_\+reset}}\item[{\em 
+can\+\_\+mod\+\_\+reset\hypertarget{can_8c_a109bfaad92bd6d348dab484aec11edbba27630ba877bc661c1f8154ce9be54b27}{}\label{can_8c_a109bfaad92bd6d348dab484aec11edbba27630ba877bc661c1f8154ce9be54b27}
+}]C\+AN M\+OD register value to reset the B\+US. \index{can\+\_\+mod\+\_\+normal\+\_\+tpm@{can\+\_\+mod\+\_\+normal\+\_\+tpm}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!can\+\_\+mod\+\_\+normal\+\_\+tpm@{can\+\_\+mod\+\_\+normal\+\_\+tpm}}\item[{\em 
+can\+\_\+mod\+\_\+normal\+\_\+tpm\hypertarget{can_8c_a109bfaad92bd6d348dab484aec11edbba32703f6c9adcd6b49c15ef7ea6eed545}{}\label{can_8c_a109bfaad92bd6d348dab484aec11edbba32703f6c9adcd6b49c15ef7ea6eed545}
+}]C\+AN bus enabled with T\+PM mode bits set. \index{can\+\_\+mod\+\_\+selftest@{can\+\_\+mod\+\_\+selftest}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!can\+\_\+mod\+\_\+selftest@{can\+\_\+mod\+\_\+selftest}}\item[{\em 
+can\+\_\+mod\+\_\+selftest\hypertarget{can_8c_a109bfaad92bd6d348dab484aec11edbbaa89b697642b4a3db20b39956e56a97a2}{}\label{can_8c_a109bfaad92bd6d348dab484aec11edbbaa89b697642b4a3db20b39956e56a97a2}
+}]Used to enable global self-\/test. \end{description}
+\end{Desc}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{can_8c_a550cb4231d535863c55643bbd2d3c6ba}{}\label{can_8c_a550cb4231d535863c55643bbd2d3c6ba}
+
+
+Mask of the P\+C\+O\+NP register. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{can1\+\_\+pconp\+\_\+mask@{can1\+\_\+pconp\+\_\+mask}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!can1\+\_\+pconp\+\_\+mask@{can1\+\_\+pconp\+\_\+mask}}\item[{\em 
+can1\+\_\+pconp\+\_\+mask\hypertarget{can_8c_a550cb4231d535863c55643bbd2d3c6baa708dd620c939360c0391a378eda2d1a0}{}\label{can_8c_a550cb4231d535863c55643bbd2d3c6baa708dd620c939360c0391a378eda2d1a0}
+}]C\+A\+N1 power on bitmask. \index{can2\+\_\+pconp\+\_\+mask@{can2\+\_\+pconp\+\_\+mask}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!can2\+\_\+pconp\+\_\+mask@{can2\+\_\+pconp\+\_\+mask}}\item[{\em 
+can2\+\_\+pconp\+\_\+mask\hypertarget{can_8c_a550cb4231d535863c55643bbd2d3c6baa8c36599c08469b2dee79257f5bf1fcd4}{}\label{can_8c_a550cb4231d535863c55643bbd2d3c6baa8c36599c08469b2dee79257f5bf1fcd4}
+}]C\+A\+N2 power on bitmask. \end{description}
+\end{Desc}
+\index{can.\+c@{can.\+c}!can\+\_\+intr\+\_\+t@{can\+\_\+intr\+\_\+t}}
+\index{can\+\_\+intr\+\_\+t@{can\+\_\+intr\+\_\+t}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{can\+\_\+intr\+\_\+t}{can_intr_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf can\+\_\+intr\+\_\+t}}\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caee}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caee}
+
+
+Interrupt masks of the C\+A\+Nx\+I\+ER and C\+A\+Nx\+I\+CR registers. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{intr\+\_\+rx@{intr\+\_\+rx}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+rx@{intr\+\_\+rx}}\item[{\em 
+intr\+\_\+rx\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeeadb8d53e164a40a2bd4ca948e757606cf}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeeadb8d53e164a40a2bd4ca948e757606cf}
+}]Receive. \index{intr\+\_\+tx1@{intr\+\_\+tx1}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+tx1@{intr\+\_\+tx1}}\item[{\em 
+intr\+\_\+tx1\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea9380fa084afe43e6d7bf2c93f844b804}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea9380fa084afe43e6d7bf2c93f844b804}
+}]Transmit 1. \index{intr\+\_\+warn@{intr\+\_\+warn}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+warn@{intr\+\_\+warn}}\item[{\em 
+intr\+\_\+warn\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea27a37c444f3606f955859c0074201ce7}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea27a37c444f3606f955859c0074201ce7}
+}]Warning (if error B\+US status changes) \index{intr\+\_\+ovrn@{intr\+\_\+ovrn}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+ovrn@{intr\+\_\+ovrn}}\item[{\em 
+intr\+\_\+ovrn\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeeac393ba10239bcf500bf56f285fa2dbb0}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeeac393ba10239bcf500bf56f285fa2dbb0}
+}]Data overrun. \index{intr\+\_\+wkup@{intr\+\_\+wkup}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+wkup@{intr\+\_\+wkup}}\item[{\em 
+intr\+\_\+wkup\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea4b76a6f895d79a882dbb51615c23b7df}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea4b76a6f895d79a882dbb51615c23b7df}
+}]Wake-\/up. \index{intr\+\_\+epi@{intr\+\_\+epi}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+epi@{intr\+\_\+epi}}\item[{\em 
+intr\+\_\+epi\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea3e6796a6040a521a0c8c7f2afdad0680}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea3e6796a6040a521a0c8c7f2afdad0680}
+}]Change from error active to error passive or vice versa. \index{intr\+\_\+ali@{intr\+\_\+ali}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+ali@{intr\+\_\+ali}}\item[{\em 
+intr\+\_\+ali\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea2deb912564d43d434c919a224231b545}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea2deb912564d43d434c919a224231b545}
+}]Arbitration lost. \index{intr\+\_\+berr@{intr\+\_\+berr}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+berr@{intr\+\_\+berr}}\item[{\em 
+intr\+\_\+berr\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea1ac1abfc5d28e1f547dc879cab394ce6}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea1ac1abfc5d28e1f547dc879cab394ce6}
+}]Bus error (happens during each error/retry of a message) \index{intr\+\_\+idi@{intr\+\_\+idi}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+idi@{intr\+\_\+idi}}\item[{\em 
+intr\+\_\+idi\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea99ad2c9e7bb3e54d2eb6fa51d6822847}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea99ad2c9e7bb3e54d2eb6fa51d6822847}
+}]ID ready (a message was transmitted or aborted) \index{intr\+\_\+tx2@{intr\+\_\+tx2}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+tx2@{intr\+\_\+tx2}}\item[{\em 
+intr\+\_\+tx2\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea070e3dee52e9d3943ea5cc391faedd6c}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea070e3dee52e9d3943ea5cc391faedd6c}
+}]Transmit 2. \index{intr\+\_\+tx3@{intr\+\_\+tx3}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+tx3@{intr\+\_\+tx3}}\item[{\em 
+intr\+\_\+tx3\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea77a34e304599f8b9e63c58a612776441}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea77a34e304599f8b9e63c58a612776441}
+}]Transmit 3. \index{intr\+\_\+all\+\_\+tx@{intr\+\_\+all\+\_\+tx}!can.\+c@{can.\+c}}\index{can.\+c@{can.\+c}!intr\+\_\+all\+\_\+tx@{intr\+\_\+all\+\_\+tx}}\item[{\em 
+intr\+\_\+all\+\_\+tx\hypertarget{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea683d24be1f92cb0572e3a64678e7ccea}{}\label{can_8c_a11cfe8bc6ce0de2c3c4d6c0cf3a2caeea683d24be1f92cb0572e3a64678e7ccea}
+}]Mask of the 3 transmit buffers. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs@{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs}}
+\index{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs@{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs(void)}{CAN_bypass_filter_accept_all_msgs(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_ac687dc476e43a3f176e2211716f30594}{}\label{can_8c_ac687dc476e43a3f176e2211716f30594}
+Enables C\+AN bypass mode to accept all messages on the bus. Either C\+AN filters need to be setup or this method should be called to accept C\+AN messages otherwise no messages will be capture at the C\+AN HW registers.
+
+\begin{DoxyNote}{Note}
+The filter is for B\+O\+TH C\+A\+Ns 
+\end{DoxyNote}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}}
+\index{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+R\+T(2==sizeof(can\+\_\+std\+\_\+id\+\_\+t))}{CAN_CT_ASSERT(2==sizeof(can_std_id_t))}}]{\setlength{\rightskip}{0pt plus 5cm}C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT (
+\begin{DoxyParamCaption}
+\item[{2}]{ = {\ttfamily =sizeof(can\+\_\+std\+\_\+id\+\_\+t)}}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a3b67c4096a73ac1b3d4b2f05ab6722cc}{}\label{can_8c_a3b67c4096a73ac1b3d4b2f05ab6722cc}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}}
+\index{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+R\+T(4==sizeof(can\+\_\+ext\+\_\+id\+\_\+t))}{CAN_CT_ASSERT(4==sizeof(can_ext_id_t))}}]{\setlength{\rightskip}{0pt plus 5cm}C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT (
+\begin{DoxyParamCaption}
+\item[{4}]{ = {\ttfamily =sizeof(can\+\_\+ext\+\_\+id\+\_\+t)}}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a7de297eb643cc13af70a2d00bb68502c}{}\label{can_8c_a7de297eb643cc13af70a2d00bb68502c}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}}
+\index{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+R\+T(8==sizeof(can\+\_\+data\+\_\+t))}{CAN_CT_ASSERT(8==sizeof(can_data_t))}}]{\setlength{\rightskip}{0pt plus 5cm}C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT (
+\begin{DoxyParamCaption}
+\item[{8}]{ = {\ttfamily =sizeof({\bf can\+\_\+data\+\_\+t})}}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a126a59bfbf6464b5d72f058e5f97e573}{}\label{can_8c_a126a59bfbf6464b5d72f058e5f97e573}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}}
+\index{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+R\+T(16==sizeof(can\+\_\+msg\+\_\+t))}{CAN_CT_ASSERT(16==sizeof(can_msg_t))}}]{\setlength{\rightskip}{0pt plus 5cm}C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT (
+\begin{DoxyParamCaption}
+\item[{16}]{ = {\ttfamily =sizeof(can\+\_\+msg\+\_\+t)}}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a7d7fc6041ec9c267a8a95fe8a0029624}{}\label{can_8c_a7d7fc6041ec9c267a8a95fe8a0029624}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}}
+\index{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT@{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+R\+T(12==sizeof(can\+\_\+fullcan\+\_\+msg\+\_\+t))}{CAN_CT_ASSERT(12==sizeof(can_fullcan_msg_t))}}]{\setlength{\rightskip}{0pt plus 5cm}C\+A\+N\+\_\+\+C\+T\+\_\+\+A\+S\+S\+E\+RT (
+\begin{DoxyParamCaption}
+\item[{12}]{ = {\ttfamily =sizeof(can\+\_\+fullcan\+\_\+msg\+\_\+t)}}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_ac05e25f100f05d146ae3709c74f8fa3e}{}\label{can_8c_ac05e25f100f05d146ae3709c74f8fa3e}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry@{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry@{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry(can\+\_\+t can, can\+\_\+std\+\_\+id\+\_\+t id1, can\+\_\+std\+\_\+id\+\_\+t id2)}{CAN_fullcan_add_entry(can_t can, can_std_id_t id1, can_std_id_t id2)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{can\+\_\+std\+\_\+id\+\_\+t}]{id1, }
+\item[{can\+\_\+std\+\_\+id\+\_\+t}]{id2}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a498bc7e462028ced7dcfde20eb3dddb9}{}\label{can_8c_a498bc7e462028ced7dcfde20eb3dddb9}
+Adds two Full\+C\+AN entries to the acceptance filter and enables the Full\+C\+AN reception. The entries must be added in groups of 2. If the second entry is not needed, simply pass 0x\+F\+F\+FF to \hyperlink{can_8h_aca546899ecc207b8b3c78fa9dcd8c5a3}{C\+A\+N\+\_\+gen\+\_\+sid()} to generate a disabled entry.
+
+\begin{DoxyReturn}{Returns}
+true if successful. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Only 11-\/bit I\+Ds can use Full\+C\+AN.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This must be done B\+E\+F\+O\+RE setting up other filters using \hyperlink{can_8h_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter()} 
+
+C\+AN B\+US should not be enabled to do this because the C\+AN Filter is put to O\+FF mode while the entry is added.
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+TO DO\+: Enabling fc\+\_\+intr bit (Full\+C\+AN interrupts) is not yet supported 
+\end{DoxyNote}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr(can\+\_\+std\+\_\+id\+\_\+t fc\+\_\+id)}{CAN_fullcan_get_entry_ptr(can_std_id_t fc_id)}}]{\setlength{\rightskip}{0pt plus 5cm}can\+\_\+fullcan\+\_\+msg\+\_\+t$\ast$ C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr (
+\begin{DoxyParamCaption}
+\item[{can\+\_\+std\+\_\+id\+\_\+t}]{fc\+\_\+id}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a0f952dda1eba7495cb922c168d5dfd3b}{}\label{can_8c_a0f952dda1eba7495cb922c168d5dfd3b}
+Once all the Ful\+L\+C\+AN entries are added, and C\+AN filters are setup, you can get the pointer in memory where the actual C\+AN message (Full\+C\+AN entry) is stored in memory. 
+\begin{DoxyParams}{Parameters}
+{\em fc\+\_\+id} & The Full\+C\+AN entry originally passed to \hyperlink{can_8h_a498bc7e462028ced7dcfde20eb3dddb9}{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry()} \\
+\hline
+\end{DoxyParams}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries(void)}{CAN_fullcan_get_num_entries(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_af6d6c7ddef6d04f48e307845726156d2}{}\label{can_8c_af6d6c7ddef6d04f48e307845726156d2}
+\begin{DoxyReturn}{Returns}
+the number of Full\+C\+AN entries being used 
+\end{DoxyReturn}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy@{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy@{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy(can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$p\+Msg, can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$p\+Msg\+Copy)}{CAN_fullcan_read_msg_copy(can_fullcan_msg_t *pMsg, can_fullcan_msg_t *pMsgCopy)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy (
+\begin{DoxyParamCaption}
+\item[{can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$}]{fc\+\_\+msg\+\_\+ptr, }
+\item[{can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$}]{msg\+\_\+copy\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a12f68a7de7245e0b046e0842bec448c0}{}\label{can_8c_a12f68a7de7245e0b046e0842bec448c0}
+Full\+C\+AN entries may update at any time by the HW, so this method provides a means to safely read the copy of the Full\+C\+AN message. 
+\begin{DoxyParams}{Parameters}
+{\em msg\+\_\+copy\+\_\+ptr} & The same message returned from \hyperlink{can_8h_a0f952dda1eba7495cb922c168d5dfd3b}{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr()} \\
+\hline
+{\em fc\+\_\+msg\+\_\+ptr} & The copy of the message you wish to read the data to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a N\+EW message has been captured since the last call to this method. false if HW did not receive a new message 
+\end{DoxyReturn}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+gen\+\_\+eid@{C\+A\+N\+\_\+gen\+\_\+eid}}
+\index{C\+A\+N\+\_\+gen\+\_\+eid@{C\+A\+N\+\_\+gen\+\_\+eid}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+gen\+\_\+eid(can\+\_\+t can, uint32\+\_\+t id)}{CAN_gen_eid(can_t can, uint32_t id)}}]{\setlength{\rightskip}{0pt plus 5cm}can\+\_\+ext\+\_\+id\+\_\+t C\+A\+N\+\_\+gen\+\_\+eid (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{uint32\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a5d9156b784b67997345a29aa52d33838}{}\label{can_8c_a5d9156b784b67997345a29aa52d33838}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+gen\+\_\+sid@{C\+A\+N\+\_\+gen\+\_\+sid}}
+\index{C\+A\+N\+\_\+gen\+\_\+sid@{C\+A\+N\+\_\+gen\+\_\+sid}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+gen\+\_\+sid(can\+\_\+t can, uint16\+\_\+t id)}{CAN_gen_sid(can_t can, uint16_t id)}}]{\setlength{\rightskip}{0pt plus 5cm}can\+\_\+std\+\_\+id\+\_\+t C\+A\+N\+\_\+gen\+\_\+sid (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{uint16\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_aca546899ecc207b8b3c78fa9dcd8c5a3}{}\label{can_8c_aca546899ecc207b8b3c78fa9dcd8c5a3}
+Generate and return the ID used to create the standard and extended id list member. \begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter()}
+\end{DoxySeeAlso}
+To generate a disabled slot, just pass 0x\+F\+F\+FF (id) as the message id, which will disable the message. This is used to generate an empty slot to make an even number of entries as required by the standard id filter. \index{can.\+c@{can.\+c}!C\+A\+N\+\_\+get\+\_\+rx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count}}
+\index{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count(can\+\_\+t can)}{CAN_get_rx_count(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+rx\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_aea2b93db51a964df358a8611d850a2d2}{}\label{can_8c_aea2b93db51a964df358a8611d850a2d2}
+
+
+Number of messages successfully queued from C\+AN interrupt (not including dropped) 
+
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count}}
+\index{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count(can\+\_\+t can)}{CAN_get_rx_dropped_count(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_aec1872008530bb84d39166c7b71642e3}{}\label{can_8c_aec1872008530bb84d39166c7b71642e3}
+\begin{DoxyReturn}{Returns}
+The number of C\+AN messages dropped Messages can be dropped out either if the receive queue is too small, or if there is no consumer or task that dequeues the received messages quickly enough from the \hyperlink{can_8h_a6f27267c493bfefca258bb24d5c17704}{C\+A\+N\+\_\+rx()} A\+PI 
+\end{DoxyReturn}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark}}
+\index{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark(can\+\_\+t can)}{CAN_get_rx_watermark(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_ab234b183927d70dcf2c931ce4371e66d}{}\label{can_8c_ab234b183927d70dcf2c931ce4371e66d}
+
+
+RX Free\+R\+T\+OS Queue watermark. 
+
+Watermark and counter A\+PI \index{can.\+c@{can.\+c}!C\+A\+N\+\_\+get\+\_\+tx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count}}
+\index{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count(can\+\_\+t can)}{CAN_get_tx_count(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+tx\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_aa506373e0e6f9f6e3d46af9a9ebc3c53}{}\label{can_8c_aa506373e0e6f9f6e3d46af9a9ebc3c53}
+
+
+Number of messages written to the C\+AN HW. 
+
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark}}
+\index{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark(can\+\_\+t can)}{CAN_get_tx_watermark(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a815c96adb4e5754e999ce4ce702456b4}{}\label{can_8c_a815c96adb4e5754e999ce4ce702456b4}
+
+
+TX Free\+R\+T\+OS Queue watermark. 
+
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+init@{C\+A\+N\+\_\+init}}
+\index{C\+A\+N\+\_\+init@{C\+A\+N\+\_\+init}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+init(can\+\_\+t can, uint32\+\_\+t baudrate\+\_\+kbps, uint16\+\_\+t rxq\+\_\+size, uint16\+\_\+t txq\+\_\+size, can\+\_\+void\+\_\+func\+\_\+t bus\+\_\+off\+\_\+cb, can\+\_\+void\+\_\+func\+\_\+t data\+\_\+ovr\+\_\+cb)}{CAN_init(can_t can, uint32_t baudrate_kbps, uint16_t rxq_size, uint16_t txq_size, can_void_func_t bus_off_cb, can_void_func_t data_ovr_cb)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{uint32\+\_\+t}]{baudrate\+\_\+kbps, }
+\item[{uint16\+\_\+t}]{rxq\+\_\+size, }
+\item[{uint16\+\_\+t}]{txq\+\_\+size, }
+\item[{{\bf can\+\_\+void\+\_\+func\+\_\+t}}]{bus\+\_\+off\+\_\+cb, }
+\item[{{\bf can\+\_\+void\+\_\+func\+\_\+t}}]{data\+\_\+ovr\+\_\+cb}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a0e186b576e535b32e6a884a89a4dcb0e}{}\label{can_8c_a0e186b576e535b32e6a884a89a4dcb0e}
+Initializes the C\+AN controller with the given baud-\/rate. \begin{DoxyWarning}{Warning}
+This leaves the C\+AN B\+US D\+I\+S\+A\+B\+L\+E\+D!!! The next steps are \+:
+\begin{DoxyItemize}
+\item Optionally, configure the Full\+C\+AN. 
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_a498bc7e462028ced7dcfde20eb3dddb9}{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry()}
+\begin{DoxyItemize}
+\item Optionally, configure C\+AN filters. 
+\end{DoxyItemize}
+
+\hyperlink{can_8h_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter()}
+\begin{DoxyItemize}
+\item If filters are not configured, and you wish to accept all messages, call \hyperlink{can_8h_ac687dc476e43a3f176e2211716f30594}{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs()}
+\item Call \hyperlink{can_8h_a33ace748a245e229fd9fa3733b6647e7}{C\+A\+N\+\_\+reset\+\_\+bus()} to enable the C\+AN B\+US
+\end{DoxyItemize}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em can} & The can bus type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em baudrate\+\_\+kbps} & The C\+AN Bus baud-\/rate, such as 100, 250, 500, 1000 Precise, external crystal should be used for higher than 100kbps \\
+\hline
+{\em rxq\+\_\+size} & The size of the received messages queue \\
+\hline
+{\em txq\+\_\+size} & The size of the transmit messages queue\\
+\hline
+{\em bus\+\_\+off\+\_\+cb} & The callback function when C\+AN B\+US enters B\+US error state \\
+\hline
+{\em data\+\_\+ovr\+\_\+cb} & The callback function when C\+AN B\+US encounters data-\/overrun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Both bus\+\_\+off\+\_\+cb and data\+\_\+ovr\+\_\+cb are optional. B\+US overrun callback should be used because if user doesn\textquotesingle{}t correct this, the C\+AN B\+US will never recover once the B\+US error state is entered.
+
+Each C\+AN B\+US has separate receive and transmit queues 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Postcondition}
+The C\+AN bus is initialized, and by default, no messages are accepted until C\+AN filter is setup, and \hyperlink{can_8h_a33ace748a245e229fd9fa3733b6647e7}{C\+A\+N\+\_\+reset\+\_\+bus()} is called. 
+\end{DoxyPostcond}
+About the A\+F\+MR register \+: B0 B1 Filter Mode $\vert$ Acc\+Off bit $\vert$ Acc\+BP bit $\vert$ C\+AN Rx interrupt Off Mode 1 0 No messages accepted Bypass Mode X 1 All messages accepted Full\+C\+AN 0 0 HW acceptance filtering\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+\+I\+R\+Q\+Handler@{C\+A\+N\+\_\+\+I\+R\+Q\+Handler}}
+\index{C\+A\+N\+\_\+\+I\+R\+Q\+Handler@{C\+A\+N\+\_\+\+I\+R\+Q\+Handler}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+\+I\+R\+Q\+Handler(void)}{CAN_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+A\+N\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a7d1120d0271e11535def5f56d375e9a9}{}\label{can_8c_a7d1120d0271e11535def5f56d375e9a9}
+Actual I\+SR Handler (mapped to startup file\textquotesingle{}s interrupt vector function name) This interrupt is shared between C\+A\+N1, and C\+A\+N2 \index{can.\+c@{can.\+c}!C\+A\+N\+\_\+is\+\_\+bus\+\_\+off@{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off}}
+\index{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off@{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off(can\+\_\+t can)}{CAN_is_bus_off(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+is\+\_\+bus\+\_\+off (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a5d99e1adce27fe7d0dc61885cf60b109}{}\label{can_8c_a5d99e1adce27fe7d0dc61885cf60b109}
+C\+AN Bus Error and Reset A\+PI If the C\+AN B\+US encounters error(s), it may turn off, in which case no more transmissions will take place. This must be corrected by the user. \index{can.\+c@{can.\+c}!C\+A\+N\+\_\+reset\+\_\+bus@{C\+A\+N\+\_\+reset\+\_\+bus}}
+\index{C\+A\+N\+\_\+reset\+\_\+bus@{C\+A\+N\+\_\+reset\+\_\+bus}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+reset\+\_\+bus(can\+\_\+t can)}{CAN_reset_bus(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+A\+N\+\_\+reset\+\_\+bus (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a33ace748a245e229fd9fa3733b6647e7}{}\label{can_8c_a33ace748a245e229fd9fa3733b6647e7}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+rx@{C\+A\+N\+\_\+rx}}
+\index{C\+A\+N\+\_\+rx@{C\+A\+N\+\_\+rx}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+rx(can\+\_\+t can, can\+\_\+msg\+\_\+t $\ast$p\+Can\+Msg, uint32\+\_\+t timeout\+\_\+ms)}{CAN_rx(can_t can, can_msg_t *pCanMsg, uint32_t timeout_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+rx (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{can\+\_\+msg\+\_\+t $\ast$}]{msg, }
+\item[{uint32\+\_\+t}]{timeout\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_ac23f888ef0a36063238bf2d671051b4b}{}\label{can_8c_ac23f888ef0a36063238bf2d671051b4b}
+Receive a message of the given C\+AN B\+US. 
+\begin{DoxyParams}{Parameters}
+{\em can} & The can bus type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The C\+AN message \\
+\hline
+{\em timeout\+\_\+ms} & If Free\+R\+T\+OS is running, the task will block until a message arrives. Otherwise we will poll and wait this timeout to receive a message. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if message was captured within the given timeout. 
+\end{DoxyReturn}
+\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+setup\+\_\+filter@{C\+A\+N\+\_\+setup\+\_\+filter}}
+\index{C\+A\+N\+\_\+setup\+\_\+filter@{C\+A\+N\+\_\+setup\+\_\+filter}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+setup\+\_\+filter(const can\+\_\+std\+\_\+id\+\_\+t $\ast$std\+\_\+id\+\_\+list, uint16\+\_\+t sid\+\_\+cnt, const can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t $\ast$std\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t sgp\+\_\+cnt, const can\+\_\+ext\+\_\+id\+\_\+t $\ast$ext\+\_\+id\+\_\+list, uint16\+\_\+t eid\+\_\+cnt, const can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t $\ast$ext\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t egp\+\_\+cnt)}{CAN_setup_filter(const can_std_id_t *std_id_list, uint16_t sid_cnt, const can_std_grp_id_t *std_group_id_list, uint16_t sgp_cnt, const can_ext_id_t *ext_id_list, uint16_t eid_cnt, const can_ext_grp_id_t *ext_group_id_list, uint16_t egp_cnt)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+setup\+\_\+filter (
+\begin{DoxyParamCaption}
+\item[{const can\+\_\+std\+\_\+id\+\_\+t $\ast$}]{std\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{sid\+\_\+cnt, }
+\item[{const {\bf can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} $\ast$}]{std\+\_\+group\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{sgp\+\_\+cnt, }
+\item[{const can\+\_\+ext\+\_\+id\+\_\+t $\ast$}]{ext\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{eid\+\_\+cnt, }
+\item[{const {\bf can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} $\ast$}]{ext\+\_\+group\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{egp\+\_\+cnt}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_af86011b37f4fb306df4a79a962a39e86}{}\label{can_8c_af86011b37f4fb306df4a79a962a39e86}
+Enable C\+AN filter for B\+O\+TH C\+A\+Ns; hardware doesn\textquotesingle{}t allow to enable for just O\+NE C\+AN controller. 
+\begin{DoxyParams}{Parameters}
+{\em std\+\_\+id\+\_\+list} & List of 11-\/bit I\+Ds to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em sid\+\_\+cnt} & The size of the can\+\_\+std\+\_\+id\+\_\+t array\\
+\hline
+{\em std\+\_\+group\+\_\+id\+\_\+list} & List of 11-\/bit ID groups to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em sgp\+\_\+cnt} & The size of the \hyperlink{structcan__std__grp__id__t}{can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} array\\
+\hline
+{\em ext\+\_\+id\+\_\+list} & List of 29-\/bit I\+Ds to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em eid\+\_\+cnt} & The size of the can\+\_\+ext\+\_\+id\+\_\+t array\\
+\hline
+{\em ext\+\_\+group\+\_\+id\+\_\+list} & List of 29-\/bit ID groups to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em egp\+\_\+cnt} & The size of the \hyperlink{structcan__ext__grp__id__t}{can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The list must be in A\+S\+C\+E\+N\+D\+I\+NG order (lowest first, then highest). The hardware carries out its search taking for granted that the I\+Ds are ordered from lowest to highest. If filters are wrong, C\+AN I\+SR will enter a loop and your board will restart (due to watchdog).
+
+C\+AN B\+US should not be enabled to do this because the C\+AN Filter is put to O\+FF mode while the entry is added.
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+The C\+AN filter must be setup after the C\+AN controller(s) is initialized. 
+
+The size entries is limited to 2K bytes. Each entry size in bytes is \+:
+\begin{DoxyItemize}
+\item can\+\_\+std\+\_\+id\+\_\+t \+: 2
+\item \hyperlink{structcan__std__grp__id__t}{can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} \+: 4
+\item can\+\_\+ext\+\_\+id\+\_\+t \+: 4
+\item \hyperlink{structcan__ext__grp__id__t}{can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} \+: 8
+\end{DoxyItemize}
+\end{DoxyNote}
+Here is sample code that enables HW filtering of selected C\+AN messages. Note that some messages are for C\+A\+N2 while most are for C\+A\+N1 
+\begin{DoxyCode}
+1 const can\_std\_id\_t slist[]      = \{ CAN\_gen\_sid(can1, 0x100), CAN\_gen\_sid(can1, 0x110),   // 2 entries
+2                                     CAN\_gen\_sid(can1, 0x120), CAN\_gen\_sid(can1, 0x130)    // 2 entries
+3                                   \};
+4 const can\_std\_grp\_id\_t sglist[] = \{ \{CAN\_gen\_sid(can1, 0x150), CAN\_gen\_sid(can1, 0x200)\}, // Group 1
+5                                     \{CAN\_gen\_sid(can2, 0x300), CAN\_gen\_sid(can2, 0x400)\}  // Group 2
+6                                   \};
+7 const can\_ext\_id\_t *elist       = NULL; // Not used, so set it to NULL
+8 const can\_ext\_grp\_id\_t eglist[] = \{ \{CAN\_gen\_eid(can1, 0x3500), CAN\_gen\_eid(can1, 0x4500)\} \}; // Group 1
+9 
+10 CAN\_setup\_filter(slist, 4, sglist, 2,
+11                  elist, 0, eglist, 1);
+\end{DoxyCode}
+ Standard ID list and group list need to swapped otherwise setting the wrong filter will make the C\+AN I\+SR go into a loop for no apparent reason. It looks like the filter data is motorolla big-\/endian format. See \char`\"{}configuration example 5\char`\"{} in C\+AN chapter.\index{can.\+c@{can.\+c}!C\+A\+N\+\_\+tx@{C\+A\+N\+\_\+tx}}
+\index{C\+A\+N\+\_\+tx@{C\+A\+N\+\_\+tx}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+tx(can\+\_\+t can, can\+\_\+msg\+\_\+t $\ast$p\+Can\+Msg, uint32\+\_\+t timeout\+\_\+ms)}{CAN_tx(can_t can, can_msg_t *pCanMsg, uint32_t timeout_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+tx (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{can\+\_\+msg\+\_\+t $\ast$}]{msg, }
+\item[{uint32\+\_\+t}]{timeout\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8c_a6a1f976390ec544abf3706943538f862}{}\label{can_8c_a6a1f976390ec544abf3706943538f862}
+Send a C\+AN message over the C\+AN B\+US 
+\begin{DoxyParams}{Parameters}
+{\em can} & The can bus type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The C\+AN message \\
+\hline
+{\em timeout\+\_\+ms} & If Free\+R\+T\+OS is running, the task will block for timeout\+\_\+ms if HW buffers and the transmit queue is full. If Free\+R\+T\+OS is not running the timeout is simply, ignored, and false is returned if all three HW buffers are full.\\
+\hline
+\end{DoxyParams}
+The transmit queue is only used if all three buffers of the C\+AN hardware are busy, in which case, the transmission complete interrupt will later send the queued msg. \begin{DoxyReturn}{Returns}
+If C\+AN message was either sent, or queued, true is returned. If all the hardware buffers are full, and the queue is full, then false is returned if timeout occurs waiting for the queue to empty.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 can\_msg\_t msg;
+2 msg.msg\_id = 0x123;
+3 msg.frame\_fields.is\_29bit = 1;
+4 msg.frame\_fields.data\_len = 8;       // Send 8 bytes
+5 msg.data.qword = 0x1122334455667788; // Write all 8 bytes of data at once
+6 CAN\_tx(can\_1, &msg, portMAX\_DELAY);
+\end{DoxyCode}
+ 
+
+\subsection{Variable Documentation}
+\index{can.\+c@{can.\+c}!g\+\_\+can\+\_\+structs@{g\+\_\+can\+\_\+structs}}
+\index{g\+\_\+can\+\_\+structs@{g\+\_\+can\+\_\+structs}!can.\+c@{can.\+c}}
+\subsubsection[{\texorpdfstring{g\+\_\+can\+\_\+structs}{g_can_structs}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf can\+\_\+struct\+\_\+t} g\+\_\+can\+\_\+structs\mbox{[}{\bf can\+\_\+max}\mbox{]} = \{ \{{\bf L\+P\+C\+\_\+\+C\+A\+N1}\}, \{{\bf L\+P\+C\+\_\+\+C\+A\+N2}\}\}}\hypertarget{can_8c_acd18620f29b06d1f41843244e0d5f487}{}\label{can_8c_acd18620f29b06d1f41843244e0d5f487}
+
+
+Structure of both C\+A\+Ns. 
+

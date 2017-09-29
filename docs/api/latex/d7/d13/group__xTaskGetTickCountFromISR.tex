@@ -1,0 +1,10 @@
+\hypertarget{group__xTaskGetTickCountFromISR}{}\section{x\+Task\+Get\+Tick\+Count\+From\+I\+SR}
+\label{group__xTaskGetTickCountFromISR}\index{x\+Task\+Get\+Tick\+Count\+From\+I\+SR@{x\+Task\+Get\+Tick\+Count\+From\+I\+SR}}
+task. h 
+\begin{DoxyPre}TickType\_t \hyperlink{task_8h_a092be3fd5752625303c307620be523ff}{xTaskGetTickCountFromISR( void )};\end{DoxyPre}
+
+
+\begin{DoxyReturn}{Returns}
+The count of ticks since v\+Task\+Start\+Scheduler was called.
+\end{DoxyReturn}
+This is a version of \hyperlink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{x\+Task\+Get\+Tick\+Count()} that is safe to be called from an I\+SR -\/ provided that Tick\+Type\+\_\+t is the natural word size of the microcontroller being used or interrupt nesting is either not supported or not being used. 

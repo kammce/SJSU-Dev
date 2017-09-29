@@ -1,0 +1,289 @@
+\hypertarget{classUartDev}{}\section{Uart\+Dev Class Reference}
+\label{classUartDev}\index{Uart\+Dev@{Uart\+Dev}}
+
+
+{\ttfamily \#include $<$uart\+\_\+dev.\+hpp$>$}
+
+
+
+Inheritance diagram for Uart\+Dev\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{da/d4c/classUartDev__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Uart\+Dev\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{df/d31/classUartDev__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classUartDev_a478b22f1266a574c34baf660a5dc0f7f}{set\+Baud\+Rate} (unsigned int baud\+Rate)
+\begin{DoxyCompactList}\small\item\em Reset the baud-\/rate after U\+A\+RT has been initialized. \end{DoxyCompactList}\item 
+bool \hyperlink{classUartDev_a461bf31bdeb04e579dc1a9207ceb86e1}{get\+Char} (char $\ast$p\+Input\+Char, unsigned int timeout=\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{port\+M\+A\+X\+\_\+\+D\+E\+L\+AY})
+\item 
+bool \hyperlink{classUartDev_a5540a663667da93bc166f81d4f72cd2c}{put\+Char} (char out, unsigned int timeout=\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{port\+M\+A\+X\+\_\+\+D\+E\+L\+AY})
+\item 
+bool \hyperlink{classUartDev_ac50cca0665fac431db99ecdb242c6ee7}{flush} (void)
+\begin{DoxyCompactList}\small\item\em Flushed all pending transmission of the uart queue. \end{DoxyCompactList}\item 
+void \hyperlink{classUartDev_a88db44755fb545c2553cabf95a338db4}{handle\+Interrupt} ()
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{classUartDev_a1ea0679fef2e1a42cb952271b423ee99}{get\+Rx\+Queue\+Size} () const 
+\item 
+unsigned int \hyperlink{classUartDev_a4b834fc64a81218d92aa5b20adfcd05d}{get\+Tx\+Queue\+Size} () const 
+\item 
+unsigned int \hyperlink{classUartDev_ab3d5e233b3534367556526027652211d}{get\+Rx\+Queue\+Watermark} () const 
+\item 
+unsigned int \hyperlink{classUartDev_a98baa125ecc96697113d59c1a4234d5c}{get\+Tx\+Queue\+Watermark} () const 
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classUartDev_a178c3f9749ca21fe43066e06f754f5d0}{recently\+Active} (unsigned int ms=3000) const 
+\item 
+\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} \hyperlink{classUartDev_aaaf62e3bab33af57c484e6cf657bf54f}{get\+Last\+Activity\+Time} (void) const 
+\item 
+void \hyperlink{classUartDev_a2a6fbc4ab47d0f0bd16b287828b75f3a}{reset\+Activity} (void)
+\end{DoxyCompactItemize}
+
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classUartDev_ab1052b8bbe73934f0f171c5e7f52d588}{init} (unsigned int pclk, unsigned int baud\+Rate, int rx\+Q\+Size=32, int tx\+Q\+Size=32)
+\item 
+\hyperlink{classUartDev_a41e9d43a209a845a5cf74d65e801817b}{Uart\+Dev} (unsigned int $\ast$p\+U\+A\+R\+T\+Base\+Addr)
+\item 
+\hyperlink{classUartDev_a8345a2c92126476300b8f4b5c2aca150}{$\sim$\+Uart\+Dev} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+A\+RT Base class that can be used to write drivers for all U\+A\+RT peripherals. Steps needed to write a U\+A\+RT driver\+:
+\begin{DoxyItemize}
+\item Inherit this class
+\item Call \hyperlink{classUartDev_ab1052b8bbe73934f0f171c5e7f52d588}{init()} and configure P\+I\+N\+S\+EL to select your U\+A\+RT pins
+\item When your U\+A\+RT(\#) hardware interrupt occurs, call \hyperlink{classUartDev_a88db44755fb545c2553cabf95a338db4}{handle\+Interrupt()}
+\end{DoxyItemize}
+
+To connect U\+A\+RT Interrupt with your U\+A\+RT, reference this example\+: 
+\begin{DoxyCode}
+\textcolor{keyword}{extern} \textcolor{stringliteral}{"C"}
+\{
+    \textcolor{keywordtype}{void} \hyperlink{startup_8cpp_afd2c7dd1041a4bb8a7b41496dd9ee0b7}{UART0\_IRQHandler}()
+    \{
+        UART0::getInstance().handleInterrupt();
+    \}
+ \}
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+This class hasn\textquotesingle{}t been tested for U\+A\+R\+T1 due to different memory map. 
+\end{DoxyWarning}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Uart\+Dev@{Uart\+Dev}!Uart\+Dev@{Uart\+Dev}}
+\index{Uart\+Dev@{Uart\+Dev}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{Uart\+Dev(unsigned int $\ast$p\+U\+A\+R\+T\+Base\+Addr)}{UartDev(unsigned int *pUARTBaseAddr)}}]{\setlength{\rightskip}{0pt plus 5cm}Uart\+Dev\+::\+Uart\+Dev (
+\begin{DoxyParamCaption}
+\item[{unsigned int $\ast$}]{p\+U\+A\+R\+T\+Base\+Addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classUartDev_a41e9d43a209a845a5cf74d65e801817b}{}\label{classUartDev_a41e9d43a209a845a5cf74d65e801817b}
+Protected constructor that requires parent class to provide U\+A\+RT\textquotesingle{}s base register address for which to operate this U\+A\+RT driver \index{Uart\+Dev@{Uart\+Dev}!````~Uart\+Dev@{$\sim$\+Uart\+Dev}}
+\index{````~Uart\+Dev@{$\sim$\+Uart\+Dev}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{$\sim$\+Uart\+Dev()}{~UartDev()}}]{\setlength{\rightskip}{0pt plus 5cm}Uart\+Dev\+::$\sim$\+Uart\+Dev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classUartDev_a8345a2c92126476300b8f4b5c2aca150}{}\label{classUartDev_a8345a2c92126476300b8f4b5c2aca150}
+
+
+\subsection{Member Function Documentation}
+\index{Uart\+Dev@{Uart\+Dev}!flush@{flush}}
+\index{flush@{flush}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{flush(void)}{flush(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Uart\+Dev\+::flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classUartDev_ac50cca0665fac431db99ecdb242c6ee7}{}\label{classUartDev_ac50cca0665fac431db99ecdb242c6ee7}
+
+
+Flushed all pending transmission of the uart queue. 
+
+
+
+Reimplemented from \hyperlink{classCharDev_a601bd6eeee3095306c0db78798499742}{Char\+Dev}.
+
+\index{Uart\+Dev@{Uart\+Dev}!get\+Char@{get\+Char}}
+\index{get\+Char@{get\+Char}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Char(char $\ast$p\+Input\+Char, unsigned int timeout=port\+M\+A\+X\+\_\+\+D\+E\+L\+A\+Y)}{getChar(char *pInputChar, unsigned int timeout=portMAX_DELAY)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Uart\+Dev\+::get\+Char (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{p\+Input\+Char, }
+\item[{unsigned int}]{timeout = {\ttfamily {\bf port\+M\+A\+X\+\_\+\+D\+E\+L\+AY}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classUartDev_a461bf31bdeb04e579dc1a9207ceb86e1}{}\label{classUartDev_a461bf31bdeb04e579dc1a9207ceb86e1}
+\begin{DoxyReturn}{Returns}
+a character from the U\+A\+RT input 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Input\+Char} & The pointer to input char to store received character \\
+\hline
+{\em timeout} & Optional parameter which defaults to maximum value that will allow you to wait forever for a character to be received \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a character was obtained within the given timeout 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCharDev_a2125f39cee4ada85091e4a5440751650}{Char\+Dev}.
+
+\index{Uart\+Dev@{Uart\+Dev}!get\+Last\+Activity\+Time@{get\+Last\+Activity\+Time}}
+\index{get\+Last\+Activity\+Time@{get\+Last\+Activity\+Time}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Last\+Activity\+Time(void) const }{getLastActivityTime(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tick\+Type\+\_\+t} Uart\+Dev\+::get\+Last\+Activity\+Time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUartDev_aaaf62e3bab33af57c484e6cf657bf54f}{}\label{classUartDev_aaaf62e3bab33af57c484e6cf657bf54f}
+\index{Uart\+Dev@{Uart\+Dev}!get\+Rx\+Queue\+Size@{get\+Rx\+Queue\+Size}}
+\index{get\+Rx\+Queue\+Size@{get\+Rx\+Queue\+Size}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Rx\+Queue\+Size() const }{getRxQueueSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Uart\+Dev\+::get\+Rx\+Queue\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUartDev_a1ea0679fef2e1a42cb952271b423ee99}{}\label{classUartDev_a1ea0679fef2e1a42cb952271b423ee99}
+Get the Rx and Tx queue information Watermarks provide the queue\textquotesingle{}s usage to access the capacity usage \index{Uart\+Dev@{Uart\+Dev}!get\+Rx\+Queue\+Watermark@{get\+Rx\+Queue\+Watermark}}
+\index{get\+Rx\+Queue\+Watermark@{get\+Rx\+Queue\+Watermark}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Rx\+Queue\+Watermark() const }{getRxQueueWatermark() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Uart\+Dev\+::get\+Rx\+Queue\+Watermark (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUartDev_ab3d5e233b3534367556526027652211d}{}\label{classUartDev_ab3d5e233b3534367556526027652211d}
+\index{Uart\+Dev@{Uart\+Dev}!get\+Tx\+Queue\+Size@{get\+Tx\+Queue\+Size}}
+\index{get\+Tx\+Queue\+Size@{get\+Tx\+Queue\+Size}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Tx\+Queue\+Size() const }{getTxQueueSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Uart\+Dev\+::get\+Tx\+Queue\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUartDev_a4b834fc64a81218d92aa5b20adfcd05d}{}\label{classUartDev_a4b834fc64a81218d92aa5b20adfcd05d}
+\index{Uart\+Dev@{Uart\+Dev}!get\+Tx\+Queue\+Watermark@{get\+Tx\+Queue\+Watermark}}
+\index{get\+Tx\+Queue\+Watermark@{get\+Tx\+Queue\+Watermark}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Tx\+Queue\+Watermark() const }{getTxQueueWatermark() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Uart\+Dev\+::get\+Tx\+Queue\+Watermark (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUartDev_a98baa125ecc96697113d59c1a4234d5c}{}\label{classUartDev_a98baa125ecc96697113d59c1a4234d5c}
+\index{Uart\+Dev@{Uart\+Dev}!handle\+Interrupt@{handle\+Interrupt}}
+\index{handle\+Interrupt@{handle\+Interrupt}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{handle\+Interrupt()}{handleInterrupt()}}]{\setlength{\rightskip}{0pt plus 5cm}void Uart\+Dev\+::handle\+Interrupt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUartDev_a88db44755fb545c2553cabf95a338db4}{}\label{classUartDev_a88db44755fb545c2553cabf95a338db4}
+When the U\+A\+RT interrupt occurs, this function should be called to handle future action to take due to the interrupt cause. Bit Masks of I\+IR register Bits 3\+:1 that contain interrupt reason. Bits are shifted left because reason\+For\+Interrupt contains Bits 3\+:0
+
+If multiple sources of interrupt arise, let this interrupt exit, and re-\/enter for the new source of interrupt.
+
+When T\+H\+RE (Transmit Holding Register Empty) interrupt occurs, we can send as many bytes as the hardware F\+I\+FO supports (16)
+
+While receive Hardware F\+I\+FO not empty, keep queuing the data. Even if \hyperlink{queue_8h_a21d5919ed26c21d121df4a4debeb643c}{x\+Queue\+Send\+From\+I\+S\+R()} Fails (Queue is full), we still need to read R\+BR register otherwise interrupt will not clear\index{Uart\+Dev@{Uart\+Dev}!init@{init}}
+\index{init@{init}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{init(unsigned int pclk, unsigned int baud\+Rate, int rx\+Q\+Size=32, int tx\+Q\+Size=32)}{init(unsigned int pclk, unsigned int baudRate, int rxQSize=32, int txQSize=32)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Uart\+Dev\+::init (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{pclk, }
+\item[{unsigned int}]{baud\+Rate, }
+\item[{int}]{rx\+Q\+Size = {\ttfamily 32}, }
+\item[{int}]{tx\+Q\+Size = {\ttfamily 32}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classUartDev_ab1052b8bbe73934f0f171c5e7f52d588}{}\label{classUartDev_ab1052b8bbe73934f0f171c5e7f52d588}
+Initializes the U\+A\+RT register including Queues, baudrate and hardware. Parent class should call this method before initializing Pin-\/\+Connect-\/\+Block 
+\begin{DoxyParams}{Parameters}
+{\em pclk} & The system peripheral clock for this U\+A\+RT \\
+\hline
+{\em baud\+Rate} & The baud rate to set \\
+\hline
+{\em rx\+Q\+Size} & The receive queue size \\
+\hline
+{\em tx\+Q\+Size} & The transmit queue size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Sets 8-\/bit mode, no parity, no flow control. 
+\end{DoxyPostcond}
+\begin{DoxyWarning}{Warning}
+This will not initialize the P\+I\+NS, so user needs to do pin selection because L\+PC\textquotesingle{}s same U\+A\+RT hardware, such as U\+A\+R\+T2 is available on multiple pins. 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+If the tx\+Q\+Size is too small, functions performing printf will start to block. 
+\end{DoxyNote}
+\index{Uart\+Dev@{Uart\+Dev}!put\+Char@{put\+Char}}
+\index{put\+Char@{put\+Char}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{put\+Char(char out, unsigned int timeout=port\+M\+A\+X\+\_\+\+D\+E\+L\+A\+Y)}{putChar(char out, unsigned int timeout=portMAX_DELAY)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Uart\+Dev\+::put\+Char (
+\begin{DoxyParamCaption}
+\item[{char}]{out, }
+\item[{unsigned int}]{timeout = {\ttfamily {\bf port\+M\+A\+X\+\_\+\+D\+E\+L\+AY}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classUartDev_a5540a663667da93bc166f81d4f72cd2c}{}\label{classUartDev_a5540a663667da93bc166f81d4f72cd2c}
+Outputs a char given by 
+\begin{DoxyParams}{Parameters}
+{\em out} & \\
+\hline
+{\em timeout} & Optional parameter which defaults to maximum value that will allow you to wait forever for a character to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the output char was successfully written to Queue, or false if the output queue was full within the given timeout 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCharDev_a253e32e0413b98f0af16ad79eb358851}{Char\+Dev}.
+
+\index{Uart\+Dev@{Uart\+Dev}!recently\+Active@{recently\+Active}}
+\index{recently\+Active@{recently\+Active}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{recently\+Active(unsigned int ms=3000) const }{recentlyActive(unsigned int ms=3000) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Uart\+Dev\+::recently\+Active (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{ms = {\ttfamily 3000}}
+\end{DoxyParamCaption}
+) const}\hypertarget{classUartDev_a178c3f9749ca21fe43066e06f754f5d0}{}\label{classUartDev_a178c3f9749ca21fe43066e06f754f5d0}
+Recent activity api Check to see if this U\+A\+RT received any Rx/\+Tx activity within the last \#X OS ticks. 
+\begin{DoxyParams}{Parameters}
+{\em ms} & Optional Parameter\+: Defaults to 3000 milliseconds \\
+\hline
+\end{DoxyParams}
+\index{Uart\+Dev@{Uart\+Dev}!reset\+Activity@{reset\+Activity}}
+\index{reset\+Activity@{reset\+Activity}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{reset\+Activity(void)}{resetActivity(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Uart\+Dev\+::reset\+Activity (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classUartDev_a2a6fbc4ab47d0f0bd16b287828b75f3a}{}\label{classUartDev_a2a6fbc4ab47d0f0bd16b287828b75f3a}
+\index{Uart\+Dev@{Uart\+Dev}!set\+Baud\+Rate@{set\+Baud\+Rate}}
+\index{set\+Baud\+Rate@{set\+Baud\+Rate}!Uart\+Dev@{Uart\+Dev}}
+\subsubsection[{\texorpdfstring{set\+Baud\+Rate(unsigned int baud\+Rate)}{setBaudRate(unsigned int baudRate)}}]{\setlength{\rightskip}{0pt plus 5cm}void Uart\+Dev\+::set\+Baud\+Rate (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{baud\+Rate}
+\end{DoxyParamCaption}
+)}\hypertarget{classUartDev_a478b22f1266a574c34baf660a5dc0f7f}{}\label{classUartDev_a478b22f1266a574c34baf660a5dc0f7f}
+
+
+Reset the baud-\/rate after U\+A\+RT has been initialized. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/\hyperlink{uart__dev_8hpp}{uart\+\_\+dev.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/\hyperlink{uart__dev_8cpp}{uart\+\_\+dev.\+cpp}\end{DoxyCompactItemize}

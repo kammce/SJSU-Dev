@@ -1,0 +1,222 @@
+\hypertarget{classdbc__parse_1_1Message}{}\section{dbc\+\_\+parse.\+Message Class Reference}
+\label{classdbc__parse_1_1Message}\index{dbc\+\_\+parse.\+Message@{dbc\+\_\+parse.\+Message}}
+
+
+Inheritance diagram for dbc\+\_\+parse.\+Message\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{d5/da6/classdbc__parse_1_1Message__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dbc\+\_\+parse.\+Message\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{dd/d80/classdbc__parse_1_1Message__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a5727366fcc84fa040387bfb944451e0f}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classdbc__parse_1_1Message_a1471af7a123cef3cdea575dccbaaa8ec}{mid}, \hyperlink{classdbc__parse_1_1Message_a740b3f2db8f50f6254f2dfbb75f39148}{name}, \hyperlink{classdbc__parse_1_1Message_ac0dfe459d45cc2c985fb00006d07129a}{dlc}, \hyperlink{classdbc__parse_1_1Message_a3d03a385559ab7062fc87b17b6b9becb}{sender})
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a0b020e3f83316505ebb9d19e13a4323d}{add\+\_\+signal} (self, s)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a5fa2e8413aec9063fa70fa2664a5d6c4}{get\+\_\+struct\+\_\+name} (self)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a57de3254a55998110867d560f1c20b15}{is\+\_\+recipient\+\_\+of\+\_\+at\+\_\+least\+\_\+one\+\_\+sig} (self, node)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_aa52a796f8118c11d304f85b17d3e125c}{contains\+\_\+muxed\+\_\+signals} (self)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a305483ca621d50539e5f6242b205930b}{contains\+\_\+enums} (self)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_af047a7de502e95b6d978cb655aa2cd23}{get\+\_\+muxes} (self)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_abd1b4cd98e88de6dcd793e28618f2475}{get\+\_\+mux\+\_\+index\+\_\+signal} (self)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_acbd7b56360eb697ef7d7f4f02bba8257}{get\+\_\+struct\+\_\+for\+\_\+mux} (self, mux, non\+\_\+muxed\+\_\+signals, gen\+\_\+mia\+\_\+struct)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a85b8236d15e5438609c83375916f3c50}{gen\+\_\+converted\+\_\+struct} (self, self\+\_\+node, gen\+\_\+all)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_af0370b4150f9a45849f7e01deddb18a3}{get\+\_\+encode\+\_\+and\+\_\+send} (self, \hyperlink{classdbc__parse_1_1Message_a740b3f2db8f50f6254f2dfbb75f39148}{name})
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a217e73cb097da11ce62221387f16ec60}{get\+\_\+encode\+\_\+code} (self)
+\item 
+def \hyperlink{classdbc__parse_1_1Message_abe79e8fe3b791f0f5d72b5960fb6262b}{get\+\_\+non\+\_\+mux\+\_\+signal\+\_\+decode\+\_\+code} (self, raw\+\_\+sig\+\_\+name, prefix=\textquotesingle{}\textquotesingle{})
+\item 
+def \hyperlink{classdbc__parse_1_1Message_aee532dc58e451dc9c4baa19ce247877b}{get\+\_\+signal\+\_\+decode\+\_\+code\+\_\+for\+\_\+mux} (self, mux, raw\+\_\+sig\+\_\+name, prefix=\textquotesingle{}\textquotesingle{})
+\item 
+def \hyperlink{classdbc__parse_1_1Message_a3a50af61714f75b64b167c039cba003a}{get\+\_\+decode\+\_\+code} (self)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdbc__parse_1_1Message_a1471af7a123cef3cdea575dccbaaa8ec}{mid}
+\item 
+\hyperlink{classdbc__parse_1_1Message_a740b3f2db8f50f6254f2dfbb75f39148}{name}
+\item 
+\hyperlink{classdbc__parse_1_1Message_ac0dfe459d45cc2c985fb00006d07129a}{dlc}
+\item 
+\hyperlink{classdbc__parse_1_1Message_a3d03a385559ab7062fc87b17b6b9becb}{sender}
+\item 
+\hyperlink{classdbc__parse_1_1Message_a17107ae20dc6a96313223c258f00d3a1}{signals}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Message Object that contains the list of signals inside
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, mid, name, dlc, sender)}{__init__(self, mid, name, dlc, sender)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mid, }
+\item[{}]{name, }
+\item[{}]{dlc, }
+\item[{}]{sender}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a5727366fcc84fa040387bfb944451e0f}{}\label{classdbc__parse_1_1Message_a5727366fcc84fa040387bfb944451e0f}
+
+
+\subsection{Member Function Documentation}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!add\+\_\+signal@{add\+\_\+signal}}
+\index{add\+\_\+signal@{add\+\_\+signal}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{add\+\_\+signal(self, s)}{add_signal(self, s)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+add\+\_\+signal (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a0b020e3f83316505ebb9d19e13a4323d}{}\label{classdbc__parse_1_1Message_a0b020e3f83316505ebb9d19e13a4323d}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!contains\+\_\+enums@{contains\+\_\+enums}}
+\index{contains\+\_\+enums@{contains\+\_\+enums}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{contains\+\_\+enums(self)}{contains_enums(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+contains\+\_\+enums (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a305483ca621d50539e5f6242b205930b}{}\label{classdbc__parse_1_1Message_a305483ca621d50539e5f6242b205930b}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!contains\+\_\+muxed\+\_\+signals@{contains\+\_\+muxed\+\_\+signals}}
+\index{contains\+\_\+muxed\+\_\+signals@{contains\+\_\+muxed\+\_\+signals}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{contains\+\_\+muxed\+\_\+signals(self)}{contains_muxed_signals(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+contains\+\_\+muxed\+\_\+signals (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_aa52a796f8118c11d304f85b17d3e125c}{}\label{classdbc__parse_1_1Message_aa52a796f8118c11d304f85b17d3e125c}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!gen\+\_\+converted\+\_\+struct@{gen\+\_\+converted\+\_\+struct}}
+\index{gen\+\_\+converted\+\_\+struct@{gen\+\_\+converted\+\_\+struct}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{gen\+\_\+converted\+\_\+struct(self, self\+\_\+node, gen\+\_\+all)}{gen_converted_struct(self, self_node, gen_all)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+gen\+\_\+converted\+\_\+struct (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{self\+\_\+node, }
+\item[{}]{gen\+\_\+all}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a85b8236d15e5438609c83375916f3c50}{}\label{classdbc__parse_1_1Message_a85b8236d15e5438609c83375916f3c50}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+decode\+\_\+code@{get\+\_\+decode\+\_\+code}}
+\index{get\+\_\+decode\+\_\+code@{get\+\_\+decode\+\_\+code}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+decode\+\_\+code(self)}{get_decode_code(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+decode\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a3a50af61714f75b64b167c039cba003a}{}\label{classdbc__parse_1_1Message_a3a50af61714f75b64b167c039cba003a}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+encode\+\_\+and\+\_\+send@{get\+\_\+encode\+\_\+and\+\_\+send}}
+\index{get\+\_\+encode\+\_\+and\+\_\+send@{get\+\_\+encode\+\_\+and\+\_\+send}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+encode\+\_\+and\+\_\+send(self, name)}{get_encode_and_send(self, name)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+encode\+\_\+and\+\_\+send (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_af0370b4150f9a45849f7e01deddb18a3}{}\label{classdbc__parse_1_1Message_af0370b4150f9a45849f7e01deddb18a3}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+encode\+\_\+code@{get\+\_\+encode\+\_\+code}}
+\index{get\+\_\+encode\+\_\+code@{get\+\_\+encode\+\_\+code}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+encode\+\_\+code(self)}{get_encode_code(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+encode\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a217e73cb097da11ce62221387f16ec60}{}\label{classdbc__parse_1_1Message_a217e73cb097da11ce62221387f16ec60}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+mux\+\_\+index\+\_\+signal@{get\+\_\+mux\+\_\+index\+\_\+signal}}
+\index{get\+\_\+mux\+\_\+index\+\_\+signal@{get\+\_\+mux\+\_\+index\+\_\+signal}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+mux\+\_\+index\+\_\+signal(self)}{get_mux_index_signal(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+mux\+\_\+index\+\_\+signal (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_abd1b4cd98e88de6dcd793e28618f2475}{}\label{classdbc__parse_1_1Message_abd1b4cd98e88de6dcd793e28618f2475}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+muxes@{get\+\_\+muxes}}
+\index{get\+\_\+muxes@{get\+\_\+muxes}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+muxes(self)}{get_muxes(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+muxes (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_af047a7de502e95b6d978cb655aa2cd23}{}\label{classdbc__parse_1_1Message_af047a7de502e95b6d978cb655aa2cd23}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+non\+\_\+mux\+\_\+signal\+\_\+decode\+\_\+code@{get\+\_\+non\+\_\+mux\+\_\+signal\+\_\+decode\+\_\+code}}
+\index{get\+\_\+non\+\_\+mux\+\_\+signal\+\_\+decode\+\_\+code@{get\+\_\+non\+\_\+mux\+\_\+signal\+\_\+decode\+\_\+code}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+non\+\_\+mux\+\_\+signal\+\_\+decode\+\_\+code(self, raw\+\_\+sig\+\_\+name, prefix=\textquotesingle{}\textquotesingle{})}{get_non_mux_signal_decode_code(self, raw_sig_name, prefix='')}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+non\+\_\+mux\+\_\+signal\+\_\+decode\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{raw\+\_\+sig\+\_\+name, }
+\item[{}]{prefix = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_abe79e8fe3b791f0f5d72b5960fb6262b}{}\label{classdbc__parse_1_1Message_abe79e8fe3b791f0f5d72b5960fb6262b}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+signal\+\_\+decode\+\_\+code\+\_\+for\+\_\+mux@{get\+\_\+signal\+\_\+decode\+\_\+code\+\_\+for\+\_\+mux}}
+\index{get\+\_\+signal\+\_\+decode\+\_\+code\+\_\+for\+\_\+mux@{get\+\_\+signal\+\_\+decode\+\_\+code\+\_\+for\+\_\+mux}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+signal\+\_\+decode\+\_\+code\+\_\+for\+\_\+mux(self, mux, raw\+\_\+sig\+\_\+name, prefix=\textquotesingle{}\textquotesingle{})}{get_signal_decode_code_for_mux(self, mux, raw_sig_name, prefix='')}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+signal\+\_\+decode\+\_\+code\+\_\+for\+\_\+mux (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mux, }
+\item[{}]{raw\+\_\+sig\+\_\+name, }
+\item[{}]{prefix = {\ttfamily \textquotesingle{}\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_aee532dc58e451dc9c4baa19ce247877b}{}\label{classdbc__parse_1_1Message_aee532dc58e451dc9c4baa19ce247877b}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+struct\+\_\+for\+\_\+mux@{get\+\_\+struct\+\_\+for\+\_\+mux}}
+\index{get\+\_\+struct\+\_\+for\+\_\+mux@{get\+\_\+struct\+\_\+for\+\_\+mux}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+struct\+\_\+for\+\_\+mux(self, mux, non\+\_\+muxed\+\_\+signals, gen\+\_\+mia\+\_\+struct)}{get_struct_for_mux(self, mux, non_muxed_signals, gen_mia_struct)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+struct\+\_\+for\+\_\+mux (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mux, }
+\item[{}]{non\+\_\+muxed\+\_\+signals, }
+\item[{}]{gen\+\_\+mia\+\_\+struct}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_acbd7b56360eb697ef7d7f4f02bba8257}{}\label{classdbc__parse_1_1Message_acbd7b56360eb697ef7d7f4f02bba8257}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!get\+\_\+struct\+\_\+name@{get\+\_\+struct\+\_\+name}}
+\index{get\+\_\+struct\+\_\+name@{get\+\_\+struct\+\_\+name}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{get\+\_\+struct\+\_\+name(self)}{get_struct_name(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+get\+\_\+struct\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a5fa2e8413aec9063fa70fa2664a5d6c4}{}\label{classdbc__parse_1_1Message_a5fa2e8413aec9063fa70fa2664a5d6c4}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!is\+\_\+recipient\+\_\+of\+\_\+at\+\_\+least\+\_\+one\+\_\+sig@{is\+\_\+recipient\+\_\+of\+\_\+at\+\_\+least\+\_\+one\+\_\+sig}}
+\index{is\+\_\+recipient\+\_\+of\+\_\+at\+\_\+least\+\_\+one\+\_\+sig@{is\+\_\+recipient\+\_\+of\+\_\+at\+\_\+least\+\_\+one\+\_\+sig}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{is\+\_\+recipient\+\_\+of\+\_\+at\+\_\+least\+\_\+one\+\_\+sig(self, node)}{is_recipient_of_at_least_one_sig(self, node)}}]{\setlength{\rightskip}{0pt plus 5cm}def dbc\+\_\+parse.\+Message.\+is\+\_\+recipient\+\_\+of\+\_\+at\+\_\+least\+\_\+one\+\_\+sig (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classdbc__parse_1_1Message_a57de3254a55998110867d560f1c20b15}{}\label{classdbc__parse_1_1Message_a57de3254a55998110867d560f1c20b15}
+
+
+\subsection{Field Documentation}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!dlc@{dlc}}
+\index{dlc@{dlc}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{dlc}{dlc}}]{\setlength{\rightskip}{0pt plus 5cm}dbc\+\_\+parse.\+Message.\+dlc}\hypertarget{classdbc__parse_1_1Message_ac0dfe459d45cc2c985fb00006d07129a}{}\label{classdbc__parse_1_1Message_ac0dfe459d45cc2c985fb00006d07129a}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!mid@{mid}}
+\index{mid@{mid}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{mid}{mid}}]{\setlength{\rightskip}{0pt plus 5cm}dbc\+\_\+parse.\+Message.\+mid}\hypertarget{classdbc__parse_1_1Message_a1471af7a123cef3cdea575dccbaaa8ec}{}\label{classdbc__parse_1_1Message_a1471af7a123cef3cdea575dccbaaa8ec}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!name@{name}}
+\index{name@{name}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}dbc\+\_\+parse.\+Message.\+name}\hypertarget{classdbc__parse_1_1Message_a740b3f2db8f50f6254f2dfbb75f39148}{}\label{classdbc__parse_1_1Message_a740b3f2db8f50f6254f2dfbb75f39148}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!sender@{sender}}
+\index{sender@{sender}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{sender}{sender}}]{\setlength{\rightskip}{0pt plus 5cm}dbc\+\_\+parse.\+Message.\+sender}\hypertarget{classdbc__parse_1_1Message_a3d03a385559ab7062fc87b17b6b9becb}{}\label{classdbc__parse_1_1Message_a3d03a385559ab7062fc87b17b6b9becb}
+\index{dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}!signals@{signals}}
+\index{signals@{signals}!dbc\+\_\+parse\+::\+Message@{dbc\+\_\+parse\+::\+Message}}
+\subsubsection[{\texorpdfstring{signals}{signals}}]{\setlength{\rightskip}{0pt plus 5cm}dbc\+\_\+parse.\+Message.\+signals}\hypertarget{classdbc__parse_1_1Message_a17107ae20dc6a96313223c258f00d3a1}{}\label{classdbc__parse_1_1Message_a17107ae20dc6a96313223c258f00d3a1}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+\_\+can\+\_\+dbc/\hyperlink{dbc__parse_8py}{dbc\+\_\+parse.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,98 @@
+\hypertarget{classUart0}{}\section{Uart0 Class Reference}
+\label{classUart0}\index{Uart0@{Uart0}}
+
+
+{\ttfamily \#include $<$uart0.\+hpp$>$}
+
+
+
+Inheritance diagram for Uart0\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{d4/d6f/classUart0__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Uart0\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d24/classUart0__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classUart0_a44d70c9c2a804062b9ba9fdd046c60b6}{init} (unsigned int baud\+Rate, int rx\+Q\+Size=32, int tx\+Q\+Size=64)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{Indent}{\bf Static functions to use for printf/scanf redirection.}\par
+\begin{DoxyCompactItemize}
+\item 
+static char \hyperlink{classUart0_ad68e3f89b795da45f8af664f41552f40}{getchar\+Intr\+Driven} (char unused)
+\item 
+static char \hyperlink{classUart0_a1e8478f57546a54c1d484c8edde037c9}{putchar\+Intr\+Driven} (char thechar)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classUart0_a1f6324854a84273f74610dbff733e94f}{Singleton\+Template$<$ Uart0 $>$}
+\begin{DoxyCompactList}\small\item\em Friend class used for Singleton Template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+U\+A\+R\+T0 Interrupt Driven Driver This simply uses \hyperlink{classUartDev}{Uart\+Dev}, and forwards the U\+A\+R\+T3 I\+RQ to \hyperlink{classUartDev_a88db44755fb545c2553cabf95a338db4}{Uart\+Dev\+::handle\+Interrupt()} This enforces Singleton class, otherwise it\textquotesingle{}s a thin wrapper around \hyperlink{classUartDev}{Uart\+Dev} class. 
+
+\subsection{Member Function Documentation}
+\index{Uart0@{Uart0}!getchar\+Intr\+Driven@{getchar\+Intr\+Driven}}
+\index{getchar\+Intr\+Driven@{getchar\+Intr\+Driven}!Uart0@{Uart0}}
+\subsubsection[{\texorpdfstring{getchar\+Intr\+Driven(char unused)}{getcharIntrDriven(char unused)}}]{\setlength{\rightskip}{0pt plus 5cm}static char Uart0\+::getchar\+Intr\+Driven (
+\begin{DoxyParamCaption}
+\item[{char}]{unused}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classUart0_ad68e3f89b795da45f8af664f41552f40}{}\label{classUart0_ad68e3f89b795da45f8af664f41552f40}
+\index{Uart0@{Uart0}!init@{init}}
+\index{init@{init}!Uart0@{Uart0}}
+\subsubsection[{\texorpdfstring{init(unsigned int baud\+Rate, int rx\+Q\+Size=32, int tx\+Q\+Size=64)}{init(unsigned int baudRate, int rxQSize=32, int txQSize=64)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Uart0\+::init (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{baud\+Rate, }
+\item[{int}]{rx\+Q\+Size = {\ttfamily 32}, }
+\item[{int}]{tx\+Q\+Size = {\ttfamily 64}}
+\end{DoxyParamCaption}
+)}\hypertarget{classUart0_a44d70c9c2a804062b9ba9fdd046c60b6}{}\label{classUart0_a44d70c9c2a804062b9ba9fdd046c60b6}
+Initializes U\+A\+R\+T0 at the given 
+\begin{DoxyParams}{Parameters}
+{\em baud\+Rate} & \\
+\hline
+{\em rx\+Q\+Size} & The size of the receive queue (optional, defaults to 32) \\
+\hline
+{\em tx\+Q\+Size} & The size of the transmit queue (optional, defaults to 64) \\
+\hline
+\end{DoxyParams}
+\index{Uart0@{Uart0}!putchar\+Intr\+Driven@{putchar\+Intr\+Driven}}
+\index{putchar\+Intr\+Driven@{putchar\+Intr\+Driven}!Uart0@{Uart0}}
+\subsubsection[{\texorpdfstring{putchar\+Intr\+Driven(char thechar)}{putcharIntrDriven(char thechar)}}]{\setlength{\rightskip}{0pt plus 5cm}static char Uart0\+::putchar\+Intr\+Driven (
+\begin{DoxyParamCaption}
+\item[{char}]{thechar}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classUart0_a1e8478f57546a54c1d484c8edde037c9}{}\label{classUart0_a1e8478f57546a54c1d484c8edde037c9}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Uart0@{Uart0}!Singleton\+Template$<$ Uart0 $>$@{Singleton\+Template$<$ Uart0 $>$}}
+\index{Singleton\+Template$<$ Uart0 $>$@{Singleton\+Template$<$ Uart0 $>$}!Uart0@{Uart0}}
+\subsubsection[{\texorpdfstring{Singleton\+Template$<$ Uart0 $>$}{SingletonTemplate< Uart0 >}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Singleton\+Template}$<$ {\bf Uart0} $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classUart0_a1f6324854a84273f74610dbff733e94f}{}\label{classUart0_a1f6324854a84273f74610dbff733e94f}
+
+
+Friend class used for Singleton Template. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/\hyperlink{uart0_8hpp}{uart0.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/\hyperlink{uart0_8cpp}{uart0.\+cpp}\end{DoxyCompactItemize}

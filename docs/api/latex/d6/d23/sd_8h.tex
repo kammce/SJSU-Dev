@@ -1,0 +1,128 @@
+\hypertarget{sd_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/sd.h File Reference}
+\label{sd_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/sd.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/sd.\+h}}
+{\ttfamily \#include \char`\"{}diskio\+Structs.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sd\+\_\+defines.\+h\char`\"{}}\\*
+Include dependency graph for sd.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d42/sd_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{d7/dea/sd_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sd_8h_ad5bbf13eac760f360fa1489b66adbf84}{\+\_\+\+R\+E\+A\+D\+O\+N\+LY}~0	    /$\ast$ 1\+: Read-\/only mode $\ast$/
+\item 
+\#define \hyperlink{sd_8h_afe6d1224687dede333375a2475c78ff6}{\+\_\+\+U\+S\+E\+\_\+\+I\+O\+C\+TL}~1
+\item 
+\#define \hyperlink{sd_8h_af22db1eb152988cbe18a143a65bb04e6}{\+\_\+\+S\+D\+IO}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{diskioStructs_8h_a07c784581cfcc6d1192300c3071c8919}{D\+S\+T\+A\+T\+US} \hyperlink{sd_8h_a9d0a00a0983f8f90b57fb9f64ad7d604}{sd\+\_\+initialize} ()
+\begin{DoxyCompactList}\small\item\em Initializes the SD Card for S\+PI Mode, called automatically by \hyperlink{diskio_8c_a8e429a29bdbb73f5bc9e2ab2335a5112}{disk\+\_\+initialize()} \end{DoxyCompactList}\item 
+\hyperlink{diskioStructs_8h_a07c784581cfcc6d1192300c3071c8919}{D\+S\+T\+A\+T\+US} \hyperlink{sd_8h_a89dfa5e681a3f3fcd0798806dee583ef}{sd\+\_\+status} ()
+\begin{DoxyCompactList}\small\item\em Returns status of card (if its been initialized or not) \end{DoxyCompactList}\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{sd_8h_a65a107c680c47555f090f3741a724984}{sd\+\_\+read} (\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} $\ast$buff, \hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD} sector, \hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} count)
+\begin{DoxyCompactList}\small\item\em Reads a sector from the SD Card. \end{DoxyCompactList}\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{sd_8h_a506e186cfc45c63481a0e6762cd6a9db}{sd\+\_\+write} (const \hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} $\ast$buff, \hyperlink{integer_8h_ad342ac907eb044443153a22f964bf0af}{D\+W\+O\+RD} sector, \hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} count)
+\begin{DoxyCompactList}\small\item\em Writes a sector to the S\+D-\/\+Card. \end{DoxyCompactList}\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{sd_8h_ae9f9b65bcb9be6c1c3e5a32fa8e625ab}{sd\+\_\+ioctl} (\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} ctrl, void $\ast$buff)
+\begin{DoxyCompactList}\small\item\em Low level function used by F\+AT File System Layer. \end{DoxyCompactList}\item 
+void \hyperlink{sd_8h_a376e6bd695a1320d121062b2a776c8ee}{sd\+\_\+update\+\_\+card\+\_\+status} (void)
+\begin{DoxyCompactList}\small\item\em Timeout function M\+U\+ST BE C\+A\+L\+L\+ED AT 100\+Hz (every 10ms) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{sd.\+h@{sd.\+h}!\+\_\+\+R\+E\+A\+D\+O\+N\+LY@{\+\_\+\+R\+E\+A\+D\+O\+N\+LY}}
+\index{\+\_\+\+R\+E\+A\+D\+O\+N\+LY@{\+\_\+\+R\+E\+A\+D\+O\+N\+LY}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{\+\_\+\+R\+E\+A\+D\+O\+N\+LY}{_READONLY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+R\+E\+A\+D\+O\+N\+LY~0	    /$\ast$ 1\+: Read-\/only mode $\ast$/}\hypertarget{sd_8h_ad5bbf13eac760f360fa1489b66adbf84}{}\label{sd_8h_ad5bbf13eac760f360fa1489b66adbf84}
+\index{sd.\+h@{sd.\+h}!\+\_\+\+S\+D\+IO@{\+\_\+\+S\+D\+IO}}
+\index{\+\_\+\+S\+D\+IO@{\+\_\+\+S\+D\+IO}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{\+\_\+\+S\+D\+IO}{_SDIO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+S\+D\+IO}\hypertarget{sd_8h_af22db1eb152988cbe18a143a65bb04e6}{}\label{sd_8h_af22db1eb152988cbe18a143a65bb04e6}
+\index{sd.\+h@{sd.\+h}!\+\_\+\+U\+S\+E\+\_\+\+I\+O\+C\+TL@{\+\_\+\+U\+S\+E\+\_\+\+I\+O\+C\+TL}}
+\index{\+\_\+\+U\+S\+E\+\_\+\+I\+O\+C\+TL@{\+\_\+\+U\+S\+E\+\_\+\+I\+O\+C\+TL}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{\+\_\+\+U\+S\+E\+\_\+\+I\+O\+C\+TL}{_USE_IOCTL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+U\+S\+E\+\_\+\+I\+O\+C\+TL~1}\hypertarget{sd_8h_afe6d1224687dede333375a2475c78ff6}{}\label{sd_8h_afe6d1224687dede333375a2475c78ff6}
+
+
+\subsection{Function Documentation}
+\index{sd.\+h@{sd.\+h}!sd\+\_\+initialize@{sd\+\_\+initialize}}
+\index{sd\+\_\+initialize@{sd\+\_\+initialize}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{sd\+\_\+initialize()}{sd_initialize()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+S\+T\+A\+T\+US} sd\+\_\+initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{sd_8h_a9d0a00a0983f8f90b57fb9f64ad7d604}{}\label{sd_8h_a9d0a00a0983f8f90b57fb9f64ad7d604}
+
+
+Initializes the SD Card for S\+PI Mode, called automatically by \hyperlink{diskio_8c_a8e429a29bdbb73f5bc9e2ab2335a5112}{disk\+\_\+initialize()} 
+
+\index{sd.\+h@{sd.\+h}!sd\+\_\+ioctl@{sd\+\_\+ioctl}}
+\index{sd\+\_\+ioctl@{sd\+\_\+ioctl}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{sd\+\_\+ioctl(\+B\+Y\+T\+E ctrl, void $\ast$buff)}{sd_ioctl(BYTE ctrl, void *buff)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} sd\+\_\+ioctl (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Y\+TE}}]{ctrl, }
+\item[{void $\ast$}]{buff}
+\end{DoxyParamCaption}
+)}\hypertarget{sd_8h_ae9f9b65bcb9be6c1c3e5a32fa8e625ab}{}\label{sd_8h_ae9f9b65bcb9be6c1c3e5a32fa8e625ab}
+
+
+Low level function used by F\+AT File System Layer. 
+
+\index{sd.\+h@{sd.\+h}!sd\+\_\+read@{sd\+\_\+read}}
+\index{sd\+\_\+read@{sd\+\_\+read}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{sd\+\_\+read(\+B\+Y\+T\+E $\ast$buff, D\+W\+O\+R\+D sector, B\+Y\+T\+E count)}{sd_read(BYTE *buff, DWORD sector, BYTE count)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} sd\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Y\+TE} $\ast$}]{buff, }
+\item[{{\bf D\+W\+O\+RD}}]{sector, }
+\item[{{\bf B\+Y\+TE}}]{count}
+\end{DoxyParamCaption}
+)}\hypertarget{sd_8h_a65a107c680c47555f090f3741a724984}{}\label{sd_8h_a65a107c680c47555f090f3741a724984}
+
+
+Reads a sector from the SD Card. 
+
+\index{sd.\+h@{sd.\+h}!sd\+\_\+status@{sd\+\_\+status}}
+\index{sd\+\_\+status@{sd\+\_\+status}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{sd\+\_\+status()}{sd_status()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+S\+T\+A\+T\+US} sd\+\_\+status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{sd_8h_a89dfa5e681a3f3fcd0798806dee583ef}{}\label{sd_8h_a89dfa5e681a3f3fcd0798806dee583ef}
+
+
+Returns status of card (if its been initialized or not) 
+
+\index{sd.\+h@{sd.\+h}!sd\+\_\+update\+\_\+card\+\_\+status@{sd\+\_\+update\+\_\+card\+\_\+status}}
+\index{sd\+\_\+update\+\_\+card\+\_\+status@{sd\+\_\+update\+\_\+card\+\_\+status}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{sd\+\_\+update\+\_\+card\+\_\+status(void)}{sd_update_card_status(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void sd\+\_\+update\+\_\+card\+\_\+status (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{sd_8h_a376e6bd695a1320d121062b2a776c8ee}{}\label{sd_8h_a376e6bd695a1320d121062b2a776c8ee}
+
+
+Timeout function M\+U\+ST BE C\+A\+L\+L\+ED AT 100\+Hz (every 10ms) 
+
+\index{sd.\+h@{sd.\+h}!sd\+\_\+write@{sd\+\_\+write}}
+\index{sd\+\_\+write@{sd\+\_\+write}!sd.\+h@{sd.\+h}}
+\subsubsection[{\texorpdfstring{sd\+\_\+write(const B\+Y\+T\+E $\ast$buff, D\+W\+O\+R\+D sector, B\+Y\+T\+E count)}{sd_write(const BYTE *buff, DWORD sector, BYTE count)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} sd\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{const {\bf B\+Y\+TE} $\ast$}]{buff, }
+\item[{{\bf D\+W\+O\+RD}}]{sector, }
+\item[{{\bf B\+Y\+TE}}]{count}
+\end{DoxyParamCaption}
+)}\hypertarget{sd_8h_a506e186cfc45c63481a0e6762cd6a9db}{}\label{sd_8h_a506e186cfc45c63481a0e6762cd6a9db}
+
+
+Writes a sector to the S\+D-\/\+Card. 
+

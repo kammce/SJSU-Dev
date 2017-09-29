@@ -1,0 +1,150 @@
+\hypertarget{wireless_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/wireless.h File Reference}
+\label{wireless_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/wireless.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/wireless.\+h}}
+
+
+This provides simplified way to send/receive data from Nordic wireless chip. A\+LL W\+I\+R\+E\+L\+E\+SS D\+A\+TA should be sent/received through this A\+PI.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}src/mesh.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}src/mesh\+\_\+typedefs.\+h\char`\"{}}\\*
+Include dependency graph for wireless.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{d9/de2/wireless_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d66/wireless_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{wireless_8h_a21ff6c66e4302dc79f9f15531889155c}{wireless\+\_\+form\+\_\+pkt}(pkt,  dst,  protocol,  max\+\_\+hops,  num\+\_\+ptrs,  args...)~\hyperlink{mesh_8h_a23bd78e863b4ed4db7609870528ff116}{mesh\+\_\+form\+\_\+pkt}(pkt, dst, protocol, max\+\_\+hops, num\+\_\+ptrs, args)
+\begin{DoxyCompactList}\small\item\em Just a wrapper around \hyperlink{mesh_8c_a23bd78e863b4ed4db7609870528ff116}{mesh\+\_\+form\+\_\+pkt()} to put all wireless related A\+PI at this file. \end{DoxyCompactList}\item 
+\#define \hyperlink{wireless_8h_a1cbab6b4a8a2a8b401620447f9f91c07}{wireless\+\_\+deform\+\_\+pkt}(pkt,  num\+\_\+ptrs,  args...)~\hyperlink{mesh_8h_ad7abd39828420060487920365fe13a40}{mesh\+\_\+deform\+\_\+pkt}(pkt, num\+\_\+ptrs, args)
+\begin{DoxyCompactList}\small\item\em Just a wrapper around \hyperlink{mesh_8c_ad7abd39828420060487920365fe13a40}{mesh\+\_\+deform\+\_\+pkt()} to put all wireless related A\+PI at this file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{wireless_8h_a5fa8d063b8e42f0e8c11bf76cbddedd0}{wireless\+\_\+init} (void)
+\item 
+void \hyperlink{wireless_8h_a62b57561d26f95a86a1e16d470aa95c0}{wireless\+\_\+service} (void)
+\item 
+char \hyperlink{wireless_8h_ab1dd852860f7868cf3cf0df2136aa018}{wireless\+\_\+get\+\_\+rx\+\_\+pkt} (mesh\+\_\+packet\+\_\+t $\ast$pkt, const uint32\+\_\+t timeout\+\_\+ms)
+\item 
+char \hyperlink{wireless_8h_a21d8ed74e468faa3cbee2fc0f34bc6af}{wireless\+\_\+get\+\_\+ack\+\_\+pkt} (mesh\+\_\+packet\+\_\+t $\ast$pkt, const uint32\+\_\+t timeout\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Same as \hyperlink{wireless_8h_ab1dd852860f7868cf3cf0df2136aa018}{wireless\+\_\+get\+\_\+rx\+\_\+pkt()}, except this will retrieve an A\+CK response. \end{DoxyCompactList}\item 
+int \hyperlink{wireless_8h_a522ed8eca41a92227ab2971a90e9b30d}{wireless\+\_\+flush\+\_\+rx} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This provides simplified way to send/receive data from Nordic wireless chip. A\+LL W\+I\+R\+E\+L\+E\+SS D\+A\+TA should be sent/received through this A\+PI. 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{wireless.\+h@{wireless.\+h}!wireless\+\_\+deform\+\_\+pkt@{wireless\+\_\+deform\+\_\+pkt}}
+\index{wireless\+\_\+deform\+\_\+pkt@{wireless\+\_\+deform\+\_\+pkt}!wireless.\+h@{wireless.\+h}}
+\subsubsection[{\texorpdfstring{wireless\+\_\+deform\+\_\+pkt}{wireless_deform_pkt}}]{\setlength{\rightskip}{0pt plus 5cm}\#define wireless\+\_\+deform\+\_\+pkt(
+\begin{DoxyParamCaption}
+\item[{}]{pkt, }
+\item[{}]{num\+\_\+ptrs, }
+\item[{}]{args...}
+\end{DoxyParamCaption}
+)~{\bf mesh\+\_\+deform\+\_\+pkt}(pkt, num\+\_\+ptrs, args)}\hypertarget{wireless_8h_a1cbab6b4a8a2a8b401620447f9f91c07}{}\label{wireless_8h_a1cbab6b4a8a2a8b401620447f9f91c07}
+
+
+Just a wrapper around \hyperlink{mesh_8c_ad7abd39828420060487920365fe13a40}{mesh\+\_\+deform\+\_\+pkt()} to put all wireless related A\+PI at this file. 
+
+\index{wireless.\+h@{wireless.\+h}!wireless\+\_\+form\+\_\+pkt@{wireless\+\_\+form\+\_\+pkt}}
+\index{wireless\+\_\+form\+\_\+pkt@{wireless\+\_\+form\+\_\+pkt}!wireless.\+h@{wireless.\+h}}
+\subsubsection[{\texorpdfstring{wireless\+\_\+form\+\_\+pkt}{wireless_form_pkt}}]{\setlength{\rightskip}{0pt plus 5cm}\#define wireless\+\_\+form\+\_\+pkt(
+\begin{DoxyParamCaption}
+\item[{}]{pkt, }
+\item[{}]{dst, }
+\item[{}]{protocol, }
+\item[{}]{max\+\_\+hops, }
+\item[{}]{num\+\_\+ptrs, }
+\item[{}]{args...}
+\end{DoxyParamCaption}
+)~{\bf mesh\+\_\+form\+\_\+pkt}(pkt, dst, protocol, max\+\_\+hops, num\+\_\+ptrs, args)}\hypertarget{wireless_8h_a21ff6c66e4302dc79f9f15531889155c}{}\label{wireless_8h_a21ff6c66e4302dc79f9f15531889155c}
+
+
+Just a wrapper around \hyperlink{mesh_8c_a23bd78e863b4ed4db7609870528ff116}{mesh\+\_\+form\+\_\+pkt()} to put all wireless related A\+PI at this file. 
+
+
+
+\subsection{Function Documentation}
+\index{wireless.\+h@{wireless.\+h}!wireless\+\_\+flush\+\_\+rx@{wireless\+\_\+flush\+\_\+rx}}
+\index{wireless\+\_\+flush\+\_\+rx@{wireless\+\_\+flush\+\_\+rx}!wireless.\+h@{wireless.\+h}}
+\subsubsection[{\texorpdfstring{wireless\+\_\+flush\+\_\+rx(void)}{wireless_flush_rx(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int wireless\+\_\+flush\+\_\+rx (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{wireless_8h_a522ed8eca41a92227ab2971a90e9b30d}{}\label{wireless_8h_a522ed8eca41a92227ab2971a90e9b30d}
+Flush all received data of mesh (A\+C\+Ks and RX packets) \begin{DoxyReturn}{Returns}
+the discarded packet count 
+\end{DoxyReturn}
+\index{wireless.\+h@{wireless.\+h}!wireless\+\_\+get\+\_\+ack\+\_\+pkt@{wireless\+\_\+get\+\_\+ack\+\_\+pkt}}
+\index{wireless\+\_\+get\+\_\+ack\+\_\+pkt@{wireless\+\_\+get\+\_\+ack\+\_\+pkt}!wireless.\+h@{wireless.\+h}}
+\subsubsection[{\texorpdfstring{wireless\+\_\+get\+\_\+ack\+\_\+pkt(mesh\+\_\+packet\+\_\+t $\ast$pkt, const uint32\+\_\+t timeout\+\_\+ms)}{wireless_get_ack_pkt(mesh_packet_t *pkt, const uint32_t timeout_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}char wireless\+\_\+get\+\_\+ack\+\_\+pkt (
+\begin{DoxyParamCaption}
+\item[{mesh\+\_\+packet\+\_\+t $\ast$}]{pkt, }
+\item[{const uint32\+\_\+t}]{timeout\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{wireless_8h_a21d8ed74e468faa3cbee2fc0f34bc6af}{}\label{wireless_8h_a21d8ed74e468faa3cbee2fc0f34bc6af}
+
+
+Same as \hyperlink{wireless_8h_ab1dd852860f7868cf3cf0df2136aa018}{wireless\+\_\+get\+\_\+rx\+\_\+pkt()}, except this will retrieve an A\+CK response. 
+
+\index{wireless.\+h@{wireless.\+h}!wireless\+\_\+get\+\_\+rx\+\_\+pkt@{wireless\+\_\+get\+\_\+rx\+\_\+pkt}}
+\index{wireless\+\_\+get\+\_\+rx\+\_\+pkt@{wireless\+\_\+get\+\_\+rx\+\_\+pkt}!wireless.\+h@{wireless.\+h}}
+\subsubsection[{\texorpdfstring{wireless\+\_\+get\+\_\+rx\+\_\+pkt(mesh\+\_\+packet\+\_\+t $\ast$pkt, const uint32\+\_\+t timeout\+\_\+ms)}{wireless_get_rx_pkt(mesh_packet_t *pkt, const uint32_t timeout_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}char wireless\+\_\+get\+\_\+rx\+\_\+pkt (
+\begin{DoxyParamCaption}
+\item[{mesh\+\_\+packet\+\_\+t $\ast$}]{pkt, }
+\item[{const uint32\+\_\+t}]{timeout\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{wireless_8h_ab1dd852860f7868cf3cf0df2136aa018}{}\label{wireless_8h_ab1dd852860f7868cf3cf0df2136aa018}
+Call this function periodically to get a queued packet. 
+\begin{DoxyParams}{Parameters}
+{\em timeout\+\_\+ms} & The number of milliseconds to wait for a packet. If Free\+R\+T\+OS is running, then this becomes the queue wait time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a packet was dequeued, or false if there is no packet.
+\end{DoxyReturn}
+Here is an example of how to send a packet and ensure the destined node received the data \+: 
+\begin{DoxyCode}
+1 wireless\_send(destination, mesh\_pkt\_ack, "Hello", 5, 3);
+2 mesh\_packet\_t rx;
+3 
+4 if (wireless\_get\_ack\_pkt(&rx, 100)) \{
+5     // We got an ACK, but to be sure it came from the right place, check:
+6     //     if(rx.nwk.src == destination)
+7 \}
+\end{DoxyCode}
+ \index{wireless.\+h@{wireless.\+h}!wireless\+\_\+init@{wireless\+\_\+init}}
+\index{wireless\+\_\+init@{wireless\+\_\+init}!wireless.\+h@{wireless.\+h}}
+\subsubsection[{\texorpdfstring{wireless\+\_\+init(void)}{wireless_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool wireless\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{wireless_8h_a5fa8d063b8e42f0e8c11bf76cbddedd0}{}\label{wireless_8h_a5fa8d063b8e42f0e8c11bf76cbddedd0}
+Initializes nordic driver layer and the mesh network layer. This is already called before \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} function is run. \begin{DoxyReturn}{Returns}
+true if everything is successful. 
+\end{DoxyReturn}
+\index{wireless.\+h@{wireless.\+h}!wireless\+\_\+service@{wireless\+\_\+service}}
+\index{wireless\+\_\+service@{wireless\+\_\+service}!wireless.\+h@{wireless.\+h}}
+\subsubsection[{\texorpdfstring{wireless\+\_\+service(void)}{wireless_service(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void wireless\+\_\+service (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{wireless_8h_a62b57561d26f95a86a1e16d470aa95c0}{}\label{wireless_8h_a62b57561d26f95a86a1e16d470aa95c0}
+Calls \hyperlink{mesh_8c_a03cc4bb7106a1f1b3ee8c69904a38cb2}{mesh\+\_\+service()} routine. This is encapsulated because this function will only call \hyperlink{mesh_8c_a03cc4bb7106a1f1b3ee8c69904a38cb2}{mesh\+\_\+service()} when there is either a pending packet or a packet received as indicated by nordic interrupt. This function is called through R\+IT or through Free\+R\+T\+OS tick hook, so you don\textquotesingle{}t have to call it yourself. 

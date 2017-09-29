@@ -1,0 +1,155 @@
+\hypertarget{mesh__typedefs_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/mesh\+\_\+typedefs.h File Reference}
+\label{mesh__typedefs_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/mesh\+\_\+typedefs.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/mesh\+\_\+typedefs.\+h}}
+
+
+Mesh type defines.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}mesh\+\_\+config.\+h\char`\"{}}\\*
+Include dependency graph for mesh\+\_\+typedefs.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{d8/d6d/mesh__typedefs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/dc2/mesh__typedefs_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmesh__driver__t}{mesh\+\_\+driver\+\_\+t}
+\item 
+struct \hyperlink{structmesh__rte__table__t}{mesh\+\_\+rte\+\_\+table\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Routing table type. \end{DoxyCompactList}\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mesh__typedefs_8h_a5c929541740b4c1d29c0b93c0df30a35}{M\+E\+S\+H\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}~15
+\begin{DoxyCompactList}\small\item\em This is fixed to 15 due to the size of the hop\+\_\+count and hop\+\_\+count\+\_\+max. \end{DoxyCompactList}\item 
+\#define \hyperlink{mesh__typedefs_8h_aeaacc9b7eaa7dd2fe70188c9451ae053}{M\+E\+S\+H\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}~7
+\begin{DoxyCompactList}\small\item\em This field is limited to value of 7 because of the bit-\/field of retry count. \end{DoxyCompactList}\item 
+\#define \hyperlink{mesh__typedefs_8h_a89b136ae014deead5eda8d555132acbd}{M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}~(sizeof(mesh\+\_\+pkt\+\_\+info\+\_\+t) + sizeof(mesh\+\_\+pkt\+\_\+addr\+\_\+t) + sizeof(mesh\+\_\+pkt\+\_\+addr\+\_\+t))
+\begin{DoxyCompactList}\small\item\em Size of the header used by the payload. \end{DoxyCompactList}\item 
+\#define \hyperlink{mesh__typedefs_8h_a3a202f51bca7a0dbd86db707179fe827}{M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}~(\hyperlink{mesh__config_8h_a0de097ab4cf2a299c365fc59eabca31b}{M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+AD} -\/ \hyperlink{mesh__typedefs_8h_a89b136ae014deead5eda8d555132acbd}{M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE})
+\begin{DoxyCompactList}\small\item\em Size of the data payload (Do not modify) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \hyperlink{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}{mesh\+\_\+fptr\+\_\+t}) (void $\ast$p\+Data, int data\+\_\+len)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709f}{mesh\+\_\+protocol\+\_\+t} \{ \hyperlink{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa8681b3edcaf36686dc53eed6d7536517}{mesh\+\_\+pkt\+\_\+nack} =0, 
+\hyperlink{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa9c315be9c4ce3c241288bd8c3edc25a6}{mesh\+\_\+pkt\+\_\+ack}, 
+\hyperlink{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa12a56e441b50c4811fb93c3386e1827e}{mesh\+\_\+pkt\+\_\+ack\+\_\+app}, 
+\hyperlink{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa16f74602a3ef4ce1e4364edbc12ceb93}{mesh\+\_\+pkt\+\_\+ack\+\_\+rsp}
+ \}\begin{DoxyCompactList}\small\item\em Mesh packet type. \end{DoxyCompactList}
+\item 
+enum \hyperlink{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519}{mesh\+\_\+error\+\_\+mask\+\_\+t} \{ \hyperlink{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a8d00d90a77285c4ec2eaee97cd8ffed6}{mesh\+\_\+err\+\_\+none} = 0, 
+\hyperlink{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a13fa76894fb0ad198f1f27b69306b360}{mesh\+\_\+err\+\_\+ver\+\_\+mismatch} = (1 $<$$<$ 0), 
+\hyperlink{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a136b386ff9cc09dcd963f12f68563c86}{mesh\+\_\+err\+\_\+dup\+\_\+node} = (1 $<$$<$ 1), 
+\hyperlink{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519ab4f9412492621907ef3c5ff3e4b28b3c}{mesh\+\_\+err\+\_\+app\+\_\+recv} = (1 $<$$<$ 2)
+ \}\begin{DoxyCompactList}\small\item\em Mesh error types. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Mesh type defines. 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE@{M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}}
+\index{M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE@{M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}{MESH_DATA_PAYLOAD_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE~({\bf M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+AD} -\/ {\bf M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE})}\hypertarget{mesh__typedefs_8h_a3a202f51bca7a0dbd86db707179fe827}{}\label{mesh__typedefs_8h_a3a202f51bca7a0dbd86db707179fe827}
+
+
+Size of the data payload (Do not modify) 
+
+\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!M\+E\+S\+H\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX@{M\+E\+S\+H\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}}
+\index{M\+E\+S\+H\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX@{M\+E\+S\+H\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+S\+H\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}{MESH_HOP_COUNT_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+S\+H\+\_\+\+H\+O\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX~15}\hypertarget{mesh__typedefs_8h_a5c929541740b4c1d29c0b93c0df30a35}{}\label{mesh__typedefs_8h_a5c929541740b4c1d29c0b93c0df30a35}
+
+
+This is fixed to 15 due to the size of the hop\+\_\+count and hop\+\_\+count\+\_\+max. 
+
+\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE@{M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE@{M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}{MESH_PAYLOAD_HEADER_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+S\+H\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE~(sizeof(mesh\+\_\+pkt\+\_\+info\+\_\+t) + sizeof(mesh\+\_\+pkt\+\_\+addr\+\_\+t) + sizeof(mesh\+\_\+pkt\+\_\+addr\+\_\+t))}\hypertarget{mesh__typedefs_8h_a89b136ae014deead5eda8d555132acbd}{}\label{mesh__typedefs_8h_a89b136ae014deead5eda8d555132acbd}
+
+
+Size of the header used by the payload. 
+
+\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!M\+E\+S\+H\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX@{M\+E\+S\+H\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}}
+\index{M\+E\+S\+H\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX@{M\+E\+S\+H\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}
+\subsubsection[{\texorpdfstring{M\+E\+S\+H\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX}{MESH_RETRY_COUNT_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+S\+H\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX~7}\hypertarget{mesh__typedefs_8h_aeaacc9b7eaa7dd2fe70188c9451ae053}{}\label{mesh__typedefs_8h_aeaacc9b7eaa7dd2fe70188c9451ae053}
+
+
+This field is limited to value of 7 because of the bit-\/field of retry count. 
+
+
+
+\subsection{Typedef Documentation}
+\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+fptr\+\_\+t@{mesh\+\_\+fptr\+\_\+t}}
+\index{mesh\+\_\+fptr\+\_\+t@{mesh\+\_\+fptr\+\_\+t}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}
+\subsubsection[{\texorpdfstring{mesh\+\_\+fptr\+\_\+t}{mesh_fptr_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ mesh\+\_\+fptr\+\_\+t) (void $\ast$p\+Data, int data\+\_\+len)}\hypertarget{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}{}\label{mesh__typedefs_8h_aa10eac776a3b3e493f11e01c474d431f}
+Typedef of Function Pointer 
+
+\subsection{Enumeration Type Documentation}
+\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+error\+\_\+mask\+\_\+t@{mesh\+\_\+error\+\_\+mask\+\_\+t}}
+\index{mesh\+\_\+error\+\_\+mask\+\_\+t@{mesh\+\_\+error\+\_\+mask\+\_\+t}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}
+\subsubsection[{\texorpdfstring{mesh\+\_\+error\+\_\+mask\+\_\+t}{mesh_error_mask_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mesh\+\_\+error\+\_\+mask\+\_\+t}}\hypertarget{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519}{}\label{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519}
+
+
+Mesh error types. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{mesh\+\_\+err\+\_\+none@{mesh\+\_\+err\+\_\+none}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+err\+\_\+none@{mesh\+\_\+err\+\_\+none}}\item[{\em 
+mesh\+\_\+err\+\_\+none\hypertarget{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a8d00d90a77285c4ec2eaee97cd8ffed6}{}\label{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a8d00d90a77285c4ec2eaee97cd8ffed6}
+}]\index{mesh\+\_\+err\+\_\+ver\+\_\+mismatch@{mesh\+\_\+err\+\_\+ver\+\_\+mismatch}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+err\+\_\+ver\+\_\+mismatch@{mesh\+\_\+err\+\_\+ver\+\_\+mismatch}}\item[{\em 
+mesh\+\_\+err\+\_\+ver\+\_\+mismatch\hypertarget{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a13fa76894fb0ad198f1f27b69306b360}{}\label{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a13fa76894fb0ad198f1f27b69306b360}
+}]A node sent data that is running different software version of this mesh network. \index{mesh\+\_\+err\+\_\+dup\+\_\+node@{mesh\+\_\+err\+\_\+dup\+\_\+node}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+err\+\_\+dup\+\_\+node@{mesh\+\_\+err\+\_\+dup\+\_\+node}}\item[{\em 
+mesh\+\_\+err\+\_\+dup\+\_\+node\hypertarget{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a136b386ff9cc09dcd963f12f68563c86}{}\label{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519a136b386ff9cc09dcd963f12f68563c86}
+}]Another node with the same address is present in the network. \index{mesh\+\_\+err\+\_\+app\+\_\+recv@{mesh\+\_\+err\+\_\+app\+\_\+recv}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+err\+\_\+app\+\_\+recv@{mesh\+\_\+err\+\_\+app\+\_\+recv}}\item[{\em 
+mesh\+\_\+err\+\_\+app\+\_\+recv\hypertarget{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519ab4f9412492621907ef3c5ff3e4b28b3c}{}\label{mesh__typedefs_8h_a127c488ccfa1bb458510e631aea7b519ab4f9412492621907ef3c5ff3e4b28b3c}
+}]app\+\_\+recv() callback returned 0 \end{description}
+\end{Desc}
+\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+protocol\+\_\+t@{mesh\+\_\+protocol\+\_\+t}}
+\index{mesh\+\_\+protocol\+\_\+t@{mesh\+\_\+protocol\+\_\+t}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}
+\subsubsection[{\texorpdfstring{mesh\+\_\+protocol\+\_\+t}{mesh_protocol_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mesh\+\_\+protocol\+\_\+t}}\hypertarget{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709f}{}\label{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709f}
+
+
+Mesh packet type. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{mesh\+\_\+pkt\+\_\+nack@{mesh\+\_\+pkt\+\_\+nack}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+pkt\+\_\+nack@{mesh\+\_\+pkt\+\_\+nack}}\item[{\em 
+mesh\+\_\+pkt\+\_\+nack\hypertarget{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa8681b3edcaf36686dc53eed6d7536517}{}\label{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa8681b3edcaf36686dc53eed6d7536517}
+}]No A\+CK -\/ Must be value of 0. \index{mesh\+\_\+pkt\+\_\+ack@{mesh\+\_\+pkt\+\_\+ack}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+pkt\+\_\+ack@{mesh\+\_\+pkt\+\_\+ack}}\item[{\em 
+mesh\+\_\+pkt\+\_\+ack\hypertarget{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa9c315be9c4ce3c241288bd8c3edc25a6}{}\label{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa9c315be9c4ce3c241288bd8c3edc25a6}
+}]Automatic A\+CK by \hyperlink{mesh_8c_a03cc4bb7106a1f1b3ee8c69904a38cb2}{mesh\+\_\+service()} \index{mesh\+\_\+pkt\+\_\+ack\+\_\+app@{mesh\+\_\+pkt\+\_\+ack\+\_\+app}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+pkt\+\_\+ack\+\_\+app@{mesh\+\_\+pkt\+\_\+ack\+\_\+app}}\item[{\em 
+mesh\+\_\+pkt\+\_\+ack\+\_\+app\hypertarget{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa12a56e441b50c4811fb93c3386e1827e}{}\label{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa12a56e441b50c4811fb93c3386e1827e}
+}]Application is required to A\+CK A\+S\+AP. \index{mesh\+\_\+pkt\+\_\+ack\+\_\+rsp@{mesh\+\_\+pkt\+\_\+ack\+\_\+rsp}!mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}}\index{mesh\+\_\+typedefs.\+h@{mesh\+\_\+typedefs.\+h}!mesh\+\_\+pkt\+\_\+ack\+\_\+rsp@{mesh\+\_\+pkt\+\_\+ack\+\_\+rsp}}\item[{\em 
+mesh\+\_\+pkt\+\_\+ack\+\_\+rsp\hypertarget{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa16f74602a3ef4ce1e4364edbc12ceb93}{}\label{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709fa16f74602a3ef4ce1e4364edbc12ceb93}
+}]Response packet of an A\+CK. \end{description}
+\end{Desc}

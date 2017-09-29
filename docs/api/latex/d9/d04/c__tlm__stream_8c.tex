@@ -1,0 +1,101 @@
+\hypertarget{c__tlm__stream_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/src/c\+\_\+tlm\+\_\+stream.c File Reference}
+\label{c__tlm__stream_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/src/c\+\_\+tlm\+\_\+stream.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/src/c\+\_\+tlm\+\_\+stream.\+c}}
+{\ttfamily \#include \char`\"{}c\+\_\+tlm\+\_\+stream.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+tlm\+\_\+var.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+{\ttfamily \#include $<$inttypes.\+h$>$}\\*
+Include dependency graph for c\+\_\+tlm\+\_\+stream.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d5c/c__tlm__stream_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{c__tlm__stream_8c_aaa92a24abfcd19c282268c0c983fad03}{tlm\+\_\+stream\+\_\+one} (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp, \hyperlink{c__tlm__stream_8h_a86c7c9f8999948664e145cbf486461ae}{stream\+\_\+callback\+\_\+type} stream, void $\ast$print\+\_\+ascii, void $\ast$sca)
+\item 
+void \hyperlink{c__tlm__stream_8c_a77af06081887c1d1d21f5f18edd5aab4}{tlm\+\_\+stream\+\_\+all} (\hyperlink{c__tlm__stream_8h_a86c7c9f8999948664e145cbf486461ae}{stream\+\_\+callback\+\_\+type} stream\+\_\+func, void $\ast$arg, bool ascii)
+\item 
+void \hyperlink{c__tlm__stream_8c_a9a453678fa30b3746fe11ac11585994d}{tlm\+\_\+stream\+\_\+one\+\_\+file} (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp\+\_\+ptr, F\+I\+LE $\ast$file)
+\item 
+void \hyperlink{c__tlm__stream_8c_a949eeebc2158a96884f098a752a29482}{tlm\+\_\+stream\+\_\+all\+\_\+file} (F\+I\+LE $\ast$file)
+\item 
+bool \hyperlink{c__tlm__stream_8c_a76e9b10e5f9cd96fc836a00c1ebb7e82}{tlm\+\_\+stream\+\_\+decode\+\_\+file} (F\+I\+LE $\ast$file)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}!tlm\+\_\+stream\+\_\+all@{tlm\+\_\+stream\+\_\+all}}
+\index{tlm\+\_\+stream\+\_\+all@{tlm\+\_\+stream\+\_\+all}!c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+stream\+\_\+all(stream\+\_\+callback\+\_\+type stream\+\_\+func, void $\ast$arg, bool ascii)}{tlm_stream_all(stream_callback_type stream_func, void *arg, bool ascii)}}]{\setlength{\rightskip}{0pt plus 5cm}void tlm\+\_\+stream\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{{\bf stream\+\_\+callback\+\_\+type}}]{stream\+\_\+func, }
+\item[{void $\ast$}]{arg, }
+\item[{bool}]{ascii}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__stream_8c_a77af06081887c1d1d21f5f18edd5aab4}{}\label{c__tlm__stream_8c_a77af06081887c1d1d21f5f18edd5aab4}
+Streams the telemetry for A\+LL registered components and their variables 
+\begin{DoxyParams}{Parameters}
+{\em stream\+\_\+func} & The callback stream function that will receive the strings to print \\
+\hline
+{\em arg} & This argument will be passed to your stream function as its argument \\
+\hline
+{\em ascii} & If true, A\+S\+C\+II values are printed, rather than hex value of the data \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}!tlm\+\_\+stream\+\_\+all\+\_\+file@{tlm\+\_\+stream\+\_\+all\+\_\+file}}
+\index{tlm\+\_\+stream\+\_\+all\+\_\+file@{tlm\+\_\+stream\+\_\+all\+\_\+file}!c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+stream\+\_\+all\+\_\+file(\+F\+I\+L\+E $\ast$file)}{tlm_stream_all_file(FILE *file)}}]{\setlength{\rightskip}{0pt plus 5cm}void tlm\+\_\+stream\+\_\+all\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{F\+I\+LE $\ast$}]{file}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__stream_8c_a949eeebc2158a96884f098a752a29482}{}\label{c__tlm__stream_8c_a949eeebc2158a96884f098a752a29482}
+Streams all components to a file 
+\begin{DoxyParams}{Parameters}
+{\em file} & Could be stdout, stderr, or an opened file handle Example\+: To printf the telemetry, just use \char`\"{}tlm\+\_\+stream\+\_\+all\+\_\+file(stdio);\char`\"{} \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}!tlm\+\_\+stream\+\_\+decode\+\_\+file@{tlm\+\_\+stream\+\_\+decode\+\_\+file}}
+\index{tlm\+\_\+stream\+\_\+decode\+\_\+file@{tlm\+\_\+stream\+\_\+decode\+\_\+file}!c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+stream\+\_\+decode\+\_\+file(\+F\+I\+L\+E $\ast$file)}{tlm_stream_decode_file(FILE *file)}}]{\setlength{\rightskip}{0pt plus 5cm}bool tlm\+\_\+stream\+\_\+decode\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{F\+I\+LE $\ast$}]{file}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__stream_8c_a76e9b10e5f9cd96fc836a00c1ebb7e82}{}\label{c__tlm__stream_8c_a76e9b10e5f9cd96fc836a00c1ebb7e82}
+This is similar to tlm\+\_\+stream\+\_\+decode(char$\ast$) except that it decodes stream from an opened file handle. The file will be read until fgets() fails. \begin{DoxyReturn}{Returns}
+true when telemetry decode finds correct stream header. 
+\end{DoxyReturn}
+\index{c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}!tlm\+\_\+stream\+\_\+one@{tlm\+\_\+stream\+\_\+one}}
+\index{tlm\+\_\+stream\+\_\+one@{tlm\+\_\+stream\+\_\+one}!c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+stream\+\_\+one(tlm\+\_\+component $\ast$comp, stream\+\_\+callback\+\_\+type stream, void $\ast$print\+\_\+ascii, void $\ast$sca)}{tlm_stream_one(tlm_component *comp, stream_callback_type stream, void *print_ascii, void *sca)}}]{\setlength{\rightskip}{0pt plus 5cm}void tlm\+\_\+stream\+\_\+one (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+component} $\ast$}]{comp, }
+\item[{{\bf stream\+\_\+callback\+\_\+type}}]{stream, }
+\item[{void $\ast$}]{print\+\_\+ascii, }
+\item[{void $\ast$}]{sca}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__stream_8c_aaa92a24abfcd19c282268c0c983fad03}{}\label{c__tlm__stream_8c_aaa92a24abfcd19c282268c0c983fad03}
+Callback function for each component 
+\begin{DoxyParams}{Parameters}
+{\em sca} & Stream callback argument \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}!tlm\+\_\+stream\+\_\+one\+\_\+file@{tlm\+\_\+stream\+\_\+one\+\_\+file}}
+\index{tlm\+\_\+stream\+\_\+one\+\_\+file@{tlm\+\_\+stream\+\_\+one\+\_\+file}!c\+\_\+tlm\+\_\+stream.\+c@{c\+\_\+tlm\+\_\+stream.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+stream\+\_\+one\+\_\+file(tlm\+\_\+component $\ast$comp\+\_\+ptr, F\+I\+L\+E $\ast$file)}{tlm_stream_one_file(tlm_component *comp_ptr, FILE *file)}}]{\setlength{\rightskip}{0pt plus 5cm}void tlm\+\_\+stream\+\_\+one\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+component} $\ast$}]{comp\+\_\+ptr, }
+\item[{F\+I\+LE $\ast$}]{file}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__stream_8c_a9a453678fa30b3746fe11ac11585994d}{}\label{c__tlm__stream_8c_a9a453678fa30b3746fe11ac11585994d}
+Streams your provided component telemetry into a file pointer 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+ptr} & The telemetry component pointer \\
+\hline
+{\em file} & Could be stdout, stderr, or an opened file handle \\
+\hline
+\end{DoxyParams}

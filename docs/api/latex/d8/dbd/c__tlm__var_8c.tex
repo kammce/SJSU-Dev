@@ -1,0 +1,196 @@
+\hypertarget{c__tlm__var_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/src/c\+\_\+tlm\+\_\+var.c File Reference}
+\label{c__tlm__var_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/src/c\+\_\+tlm\+\_\+var.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/src/c\+\_\+tlm\+\_\+var.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$inttypes.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+tlm\+\_\+var.\+h\char`\"{}}\\*
+Include dependency graph for c\+\_\+tlm\+\_\+var.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d74/c__tlm__var_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{c__tlm__var_8c_a88f91ee734a8f23ac9363d74f1009df2}{tlm\+\_\+variable\+\_\+set\+\_\+value\+\_\+find\+\_\+next\+\_\+token}(value)
+\item 
+\#define \hyperlink{c__tlm__var_8c_a21998d4982aaad6dd0667a42a27a134d}{tlm\+\_\+variable\+\_\+print\+\_\+array}(format,  var,  \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer})
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{c__tlm__var_8c_a431ea95981c1016d2b80e0a5d4cce3f6}{tlm\+\_\+variable\+\_\+register} (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp\+\_\+ptr, const char $\ast$name, const void $\ast$data\+\_\+ptr, const uint16\+\_\+t data\+\_\+size, const uint16\+\_\+t arr\+\_\+size, \hyperlink{c__tlm__var_8h_a429969e0329f4a2abc124b7cef77fb29}{tlm\+\_\+type} type)
+\item 
+const \hyperlink{structtlm__reg__var__type}{tlm\+\_\+reg\+\_\+var\+\_\+type} $\ast$ \hyperlink{c__tlm__var_8c_a5faec2d211418e29a07845eb09bb131a}{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name} (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp\+\_\+ptr, const char $\ast$name)
+\item 
+const \hyperlink{structtlm__reg__var__type}{tlm\+\_\+reg\+\_\+var\+\_\+type} $\ast$ \hyperlink{c__tlm__var_8c_ab0ffffed339ec428b5d3802c47fff7dc}{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+comp\+\_\+and\+\_\+name} (const char $\ast$comp\+\_\+name, const char $\ast$name)
+\item 
+bool \hyperlink{c__tlm__var_8c_aca0adcce5d618c30570c5f7bd807b5fe}{tlm\+\_\+variable\+\_\+set\+\_\+value} (const char $\ast$comp\+\_\+name, const char $\ast$name, const char $\ast$value)
+\item 
+bool \hyperlink{c__tlm__var_8c_a843ca379dfbfc9c76819f4e68da47d66}{tlm\+\_\+variable\+\_\+get\+\_\+value} (const char $\ast$comp\+\_\+name, const char $\ast$name, char $\ast$\hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer}, int \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len})
+\item 
+bool \hyperlink{c__tlm__var_8c_a02b2572defb0782c061bb9b75ccacd10}{tlm\+\_\+variable\+\_\+print\+\_\+value} (const \hyperlink{structtlm__reg__var__type}{tlm\+\_\+reg\+\_\+var\+\_\+type} $\ast$reg\+\_\+var, char $\ast$\hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer}, int \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+print\+\_\+array@{tlm\+\_\+variable\+\_\+print\+\_\+array}}
+\index{tlm\+\_\+variable\+\_\+print\+\_\+array@{tlm\+\_\+variable\+\_\+print\+\_\+array}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+print\+\_\+array}{tlm_variable_print_array}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tlm\+\_\+variable\+\_\+print\+\_\+array(
+\begin{DoxyParamCaption}
+\item[{}]{format, }
+\item[{}]{var, }
+\item[{}]{{\bf buffer}}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_a21998d4982aaad6dd0667a42a27a134d}{}\label{c__tlm__var_8c_a21998d4982aaad6dd0667a42a27a134d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} ( i=1; i < reg\_var->elm\_arr\_size; i++) \{                \(\backslash\)
+            ++var;                                                  \(\backslash\)
+            size\_t curr\_len = strlen(\hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer});                       \(\backslash\)
+            snprintf(\hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer}+curr\_len, \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len}-curr\_len, format, *data); \(\backslash\)
+        \} \textcolor{keywordflow}{do}\{ \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+set\+\_\+value\+\_\+find\+\_\+next\+\_\+token@{tlm\+\_\+variable\+\_\+set\+\_\+value\+\_\+find\+\_\+next\+\_\+token}}
+\index{tlm\+\_\+variable\+\_\+set\+\_\+value\+\_\+find\+\_\+next\+\_\+token@{tlm\+\_\+variable\+\_\+set\+\_\+value\+\_\+find\+\_\+next\+\_\+token}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+set\+\_\+value\+\_\+find\+\_\+next\+\_\+token}{tlm_variable_set_value_find_next_token}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tlm\+\_\+variable\+\_\+set\+\_\+value\+\_\+find\+\_\+next\+\_\+token(
+\begin{DoxyParamCaption}
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_a88f91ee734a8f23ac9363d74f1009df2}{}\label{c__tlm__var_8c_a88f91ee734a8f23ac9363d74f1009df2}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{while} (0 != *value) \{       \(\backslash\)
+            if (\textcolor{charliteral}{','} == *value) \{    \(\backslash\)
+                ++value;            \(\backslash\)
+                break;              \(\backslash\)
+            \} \textcolor{keywordflow}{else} \{                \(\backslash\)
+                ++value;            \(\backslash\)
+        \}   \}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+comp\+\_\+and\+\_\+name@{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+comp\+\_\+and\+\_\+name}}
+\index{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+comp\+\_\+and\+\_\+name@{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+comp\+\_\+and\+\_\+name}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+comp\+\_\+and\+\_\+name(const char $\ast$comp\+\_\+name, const char $\ast$name)}{tlm_variable_get_by_comp_and_name(const char *comp_name, const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf tlm\+\_\+reg\+\_\+var\+\_\+type}$\ast$ tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+comp\+\_\+and\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{comp\+\_\+name, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_ab0ffffed339ec428b5d3802c47fff7dc}{}\label{c__tlm__var_8c_ab0ffffed339ec428b5d3802c47fff7dc}
+Get the data pointer and the size of a previously registered variable. The \hyperlink{structtlm__reg__var__type}{tlm\+\_\+reg\+\_\+var\+\_\+type} structure contains the pointer and the size. 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+name} & The component name that contains the variable \\
+\hline
+{\em name} & The registered name of the variable \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name@{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name}}
+\index{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name@{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name(tlm\+\_\+component $\ast$comp\+\_\+ptr, const char $\ast$name)}{tlm_variable_get_by_name(tlm_component *comp_ptr, const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf tlm\+\_\+reg\+\_\+var\+\_\+type}$\ast$ tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+component} $\ast$}]{comp\+\_\+ptr, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_a5faec2d211418e29a07845eb09bb131a}{}\label{c__tlm__var_8c_a5faec2d211418e29a07845eb09bb131a}
+Get the data pointer and the size of a previously registered variable. The \hyperlink{structtlm__reg__var__type}{tlm\+\_\+reg\+\_\+var\+\_\+type} structure contains the pointer and the size. 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+ptr} & The component pointer that contains the variable \\
+\hline
+{\em name} & The registered name of the variable \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+get\+\_\+value@{tlm\+\_\+variable\+\_\+get\+\_\+value}}
+\index{tlm\+\_\+variable\+\_\+get\+\_\+value@{tlm\+\_\+variable\+\_\+get\+\_\+value}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+get\+\_\+value(const char $\ast$comp\+\_\+name, const char $\ast$name, char $\ast$buffer, int len)}{tlm_variable_get_value(const char *comp_name, const char *name, char *buffer, int len)}}]{\setlength{\rightskip}{0pt plus 5cm}bool tlm\+\_\+variable\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{comp\+\_\+name, }
+\item[{const char $\ast$}]{name, }
+\item[{char $\ast$}]{buffer, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_a843ca379dfbfc9c76819f4e68da47d66}{}\label{c__tlm__var_8c_a843ca379dfbfc9c76819f4e68da47d66}
+Gets a value to one of the telemetry variables 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+name} & The name of the component (this will be located by name) \\
+\hline
+{\em name} & The name of the registered variable \\
+\hline
+{\em buffer} & The buffer at which to print the data \\
+\hline
+{\em len} & The length of the buffer \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+print\+\_\+value@{tlm\+\_\+variable\+\_\+print\+\_\+value}}
+\index{tlm\+\_\+variable\+\_\+print\+\_\+value@{tlm\+\_\+variable\+\_\+print\+\_\+value}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+print\+\_\+value(const tlm\+\_\+reg\+\_\+var\+\_\+type $\ast$reg\+\_\+var, char $\ast$buffer, int len)}{tlm_variable_print_value(const tlm_reg_var_type *reg_var, char *buffer, int len)}}]{\setlength{\rightskip}{0pt plus 5cm}bool tlm\+\_\+variable\+\_\+print\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const {\bf tlm\+\_\+reg\+\_\+var\+\_\+type} $\ast$}]{reg\+\_\+var, }
+\item[{char $\ast$}]{buffer, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_a02b2572defb0782c061bb9b75ccacd10}{}\label{c__tlm__var_8c_a02b2572defb0782c061bb9b75ccacd10}
+Prints the value of the given variable 
+\begin{DoxyParams}{Parameters}
+{\em reg\+\_\+var} & A registered variable, possibly obtained from \hyperlink{c__tlm__var_8h_a5faec2d211418e29a07845eb09bb131a}{tlm\+\_\+variable\+\_\+get\+\_\+by\+\_\+name()} \\
+\hline
+{\em buffer} & The buffer at which to print the data \\
+\hline
+{\em len} & The length of the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true upon success 
+\end{DoxyReturn}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+register@{tlm\+\_\+variable\+\_\+register}}
+\index{tlm\+\_\+variable\+\_\+register@{tlm\+\_\+variable\+\_\+register}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+register(tlm\+\_\+component $\ast$comp\+\_\+ptr, const char $\ast$name, const void $\ast$data\+\_\+ptr, const uint16\+\_\+t data\+\_\+size, const uint16\+\_\+t arr\+\_\+size, tlm\+\_\+type type)}{tlm_variable_register(tlm_component *comp_ptr, const char *name, const void *data_ptr, const uint16_t data_size, const uint16_t arr_size, tlm_type type)}}]{\setlength{\rightskip}{0pt plus 5cm}bool tlm\+\_\+variable\+\_\+register (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+component} $\ast$}]{comp\+\_\+ptr, }
+\item[{const char $\ast$}]{name, }
+\item[{const void $\ast$}]{data\+\_\+ptr, }
+\item[{const uint16\+\_\+t}]{data\+\_\+size, }
+\item[{const uint16\+\_\+t}]{arr\+\_\+size, }
+\item[{{\bf tlm\+\_\+type}}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_a431ea95981c1016d2b80e0a5d4cce3f6}{}\label{c__tlm__var_8c_a431ea95981c1016d2b80e0a5d4cce3f6}
+Adds a variable to a component. 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+ptr} & The component pointer \\
+\hline
+{\em name} & The name of the variable \\
+\hline
+{\em data\+\_\+ptr} & The data pointer of the variable \\
+\hline
+{\em data\+\_\+size} & The size of the variable \\
+\hline
+{\em arr\+\_\+size} & If not an array, use zero. If registering an array, use the number of elements in the array. \\
+\hline
+{\em type} & The type of the variable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true upon success. If memory allocation fails, or if another variable is registered by the same name or same memory pointer, false is returned. 
+\end{DoxyReturn}
+\index{c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}!tlm\+\_\+variable\+\_\+set\+\_\+value@{tlm\+\_\+variable\+\_\+set\+\_\+value}}
+\index{tlm\+\_\+variable\+\_\+set\+\_\+value@{tlm\+\_\+variable\+\_\+set\+\_\+value}!c\+\_\+tlm\+\_\+var.\+c@{c\+\_\+tlm\+\_\+var.\+c}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+variable\+\_\+set\+\_\+value(const char $\ast$comp\+\_\+name, const char $\ast$name, const char $\ast$value)}{tlm_variable_set_value(const char *comp_name, const char *name, const char *value)}}]{\setlength{\rightskip}{0pt plus 5cm}bool tlm\+\_\+variable\+\_\+set\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{comp\+\_\+name, }
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__var_8c_aca0adcce5d618c30570c5f7bd807b5fe}{}\label{c__tlm__var_8c_aca0adcce5d618c30570c5f7bd807b5fe}
+Sets a value to one of the telemetry variables. This is sort of a back-\/door way to force a value to the telemetry variable. 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+name} & The name of the component (this will be located by name) \\
+\hline
+{\em name} & The name of the registered variable \\
+\hline
+{\em value} & The string value. For example, to set an integer, just pass string value such as \char`\"{}123\char`\"{}. To set boolean value, use \char`\"{}true\char`\"{} or \char`\"{}false\char`\"{} \\
+\hline
+\end{DoxyParams}

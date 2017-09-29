@@ -1,0 +1,97 @@
+\hypertarget{utilities_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/utilities.h File Reference}
+\label{utilities_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/utilities.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/utilities.\+h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/db7/utilities_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{utilities_8h_a641682acc58c4da779c3b9bd7608838b}{P\+R\+I\+N\+T\+\_\+\+E\+X\+E\+C\+U\+T\+I\+O\+N\+\_\+\+S\+P\+E\+ED}()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{utilities_8h_a77c2ab6eebd9ebe86dc4f64bc31295bd}{delay\+\_\+us} (unsigned int micro\+\_\+sec)
+\item 
+void \hyperlink{utilities_8h_a502ecca03d76b51af9077f852c83f7dd}{delay\+\_\+ms} (unsigned int milli\+\_\+sec)
+\item 
+char \hyperlink{utilities_8h_a99330da093a7786aacca2a92a1f77931}{is\+\_\+freertos\+\_\+running} ()
+\item 
+void \hyperlink{utilities_8h_ac04ff81c0b1b8989ea508913b542dfc9}{log\+\_\+boot\+\_\+info} (const char $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+04172012 \+: Initial 
+
+\subsection{Macro Definition Documentation}
+\index{utilities.\+h@{utilities.\+h}!P\+R\+I\+N\+T\+\_\+\+E\+X\+E\+C\+U\+T\+I\+O\+N\+\_\+\+S\+P\+E\+ED@{P\+R\+I\+N\+T\+\_\+\+E\+X\+E\+C\+U\+T\+I\+O\+N\+\_\+\+S\+P\+E\+ED}}
+\index{P\+R\+I\+N\+T\+\_\+\+E\+X\+E\+C\+U\+T\+I\+O\+N\+\_\+\+S\+P\+E\+ED@{P\+R\+I\+N\+T\+\_\+\+E\+X\+E\+C\+U\+T\+I\+O\+N\+\_\+\+S\+P\+E\+ED}!utilities.\+h@{utilities.\+h}}
+\subsubsection[{\texorpdfstring{P\+R\+I\+N\+T\+\_\+\+E\+X\+E\+C\+U\+T\+I\+O\+N\+\_\+\+S\+P\+E\+ED}{PRINT_EXECUTION_SPEED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+N\+T\+\_\+\+E\+X\+E\+C\+U\+T\+I\+O\+N\+\_\+\+S\+P\+E\+ED(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8h_a641682acc58c4da779c3b9bd7608838b}{}\label{utilities_8h_a641682acc58c4da779c3b9bd7608838b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \_\_time=\hyperlink{lpc__sys_8h_a28b68b8d755621109c25dd0b5f997524}{sys\_get\_uptime\_us}(); \_\_time!=0; \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{\(\backslash\)}
+\hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{                                    printf}(\textcolor{stringliteral}{"   Finished in %u us
+      \(\backslash\)n"}, (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})\hyperlink{lpc__sys_8h_a28b68b8d755621109c25dd0b5f997524}{sys\_get\_uptime\_us}()-\_\_time),\_\_time=0)
+\end{DoxyCode}
+Macro that can be used to print the timing/performance of a block Example\+: 
+\begin{DoxyCode}
+1 PRINT\_EXECUTION\_SPEED()
+2 \{
+3     // ...
+4 \}
+5 // At the end, the time taken between this block will be printed
+\end{DoxyCode}
+ 
+
+\subsection{Function Documentation}
+\index{utilities.\+h@{utilities.\+h}!delay\+\_\+ms@{delay\+\_\+ms}}
+\index{delay\+\_\+ms@{delay\+\_\+ms}!utilities.\+h@{utilities.\+h}}
+\subsubsection[{\texorpdfstring{delay\+\_\+ms(unsigned int milli\+\_\+sec)}{delay_ms(unsigned int milli_sec)}}]{\setlength{\rightskip}{0pt plus 5cm}void delay\+\_\+ms (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{milli\+\_\+sec}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8h_a502ecca03d76b51af9077f852c83f7dd}{}\label{utilities_8h_a502ecca03d76b51af9077f852c83f7dd}
+Delays in milliseconds 
+\begin{DoxyParams}{Parameters}
+{\em milli\+\_\+sec} & The delay in milliseconds. \\
+\hline
+\end{DoxyParams}
+If Free\+R\+T\+OS is running, we should sleep the calling task instead of polling using the full C\+PU.\index{utilities.\+h@{utilities.\+h}!delay\+\_\+us@{delay\+\_\+us}}
+\index{delay\+\_\+us@{delay\+\_\+us}!utilities.\+h@{utilities.\+h}}
+\subsubsection[{\texorpdfstring{delay\+\_\+us(unsigned int micro\+\_\+sec)}{delay_us(unsigned int micro_sec)}}]{\setlength{\rightskip}{0pt plus 5cm}void delay\+\_\+us (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{micro\+\_\+sec}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8h_a77c2ab6eebd9ebe86dc4f64bc31295bd}{}\label{utilities_8h_a77c2ab6eebd9ebe86dc4f64bc31295bd}
+Delays in microseconds 
+\begin{DoxyParams}{Parameters}
+{\em micro\+\_\+sec} & The delay in microseconds \\
+\hline
+\end{DoxyParams}
+\index{utilities.\+h@{utilities.\+h}!is\+\_\+freertos\+\_\+running@{is\+\_\+freertos\+\_\+running}}
+\index{is\+\_\+freertos\+\_\+running@{is\+\_\+freertos\+\_\+running}!utilities.\+h@{utilities.\+h}}
+\subsubsection[{\texorpdfstring{is\+\_\+freertos\+\_\+running()}{is_freertos_running()}}]{\setlength{\rightskip}{0pt plus 5cm}char is\+\_\+freertos\+\_\+running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8h_a99330da093a7786aacca2a92a1f77931}{}\label{utilities_8h_a99330da093a7786aacca2a92a1f77931}
+\begin{DoxyReturn}{Returns}
+non-\/zero result if Free\+R\+T\+OS is running 
+\end{DoxyReturn}
+\index{utilities.\+h@{utilities.\+h}!log\+\_\+boot\+\_\+info@{log\+\_\+boot\+\_\+info}}
+\index{log\+\_\+boot\+\_\+info@{log\+\_\+boot\+\_\+info}!utilities.\+h@{utilities.\+h}}
+\subsubsection[{\texorpdfstring{log\+\_\+boot\+\_\+info(const char $\ast$)}{log_boot_info(const char *)}}]{\setlength{\rightskip}{0pt plus 5cm}void log\+\_\+boot\+\_\+info (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8h_ac04ff81c0b1b8989ea508913b542dfc9}{}\label{utilities_8h_ac04ff81c0b1b8989ea508913b542dfc9}
+Logs C\+PU boot information to the \hyperlink{classStorage}{Storage} \char`\"{}boot.\+csv\char`\"{} is appended with the time this function is called 

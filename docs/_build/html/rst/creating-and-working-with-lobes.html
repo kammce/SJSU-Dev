@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating and Working with Lobes &mdash; RoverCore-S 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="RoverCore-S 0.0.1 documentation" href="../index.html"/>
+        <link rel="next" title="Lobe API and System Features" href="api.html"/>
+        <link rel="prev" title="Getting Started" href="getting-started.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RoverCore-S
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating and Working with Lobes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lobes-in-rovercore-s-and-what-they-do">Lobes in RoverCore-S and What They Do</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-lobes-works">How Lobes Works</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lobe-states">Lobe States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#react-method">#react() method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#halt-method-halted-state">#halt() method &amp; HALTED state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resume-method-running-state">#resume() method &amp; RUNNING state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#idle-method-idling-state">#idle() method &amp; IDLING state</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-new-lobe">Creating a new Lobe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#util-constructor-parameter-properties"><em>util</em> constructor parameter properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Lobe API and System Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unit-testing-and-coverage.html">Unit Testing and Code Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyrights.html">Copyrights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RoverCore-S</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Creating and Working with Lobes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst/creating-and-working-with-lobes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-and-working-with-lobes">
+<h1>Creating and Working with Lobes<a class="headerlink" href="#creating-and-working-with-lobes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lobes-in-rovercore-s-and-what-they-do">
+<h2>Lobes in RoverCore-S and What They Do<a class="headerlink" href="#lobes-in-rovercore-s-and-what-they-do" title="Permalink to this headline">¶</a></h2>
+<p>The Lobes of RoverCore-S are modules that do work on the system. Lobes are structured classes that give mission control a means of controlling a specific system of the robot. Lobes can be used to retrieve and store sensor data, stream cameras, send an email, or literally do anything else that a Linux system running node.js can do.</p>
+</div>
+<div class="section" id="how-lobes-works">
+<h2>How Lobes Works<a class="headerlink" href="#how-lobes-works" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lobe-states">
+<h3>Lobe States<a class="headerlink" href="#lobe-states" title="Permalink to this headline">¶</a></h3>
+<p>Lobes have three states: <strong>HALTED</strong>, <strong>RUNNING</strong>, and <strong>IDLING</strong>. All of these states have a method associated with it. Each must be defined but does not necessary need to do anything. They can be empty methods and just return true.</p>
+</div>
+<div class="section" id="react-method">
+<h3>#react() method<a class="headerlink" href="#react-method" title="Permalink to this headline">¶</a></h3>
+<p>When Cortex receives a command from mission control <em>targets</em> a specific Lobe, Cortex will call that lobe’s <em>react()</em> method with the first parameter being the command sent from mission control. Thus the <em>react()</em> method is a means of handling commands sent from mission control to your lobe. Only one parameter is given to the react() method, but the command can be a mixed type (string, integer, structure, etc.). It is up to the lobe and mission control interface designer to decide how the commands will be represented.</p>
+</div>
+<div class="section" id="halt-method-halted-state">
+<h3>#halt() method &amp; HALTED state<a class="headerlink" href="#halt-method-halted-state" title="Permalink to this headline">¶</a></h3>
+<p>In the HALTED state, the lobe is stopped from doing any work and kept from reacting from mission control signals until RUNNING. Cortex will attempt to halt the a lobe in the following situations:
+1. If the Mission Control controller of a lobe disconnects from the rover server or server proxy.
+2. If the Mission Control controller sends a manual halt signal to Cortex to halt the lobe.
+3. If another lobe uses an UPCALL to trigger the halt of a specific lobe or all lobes.</p>
+<p>The <em>halt()</em> method within the lobe is the procedure that is run when Cortex attempts to halt the lobe. Return true if the halt was successful. Return false if the lobe did not halt successfully. Take care to use this area wisely.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For critical systems, it may be very important to stop the actions of the arm or wheels when the module halts, so be sure to do so in these procedures. TRY NOT TO FAIL AT THIS!</p>
+</div>
+</div>
+<div class="section" id="resume-method-running-state">
+<h3>#resume() method &amp; RUNNING state<a class="headerlink" href="#resume-method-running-state" title="Permalink to this headline">¶</a></h3>
+<p>In the RUNNING state, the lobe is active. The only way to exit a HALTED state is to run the <em>resume()</em> method. The resume method should do what ever is needed to bring the lobe out of the halted state.
+1. If the Mission Control controller sends a manual resume signal to Cortex to resume a halted lobe.
+2. If another lobe uses an UPCALL to trigger resume of a specific lobe or all lobes.</p>
+</div>
+<div class="section" id="idle-method-idling-state">
+<h3>#idle() method &amp; IDLING state<a class="headerlink" href="#idle-method-idling-state" title="Permalink to this headline">¶</a></h3>
+<p>Lobes are put into an IDLING state if they have not been sent a command from mission control in the specified amount defined in the lobe constructor. The <strong>default</strong> value for this is <code class="docutils literal"><span class="pre">2000ms</span></code> by the base class Neuron.js.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is useful when all connections to mission control are set, but something that is used for sending messages fails to send. This acts as a backup to idle or stop the system when this occures. This could also be used to sleep the system.</p>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-new-lobe">
+<h2>Creating a new Lobe<a class="headerlink" href="#creating-a-new-lobe" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>Step 1</strong></dt>
+<dd>Decide on a name for your lobe. Lets call this name <strong>NewLobe</strong> for the following steps. Naming convention for lobes is <strong>CamelCase</strong></dd>
+<dt><strong>Step 1</strong></dt>
+<dd>Go into the modules folder and make a copy of the template folder <strong>Protolobe</strong>. Rename that folder to <strong>NewLobe</strong>.</dd>
+<dt><strong>Step 2</strong></dt>
+<dd>Within your lobe folder, rename the <strong>Protolobe.js</strong> file to <strong>NewLobe.js</strong>.</dd>
+<dt><strong>Step 3</strong></dt>
+<dd>Change the name of the <strong>Class</strong> and the last line <code class="docutils literal"><span class="pre">module.export</span> <span class="pre">=</span> <span class="pre">ClassName</span></code> from <strong>Protolobe</strong> to <strong>NewLobe</strong>. Should look like the following:</dd>
+</dl>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">Neuron</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../Neuron&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">NewLobe</span> <span class="kr">extends</span> <span class="nx">Neuron</span> <span class="c1">// changed Protolobe to name of folder</span>
+<span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">util</span><span class="p">)</span>   <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+    <span class="nx">react</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span>        <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+    <span class="nx">halt</span><span class="p">()</span>              <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+    <span class="nx">resume</span><span class="p">()</span>            <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+    <span class="nx">idle</span><span class="p">()</span>              <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">NewLobe</span><span class="p">;</span> <span class="c1">// changed Protolobe to name of folder</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><strong>Step 4</strong></dt>
+<dd>Update the following two lines in the Constructor</dd>
+</dl>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="c1">//// Set lobe color by changing this line</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">setColor</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="c1">//// Time in milliseconds before idle timeout</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">idle_timeout</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The list of text colors can be found here <a class="reference external" href="https://www.npmjs.com/package/colors">https://www.npmjs.com/package/colors</a>.</p>
+</div>
+<div class="section" id="util-constructor-parameter-properties">
+<h2><em>util</em> constructor parameter properties<a class="headerlink" href="#util-constructor-parameter-properties" title="Permalink to this headline">¶</a></h2>
+<p>Each lobe is given a utilities structure by Cortex through their constructor. The structure has the following properties:</p>
+<ul class="simple">
+<li><strong>name</strong>: The name of the module using the module’s folder name</li>
+<li><strong>log</strong>: holds the log object reference</li>
+<li><strong>model</strong>: holds the model object reference</li>
+<li><strong>upcall</strong>: holds the Cortex upcall function reference</li>
+<li><strong>extended</strong>: holds the structure of the extended utilities</li>
+<li><strong>feedback</strong>: holds the feedback function reference</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="Lobe API and System Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Khalil A. Estell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

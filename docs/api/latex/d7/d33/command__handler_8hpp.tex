@@ -1,0 +1,82 @@
+\hypertarget{command__handler_8hpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/command\+\_\+handler.hpp File Reference}
+\label{command__handler_8hpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/command\+\_\+handler.\+hpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/command\+\_\+handler.\+hpp}}
+{\ttfamily \#include \char`\"{}vector.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}str.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}char\+\_\+dev.\+hpp\char`\"{}}\\*
+Include dependency graph for command\+\_\+handler.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d39/command__handler_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{df/d99/command__handler_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classCommandProcessor}{Command\+Processor}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{command__handler_8hpp_a2da2211c8d18fd145d0f0f439a225362}{C\+M\+D\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+F\+U\+NC}(name)~bool name(\hyperlink{classstr}{str}\& cmd\+Params, \hyperlink{classCharDev}{Char\+Dev}\& output, void$\ast$ p\+Data\+Param)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool($\ast$ \hyperlink{command__handler_8hpp_a56cc0ed4a4ef4fe8aaca51669f2d15f5}{Cmd\+Handler\+Func\+Ptr}) (\hyperlink{classstr}{str} \&cmd\+Params, \hyperlink{classCharDev}{Char\+Dev} \&output, void $\ast$p\+Data\+Param)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{command\+\_\+handler.\+hpp@{command\+\_\+handler.\+hpp}!C\+M\+D\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+F\+U\+NC@{C\+M\+D\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+F\+U\+NC}}
+\index{C\+M\+D\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+F\+U\+NC@{C\+M\+D\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+F\+U\+NC}!command\+\_\+handler.\+hpp@{command\+\_\+handler.\+hpp}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+F\+U\+NC}{CMD_HANDLER_FUNC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+F\+U\+NC(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~bool name({\bf str}\& cmd\+Params, {\bf Char\+Dev}\& output, void$\ast$ p\+Data\+Param)}\hypertarget{command__handler_8hpp_a2da2211c8d18fd145d0f0f439a225362}{}\label{command__handler_8hpp_a2da2211c8d18fd145d0f0f439a225362}
+This macro can be used to declare and/or define a handler function. \begin{DoxySeeAlso}{See also}
+Parameters of \hyperlink{command__handler_8hpp_a56cc0ed4a4ef4fe8aaca51669f2d15f5}{Cmd\+Handler\+Func\+Ptr()} Example\+: 
+\begin{DoxyCode}
+1 CMD\_HANDLER\_FUNC(myHandler);
+2 
+3 CMD\_HANDLER\_FUNC(myHandler)
+4 \{
+5    ...
+6 \}
+\end{DoxyCode}
+ 
+\end{DoxySeeAlso}
+
+
+\subsection{Typedef Documentation}
+\index{command\+\_\+handler.\+hpp@{command\+\_\+handler.\+hpp}!Cmd\+Handler\+Func\+Ptr@{Cmd\+Handler\+Func\+Ptr}}
+\index{Cmd\+Handler\+Func\+Ptr@{Cmd\+Handler\+Func\+Ptr}!command\+\_\+handler.\+hpp@{command\+\_\+handler.\+hpp}}
+\subsubsection[{\texorpdfstring{Cmd\+Handler\+Func\+Ptr}{CmdHandlerFuncPtr}}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool($\ast$ Cmd\+Handler\+Func\+Ptr) ({\bf str} \&cmd\+Params, {\bf Char\+Dev} \&output, void $\ast$p\+Data\+Param)}\hypertarget{command__handler_8hpp_a56cc0ed4a4ef4fe8aaca51669f2d15f5}{}\label{command__handler_8hpp_a56cc0ed4a4ef4fe8aaca51669f2d15f5}
+Social\+Ledge.\+com -\/ Copyright (C) 2013
+
+This file is part of free software framework for embedded processors. You can use it and/or distribute it as long as this copyright header remains unmodified. The code is free for personal use and requires permission to use in a commercial product.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}. NO W\+A\+R\+R\+A\+N\+T\+I\+ES, W\+H\+E\+T\+H\+ER E\+X\+P\+R\+E\+SS, I\+M\+P\+L\+I\+ED OR S\+T\+A\+T\+U\+T\+O\+RY, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+P\+P\+LY TO T\+H\+IS S\+O\+F\+T\+W\+A\+RE. I S\+H\+A\+LL N\+OT, IN A\+NY C\+I\+R\+C\+U\+M\+S\+T\+A\+N\+C\+ES, BE L\+I\+A\+B\+LE F\+OR S\+P\+E\+C\+I\+AL, I\+N\+C\+I\+D\+E\+N\+T\+AL, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES, F\+OR A\+NY R\+E\+A\+S\+ON W\+H\+A\+T\+S\+O\+E\+V\+ER.
+
+You can reach the author of this software at \+: p r e e t . w i k i @ g m a i l . c o m This is a function pointer to handle a command. If the command handler was added for \char`\"{}\+C\+P\+U\char`\"{} and a command is input to command handler as \char`\"{}\+C\+P\+U U\+T\+I\+L 5\char`\"{}, then cmd\+Params will contain \char`\"{}\+U\+T\+I\+L 5\char`\"{} which are additional parameters for this command. 
+\begin{DoxyParams}{Parameters}
+{\em cmd\+Params} & The parameter string to your handler \\
+\hline
+{\em output} & The output interface you can use to output data. \\
+\hline
+{\em p\+Data\+Param} & This is the same parameter passed when add\+Handler() is called \\
+\hline
+{\em data\+Param\+Len} & The length of data associated with p\+Data\+Param \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One of the responses from Cmd\+Rsp\+Type 
+\end{DoxyReturn}

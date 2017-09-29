@@ -1,0 +1,81 @@
+\hypertarget{classI2C2}{}\section{I2\+C2 Class Reference}
+\label{classI2C2}\index{I2\+C2@{I2\+C2}}
+
+
+{\ttfamily \#include $<$i2c2.\+hpp$>$}
+
+
+
+Inheritance diagram for I2\+C2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{d7/da0/classI2C2__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for I2\+C2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d0f/classI2C2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classI2C2_ad7f9e3bb40e4d96b65e8d09fdcfbe46c}{init} (unsigned int speed\+In\+Khz)
+\begin{DoxyCompactList}\small\item\em Initializes \hyperlink{classI2C2}{I2\+C2} at the given. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classI2C2_a7321868b283eed05e13be0111783a968}{Singleton\+Template$<$ I2\+C2 $>$}
+\begin{DoxyCompactList}\small\item\em Friend class used for Singleton Template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classI2C2}{I2\+C2} Singleton Driver This is a thin wrapper around \hyperlink{classI2C__Base}{I2\+C\+\_\+\+Base} class and merely gives the base address of the \hyperlink{classI2C2}{I2\+C2} memory map. 
+
+\subsection{Member Function Documentation}
+\index{I2\+C2@{I2\+C2}!init@{init}}
+\index{init@{init}!I2\+C2@{I2\+C2}}
+\subsubsection[{\texorpdfstring{init(unsigned int speed\+In\+Khz)}{init(unsigned int speedInKhz)}}]{\setlength{\rightskip}{0pt plus 5cm}bool I2\+C2\+::init (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{speed\+In\+Khz}
+\end{DoxyParamCaption}
+)}\hypertarget{classI2C2_ad7f9e3bb40e4d96b65e8d09fdcfbe46c}{}\label{classI2C2_ad7f9e3bb40e4d96b65e8d09fdcfbe46c}
+
+
+Initializes \hyperlink{classI2C2}{I2\+C2} at the given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed\+In\+Khz} & \\
+\hline
+\end{DoxyParams}
+Before I2C is initialized, check to be sure that the I2C wires are logic \char`\"{}1\char`\"{} means that they are pulled high, otherwise there may be a short circuit.
+
+\hyperlink{classI2C2}{I2\+C2} is on P0.\+10, and P0.\+11
+
+I2C wires should be pulled high for normal operation, so if they are, initialize I2C otherwise disable operations on I2C since I2C has a likely hardware B\+US fault such as\+:
+\begin{DoxyItemize}
+\item I2C S\+D\+A/\+S\+CL with no pull-\/up
+\item I2C S\+D\+A/\+S\+CL shorted to ground
+\end{DoxyItemize}
+
+\subsection{Friends And Related Function Documentation}
+\index{I2\+C2@{I2\+C2}!Singleton\+Template$<$ I2\+C2 $>$@{Singleton\+Template$<$ I2\+C2 $>$}}
+\index{Singleton\+Template$<$ I2\+C2 $>$@{Singleton\+Template$<$ I2\+C2 $>$}!I2\+C2@{I2\+C2}}
+\subsubsection[{\texorpdfstring{Singleton\+Template$<$ I2\+C2 $>$}{SingletonTemplate< I2C2 >}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Singleton\+Template}$<$ {\bf I2\+C2} $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classI2C2_a7321868b283eed05e13be0111783a968}{}\label{classI2C2_a7321868b283eed05e13be0111783a968}
+
+
+Friend class used for Singleton Template. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/\hyperlink{i2c2_8hpp}{i2c2.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/\hyperlink{i2c2_8cpp}{i2c2.\+cpp}\end{DoxyCompactItemize}

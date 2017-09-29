@@ -1,0 +1,143 @@
+\hypertarget{classSampler}{}\section{Sampler$<$ T\+Y\+PE $>$ Class Template Reference}
+\label{classSampler}\index{Sampler$<$ T\+Y\+P\+E $>$@{Sampler$<$ T\+Y\+P\+E $>$}}
+
+
+{\ttfamily \#include $<$sampler.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSampler_a8c9bbbb87fdcdeac41af67ba9a0aa6ba}{Sampler} (int num\+Samples)
+\item 
+\hyperlink{classSampler_a5699fdfa7c7a4bdc010db49fee056da1}{$\sim$\+Sampler} ()
+\item 
+void \hyperlink{classSampler_acb346e1af623f20e9290b6f363bc5e06}{store\+Sample} (const T\+Y\+PE \&sample)
+\item 
+T\+Y\+PE \hyperlink{classSampler_a708f1872825888733086bc43cf0d075b}{get\+Average} (void) const 
+\item 
+T\+Y\+PE \hyperlink{classSampler_a86f8e01f057272420a51291bb49f2a9a}{get\+Latest} (void) const 
+\item 
+T\+Y\+PE \hyperlink{classSampler_a0b7bd0218a903180e4731f5d5dbf7d0e}{get\+Highest} (void) const 
+\item 
+T\+Y\+PE \hyperlink{classSampler_ae0af0329eab2cb11d6cd933b203af55f}{get\+Lowest} (void) const 
+\item 
+bool \hyperlink{classSampler_ae1f2f9bcba7dc5fde8c8fb3b04ef3583}{all\+Samples\+Ready} (void) const 
+\item 
+int \hyperlink{classSampler_acea7e239d4b7ef49ceea58da78824c3e}{get\+Max\+Sample\+Count} (void) const 
+\item 
+int \hyperlink{classSampler_a7e71c2c0fb7c55794d53c67c0dd98dc9}{get\+Sample\+Count} (void) const 
+\item 
+T\+Y\+PE \hyperlink{classSampler_a1c49b595a00bd682254ca647404f4b40}{get\+Sample\+Num} (int idx) const 
+\item 
+void \hyperlink{classSampler_a4b96c9da75670d8ff5140fbdf5a489bb}{clear} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T\+Y\+PE$>$\\*
+class Sampler$<$ T\+Y\+P\+E $>$}
+
+\hyperlink{classSampler}{Sampler} class. The purpose of this class is to store samples of a variable type and be able to get the average, low, high from the samples.
+
+
+\begin{DoxyCode}
+\hyperlink{classSampler}{Sampler<int>} samples(2);
+samples.storeSample(10);
+samples.storeSample(20);
+\textcolor{keywordtype}{int} avg = samples.getAverage(); \textcolor{comment}{// Should be 15}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Sampler@{Sampler}!Sampler@{Sampler}}
+\index{Sampler@{Sampler}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{Sampler(int num\+Samples)}{Sampler(int numSamples)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf Sampler}$<$ T\+Y\+PE $>$\+::{\bf Sampler} (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+Samples}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a8c9bbbb87fdcdeac41af67ba9a0aa6ba}{}\label{classSampler_a8c9bbbb87fdcdeac41af67ba9a0aa6ba}
+\index{Sampler@{Sampler}!````~Sampler@{$\sim$\+Sampler}}
+\index{````~Sampler@{$\sim$\+Sampler}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{$\sim$\+Sampler()}{~Sampler()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf Sampler}$<$ T\+Y\+PE $>$\+::$\sim${\bf Sampler} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a5699fdfa7c7a4bdc010db49fee056da1}{}\label{classSampler_a5699fdfa7c7a4bdc010db49fee056da1}
+
+
+\subsection{Member Function Documentation}
+\index{Sampler@{Sampler}!all\+Samples\+Ready@{all\+Samples\+Ready}}
+\index{all\+Samples\+Ready@{all\+Samples\+Ready}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{all\+Samples\+Ready(void) const }{allSamplesReady(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ bool {\bf Sampler}$<$ T\+Y\+PE $>$\+::all\+Samples\+Ready (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_ae1f2f9bcba7dc5fde8c8fb3b04ef3583}{}\label{classSampler_ae1f2f9bcba7dc5fde8c8fb3b04ef3583}
+\index{Sampler@{Sampler}!clear@{clear}}
+\index{clear@{clear}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{clear(void)}{clear(void)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf Sampler}$<$ T\+Y\+PE $>$\+::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a4b96c9da75670d8ff5140fbdf5a489bb}{}\label{classSampler_a4b96c9da75670d8ff5140fbdf5a489bb}
+\index{Sampler@{Sampler}!get\+Average@{get\+Average}}
+\index{get\+Average@{get\+Average}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{get\+Average(void) const }{getAverage(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ T\+Y\+PE {\bf Sampler}$<$ T\+Y\+PE $>$\+::get\+Average (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a708f1872825888733086bc43cf0d075b}{}\label{classSampler_a708f1872825888733086bc43cf0d075b}
+\index{Sampler@{Sampler}!get\+Highest@{get\+Highest}}
+\index{get\+Highest@{get\+Highest}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{get\+Highest(void) const }{getHighest(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ T\+Y\+PE {\bf Sampler}$<$ T\+Y\+PE $>$\+::get\+Highest (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a0b7bd0218a903180e4731f5d5dbf7d0e}{}\label{classSampler_a0b7bd0218a903180e4731f5d5dbf7d0e}
+\index{Sampler@{Sampler}!get\+Latest@{get\+Latest}}
+\index{get\+Latest@{get\+Latest}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{get\+Latest(void) const }{getLatest(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ T\+Y\+PE {\bf Sampler}$<$ T\+Y\+PE $>$\+::get\+Latest (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a86f8e01f057272420a51291bb49f2a9a}{}\label{classSampler_a86f8e01f057272420a51291bb49f2a9a}
+\index{Sampler@{Sampler}!get\+Lowest@{get\+Lowest}}
+\index{get\+Lowest@{get\+Lowest}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{get\+Lowest(void) const }{getLowest(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ T\+Y\+PE {\bf Sampler}$<$ T\+Y\+PE $>$\+::get\+Lowest (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_ae0af0329eab2cb11d6cd933b203af55f}{}\label{classSampler_ae0af0329eab2cb11d6cd933b203af55f}
+\index{Sampler@{Sampler}!get\+Max\+Sample\+Count@{get\+Max\+Sample\+Count}}
+\index{get\+Max\+Sample\+Count@{get\+Max\+Sample\+Count}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{get\+Max\+Sample\+Count(void) const }{getMaxSampleCount(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ int {\bf Sampler}$<$ T\+Y\+PE $>$\+::get\+Max\+Sample\+Count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_acea7e239d4b7ef49ceea58da78824c3e}{}\label{classSampler_acea7e239d4b7ef49ceea58da78824c3e}
+\index{Sampler@{Sampler}!get\+Sample\+Count@{get\+Sample\+Count}}
+\index{get\+Sample\+Count@{get\+Sample\+Count}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{get\+Sample\+Count(void) const }{getSampleCount(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ int {\bf Sampler}$<$ T\+Y\+PE $>$\+::get\+Sample\+Count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a7e71c2c0fb7c55794d53c67c0dd98dc9}{}\label{classSampler_a7e71c2c0fb7c55794d53c67c0dd98dc9}
+\index{Sampler@{Sampler}!get\+Sample\+Num@{get\+Sample\+Num}}
+\index{get\+Sample\+Num@{get\+Sample\+Num}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{get\+Sample\+Num(int idx) const }{getSampleNum(int idx) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ T\+Y\+PE {\bf Sampler}$<$ T\+Y\+PE $>$\+::get\+Sample\+Num (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_a1c49b595a00bd682254ca647404f4b40}{}\label{classSampler_a1c49b595a00bd682254ca647404f4b40}
+\index{Sampler@{Sampler}!store\+Sample@{store\+Sample}}
+\index{store\+Sample@{store\+Sample}!Sampler@{Sampler}}
+\subsubsection[{\texorpdfstring{store\+Sample(const T\+Y\+P\+E \&sample)}{storeSample(const TYPE &sample)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf Sampler}$<$ T\+Y\+PE $>$\+::store\+Sample (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{sample}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classSampler_acb346e1af623f20e9290b6f363bc5e06}{}\label{classSampler_acb346e1af623f20e9290b6f363bc5e06}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{sampler_8hpp}{sampler.\+hpp}\end{DoxyCompactItemize}

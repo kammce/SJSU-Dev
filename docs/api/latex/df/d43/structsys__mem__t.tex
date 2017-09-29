@@ -1,0 +1,92 @@
+\hypertarget{structsys__mem__t}{}\section{sys\+\_\+mem\+\_\+t Struct Reference}
+\label{structsys__mem__t}\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+
+
+{\ttfamily \#include $<$lpc\+\_\+sys.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{structsys__mem__t_a2a50937f3383927bd97862e45ee51cbd}{used\+\_\+global}
+\begin{DoxyCompactList}\small\item\em Global Memory allocated. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{structsys__mem__t_a993a5c256a5b499a37e2e8e0028412ac}{used\+\_\+heap}
+\begin{DoxyCompactList}\small\item\em Memory granted by Heap (malloc, new etc.) \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{structsys__mem__t_a617bcd6f4de9e85e62939fe355f952aa}{avail\+\_\+heap}
+\begin{DoxyCompactList}\small\item\em Memory available at Heap. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{structsys__mem__t_a8ecba5ffd106ad27d5c8792c2eeb8e1b}{avail\+\_\+sys}
+\begin{DoxyCompactList}\small\item\em Memory available to Heap (from sbrk function) \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{structsys__mem__t_a14e38b193706a5f4168d28394a19e1b8}{num\+\_\+sbrk\+\_\+calls}
+\begin{DoxyCompactList}\small\item\em Number of calls to the sbrk() function. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{structsys__mem__t_aede69012147cf9fb23a2133a60d3b464}{last\+\_\+sbrk\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Last size requested from the sbrk() function. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{structsys__mem__t_ac8a8ed2fb96fae8f0e7961a5c234b3a0}{last\+\_\+sbrk\+\_\+ptr}
+\begin{DoxyCompactList}\small\item\em Last pointer given by the sbrk() function. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{structsys__mem__t_a3178ccefa2e90fa6723f77ff95b94d2a}{next\+\_\+malloc\+\_\+ptr}
+\begin{DoxyCompactList}\small\item\em The next pointer that will be returned to malloc() from sbrk() \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the memory structure that is returned from \hyperlink{lpc__sys_8h_afc535b417b46f909b8d70f1d2559f6f4}{sys\+\_\+get\+\_\+mem\+\_\+info()} Heap memory obtains pool of memory from System, so the memory pool not obtained by the Heap is listed by the system\+Available variable. 
+
+\subsection{Field Documentation}
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!avail\+\_\+heap@{avail\+\_\+heap}}
+\index{avail\+\_\+heap@{avail\+\_\+heap}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{avail\+\_\+heap}{avail_heap}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t sys\+\_\+mem\+\_\+t\+::avail\+\_\+heap}\hypertarget{structsys__mem__t_a617bcd6f4de9e85e62939fe355f952aa}{}\label{structsys__mem__t_a617bcd6f4de9e85e62939fe355f952aa}
+
+
+Memory available at Heap. 
+
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!avail\+\_\+sys@{avail\+\_\+sys}}
+\index{avail\+\_\+sys@{avail\+\_\+sys}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{avail\+\_\+sys}{avail_sys}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t sys\+\_\+mem\+\_\+t\+::avail\+\_\+sys}\hypertarget{structsys__mem__t_a8ecba5ffd106ad27d5c8792c2eeb8e1b}{}\label{structsys__mem__t_a8ecba5ffd106ad27d5c8792c2eeb8e1b}
+
+
+Memory available to Heap (from sbrk function) 
+
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!last\+\_\+sbrk\+\_\+ptr@{last\+\_\+sbrk\+\_\+ptr}}
+\index{last\+\_\+sbrk\+\_\+ptr@{last\+\_\+sbrk\+\_\+ptr}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{last\+\_\+sbrk\+\_\+ptr}{last_sbrk_ptr}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ sys\+\_\+mem\+\_\+t\+::last\+\_\+sbrk\+\_\+ptr}\hypertarget{structsys__mem__t_ac8a8ed2fb96fae8f0e7961a5c234b3a0}{}\label{structsys__mem__t_ac8a8ed2fb96fae8f0e7961a5c234b3a0}
+
+
+Last pointer given by the sbrk() function. 
+
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!last\+\_\+sbrk\+\_\+size@{last\+\_\+sbrk\+\_\+size}}
+\index{last\+\_\+sbrk\+\_\+size@{last\+\_\+sbrk\+\_\+size}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{last\+\_\+sbrk\+\_\+size}{last_sbrk_size}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t sys\+\_\+mem\+\_\+t\+::last\+\_\+sbrk\+\_\+size}\hypertarget{structsys__mem__t_aede69012147cf9fb23a2133a60d3b464}{}\label{structsys__mem__t_aede69012147cf9fb23a2133a60d3b464}
+
+
+Last size requested from the sbrk() function. 
+
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!next\+\_\+malloc\+\_\+ptr@{next\+\_\+malloc\+\_\+ptr}}
+\index{next\+\_\+malloc\+\_\+ptr@{next\+\_\+malloc\+\_\+ptr}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{next\+\_\+malloc\+\_\+ptr}{next_malloc_ptr}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ sys\+\_\+mem\+\_\+t\+::next\+\_\+malloc\+\_\+ptr}\hypertarget{structsys__mem__t_a3178ccefa2e90fa6723f77ff95b94d2a}{}\label{structsys__mem__t_a3178ccefa2e90fa6723f77ff95b94d2a}
+
+
+The next pointer that will be returned to malloc() from sbrk() 
+
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!num\+\_\+sbrk\+\_\+calls@{num\+\_\+sbrk\+\_\+calls}}
+\index{num\+\_\+sbrk\+\_\+calls@{num\+\_\+sbrk\+\_\+calls}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{num\+\_\+sbrk\+\_\+calls}{num_sbrk_calls}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t sys\+\_\+mem\+\_\+t\+::num\+\_\+sbrk\+\_\+calls}\hypertarget{structsys__mem__t_a14e38b193706a5f4168d28394a19e1b8}{}\label{structsys__mem__t_a14e38b193706a5f4168d28394a19e1b8}
+
+
+Number of calls to the sbrk() function. 
+
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!used\+\_\+global@{used\+\_\+global}}
+\index{used\+\_\+global@{used\+\_\+global}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{used\+\_\+global}{used_global}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t sys\+\_\+mem\+\_\+t\+::used\+\_\+global}\hypertarget{structsys__mem__t_a2a50937f3383927bd97862e45ee51cbd}{}\label{structsys__mem__t_a2a50937f3383927bd97862e45ee51cbd}
+
+
+Global Memory allocated. 
+
+\index{sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}!used\+\_\+heap@{used\+\_\+heap}}
+\index{used\+\_\+heap@{used\+\_\+heap}!sys\+\_\+mem\+\_\+t@{sys\+\_\+mem\+\_\+t}}
+\subsubsection[{\texorpdfstring{used\+\_\+heap}{used_heap}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t sys\+\_\+mem\+\_\+t\+::used\+\_\+heap}\hypertarget{structsys__mem__t_a993a5c256a5b499a37e2e8e0028412ac}{}\label{structsys__mem__t_a993a5c256a5b499a37e2e8e0028412ac}
+
+
+Memory granted by Heap (malloc, new etc.) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/\hyperlink{lpc__sys_8h}{lpc\+\_\+sys.\+h}\end{DoxyCompactItemize}

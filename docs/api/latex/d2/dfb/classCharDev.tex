@@ -1,0 +1,220 @@
+\hypertarget{classCharDev}{}\section{Char\+Dev Class Reference}
+\label{classCharDev}\index{Char\+Dev@{Char\+Dev}}
+
+
+{\ttfamily \#include $<$char\+\_\+dev.\+hpp$>$}
+
+
+
+Inheritance diagram for Char\+Dev\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{d3/d84/classCharDev__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classCharDev_a2125f39cee4ada85091e4a5440751650}{get\+Char} (char $\ast$p\+Input\+Char, unsigned int timeout=\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{port\+M\+A\+X\+\_\+\+D\+E\+L\+AY})=0
+\item 
+virtual bool \hyperlink{classCharDev_a253e32e0413b98f0af16ad79eb358851}{put\+Char} (char out, unsigned int timeout=\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{port\+M\+A\+X\+\_\+\+D\+E\+L\+AY})=0
+\item 
+virtual bool \hyperlink{classCharDev_a601bd6eeee3095306c0db78798499742}{flush} (void)
+\item 
+bool \hyperlink{classCharDev_ad69eb66ed094d04116615248f1c2453c}{gets} (char $\ast$p\+Buff, int max\+Len, unsigned int timeout=0xffffffff)
+\item 
+int \hyperlink{classCharDev_a1e567da6600cd8164dcd98e11de8813f}{printf} (const char $\ast$format,...)
+\item 
+int \hyperlink{classCharDev_a053203d7cf010d6422b11d114d10e357}{scanf} (const char $\ast$format,...)
+\item 
+uint16\+\_\+t \hyperlink{classCharDev_acb3dd3805711e4aa6346fbaf25009925}{get\+Printf\+Mem\+Size} (void) const 
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classCharDev_a48d2560ade054a067558a9495c41f109}{put} (const char $\ast$p\+String, unsigned int timeout=0xffffffff)
+\item 
+void \hyperlink{classCharDev_aac938099da1789ac7bf8c0acd7a71624}{putline} (const char $\ast$p\+Buff, unsigned int timeout=0xffffffff)
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classCharDev_ab76a3b54c0ecf31b7a78a2808446eefd}{is\+Ready} (void)
+\item 
+void \hyperlink{classCharDev_ad845c4307699c25ccdcce07ffafc8aba}{set\+Ready} (bool r)
+\end{DoxyCompactItemize}
+
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCharDev_a3eabe85e367562e550cc31780c8fb8c7}{Char\+Dev} ()
+\item 
+virtual \hyperlink{classCharDev_a6738e06b393bf4bd95a8b13ec9a95dd4}{$\sim$\+Char\+Dev} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Char device base class. You shouldn\textquotesingle{}t use this directly because this is an abstract class and must be inherited and used by a parent object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Char\+Dev@{Char\+Dev}!Char\+Dev@{Char\+Dev}}
+\index{Char\+Dev@{Char\+Dev}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{Char\+Dev()}{CharDev()}}]{\setlength{\rightskip}{0pt plus 5cm}Char\+Dev\+::\+Char\+Dev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCharDev_a3eabe85e367562e550cc31780c8fb8c7}{}\label{classCharDev_a3eabe85e367562e550cc31780c8fb8c7}
+\index{Char\+Dev@{Char\+Dev}!````~Char\+Dev@{$\sim$\+Char\+Dev}}
+\index{````~Char\+Dev@{$\sim$\+Char\+Dev}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{$\sim$\+Char\+Dev()}{~CharDev()}}]{\setlength{\rightskip}{0pt plus 5cm}Char\+Dev\+::$\sim$\+Char\+Dev (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classCharDev_a6738e06b393bf4bd95a8b13ec9a95dd4}{}\label{classCharDev_a6738e06b393bf4bd95a8b13ec9a95dd4}
+
+
+\subsection{Member Function Documentation}
+\index{Char\+Dev@{Char\+Dev}!flush@{flush}}
+\index{flush@{flush}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{flush(void)}{flush(void)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Char\+Dev\+::flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classCharDev_a601bd6eeee3095306c0db78798499742}{}\label{classCharDev_a601bd6eeee3095306c0db78798499742}
+Optional flush to flush out all the data 
+
+Reimplemented in \hyperlink{classUartDev_ac50cca0665fac431db99ecdb242c6ee7}{Uart\+Dev}, and \hyperlink{classNordicStream_a95c0c66acbcdf33894fc2cfacfbe5419}{Nordic\+Stream}.
+
+\index{Char\+Dev@{Char\+Dev}!get\+Char@{get\+Char}}
+\index{get\+Char@{get\+Char}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Char(char $\ast$p\+Input\+Char, unsigned int timeout=port\+M\+A\+X\+\_\+\+D\+E\+L\+A\+Y)=0}{getChar(char *pInputChar, unsigned int timeout=portMAX_DELAY)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Char\+Dev\+::get\+Char (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{p\+Input\+Char, }
+\item[{unsigned int}]{timeout = {\ttfamily {\bf port\+M\+A\+X\+\_\+\+D\+E\+L\+AY}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classCharDev_a2125f39cee4ada85091e4a5440751650}{}\label{classCharDev_a2125f39cee4ada85091e4a5440751650}
+\begin{DoxyReturn}{Returns}
+a character from the U\+A\+RT input 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Input\+Char} & The pointer to input char to store received character \\
+\hline
+{\em timeout} & Optional parameter which defaults to maximum value that will allow you to wait forever for a character to be received \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a character was obtained within the given timeout 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classUartDev_a461bf31bdeb04e579dc1a9207ceb86e1}{Uart\+Dev}, and \hyperlink{classNordicStream_a8cf184554a505c922c57352ba571765b}{Nordic\+Stream}.
+
+\index{Char\+Dev@{Char\+Dev}!get\+Printf\+Mem\+Size@{get\+Printf\+Mem\+Size}}
+\index{get\+Printf\+Mem\+Size@{get\+Printf\+Mem\+Size}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{get\+Printf\+Mem\+Size(void) const }{getPrintfMemSize(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t Char\+Dev\+::get\+Printf\+Mem\+Size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCharDev_acb3dd3805711e4aa6346fbaf25009925}{}\label{classCharDev_acb3dd3805711e4aa6346fbaf25009925}
+Get the size for the \hyperlink{classCharDev_a1e567da6600cd8164dcd98e11de8813f}{printf()} memory used by \hyperlink{classCharDev_a1e567da6600cd8164dcd98e11de8813f}{printf()} function \index{Char\+Dev@{Char\+Dev}!gets@{gets}}
+\index{gets@{gets}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{gets(char $\ast$p\+Buff, int max\+Len, unsigned int timeout=0xffffffff)}{gets(char *pBuff, int maxLen, unsigned int timeout=0xffffffff)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Char\+Dev\+::gets (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{p\+Buff, }
+\item[{int}]{max\+Len, }
+\item[{unsigned int}]{timeout = {\ttfamily 0xffffffff}}
+\end{DoxyParamCaption}
+)}\hypertarget{classCharDev_ad69eb66ed094d04116615248f1c2453c}{}\label{classCharDev_ad69eb66ed094d04116615248f1c2453c}
+Get a string of input up to max\+Len 
+\begin{DoxyParams}{Parameters}
+{\em p\+Buff} & The buffer to store data to \\
+\hline
+{\em max\+Len} & The maximum chars to get \\
+\hline
+{\em timeout} & The timeout in ticks to wait \\
+\hline
+\end{DoxyParams}
+\index{Char\+Dev@{Char\+Dev}!is\+Ready@{is\+Ready}}
+\index{is\+Ready@{is\+Ready}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{is\+Ready(void)}{isReady(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Char\+Dev\+::is\+Ready (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCharDev_ab76a3b54c0ecf31b7a78a2808446eefd}{}\label{classCharDev_ab76a3b54c0ecf31b7a78a2808446eefd}
+This A\+PI just provides a means to set a flag if U\+A\+RT is ready or not This doesn\textquotesingle{}t cause any change to the way U\+A\+RT functions. \index{Char\+Dev@{Char\+Dev}!printf@{printf}}
+\index{printf@{printf}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{printf(const char $\ast$format,...)}{printf(const char *format,...)}}]{\setlength{\rightskip}{0pt plus 5cm}int Char\+Dev\+::printf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{classCharDev_a1e567da6600cd8164dcd98e11de8813f}{}\label{classCharDev_a1e567da6600cd8164dcd98e11de8813f}
+Just like printf, except it will print to this output interface \begin{DoxyReturn}{Returns}
+the number of characters printed 
+\end{DoxyReturn}
+\index{Char\+Dev@{Char\+Dev}!put@{put}}
+\index{put@{put}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{put(const char $\ast$p\+String, unsigned int timeout=0xffffffff)}{put(const char *pString, unsigned int timeout=0xffffffff)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Char\+Dev\+::put (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String, }
+\item[{unsigned int}]{timeout = {\ttfamily 0xffffffff}}
+\end{DoxyParamCaption}
+)}\hypertarget{classCharDev_a48d2560ade054a067558a9495c41f109}{}\label{classCharDev_a48d2560ade054a067558a9495c41f109}
+Output a null-\/terminated string puts() will also output newline chars \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{} at the end of the string \index{Char\+Dev@{Char\+Dev}!put\+Char@{put\+Char}}
+\index{put\+Char@{put\+Char}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{put\+Char(char out, unsigned int timeout=port\+M\+A\+X\+\_\+\+D\+E\+L\+A\+Y)=0}{putChar(char out, unsigned int timeout=portMAX_DELAY)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Char\+Dev\+::put\+Char (
+\begin{DoxyParamCaption}
+\item[{char}]{out, }
+\item[{unsigned int}]{timeout = {\ttfamily {\bf port\+M\+A\+X\+\_\+\+D\+E\+L\+AY}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classCharDev_a253e32e0413b98f0af16ad79eb358851}{}\label{classCharDev_a253e32e0413b98f0af16ad79eb358851}
+Outputs a char given by 
+\begin{DoxyParams}{Parameters}
+{\em out} & \\
+\hline
+{\em timeout} & Optional parameter which defaults to maximum value that will allow you to wait forever for a character to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the output char was successfully written to Queue, or false if the output queue was full within the given timeout 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classUartDev_a5540a663667da93bc166f81d4f72cd2c}{Uart\+Dev}, and \hyperlink{classNordicStream_aefb871567b4712b2bf52caa656dc1d2a}{Nordic\+Stream}.
+
+\index{Char\+Dev@{Char\+Dev}!putline@{putline}}
+\index{putline@{putline}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{putline(const char $\ast$p\+Buff, unsigned int timeout=0xffffffff)}{putline(const char *pBuff, unsigned int timeout=0xffffffff)}}]{\setlength{\rightskip}{0pt plus 5cm}void Char\+Dev\+::putline (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Buff, }
+\item[{unsigned int}]{timeout = {\ttfamily 0xffffffff}}
+\end{DoxyParamCaption}
+)}\hypertarget{classCharDev_aac938099da1789ac7bf8c0acd7a71624}{}\label{classCharDev_aac938099da1789ac7bf8c0acd7a71624}
+\index{Char\+Dev@{Char\+Dev}!scanf@{scanf}}
+\index{scanf@{scanf}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{scanf(const char $\ast$format,...)}{scanf(const char *format,...)}}]{\setlength{\rightskip}{0pt plus 5cm}int Char\+Dev\+::scanf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{classCharDev_a053203d7cf010d6422b11d114d10e357}{}\label{classCharDev_a053203d7cf010d6422b11d114d10e357}
+Just like scanf, except this will perform scanf after receiving a line of input using the \hyperlink{classCharDev_ad69eb66ed094d04116615248f1c2453c}{gets()} method. \begin{DoxyWarning}{Warning}
+\hyperlink{classCharDev_a053203d7cf010d6422b11d114d10e357}{scanf()} requires a ~\newline
+ (newline) terminated char to work. 
+\end{DoxyWarning}
+\index{Char\+Dev@{Char\+Dev}!set\+Ready@{set\+Ready}}
+\index{set\+Ready@{set\+Ready}!Char\+Dev@{Char\+Dev}}
+\subsubsection[{\texorpdfstring{set\+Ready(bool r)}{setReady(bool r)}}]{\setlength{\rightskip}{0pt plus 5cm}void Char\+Dev\+::set\+Ready (
+\begin{DoxyParamCaption}
+\item[{bool}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCharDev_ad845c4307699c25ccdcce07ffafc8aba}{}\label{classCharDev_ad845c4307699c25ccdcce07ffafc8aba}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/\hyperlink{char__dev_8hpp}{char\+\_\+dev.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/\hyperlink{char__dev_8cpp}{char\+\_\+dev.\+cpp}\end{DoxyCompactItemize}

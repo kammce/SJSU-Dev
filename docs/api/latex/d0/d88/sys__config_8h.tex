@@ -1,0 +1,402 @@
+\hypertarget{sys__config_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/sys\+\_\+config.h File Reference}
+\label{sys__config_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/sys\+\_\+config.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/sys\+\_\+config.\+h}}
+
+
+This file provides the configurable parameters for your project.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/df6/sys__config_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sys__config_8h_a0b0508cac825fbcac0f344a78070e811}{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+N\+R\+F\+\_\+\+W\+I\+R\+E\+L\+E\+SS}~0
+\begin{DoxyCompactList}\small\item\em Terminal command can be sent through nordic wireless. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a6ced8587cd5f4ee1b6cce59555b336c5}{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+E\+N\+D\+\_\+\+C\+H\+A\+RS}~\{3, 3, 4, 4\}
+\begin{DoxyCompactList}\small\item\em The last characters sent after processing a terminal command. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a6ea129fbb4e7803cf63e82b4d13fc7cf}{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+H\+A\+N\+D\+L\+ER}~0
+\begin{DoxyCompactList}\small\item\em C\+AN bus terminal command. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a3fc3fd786b01312f50bfaec722161e8d}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}~24
+\begin{DoxyCompactList}\small\item\em Max speed of S\+P\+I1 for SD Card and Flash memory. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_aea54c36bb0a741a99ff897e4122d6aa8}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I0\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}~8
+\begin{DoxyCompactList}\small\item\em Nordic wireless requires 1-\/8\+Mhz max. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_ab6161d54025c07a51afb563a91acdc98}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I2\+C2\+\_\+\+C\+L\+K\+\_\+\+K\+HZ}~100
+\begin{DoxyCompactList}\small\item\em 100\+Khz is standard I2C speed \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a722552ad2250766058a334ea8df0063d}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}~2000
+\begin{DoxyCompactList}\small\item\em If defined, a boot message is logged to this file. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a97b0572b38fe5f824add6e89961c5a6d}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+R\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}~5000
+\begin{DoxyCompactList}\small\item\em Start-\/up delay in milliseconds if a crash occurred previously. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a06dcba01ddee3d8d3e5f515a11ce7ede}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+L\+O\+G\+G\+ER}~1
+\begin{DoxyCompactList}\small\item\em If non-\/zero, the logger is initialized (. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a2583b4484b1da824e6e6cc93e558c5e9}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}~1
+\begin{DoxyCompactList}\small\item\em The priority of the logger task (do not use 0, logger will run into issues while writing the file) \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a6bcb0cd0158b89b612400ac041d38682}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+LM}~1
+\begin{DoxyCompactList}\small\item\em Enable telemetry system. C\+\_\+\+F\+I\+L\+E\+\_\+\+IO forced enabled if enabled. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_ac6018c4d3c0e39288eaecb56cae296d0}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+I\+S\+K\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}~\char`\"{}disk\char`\"{}
+\begin{DoxyCompactList}\small\item\em Filename to save \char`\"{}disk\char`\"{} telemetry variables. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a7ae239c3cfd57ba901edf826f3aa30fe}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}~\char`\"{}debug\char`\"{}
+\begin{DoxyCompactList}\small\item\em Name of the debug telemetry component. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a615e4638592eee831dfbbdec633ae2a5}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}~0
+\begin{DoxyCompactList}\small\item\em Allow stdio fopen() fclose() to redirect to \hyperlink{ff_8h}{ff.\+h}. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a0cda45ed6ef70c065049aef07eef0c30}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+S\+\_\+\+O\+P\+E\+N\+ED}~3
+\begin{DoxyCompactList}\small\item\em Maximum files that can be opened at once. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a90785bc38ce7e47020bbc786874ad47b}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER}~1
+\item 
+\#define \hyperlink{sys__config_8h_a93c34a0617489b17068b85201a1fcadf}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}~(3 $\ast$ 1000)
+\item 
+\#define \hyperlink{sys__config_8h_a748a344fc38ce1f9469b536aa2663ba0}{I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}~(4  $\ast$ 1000 $\ast$ 1000\+U\+L)
+\begin{DoxyCompactList}\small\item\em Do not change, this is the same on all L\+P\+C17\+XX. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_ae9d5d3d0882e298dbe8f4d5c5152c960}{E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}~(12 $\ast$ 1000 $\ast$ 1000\+U\+L)
+\begin{DoxyCompactList}\small\item\em Change according to your board specification. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_ae359e5fa2f56eadc30656472ac53d174}{R\+T\+C\+\_\+\+C\+L\+O\+CK}~(32768\+U\+L)
+\begin{DoxyCompactList}\small\item\em Do not change, this is the typical R\+TC crystal value. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a196fd6f47648165361de087bf37f27c1}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK}~(48 $\ast$ 1000 $\ast$ 1000\+U\+L)
+\begin{DoxyCompactList}\small\item\em Define the C\+PU speed you desire, must be between 1-\/100\+Mhz. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a845eca7d3c877c5b0cefef372019f067}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+P\+U\+\_\+\+C\+LK}~(24 $\ast$ 1000 $\ast$ 1000\+U\+L)
+\begin{DoxyCompactList}\small\item\em Do not change. This is the fall-\/back C\+PU speed if S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK cannot be attained. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a0a2f12100cd3b7ced92bd93c8843365b}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+T\+C\+\_\+\+V\+A\+L\+I\+D\+\_\+\+Y\+E\+A\+R\+S\+\_\+\+R\+A\+N\+GE}~\{2010, 2025\}
+\item 
+\#define \hyperlink{sys__config_8h_a615e4638592eee831dfbbdec633ae2a5}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}~1
+\begin{DoxyCompactList}\small\item\em Allow stdio fopen() fclose() to redirect to \hyperlink{ff_8h}{ff.\+h}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sys__config_8h_a3da00aba540d563900d3207b1e8df88c}{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR}~106
+\begin{DoxyCompactList}\small\item\em Any value from 1-\/254. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a6581a3c8c24b66678b17e2409d3c8651}{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+UM}~2499
+\begin{DoxyCompactList}\small\item\em 2402 -\/ 2500 to avoid collisions among 2+ mesh networks \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a4b056c873dd164bac5e1dddc043a72e7}{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+A\+I\+R\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+K\+B\+PS}~2000
+\begin{DoxyCompactList}\small\item\em Air data rate, can only be 250, 1000, or 2000 kbps. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a2e4eb235118bcf54fc9d3a253430671c}{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+N\+A\+ME}~\char`\"{}node\char`\"{}
+\begin{DoxyCompactList}\small\item\em Wireless node name (ping response contains this name) \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_aa4622509e5323f79a21a530d9b394bbf}{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+R\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE}~3
+\begin{DoxyCompactList}\small\item\em Number of payloads we can queue. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a281451b9801b48afa47fab5b448aaef2}{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+D\+R\+\_\+\+F\+I\+LE}~\char`\"{}naddr\char`\"{}
+\begin{DoxyCompactList}\small\item\em Node address can be read from this file and this can override W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sys__config_8h_a01244da5671039389ec73dd8e9261192}{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}~0
+\begin{DoxyCompactList}\small\item\em Just a constant, do not change. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a2a7a9354a16a5c0265c485722ef3d257}{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+E\+X\+T\+E\+R\+N\+AL}~1
+\begin{DoxyCompactList}\small\item\em Just a constant, do not change. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_adda12a41453a0f129aa66c99cd9261c9}{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+TC}~2
+\begin{DoxyCompactList}\small\item\em Just a constant, do not change. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a65b114a9ee80aeea3b7f7693b7f77a2e}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE}~\hyperlink{sys__config_8h_a01244da5671039389ec73dd8e9261192}{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}
+\begin{DoxyCompactList}\small\item\em Select the clock source from above. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sys__config_8h_abbf603387646abb814f49e4da6e5b07a}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+E\+D\+U\+C\+E\+D\+\_\+\+P\+R\+I\+N\+TF}~0
+\begin{DoxyCompactList}\small\item\em If non-\/zero, floating-\/point \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} and scanf() is not supported. \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_a6552473af4712908cb61574d8fb8c7cf}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+B\+PS}~38400
+\begin{DoxyCompactList}\small\item\em U\+A\+R\+T0 is configured at this B\+PS by start-\/up code -\/ before \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} \end{DoxyCompactList}\item 
+\#define \hyperlink{sys__config_8h_ae0b5e7a447a69f3c31875298f6d9a7bb}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+T\+X\+Q\+\_\+\+S\+I\+ZE}~256
+\begin{DoxyCompactList}\small\item\em U\+A\+R\+T0 transmit queue size before blocking starts to occur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{sys__config_8h_a6ac4b492b79ce75125ae13fd7715873b}{sys\+\_\+get\+\_\+cpu\+\_\+clock} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file provides the configurable parameters for your project. 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+E\+X\+T\+E\+R\+N\+AL@{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+E\+X\+T\+E\+R\+N\+AL}}
+\index{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+E\+X\+T\+E\+R\+N\+AL@{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+E\+X\+T\+E\+R\+N\+AL}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+E\+X\+T\+E\+R\+N\+AL}{CLOCK_SOURCE_EXTERNAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+E\+X\+T\+E\+R\+N\+AL~1}\hypertarget{sys__config_8h_a2a7a9354a16a5c0265c485722ef3d257}{}\label{sys__config_8h_a2a7a9354a16a5c0265c485722ef3d257}
+
+
+Just a constant, do not change. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL@{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}}
+\index{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL@{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}{CLOCK_SOURCE_INTERNAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL~0}\hypertarget{sys__config_8h_a01244da5671039389ec73dd8e9261192}{}\label{sys__config_8h_a01244da5671039389ec73dd8e9261192}
+
+
+Just a constant, do not change. 
+
+Select the clock source\+:
+\begin{DoxyItemize}
+\item Internal Clock\+: 4\+Mhz 1\% Tolerance
+\item External Clock\+: External Crystal
+\item R\+TC Clock \+: 32.\+768\+Khz
+\end{DoxyItemize}
+
+If the R\+TC clock is chosen as an input, then \hyperlink{sys__clock_8cpp}{sys\+\_\+clock.\+cpp} will use the closest P\+LL settings to get you the desired clock rate. Due to P\+LL calculations, the R\+TC P\+LL setting may delay your startup time so be patient. 36864000 (36.\+864\+Mhz) is a good frequency to derive from R\+TC P\+LL since it offers a perfect U\+A\+RT divider. \index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+TC@{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+TC}}
+\index{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+TC@{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+TC}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+TC}{CLOCK_SOURCE_RTC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+TC~2}\hypertarget{sys__config_8h_adda12a41453a0f129aa66c99cd9261c9}{}\label{sys__config_8h_adda12a41453a0f129aa66c99cd9261c9}
+
+
+Just a constant, do not change. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK@{E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}}
+\index{E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK@{E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}{EXTERNAL_CLOCK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK~(12 $\ast$ 1000 $\ast$ 1000\+U\+L)}\hypertarget{sys__config_8h_ae9d5d3d0882e298dbe8f4d5c5152c960}{}\label{sys__config_8h_ae9d5d3d0882e298dbe8f4d5c5152c960}
+
+
+Change according to your board specification. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK@{I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}}
+\index{I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK@{I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK}{INTERNAL_CLOCK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+C\+L\+O\+CK~(4  $\ast$ 1000 $\ast$ 1000\+U\+L)}\hypertarget{sys__config_8h_a748a344fc38ce1f9469b536aa2663ba0}{}\label{sys__config_8h_a748a344fc38ce1f9469b536aa2663ba0}
+
+
+Do not change, this is the same on all L\+P\+C17\+XX. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!R\+T\+C\+\_\+\+C\+L\+O\+CK@{R\+T\+C\+\_\+\+C\+L\+O\+CK}}
+\index{R\+T\+C\+\_\+\+C\+L\+O\+CK@{R\+T\+C\+\_\+\+C\+L\+O\+CK}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{R\+T\+C\+\_\+\+C\+L\+O\+CK}{RTC_CLOCK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+T\+C\+\_\+\+C\+L\+O\+CK~(32768\+U\+L)}\hypertarget{sys__config_8h_ae359e5fa2f56eadc30656472ac53d174}{}\label{sys__config_8h_ae359e5fa2f56eadc30656472ac53d174}
+
+
+Do not change, this is the typical R\+TC crystal value. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE}{SYS_CFG_CLOCK_SOURCE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+CE~{\bf C\+L\+O\+C\+K\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}}\hypertarget{sys__config_8h_a65b114a9ee80aeea3b7f7693b7f77a2e}{}\label{sys__config_8h_a65b114a9ee80aeea3b7f7693b7f77a2e}
+
+
+Select the clock source from above. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+R\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+R\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+R\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+R\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+R\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}{SYS_CFG_CRASH_STARTUP_DELAY_MS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+C\+R\+A\+S\+H\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS~5000}\hypertarget{sys__config_8h_a97b0572b38fe5f824add6e89961c5a6d}{}\label{sys__config_8h_a97b0572b38fe5f824add6e89961c5a6d}
+
+
+Start-\/up delay in milliseconds if a crash occurred previously. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}{SYS_CFG_DEBUG_TLM_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+B\+U\+G\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME~\char`\"{}debug\char`\"{}}\hypertarget{sys__config_8h_a7ae239c3cfd57ba901edf826f3aa30fe}{}\label{sys__config_8h_a7ae239c3cfd57ba901edf826f3aa30fe}
+
+
+Name of the debug telemetry component. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+P\+U\+\_\+\+C\+LK@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+P\+U\+\_\+\+C\+LK}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+P\+U\+\_\+\+C\+LK@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+P\+U\+\_\+\+C\+LK}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+P\+U\+\_\+\+C\+LK}{SYS_CFG_DEFAULT_CPU_CLK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+P\+U\+\_\+\+C\+LK~(24 $\ast$ 1000 $\ast$ 1000\+U\+L)}\hypertarget{sys__config_8h_a845eca7d3c877c5b0cefef372019f067}{}\label{sys__config_8h_a845eca7d3c877c5b0cefef372019f067}
+
+
+Do not change. This is the fall-\/back C\+PU speed if S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK cannot be attained. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK}{SYS_CFG_DESIRED_CPU_CLK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK~(48 $\ast$ 1000 $\ast$ 1000\+U\+L)}\hypertarget{sys__config_8h_a196fd6f47648165361de087bf37f27c1}{}\label{sys__config_8h_a196fd6f47648165361de087bf37f27c1}
+
+
+Define the C\+PU speed you desire, must be between 1-\/100\+Mhz. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+I\+S\+K\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+I\+S\+K\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+I\+S\+K\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+I\+S\+K\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+I\+S\+K\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME}{SYS_CFG_DISK_TLM_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+I\+S\+K\+\_\+\+T\+L\+M\+\_\+\+N\+A\+ME~\char`\"{}disk\char`\"{}}\hypertarget{sys__config_8h_ac6018c4d3c0e39288eaecb56cae296d0}{}\label{sys__config_8h_ac6018c4d3c0e39288eaecb56cae296d0}
+
+
+Filename to save \char`\"{}disk\char`\"{} telemetry variables. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}{SYS_CFG_ENABLE_CFILE_IO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO~0}\hypertarget{sys__config_8h_a615e4638592eee831dfbbdec633ae2a5}{}\label{sys__config_8h_a615e4638592eee831dfbbdec633ae2a5}
+
+
+Allow stdio fopen() fclose() to redirect to \hyperlink{ff_8h}{ff.\+h}. 
+
+Do not change anything here, Telemetry C-\/\+File I/O is force enabled if telemetry system is in use. \index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO}{SYS_CFG_ENABLE_CFILE_IO}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+C\+F\+I\+L\+E\+\_\+\+IO~1}\hypertarget{sys__config_8h_a615e4638592eee831dfbbdec633ae2a5}{}\label{sys__config_8h_a615e4638592eee831dfbbdec633ae2a5}
+
+
+Allow stdio fopen() fclose() to redirect to \hyperlink{ff_8h}{ff.\+h}. 
+
+Do not change anything here, Telemetry C-\/\+File I/O is force enabled if telemetry system is in use. \index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+LM@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+LM}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+LM@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+LM}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+LM}{SYS_CFG_ENABLE_TLM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+LM~1}\hypertarget{sys__config_8h_a6bcb0cd0158b89b612400ac041d38682}{}\label{sys__config_8h_a6bcb0cd0158b89b612400ac041d38682}
+
+
+Enable telemetry system. C\+\_\+\+F\+I\+L\+E\+\_\+\+IO forced enabled if enabled. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I2\+C2\+\_\+\+C\+L\+K\+\_\+\+K\+HZ@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I2\+C2\+\_\+\+C\+L\+K\+\_\+\+K\+HZ}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I2\+C2\+\_\+\+C\+L\+K\+\_\+\+K\+HZ@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I2\+C2\+\_\+\+C\+L\+K\+\_\+\+K\+HZ}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I2\+C2\+\_\+\+C\+L\+K\+\_\+\+K\+HZ}{SYS_CFG_I2C2_CLK_KHZ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I2\+C2\+\_\+\+C\+L\+K\+\_\+\+K\+HZ~100}\hypertarget{sys__config_8h_ab6161d54025c07a51afb563a91acdc98}{}\label{sys__config_8h_ab6161d54025c07a51afb563a91acdc98}
+
+
+100\+Khz is standard I2C speed 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+L\+O\+G\+G\+ER@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+L\+O\+G\+G\+ER}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+L\+O\+G\+G\+ER@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+L\+O\+G\+G\+ER}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+L\+O\+G\+G\+ER}{SYS_CFG_INITIALIZE_LOGGER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+L\+O\+G\+G\+ER~1}\hypertarget{sys__config_8h_a06dcba01ddee3d8d3e5f515a11ce7ede}{}\label{sys__config_8h_a06dcba01ddee3d8d3e5f515a11ce7ede}
+
+
+If non-\/zero, the logger is initialized (. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{file__logger_8h}{file\+\_\+logger.\+h}) 
+\end{DoxySeeAlso}
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{SYS_CFG_LOGGER_TASK_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY~1}\hypertarget{sys__config_8h_a2583b4484b1da824e6e6cc93e558c5e9}{}\label{sys__config_8h_a2583b4484b1da824e6e6cc93e558c5e9}
+
+
+The priority of the logger task (do not use 0, logger will run into issues while writing the file) 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+S\+\_\+\+O\+P\+E\+N\+ED@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+S\+\_\+\+O\+P\+E\+N\+ED}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+S\+\_\+\+O\+P\+E\+N\+ED@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+S\+\_\+\+O\+P\+E\+N\+ED}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+S\+\_\+\+O\+P\+E\+N\+ED}{SYS_CFG_MAX_FILES_OPENED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+S\+\_\+\+O\+P\+E\+N\+ED~3}\hypertarget{sys__config_8h_a0cda45ed6ef70c065049aef07eef0c30}{}\label{sys__config_8h_a0cda45ed6ef70c065049aef07eef0c30}
+
+
+Maximum files that can be opened at once. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+E\+D\+U\+C\+E\+D\+\_\+\+P\+R\+I\+N\+TF@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+E\+D\+U\+C\+E\+D\+\_\+\+P\+R\+I\+N\+TF}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+E\+D\+U\+C\+E\+D\+\_\+\+P\+R\+I\+N\+TF@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+E\+D\+U\+C\+E\+D\+\_\+\+P\+R\+I\+N\+TF}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+E\+D\+U\+C\+E\+D\+\_\+\+P\+R\+I\+N\+TF}{SYS_CFG_REDUCED_PRINTF}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+E\+D\+U\+C\+E\+D\+\_\+\+P\+R\+I\+N\+TF~0}\hypertarget{sys__config_8h_abbf603387646abb814f49e4da6e5b07a}{}\label{sys__config_8h_abbf603387646abb814f49e4da6e5b07a}
+
+
+If non-\/zero, floating-\/point \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} and scanf() is not supported. 
+
+Set printf \& scanf options -\/ Do a clean build after changing this option
+
+
+\begin{DoxyItemize}
+\item 0 \+: Full printf from stdio.\+h --$>$ Supports floating-\/point, but uses 15K more flash memory and about 300 bytes more R\+AM with newlib nano libraries.
+\item 1 \+: printf from stdio.\+h without floating point printf/scanf 
+\end{DoxyItemize}\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+T\+C\+\_\+\+V\+A\+L\+I\+D\+\_\+\+Y\+E\+A\+R\+S\+\_\+\+R\+A\+N\+GE@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+T\+C\+\_\+\+V\+A\+L\+I\+D\+\_\+\+Y\+E\+A\+R\+S\+\_\+\+R\+A\+N\+GE}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+T\+C\+\_\+\+V\+A\+L\+I\+D\+\_\+\+Y\+E\+A\+R\+S\+\_\+\+R\+A\+N\+GE@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+T\+C\+\_\+\+V\+A\+L\+I\+D\+\_\+\+Y\+E\+A\+R\+S\+\_\+\+R\+A\+N\+GE}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+T\+C\+\_\+\+V\+A\+L\+I\+D\+\_\+\+Y\+E\+A\+R\+S\+\_\+\+R\+A\+N\+GE}{SYS_CFG_RTC_VALID_YEARS_RANGE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+R\+T\+C\+\_\+\+V\+A\+L\+I\+D\+\_\+\+Y\+E\+A\+R\+S\+\_\+\+R\+A\+N\+GE~\{2010, 2025\}}\hypertarget{sys__config_8h_a0a2f12100cd3b7ced92bd93c8843365b}{}\label{sys__config_8h_a0a2f12100cd3b7ced92bd93c8843365b}
+Valid years for R\+TC. If R\+TC year is not found to be in between these, R\+TC will reset to 1/1/2000 00\+:00\+:00 \index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I0\+\_\+\+C\+L\+K\+\_\+\+M\+HZ@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I0\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I0\+\_\+\+C\+L\+K\+\_\+\+M\+HZ@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I0\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I0\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}{SYS_CFG_SPI0_CLK_MHZ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I0\+\_\+\+C\+L\+K\+\_\+\+M\+HZ~8}\hypertarget{sys__config_8h_aea54c36bb0a741a99ff897e4122d6aa8}{}\label{sys__config_8h_aea54c36bb0a741a99ff897e4122d6aa8}
+
+
+Nordic wireless requires 1-\/8\+Mhz max. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+M\+HZ@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+M\+HZ@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+M\+HZ}{SYS_CFG_SPI1_CLK_MHZ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+M\+HZ~24}\hypertarget{sys__config_8h_a3fc3fd786b01312f50bfaec722161e8d}{}\label{sys__config_8h_a3fc3fd786b01312f50bfaec722161e8d}
+
+
+Max speed of S\+P\+I1 for SD Card and Flash memory. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS}{SYS_CFG_STARTUP_DELAY_MS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+T\+A\+R\+T\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+MS~2000}\hypertarget{sys__config_8h_a722552ad2250766058a334ea8df0063d}{}\label{sys__config_8h_a722552ad2250766058a334ea8df0063d}
+
+
+If defined, a boot message is logged to this file. 
+
+Start-\/up delay in milliseconds \index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER}{SYS_CFG_SYS_TIMER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER~1}\hypertarget{sys__config_8h_a90785bc38ce7e47020bbc786874ad47b}{}\label{sys__config_8h_a90785bc38ce7e47020bbc786874ad47b}
+Define the timer that will be used to run the background timer service. This drives the lpc\+\_\+sys\+\_\+get\+\_\+uptime\+\_\+ms(), lpc\+\_\+sys\+\_\+get\+\_\+uptime\+\_\+us() and periodically resets the watchdog timer along with running the mesh networking task if Free\+R\+T\+OS is running.
+
+Timer 1 is required if you wish to have an operational IR remote control decoding. \index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+B\+PS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+B\+PS}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+B\+PS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+B\+PS}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+B\+PS}{SYS_CFG_UART0_BPS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+B\+PS~38400}\hypertarget{sys__config_8h_a6552473af4712908cb61574d8fb8c7cf}{}\label{sys__config_8h_a6552473af4712908cb61574d8fb8c7cf}
+
+
+U\+A\+R\+T0 is configured at this B\+PS by start-\/up code -\/ before \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+T\+X\+Q\+\_\+\+S\+I\+ZE@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+T\+X\+Q\+\_\+\+S\+I\+ZE}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+T\+X\+Q\+\_\+\+S\+I\+ZE@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+T\+X\+Q\+\_\+\+S\+I\+ZE}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+T\+X\+Q\+\_\+\+S\+I\+ZE}{SYS_CFG_UART0_TXQ_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+U\+A\+R\+T0\+\_\+\+T\+X\+Q\+\_\+\+S\+I\+ZE~256}\hypertarget{sys__config_8h_ae0b5e7a447a69f3c31875298f6d9a7bb}{}\label{sys__config_8h_ae0b5e7a447a69f3c31875298f6d9a7bb}
+
+
+U\+A\+R\+T0 transmit queue size before blocking starts to occur. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}}
+\index{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS@{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}{SYS_CFG_WATCHDOG_TIMEOUT_MS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS~(3 $\ast$ 1000)}\hypertarget{sys__config_8h_a93c34a0617489b17068b85201a1fcadf}{}\label{sys__config_8h_a93c34a0617489b17068b85201a1fcadf}
+Watchdog timeout in milliseconds Value cannot be greater than 1,000,000 which is too large of a value to set for a useful watchdog timer anyway. \index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+E\+N\+D\+\_\+\+C\+H\+A\+RS@{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+E\+N\+D\+\_\+\+C\+H\+A\+RS}}
+\index{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+E\+N\+D\+\_\+\+C\+H\+A\+RS@{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+E\+N\+D\+\_\+\+C\+H\+A\+RS}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+E\+N\+D\+\_\+\+C\+H\+A\+RS}{TERMINAL_END_CHARS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+E\+N\+D\+\_\+\+C\+H\+A\+RS~\{3, 3, 4, 4\}}\hypertarget{sys__config_8h_a6ced8587cd5f4ee1b6cce59555b336c5}{}\label{sys__config_8h_a6ced8587cd5f4ee1b6cce59555b336c5}
+
+
+The last characters sent after processing a terminal command. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+H\+A\+N\+D\+L\+ER@{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+H\+A\+N\+D\+L\+ER}}
+\index{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+H\+A\+N\+D\+L\+ER@{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+H\+A\+N\+D\+L\+ER}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+H\+A\+N\+D\+L\+ER}{TERMINAL_USE_CAN_BUS_HANDLER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+H\+A\+N\+D\+L\+ER~0}\hypertarget{sys__config_8h_a6ea129fbb4e7803cf63e82b4d13fc7cf}{}\label{sys__config_8h_a6ea129fbb4e7803cf63e82b4d13fc7cf}
+
+
+C\+AN bus terminal command. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+N\+R\+F\+\_\+\+W\+I\+R\+E\+L\+E\+SS@{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+N\+R\+F\+\_\+\+W\+I\+R\+E\+L\+E\+SS}}
+\index{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+N\+R\+F\+\_\+\+W\+I\+R\+E\+L\+E\+SS@{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+N\+R\+F\+\_\+\+W\+I\+R\+E\+L\+E\+SS}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+N\+R\+F\+\_\+\+W\+I\+R\+E\+L\+E\+SS}{TERMINAL_USE_NRF_WIRELESS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+U\+S\+E\+\_\+\+N\+R\+F\+\_\+\+W\+I\+R\+E\+L\+E\+SS~0}\hypertarget{sys__config_8h_a0b0508cac825fbcac0f344a78070e811}{}\label{sys__config_8h_a0b0508cac825fbcac0f344a78070e811}
+
+
+Terminal command can be sent through nordic wireless. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+A\+I\+R\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+K\+B\+PS@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+A\+I\+R\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+K\+B\+PS}}
+\index{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+A\+I\+R\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+K\+B\+PS@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+A\+I\+R\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+K\+B\+PS}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+A\+I\+R\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+K\+B\+PS}{WIRELESS_AIR_DATARATE_KBPS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+A\+I\+R\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+K\+B\+PS~2000}\hypertarget{sys__config_8h_a4b056c873dd164bac5e1dddc043a72e7}{}\label{sys__config_8h_a4b056c873dd164bac5e1dddc043a72e7}
+
+
+Air data rate, can only be 250, 1000, or 2000 kbps. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+UM@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+UM}}
+\index{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+UM@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+UM}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+UM}{WIRELESS_CHANNEL_NUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+N\+UM~2499}\hypertarget{sys__config_8h_a6581a3c8c24b66678b17e2409d3c8651}{}\label{sys__config_8h_a6581a3c8c24b66678b17e2409d3c8651}
+
+
+2402 -\/ 2500 to avoid collisions among 2+ mesh networks 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR}}
+\index{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR}{WIRELESS_NODE_ADDR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR~106}\hypertarget{sys__config_8h_a3da00aba540d563900d3207b1e8df88c}{}\label{sys__config_8h_a3da00aba540d563900d3207b1e8df88c}
+
+
+Any value from 1-\/254. 
+
+Nordic wireless configuration More settings can be configured at \hyperlink{mesh__config_8h}{mesh\+\_\+config.\+h} \begin{DoxyWarning}{Warning}
+The A\+IR data rate, and channel number must be consistent for your wireless nodes to talk to each other. It seems that 2000kbps works better than 250kbps although slower data rate is supposed to get longer range.
+
+Go to \char`\"{}\+P\+R\+O\+J\+E\+C\+T\char`\"{} --$>$ \char`\"{}\+Clean\char`\"{} if you change the settings here. 
+\end{DoxyWarning}
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+D\+R\+\_\+\+F\+I\+LE@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+D\+R\+\_\+\+F\+I\+LE}}
+\index{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+D\+R\+\_\+\+F\+I\+LE@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+D\+R\+\_\+\+F\+I\+LE}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+D\+R\+\_\+\+F\+I\+LE}{WIRELESS_NODE_ADDR_FILE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+D\+R\+\_\+\+F\+I\+LE~\char`\"{}naddr\char`\"{}}\hypertarget{sys__config_8h_a281451b9801b48afa47fab5b448aaef2}{}\label{sys__config_8h_a281451b9801b48afa47fab5b448aaef2}
+
+
+Node address can be read from this file and this can override W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+A\+D\+DR. 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+N\+A\+ME@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+N\+A\+ME}}
+\index{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+N\+A\+ME@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+N\+A\+ME}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+N\+A\+ME}{WIRELESS_NODE_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+N\+O\+D\+E\+\_\+\+N\+A\+ME~\char`\"{}node\char`\"{}}\hypertarget{sys__config_8h_a2e4eb235118bcf54fc9d3a253430671c}{}\label{sys__config_8h_a2e4eb235118bcf54fc9d3a253430671c}
+
+
+Wireless node name (ping response contains this name) 
+
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+R\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+R\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE}}
+\index{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+R\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE@{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+R\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+R\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE}{WIRELESS_RX_QUEUE_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+I\+R\+E\+L\+E\+S\+S\+\_\+\+R\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+I\+ZE~3}\hypertarget{sys__config_8h_aa4622509e5323f79a21a530d9b394bbf}{}\label{sys__config_8h_aa4622509e5323f79a21a530d9b394bbf}
+
+
+Number of payloads we can queue. 
+
+
+
+\subsection{Function Documentation}
+\index{sys\+\_\+config.\+h@{sys\+\_\+config.\+h}!sys\+\_\+get\+\_\+cpu\+\_\+clock@{sys\+\_\+get\+\_\+cpu\+\_\+clock}}
+\index{sys\+\_\+get\+\_\+cpu\+\_\+clock@{sys\+\_\+get\+\_\+cpu\+\_\+clock}!sys\+\_\+config.\+h@{sys\+\_\+config.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+cpu\+\_\+clock()}{sys_get_cpu_clock()}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int sys\+\_\+get\+\_\+cpu\+\_\+clock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{sys__config_8h_a6ac4b492b79ce75125ae13fd7715873b}{}\label{sys__config_8h_a6ac4b492b79ce75125ae13fd7715873b}
+\begin{DoxyReturn}{Returns}
+actual System clock as calculated from P\+LL and Oscillator selection 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK macro defines \char`\"{}\+Desired\char`\"{} C\+PU clock, and doesn\textquotesingle{}t guarantee this clock rate. This function returns actual C\+PU clock of the system. 
+\end{DoxyNote}

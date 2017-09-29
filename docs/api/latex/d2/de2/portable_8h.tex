@@ -1,0 +1,135 @@
+\hypertarget{portable_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/include/portable.h File Reference}
+\label{portable_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/include/portable.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/include/portable.\+h}}
+{\ttfamily \#include \char`\"{}deprecated\+\_\+definitions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}portmacro.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mpu\+\_\+wrappers.\+h\char`\"{}}\\*
+Include dependency graph for portable.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/dd2/portable_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/df8/portable_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structHeapRegion}{Heap\+Region}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{portable_8h_aca7e1a8a568a38b74cc9db10c8efebda}{port\+N\+U\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+B\+L\+E\+\_\+\+R\+E\+G\+I\+O\+NS}~1
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structHeapRegion}{Heap\+Region} \hyperlink{portable_8h_a2496d40e3117c2f7c473d7fb6b77654d}{Heap\+Region\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t} $\ast$ \hyperlink{portable_8h_abb736501b227deb79f234b30eaf090e3}{px\+Port\+Initialise\+Stack} (\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t} $\ast$px\+Top\+Of\+Stack, \hyperlink{projdefs_8h_a9b32502ff92c255c686dacde53c1cba0}{Task\+Function\+\_\+t} px\+Code, void $\ast$pv\+Parameters) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+void \hyperlink{portable_8h_a4f3a75726f448c4170d9d6565bdef636}{v\+Port\+Define\+Heap\+Regions} (const \hyperlink{portable_8h_a2496d40e3117c2f7c473d7fb6b77654d}{Heap\+Region\+\_\+t} $\ast$const px\+Heap\+Regions) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+void $\ast$ \hyperlink{portable_8h_a237d63f90b28e0950bd86f76815cd6e3}{pv\+Port\+Malloc} (size\+\_\+t x\+Size) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+void \hyperlink{portable_8h_a735cd3085bb7ba06ff8e47565bfd7016}{v\+Port\+Free} (void $\ast$pv) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+void \hyperlink{portable_8h_a846b5ebdaf2b51fe707efb4a0974f676}{v\+Port\+Initialise\+Blocks} (void) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+size\+\_\+t \hyperlink{portable_8h_a8f72fbee5c25c956bda528299ce6dd02}{x\+Port\+Get\+Free\+Heap\+Size} (void) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+size\+\_\+t \hyperlink{portable_8h_a6195704430323f2e97ea4deab7a4eece}{x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size} (void) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{portable_8h_a4f3b1bb7590996f2fa1e0456dda961ff}{x\+Port\+Start\+Scheduler} (void) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\item 
+void \hyperlink{portable_8h_aa356b7baaa9089490321aa919542dd6c}{v\+Port\+End\+Scheduler} (void) \hyperlink{mpu__wrappers_8h_a4785c4f4a8c04b835139dcc2a6682078}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{portable.\+h@{portable.\+h}!port\+N\+U\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+B\+L\+E\+\_\+\+R\+E\+G\+I\+O\+NS@{port\+N\+U\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+B\+L\+E\+\_\+\+R\+E\+G\+I\+O\+NS}}
+\index{port\+N\+U\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+B\+L\+E\+\_\+\+R\+E\+G\+I\+O\+NS@{port\+N\+U\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+B\+L\+E\+\_\+\+R\+E\+G\+I\+O\+NS}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{port\+N\+U\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+B\+L\+E\+\_\+\+R\+E\+G\+I\+O\+NS}{portNUM_CONFIGURABLE_REGIONS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+U\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+B\+L\+E\+\_\+\+R\+E\+G\+I\+O\+NS~1}\hypertarget{portable_8h_aca7e1a8a568a38b74cc9db10c8efebda}{}\label{portable_8h_aca7e1a8a568a38b74cc9db10c8efebda}
+
+
+\subsection{Typedef Documentation}
+\index{portable.\+h@{portable.\+h}!Heap\+Region\+\_\+t@{Heap\+Region\+\_\+t}}
+\index{Heap\+Region\+\_\+t@{Heap\+Region\+\_\+t}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{Heap\+Region\+\_\+t}{HeapRegion_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Heap\+Region}  {\bf Heap\+Region\+\_\+t}}\hypertarget{portable_8h_a2496d40e3117c2f7c473d7fb6b77654d}{}\label{portable_8h_a2496d40e3117c2f7c473d7fb6b77654d}
+
+
+\subsection{Function Documentation}
+\index{portable.\+h@{portable.\+h}!pv\+Port\+Malloc@{pv\+Port\+Malloc}}
+\index{pv\+Port\+Malloc@{pv\+Port\+Malloc}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{pv\+Port\+Malloc(size\+\_\+t x\+Size) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{pvPortMalloc(size_t xSize) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ pv\+Port\+Malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{x\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_a237d63f90b28e0950bd86f76815cd6e3}{}\label{portable_8h_a237d63f90b28e0950bd86f76815cd6e3}
+\index{portable.\+h@{portable.\+h}!px\+Port\+Initialise\+Stack@{px\+Port\+Initialise\+Stack}}
+\index{px\+Port\+Initialise\+Stack@{px\+Port\+Initialise\+Stack}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{px\+Port\+Initialise\+Stack(\+Stack\+Type\+\_\+t $\ast$px\+Top\+Of\+Stack, Task\+Function\+\_\+t px\+Code, void $\ast$pv\+Parameters) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{pxPortInitialiseStack(StackType_t *pxTopOfStack, TaskFunction_t pxCode, void *pvParameters) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stack\+Type\+\_\+t}$\ast$ px\+Port\+Initialise\+Stack (
+\begin{DoxyParamCaption}
+\item[{{\bf Stack\+Type\+\_\+t} $\ast$}]{px\+Top\+Of\+Stack, }
+\item[{{\bf Task\+Function\+\_\+t}}]{px\+Code, }
+\item[{void $\ast$}]{pv\+Parameters}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_abb736501b227deb79f234b30eaf090e3}{}\label{portable_8h_abb736501b227deb79f234b30eaf090e3}
+\index{portable.\+h@{portable.\+h}!v\+Port\+Define\+Heap\+Regions@{v\+Port\+Define\+Heap\+Regions}}
+\index{v\+Port\+Define\+Heap\+Regions@{v\+Port\+Define\+Heap\+Regions}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{v\+Port\+Define\+Heap\+Regions(const Heap\+Region\+\_\+t $\ast$const px\+Heap\+Regions) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{vPortDefineHeapRegions(const HeapRegion_t *const pxHeapRegions) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+Define\+Heap\+Regions (
+\begin{DoxyParamCaption}
+\item[{const {\bf Heap\+Region\+\_\+t} $\ast$const}]{px\+Heap\+Regions}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_a4f3a75726f448c4170d9d6565bdef636}{}\label{portable_8h_a4f3a75726f448c4170d9d6565bdef636}
+\index{portable.\+h@{portable.\+h}!v\+Port\+End\+Scheduler@{v\+Port\+End\+Scheduler}}
+\index{v\+Port\+End\+Scheduler@{v\+Port\+End\+Scheduler}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{v\+Port\+End\+Scheduler(void) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{vPortEndScheduler(void) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+End\+Scheduler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_aa356b7baaa9089490321aa919542dd6c}{}\label{portable_8h_aa356b7baaa9089490321aa919542dd6c}
+\index{portable.\+h@{portable.\+h}!v\+Port\+Free@{v\+Port\+Free}}
+\index{v\+Port\+Free@{v\+Port\+Free}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{v\+Port\+Free(void $\ast$pv) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{vPortFree(void *pv) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+Free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{pv}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_a735cd3085bb7ba06ff8e47565bfd7016}{}\label{portable_8h_a735cd3085bb7ba06ff8e47565bfd7016}
+\index{portable.\+h@{portable.\+h}!v\+Port\+Initialise\+Blocks@{v\+Port\+Initialise\+Blocks}}
+\index{v\+Port\+Initialise\+Blocks@{v\+Port\+Initialise\+Blocks}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{v\+Port\+Initialise\+Blocks(void) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{vPortInitialiseBlocks(void) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+Initialise\+Blocks (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_a846b5ebdaf2b51fe707efb4a0974f676}{}\label{portable_8h_a846b5ebdaf2b51fe707efb4a0974f676}
+\index{portable.\+h@{portable.\+h}!x\+Port\+Get\+Free\+Heap\+Size@{x\+Port\+Get\+Free\+Heap\+Size}}
+\index{x\+Port\+Get\+Free\+Heap\+Size@{x\+Port\+Get\+Free\+Heap\+Size}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{x\+Port\+Get\+Free\+Heap\+Size(void) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{xPortGetFreeHeapSize(void) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t x\+Port\+Get\+Free\+Heap\+Size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_a8f72fbee5c25c956bda528299ce6dd02}{}\label{portable_8h_a8f72fbee5c25c956bda528299ce6dd02}
+\index{portable.\+h@{portable.\+h}!x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size@{x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size}}
+\index{x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size@{x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size(void) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{xPortGetMinimumEverFreeHeapSize(void) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_a6195704430323f2e97ea4deab7a4eece}{}\label{portable_8h_a6195704430323f2e97ea4deab7a4eece}
+\index{portable.\+h@{portable.\+h}!x\+Port\+Start\+Scheduler@{x\+Port\+Start\+Scheduler}}
+\index{x\+Port\+Start\+Scheduler@{x\+Port\+Start\+Scheduler}!portable.\+h@{portable.\+h}}
+\subsubsection[{\texorpdfstring{x\+Port\+Start\+Scheduler(void) P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+F\+U\+N\+C\+T\+I\+ON}{xPortStartScheduler(void) PRIVILEGED_FUNCTION}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Port\+Start\+Scheduler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{portable_8h_a4f3b1bb7590996f2fa1e0456dda961ff}{}\label{portable_8h_a4f3b1bb7590996f2fa1e0456dda961ff}

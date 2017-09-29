@@ -1,0 +1,138 @@
+\hypertarget{classCommandProcessor}{}\section{Command\+Processor Class Reference}
+\label{classCommandProcessor}\index{Command\+Processor@{Command\+Processor}}
+
+
+{\ttfamily \#include $<$command\+\_\+handler.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCommandProcessor_a18664bab9b263b9529e710c6189a8d17}{Command\+Processor} (int num\+Cmds=8)
+\item 
+void \hyperlink{classCommandProcessor_ae3511e02206714e63d02e7d6bdcad102}{add\+Handler} (\hyperlink{command__handler_8hpp_a56cc0ed4a4ef4fe8aaca51669f2d15f5}{Cmd\+Handler\+Func\+Ptr} p\+Func, const char $\ast$p\+Persistant\+Cmd\+Str, const char $\ast$p\+Persistent\+Cmd\+Help\+Str=0, void $\ast$p\+Data\+Param=0)
+\item 
+void \hyperlink{classCommandProcessor_ab5acea00ab45c71c5f5ce84ad683cca6}{enable\+Short\+Cmds} (bool en)
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classCommandProcessor_a0f25f294a57e8316b357aa9d56142b6c}{handle\+Command} (\hyperlink{classstr}{str} \&cmd, \hyperlink{classCharDev}{Char\+Dev} \&out)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+Command Processor Class
+
+This class allows users to add a command string and associated handler for commands. When user inputs a command, it will call the mapped handler. Note that command input is capitalized to make this class case insensitive.
+
+One handler is already part of this class\+:
+\begin{DoxyItemize}
+\item \char`\"{}help\char`\"{} \+: Get list of supported commands
+\end{DoxyItemize}
+
+The \char`\"{}help\char`\"{} handler lists out supported commands, \char`\"{}\+H\+E\+L\+P $<$command$>$\char`\"{} will show the help-\/text associated with the given command.
+
+Example Usage\+: 
+\begin{DoxyCode}
+\hyperlink{command__handler_8hpp_a2da2211c8d18fd145d0f0f439a225362}{CMD\_HANDLER\_FUNC}(cmdHandler)
+\{
+    \textcolor{comment}{// Process the command ...}
+    output.puts(\textcolor{stringliteral}{"OK"});
+\}
+
+\hyperlink{classCommandProcessor}{CommandProcessor} cp;
+cp.\hyperlink{classCommandProcessor_ae3511e02206714e63d02e7d6bdcad102}{addHandler}(cmdHandler, \textcolor{stringliteral}{"cmd"}, \textcolor{stringliteral}{"My Cmd Help"});
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Command\+Processor@{Command\+Processor}!Command\+Processor@{Command\+Processor}}
+\index{Command\+Processor@{Command\+Processor}!Command\+Processor@{Command\+Processor}}
+\subsubsection[{\texorpdfstring{Command\+Processor(int num\+Cmds=8)}{CommandProcessor(int numCmds=8)}}]{\setlength{\rightskip}{0pt plus 5cm}Command\+Processor\+::\+Command\+Processor (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+Cmds = {\ttfamily 8}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCommandProcessor_a18664bab9b263b9529e710c6189a8d17}{}\label{classCommandProcessor_a18664bab9b263b9529e710c6189a8d17}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em num\+Cmds} & Optional\+: Initial list of vector size to avoid memory re-\/allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+\hyperlink{classCommandProcessor_ae3511e02206714e63d02e7d6bdcad102}{add\+Handler()} will grow the vector of command handlers if more commands are added later 
+\end{DoxyNote}
+
+
+\subsection{Member Function Documentation}
+\index{Command\+Processor@{Command\+Processor}!add\+Handler@{add\+Handler}}
+\index{add\+Handler@{add\+Handler}!Command\+Processor@{Command\+Processor}}
+\subsubsection[{\texorpdfstring{add\+Handler(\+Cmd\+Handler\+Func\+Ptr p\+Func, const char $\ast$p\+Persistant\+Cmd\+Str, const char $\ast$p\+Persistent\+Cmd\+Help\+Str=0, void $\ast$p\+Data\+Param=0)}{addHandler(CmdHandlerFuncPtr pFunc, const char *pPersistantCmdStr, const char *pPersistentCmdHelpStr=0, void *pDataParam=0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Command\+Processor\+::add\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf Cmd\+Handler\+Func\+Ptr}}]{p\+Func, }
+\item[{const char $\ast$}]{p\+Persistant\+Cmd\+Str, }
+\item[{const char $\ast$}]{p\+Persistent\+Cmd\+Help\+Str = {\ttfamily 0}, }
+\item[{void $\ast$}]{p\+Data\+Param = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classCommandProcessor_ae3511e02206714e63d02e7d6bdcad102}{}\label{classCommandProcessor_ae3511e02206714e63d02e7d6bdcad102}
+Adds a command to the command handler list 
+\begin{DoxyParams}{Parameters}
+{\em p\+Func} & The function pointer of the handler of this command \\
+\hline
+{\em p\+Persistant\+Cmd\+Str} & The persistent data pointer of a command\textquotesingle{}s text \\
+\hline
+{\em p\+Persistent\+Cmd\+Help\+Str} & The persistent data pointer of this command\textquotesingle{}s help text \\
+\hline
+{\em p\+Data\+Param} & Optional Param\+: The data parameter pointer to pass to your handler when it gets called \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+p\+Persistent\+Cmd\+Str and p\+Persistent\+Cmd\+Help must always exist in memory without going out of scope because these strings are not copied internally but their pointer is referenced during comparison 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+command is matched while ignoring case. 
+\end{DoxyNote}
+\index{Command\+Processor@{Command\+Processor}!enable\+Short\+Cmds@{enable\+Short\+Cmds}}
+\index{enable\+Short\+Cmds@{enable\+Short\+Cmds}!Command\+Processor@{Command\+Processor}}
+\subsubsection[{\texorpdfstring{enable\+Short\+Cmds(bool en)}{enableShortCmds(bool en)}}]{\setlength{\rightskip}{0pt plus 5cm}void Command\+Processor\+::enable\+Short\+Cmds (
+\begin{DoxyParamCaption}
+\item[{bool}]{en}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCommandProcessor_ab5acea00ab45c71c5f5ce84ad683cca6}{}\label{classCommandProcessor_ab5acea00ab45c71c5f5ce84ad683cca6}
+Enables short-\/hand commands. If a registered command is \char`\"{}information\char`\"{}, and a command comes in as \char`\"{}info\char`\"{}, then it will be handled by \char`\"{}information\char`\"{} handler. First command that matches first two characters will take precedence. \begin{DoxyNote}{Note}
+This option is enabled by default. 
+\end{DoxyNote}
+\index{Command\+Processor@{Command\+Processor}!handle\+Command@{handle\+Command}}
+\index{handle\+Command@{handle\+Command}!Command\+Processor@{Command\+Processor}}
+\subsubsection[{\texorpdfstring{handle\+Command(str \&cmd, Char\+Dev \&out)}{handleCommand(str &cmd, CharDev &out)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Command\+Processor\+::handle\+Command (
+\begin{DoxyParamCaption}
+\item[{{\bf str} \&}]{cmd, }
+\item[{{\bf Char\+Dev} \&}]{out}
+\end{DoxyParamCaption}
+)}\hypertarget{classCommandProcessor_a0f25f294a57e8316b357aa9d56142b6c}{}\label{classCommandProcessor_a0f25f294a57e8316b357aa9d56142b6c}
+Command handling functions Handles an incoming command and \begin{DoxyReturn}{Returns}
+null terminated string of the command output 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Input command either as char$\ast$ pointer or str object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ pointer containing the command\textquotesingle{}s response 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+\char`\"{}\+H\+E\+L\+P\char`\"{} command will output the list of supported commands. 
+\end{DoxyNote}
+If command not matched, try to partially match a command. ie\+: If command is \char`\"{}magic\char`\"{}, match \char`\"{}m\char`\"{} as command
+
+Check here if p\+Command\+Str contains partial command \+:
+\begin{DoxyItemize}
+\item reg\+Cmd may be \char`\"{}thermostat\char`\"{}, when input is \char`\"{}th\char`\"{} or \char`\"{}th on\char`\"{}
+\item So accept this command as shorthand command
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{command__handler_8hpp}{command\+\_\+handler.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/\hyperlink{command__handler_8cpp}{command\+\_\+handler.\+cpp}\end{DoxyCompactItemize}

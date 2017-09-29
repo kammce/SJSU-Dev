@@ -1,0 +1,5 @@
+<map id="TemperatureSensor" name="TemperatureSensor">
+<area shape="rect" id="node2" href="$dd/dd5/classI2C__Temp.html" title="I2C_Temp" alt="" coords="9,87,92,114"/>
+<area shape="rect" id="node3" href="$d1/d52/classi2c2__device.html" title="i2c2_device" alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node4" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l TemperatureSensor \&gt;" alt="" coords="116,80,268,121"/>
+</map>

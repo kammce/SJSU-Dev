@@ -1,0 +1,120 @@
+\hypertarget{structcan__struct__t}{}\section{can\+\_\+struct\+\_\+t Struct Reference}
+\label{structcan__struct__t}\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+
+
+Typedef of C\+AN queues and data.  
+
+
+
+
+Collaboration diagram for can\+\_\+struct\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{d1/dcd/structcan__struct__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLPC__CAN__TypeDef}{L\+P\+C\+\_\+\+C\+A\+N\+\_\+\+Type\+Def} $\ast$ \hyperlink{structcan__struct__t_ac1798cad8cd1b75402e953a7cc5d2b50}{p\+Can\+Regs}
+\begin{DoxyCompactList}\small\item\em The pointer to the C\+AN registers. \end{DoxyCompactList}\item 
+\hyperlink{queue_8h_aaf19d499892a4ce1409326ece00f5264}{Queue\+Handle\+\_\+t} \hyperlink{structcan__struct__t_a1a1c2bdb829e45a31cafa44620d4bdd0}{rxQ}
+\begin{DoxyCompactList}\small\item\em TX queue. \end{DoxyCompactList}\item 
+\hyperlink{queue_8h_aaf19d499892a4ce1409326ece00f5264}{Queue\+Handle\+\_\+t} \hyperlink{structcan__struct__t_a39cfcc33222d5607be5ad2dd1d92e7cd}{txQ}
+\begin{DoxyCompactList}\small\item\em RX queue. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{structcan__struct__t_a2e7319422bed45d0521764d1f6644ae1}{dropped\+Rx\+Msgs}
+\begin{DoxyCompactList}\small\item\em Number of messages dropped if no space found during the C\+AN interrupt that queues the RX messages. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{structcan__struct__t_ac4f9dd16c31c2a75d97e1310d414345d}{rx\+Q\+Watermark}
+\begin{DoxyCompactList}\small\item\em Watermark of the Free\+R\+T\+OS Rx Queue. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{structcan__struct__t_ac7b27780bb731be3afddf397c3a02c15}{tx\+Q\+Watermark}
+\begin{DoxyCompactList}\small\item\em Watermark of the Free\+R\+T\+OS Tx Queue. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{structcan__struct__t_ad13c7c5a692c2808a1f13250a726fcc3}{tx\+Msg\+Count}
+\begin{DoxyCompactList}\small\item\em Number of messages sent. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{structcan__struct__t_afaa8f7119b799b00f2ce4f014ec98629}{rx\+Msg\+Count}
+\begin{DoxyCompactList}\small\item\em Number of received messages. \end{DoxyCompactList}\item 
+\hyperlink{can_8h_a70166a12001edeee7860a1257037be44}{can\+\_\+void\+\_\+func\+\_\+t} \hyperlink{structcan__struct__t_a1d38ac37f7c83d7252cc2cd3da88b6a9}{bus\+\_\+error}
+\begin{DoxyCompactList}\small\item\em When serious B\+US error occurs. \end{DoxyCompactList}\item 
+\hyperlink{can_8h_a70166a12001edeee7860a1257037be44}{can\+\_\+void\+\_\+func\+\_\+t} \hyperlink{structcan__struct__t_a91068e55e2923ef1bdf723e11d5460f1}{data\+\_\+overrun}
+\begin{DoxyCompactList}\small\item\em When we read the C\+AN buffer too late for incoming message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Typedef of C\+AN queues and data. 
+
+\subsection{Field Documentation}
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!bus\+\_\+error@{bus\+\_\+error}}
+\index{bus\+\_\+error@{bus\+\_\+error}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{bus\+\_\+error}{bus_error}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf can\+\_\+void\+\_\+func\+\_\+t} can\+\_\+struct\+\_\+t\+::bus\+\_\+error}\hypertarget{structcan__struct__t_a1d38ac37f7c83d7252cc2cd3da88b6a9}{}\label{structcan__struct__t_a1d38ac37f7c83d7252cc2cd3da88b6a9}
+
+
+When serious B\+US error occurs. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!data\+\_\+overrun@{data\+\_\+overrun}}
+\index{data\+\_\+overrun@{data\+\_\+overrun}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{data\+\_\+overrun}{data_overrun}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf can\+\_\+void\+\_\+func\+\_\+t} can\+\_\+struct\+\_\+t\+::data\+\_\+overrun}\hypertarget{structcan__struct__t_a91068e55e2923ef1bdf723e11d5460f1}{}\label{structcan__struct__t_a91068e55e2923ef1bdf723e11d5460f1}
+
+
+When we read the C\+AN buffer too late for incoming message. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!dropped\+Rx\+Msgs@{dropped\+Rx\+Msgs}}
+\index{dropped\+Rx\+Msgs@{dropped\+Rx\+Msgs}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{dropped\+Rx\+Msgs}{droppedRxMsgs}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t can\+\_\+struct\+\_\+t\+::dropped\+Rx\+Msgs}\hypertarget{structcan__struct__t_a2e7319422bed45d0521764d1f6644ae1}{}\label{structcan__struct__t_a2e7319422bed45d0521764d1f6644ae1}
+
+
+Number of messages dropped if no space found during the C\+AN interrupt that queues the RX messages. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!p\+Can\+Regs@{p\+Can\+Regs}}
+\index{p\+Can\+Regs@{p\+Can\+Regs}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{p\+Can\+Regs}{pCanRegs}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf L\+P\+C\+\_\+\+C\+A\+N\+\_\+\+Type\+Def}$\ast$ can\+\_\+struct\+\_\+t\+::p\+Can\+Regs}\hypertarget{structcan__struct__t_ac1798cad8cd1b75402e953a7cc5d2b50}{}\label{structcan__struct__t_ac1798cad8cd1b75402e953a7cc5d2b50}
+
+
+The pointer to the C\+AN registers. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!rx\+Msg\+Count@{rx\+Msg\+Count}}
+\index{rx\+Msg\+Count@{rx\+Msg\+Count}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{rx\+Msg\+Count}{rxMsgCount}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t can\+\_\+struct\+\_\+t\+::rx\+Msg\+Count}\hypertarget{structcan__struct__t_afaa8f7119b799b00f2ce4f014ec98629}{}\label{structcan__struct__t_afaa8f7119b799b00f2ce4f014ec98629}
+
+
+Number of received messages. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!rxQ@{rxQ}}
+\index{rxQ@{rxQ}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{rxQ}{rxQ}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Queue\+Handle\+\_\+t} can\+\_\+struct\+\_\+t\+::rxQ}\hypertarget{structcan__struct__t_a1a1c2bdb829e45a31cafa44620d4bdd0}{}\label{structcan__struct__t_a1a1c2bdb829e45a31cafa44620d4bdd0}
+
+
+TX queue. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!rx\+Q\+Watermark@{rx\+Q\+Watermark}}
+\index{rx\+Q\+Watermark@{rx\+Q\+Watermark}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{rx\+Q\+Watermark}{rxQWatermark}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t can\+\_\+struct\+\_\+t\+::rx\+Q\+Watermark}\hypertarget{structcan__struct__t_ac4f9dd16c31c2a75d97e1310d414345d}{}\label{structcan__struct__t_ac4f9dd16c31c2a75d97e1310d414345d}
+
+
+Watermark of the Free\+R\+T\+OS Rx Queue. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!tx\+Msg\+Count@{tx\+Msg\+Count}}
+\index{tx\+Msg\+Count@{tx\+Msg\+Count}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{tx\+Msg\+Count}{txMsgCount}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t can\+\_\+struct\+\_\+t\+::tx\+Msg\+Count}\hypertarget{structcan__struct__t_ad13c7c5a692c2808a1f13250a726fcc3}{}\label{structcan__struct__t_ad13c7c5a692c2808a1f13250a726fcc3}
+
+
+Number of messages sent. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!txQ@{txQ}}
+\index{txQ@{txQ}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{txQ}{txQ}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Queue\+Handle\+\_\+t} can\+\_\+struct\+\_\+t\+::txQ}\hypertarget{structcan__struct__t_a39cfcc33222d5607be5ad2dd1d92e7cd}{}\label{structcan__struct__t_a39cfcc33222d5607be5ad2dd1d92e7cd}
+
+
+RX queue. 
+
+\index{can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}!tx\+Q\+Watermark@{tx\+Q\+Watermark}}
+\index{tx\+Q\+Watermark@{tx\+Q\+Watermark}!can\+\_\+struct\+\_\+t@{can\+\_\+struct\+\_\+t}}
+\subsubsection[{\texorpdfstring{tx\+Q\+Watermark}{txQWatermark}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t can\+\_\+struct\+\_\+t\+::tx\+Q\+Watermark}\hypertarget{structcan__struct__t_ac7b27780bb731be3afddf397c3a02c15}{}\label{structcan__struct__t_ac7b27780bb731be3afddf397c3a02c15}
+
+
+Watermark of the Free\+R\+T\+OS Tx Queue. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/\hyperlink{can_8c}{can.\+c}\end{DoxyCompactItemize}

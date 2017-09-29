@@ -1,0 +1,138 @@
+\hypertarget{c__tlm__binary_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/c\+\_\+tlm\+\_\+binary.h File Reference}
+\label{c__tlm__binary_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/c\+\_\+tlm\+\_\+binary.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/c\+\_\+tlm\+\_\+binary.\+h}}
+{\ttfamily \#include \char`\"{}c\+\_\+tlm\+\_\+comp.\+h\char`\"{}}\\*
+Include dependency graph for c\+\_\+tlm\+\_\+binary.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{df/da4/c__tlm__binary_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{d3/d68/c__tlm__binary_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{c__tlm__binary_8h_a49b43027a50443f777204cf178846095}{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+one} (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp\+\_\+ptr)
+\item 
+uint32\+\_\+t \hyperlink{c__tlm__binary_8h_afa06d23fc2b70d0228ceb61d8f3f2219}{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+all} (void)
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{c__tlm__binary_8h_a715d8d15e36df4a5c300d1cad3963fcd}{tlm\+\_\+binary\+\_\+get\+\_\+one} (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp\+\_\+ptr, char $\ast$binary)
+\item 
+uint32\+\_\+t \hyperlink{c__tlm__binary_8h_afd0ace1cbccc4fea9191beeb1c840e0a}{tlm\+\_\+binary\+\_\+get\+\_\+all} (char $\ast$binary)
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{c__tlm__binary_8h_a7c3f3f753562ca9a8af13c3b1953c11d}{tlm\+\_\+binary\+\_\+compare\+\_\+one} (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp\+\_\+ptr, char $\ast$binary)
+\item 
+bool \hyperlink{c__tlm__binary_8h_a41fc1949d7350d36513ac4f0b4085dfb}{tlm\+\_\+binary\+\_\+compare\+\_\+all} (char $\ast$binary)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+This file allows to get telemetry data in binary format. This only provides the raw, contiguous data, not the data type, size or name etc.
+
+Applications of this A\+PI \+:
+\begin{DoxyItemize}
+\item Provide raw contiguous data
+\item Provide means to compare if telemetry data has changed.
+\end{DoxyItemize}
+
+\begin{DoxyWarning}{Warning}
+This A\+PI should only be used if no additional telemetry registration will take place. 
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} size = \hyperlink{c__tlm__binary_8h_a49b43027a50443f777204cf178846095}{tlm\_binary\_get\_size\_one}(my\_comp);
+\textcolor{keywordtype}{char} *binary = (\textcolor{keywordtype}{char}*)malloc(size);
+\hyperlink{c__tlm__binary_8h_a715d8d15e36df4a5c300d1cad3963fcd}{tlm\_binary\_get\_one}(my\_comp, binary));
+
+\textcolor{keywordflow}{if}(!\hyperlink{c__tlm__binary_8h_a7c3f3f753562ca9a8af13c3b1953c11d}{tlm\_binary\_compare\_one}(my\_comp, binary)) \{
+    \textcolor{comment}{// Data changed, do something}
+\}
+\end{DoxyCode}
+ 
+\end{DoxyWarning}
+
+
+\subsection{Function Documentation}
+\index{c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}!tlm\+\_\+binary\+\_\+compare\+\_\+all@{tlm\+\_\+binary\+\_\+compare\+\_\+all}}
+\index{tlm\+\_\+binary\+\_\+compare\+\_\+all@{tlm\+\_\+binary\+\_\+compare\+\_\+all}!c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+binary\+\_\+compare\+\_\+all(char $\ast$binary)}{tlm_binary_compare_all(char *binary)}}]{\setlength{\rightskip}{0pt plus 5cm}bool tlm\+\_\+binary\+\_\+compare\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{binary}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__binary_8h_a41fc1949d7350d36513ac4f0b4085dfb}{}\label{c__tlm__binary_8h_a41fc1949d7350d36513ac4f0b4085dfb}
+\index{c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}!tlm\+\_\+binary\+\_\+compare\+\_\+one@{tlm\+\_\+binary\+\_\+compare\+\_\+one}}
+\index{tlm\+\_\+binary\+\_\+compare\+\_\+one@{tlm\+\_\+binary\+\_\+compare\+\_\+one}!c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+binary\+\_\+compare\+\_\+one(tlm\+\_\+component $\ast$comp\+\_\+ptr, char $\ast$binary)}{tlm_binary_compare_one(tlm_component *comp_ptr, char *binary)}}]{\setlength{\rightskip}{0pt plus 5cm}bool tlm\+\_\+binary\+\_\+compare\+\_\+one (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+component} $\ast$}]{comp\+\_\+ptr, }
+\item[{char $\ast$}]{binary}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__binary_8h_a7c3f3f753562ca9a8af13c3b1953c11d}{}\label{c__tlm__binary_8h_a7c3f3f753562ca9a8af13c3b1953c11d}
+Compare the binary data with the latest telemetry\textquotesingle{}s binary data 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+ptr} & The component pointer \\
+\hline
+{\em binary} & The binary data at which to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the binary data is the same as the latest telemetry data 
+\end{DoxyReturn}
+\index{c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}!tlm\+\_\+binary\+\_\+get\+\_\+all@{tlm\+\_\+binary\+\_\+get\+\_\+all}}
+\index{tlm\+\_\+binary\+\_\+get\+\_\+all@{tlm\+\_\+binary\+\_\+get\+\_\+all}!c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+binary\+\_\+get\+\_\+all(char $\ast$binary)}{tlm_binary_get_all(char *binary)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t tlm\+\_\+binary\+\_\+get\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{binary}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__binary_8h_afd0ace1cbccc4fea9191beeb1c840e0a}{}\label{c__tlm__binary_8h_afd0ace1cbccc4fea9191beeb1c840e0a}
+\index{c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}!tlm\+\_\+binary\+\_\+get\+\_\+one@{tlm\+\_\+binary\+\_\+get\+\_\+one}}
+\index{tlm\+\_\+binary\+\_\+get\+\_\+one@{tlm\+\_\+binary\+\_\+get\+\_\+one}!c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+binary\+\_\+get\+\_\+one(tlm\+\_\+component $\ast$comp\+\_\+ptr, char $\ast$binary)}{tlm_binary_get_one(tlm_component *comp_ptr, char *binary)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t tlm\+\_\+binary\+\_\+get\+\_\+one (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+component} $\ast$}]{comp\+\_\+ptr, }
+\item[{char $\ast$}]{binary}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__binary_8h_a715d8d15e36df4a5c300d1cad3963fcd}{}\label{c__tlm__binary_8h_a715d8d15e36df4a5c300d1cad3963fcd}
+Copy the telemetry data to the provided memory pointer 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+ptr} & The component pointer \\
+\hline
+{\em binary} & The data pointer to which data will be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes copied into the data pointer. 
+\end{DoxyReturn}
+\index{c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}!tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+all@{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+all}}
+\index{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+all@{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+all}!c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+all(void)}{tlm_binary_get_size_all(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__binary_8h_afa06d23fc2b70d0228ceb61d8f3f2219}{}\label{c__tlm__binary_8h_afa06d23fc2b70d0228ceb61d8f3f2219}
+\index{c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}!tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+one@{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+one}}
+\index{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+one@{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+one}!c\+\_\+tlm\+\_\+binary.\+h@{c\+\_\+tlm\+\_\+binary.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+one(tlm\+\_\+component $\ast$comp\+\_\+ptr)}{tlm_binary_get_size_one(tlm_component *comp_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t tlm\+\_\+binary\+\_\+get\+\_\+size\+\_\+one (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+component} $\ast$}]{comp\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__binary_8h_a49b43027a50443f777204cf178846095}{}\label{c__tlm__binary_8h_a49b43027a50443f777204cf178846095}
+Get the size of the binary data which should be used to allocate memory before calling tlm\+\_\+binary\+\_\+get\+\_\+xxx() functions. 
+\begin{DoxyParams}{Parameters}
+{\em comp\+\_\+ptr} & The component pointer \\
+\hline
+\end{DoxyParams}

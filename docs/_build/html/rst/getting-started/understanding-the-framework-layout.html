@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.2. Understanding The Framework Layout &mdash; SJSU-Dev-Linux 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="SJSU-Dev-Linux 1.0.0 documentation" href="../../index.html"/>
+        <link rel="up" title="1. Getting Started" href="../getting-started-toc.html"/>
+        <link rel="next" title="2. Guides" href="../guides-toc.html"/>
+        <link rel="prev" title="1.1. Getting Started" href="getting-started.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> SJSU-Dev-Linux
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../getting-started-toc.html">1. Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html">1.1. Getting Started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.2. Understanding The Framework Layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-hierarchy">1.2.1. File Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware">1.2.2. Folder: <code class="code docutils literal"><span class="pre">firmware</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default">1.2.3. Folder: <code class="code docutils literal"><span class="pre">firmware/default</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default-bin">1.2.4. Folder: <code class="code docutils literal"><span class="pre">firmware/default/bin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default-application">1.2.5. Folder: <code class="code docutils literal"><span class="pre">firmware/default/application</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default-application-application-can-dbc">1.2.6. Folder: <code class="code docutils literal"><span class="pre">firmware/default/application/&lt;application&gt;/_can_dbc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default-application-application-l5-application">1.2.7. Folder: <code class="code docutils literal"><span class="pre">firmware/default/application/&lt;application&gt;/L5_Application</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default-lib">1.2.8. Folder: <code class="code docutils literal"><span class="pre">firmware/default/lib</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default-l-d-s">1.2.9. Folder: <code class="code docutils literal"><span class="pre">firmware/default/L%d_%s</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-default-obj">1.2.10. Folder: <code class="code docutils literal"><span class="pre">firmware/default/obj</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides-toc.html">2. Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">3. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyrights.html">4. Copyright</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SJSU-Dev-Linux</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../getting-started-toc.html">1. Getting Started</a> &raquo;</li>
+        
+      <li>1.2. Understanding The Framework Layout</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/rst/getting-started/understanding-the-framework-layout.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="understanding-the-framework-layout">
+<h1>1.2. Understanding The Framework Layout<a class="headerlink" href="#understanding-the-framework-layout" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="file-hierarchy">
+<h2>1.2.1. File Hierarchy<a class="headerlink" href="#file-hierarchy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>firmware
+└── default
+    ├── applications
+    │   ├── FreeRTOS
+    │   │   ├── _can_dbc
+    │   │   └── L5_Application
+    │   │       ├── examples
+    │   │       ├── periodic_scheduler
+    │   │       └── <span class="nb">source</span>
+    │   │           └── cmd_handlers
+    │   └── HelloWorld
+    │       ├── _can_dbc
+    │       └── L5_Application
+    │           ├── examples
+    │           ├── periodic_scheduler
+    │           └── <span class="nb">source</span>
+    │               └── cmd_handlers
+    ├── bin
+    │   ├── FreeRTOS
+    │   └── HelloWorld
+    ├── lib
+    │   ├── _can_dbc
+    │   ├── L0_LowLevel
+    │   ├── L1_FreeRTOS
+    │   ├── L2_Drivers
+    │   ├── L3_Utils
+    │   ├── L4_IO
+    │   └── newlib
+    └── obj
+        ├── lib
+        ├── FreeRTOS
+        └── HelloWorld
+</pre></div>
+</div>
+</div>
+<div class="section" id="folder-firmware">
+<h2>1.2.2. Folder: <code class="code docutils literal"><span class="pre">firmware</span></code><a class="headerlink" href="#folder-firmware" title="Permalink to this headline">¶</a></h2>
+<p>This folder is meant to hold <strong>projects</strong>. <strong>default</strong> is, understandable, the default project setup.</p>
+</div>
+<div class="section" id="folder-firmware-default">
+<h2>1.2.3. Folder: <code class="code docutils literal"><span class="pre">firmware/default</span></code><a class="headerlink" href="#folder-firmware-default" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This is how you start a new project.</p>
+</div>
+<p>If you want to change, modify, or update files in the :code:lib folder, then it is <strong>RECOMMENDED</strong> for you to make a new project by copying and renaming the default folder to something else. Example: renaming the new folder to <code class="code docutils literal"><span class="pre">cmpe146</span></code> to hold all of your course work that could result in changing the lib files.</p>
+<p>Making new projects is helpful, because, the default folder is the one that is modified when there is a new feature added to the repository. To keep your changes, make a new folder.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you would like to contribute to this project, then editing the lib files in the default folder is permitted.</p>
+</div>
+</div>
+<div class="section" id="folder-firmware-default-bin">
+<h2>1.2.4. Folder: <code class="code docutils literal"><span class="pre">firmware/default/bin</span></code><a class="headerlink" href="#folder-firmware-default-bin" title="Permalink to this headline">¶</a></h2>
+<p>This folder holds the executables that can be loaded into the SJOne board <code class="code docutils literal"><span class="pre">.hex</span></code> as well as a disassembly file <code class="code docutils literal"><span class="pre">.lst</span></code>, linker file <code class="code docutils literal"><span class="pre">.map</span></code> and the  Executable and Linkable Format <code class="code docutils literal"><span class="pre">.elf</span></code> file.</p>
+</div>
+<div class="section" id="folder-firmware-default-application">
+<h2>1.2.5. Folder: <code class="code docutils literal"><span class="pre">firmware/default/application</span></code><a class="headerlink" href="#folder-firmware-default-application" title="Permalink to this headline">¶</a></h2>
+<p>This folder holds all of the applications for a given project. Applications use the same base libraries but have different files for using them. Majority of code should be written here.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">This is how you start a new application.</p>
+</div>
+<p>To <strong>start</strong> a new application, copy the <strong>FreeRTOS</strong> or <strong>HelloWorld</strong> (depending on what you want to do) folder and rename it to the name of your application.</p>
+</div>
+<div class="section" id="folder-firmware-default-application-application-can-dbc">
+<h2>1.2.6. Folder: <code class="code docutils literal"><span class="pre">firmware/default/application/&lt;application&gt;/_can_dbc</span></code><a class="headerlink" href="#folder-firmware-default-application-application-can-dbc" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code docutils literal"><span class="pre">_can_dbc</span></code> folder holds the CAN message description files and header generator.</p>
+</div>
+<div class="section" id="folder-firmware-default-application-application-l5-application">
+<h2>1.2.7. Folder: <code class="code docutils literal"><span class="pre">firmware/default/application/&lt;application&gt;/L5_Application</span></code><a class="headerlink" href="#folder-firmware-default-application-application-l5-application" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="code docutils literal"><span class="pre">L5_Application</span></code> folder holds the <code class="code docutils literal"><span class="pre">main.cpp</span></code> file and other application layer files.</p>
+</div>
+<div class="section" id="folder-firmware-default-lib">
+<h2>1.2.8. Folder: <code class="code docutils literal"><span class="pre">firmware/default/lib</span></code><a class="headerlink" href="#folder-firmware-default-lib" title="Permalink to this headline">¶</a></h2>
+<p>This folder holds the core firmware files for the project, such as abstractions for using GPIO, I2C, UART, Interrupts, etc.</p>
+</div>
+<div class="section" id="folder-firmware-default-l-d-s">
+<h2>1.2.9. Folder: <code class="code docutils literal"><span class="pre">firmware/default/L%d_%s</span></code><a class="headerlink" href="#folder-firmware-default-l-d-s" title="Permalink to this headline">¶</a></h2>
+<p>The folders that start with <strong>L&lt;some number&gt;_&lt;some folder name&gt;</strong> are kind of self explanatory as to what they hold. For example, <code class="code docutils literal"><span class="pre">L1_FreeRTOS</span></code> holds files pertaining to FreeRTOS and the FreeRTOS port files. <code class="code docutils literal"><span class="pre">L2_Drivers</span></code> are device drivers and so on and so forth.</p>
+</div>
+<div class="section" id="folder-firmware-default-obj">
+<h2>1.2.10. Folder: <code class="code docutils literal"><span class="pre">firmware/default/obj</span></code><a class="headerlink" href="#folder-firmware-default-obj" title="Permalink to this headline">¶</a></h2>
+<p>This folder holds object files created during the compilation stage of building. They are then all linked together to create an <code class="code docutils literal"><span class="pre">.elf</span></code> file afterwards.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../guides-toc.html" class="btn btn-neutral float-right" title="2. Guides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral" title="1.1. Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Khalil A. Estell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+\hypertarget{c__tlm__comp_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/c\+\_\+tlm\+\_\+comp.h File Reference}
+\label{c__tlm__comp_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/c\+\_\+tlm\+\_\+comp.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/tlm/c\+\_\+tlm\+\_\+comp.\+h}}
+{\ttfamily \#include \char`\"{}c\+\_\+list.\+h\char`\"{}}\\*
+Include dependency graph for c\+\_\+tlm\+\_\+comp.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{de/d47/c__tlm__comp_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d9c/c__tlm__comp_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtlm__component}{tlm\+\_\+component}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{c__tlm__comp_8h_a161077870e27e0b19bf75260f303f215}{tlm\+\_\+comp\+\_\+callback}) (\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$comp\+\_\+ptr, void $\ast$arg1, void $\ast$arg2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$ \hyperlink{c__tlm__comp_8h_ab2ca196380a3c18c9469d22e4770595a}{tlm\+\_\+component\+\_\+add} (const char $\ast$name)
+\item 
+\hyperlink{structtlm__component}{tlm\+\_\+component} $\ast$ \hyperlink{c__tlm__comp_8h_aee9ba2c64fca83b6a928de383a2295b3}{tlm\+\_\+component\+\_\+get\+\_\+by\+\_\+name} (const char $\ast$name)
+\item 
+void \hyperlink{c__tlm__comp_8h_adb8f30df13c2728b185dc324eea15d6a}{tlm\+\_\+component\+\_\+for\+\_\+each} (\hyperlink{c__tlm__comp_8h_a161077870e27e0b19bf75260f303f215}{tlm\+\_\+comp\+\_\+callback} callback, void $\ast$arg1, void $\ast$arg2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file allows telemetry component registration. Memory locations or variables registered for telemetry are grouped by component. Once registered, the telemetry of these variables can be streamed to a file, network, or just stdio
+
+This file allows to register distinct components by name. Components with duplicate name will fail to be added to the components\textquotesingle{} list. Once a component is registered, then variables underneath the component can be registered\+: \begin{DoxySeeAlso}{See also}
+\hyperlink{c__tlm__var_8h}{c\+\_\+tlm\+\_\+var.\+h}
+\end{DoxySeeAlso}
+Example registration of a component and a couple of variables \+: 
+\begin{DoxyCode}
+\hyperlink{structtlm__component}{tlm\_component}* comp = \hyperlink{c__tlm__comp_8h_ab2ca196380a3c18c9469d22e4770595a}{tlm\_component\_add}(\textcolor{stringliteral}{"component 1"});
+\textcolor{keywordtype}{int} a = 0;
+\textcolor{keywordtype}{char} b = 0;
+\hyperlink{c__tlm__var_8h_a431ea95981c1016d2b80e0a5d4cce3f6}{tlm\_variable\_register}(comp, \textcolor{stringliteral}{"a"}, &a, \textcolor{keyword}{sizeof}(a)));
+\hyperlink{c__tlm__var_8h_aafdd00394d5dcdc4427c11925d19021c}{TLM\_REG\_VAR}(comp, b); \textcolor{comment}{// Macro to register variable b}
+\end{DoxyCode}
+ 
+
+\subsection{Typedef Documentation}
+\index{c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}!tlm\+\_\+comp\+\_\+callback@{tlm\+\_\+comp\+\_\+callback}}
+\index{tlm\+\_\+comp\+\_\+callback@{tlm\+\_\+comp\+\_\+callback}!c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+comp\+\_\+callback}{tlm_comp_callback}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ tlm\+\_\+comp\+\_\+callback) ({\bf tlm\+\_\+component} $\ast$comp\+\_\+ptr, void $\ast$arg1, void $\ast$arg2)}\hypertarget{c__tlm__comp_8h_a161077870e27e0b19bf75260f303f215}{}\label{c__tlm__comp_8h_a161077870e27e0b19bf75260f303f215}
+The callback type for each component \begin{DoxySeeAlso}{See also}
+\hyperlink{c__tlm__comp_8h_adb8f30df13c2728b185dc324eea15d6a}{tlm\+\_\+component\+\_\+for\+\_\+each()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Function Documentation}
+\index{c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}!tlm\+\_\+component\+\_\+add@{tlm\+\_\+component\+\_\+add}}
+\index{tlm\+\_\+component\+\_\+add@{tlm\+\_\+component\+\_\+add}!c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+component\+\_\+add(const char $\ast$name)}{tlm_component_add(const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tlm\+\_\+component}$\ast$ tlm\+\_\+component\+\_\+add (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__comp_8h_ab2ca196380a3c18c9469d22e4770595a}{}\label{c__tlm__comp_8h_ab2ca196380a3c18c9469d22e4770595a}
+Adds a telemetry component by name. 
+\begin{DoxyParams}{Parameters}
+{\em name} & The persistent data pointer to the name of the telemetry component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{structtlm__component}{tlm\+\_\+component} pointer if this component added successfully, but N\+U\+LL if another component already exists with this name. 
+\end{DoxyReturn}
+\index{c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}!tlm\+\_\+component\+\_\+for\+\_\+each@{tlm\+\_\+component\+\_\+for\+\_\+each}}
+\index{tlm\+\_\+component\+\_\+for\+\_\+each@{tlm\+\_\+component\+\_\+for\+\_\+each}!c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+component\+\_\+for\+\_\+each(tlm\+\_\+comp\+\_\+callback callback, void $\ast$arg1, void $\ast$arg2)}{tlm_component_for_each(tlm_comp_callback callback, void *arg1, void *arg2)}}]{\setlength{\rightskip}{0pt plus 5cm}void tlm\+\_\+component\+\_\+for\+\_\+each (
+\begin{DoxyParamCaption}
+\item[{{\bf tlm\+\_\+comp\+\_\+callback}}]{callback, }
+\item[{void $\ast$}]{arg1, }
+\item[{void $\ast$}]{arg2}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__comp_8h_adb8f30df13c2728b185dc324eea15d6a}{}\label{c__tlm__comp_8h_adb8f30df13c2728b185dc324eea15d6a}
+Calls your callback function for each telemetry component added to the telemetry components list by \hyperlink{c__tlm__comp_8h_ab2ca196380a3c18c9469d22e4770595a}{tlm\+\_\+component\+\_\+add()}. 
+\begin{DoxyParams}{Parameters}
+{\em arg1} & arg2 The arguments is passed to your callback like this\+: callback(tlm\+\_\+component$\ast$, arg1, arg2) \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}!tlm\+\_\+component\+\_\+get\+\_\+by\+\_\+name@{tlm\+\_\+component\+\_\+get\+\_\+by\+\_\+name}}
+\index{tlm\+\_\+component\+\_\+get\+\_\+by\+\_\+name@{tlm\+\_\+component\+\_\+get\+\_\+by\+\_\+name}!c\+\_\+tlm\+\_\+comp.\+h@{c\+\_\+tlm\+\_\+comp.\+h}}
+\subsubsection[{\texorpdfstring{tlm\+\_\+component\+\_\+get\+\_\+by\+\_\+name(const char $\ast$name)}{tlm_component_get_by_name(const char *name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tlm\+\_\+component}$\ast$ tlm\+\_\+component\+\_\+get\+\_\+by\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{c__tlm__comp_8h_aee9ba2c64fca83b6a928de383a2295b3}{}\label{c__tlm__comp_8h_aee9ba2c64fca83b6a928de383a2295b3}
+Get an existing telemetry component by name \begin{DoxyReturn}{Returns}
+N\+U\+LL pointer if the component by name was not found 
+\end{DoxyReturn}

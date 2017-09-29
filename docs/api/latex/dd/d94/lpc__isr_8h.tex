@@ -1,0 +1,186 @@
+\hypertarget{lpc__isr_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/lpc\+\_\+isr.h File Reference}
+\label{lpc__isr_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/lpc\+\_\+isr.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/lpc\+\_\+isr.\+h}}
+
+
+Interrupt Service Routine (I\+SR) functions.  
+
+
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+isr.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d21/lpc__isr_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dbe/lpc__isr_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11}{intr\+\_\+priorities\+\_\+t} \{ \\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6621f4d8a3bee6381a4d2ae26bec7511}{I\+P\+\_\+above\+\_\+freertos} = 1, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ab70f7174651e8ca04c273169c8acaba3}{I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL} = 2, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a5bef8716b1cdc9127bc2dbba456f2f55}{I\+P\+\_\+\+K\+E\+R\+N\+EL} = 31, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a1a06ddd83d38ff21da926e2ffeb9c6b1}{I\+P\+\_\+default} = 20, 
+\\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a24ac5700d95f7ad3187a37f3c149d847}{I\+P\+\_\+high} = I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL + 1, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11acee3f5645f6c7f9f3945f21c56c34c9b}{I\+P\+\_\+low} = I\+P\+\_\+default + 1, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a52af5a82293f54d197b1702e13866af5}{I\+P\+\_\+eint} = I\+P\+\_\+default -\/ 9, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6e64bb39f1f60b531dc4bbb960328745}{I\+P\+\_\+ssp} = I\+P\+\_\+default -\/ 6, 
+\\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6eec4cff97486dfa81e11d785a364bcc}{I\+P\+\_\+can} = I\+P\+\_\+default -\/ 5, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a86dc61d5ddcde01297d5fab27145ecd6}{I\+P\+\_\+i2c} = I\+P\+\_\+default -\/ 2, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a635bf62a5b5c355a1767cf9eb7023ef0}{I\+P\+\_\+uart} = I\+P\+\_\+default -\/ 1, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a7ff099762aaec6aaa3733632a6f71df3}{I\+P\+\_\+watchdog} = I\+P\+\_\+default, 
+\\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ad21ba348fdfef9212df0d77fd66d4ab1}{I\+P\+\_\+timers} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a46711e768d81250b6d10a38f984a3768}{I\+P\+\_\+pwm1} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a823e87fe29f5872197f8dc36daa7dce6}{I\+P\+\_\+pll} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a723badd15e142ebbdc9341dacf32bac8}{I\+P\+\_\+spi} = I\+P\+\_\+default, 
+\\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11aae18a0b2991177327f38f730d19f3996}{I\+P\+\_\+rtc} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a777ad7dd246def7f9d096c6592df7d04}{I\+P\+\_\+adc} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a54c79d59e260498b0e775401b3a2c05d}{I\+P\+\_\+bod} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11af51d646924e6b5e089dc7a6e62427124}{I\+P\+\_\+usb} = I\+P\+\_\+default, 
+\\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a874a4b0a9f4f869c7194177cdbeaa1f7}{I\+P\+\_\+dma} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a31d46c5562457d45ce7af0f2897bf4d5}{I\+P\+\_\+i2s} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ae26da7d4fdbbd49a10c2a101bec735d3}{I\+P\+\_\+enet} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ab223c094d58459d90ef258ed8f6391cf}{I\+P\+\_\+mcpwm} = I\+P\+\_\+default, 
+\\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ae91a451c36bb4b1b3ef8f867219331e7}{I\+P\+\_\+qei} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ada558256dfbe40e783bce7ecf5928e5d}{I\+P\+\_\+\+R\+IT} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a902ff2a17ed97544c162b1593cdf004b}{I\+P\+\_\+pll1} = I\+P\+\_\+default, 
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a4e5d9fca26b86541d8e3f1ad4ca8e0f2}{I\+P\+\_\+usbact} = I\+P\+\_\+default, 
+\\*
+\hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ac791cc66b0e186f6992eca3b655d48a5}{I\+P\+\_\+canact} = I\+P\+\_\+default
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__isr_8h_a381f506ff16d341dcdf6e25eb10ce749}{isr\+\_\+register} (\hyperlink{LPC17xx_8h_ac3af4a32370fb28c4ade8bf2add80251}{I\+R\+Qn\+\_\+\+Type} num, void($\ast$isr\+\_\+func\+\_\+ptr)(void))
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interrupt Service Routine (I\+SR) functions. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!intr\+\_\+priorities\+\_\+t@{intr\+\_\+priorities\+\_\+t}}
+\index{intr\+\_\+priorities\+\_\+t@{intr\+\_\+priorities\+\_\+t}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}
+\subsubsection[{\texorpdfstring{intr\+\_\+priorities\+\_\+t}{intr_priorities_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf intr\+\_\+priorities\+\_\+t}}\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11}
+Interrupt Priorities (pre-\/configured by \hyperlink{low__level__init_8cpp}{low\+\_\+level\+\_\+init.\+cpp}) 0 -\/ Highest 31 -\/ Lowest
+
+Interrupts used in this project must N\+OT use higher priority than I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL, so if I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL is set to 5, then interrupt priority must be higher number than 5 in order to set it to lower priority.
+
+From\+I\+S\+R() Free\+R\+T\+OS A\+PI cannot be called from interrupts that have higher priority than I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL, which means that\+:
+\begin{DoxyItemize}
+\item Y\+O\+UR I\+SR must have numerically equal to or H\+I\+G\+H\+ER value than I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL
+\end{DoxyItemize}
+
+The interrupts that use higher priority than I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL M\+U\+ST N\+OT U\+SE F\+R\+E\+E\+R\+T\+OS A\+PI. These higher priority interrupts (even higher than Free\+R\+T\+OS kernel) can be used to specify \char`\"{}super\char`\"{} priority above everything else in the system. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\+P\+\_\+above\+\_\+freertos@{I\+P\+\_\+above\+\_\+freertos}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+above\+\_\+freertos@{I\+P\+\_\+above\+\_\+freertos}}\item[{\em 
+I\+P\+\_\+above\+\_\+freertos\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6621f4d8a3bee6381a4d2ae26bec7511}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6621f4d8a3bee6381a4d2ae26bec7511}
+}]Free\+R\+T\+OS Interrupt Priorities Be careful changing these because interrupt priorities set below must fall in between these two priorities. \index{I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL@{I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL@{I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL}}\item[{\em 
+I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ab70f7174651e8ca04c273169c8acaba3}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ab70f7174651e8ca04c273169c8acaba3}
+}]\index{I\+P\+\_\+\+K\+E\+R\+N\+EL@{I\+P\+\_\+\+K\+E\+R\+N\+EL}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+\+K\+E\+R\+N\+EL@{I\+P\+\_\+\+K\+E\+R\+N\+EL}}\item[{\em 
+I\+P\+\_\+\+K\+E\+R\+N\+EL\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a5bef8716b1cdc9127bc2dbba456f2f55}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a5bef8716b1cdc9127bc2dbba456f2f55}
+}]\index{I\+P\+\_\+default@{I\+P\+\_\+default}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+default@{I\+P\+\_\+default}}\item[{\em 
+I\+P\+\_\+default\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a1a06ddd83d38ff21da926e2ffeb9c6b1}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a1a06ddd83d38ff21da926e2ffeb9c6b1}
+}]Interrupt Priorities These are used at to set default priorities before \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} is called. All interrupts use default priority unless otherwise stated in this enum.
+
+If you don\textquotesingle{}t want interrupts to nest, set them to the same priority as I\+P\+\_\+\+D\+E\+F\+A\+U\+L\+T\+Default priority of most interrupts, set arbitarily betweeen syscall and kernel \index{I\+P\+\_\+high@{I\+P\+\_\+high}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+high@{I\+P\+\_\+high}}\item[{\em 
+I\+P\+\_\+high\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a24ac5700d95f7ad3187a37f3c149d847}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a24ac5700d95f7ad3187a37f3c149d847}
+}]Higher than default, but lower than syscall \index{I\+P\+\_\+low@{I\+P\+\_\+low}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+low@{I\+P\+\_\+low}}\item[{\em 
+I\+P\+\_\+low\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11acee3f5645f6c7f9f3945f21c56c34c9b}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11acee3f5645f6c7f9f3945f21c56c34c9b}
+}]Lower than default \index{I\+P\+\_\+eint@{I\+P\+\_\+eint}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+eint@{I\+P\+\_\+eint}}\item[{\em 
+I\+P\+\_\+eint\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a52af5a82293f54d197b1702e13866af5}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a52af5a82293f54d197b1702e13866af5}
+}]Port0 and Port2 interrupt \index{I\+P\+\_\+ssp@{I\+P\+\_\+ssp}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+ssp@{I\+P\+\_\+ssp}}\item[{\em 
+I\+P\+\_\+ssp\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6e64bb39f1f60b531dc4bbb960328745}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6e64bb39f1f60b531dc4bbb960328745}
+}]S\+SP can be super fast, so needs higher priority \index{I\+P\+\_\+can@{I\+P\+\_\+can}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+can@{I\+P\+\_\+can}}\item[{\em 
+I\+P\+\_\+can\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6eec4cff97486dfa81e11d785a364bcc}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a6eec4cff97486dfa81e11d785a364bcc}
+}]C\+AN can be fast, so use higher priority than other communication B\+U\+Ses \index{I\+P\+\_\+i2c@{I\+P\+\_\+i2c}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+i2c@{I\+P\+\_\+i2c}}\item[{\em 
+I\+P\+\_\+i2c\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a86dc61d5ddcde01297d5fab27145ecd6}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a86dc61d5ddcde01297d5fab27145ecd6}
+}]I2C set to higher priority than U\+A\+RT \index{I\+P\+\_\+uart@{I\+P\+\_\+uart}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+uart@{I\+P\+\_\+uart}}\item[{\em 
+I\+P\+\_\+uart\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a635bf62a5b5c355a1767cf9eb7023ef0}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a635bf62a5b5c355a1767cf9eb7023ef0}
+}]U\+A\+RT set to higher priority than default \index{I\+P\+\_\+watchdog@{I\+P\+\_\+watchdog}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+watchdog@{I\+P\+\_\+watchdog}}\item[{\em 
+I\+P\+\_\+watchdog\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a7ff099762aaec6aaa3733632a6f71df3}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a7ff099762aaec6aaa3733632a6f71df3}
+}]\index{I\+P\+\_\+timers@{I\+P\+\_\+timers}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+timers@{I\+P\+\_\+timers}}\item[{\em 
+I\+P\+\_\+timers\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ad21ba348fdfef9212df0d77fd66d4ab1}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ad21ba348fdfef9212df0d77fd66d4ab1}
+}]\index{I\+P\+\_\+pwm1@{I\+P\+\_\+pwm1}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+pwm1@{I\+P\+\_\+pwm1}}\item[{\em 
+I\+P\+\_\+pwm1\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a46711e768d81250b6d10a38f984a3768}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a46711e768d81250b6d10a38f984a3768}
+}]\index{I\+P\+\_\+pll@{I\+P\+\_\+pll}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+pll@{I\+P\+\_\+pll}}\item[{\em 
+I\+P\+\_\+pll\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a823e87fe29f5872197f8dc36daa7dce6}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a823e87fe29f5872197f8dc36daa7dce6}
+}]\index{I\+P\+\_\+spi@{I\+P\+\_\+spi}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+spi@{I\+P\+\_\+spi}}\item[{\em 
+I\+P\+\_\+spi\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a723badd15e142ebbdc9341dacf32bac8}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a723badd15e142ebbdc9341dacf32bac8}
+}]\index{I\+P\+\_\+rtc@{I\+P\+\_\+rtc}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+rtc@{I\+P\+\_\+rtc}}\item[{\em 
+I\+P\+\_\+rtc\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11aae18a0b2991177327f38f730d19f3996}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11aae18a0b2991177327f38f730d19f3996}
+}]\index{I\+P\+\_\+adc@{I\+P\+\_\+adc}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+adc@{I\+P\+\_\+adc}}\item[{\em 
+I\+P\+\_\+adc\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a777ad7dd246def7f9d096c6592df7d04}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a777ad7dd246def7f9d096c6592df7d04}
+}]\index{I\+P\+\_\+bod@{I\+P\+\_\+bod}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+bod@{I\+P\+\_\+bod}}\item[{\em 
+I\+P\+\_\+bod\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a54c79d59e260498b0e775401b3a2c05d}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a54c79d59e260498b0e775401b3a2c05d}
+}]\index{I\+P\+\_\+usb@{I\+P\+\_\+usb}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+usb@{I\+P\+\_\+usb}}\item[{\em 
+I\+P\+\_\+usb\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11af51d646924e6b5e089dc7a6e62427124}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11af51d646924e6b5e089dc7a6e62427124}
+}]\index{I\+P\+\_\+dma@{I\+P\+\_\+dma}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+dma@{I\+P\+\_\+dma}}\item[{\em 
+I\+P\+\_\+dma\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a874a4b0a9f4f869c7194177cdbeaa1f7}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a874a4b0a9f4f869c7194177cdbeaa1f7}
+}]\index{I\+P\+\_\+i2s@{I\+P\+\_\+i2s}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+i2s@{I\+P\+\_\+i2s}}\item[{\em 
+I\+P\+\_\+i2s\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a31d46c5562457d45ce7af0f2897bf4d5}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a31d46c5562457d45ce7af0f2897bf4d5}
+}]\index{I\+P\+\_\+enet@{I\+P\+\_\+enet}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+enet@{I\+P\+\_\+enet}}\item[{\em 
+I\+P\+\_\+enet\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ae26da7d4fdbbd49a10c2a101bec735d3}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ae26da7d4fdbbd49a10c2a101bec735d3}
+}]\index{I\+P\+\_\+mcpwm@{I\+P\+\_\+mcpwm}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+mcpwm@{I\+P\+\_\+mcpwm}}\item[{\em 
+I\+P\+\_\+mcpwm\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ab223c094d58459d90ef258ed8f6391cf}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ab223c094d58459d90ef258ed8f6391cf}
+}]\index{I\+P\+\_\+qei@{I\+P\+\_\+qei}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+qei@{I\+P\+\_\+qei}}\item[{\em 
+I\+P\+\_\+qei\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ae91a451c36bb4b1b3ef8f867219331e7}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ae91a451c36bb4b1b3ef8f867219331e7}
+}]\index{I\+P\+\_\+\+R\+IT@{I\+P\+\_\+\+R\+IT}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+\+R\+IT@{I\+P\+\_\+\+R\+IT}}\item[{\em 
+I\+P\+\_\+\+R\+IT\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ada558256dfbe40e783bce7ecf5928e5d}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ada558256dfbe40e783bce7ecf5928e5d}
+}]\index{I\+P\+\_\+pll1@{I\+P\+\_\+pll1}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+pll1@{I\+P\+\_\+pll1}}\item[{\em 
+I\+P\+\_\+pll1\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a902ff2a17ed97544c162b1593cdf004b}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a902ff2a17ed97544c162b1593cdf004b}
+}]\index{I\+P\+\_\+usbact@{I\+P\+\_\+usbact}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+usbact@{I\+P\+\_\+usbact}}\item[{\em 
+I\+P\+\_\+usbact\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a4e5d9fca26b86541d8e3f1ad4ca8e0f2}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a4e5d9fca26b86541d8e3f1ad4ca8e0f2}
+}]\index{I\+P\+\_\+canact@{I\+P\+\_\+canact}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!I\+P\+\_\+canact@{I\+P\+\_\+canact}}\item[{\em 
+I\+P\+\_\+canact\hypertarget{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ac791cc66b0e186f6992eca3b655d48a5}{}\label{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ac791cc66b0e186f6992eca3b655d48a5}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}!isr\+\_\+register@{isr\+\_\+register}}
+\index{isr\+\_\+register@{isr\+\_\+register}!lpc\+\_\+isr.\+h@{lpc\+\_\+isr.\+h}}
+\subsubsection[{\texorpdfstring{isr\+\_\+register(\+I\+R\+Qn\+\_\+\+Type num, void($\ast$isr\+\_\+func\+\_\+ptr)(void))}{isr_register(IRQn_Type num, void(*isr_func_ptr)(void))}}]{\setlength{\rightskip}{0pt plus 5cm}void isr\+\_\+register (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+R\+Qn\+\_\+\+Type}}]{num, }
+\item[{void($\ast$)(void)}]{isr\+\_\+func\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__isr_8h_a381f506ff16d341dcdf6e25eb10ce749}{}\label{lpc__isr_8h_a381f506ff16d341dcdf6e25eb10ce749}
+Register a callback function for an interrupt.
+
+There are two ways to register an interrupt, one is to define the exact \char`\"{}\+I\+R\+Q\+Handler\char`\"{} as the one defined at \hyperlink{startup_8cpp}{startup.\+cpp}, so something like this\+: C++ ($\ast$.cpp) file\+: extern \char`\"{}\+C\char`\"{} void \hyperlink{startup_8cpp_afd2c7dd1041a4bb8a7b41496dd9ee0b7}{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler()} \{\} C ($\ast$.c) file\+: void \hyperlink{startup_8cpp_afd2c7dd1041a4bb8a7b41496dd9ee0b7}{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler()} \{ \}
+
+The second method is just to call this function and register your function as an I\+SR\+: 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em num} & The I\+RQ number; \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{LPC17xx_8h_ac3af4a32370fb28c4ade8bf2add80251}{I\+R\+Qn\+\_\+\+Type}. Only I\+RQ 0-\/N can be registered. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em isr\+\_\+func\+\_\+ptr} & void function name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function is implemented at \hyperlink{startup_8cpp}{startup.\+cpp} since that contains the interrupt vector.
+\end{DoxyNote}
+This function allows the user to register a function for the interrupt service routine. Registration of an I\+RQ is not necessary if the weak I\+SR has been over-\/riden. 

@@ -1,0 +1,124 @@
+\hypertarget{classLED__Display}{}\section{L\+E\+D\+\_\+\+Display Class Reference}
+\label{classLED__Display}\index{L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}}
+
+
+{\ttfamily \#include $<$L\+E\+D\+\_\+\+Display.\+hpp$>$}
+
+
+
+Inheritance diagram for L\+E\+D\+\_\+\+Display\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{df/d9b/classLED__Display__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for L\+E\+D\+\_\+\+Display\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d5d/classLED__Display__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classLED__Display_a075e60d1b0829a70f03f0a342bffcb21}{init} ()
+\begin{DoxyCompactList}\small\item\em Initializes this device,. \end{DoxyCompactList}\item 
+void \hyperlink{classLED__Display_aa1ec976d360ad46ecb7e437cfad97ea5}{clear} ()
+\item 
+void \hyperlink{classLED__Display_a8802392543700dc03694b56b2c946c5a}{set\+Number} (char num)
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classLED__Display_a4d7e45c39a2bef9ddfe4167b240cfb18}{set\+Left\+Digit} (char alpha)
+\item 
+void \hyperlink{classLED__Display_a836014e9527724cb8fcadbc37582fba3}{set\+Right\+Digit} (char alpha)
+\end{DoxyCompactItemize}
+
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLED__Display_a7a993cfbec5ab2677708ad0426cf843b}{Singleton\+Template$<$ L\+E\+D\+\_\+\+Display $>$}
+\begin{DoxyCompactList}\small\item\em Friend class used for Singleton Template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classLED}{L\+ED} Display class to manipulate the on-\/board 2 digit \hyperlink{classLED}{L\+ED} display 
+
+\subsection{Member Function Documentation}
+\index{L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}!clear@{clear}}
+\index{clear@{clear}!L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+\_\+\+Display\+::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED__Display_aa1ec976d360ad46ecb7e437cfad97ea5}{}\label{classLED__Display_aa1ec976d360ad46ecb7e437cfad97ea5}
+Clears the display \index{L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}!init@{init}}
+\index{init@{init}!L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}bool L\+E\+D\+\_\+\+Display\+::init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED__Display_a075e60d1b0829a70f03f0a342bffcb21}{}\label{classLED__Display_a075e60d1b0829a70f03f0a342bffcb21}
+
+
+Initializes this device,. 
+
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\index{L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}!set\+Left\+Digit@{set\+Left\+Digit}}
+\index{set\+Left\+Digit@{set\+Left\+Digit}!L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}}
+\subsubsection[{\texorpdfstring{set\+Left\+Digit(char alpha)}{setLeftDigit(char alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+\_\+\+Display\+::set\+Left\+Digit (
+\begin{DoxyParamCaption}
+\item[{char}]{alpha}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED__Display_a4d7e45c39a2bef9ddfe4167b240cfb18}{}\label{classLED__Display_a4d7e45c39a2bef9ddfe4167b240cfb18}
+Single Digit Manipulation Functions Sets the left and right alpha-\/numeric display individually 
+\begin{DoxyParams}{Parameters}
+{\em alpha} & The alpha to set, such as \char`\"{}\+B\char`\"{} or \char`\"{}9\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Note all characters can be displayed on this 7-\/segment display 
+\end{DoxyNote}
+\index{L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}!set\+Number@{set\+Number}}
+\index{set\+Number@{set\+Number}!L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}}
+\subsubsection[{\texorpdfstring{set\+Number(char num)}{setNumber(char num)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+\_\+\+Display\+::set\+Number (
+\begin{DoxyParamCaption}
+\item[{char}]{num}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED__Display_a8802392543700dc03694b56b2c946c5a}{}\label{classLED__Display_a8802392543700dc03694b56b2c946c5a}
+Sets the number on \hyperlink{classLED}{L\+ED} display 
+\begin{DoxyParams}{Parameters}
+{\em num} & A number less than 100 \\
+\hline
+\end{DoxyParams}
+\index{L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}!set\+Right\+Digit@{set\+Right\+Digit}}
+\index{set\+Right\+Digit@{set\+Right\+Digit}!L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}}
+\subsubsection[{\texorpdfstring{set\+Right\+Digit(char alpha)}{setRightDigit(char alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+\_\+\+Display\+::set\+Right\+Digit (
+\begin{DoxyParamCaption}
+\item[{char}]{alpha}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED__Display_a836014e9527724cb8fcadbc37582fba3}{}\label{classLED__Display_a836014e9527724cb8fcadbc37582fba3}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}!Singleton\+Template$<$ L\+E\+D\+\_\+\+Display $>$@{Singleton\+Template$<$ L\+E\+D\+\_\+\+Display $>$}}
+\index{Singleton\+Template$<$ L\+E\+D\+\_\+\+Display $>$@{Singleton\+Template$<$ L\+E\+D\+\_\+\+Display $>$}!L\+E\+D\+\_\+\+Display@{L\+E\+D\+\_\+\+Display}}
+\subsubsection[{\texorpdfstring{Singleton\+Template$<$ L\+E\+D\+\_\+\+Display $>$}{SingletonTemplate< LED_Display >}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Singleton\+Template}$<$ {\bf L\+E\+D\+\_\+\+Display} $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classLED__Display_a7a993cfbec5ab2677708ad0426cf843b}{}\label{classLED__Display_a7a993cfbec5ab2677708ad0426cf843b}
+
+
+Friend class used for Singleton Template. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/\hyperlink{LED__Display_8hpp}{L\+E\+D\+\_\+\+Display.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/\hyperlink{io__source_8cpp}{io\+\_\+source.\+cpp}\end{DoxyCompactItemize}

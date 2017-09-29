@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lobe API and System Features &mdash; RoverCore-S 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="RoverCore-S 0.0.1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RoverCore-S
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting-a-new-application.html">Starting a New Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting-a-new-project.html">Starting a new Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unit-testing-with-unity.html">Unit Testing with Unity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyrights.html">Copyrights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RoverCore-S</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Lobe API and System Features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lobe-api-and-system-features">
+<h1>Lobe API and System Features<a class="headerlink" href="#lobe-api-and-system-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="utility-classes">
+<h2>Utility Classes<a class="headerlink" href="#utility-classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="log">
+<h3>Log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h3>
+<p>Abstraction library for printing out debug and log information to STDOUT and to file. Log will format the messages in the following way to make seeing the output of a particular lobe easier.</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">[</span> <span class="pre">&lt;</span> <span class="pre">timestamp</span> <span class="pre">&gt;</span> <span class="pre">][</span> <span class="pre">&lt;</span> <span class="pre">Lobe</span> <span class="pre">Name</span> <span class="pre">&gt;</span> <span class="pre">]</span> <span class="pre">::</span> <span class="pre">&lt;</span> <span class="pre">output</span> <span class="pre">message</span> <span class="pre">&gt;</span></code></div></blockquote>
+<p>Usage:</p>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">output</span><span class="p">(</span><span class="nx">msg_to_output</span><span class="p">,</span> <span class="p">...);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">output</span><span class="p">(</span><span class="s2">&quot;HELLO WORLD&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="feedback">
+<h3>feedback()<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h3>
+<p>The feedback function will send information back to mission control from the lobe. It works similar to console.log, in that it allows a variable number of parameters.</p>
+<p>Usage:</p>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">feedback</span><span class="p">(</span><span class="nx">msg_to_output</span><span class="p">,</span> <span class="p">...);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">feedback</span><span class="p">(</span><span class="s2">&quot;HELLO WORLD&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<p>Collection of all information stored on the rover by the lobes. Lobes can use the information stored in this structure to get information that other lobes have stored. For example, if the drive system lobe needed compass heading information and a compass lobe has already stored information there, then the following can happen:</p>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="c1">//// Compass.js lobe</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">registerMemory</span><span class="p">(</span><span class="s2">&quot;Compass&quot;</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;Compass&quot;</span><span class="p">,</span>
+<span class="p">{</span>
+    <span class="nx">heading</span><span class="o">:</span> <span class="mi">45</span> <span class="c1">// in degrees</span>
+<span class="p">});</span>
+
+<span class="c1">//// DriveSystem.js lobe</span>
+<span class="kd">var</span> <span class="nx">compass</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;Compass&quot;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">compass</span><span class="p">[</span><span class="s2">&quot;heading&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">SOME_VALUE</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">DoAThing</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If a lobe would like to send such information to mission control, rather than using <em>feedback</em> it can be done through the model. Every time <code class="docutils literal"><span class="pre">this.model.set()</span></code> is used the information is automatically sent to mission control.</p>
+<p>If you need to return the whole database of information one could use <code class="docutils literal"><span class="pre">var</span> <span class="pre">memories</span> <span class="pre">=</span> <span class="pre">getMemory(0);</span></code></p>
+<p><strong>var memories</strong> will contain the whole structure of the model:</p>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;Compass&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">heading</span><span class="o">:</span> <span class="mi">45</span> <span class="p">},</span>
+    <span class="s2">&quot;DriveSystem&quot;</span><span class="o">:</span>
+    <span class="p">{</span>
+        <span class="nx">speed</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="nx">angle</span><span class="o">:</span> <span class="mi">45</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="upcall">
+<h3>upcall()<a class="headerlink" href="#upcall" title="Permalink to this headline">¶</a></h3>
+<p>Upcalls can be used to make calls to Cortex to do specific things.</p>
+<ul class="simple">
+<li>Calling another module’s REACT function</li>
+</ul>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">upcall</span><span class="p">(</span><span class="s2">&quot;CALL&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;target&gt;&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="cm">/* command structure */</span> <span class="p">})</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>HALTALL, RESUMEALL or IDLEALL Modules</li>
+</ul>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">upcall</span><span class="p">(</span><span class="s2">&quot;HALTALL&quot;</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">upcall</span><span class="p">(</span><span class="s2">&quot;IDLEALL&quot;</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">upcall</span><span class="p">(</span><span class="s2">&quot;RESUMEALL&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Shutdown System (Computer)</li>
+</ul>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">upcall</span><span class="p">(</span><span class="s2">&quot;SYSTEM-SHUTDOWN&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Reboot System (Computer)</li>
+</ul>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">upcall</span><span class="p">(</span><span class="s2">&quot;SYSTEM-RESTART&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Restart-Cortex</li>
+</ul>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">upcall</span><span class="p">(</span><span class="s2">&quot;RESTART-CORTEX&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Khalil A. Estell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

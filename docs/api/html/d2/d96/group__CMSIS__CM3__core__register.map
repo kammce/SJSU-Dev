@@ -1,0 +1,10 @@
+<map id="CMSIS CM3 Core Register" name="CMSIS CM3 Core Register">
+<area shape="rect" id="node1" href="$d7/dbc/group__CMSIS__CM3__SCB.html" title="CMSIS CM3 SCB" alt="" coords="459,5,588,32"/>
+<area shape="rect" id="node2" href="$d3/db0/group__CMSIS__CM3__SysTick.html" title="CMSIS CM3 SysTick" alt="" coords="449,56,598,83"/>
+<area shape="rect" id="node3" href="$d7/db9/group__CMSIS__CM3__ITM.html" title="CMSIS CM3 ITM" alt="" coords="461,107,585,133"/>
+<area shape="rect" id="node4" href="$de/db9/group__CMSIS__CM3__NVIC.html" title="CMSIS CM3 NVIC" alt="" coords="456,157,591,184"/>
+<area shape="rect" id="node6" href="$da/d63/group__CMSIS__CM3__MPU.html" title="CMSIS CM3 MPU" alt="" coords="458,208,589,235"/>
+<area shape="rect" id="node8" href="$de/de9/group__CMSIS__CM3__CoreDebug.html" title="CMSIS CM3 Core Debug" alt="" coords="438,259,609,285"/>
+<area shape="rect" id="node9" href="$d2/d04/group__CMSIS__CM3__InterruptType.html" title="CMSIS CM3 Interrupt Type" alt="" coords="432,309,615,336"/>
+<area shape="rect" id="node7" href="$d4/dcf/group__CMSIS__CM3__core__definitions.html" title="CM3 Core Definitions" alt="" coords="5,157,153,184"/>
+</map>

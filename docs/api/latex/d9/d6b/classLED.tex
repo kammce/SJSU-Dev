@@ -1,0 +1,165 @@
+\hypertarget{classLED}{}\section{L\+ED Class Reference}
+\label{classLED}\index{L\+ED@{L\+ED}}
+
+
+{\ttfamily \#include $<$L\+E\+D.\+hpp$>$}
+
+
+
+Inheritance diagram for L\+ED\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{df/d30/classLED__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for L\+ED\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{d6/ddf/classLED__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classLED_a63962161aba1782dd879760c5960d6b5}{init} ()
+\begin{DoxyCompactList}\small\item\em Initializes this device,. \end{DoxyCompactList}\item 
+void \hyperlink{classLED_acc39ccc6387373b840912f21d62dc876}{on} (uint8\+\_\+t led\+Num)
+\begin{DoxyCompactList}\small\item\em Turns ON \hyperlink{classLED}{L\+ED}. \end{DoxyCompactList}\item 
+void \hyperlink{classLED_addf41e0b79325809d8cc12b792aaae97}{off} (uint8\+\_\+t led\+Num)
+\begin{DoxyCompactList}\small\item\em Turns O\+FF \hyperlink{classLED}{L\+ED}. \end{DoxyCompactList}\item 
+void \hyperlink{classLED_a31971293aa8763338871c9b2789cb606}{set} (uint8\+\_\+t led\+Num, bool \hyperlink{classLED_acc39ccc6387373b840912f21d62dc876}{on})
+\begin{DoxyCompactList}\small\item\em Turns on/off led based on. \end{DoxyCompactList}\item 
+void \hyperlink{classLED_aaf40ad52100d7bebb418a2b48bd5a5bf}{toggle} (uint8\+\_\+t led\+Num)
+\begin{DoxyCompactList}\small\item\em Toggles the \hyperlink{classLED}{L\+ED}. \end{DoxyCompactList}\item 
+void \hyperlink{classLED_a227f3bc652bf914afdeb3cbb73d1b927}{set\+All} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Sets 8-\/bit value of 8 L\+E\+Ds; 1 bit per \hyperlink{classLED}{L\+ED}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{classLED_a55aa5615bfa11cf5f127a08565a86796}{get\+Values} (void) const 
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{classLED}{L\+ED} bit values currently set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLED_ab4116020d7b7ad8103b2787995cb15b4}{Singleton\+Template$<$ L\+E\+D $>$}
+\begin{DoxyCompactList}\small\item\em Friend class used for Singleton Template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classLED}{L\+ED} class used to control the Board\textquotesingle{}s 8 output L\+E\+Ds 
+
+\subsection{Member Function Documentation}
+\index{L\+ED@{L\+ED}!get\+Values@{get\+Values}}
+\index{get\+Values@{get\+Values}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{get\+Values(void) const }{getValues(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t L\+E\+D\+::get\+Values (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLED_a55aa5615bfa11cf5f127a08565a86796}{}\label{classLED_a55aa5615bfa11cf5f127a08565a86796}
+
+
+Get the \hyperlink{classLED}{L\+ED} bit values currently set. 
+
+\index{L\+ED@{L\+ED}!init@{init}}
+\index{init@{init}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}bool L\+E\+D\+::init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED_a63962161aba1782dd879760c5960d6b5}{}\label{classLED_a63962161aba1782dd879760c5960d6b5}
+
+
+Initializes this device,. 
+
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\index{L\+ED@{L\+ED}!off@{off}}
+\index{off@{off}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{off(uint8\+\_\+t led\+Num)}{off(uint8_t ledNum)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+::off (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{led\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED_addf41e0b79325809d8cc12b792aaae97}{}\label{classLED_addf41e0b79325809d8cc12b792aaae97}
+
+
+Turns O\+FF \hyperlink{classLED}{L\+ED}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em led\+Num} & The \hyperlink{classLED}{L\+ED} \# from 1-\/4 \\
+\hline
+\end{DoxyParams}
+\index{L\+ED@{L\+ED}!on@{on}}
+\index{on@{on}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{on(uint8\+\_\+t led\+Num)}{on(uint8_t ledNum)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+::on (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{led\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED_acc39ccc6387373b840912f21d62dc876}{}\label{classLED_acc39ccc6387373b840912f21d62dc876}
+
+
+Turns ON \hyperlink{classLED}{L\+ED}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em led\+Num} & The \hyperlink{classLED}{L\+ED} \# from 1-\/4 \\
+\hline
+\end{DoxyParams}
+\index{L\+ED@{L\+ED}!set@{set}}
+\index{set@{set}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{set(uint8\+\_\+t led\+Num, bool on)}{set(uint8_t ledNum, bool on)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+::set (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{led\+Num, }
+\item[{bool}]{on}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED_a31971293aa8763338871c9b2789cb606}{}\label{classLED_a31971293aa8763338871c9b2789cb606}
+
+
+Turns on/off led based on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & \\
+\hline
+\end{DoxyParams}
+\index{L\+ED@{L\+ED}!set\+All@{set\+All}}
+\index{set\+All@{set\+All}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{set\+All(uint8\+\_\+t value)}{setAll(uint8_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+::set\+All (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED_a227f3bc652bf914afdeb3cbb73d1b927}{}\label{classLED_a227f3bc652bf914afdeb3cbb73d1b927}
+
+
+Sets 8-\/bit value of 8 L\+E\+Ds; 1 bit per \hyperlink{classLED}{L\+ED}. 
+
+\index{L\+ED@{L\+ED}!toggle@{toggle}}
+\index{toggle@{toggle}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{toggle(uint8\+\_\+t led\+Num)}{toggle(uint8_t ledNum)}}]{\setlength{\rightskip}{0pt plus 5cm}void L\+E\+D\+::toggle (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{led\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{classLED_aaf40ad52100d7bebb418a2b48bd5a5bf}{}\label{classLED_aaf40ad52100d7bebb418a2b48bd5a5bf}
+
+
+Toggles the \hyperlink{classLED}{L\+ED}. 
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{L\+ED@{L\+ED}!Singleton\+Template$<$ L\+E\+D $>$@{Singleton\+Template$<$ L\+E\+D $>$}}
+\index{Singleton\+Template$<$ L\+E\+D $>$@{Singleton\+Template$<$ L\+E\+D $>$}!L\+ED@{L\+ED}}
+\subsubsection[{\texorpdfstring{Singleton\+Template$<$ L\+E\+D $>$}{SingletonTemplate< LED >}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Singleton\+Template}$<$ {\bf L\+ED} $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classLED_ab4116020d7b7ad8103b2787995cb15b4}{}\label{classLED_ab4116020d7b7ad8103b2787995cb15b4}
+
+
+Friend class used for Singleton Template. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/\hyperlink{LED_8hpp}{L\+E\+D.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/\hyperlink{io__source_8cpp}{io\+\_\+source.\+cpp}\end{DoxyCompactItemize}

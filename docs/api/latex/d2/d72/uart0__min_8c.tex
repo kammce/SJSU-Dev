@@ -1,0 +1,79 @@
+\hypertarget{uart0__min_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/uart0\+\_\+min.c File Reference}
+\label{uart0__min_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/uart0\+\_\+min.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/uart0\+\_\+min.\+c}}
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+Include dependency graph for uart0\+\_\+min.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d0d/uart0__min_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart0__min_8c_acf88f33e8986a60c6e152c5beee07faa}{uart0\+\_\+init} (unsigned int baud\+\_\+rate)
+\item 
+char \hyperlink{uart0__min_8c_a11390398b96aa5e48c363b200b77d0aa}{uart0\+\_\+getchar} (char notused)
+\item 
+char \hyperlink{uart0__min_8c_aa84d77a8c6861813121632ea5be0a24b}{uart0\+\_\+putchar} (char out)
+\item 
+void \hyperlink{uart0__min_8c_a57fe1ab304a806b66b875e75d475ed6d}{uart0\+\_\+puts} (const char $\ast$c\+\_\+string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}!uart0\+\_\+getchar@{uart0\+\_\+getchar}}
+\index{uart0\+\_\+getchar@{uart0\+\_\+getchar}!uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}}
+\subsubsection[{\texorpdfstring{uart0\+\_\+getchar(char notused)}{uart0_getchar(char notused)}}]{\setlength{\rightskip}{0pt plus 5cm}char uart0\+\_\+getchar (
+\begin{DoxyParamCaption}
+\item[{char}]{unused}
+\end{DoxyParamCaption}
+)}\hypertarget{uart0__min_8c_a11390398b96aa5e48c363b200b77d0aa}{}\label{uart0__min_8c_a11390398b96aa5e48c363b200b77d0aa}
+
+\begin{DoxyParams}{Parameters}
+{\em unused} & Unused parameter to comply with char function pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+character received over U\+A\+R\+T0 
+\end{DoxyReturn}
+\index{uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}!uart0\+\_\+init@{uart0\+\_\+init}}
+\index{uart0\+\_\+init@{uart0\+\_\+init}!uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}}
+\subsubsection[{\texorpdfstring{uart0\+\_\+init(unsigned int baud\+\_\+rate)}{uart0_init(unsigned int baud_rate)}}]{\setlength{\rightskip}{0pt plus 5cm}void uart0\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{baud\+\_\+rate}
+\end{DoxyParamCaption}
+)}\hypertarget{uart0__min_8c_acf88f33e8986a60c6e152c5beee07faa}{}\label{uart0__min_8c_acf88f33e8986a60c6e152c5beee07faa}
+Initializes U\+A\+R\+T0 of L\+P\+C17xx 
+\begin{DoxyParams}{Parameters}
+{\em baud\+\_\+rate} & The baud rate to set \\
+\hline
+\end{DoxyParams}
+\index{uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}!uart0\+\_\+putchar@{uart0\+\_\+putchar}}
+\index{uart0\+\_\+putchar@{uart0\+\_\+putchar}!uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}}
+\subsubsection[{\texorpdfstring{uart0\+\_\+putchar(char out)}{uart0_putchar(char out)}}]{\setlength{\rightskip}{0pt plus 5cm}char uart0\+\_\+putchar (
+\begin{DoxyParamCaption}
+\item[{char}]{out}
+\end{DoxyParamCaption}
+)}\hypertarget{uart0__min_8c_aa84d77a8c6861813121632ea5be0a24b}{}\label{uart0__min_8c_aa84d77a8c6861813121632ea5be0a24b}
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The character to output over U\+A\+R\+T0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always 1. 
+\end{DoxyReturn}
+\index{uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}!uart0\+\_\+puts@{uart0\+\_\+puts}}
+\index{uart0\+\_\+puts@{uart0\+\_\+puts}!uart0\+\_\+min.\+c@{uart0\+\_\+min.\+c}}
+\subsubsection[{\texorpdfstring{uart0\+\_\+puts(const char $\ast$c\+\_\+string)}{uart0_puts(const char *c_string)}}]{\setlength{\rightskip}{0pt plus 5cm}void uart0\+\_\+puts (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{c\+\_\+string}
+\end{DoxyParamCaption}
+)}\hypertarget{uart0__min_8c_a57fe1ab304a806b66b875e75d475ed6d}{}\label{uart0__min_8c_a57fe1ab304a806b66b875e75d475ed6d}
+outputs a string using \hyperlink{uart0__min_8h_aa84d77a8c6861813121632ea5be0a24b}{uart0\+\_\+putchar()} 
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+string} & The pointer to null terminated string \\
+\hline
+\end{DoxyParams}

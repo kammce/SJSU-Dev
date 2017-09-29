@@ -1,0 +1,78 @@
+\hypertarget{lpc__peripherals_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+peripherals.c File Reference}
+\label{lpc__peripherals_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+peripherals.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+peripherals.\+c}}
+
+
+This file provides L\+PC peripheral numbers according to L\+P\+C17xx datasheet.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+peripherals.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+peripherals.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/da8/lpc__peripherals_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__peripherals_8c_a6dd47b8bb51956102c6a48afd5e8faae}{lpc\+\_\+pconp} (\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9}{lpc\+\_\+pconp\+\_\+t} peripheral, bool on)
+\item 
+void \hyperlink{lpc__peripherals_8c_a8e05c66e495a2ac00b91b08f113fd21b}{lpc\+\_\+pclk} (\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3}{lpc\+\_\+pclk\+\_\+t} peripheral, \hyperlink{lpc__peripherals_8h_af5b059ff150bf39d004088c8fca8cf08}{clkdiv\+\_\+t} divider)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file provides L\+PC peripheral numbers according to L\+P\+C17xx datasheet. 
+
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+peripherals.\+c@{lpc\+\_\+peripherals.\+c}!lpc\+\_\+pclk@{lpc\+\_\+pclk}}
+\index{lpc\+\_\+pclk@{lpc\+\_\+pclk}!lpc\+\_\+peripherals.\+c@{lpc\+\_\+peripherals.\+c}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+pclk(lpc\+\_\+pclk\+\_\+t peripheral, clkdiv\+\_\+t divider)}{lpc_pclk(lpc_pclk_t peripheral, clkdiv_t divider)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+pclk (
+\begin{DoxyParamCaption}
+\item[{{\bf lpc\+\_\+pclk\+\_\+t}}]{peripheral, }
+\item[{{\bf clkdiv\+\_\+t}}]{divider}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__peripherals_8c_a8e05c66e495a2ac00b91b08f113fd21b}{}\label{lpc__peripherals_8c_a8e05c66e495a2ac00b91b08f113fd21b}
+Sets the peripheral clock divider. 
+\begin{DoxyParams}{Parameters}
+{\em peripheral} & The peripheral type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{lpc__peripherals_8h_ab183efd598991f76d0bf0ed55f4dc5b3}{lpc\+\_\+pclk\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em divider} & The divider type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The reset value for all peripherals is clkdiv\+\_\+4 
+\end{DoxyNote}
+This is a quick and dirty trick to use uint64\+\_\+t such that we don\textquotesingle{}t have to use if/else statements to pick either P\+C\+L\+K\+S\+E\+L0 or P\+C\+L\+K\+S\+E\+L1 register.\index{lpc\+\_\+peripherals.\+c@{lpc\+\_\+peripherals.\+c}!lpc\+\_\+pconp@{lpc\+\_\+pconp}}
+\index{lpc\+\_\+pconp@{lpc\+\_\+pconp}!lpc\+\_\+peripherals.\+c@{lpc\+\_\+peripherals.\+c}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+pconp(lpc\+\_\+pconp\+\_\+t peripheral, bool on)}{lpc_pconp(lpc_pconp_t peripheral, bool on)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+pconp (
+\begin{DoxyParamCaption}
+\item[{{\bf lpc\+\_\+pconp\+\_\+t}}]{peripheral, }
+\item[{bool}]{on}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__peripherals_8c_a6dd47b8bb51956102c6a48afd5e8faae}{}\label{lpc__peripherals_8c_a6dd47b8bb51956102c6a48afd5e8faae}
+Powers ON or powers O\+FF the peripheral 
+\begin{DoxyParams}{Parameters}
+{\em peripheral} & The peripheral type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{lpc__peripherals_8h_aa56799a49df289d82d01d49ce4b125f9}{lpc\+\_\+pconp\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em on} & If true, peripheral is turned on, otherwise turned off \\
+\hline
+\end{DoxyParams}

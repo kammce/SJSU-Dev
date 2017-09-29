@@ -1,0 +1,155 @@
+\hypertarget{file__logger_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/file\+\_\+logger.c File Reference}
+\label{file__logger_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/file\+\_\+logger.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/file\+\_\+logger.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file\+\_\+logger.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ff.\+h\char`\"{}}\\*
+Include dependency graph for file\+\_\+logger.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d3c/file__logger_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{file__logger_8c_a90d00b7aa255a9499e43bc8f272b18f4}{logger\+\_\+send\+\_\+flush\+\_\+request} (void)
+\item 
+uint32\+\_\+t \hyperlink{file__logger_8c_af1ceb6030285f8c0d853e465e7a81c89}{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{logger\+\_\+msg\+\_\+t} severity)
+\item 
+uint16\+\_\+t \hyperlink{file__logger_8c_a14df36902c22f172291afc69884ba9a2}{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count} (void)
+\item 
+uint16\+\_\+t \hyperlink{file__logger_8c_ad5f1b9fc4277708bcbcf913c2a76bb04}{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms} (void)
+\item 
+uint16\+\_\+t \hyperlink{file__logger_8c_a62f4587986d5c731b4bf1aeb53fc523b}{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark} (void)
+\item 
+void \hyperlink{file__logger_8c_af9a6bb09efbc17222fc2794ec09bfdb0}{logger\+\_\+init} (uint8\+\_\+t logger\+\_\+priority)
+\item 
+void \hyperlink{file__logger_8c_a93c4ad1ab6250c97dacfe0e72cdb0896}{logger\+\_\+set\+\_\+printf} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{logger\+\_\+msg\+\_\+t} type, bool enable)
+\item 
+void \hyperlink{file__logger_8c_af836483a630c721658702cf2d9a88fa6}{logger\+\_\+log} (\hyperlink{file__logger_8h_a265dc9ffd0d6d4a399f5967a692ee52a}{logger\+\_\+msg\+\_\+t} type, const char $\ast$filename, const char $\ast$func\+\_\+name, unsigned line\+\_\+num, const char $\ast$msg,...)
+\item 
+void \hyperlink{file__logger_8c_a8484854aa180cb3346460aad96d548e5}{logger\+\_\+log\+\_\+raw} (const char $\ast$msg,...)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count}}
+\index{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count(void)}{logger_get_blocked_call_count(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t logger\+\_\+get\+\_\+blocked\+\_\+call\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_a14df36902c22f172291afc69884ba9a2}{}\label{file__logger_8c_a14df36902c22f172291afc69884ba9a2}
+\begin{DoxyReturn}{Returns}
+the number of logging calls that ended up blocking or sleeping the task waiting for a logger buffer to be available.
+\end{DoxyReturn}
+If the number is greater than zero, it indicates that you either need to slow down logger calls, or increase the number of log buffers. \index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms@{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms}}
+\index{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms@{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms(void)}{logger_get_highest_file_write_time_ms(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t logger\+\_\+get\+\_\+highest\+\_\+file\+\_\+write\+\_\+time\+\_\+ms (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_ad5f1b9fc4277708bcbcf913c2a76bb04}{}\label{file__logger_8c_ad5f1b9fc4277708bcbcf913c2a76bb04}
+\begin{DoxyReturn}{Returns}
+the highest time that was spend writing the logger buffer to file. This can be useful to assess how many F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS we need because we only need enough buffers available while the file buffer is being written. 
+\end{DoxyReturn}
+\index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count}}
+\index{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count@{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count(logger\+\_\+msg\+\_\+t severity)}{logger_get_logged_call_count(logger_msg_t severity)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t logger\+\_\+get\+\_\+logged\+\_\+call\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf logger\+\_\+msg\+\_\+t}}]{severity}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_af1ceb6030285f8c0d853e465e7a81c89}{}\label{file__logger_8c_af1ceb6030285f8c0d853e465e7a81c89}
+\begin{DoxyReturn}{Returns}
+the number of logged messages for the given severity. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em severity} & The severity for which to get the number of calls. \\
+\hline
+\end{DoxyParams}
+\index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark@{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark}}
+\index{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark@{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark(void)}{logger_get_num_buffers_watermark(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t logger\+\_\+get\+\_\+num\+\_\+buffers\+\_\+watermark (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_a62f4587986d5c731b4bf1aeb53fc523b}{}\label{file__logger_8c_a62f4587986d5c731b4bf1aeb53fc523b}
+\begin{DoxyReturn}{Returns}
+the highest watermark of the number of buffers available to the logger This can be useful to assess how many F\+I\+L\+E\+\_\+\+L\+O\+G\+G\+E\+R\+\_\+\+N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+RS we need in the worst case. 
+\end{DoxyReturn}
+\index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+init@{logger\+\_\+init}}
+\index{logger\+\_\+init@{logger\+\_\+init}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+init(uint8\+\_\+t logger\+\_\+priority)}{logger_init(uint8_t logger_priority)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{logger\+\_\+priority}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_af9a6bb09efbc17222fc2794ec09bfdb0}{}\label{file__logger_8c_af9a6bb09efbc17222fc2794ec09bfdb0}
+Initializes the logger; this must be done before further logging calls are used. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em logger\+\_\+priority} & The priority at which logger should buffer user data and then write to file. \\
+\hline
+\end{DoxyParams}
+\index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+log@{logger\+\_\+log}}
+\index{logger\+\_\+log@{logger\+\_\+log}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+log(logger\+\_\+msg\+\_\+t type, const char $\ast$filename, const char $\ast$func\+\_\+name, unsigned line\+\_\+num, const char $\ast$msg,...)}{logger_log(logger_msg_t type, const char *filename, const char *func_name, unsigned line_num, const char *msg,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+log (
+\begin{DoxyParamCaption}
+\item[{{\bf logger\+\_\+msg\+\_\+t}}]{type, }
+\item[{const char $\ast$}]{filename, }
+\item[{const char $\ast$}]{func\+\_\+name, }
+\item[{unsigned}]{line\+\_\+num, }
+\item[{const char $\ast$}]{msg, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_af836483a630c721658702cf2d9a88fa6}{}\label{file__logger_8c_af836483a630c721658702cf2d9a88fa6}
+Logs a message. You should not use this directly, the macros pass the arguments to this function. \index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+log\+\_\+raw@{logger\+\_\+log\+\_\+raw}}
+\index{logger\+\_\+log\+\_\+raw@{logger\+\_\+log\+\_\+raw}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+log\+\_\+raw(const char $\ast$msg,...)}{logger_log_raw(const char *msg,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+log\+\_\+raw (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{msg, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_a8484854aa180cb3346460aad96d548e5}{}\label{file__logger_8c_a8484854aa180cb3346460aad96d548e5}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{file__logger_8h_a7c82f0104f7aef1929bd04be21c47122}{L\+O\+G\+\_\+\+R\+A\+W\+\_\+\+M\+S\+G()} You should not use this directly, the macros pass the arguments to this function. 
+\end{DoxySeeAlso}
+\index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+send\+\_\+flush\+\_\+request@{logger\+\_\+send\+\_\+flush\+\_\+request}}
+\index{logger\+\_\+send\+\_\+flush\+\_\+request@{logger\+\_\+send\+\_\+flush\+\_\+request}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+send\+\_\+flush\+\_\+request(void)}{logger_send_flush_request(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+send\+\_\+flush\+\_\+request (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_a90d00b7aa255a9499e43bc8f272b18f4}{}\label{file__logger_8c_a90d00b7aa255a9499e43bc8f272b18f4}
+Flushes the cached log data to the file \begin{DoxyPostcond}{Postcondition}
+This will send a special request on the logger queue to flush the data, so the actual flushing will finish by the logger task at a later time.
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Flushing is not needed when the OS is running. 
+\end{DoxyNote}
+\index{file\+\_\+logger.\+c@{file\+\_\+logger.\+c}!logger\+\_\+set\+\_\+printf@{logger\+\_\+set\+\_\+printf}}
+\index{logger\+\_\+set\+\_\+printf@{logger\+\_\+set\+\_\+printf}!file\+\_\+logger.\+c@{file\+\_\+logger.\+c}}
+\subsubsection[{\texorpdfstring{logger\+\_\+set\+\_\+printf(logger\+\_\+msg\+\_\+t type, bool enable)}{logger_set_printf(logger_msg_t type, bool enable)}}]{\setlength{\rightskip}{0pt plus 5cm}void logger\+\_\+set\+\_\+printf (
+\begin{DoxyParamCaption}
+\item[{{\bf logger\+\_\+msg\+\_\+t}}]{type, }
+\item[{bool}]{enable}
+\end{DoxyParamCaption}
+)}\hypertarget{file__logger_8c_a93c4ad1ab6250c97dacfe0e72cdb0896}{}\label{file__logger_8c_a93c4ad1ab6250c97dacfe0e72cdb0896}
+Enables the given logging severity call to be also printed on \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & The severity for which the logging call will be printed \\
+\hline
+\mbox{\tt in}  & {\em enable} & If true, the severity level will also get printed to the screen\\
+\hline
+\end{DoxyParams}
+Note that if a lot of data is being printed, the logger call may take a while until the stdio \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} returns back. 

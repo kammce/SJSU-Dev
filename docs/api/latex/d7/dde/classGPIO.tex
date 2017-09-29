@@ -1,0 +1,216 @@
+\hypertarget{classGPIO}{}\section{G\+P\+IO Class Reference}
+\label{classGPIO}\index{G\+P\+IO@{G\+P\+IO}}
+
+
+{\ttfamily \#include $<$gpio.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGPIO_acec0cdfbe71a5e4b4ed26c168c44dbc4}{G\+P\+IO} (\hyperlink{gpio_8hpp_a9e9814207938bb104144d2df58c554d8}{L\+P\+C1758\+\_\+\+G\+P\+I\+O\+\_\+\+Type} gpio\+Id)
+\begin{DoxyCompactList}\small\item\em Constructor to choose the pin. \end{DoxyCompactList}\item 
+\hyperlink{classGPIO_ae8205f95f108a15a612485b6358031a1}{$\sim$\+G\+P\+IO} ()
+\begin{DoxyCompactList}\small\item\em Destructor that will destroy the pin configuration. \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a9ba7c2f50a449a7ca7f7e5f2680c4284}{enable\+Pull\+Up} ()
+\begin{DoxyCompactList}\small\item\em Enables pull-\/up resistor. \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a9b2221a607da8a22adc5a0523148d5a7}{enable\+Pull\+Down} ()
+\begin{DoxyCompactList}\small\item\em Enables pull-\/down resistor. \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_aa2e401b63236bd2630b9a34372d590d3}{disable\+Pull\+Up\+Pull\+Down} ()
+\begin{DoxyCompactList}\small\item\em Disables pull-\/up/down resistor. \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a04726c16f352186e0d7761006867ffb9}{enable\+Open\+Drain\+Mode} (bool open\+Drain=true)
+\begin{DoxyCompactList}\small\item\em Enables open drain mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGPIO_a0e218bd5532bf7684b6e73d66cc959b9}{set\+As\+Input} (void)
+\begin{DoxyCompactList}\small\item\em Sets pin as input pin. \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a436d72c6da1dab416d42ee2ed5a18b65}{set\+As\+Output} (void)
+\begin{DoxyCompactList}\small\item\em Sets pin as output pin. \end{DoxyCompactList}\item 
+bool \hyperlink{classGPIO_a3844a3dfa9e799262306c3dd9953ef88}{read} (void) const 
+\begin{DoxyCompactList}\small\item\em Reads logical value of the pin. \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a99ad9887700c7abe1c551a3601db483a}{set\+High} (void)
+\begin{DoxyCompactList}\small\item\em Sets the pin to logical H\+I\+GH (3.\+3v) \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a48509cf9b5e9d017c8da2fbaf17fa041}{set\+Low} (void)
+\begin{DoxyCompactList}\small\item\em Sets the pin to logical L\+OW (0.\+0v) \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a97eb9da463a931cfda4667f8215f7e65}{set} (bool on)
+\begin{DoxyCompactList}\small\item\em Set high/low based on boolean value. \end{DoxyCompactList}\item 
+void \hyperlink{classGPIO_a299290d9266dffbe2747f8f1238be016}{toggle} (void)
+\begin{DoxyCompactList}\small\item\em Toggles the state of the \hyperlink{classGPIO}{G\+P\+IO}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+\hyperlink{classGPIO}{G\+P\+IO} class for S\+J-\/\+One Board or any L\+P\+C17xx C\+PU The pins on the S\+J-\/\+One Board can be used as General Purpose Input/\+Output pins which can be attached to for example an \hyperlink{classLED}{L\+ED} or a switch externally.
+
+Please see the pin labels on the board and then use this class to manipulate the pin(s). See the next examples \+:
+
+Output pin example \+: 
+\begin{DoxyCode}
+\hyperlink{classGPIO}{GPIO} myPin(\hyperlink{gpio_8hpp_a9e9814207938bb104144d2df58c554d8add7336c820b14b761d37e66fa322c4fc}{P1\_19});   \textcolor{comment}{// Control P1.19}
+myPin.setAsOutput(); \textcolor{comment}{// Use the pin as output pin}
+myPin.setHigh();     \textcolor{comment}{// Pin will now be at 3.3v}
+myPin.setLow();      \textcolor{comment}{// Pin will now be at 0.0v}
+\end{DoxyCode}
+
+
+Input pin example \+: 
+\begin{DoxyCode}
+\hyperlink{classGPIO}{GPIO} myPin(\hyperlink{gpio_8hpp_a9e9814207938bb104144d2df58c554d8aed77e817675ec3acc3900b134a74f9f3}{P1\_20});   \textcolor{comment}{// Control P1.20}
+myPin.setAsInput();  \textcolor{comment}{// Use the pin as output pin}
+\textcolor{keywordtype}{bool} value = myPin.read(); \textcolor{comment}{// Read value of the pin}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{G\+P\+IO@{G\+P\+IO}!G\+P\+IO@{G\+P\+IO}}
+\index{G\+P\+IO@{G\+P\+IO}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{G\+P\+I\+O(\+L\+P\+C1758\+\_\+\+G\+P\+I\+O\+\_\+\+Type gpio\+Id)}{GPIO(LPC1758_GPIO_Type gpioId)}}]{\setlength{\rightskip}{0pt plus 5cm}G\+P\+I\+O\+::\+G\+P\+IO (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+P\+C1758\+\_\+\+G\+P\+I\+O\+\_\+\+Type}}]{gpio\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_acec0cdfbe71a5e4b4ed26c168c44dbc4}{}\label{classGPIO_acec0cdfbe71a5e4b4ed26c168c44dbc4}
+
+
+Constructor to choose the pin. 
+
+\index{G\+P\+IO@{G\+P\+IO}!````~G\+P\+IO@{$\sim$\+G\+P\+IO}}
+\index{````~G\+P\+IO@{$\sim$\+G\+P\+IO}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{$\sim$\+G\+P\+I\+O()}{~GPIO()}}]{\setlength{\rightskip}{0pt plus 5cm}G\+P\+I\+O\+::$\sim$\+G\+P\+IO (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_ae8205f95f108a15a612485b6358031a1}{}\label{classGPIO_ae8205f95f108a15a612485b6358031a1}
+
+
+Destructor that will destroy the pin configuration. 
+
+
+
+\subsection{Member Function Documentation}
+\index{G\+P\+IO@{G\+P\+IO}!disable\+Pull\+Up\+Pull\+Down@{disable\+Pull\+Up\+Pull\+Down}}
+\index{disable\+Pull\+Up\+Pull\+Down@{disable\+Pull\+Up\+Pull\+Down}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{disable\+Pull\+Up\+Pull\+Down()}{disablePullUpPullDown()}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::disable\+Pull\+Up\+Pull\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_aa2e401b63236bd2630b9a34372d590d3}{}\label{classGPIO_aa2e401b63236bd2630b9a34372d590d3}
+
+
+Disables pull-\/up/down resistor. 
+
+\index{G\+P\+IO@{G\+P\+IO}!enable\+Open\+Drain\+Mode@{enable\+Open\+Drain\+Mode}}
+\index{enable\+Open\+Drain\+Mode@{enable\+Open\+Drain\+Mode}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{enable\+Open\+Drain\+Mode(bool open\+Drain=true)}{enableOpenDrainMode(bool openDrain=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::enable\+Open\+Drain\+Mode (
+\begin{DoxyParamCaption}
+\item[{bool}]{open\+Drain = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a04726c16f352186e0d7761006867ffb9}{}\label{classGPIO_a04726c16f352186e0d7761006867ffb9}
+
+
+Enables open drain mode. 
+
+\index{G\+P\+IO@{G\+P\+IO}!enable\+Pull\+Down@{enable\+Pull\+Down}}
+\index{enable\+Pull\+Down@{enable\+Pull\+Down}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{enable\+Pull\+Down()}{enablePullDown()}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::enable\+Pull\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a9b2221a607da8a22adc5a0523148d5a7}{}\label{classGPIO_a9b2221a607da8a22adc5a0523148d5a7}
+
+
+Enables pull-\/down resistor. 
+
+\index{G\+P\+IO@{G\+P\+IO}!enable\+Pull\+Up@{enable\+Pull\+Up}}
+\index{enable\+Pull\+Up@{enable\+Pull\+Up}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{enable\+Pull\+Up()}{enablePullUp()}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::enable\+Pull\+Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a9ba7c2f50a449a7ca7f7e5f2680c4284}{}\label{classGPIO_a9ba7c2f50a449a7ca7f7e5f2680c4284}
+
+
+Enables pull-\/up resistor. 
+
+\index{G\+P\+IO@{G\+P\+IO}!read@{read}}
+\index{read@{read}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{read(void) const }{read(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool G\+P\+I\+O\+::read (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGPIO_a3844a3dfa9e799262306c3dd9953ef88}{}\label{classGPIO_a3844a3dfa9e799262306c3dd9953ef88}
+
+
+Reads logical value of the pin. 
+
+\index{G\+P\+IO@{G\+P\+IO}!set@{set}}
+\index{set@{set}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{set(bool on)}{set(bool on)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::set (
+\begin{DoxyParamCaption}
+\item[{bool}]{on}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a97eb9da463a931cfda4667f8215f7e65}{}\label{classGPIO_a97eb9da463a931cfda4667f8215f7e65}
+
+
+Set high/low based on boolean value. 
+
+\index{G\+P\+IO@{G\+P\+IO}!set\+As\+Input@{set\+As\+Input}}
+\index{set\+As\+Input@{set\+As\+Input}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{set\+As\+Input(void)}{setAsInput(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::set\+As\+Input (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a0e218bd5532bf7684b6e73d66cc959b9}{}\label{classGPIO_a0e218bd5532bf7684b6e73d66cc959b9}
+
+
+Sets pin as input pin. 
+
+Simple functions \index{G\+P\+IO@{G\+P\+IO}!set\+As\+Output@{set\+As\+Output}}
+\index{set\+As\+Output@{set\+As\+Output}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{set\+As\+Output(void)}{setAsOutput(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::set\+As\+Output (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a436d72c6da1dab416d42ee2ed5a18b65}{}\label{classGPIO_a436d72c6da1dab416d42ee2ed5a18b65}
+
+
+Sets pin as output pin. 
+
+\index{G\+P\+IO@{G\+P\+IO}!set\+High@{set\+High}}
+\index{set\+High@{set\+High}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{set\+High(void)}{setHigh(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::set\+High (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a99ad9887700c7abe1c551a3601db483a}{}\label{classGPIO_a99ad9887700c7abe1c551a3601db483a}
+
+
+Sets the pin to logical H\+I\+GH (3.\+3v) 
+
+\index{G\+P\+IO@{G\+P\+IO}!set\+Low@{set\+Low}}
+\index{set\+Low@{set\+Low}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{set\+Low(void)}{setLow(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::set\+Low (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a48509cf9b5e9d017c8da2fbaf17fa041}{}\label{classGPIO_a48509cf9b5e9d017c8da2fbaf17fa041}
+
+
+Sets the pin to logical L\+OW (0.\+0v) 
+
+\index{G\+P\+IO@{G\+P\+IO}!toggle@{toggle}}
+\index{toggle@{toggle}!G\+P\+IO@{G\+P\+IO}}
+\subsubsection[{\texorpdfstring{toggle(void)}{toggle(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void G\+P\+I\+O\+::toggle (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGPIO_a299290d9266dffbe2747f8f1238be016}{}\label{classGPIO_a299290d9266dffbe2747f8f1238be016}
+
+
+Toggles the state of the \hyperlink{classGPIO}{G\+P\+IO}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/\hyperlink{gpio_8hpp}{gpio.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/\hyperlink{gpio_8cpp}{gpio.\+cpp}\end{DoxyCompactItemize}

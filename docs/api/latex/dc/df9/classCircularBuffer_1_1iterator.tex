@@ -1,0 +1,142 @@
+\hypertarget{classCircularBuffer_1_1iterator}{}\section{Circular\+Buffer$<$ T\+Y\+PE $>$\+:\+:iterator Class Reference}
+\label{classCircularBuffer_1_1iterator}\index{Circular\+Buffer$<$ T\+Y\+P\+E $>$\+::iterator@{Circular\+Buffer$<$ T\+Y\+P\+E $>$\+::iterator}}
+
+
+{\ttfamily \#include $<$circular\+\_\+buffer.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{classCircularBuffer_1_1iterator}{iterator} \hyperlink{classCircularBuffer_1_1iterator_a7dae9b5926088a3ef46a8a654e383605}{self\+\_\+type}
+\item 
+typedef T\+Y\+PE \hyperlink{classCircularBuffer_1_1iterator_accfd2e9138e9e6841ef4f25579cf02bb}{value\+\_\+type}
+\item 
+typedef T\+Y\+PE \& \hyperlink{classCircularBuffer_1_1iterator_a9aa4665328da6f468a188ae36c6b00a3}{reference}
+\item 
+typedef T\+Y\+PE $\ast$ \hyperlink{classCircularBuffer_1_1iterator_a35ab71bca3df750e955de46c222b8ee3}{pointer}
+\item 
+typedef std\+::forward\+\_\+iterator\+\_\+tag \hyperlink{classCircularBuffer_1_1iterator_a806f5db087c9419cb1f81c030f39267c}{iterator\+\_\+category}
+\item 
+typedef int \hyperlink{classCircularBuffer_1_1iterator_a58a96b782e1e3ccef78445b819e8011a}{difference\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCircularBuffer_1_1iterator_afdaf10c8cd54b3f2b6fd14c8b370b8a9}{iterator} (\hyperlink{classCircularBuffer}{Circular\+Buffer}$<$ T\+Y\+PE $>$ $\ast$p)
+\item 
+\hyperlink{classCircularBuffer_1_1iterator_a7dae9b5926088a3ef46a8a654e383605}{self\+\_\+type} \hyperlink{classCircularBuffer_1_1iterator_aa0a5aeca1ded37429c21b93c00efdc73}{operator++} ()
+\begin{DoxyCompactList}\small\item\em Preincrement operator ie\+: ++iterator. \end{DoxyCompactList}\item 
+\hyperlink{classCircularBuffer_1_1iterator_a7dae9b5926088a3ef46a8a654e383605}{self\+\_\+type} \hyperlink{classCircularBuffer_1_1iterator_af45f4d81bc792dd3633b1a262cb07dde}{operator++} (int unused)
+\begin{DoxyCompactList}\small\item\em Postincrement operator ie\+: iterator++. \end{DoxyCompactList}\item 
+\hyperlink{classCircularBuffer_1_1iterator_a9aa4665328da6f468a188ae36c6b00a3}{reference} \hyperlink{classCircularBuffer_1_1iterator_a0b2329fce9fb1311a154902fe1f9f3b7}{operator$\ast$} ()
+\item 
+\hyperlink{classCircularBuffer_1_1iterator_a35ab71bca3df750e955de46c222b8ee3}{pointer} \hyperlink{classCircularBuffer_1_1iterator_a158958ab9785710e115f626c8344f51d}{operator-\/$>$} ()
+\begin{DoxyCompactList}\small\item\em pointer operator to get the address ie\+: $\ast$(\hyperlink{classCircularBuffer_1_1iterator_a158958ab9785710e115f626c8344f51d}{iterator.\+operator-\/$>$()}) \end{DoxyCompactList}\item 
+bool \hyperlink{classCircularBuffer_1_1iterator_af5604b0c13183772cd70fec67cc19374}{operator!=} (const \hyperlink{classCircularBuffer_1_1iterator_a7dae9b5926088a3ef46a8a654e383605}{self\+\_\+type} \&rhs)
+\begin{DoxyCompactList}\small\item\em != operator between iterators \end{DoxyCompactList}\item 
+bool \hyperlink{classCircularBuffer_1_1iterator_aa8d9ce991d27c8b258199594f31109b1}{operator==} (const \hyperlink{classCircularBuffer_1_1iterator_a7dae9b5926088a3ef46a8a654e383605}{self\+\_\+type} \&rhs)
+\begin{DoxyCompactList}\small\item\em == operator between iterators \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!difference\+\_\+type@{difference\+\_\+type}}
+\index{difference\+\_\+type@{difference\+\_\+type}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{difference\+\_\+type}{difference_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ typedef int {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf iterator\+::difference\+\_\+type}}\hypertarget{classCircularBuffer_1_1iterator_a58a96b782e1e3ccef78445b819e8011a}{}\label{classCircularBuffer_1_1iterator_a58a96b782e1e3ccef78445b819e8011a}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!iterator\+\_\+category@{iterator\+\_\+category}}
+\index{iterator\+\_\+category@{iterator\+\_\+category}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{iterator\+\_\+category}{iterator_category}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ typedef std\+::forward\+\_\+iterator\+\_\+tag {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf iterator\+::iterator\+\_\+category}}\hypertarget{classCircularBuffer_1_1iterator_a806f5db087c9419cb1f81c030f39267c}{}\label{classCircularBuffer_1_1iterator_a806f5db087c9419cb1f81c030f39267c}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{pointer}{pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ typedef T\+Y\+PE$\ast$ {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf iterator\+::pointer}}\hypertarget{classCircularBuffer_1_1iterator_a35ab71bca3df750e955de46c222b8ee3}{}\label{classCircularBuffer_1_1iterator_a35ab71bca3df750e955de46c222b8ee3}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!reference@{reference}}
+\index{reference@{reference}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{reference}{reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ typedef T\+Y\+PE\& {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf iterator\+::reference}}\hypertarget{classCircularBuffer_1_1iterator_a9aa4665328da6f468a188ae36c6b00a3}{}\label{classCircularBuffer_1_1iterator_a9aa4665328da6f468a188ae36c6b00a3}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!self\+\_\+type@{self\+\_\+type}}
+\index{self\+\_\+type@{self\+\_\+type}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{self\+\_\+type}{self_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ typedef {\bf iterator} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf iterator\+::self\+\_\+type}}\hypertarget{classCircularBuffer_1_1iterator_a7dae9b5926088a3ef46a8a654e383605}{}\label{classCircularBuffer_1_1iterator_a7dae9b5926088a3ef46a8a654e383605}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{value\+\_\+type}{value_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ typedef T\+Y\+PE {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::{\bf iterator\+::value\+\_\+type}}\hypertarget{classCircularBuffer_1_1iterator_accfd2e9138e9e6841ef4f25579cf02bb}{}\label{classCircularBuffer_1_1iterator_accfd2e9138e9e6841ef4f25579cf02bb}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{iterator(\+Circular\+Buffer$<$ T\+Y\+P\+E $>$ $\ast$p)}{iterator(CircularBuffer< TYPE > *p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::iterator\+::iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf Circular\+Buffer}$<$ T\+Y\+PE $>$ $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_1_1iterator_afdaf10c8cd54b3f2b6fd14c8b370b8a9}{}\label{classCircularBuffer_1_1iterator_afdaf10c8cd54b3f2b6fd14c8b370b8a9}
+
+
+\subsection{Member Function Documentation}
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{operator"!=(const self\+\_\+type \&rhs)}{operator!=(const self_type &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ bool {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::iterator\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf self\+\_\+type} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_1_1iterator_af5604b0c13183772cd70fec67cc19374}{}\label{classCircularBuffer_1_1iterator_af5604b0c13183772cd70fec67cc19374}
+
+
+!= operator between iterators 
+
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{operator$\ast$()}{operator*()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf reference} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::iterator\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_1_1iterator_a0b2329fce9fb1311a154902fe1f9f3b7}{}\label{classCircularBuffer_1_1iterator_a0b2329fce9fb1311a154902fe1f9f3b7}
+
+\begin{DoxyItemize}
+\item operator to get the value ie\+: $\ast$iterator OR \hyperlink{classCircularBuffer_1_1iterator_a0b2329fce9fb1311a154902fe1f9f3b7}{iterator.\+operator $\ast$()} 
+\end{DoxyItemize}\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf self\+\_\+type} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::iterator\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_1_1iterator_aa0a5aeca1ded37429c21b93c00efdc73}{}\label{classCircularBuffer_1_1iterator_aa0a5aeca1ded37429c21b93c00efdc73}
+
+
+Preincrement operator ie\+: ++iterator. 
+
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{operator++(int unused)}{operator++(int unused)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf self\+\_\+type} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::iterator\+::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{unused}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_1_1iterator_af45f4d81bc792dd3633b1a262cb07dde}{}\label{classCircularBuffer_1_1iterator_af45f4d81bc792dd3633b1a262cb07dde}
+
+
+Postincrement operator ie\+: iterator++. 
+
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{operator-\/$>$()}{operator->()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ {\bf pointer} {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::iterator\+::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_1_1iterator_a158958ab9785710e115f626c8344f51d}{}\label{classCircularBuffer_1_1iterator_a158958ab9785710e115f626c8344f51d}
+
+
+pointer operator to get the address ie\+: $\ast$(\hyperlink{classCircularBuffer_1_1iterator_a158958ab9785710e115f626c8344f51d}{iterator.\+operator-\/$>$()}) 
+
+\index{Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!Circular\+Buffer\+::iterator@{Circular\+Buffer\+::iterator}}
+\subsubsection[{\texorpdfstring{operator==(const self\+\_\+type \&rhs)}{operator==(const self_type &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ bool {\bf Circular\+Buffer}$<$ T\+Y\+PE $>$\+::iterator\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf self\+\_\+type} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classCircularBuffer_1_1iterator_aa8d9ce991d27c8b258199594f31109b1}{}\label{classCircularBuffer_1_1iterator_aa8d9ce991d27c8b258199594f31109b1}
+
+
+== operator between iterators 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{circular__buffer_8hpp}{circular\+\_\+buffer.\+hpp}\end{DoxyCompactItemize}

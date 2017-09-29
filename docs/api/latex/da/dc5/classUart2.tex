@@ -1,0 +1,75 @@
+\hypertarget{classUart2}{}\section{Uart2 Class Reference}
+\label{classUart2}\index{Uart2@{Uart2}}
+
+
+{\ttfamily \#include $<$uart2.\+hpp$>$}
+
+
+
+Inheritance diagram for Uart2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{df/d92/classUart2__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Uart2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d3d/classUart2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classUart2_a328b32cbfa31e5fef58a1388430473f1}{init} (unsigned int baud\+Rate, int rx\+Q\+Size=32, int tx\+Q\+Size=64)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classUart2_aa3cabc7ab468a1f9ee456587406f857a}{Singleton\+Template$<$ Uart2 $>$}
+\begin{DoxyCompactList}\small\item\em Friend class used for Singleton Template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+U\+A\+R\+T2 Interrupt Driven Driver This simply uses \hyperlink{classUartDev}{Uart\+Dev}, and forwards the U\+A\+R\+T3 I\+RQ to \hyperlink{classUartDev_a88db44755fb545c2553cabf95a338db4}{Uart\+Dev\+::handle\+Interrupt()} This enforces Singleton class, otherwise it\textquotesingle{}s a thin wrapper around \hyperlink{classUartDev}{Uart\+Dev} class. 
+
+\subsection{Member Function Documentation}
+\index{Uart2@{Uart2}!init@{init}}
+\index{init@{init}!Uart2@{Uart2}}
+\subsubsection[{\texorpdfstring{init(unsigned int baud\+Rate, int rx\+Q\+Size=32, int tx\+Q\+Size=64)}{init(unsigned int baudRate, int rxQSize=32, int txQSize=64)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Uart2\+::init (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{baud\+Rate, }
+\item[{int}]{rx\+Q\+Size = {\ttfamily 32}, }
+\item[{int}]{tx\+Q\+Size = {\ttfamily 64}}
+\end{DoxyParamCaption}
+)}\hypertarget{classUart2_a328b32cbfa31e5fef58a1388430473f1}{}\label{classUart2_a328b32cbfa31e5fef58a1388430473f1}
+Initializes U\+A\+R\+T2 at the given 
+\begin{DoxyParams}{Parameters}
+{\em baud\+Rate} & \\
+\hline
+{\em rx\+Q\+Size} & The size of the receive queue (optional, defaults to 32) \\
+\hline
+{\em tx\+Q\+Size} & The size of the transmit queue (optional, defaults to 64) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Uart2@{Uart2}!Singleton\+Template$<$ Uart2 $>$@{Singleton\+Template$<$ Uart2 $>$}}
+\index{Singleton\+Template$<$ Uart2 $>$@{Singleton\+Template$<$ Uart2 $>$}!Uart2@{Uart2}}
+\subsubsection[{\texorpdfstring{Singleton\+Template$<$ Uart2 $>$}{SingletonTemplate< Uart2 >}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Singleton\+Template}$<$ {\bf Uart2} $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classUart2_aa3cabc7ab468a1f9ee456587406f857a}{}\label{classUart2_aa3cabc7ab468a1f9ee456587406f857a}
+
+
+Friend class used for Singleton Template. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/\hyperlink{uart2_8hpp}{uart2.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/\hyperlink{uart2_8cpp}{uart2.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d2/dfb/classCharDev.html" title="CharDev" alt="" coords="37,133,112,159"/>
+<area shape="rect" id="node2" href="$d2/d7a/classNordicStream.html" title="NordicStream" alt="" coords="210,13,313,39"/>
+<area shape="rect" id="node3" href="$de/d42/classUartDev.html" title="UartDev" alt="" coords="226,195,297,222"/>
+<area shape="rect" id="node4" href="$de/d86/classUart0.html" title="Uart0" alt="" coords="379,90,433,117"/>
+<area shape="rect" id="node5" href="$da/dc5/classUart2.html" title="Uart2" alt="" coords="379,177,433,203"/>
+<area shape="rect" id="node6" href="$d5/da0/classUart3.html" title="Uart3" alt="" coords="379,231,433,258"/>
+<area shape="rect" id="node7" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l NordicStream \&gt;" alt="" coords="5,5,144,47"/>
+<area shape="rect" id="node8" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l Uart0 \&gt;" alt="" coords="192,64,331,105"/>
+<area shape="rect" id="node9" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l Uart2 \&gt;" alt="" coords="192,129,331,171"/>
+<area shape="rect" id="node10" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l Uart3 \&gt;" alt="" coords="192,247,331,288"/>
+</map>

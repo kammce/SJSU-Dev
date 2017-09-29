@@ -1,0 +1,77 @@
+\hypertarget{reentrant_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/option/reentrant.c File Reference}
+\label{reentrant_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/option/reentrant.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/option/reentrant.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$malloc.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}../ff.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+Include dependency graph for reentrant.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/dc1/reentrant_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90aaa137c2caa5802170356478bcd950971}{\+\_\+\+\_\+false} = 0, 
+\hyperlink{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90a9908d1bd3b872e978fee1678c94e200e}{\+\_\+\+\_\+true} = !\+\_\+\+\_\+false
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{reentrant_8c_a2593b7acfe680686184f9ecb1be50323}{ff\+\_\+cre\+\_\+syncobj} (\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} vol, \hyperlink{ffconf_8h_a9a3f0670343e51652dd12b18fa90a9eb}{\+\_\+\+S\+Y\+N\+C\+\_\+t} $\ast$sobj)
+\item 
+int \hyperlink{reentrant_8c_a9184443f4d0a50b0f9a7fdb241613119}{ff\+\_\+del\+\_\+syncobj} (\hyperlink{ffconf_8h_a9a3f0670343e51652dd12b18fa90a9eb}{\+\_\+\+S\+Y\+N\+C\+\_\+t} sobj)
+\item 
+int \hyperlink{reentrant_8c_aa0dd2bf38b270e6b39ff395f2d25a0ed}{ff\+\_\+req\+\_\+grant} (\hyperlink{ffconf_8h_a9a3f0670343e51652dd12b18fa90a9eb}{\+\_\+\+S\+Y\+N\+C\+\_\+t} sobj)
+\item 
+void \hyperlink{reentrant_8c_a5bb37b1d2ec72388812e11003f2b508a}{ff\+\_\+rel\+\_\+grant} (\hyperlink{ffconf_8h_a9a3f0670343e51652dd12b18fa90a9eb}{\+\_\+\+S\+Y\+N\+C\+\_\+t} sobj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90}{}\label{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{\+\_\+\+\_\+false@{\+\_\+\+\_\+false}!reentrant.\+c@{reentrant.\+c}}\index{reentrant.\+c@{reentrant.\+c}!\+\_\+\+\_\+false@{\+\_\+\+\_\+false}}\item[{\em 
+\+\_\+\+\_\+false\hypertarget{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90aaa137c2caa5802170356478bcd950971}{}\label{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90aaa137c2caa5802170356478bcd950971}
+}]\index{\+\_\+\+\_\+true@{\+\_\+\+\_\+true}!reentrant.\+c@{reentrant.\+c}}\index{reentrant.\+c@{reentrant.\+c}!\+\_\+\+\_\+true@{\+\_\+\+\_\+true}}\item[{\em 
+\+\_\+\+\_\+true\hypertarget{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90a9908d1bd3b872e978fee1678c94e200e}{}\label{reentrant_8c_a68c01102755fc7d1c810bb0b0635fa90a9908d1bd3b872e978fee1678c94e200e}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{reentrant.\+c@{reentrant.\+c}!ff\+\_\+cre\+\_\+syncobj@{ff\+\_\+cre\+\_\+syncobj}}
+\index{ff\+\_\+cre\+\_\+syncobj@{ff\+\_\+cre\+\_\+syncobj}!reentrant.\+c@{reentrant.\+c}}
+\subsubsection[{\texorpdfstring{ff\+\_\+cre\+\_\+syncobj(\+B\+Y\+T\+E vol, \+\_\+\+S\+Y\+N\+C\+\_\+t $\ast$sobj)}{ff_cre_syncobj(BYTE vol, _SYNC_t *sobj)}}]{\setlength{\rightskip}{0pt plus 5cm}int ff\+\_\+cre\+\_\+syncobj (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Y\+TE}}]{vol, }
+\item[{{\bf \+\_\+\+S\+Y\+N\+C\+\_\+t} $\ast$}]{sobj}
+\end{DoxyParamCaption}
+)}\hypertarget{reentrant_8c_a2593b7acfe680686184f9ecb1be50323}{}\label{reentrant_8c_a2593b7acfe680686184f9ecb1be50323}
+\index{reentrant.\+c@{reentrant.\+c}!ff\+\_\+del\+\_\+syncobj@{ff\+\_\+del\+\_\+syncobj}}
+\index{ff\+\_\+del\+\_\+syncobj@{ff\+\_\+del\+\_\+syncobj}!reentrant.\+c@{reentrant.\+c}}
+\subsubsection[{\texorpdfstring{ff\+\_\+del\+\_\+syncobj(\+\_\+\+S\+Y\+N\+C\+\_\+t sobj)}{ff_del_syncobj(_SYNC_t sobj)}}]{\setlength{\rightskip}{0pt plus 5cm}int ff\+\_\+del\+\_\+syncobj (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+\+S\+Y\+N\+C\+\_\+t}}]{sobj}
+\end{DoxyParamCaption}
+)}\hypertarget{reentrant_8c_a9184443f4d0a50b0f9a7fdb241613119}{}\label{reentrant_8c_a9184443f4d0a50b0f9a7fdb241613119}
+\index{reentrant.\+c@{reentrant.\+c}!ff\+\_\+rel\+\_\+grant@{ff\+\_\+rel\+\_\+grant}}
+\index{ff\+\_\+rel\+\_\+grant@{ff\+\_\+rel\+\_\+grant}!reentrant.\+c@{reentrant.\+c}}
+\subsubsection[{\texorpdfstring{ff\+\_\+rel\+\_\+grant(\+\_\+\+S\+Y\+N\+C\+\_\+t sobj)}{ff_rel_grant(_SYNC_t sobj)}}]{\setlength{\rightskip}{0pt plus 5cm}void ff\+\_\+rel\+\_\+grant (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+\+S\+Y\+N\+C\+\_\+t}}]{sobj}
+\end{DoxyParamCaption}
+)}\hypertarget{reentrant_8c_a5bb37b1d2ec72388812e11003f2b508a}{}\label{reentrant_8c_a5bb37b1d2ec72388812e11003f2b508a}
+\index{reentrant.\+c@{reentrant.\+c}!ff\+\_\+req\+\_\+grant@{ff\+\_\+req\+\_\+grant}}
+\index{ff\+\_\+req\+\_\+grant@{ff\+\_\+req\+\_\+grant}!reentrant.\+c@{reentrant.\+c}}
+\subsubsection[{\texorpdfstring{ff\+\_\+req\+\_\+grant(\+\_\+\+S\+Y\+N\+C\+\_\+t sobj)}{ff_req_grant(_SYNC_t sobj)}}]{\setlength{\rightskip}{0pt plus 5cm}int ff\+\_\+req\+\_\+grant (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+\+S\+Y\+N\+C\+\_\+t}}]{sobj}
+\end{DoxyParamCaption}
+)}\hypertarget{reentrant_8c_aa0dd2bf38b270e6b39ff395f2d25a0ed}{}\label{reentrant_8c_aa0dd2bf38b270e6b39ff395f2d25a0ed}

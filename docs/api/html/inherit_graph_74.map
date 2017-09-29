@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d1/d52/classi2c2__device.html" title="i2c2_device" alt="" coords="39,71,130,98"/>
+<area shape="rect" id="node2" href="$d6/d71/classAcceleration__Sensor.html" title="Acceleration_Sensor" alt="" coords="217,17,359,43"/>
+<area shape="rect" id="node3" href="$dd/dd5/classI2C__Temp.html" title="I2C_Temp" alt="" coords="247,71,329,98"/>
+<area shape="rect" id="node5" href="$d3/d2f/classLED__Display.html" title="LED_Display" alt="" coords="239,122,337,149"/>
+<area shape="rect" id="node4" href="$d1/db9/classTemperatureSensor.html" title="TemperatureSensor" alt="" coords="412,126,548,153"/>
+<area shape="rect" id="node6" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l Acceleration_Sensor \&gt;" alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node7" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l LED_Display \&gt;" alt="" coords="15,123,154,164"/>
+<area shape="rect" id="node8" href="$df/d36/classSingletonTemplate.html" title="SingletonTemplate\&lt;\l TemperatureSensor \&gt;" alt="" coords="212,173,364,215"/>
+</map>

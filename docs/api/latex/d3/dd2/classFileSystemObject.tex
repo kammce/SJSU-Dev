@@ -1,0 +1,88 @@
+\hypertarget{classFileSystemObject}{}\section{File\+System\+Object Class Reference}
+\label{classFileSystemObject}\index{File\+System\+Object@{File\+System\+Object}}
+
+
+{\ttfamily \#include $<$File\+System\+Object.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{classFileSystemObject_a02e3883dba58c16f28c351f56a7bf8e3}{get\+Drive\+Path} () const 
+\item 
+char \hyperlink{classFileSystemObject_afa103b2854558978188f848153daceae}{mount} () const 
+\item 
+\hyperlink{ff_8h_a49d0171ecbd362cda5680a0d360db44c}{F\+R\+E\+S\+U\+LT} \hyperlink{classFileSystemObject_a80f0f7f312563128d41bf3481723b028}{get\+Drive\+Info} (unsigned int $\ast$p\+Total\+Drive\+Space\+KB, unsigned int $\ast$p\+Available\+Space\+KB) const 
+\item 
+\hyperlink{ff_8h_a49d0171ecbd362cda5680a0d360db44c}{F\+R\+E\+S\+U\+LT} \hyperlink{classFileSystemObject_a8c5167c7d5d659eeadb799b2c27b041d}{format} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classFileSystemObject_ab647623b3295040f83d3afb2a502a223}{Storage}
+\begin{DoxyCompactList}\small\item\em Allow only the \hyperlink{classStorage}{Storage} class to create us. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File System Class 
+
+\subsection{Member Function Documentation}
+\index{File\+System\+Object@{File\+System\+Object}!format@{format}}
+\index{format@{format}!File\+System\+Object@{File\+System\+Object}}
+\subsubsection[{\texorpdfstring{format() const }{format() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+R\+E\+S\+U\+LT} File\+System\+Object\+::format (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classFileSystemObject_a8c5167c7d5d659eeadb799b2c27b041d}{}\label{classFileSystemObject_a8c5167c7d5d659eeadb799b2c27b041d}
+Formats the drive with default allocation size \index{File\+System\+Object@{File\+System\+Object}!get\+Drive\+Info@{get\+Drive\+Info}}
+\index{get\+Drive\+Info@{get\+Drive\+Info}!File\+System\+Object@{File\+System\+Object}}
+\subsubsection[{\texorpdfstring{get\+Drive\+Info(unsigned int $\ast$p\+Total\+Drive\+Space\+K\+B, unsigned int $\ast$p\+Available\+Space\+K\+B) const }{getDriveInfo(unsigned int *pTotalDriveSpaceKB, unsigned int *pAvailableSpaceKB) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+R\+E\+S\+U\+LT} File\+System\+Object\+::get\+Drive\+Info (
+\begin{DoxyParamCaption}
+\item[{unsigned int $\ast$}]{p\+Total\+Drive\+Space\+KB, }
+\item[{unsigned int $\ast$}]{p\+Available\+Space\+KB}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classFileSystemObject_a80f0f7f312563128d41bf3481723b028}{}\label{classFileSystemObject_a80f0f7f312563128d41bf3481723b028}
+Get the drive\textquotesingle{}s total capacity and available space 
+\begin{DoxyParams}{Parameters}
+{\em p\+Total\+Drive\+Space\+KB} & Pointer where total drive space in kilobytes will be written \\
+\hline
+{\em p\+Available\+Space\+KB} & Pointer where drive\textquotesingle{}s available space in kilobytes will be written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The parameters will be written to zero if an error occurs during this operation. 
+\end{DoxyNote}
+\index{File\+System\+Object@{File\+System\+Object}!get\+Drive\+Path@{get\+Drive\+Path}}
+\index{get\+Drive\+Path@{get\+Drive\+Path}!File\+System\+Object@{File\+System\+Object}}
+\subsubsection[{\texorpdfstring{get\+Drive\+Path() const }{getDrivePath() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ File\+System\+Object\+::get\+Drive\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classFileSystemObject_a02e3883dba58c16f28c351f56a7bf8e3}{}\label{classFileSystemObject_a02e3883dba58c16f28c351f56a7bf8e3}
+Returns the root path of this drive, such as \char`\"{}0\+:\char`\"{} or \char`\"{}1\+:\char`\"{} \index{File\+System\+Object@{File\+System\+Object}!mount@{mount}}
+\index{mount@{mount}!File\+System\+Object@{File\+System\+Object}}
+\subsubsection[{\texorpdfstring{mount() const }{mount() const }}]{\setlength{\rightskip}{0pt plus 5cm}char File\+System\+Object\+::mount (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classFileSystemObject_afa103b2854558978188f848153daceae}{}\label{classFileSystemObject_afa103b2854558978188f848153daceae}
+Initializes the disk and mounts the storage \begin{DoxyReturn}{Returns}
+T\+R\+UE if the disk is ready to be used. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If disk is not formatted correctly, F\+I\+LE IO may fail 
+\end{DoxyNote}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{File\+System\+Object@{File\+System\+Object}!Storage@{Storage}}
+\index{Storage@{Storage}!File\+System\+Object@{File\+System\+Object}}
+\subsubsection[{\texorpdfstring{Storage}{Storage}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Storage}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classFileSystemObject_ab647623b3295040f83d3afb2a502a223}{}\label{classFileSystemObject_ab647623b3295040f83d3afb2a502a223}
+
+
+Allow only the \hyperlink{classStorage}{Storage} class to create us. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/\hyperlink{FileSystemObject_8hpp}{File\+System\+Object.\+hpp}\end{DoxyCompactItemize}

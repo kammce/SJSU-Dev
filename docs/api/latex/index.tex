@@ -1,0 +1,78 @@
+
+\begin{DoxyItemize}
+\item Minimal, Polling U\+A\+R\+T0 initialized @ {\bfseries 38400} B\+PS
+\item R\+TC
+\item A\+DC
+\item S\+P\+I0, S\+P\+I1
+\item \hyperlink{classI2C2}{I2\+C2}
+\end{DoxyItemize}
+
+\subsection*{Other items that are setup}
+
+
+\begin{DoxyItemize}
+\item P\+LL Setup according to desired C\+PU speed set @ \hyperlink{sys__config_8h}{sys\+\_\+config.\+h}
+\item Flash Acceleration setup according to C\+PU frequency
+\item Free\+R\+T\+OS fully setup, just need to create tasks and start Free\+R\+T\+OS scheduler
+\item Attempt is made to mount SD Card \& Flash Memory, so File IO is ready
+\end{DoxyItemize}
+
+\subsection*{The following resources are setup before \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} is called}
+
+
+\begin{DoxyItemize}
+\item System Tick Interrupt is setup for Free\+R\+T\+OS
+\item Timer1 is enabled to to provide system timer services that also helps capture IR signal. Timer1 also services the mesh networking task if Free\+R\+T\+OS is not running. $\ast$
+\end{DoxyItemize}
+
+\subsection*{Layer 0 sets up the following items}
+
+
+\begin{DoxyItemize}
+\item Setup the System Memory and C\+PU Clock
+\item Initialize minimal U\+A\+R\+T0 (polling version) for standard I/O
+\item Make a call to \hyperlink{startup_8cpp_acad89fab6d9a3d739154bab04a6283c0}{high\+\_\+level\+\_\+init()} followed by call to \hyperlink{startup_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}
+\item This layer also contains the processor memory map file
+\end{DoxyItemize}
+
+\subsection*{Layer 1 provides the Free\+R\+T\+OS A\+PI}
+
+
+\begin{DoxyItemize}
+\item Some source code is optimized and improved to provide better information.
+\end{DoxyItemize}
+
+\subsection*{Layer 2 provides the System Drivers}
+
+
+\begin{DoxyItemize}
+\item All of your drivers should be placed in this layer.
+\item Base classes for U\+A\+RT and I2C are present to help write drivers for additional U\+A\+R\+Ts
+\end{DoxyItemize}
+
+\subsection*{Layer 3 provides Utility functions and classes}
+
+
+\begin{DoxyItemize}
+\item Utility functions contain embedded tweaks for String and Vector class
+\item Other classes include L\+O\+G\+G\+ER, Command Handler, and Free\+R\+T\+OS wrapper around Timers
+\end{DoxyItemize}
+
+\subsection*{Layer 4 provides gateway to the SJ One Board IO that includes}
+
+
+\begin{DoxyItemize}
+\item F\+AT File System to access SD Card and on-\/board Flash Memory
+\item Nordic wireless A\+PI also exists at this layer
+\item \hyperlink{classStorage}{Storage} class that allows to format and get information about SD and Flash Memory
+\item Acceleration, IR, Temperature, and Light Sensors
+\item \hyperlink{classLED}{L\+ED} Display, L\+E\+Ds, and \hyperlink{classSwitches}{Switches} class
+\end{DoxyItemize}
+
+\subsection*{Layer 5 is where your application code should go including}
+
+
+\begin{DoxyItemize}
+\item Free\+R\+T\+OS Tasks
+\item High level code that interacts with lower layers 
+\end{DoxyItemize}

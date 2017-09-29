@@ -1,0 +1,208 @@
+\hypertarget{lpc__sys_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/lpc\+\_\+sys.h File Reference}
+\label{lpc__sys_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/lpc\+\_\+sys.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/lpc\+\_\+sys.\+h}}
+
+
+Provides the following system services \+:  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fault\+\_\+registers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+sys.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d88/lpc__sys_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/dcf/lpc__sys_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsys__mem__t}{sys\+\_\+mem\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{lpc__sys_8h_a2425c2b3462f867da9fd2ab76d9d47b1}{void\+\_\+func\+\_\+t}) (void)
+\item 
+typedef char($\ast$ \hyperlink{lpc__sys_8h_a9e3c0b56d28ef99547782120d0eb112c}{char\+\_\+func\+\_\+t}) (char)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5}{sys\+\_\+boot\+\_\+t} \{ \\*
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a892b260094b870c08b92f19a6e811141}{boot\+\_\+unknown} = 0, 
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a1ab86baf3465a0034c5bbe4272ad05aa}{boot\+\_\+power\+\_\+on} = 1, 
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5aadac58e12896f31e92abd2c5132052be}{boot\+\_\+reset} = 2, 
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5ab23679cf240926eef5c6e09474e72571}{boot\+\_\+watchdog} = 4, 
+\\*
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a553695d01d8b2372060469ea31948fd6}{boot\+\_\+watchdog\+\_\+recover}, 
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5aba1b38c643979c766f4a6365b9683366}{boot\+\_\+brown\+\_\+out}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__sys_8h_a97e8457c50ff2604bdd064cae40df2ed}{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer} (void)
+\item 
+uint64\+\_\+t \hyperlink{lpc__sys_8h_a28b68b8d755621109c25dd0b5f997524}{sys\+\_\+get\+\_\+uptime\+\_\+us} (void)
+\item 
+\hyperlink{structsys__mem__t}{sys\+\_\+mem\+\_\+t} \hyperlink{lpc__sys_8h_afc535b417b46f909b8d70f1d2559f6f4}{sys\+\_\+get\+\_\+mem\+\_\+info} ()
+\item 
+void \hyperlink{lpc__sys_8h_a7518affcca9539b99cc4afcdd29352d2}{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str} (char \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer}\mbox{[}280\mbox{]})
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5}{sys\+\_\+boot\+\_\+t} \hyperlink{lpc__sys_8h_a2c3a6134ddde64cb6ceb4df9267ca331}{sys\+\_\+get\+\_\+boot\+\_\+type} ()
+\item 
+rtc\+\_\+t \hyperlink{lpc__sys_8h_a1aaa294812741a6186a5792890fe88b8}{sys\+\_\+get\+\_\+boot\+\_\+time} ()
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__sys_8h_ac2c574edab982e9b4260ab16355fb2b5}{sys\+\_\+set\+\_\+outchar\+\_\+func} (\hyperlink{lpc__sys_8h_a9e3c0b56d28ef99547782120d0eb112c}{char\+\_\+func\+\_\+t} func)
+\item 
+void \hyperlink{lpc__sys_8h_ae3258dbfe0b56946a7f1fda103ef58e6}{sys\+\_\+set\+\_\+inchar\+\_\+func} (\hyperlink{lpc__sys_8h_a9e3c0b56d28ef99547782120d0eb112c}{char\+\_\+func\+\_\+t} func)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+Provides the following system services \+: 
+
+
+\begin{DoxyItemize}
+\item Memory info of the system.
+\item Configure function to use for printf/scanf
+\item Get boot type and time
+\item Watchdog
+\end{DoxyItemize}
+
+12082013 \+: Added functionality to see next heap pointer from mem\+\_\+info\+\_\+t 
+
+\subsection{Typedef Documentation}
+\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!char\+\_\+func\+\_\+t@{char\+\_\+func\+\_\+t}}
+\index{char\+\_\+func\+\_\+t@{char\+\_\+func\+\_\+t}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{char\+\_\+func\+\_\+t}{char_func_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef char($\ast$ char\+\_\+func\+\_\+t) (char)}\hypertarget{lpc__sys_8h_a9e3c0b56d28ef99547782120d0eb112c}{}\label{lpc__sys_8h_a9e3c0b56d28ef99547782120d0eb112c}
+Function pointer of a function returning a char and taking a char as parameter \index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!void\+\_\+func\+\_\+t@{void\+\_\+func\+\_\+t}}
+\index{void\+\_\+func\+\_\+t@{void\+\_\+func\+\_\+t}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{void\+\_\+func\+\_\+t}{void_func_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ void\+\_\+func\+\_\+t) (void)}\hypertarget{lpc__sys_8h_a2425c2b3462f867da9fd2ab76d9d47b1}{}\label{lpc__sys_8h_a2425c2b3462f867da9fd2ab76d9d47b1}
+Void function pointer 
+
+\subsection{Enumeration Type Documentation}
+\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+boot\+\_\+t@{sys\+\_\+boot\+\_\+t}}
+\index{sys\+\_\+boot\+\_\+t@{sys\+\_\+boot\+\_\+t}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+boot\+\_\+t}{sys_boot_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf sys\+\_\+boot\+\_\+t}}\hypertarget{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5}{}\label{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5}
+Enumeration of the reboot type \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{boot\+\_\+unknown@{boot\+\_\+unknown}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!boot\+\_\+unknown@{boot\+\_\+unknown}}\item[{\em 
+boot\+\_\+unknown\hypertarget{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a892b260094b870c08b92f19a6e811141}{}\label{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a892b260094b870c08b92f19a6e811141}
+}]\index{boot\+\_\+power\+\_\+on@{boot\+\_\+power\+\_\+on}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!boot\+\_\+power\+\_\+on@{boot\+\_\+power\+\_\+on}}\item[{\em 
+boot\+\_\+power\+\_\+on\hypertarget{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a1ab86baf3465a0034c5bbe4272ad05aa}{}\label{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a1ab86baf3465a0034c5bbe4272ad05aa}
+}]Cold boot (power on) \index{boot\+\_\+reset@{boot\+\_\+reset}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!boot\+\_\+reset@{boot\+\_\+reset}}\item[{\em 
+boot\+\_\+reset\hypertarget{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5aadac58e12896f31e92abd2c5132052be}{}\label{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5aadac58e12896f31e92abd2c5132052be}
+}]Boot after reset condition. \index{boot\+\_\+watchdog@{boot\+\_\+watchdog}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!boot\+\_\+watchdog@{boot\+\_\+watchdog}}\item[{\em 
+boot\+\_\+watchdog\hypertarget{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5ab23679cf240926eef5c6e09474e72571}{}\label{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5ab23679cf240926eef5c6e09474e72571}
+}]Boot after watchdog reset (intentional) \index{boot\+\_\+watchdog\+\_\+recover@{boot\+\_\+watchdog\+\_\+recover}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!boot\+\_\+watchdog\+\_\+recover@{boot\+\_\+watchdog\+\_\+recover}}\item[{\em 
+boot\+\_\+watchdog\+\_\+recover\hypertarget{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a553695d01d8b2372060469ea31948fd6}{}\label{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5a553695d01d8b2372060469ea31948fd6}
+}]Boot after watchdog reset after an error (or crash) \index{boot\+\_\+brown\+\_\+out@{boot\+\_\+brown\+\_\+out}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!boot\+\_\+brown\+\_\+out@{boot\+\_\+brown\+\_\+out}}\item[{\em 
+boot\+\_\+brown\+\_\+out\hypertarget{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5aba1b38c643979c766f4a6365b9683366}{}\label{lpc__sys_8h_a544d8d41c6556fa2ece81200796ddef5aba1b38c643979c766f4a6365b9683366}
+}]Boot after under-\/voltage. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer@{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer}}
+\index{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer@{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer(void)}{lpc_sys_setup_system_timer(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_a97e8457c50ff2604bdd064cae40df2ed}{}\label{lpc__sys_8h_a97e8457c50ff2604bdd064cae40df2ed}
+Sets up the system timer that drives the time needed to get uptime in ms and us along with some background services. \begin{DoxySeeAlso}{See also}
+\hyperlink{sys__config_8h_a90785bc38ce7e47020bbc786874ad47b}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER} at \hyperlink{sys__config_8h}{sys\+\_\+config.\+h} 
+\end{DoxySeeAlso}
+M\+R0\+: Setup the match register to take care of the overflow. Upon the roll-\/over, we increment the roll-\/over count and the timer restarts from zero.\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+get\+\_\+boot\+\_\+time@{sys\+\_\+get\+\_\+boot\+\_\+time}}
+\index{sys\+\_\+get\+\_\+boot\+\_\+time@{sys\+\_\+get\+\_\+boot\+\_\+time}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+boot\+\_\+time()}{sys_get_boot_time()}}]{\setlength{\rightskip}{0pt plus 5cm}rtc\+\_\+t sys\+\_\+get\+\_\+boot\+\_\+time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_a1aaa294812741a6186a5792890fe88b8}{}\label{lpc__sys_8h_a1aaa294812741a6186a5792890fe88b8}
+\begin{DoxyReturn}{Returns}
+the boot-\/time recorded in the system 
+\end{DoxyReturn}
+\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+get\+\_\+boot\+\_\+type@{sys\+\_\+get\+\_\+boot\+\_\+type}}
+\index{sys\+\_\+get\+\_\+boot\+\_\+type@{sys\+\_\+get\+\_\+boot\+\_\+type}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+boot\+\_\+type()}{sys_get_boot_type()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sys\+\_\+boot\+\_\+t} sys\+\_\+get\+\_\+boot\+\_\+type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_a2c3a6134ddde64cb6ceb4df9267ca331}{}\label{lpc__sys_8h_a2c3a6134ddde64cb6ceb4df9267ca331}
+Defined at system\+\_\+init.\+c\begin{DoxyReturn}{Returns}
+the reboot reason as detected during system startup 
+\end{DoxyReturn}
+\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+get\+\_\+mem\+\_\+info@{sys\+\_\+get\+\_\+mem\+\_\+info}}
+\index{sys\+\_\+get\+\_\+mem\+\_\+info@{sys\+\_\+get\+\_\+mem\+\_\+info}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+mem\+\_\+info()}{sys_get_mem_info()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sys\+\_\+mem\+\_\+t} sys\+\_\+get\+\_\+mem\+\_\+info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_afc535b417b46f909b8d70f1d2559f6f4}{}\label{lpc__sys_8h_afc535b417b46f909b8d70f1d2559f6f4}
+Gets System Memory information The information includes Global Memory usage, and dynamic memory usage. This function is defined at \hyperlink{memory_8cpp}{memory.\+cpp} \begin{DoxyReturn}{Returns}
+Memory\+Info\+Type structure 
+\end{DoxyReturn}
+\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str@{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str}}
+\index{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str@{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str(char buffer[280])}{sys_get_mem_info_str(char buffer[280])}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{char}]{buffer\mbox{[}280\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_a7518affcca9539b99cc4afcdd29352d2}{}\label{lpc__sys_8h_a7518affcca9539b99cc4afcdd29352d2}
+Prints memory information to the given buffer The buffer needs to be at least 280 bytes \index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+get\+\_\+uptime\+\_\+us@{sys\+\_\+get\+\_\+uptime\+\_\+us}}
+\index{sys\+\_\+get\+\_\+uptime\+\_\+us@{sys\+\_\+get\+\_\+uptime\+\_\+us}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+uptime\+\_\+us(void)}{sys_get_uptime_us(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t sys\+\_\+get\+\_\+uptime\+\_\+us (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_a28b68b8d755621109c25dd0b5f997524}{}\label{lpc__sys_8h_a28b68b8d755621109c25dd0b5f997524}
+\begin{DoxyReturn}{Returns}
+the system up time in microseconds 
+\end{DoxyReturn}
+Loop until we can safely read both the rollover value and the timer value. When the timer rolls over, the TC value will start from zero, and the \char`\"{}after\char`\"{} value will be less than the before value in which case, we will loop again and pick up the new rollover count. This avoid critical section and simplifies the logic of reading higher 16-\/bit (roll-\/over) and lower 32-\/bit (timer value).\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+set\+\_\+inchar\+\_\+func@{sys\+\_\+set\+\_\+inchar\+\_\+func}}
+\index{sys\+\_\+set\+\_\+inchar\+\_\+func@{sys\+\_\+set\+\_\+inchar\+\_\+func}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+set\+\_\+inchar\+\_\+func(char\+\_\+func\+\_\+t func)}{sys_set_inchar_func(char_func_t func)}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+set\+\_\+inchar\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+\_\+func\+\_\+t}}]{func}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_ae3258dbfe0b56946a7f1fda103ef58e6}{}\label{lpc__sys_8h_ae3258dbfe0b56946a7f1fda103ef58e6}
+Sets the function used to input a char by scanf() or stdio input functions 
+\begin{DoxyParams}{Parameters}
+{\em func} & The function pointer to use to get a char \\
+\hline
+\end{DoxyParams}
+\index{lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}!sys\+\_\+set\+\_\+outchar\+\_\+func@{sys\+\_\+set\+\_\+outchar\+\_\+func}}
+\index{sys\+\_\+set\+\_\+outchar\+\_\+func@{sys\+\_\+set\+\_\+outchar\+\_\+func}!lpc\+\_\+sys.\+h@{lpc\+\_\+sys.\+h}}
+\subsubsection[{\texorpdfstring{sys\+\_\+set\+\_\+outchar\+\_\+func(char\+\_\+func\+\_\+t func)}{sys_set_outchar_func(char_func_t func)}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+set\+\_\+outchar\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+\_\+func\+\_\+t}}]{func}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8h_ac2c574edab982e9b4260ab16355fb2b5}{}\label{lpc__sys_8h_ac2c574edab982e9b4260ab16355fb2b5}
+Defined at syscalls.\+c Sets the function used to output a char by \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} or stdio output functions 
+\begin{DoxyParams}{Parameters}
+{\em func} & The function pointer to use to output a char \\
+\hline
+\end{DoxyParams}

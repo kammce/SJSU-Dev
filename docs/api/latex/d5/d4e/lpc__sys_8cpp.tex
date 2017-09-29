@@ -1,0 +1,136 @@
+\hypertarget{lpc__sys_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+sys.cpp File Reference}
+\label{lpc__sys_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+sys.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/lpc\+\_\+sys.\+cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wireless.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+timers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}io.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+Include dependency graph for lpc\+\_\+sys.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d10/lpc__sys_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lpc__sys_8cpp_a369d967f473e1211c96d994cb79fe0a8}{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+B\+C\+K\+G\+N\+D\+\_\+\+T\+A\+S\+K\+\_\+\+US}~(1 $\ast$ 1000)
+\begin{DoxyCompactList}\small\item\em Periodic interrupt for mesh networking. This timer match interrupt is disabled if Free\+R\+T\+OS starts to run. \end{DoxyCompactList}\item 
+\#define \hyperlink{lpc__sys_8cpp_a2e93e8a6eeedc7d2b8f66239e74b26c3}{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+\_\+\+US}~((\hyperlink{sys__config_8h_a93c34a0617489b17068b85201a1fcadf}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS} / 2) $\ast$ 1000)
+\begin{DoxyCompactList}\small\item\em Time in microseconds that will feed the watchdog, which should be roughly half of the actual watchdog reset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6eac50b0f9b6ce94d423abb77db1ab99ae1}{mr0\+\_\+mcr\+\_\+for\+\_\+overflow} = (U\+I\+N\+T32\+\_\+C(1) $<$$<$ 0), 
+\hyperlink{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6eaf40274632cdb43b91f45cb0e6d32aac9}{mr1\+\_\+mcr\+\_\+for\+\_\+mesh\+\_\+bckgnd\+\_\+task} = (U\+I\+N\+T32\+\_\+C(1) $<$$<$ 3), 
+\hyperlink{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6ea4272f50894a957ee5ba0d4f0747385ba}{mr2\+\_\+mcr\+\_\+for\+\_\+ir\+\_\+sensor\+\_\+timeout} = (U\+I\+N\+T32\+\_\+C(1) $<$$<$ 6), 
+\hyperlink{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6ea3184b3717e780be13ee011b240d1a353}{mr3\+\_\+mcr\+\_\+for\+\_\+watchdog\+\_\+reset} = (U\+I\+N\+T32\+\_\+C(1) $<$$<$ 9)
+ \}\begin{DoxyCompactList}\small\item\em These bitmasks should match up with the timer M\+CR register to trigger interrupt upon match. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lpc__sys_8cpp_a97e8457c50ff2604bdd064cae40df2ed}{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer} (void)
+\item 
+uint64\+\_\+t \hyperlink{lpc__sys_8cpp_a28b68b8d755621109c25dd0b5f997524}{sys\+\_\+get\+\_\+uptime\+\_\+us} (void)
+\item 
+void \hyperlink{lpc__sys_8cpp_a03c68635f0cf80298fad08fb45dd0e1a}{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler} ()
+\item 
+void \hyperlink{lpc__sys_8cpp_a7518affcca9539b99cc4afcdd29352d2}{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str} (char \hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer}\mbox{[}280\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLPC__TIM__TypeDef}{L\+P\+C\+\_\+\+T\+I\+M\+\_\+\+Type\+Def} $\ast$ \hyperlink{lpc__sys_8cpp_a9d0712ff26f50356757244287d168d70}{gp\+\_\+timer\+\_\+ptr} = N\+U\+LL
+\begin{DoxyCompactList}\small\item\em Pointer to the timer struct based on S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+B\+C\+K\+G\+N\+D\+\_\+\+T\+A\+S\+K\+\_\+\+US@{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+B\+C\+K\+G\+N\+D\+\_\+\+T\+A\+S\+K\+\_\+\+US}}
+\index{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+B\+C\+K\+G\+N\+D\+\_\+\+T\+A\+S\+K\+\_\+\+US@{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+B\+C\+K\+G\+N\+D\+\_\+\+T\+A\+S\+K\+\_\+\+US}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}
+\subsubsection[{\texorpdfstring{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+B\+C\+K\+G\+N\+D\+\_\+\+T\+A\+S\+K\+\_\+\+US}{LPC_SYS_TIME_FOR_BCKGND_TASK_US}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+B\+C\+K\+G\+N\+D\+\_\+\+T\+A\+S\+K\+\_\+\+US~(1 $\ast$ 1000)}\hypertarget{lpc__sys_8cpp_a369d967f473e1211c96d994cb79fe0a8}{}\label{lpc__sys_8cpp_a369d967f473e1211c96d994cb79fe0a8}
+
+
+Periodic interrupt for mesh networking. This timer match interrupt is disabled if Free\+R\+T\+OS starts to run. 
+
+\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+\_\+\+US@{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+\_\+\+US}}
+\index{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+\_\+\+US@{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+\_\+\+US}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}
+\subsubsection[{\texorpdfstring{L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+\_\+\+US}{LPC_SYS_WATCHDOG_RESET_TIME_US}}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+P\+C\+\_\+\+S\+Y\+S\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+\_\+\+US~(({\bf S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS} / 2) $\ast$ 1000)}\hypertarget{lpc__sys_8cpp_a2e93e8a6eeedc7d2b8f66239e74b26c3}{}\label{lpc__sys_8cpp_a2e93e8a6eeedc7d2b8f66239e74b26c3}
+
+
+Time in microseconds that will feed the watchdog, which should be roughly half of the actual watchdog reset. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6e}{}\label{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6e}
+
+
+These bitmasks should match up with the timer M\+CR register to trigger interrupt upon match. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{mr0\+\_\+mcr\+\_\+for\+\_\+overflow@{mr0\+\_\+mcr\+\_\+for\+\_\+overflow}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!mr0\+\_\+mcr\+\_\+for\+\_\+overflow@{mr0\+\_\+mcr\+\_\+for\+\_\+overflow}}\item[{\em 
+mr0\+\_\+mcr\+\_\+for\+\_\+overflow\hypertarget{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6eac50b0f9b6ce94d423abb77db1ab99ae1}{}\label{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6eac50b0f9b6ce94d423abb77db1ab99ae1}
+}]\index{mr1\+\_\+mcr\+\_\+for\+\_\+mesh\+\_\+bckgnd\+\_\+task@{mr1\+\_\+mcr\+\_\+for\+\_\+mesh\+\_\+bckgnd\+\_\+task}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!mr1\+\_\+mcr\+\_\+for\+\_\+mesh\+\_\+bckgnd\+\_\+task@{mr1\+\_\+mcr\+\_\+for\+\_\+mesh\+\_\+bckgnd\+\_\+task}}\item[{\em 
+mr1\+\_\+mcr\+\_\+for\+\_\+mesh\+\_\+bckgnd\+\_\+task\hypertarget{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6eaf40274632cdb43b91f45cb0e6d32aac9}{}\label{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6eaf40274632cdb43b91f45cb0e6d32aac9}
+}]\index{mr2\+\_\+mcr\+\_\+for\+\_\+ir\+\_\+sensor\+\_\+timeout@{mr2\+\_\+mcr\+\_\+for\+\_\+ir\+\_\+sensor\+\_\+timeout}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!mr2\+\_\+mcr\+\_\+for\+\_\+ir\+\_\+sensor\+\_\+timeout@{mr2\+\_\+mcr\+\_\+for\+\_\+ir\+\_\+sensor\+\_\+timeout}}\item[{\em 
+mr2\+\_\+mcr\+\_\+for\+\_\+ir\+\_\+sensor\+\_\+timeout\hypertarget{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6ea4272f50894a957ee5ba0d4f0747385ba}{}\label{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6ea4272f50894a957ee5ba0d4f0747385ba}
+}]\index{mr3\+\_\+mcr\+\_\+for\+\_\+watchdog\+\_\+reset@{mr3\+\_\+mcr\+\_\+for\+\_\+watchdog\+\_\+reset}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!mr3\+\_\+mcr\+\_\+for\+\_\+watchdog\+\_\+reset@{mr3\+\_\+mcr\+\_\+for\+\_\+watchdog\+\_\+reset}}\item[{\em 
+mr3\+\_\+mcr\+\_\+for\+\_\+watchdog\+\_\+reset\hypertarget{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6ea3184b3717e780be13ee011b240d1a353}{}\label{lpc__sys_8cpp_afa9be5679ab03d785820f2474c5ccc6ea3184b3717e780be13ee011b240d1a353}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer@{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer}}
+\index{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer@{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}
+\subsubsection[{\texorpdfstring{lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer(void)}{lpc_sys_setup_system_timer(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void lpc\+\_\+sys\+\_\+setup\+\_\+system\+\_\+timer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8cpp_a97e8457c50ff2604bdd064cae40df2ed}{}\label{lpc__sys_8cpp_a97e8457c50ff2604bdd064cae40df2ed}
+Sets up the system timer that drives the time needed to get uptime in ms and us along with some background services. \begin{DoxySeeAlso}{See also}
+\hyperlink{sys__config_8h_a90785bc38ce7e47020bbc786874ad47b}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER} at \hyperlink{sys__config_8h}{sys\+\_\+config.\+h} 
+\end{DoxySeeAlso}
+M\+R0\+: Setup the match register to take care of the overflow. Upon the roll-\/over, we increment the roll-\/over count and the timer restarts from zero.\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str@{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str}}
+\index{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str@{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str(char buffer[280])}{sys_get_mem_info_str(char buffer[280])}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+get\+\_\+mem\+\_\+info\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{char}]{buffer\mbox{[}280\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8cpp_a7518affcca9539b99cc4afcdd29352d2}{}\label{lpc__sys_8cpp_a7518affcca9539b99cc4afcdd29352d2}
+Prints memory information to the given buffer The buffer needs to be at least 280 bytes \index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!sys\+\_\+get\+\_\+uptime\+\_\+us@{sys\+\_\+get\+\_\+uptime\+\_\+us}}
+\index{sys\+\_\+get\+\_\+uptime\+\_\+us@{sys\+\_\+get\+\_\+uptime\+\_\+us}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+uptime\+\_\+us(void)}{sys_get_uptime_us(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t sys\+\_\+get\+\_\+uptime\+\_\+us (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8cpp_a28b68b8d755621109c25dd0b5f997524}{}\label{lpc__sys_8cpp_a28b68b8d755621109c25dd0b5f997524}
+\begin{DoxyReturn}{Returns}
+the system up time in microseconds 
+\end{DoxyReturn}
+Loop until we can safely read both the rollover value and the timer value. When the timer rolls over, the TC value will start from zero, and the \char`\"{}after\char`\"{} value will be less than the before value in which case, we will loop again and pick up the new rollover count. This avoid critical section and simplifies the logic of reading higher 16-\/bit (roll-\/over) and lower 32-\/bit (timer value).\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler()}{TIMER0_IRQHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M\+E\+R0\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{lpc__sys_8cpp_a03c68635f0cf80298fad08fb45dd0e1a}{}\label{lpc__sys_8cpp_a03c68635f0cf80298fad08fb45dd0e1a}
+Actual I\+SR function (\begin{DoxySeeAlso}{See also}
+\hyperlink{startup_8cpp}{startup.\+cpp}) 
+\end{DoxySeeAlso}
+
+
+\subsection{Variable Documentation}
+\index{lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}!gp\+\_\+timer\+\_\+ptr@{gp\+\_\+timer\+\_\+ptr}}
+\index{gp\+\_\+timer\+\_\+ptr@{gp\+\_\+timer\+\_\+ptr}!lpc\+\_\+sys.\+cpp@{lpc\+\_\+sys.\+cpp}}
+\subsubsection[{\texorpdfstring{gp\+\_\+timer\+\_\+ptr}{gp_timer_ptr}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf L\+P\+C\+\_\+\+T\+I\+M\+\_\+\+Type\+Def}$\ast$ gp\+\_\+timer\+\_\+ptr = N\+U\+LL}\hypertarget{lpc__sys_8cpp_a9d0712ff26f50356757244287d168d70}{}\label{lpc__sys_8cpp_a9d0712ff26f50356757244287d168d70}
+
+
+Pointer to the timer struct based on S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+S\+Y\+S\+\_\+\+T\+I\+M\+ER. 
+

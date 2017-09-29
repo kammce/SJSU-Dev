@@ -1,0 +1,77 @@
+\hypertarget{adc_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/adc.c File Reference}
+\label{adc_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/adc.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/adc.\+c}}
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+Include dependency graph for adc.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d6c/adc_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{adc_8c_a06406eadf297fa89a6eaf9586b227a69}{A\+D\+C\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \hyperlink{adc_8c_a680fd3b1ce7e1614b1602e4ec614775f}{adc0\+\_\+init} ()
+\item 
+uint16\+\_\+t \hyperlink{adc_8c_a71f4c45d19fecea3090ef24bb985d158}{adc0\+\_\+get\+\_\+reading} (uint8\+\_\+t channel\+\_\+num)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{queue_8h_aaf19d499892a4ce1409326ece00f5264}{Queue\+Handle\+\_\+t} \hyperlink{adc_8c_a49cef5ce21fcf9a7a07e93a3b49c3625}{g\+\_\+adc\+\_\+result\+\_\+queue} = 0
+\item 
+\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t} \hyperlink{adc_8c_a61d9c79473383d09418f89853adeee4c}{g\+\_\+adc\+\_\+mutex} = 0
+\begin{DoxyCompactList}\small\item\em This is the mutex such that only one A\+DC conversion is performed at a time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{adc.\+c@{adc.\+c}!adc0\+\_\+get\+\_\+reading@{adc0\+\_\+get\+\_\+reading}}
+\index{adc0\+\_\+get\+\_\+reading@{adc0\+\_\+get\+\_\+reading}!adc.\+c@{adc.\+c}}
+\subsubsection[{\texorpdfstring{adc0\+\_\+get\+\_\+reading(uint8\+\_\+t channel\+\_\+num)}{adc0_get_reading(uint8_t channel_num)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t adc0\+\_\+get\+\_\+reading (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel\+\_\+num}
+\end{DoxyParamCaption}
+)}\hypertarget{adc_8c_a71f4c45d19fecea3090ef24bb985d158}{}\label{adc_8c_a71f4c45d19fecea3090ef24bb985d158}
+Gets an A\+DC reading from a channel number between 0 -\/ 7 \begin{DoxyReturn}{Returns}
+12-\/bit A\+DC value read from the A\+DC. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If Free\+R\+T\+OS is running, adc conversion will use interrupts and not poll for the result. 
+\end{DoxyNote}
+\index{adc.\+c@{adc.\+c}!adc0\+\_\+init@{adc0\+\_\+init}}
+\index{adc0\+\_\+init@{adc0\+\_\+init}!adc.\+c@{adc.\+c}}
+\subsubsection[{\texorpdfstring{adc0\+\_\+init()}{adc0_init()}}]{\setlength{\rightskip}{0pt plus 5cm}void adc0\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{adc_8c_a680fd3b1ce7e1614b1602e4ec614775f}{}\label{adc_8c_a680fd3b1ce7e1614b1602e4ec614775f}
+Initializes the A\+DC Peripheral \begin{DoxyNote}{Note}
+The P\+IN that will be used by A\+DC needs to be selected using P\+I\+N\+S\+EL externally 
+\end{DoxyNote}
+\index{adc.\+c@{adc.\+c}!A\+D\+C\+\_\+\+I\+R\+Q\+Handler@{A\+D\+C\+\_\+\+I\+R\+Q\+Handler}}
+\index{A\+D\+C\+\_\+\+I\+R\+Q\+Handler@{A\+D\+C\+\_\+\+I\+R\+Q\+Handler}!adc.\+c@{adc.\+c}}
+\subsubsection[{\texorpdfstring{A\+D\+C\+\_\+\+I\+R\+Q\+Handler(void)}{ADC_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void A\+D\+C\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{adc_8c_a06406eadf297fa89a6eaf9586b227a69}{}\label{adc_8c_a06406eadf297fa89a6eaf9586b227a69}
+This is the A\+DC interrupt mapped to \hyperlink{startup_8cpp}{startup.\+cpp} I\+RQ name. This is called by the C\+PU core when A\+DC interrupt occurs. 
+
+\subsection{Variable Documentation}
+\index{adc.\+c@{adc.\+c}!g\+\_\+adc\+\_\+mutex@{g\+\_\+adc\+\_\+mutex}}
+\index{g\+\_\+adc\+\_\+mutex@{g\+\_\+adc\+\_\+mutex}!adc.\+c@{adc.\+c}}
+\subsubsection[{\texorpdfstring{g\+\_\+adc\+\_\+mutex}{g_adc_mutex}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Semaphore\+Handle\+\_\+t} g\+\_\+adc\+\_\+mutex = 0}\hypertarget{adc_8c_a61d9c79473383d09418f89853adeee4c}{}\label{adc_8c_a61d9c79473383d09418f89853adeee4c}
+
+
+This is the mutex such that only one A\+DC conversion is performed at a time. 
+
+\index{adc.\+c@{adc.\+c}!g\+\_\+adc\+\_\+result\+\_\+queue@{g\+\_\+adc\+\_\+result\+\_\+queue}}
+\index{g\+\_\+adc\+\_\+result\+\_\+queue@{g\+\_\+adc\+\_\+result\+\_\+queue}!adc.\+c@{adc.\+c}}
+\subsubsection[{\texorpdfstring{g\+\_\+adc\+\_\+result\+\_\+queue}{g_adc_result_queue}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Queue\+Handle\+\_\+t} g\+\_\+adc\+\_\+result\+\_\+queue = 0}\hypertarget{adc_8c_a49cef5ce21fcf9a7a07e93a3b49c3625}{}\label{adc_8c_a49cef5ce21fcf9a7a07e93a3b49c3625}
+Once a conversion is complete, we put the result into a queue. This avoids polling as the conversion routine can just wait until the I\+SR inputs the value into the queue. 

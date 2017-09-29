@@ -1,0 +1,48 @@
+\hypertarget{i2c__base_8hpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/i2c\+\_\+base.hpp File Reference}
+\label{i2c__base_8hpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/i2c\+\_\+base.\+hpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/i2c\+\_\+base.\+hpp}}
+
+
+Provides I2C Base class functionality for I2C peripherals.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for i2c\+\_\+base.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d82/i2c__base_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d13/i2c__base_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classI2C__Base}{I2\+C\+\_\+\+Base}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{i2c__base_8hpp_ac8c61bd2fdc391886d8da5c2de78292a}{I2\+C\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}~1000
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides I2C Base class functionality for I2C peripherals. 
+
+20140212 \+: Improved the driver by not having internal memory to copy the transaction\textquotesingle{}s data. The buffer supplied from the user is used directly. 20131211 \+: Used timeout for read/write semaphore (instead of port\+M\+A\+X\+\_\+\+D\+E\+L\+AY) Refactored code, and made the write transfer wait for completion and return true upon success. 
+
+\subsection{Macro Definition Documentation}
+\index{i2c\+\_\+base.\+hpp@{i2c\+\_\+base.\+hpp}!I2\+C\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS@{I2\+C\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}}
+\index{I2\+C\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS@{I2\+C\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}!i2c\+\_\+base.\+hpp@{i2c\+\_\+base.\+hpp}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS}{I2C_TIMEOUT_MS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+MS~1000}\hypertarget{i2c__base_8hpp_ac8c61bd2fdc391886d8da5c2de78292a}{}\label{i2c__base_8hpp_ac8c61bd2fdc391886d8da5c2de78292a}
+Define the maximum timeout for r/w operation (in case error occurs) This is the timeout for read transaction to finish and if Free\+R\+T\+OS is running, then this is the timeout for the mutex to be obtained. 

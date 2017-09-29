@@ -1,0 +1,56 @@
+VERSION ""
+
+NS_ :
+    BA_
+    BA_DEF_
+    BA_DEF_DEF_
+    BA_DEF_DEF_REL_
+    BA_DEF_REL_
+    BA_DEF_SGTYPE_
+    BA_REL_
+    BA_SGTYPE_
+    BO_TX_BU_
+    BU_BO_REL_
+    BU_EV_REL_
+    BU_SG_REL_
+    CAT_
+    CAT_DEF_
+    CM_
+    ENVVAR_DATA_
+    EV_DATA_
+    FILTER
+    NS_DESC_
+    SGTYPE_
+    SGTYPE_VAL_
+    SG_MUL_VAL_
+    SIGTYPE_VALTYPE_
+    SIG_GROUP_
+    SIG_TYPE_REF_
+    SIG_VALTYPE_
+    VAL_
+    VAL_TABLE_
+
+BS_:
+
+BU_: DBG
+
+BO_ 100 COMMAND: 1 DBG
+ SG_ ENABLE : 0|1@1+ (1,0) [0|1] "" DBG
+
+CM_ BU_ DBG "Debugging entity";
+
+BA_DEF_ "BusType" STRING ;
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 0;
+BA_DEF_ SG_ "FieldType" STRING ;
+
+BA_DEF_DEF_ "BusType" "CAN";
+BA_DEF_DEF_ "FieldType" "";
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+
+BA_ "GenMsgCycleTime" BO_ 256 10;
+BA_ "GenMsgCycleTime" BO_ 512 10;
+BA_ "GenMsgCycleTime" BO_ 768 500;
+BA_ "GenMsgCycleTime" BO_ 1024 100;
+BA_ "GenMsgCycleTime" BO_ 1280 1000;
+
+

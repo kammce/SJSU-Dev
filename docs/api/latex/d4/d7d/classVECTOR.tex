@@ -1,0 +1,465 @@
+\hypertarget{classVECTOR}{}\section{V\+E\+C\+T\+OR$<$ T\+Y\+PE $>$ Class Template Reference}
+\label{classVECTOR}\index{V\+E\+C\+T\+O\+R$<$ T\+Y\+P\+E $>$@{V\+E\+C\+T\+O\+R$<$ T\+Y\+P\+E $>$}}
+
+
+{\ttfamily \#include $<$vector.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVECTOR_a96edf7f986bca175d5f87f6ce80f0ca8}{V\+E\+C\+T\+OR} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classVECTOR_a98b703f170a89d747a501884706cbde6}{V\+E\+C\+T\+OR} (int initial\+Capacity)
+\begin{DoxyCompactList}\small\item\em Constructor with initial capacity as Vector size. \end{DoxyCompactList}\item 
+\hyperlink{classVECTOR_afde1e598610bccf796fab9bcfa0e9e62}{V\+E\+C\+T\+OR} (const \hyperlink{classVECTOR}{V\+E\+C\+T\+OR} \&copy)
+\begin{DoxyCompactList}\small\item\em Copy Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classVECTOR}{V\+E\+C\+T\+OR} \& \hyperlink{classVECTOR_afe9688085c1ff04541a56ac268335ffe}{operator=} (const \hyperlink{classVECTOR}{V\+E\+C\+T\+OR} \&copy)
+\begin{DoxyCompactList}\small\item\em =Operator to copy the vector. \end{DoxyCompactList}\item 
+\hyperlink{classVECTOR_a422c15e9b6f466c8878c9f25ff020332}{$\sim$\+V\+E\+C\+T\+OR} ()
+\begin{DoxyCompactList}\small\item\em Destructor of the vector. \end{DoxyCompactList}\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a461960c2cee36c04d2d35b0e59e00f76}{front} ()
+\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a27dbf9ca2a53b00897d64c92584b72ad}{back} ()
+\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a79ba5d73fa6fc84f32505d789cfb3d38}{pop\+\_\+front} ()
+\begin{DoxyCompactList}\small\item\em Pops \& returns the first(oldest) element of the vector (index 0). (S\+L\+OW) \end{DoxyCompactList}\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a54d00d59fcf5f76472d5e0d97d9fb5ce}{pop\+\_\+back} ()
+\begin{DoxyCompactList}\small\item\em Pops \& returns the last element from the vector. (F\+A\+ST) \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_aa86473de53119987158cebdd5a614f1b}{push\+\_\+back} (const T\+Y\+PE \&element)
+\begin{DoxyCompactList}\small\item\em Pushes the element to the end of the vector. (F\+A\+ST) \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_a6819896c9719227dff566e4ad3c0cfc9}{push\+\_\+front} (const T\+Y\+PE \&element)
+\begin{DoxyCompactList}\small\item\em Pushes the element at the 1st location (index 0). (S\+L\+OW) \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_af0adaf6405892d05beb63fb0d69863b9}{reverse} ()
+\begin{DoxyCompactList}\small\item\em Reverses the order of the vector contents. \end{DoxyCompactList}\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a1fed55a974221c1b79bdafdaadab4f0b}{rotate\+Right} ()
+\begin{DoxyCompactList}\small\item\em Rotates the vector right by 1 and. \end{DoxyCompactList}\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a3870652e987829778f7f1c464a7064b2}{rotate\+Left} ()
+\begin{DoxyCompactList}\small\item\em Rotates the vector left by 1 and. \end{DoxyCompactList}\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a904e89caaeea23372c1ca66d22714ab2}{erase\+At} (unsigned int pos)
+\begin{DoxyCompactList}\small\item\em Erases the element at pos and returns it. All elements are shifted left from this pos. \end{DoxyCompactList}\item 
+int \hyperlink{classVECTOR_a5ccb990cf628658f4e910acdf4f63dfe}{get\+First\+Index\+Of} (const T\+Y\+PE \&find)
+\item 
+bool \hyperlink{classVECTOR_aaf7fbc53cd151e3577f8d5fce926f3c3}{remove} (const T\+Y\+PE \&element)
+\begin{DoxyCompactList}\small\item\em Removes the first Vector Element match from this vector,. \end{DoxyCompactList}\item 
+int \hyperlink{classVECTOR_a069a02c249b8ef9cd25eb02daeb64154}{remove\+All} (const T\+Y\+PE \&element)
+\begin{DoxyCompactList}\small\item\em Removes all Vector Elements that match the given element,. \end{DoxyCompactList}\item 
+bool \hyperlink{classVECTOR_a5a5030c05a121f2ffefd9494f6309b3a}{replace} (const T\+Y\+PE \&find, const T\+Y\+PE \&replace)
+\begin{DoxyCompactList}\small\item\em Replaces the first element \char`\"{}find\char`\"{} and replaces it with \char`\"{}replace\char`\"{}. \end{DoxyCompactList}\item 
+int \hyperlink{classVECTOR_a61e4cb6bdb0d5cbc9248defe84693aca}{replace\+All} (const T\+Y\+PE \&find, const T\+Y\+PE \&\hyperlink{classVECTOR_a5a5030c05a121f2ffefd9494f6309b3a}{replace})
+\begin{DoxyCompactList}\small\item\em Replaces all instances of \char`\"{}find\char`\"{} and replaces it with \char`\"{}replace\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_a24c438279d407bd2a3bb04545e753495}{fill} (const T\+Y\+PE \&fill\+Element)
+\begin{DoxyCompactList}\small\item\em Fills the entire vector capacity with the given fill\+Element. \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_a82f4d38d7f35546e94e9d92654350c06}{fill\+Unused} (const T\+Y\+PE \&fill\+Element)
+\begin{DoxyCompactList}\small\item\em Fills the unused capacity of the vector with the given fill\+Element. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classVECTOR_a886dda1960ee8802b6151c66d531e01d}{size} () const 
+\item 
+unsigned int \hyperlink{classVECTOR_a6bc131f9067d07e45638247c95cc7ab0}{capacity} () const 
+\item 
+void \hyperlink{classVECTOR_a2e5af97d018d037dc6a0ceda0c3ed6c0}{reserve} (unsigned int \hyperlink{classVECTOR_a886dda1960ee8802b6151c66d531e01d}{size})
+\begin{DoxyCompactList}\small\item\em Reserves the memory for the vector up front. \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_a74d13e9f54ae114408eb344b1918a1a4}{set\+Growth\+Factor} (int factor)
+\begin{DoxyCompactList}\small\item\em Changes the size the vector grows by. \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_a0e2dc06d22af370c7f44f7b688a6ff6b}{clear} ()
+\begin{DoxyCompactList}\small\item\em Clears the entire vector. \end{DoxyCompactList}\item 
+bool \hyperlink{classVECTOR_ad103c9e2c6742aed3a3e2ee5021ac653}{is\+Empty} ()
+\item 
+T\+Y\+PE \& \hyperlink{classVECTOR_a717ffb0ccf66895d47c8b1f1bacb25da}{at} (const unsigned int i)
+\begin{DoxyCompactList}\small\item\em Access element at given index. \end{DoxyCompactList}\item 
+T\+Y\+PE \& \hyperlink{classVECTOR_ade7f7687236b0c7f0f0d10f1ef446847}{operator\mbox{[}$\,$\mbox{]}} (const unsigned int i)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} Operator for Left-\/hand-\/side. \end{DoxyCompactList}\item 
+const T\+Y\+PE \& \hyperlink{classVECTOR_a9f4cad711d746db70ca3e7b36f729497}{operator\mbox{[}$\,$\mbox{]}} (const unsigned int i) const 
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} Operator of Right-\/hand-\/side. \end{DoxyCompactList}\item 
+void \hyperlink{classVECTOR_af668ddce4060cd44994e8d646fb6f3e5}{operator+=} (const T\+Y\+PE \&item)
+\begin{DoxyCompactList}\small\item\em += Operator which is same as \hyperlink{classVECTOR_aa86473de53119987158cebdd5a614f1b}{push\+\_\+back()} of an item \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T\+Y\+PE$>$\\*
+class V\+E\+C\+T\+O\+R$<$ T\+Y\+P\+E $>$}
+
+Vector class
+
+This vector class can by used as a dynamic array. This can provide fast-\/index based retrieval of stored elements and also provides fast methods to erase or rotate the elements. The underlining storage uses pointer-\/based storage and entire objects are not created or deleted when the vector contents change.
+
+Usage\+: 
+\begin{DoxyCode}
+\hyperlink{classVECTOR}{VECTOR<int>} intVec;
+intVec += 1;
+intVec += 2;
+intVec += 3;
+
+intVec.\hyperlink{classVECTOR_aaf7fbc53cd151e3577f8d5fce926f3c3}{remove}(2);    \textcolor{comment}{// Vector now: 1 3}
+intVec.\hyperlink{classVECTOR_a3870652e987829778f7f1c464a7064b2}{rotateLeft}(); \textcolor{comment}{// 1 3 --> 3 1}
+\hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf}(\textcolor{stringliteral}{"%i %i"}, intVec[0], intVec[1]); \textcolor{comment}{// Prints: 3 1}
+\end{DoxyCode}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{V\+E\+C\+T\+O\+R()}{VECTOR()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::{\bf V\+E\+C\+T\+OR} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a96edf7f986bca175d5f87f6ce80f0ca8}{}\label{classVECTOR_a96edf7f986bca175d5f87f6ce80f0ca8}
+
+
+Default Constructor. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{V\+E\+C\+T\+O\+R(int initial\+Capacity)}{VECTOR(int initialCapacity)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::{\bf V\+E\+C\+T\+OR} (
+\begin{DoxyParamCaption}
+\item[{int}]{initial\+Capacity}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a98b703f170a89d747a501884706cbde6}{}\label{classVECTOR_a98b703f170a89d747a501884706cbde6}
+
+
+Constructor with initial capacity as Vector size. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{V\+E\+C\+T\+O\+R(const V\+E\+C\+T\+O\+R \&copy)}{VECTOR(const VECTOR &copy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::{\bf V\+E\+C\+T\+OR} (
+\begin{DoxyParamCaption}
+\item[{const {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$ \&}]{copy}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_afde1e598610bccf796fab9bcfa0e9e62}{}\label{classVECTOR_afde1e598610bccf796fab9bcfa0e9e62}
+
+
+Copy Constructor. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!````~V\+E\+C\+T\+OR@{$\sim$\+V\+E\+C\+T\+OR}}
+\index{````~V\+E\+C\+T\+OR@{$\sim$\+V\+E\+C\+T\+OR}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{$\sim$\+V\+E\+C\+T\+O\+R()}{~VECTOR()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::$\sim${\bf V\+E\+C\+T\+OR} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a422c15e9b6f466c8878c9f25ff020332}{}\label{classVECTOR_a422c15e9b6f466c8878c9f25ff020332}
+
+
+Destructor of the vector. 
+
+
+
+\subsection{Member Function Documentation}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!at@{at}}
+\index{at@{at}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{at(const unsigned int i)}{at(const unsigned int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::at (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a717ffb0ccf66895d47c8b1f1bacb25da}{}\label{classVECTOR_a717ffb0ccf66895d47c8b1f1bacb25da}
+
+
+Access element at given index. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!back@{back}}
+\index{back@{back}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{back()}{back()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a27dbf9ca2a53b00897d64c92584b72ad}{}\label{classVECTOR_a27dbf9ca2a53b00897d64c92584b72ad}
+\begin{DoxyReturn}{Returns}
+the last added element of the vector. 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!capacity@{capacity}}
+\index{capacity@{capacity}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{capacity() const }{capacity() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ unsigned int {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::capacity (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classVECTOR_a6bc131f9067d07e45638247c95cc7ab0}{}\label{classVECTOR_a6bc131f9067d07e45638247c95cc7ab0}
+\begin{DoxyReturn}{Returns}
+The capacity of the vector (allocated memory) 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!clear@{clear}}
+\index{clear@{clear}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a0e2dc06d22af370c7f44f7b688a6ff6b}{}\label{classVECTOR_a0e2dc06d22af370c7f44f7b688a6ff6b}
+
+
+Clears the entire vector. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!erase\+At@{erase\+At}}
+\index{erase\+At@{erase\+At}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{erase\+At(unsigned int pos)}{eraseAt(unsigned int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::erase\+At (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a904e89caaeea23372c1ca66d22714ab2}{}\label{classVECTOR_a904e89caaeea23372c1ca66d22714ab2}
+
+
+Erases the element at pos and returns it. All elements are shifted left from this pos. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!fill@{fill}}
+\index{fill@{fill}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{fill(const T\+Y\+P\+E \&fill\+Element)}{fill(const TYPE &fillElement)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::fill (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{fill\+Element}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a24c438279d407bd2a3bb04545e753495}{}\label{classVECTOR_a24c438279d407bd2a3bb04545e753495}
+
+
+Fills the entire vector capacity with the given fill\+Element. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!fill\+Unused@{fill\+Unused}}
+\index{fill\+Unused@{fill\+Unused}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{fill\+Unused(const T\+Y\+P\+E \&fill\+Element)}{fillUnused(const TYPE &fillElement)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::fill\+Unused (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{fill\+Element}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a82f4d38d7f35546e94e9d92654350c06}{}\label{classVECTOR_a82f4d38d7f35546e94e9d92654350c06}
+
+
+Fills the unused capacity of the vector with the given fill\+Element. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!front@{front}}
+\index{front@{front}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{front()}{front()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a461960c2cee36c04d2d35b0e59e00f76}{}\label{classVECTOR_a461960c2cee36c04d2d35b0e59e00f76}
+\begin{DoxyReturn}{Returns}
+the first(oldest) element of the vector (index 0). 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!get\+First\+Index\+Of@{get\+First\+Index\+Of}}
+\index{get\+First\+Index\+Of@{get\+First\+Index\+Of}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{get\+First\+Index\+Of(const T\+Y\+P\+E \&find)}{getFirstIndexOf(const TYPE &find)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ int {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::get\+First\+Index\+Of (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{find}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a5ccb990cf628658f4e910acdf4f63dfe}{}\label{classVECTOR_a5ccb990cf628658f4e910acdf4f63dfe}
+\begin{DoxyReturn}{Returns}
+the first index at which the element find is located at 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{is\+Empty()}{isEmpty()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ bool {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_ad103c9e2c6742aed3a3e2ee5021ac653}{}\label{classVECTOR_ad103c9e2c6742aed3a3e2ee5021ac653}
+\begin{DoxyReturn}{Returns}
+True if the vector is empty 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{operator+=(const T\+Y\+P\+E \&item)}{operator+=(const TYPE &item)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{item}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classVECTOR_af668ddce4060cd44994e8d646fb6f3e5}{}\label{classVECTOR_af668ddce4060cd44994e8d646fb6f3e5}
+
+
++= Operator which is same as \hyperlink{classVECTOR_aa86473de53119987158cebdd5a614f1b}{push\+\_\+back()} of an item 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!operator=@{operator=}}
+\index{operator=@{operator=}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{operator=(const V\+E\+C\+T\+O\+R \&copy)}{operator=(const VECTOR &copy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$ \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$ \&}]{copy}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_afe9688085c1ff04541a56ac268335ffe}{}\label{classVECTOR_afe9688085c1ff04541a56ac268335ffe}
+
+
+=Operator to copy the vector. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{operator[](const unsigned int i)}{operator[](const unsigned int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_ade7f7687236b0c7f0f0d10f1ef446847}{}\label{classVECTOR_ade7f7687236b0c7f0f0d10f1ef446847}
+
+
+\mbox{[}\mbox{]} Operator for Left-\/hand-\/side. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{operator[](const unsigned int i) const }{operator[](const unsigned int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{i}
+\end{DoxyParamCaption}
+) const}\hypertarget{classVECTOR_a9f4cad711d746db70ca3e7b36f729497}{}\label{classVECTOR_a9f4cad711d746db70ca3e7b36f729497}
+
+
+\mbox{[}\mbox{]} Operator of Right-\/hand-\/side. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{pop\+\_\+back()}{pop_back()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::pop\+\_\+back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a54d00d59fcf5f76472d5e0d97d9fb5ce}{}\label{classVECTOR_a54d00d59fcf5f76472d5e0d97d9fb5ce}
+
+
+Pops \& returns the last element from the vector. (F\+A\+ST) 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{pop\+\_\+front()}{pop_front()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::pop\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a79ba5d73fa6fc84f32505d789cfb3d38}{}\label{classVECTOR_a79ba5d73fa6fc84f32505d789cfb3d38}
+
+
+Pops \& returns the first(oldest) element of the vector (index 0). (S\+L\+OW) 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{push\+\_\+back(const T\+Y\+P\+E \&element)}{push_back(const TYPE &element)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::push\+\_\+back (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_aa86473de53119987158cebdd5a614f1b}{}\label{classVECTOR_aa86473de53119987158cebdd5a614f1b}
+
+
+Pushes the element to the end of the vector. (F\+A\+ST) 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!push\+\_\+front@{push\+\_\+front}}
+\index{push\+\_\+front@{push\+\_\+front}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{push\+\_\+front(const T\+Y\+P\+E \&element)}{push_front(const TYPE &element)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::push\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a6819896c9719227dff566e4ad3c0cfc9}{}\label{classVECTOR_a6819896c9719227dff566e4ad3c0cfc9}
+
+
+Pushes the element at the 1st location (index 0). (S\+L\+OW) 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!remove@{remove}}
+\index{remove@{remove}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{remove(const T\+Y\+P\+E \&element)}{remove(const TYPE &element)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ bool {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_aaf7fbc53cd151e3577f8d5fce926f3c3}{}\label{classVECTOR_aaf7fbc53cd151e3577f8d5fce926f3c3}
+
+
+Removes the first Vector Element match from this vector,. 
+
+\begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!remove\+All@{remove\+All}}
+\index{remove\+All@{remove\+All}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{remove\+All(const T\+Y\+P\+E \&element)}{removeAll(const TYPE &element)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ int {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::remove\+All (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a069a02c249b8ef9cd25eb02daeb64154}{}\label{classVECTOR_a069a02c249b8ef9cd25eb02daeb64154}
+
+
+Removes all Vector Elements that match the given element,. 
+
+\begin{DoxyReturn}{Returns}
+number of elements removed 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!replace@{replace}}
+\index{replace@{replace}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{replace(const T\+Y\+P\+E \&find, const T\+Y\+P\+E \&replace)}{replace(const TYPE &find, const TYPE &replace)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ bool {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::replace (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{find, }
+\item[{const T\+Y\+PE \&}]{replace}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a5a5030c05a121f2ffefd9494f6309b3a}{}\label{classVECTOR_a5a5030c05a121f2ffefd9494f6309b3a}
+
+
+Replaces the first element \char`\"{}find\char`\"{} and replaces it with \char`\"{}replace\char`\"{}. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!replace\+All@{replace\+All}}
+\index{replace\+All@{replace\+All}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{replace\+All(const T\+Y\+P\+E \&find, const T\+Y\+P\+E \&replace)}{replaceAll(const TYPE &find, const TYPE &replace)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE$>$ int {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::replace\+All (
+\begin{DoxyParamCaption}
+\item[{const T\+Y\+PE \&}]{find, }
+\item[{const T\+Y\+PE \&}]{replace}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a61e4cb6bdb0d5cbc9248defe84693aca}{}\label{classVECTOR_a61e4cb6bdb0d5cbc9248defe84693aca}
+
+
+Replaces all instances of \char`\"{}find\char`\"{} and replaces it with \char`\"{}replace\char`\"{}. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!reserve@{reserve}}
+\index{reserve@{reserve}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{reserve(unsigned int size)}{reserve(unsigned int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::reserve (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a2e5af97d018d037dc6a0ceda0c3ed6c0}{}\label{classVECTOR_a2e5af97d018d037dc6a0ceda0c3ed6c0}
+
+
+Reserves the memory for the vector up front. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!reverse@{reverse}}
+\index{reverse@{reverse}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{reverse()}{reverse()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::reverse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_af0adaf6405892d05beb63fb0d69863b9}{}\label{classVECTOR_af0adaf6405892d05beb63fb0d69863b9}
+
+
+Reverses the order of the vector contents. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!rotate\+Left@{rotate\+Left}}
+\index{rotate\+Left@{rotate\+Left}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{rotate\+Left()}{rotateLeft()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::rotate\+Left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a3870652e987829778f7f1c464a7064b2}{}\label{classVECTOR_a3870652e987829778f7f1c464a7064b2}
+
+
+Rotates the vector left by 1 and. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classVECTOR_a461960c2cee36c04d2d35b0e59e00f76}{front()} value 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!rotate\+Right@{rotate\+Right}}
+\index{rotate\+Right@{rotate\+Right}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{rotate\+Right()}{rotateRight()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ const T\+Y\+PE \& {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::rotate\+Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a1fed55a974221c1b79bdafdaadab4f0b}{}\label{classVECTOR_a1fed55a974221c1b79bdafdaadab4f0b}
+
+
+Rotates the vector right by 1 and. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classVECTOR_a461960c2cee36c04d2d35b0e59e00f76}{front()} value 
+\end{DoxyReturn}
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!set\+Growth\+Factor@{set\+Growth\+Factor}}
+\index{set\+Growth\+Factor@{set\+Growth\+Factor}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{set\+Growth\+Factor(int factor)}{setGrowthFactor(int factor)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ void {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::set\+Growth\+Factor (
+\begin{DoxyParamCaption}
+\item[{int}]{factor}
+\end{DoxyParamCaption}
+)}\hypertarget{classVECTOR_a74d13e9f54ae114408eb344b1918a1a4}{}\label{classVECTOR_a74d13e9f54ae114408eb344b1918a1a4}
+
+
+Changes the size the vector grows by. 
+
+\index{V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}!size@{size}}
+\index{size@{size}!V\+E\+C\+T\+OR@{V\+E\+C\+T\+OR}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+Y\+PE $>$ unsigned int {\bf V\+E\+C\+T\+OR}$<$ T\+Y\+PE $>$\+::size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classVECTOR_a886dda1960ee8802b6151c66d531e01d}{}\label{classVECTOR_a886dda1960ee8802b6151c66d531e01d}
+\begin{DoxyReturn}{Returns}
+The size of the vector (actual usage) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{vector_8hpp}{vector.\+hpp}\end{DoxyCompactItemize}

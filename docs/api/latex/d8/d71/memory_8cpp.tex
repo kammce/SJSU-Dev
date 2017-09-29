@@ -1,0 +1,103 @@
+\hypertarget{memory_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/newlib/memory.cpp File Reference}
+\label{memory_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/newlib/memory.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/newlib/memory.\+cpp}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$malloc.\+h$>$}\\*
+{\ttfamily \#include $<$stddef.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+Include dependency graph for memory.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d91/memory_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace____gnu__cxx}{\+\_\+\+\_\+gnu\+\_\+cxx}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{memory_8cpp_a0fbe15c348715584fbef757cec8053de}{\+\_\+sbrk} (size\+\_\+t req\+\_\+bytes)
+\item 
+\hyperlink{structsys__mem__t}{sys\+\_\+mem\+\_\+t} \hyperlink{memory_8cpp_afc535b417b46f909b8d70f1d2559f6f4}{sys\+\_\+get\+\_\+mem\+\_\+info} ()
+\item 
+int \hyperlink{memory_8cpp_a4651992ec40b9d29fd600de8b54738cd}{\+\_\+\+\_\+aeabi\+\_\+atexit} (void $\ast$object, void($\ast$destructor)(void $\ast$), void $\ast$dso\+\_\+handle)
+\item 
+void \hyperlink{namespace____gnu__cxx_af51888cedbc669a114cd79e39e0cd9be}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+verbose\+\_\+terminate\+\_\+handler} ()
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{memory_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}{operator new} (size\+\_\+t \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size})
+\item 
+void $\ast$ \hyperlink{memory_8cpp_a63ce4f64887b9307317aee5baae6b18f}{operator new\mbox{[}$\,$\mbox{]}} (size\+\_\+t \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size})
+\item 
+void \hyperlink{memory_8cpp_a86107594327f3a001230df9802cd4422}{operator delete} (void $\ast$p)
+\item 
+void \hyperlink{memory_8cpp_aaa8d8403dca7d813a59dd1f07728349d}{operator delete\mbox{[}$\,$\mbox{]}} (void $\ast$p)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Function Documentation}
+\index{memory.\+cpp@{memory.\+cpp}!\+\_\+\+\_\+aeabi\+\_\+atexit@{\+\_\+\+\_\+aeabi\+\_\+atexit}}
+\index{\+\_\+\+\_\+aeabi\+\_\+atexit@{\+\_\+\+\_\+aeabi\+\_\+atexit}!memory.\+cpp@{memory.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+aeabi\+\_\+atexit(void $\ast$object, void($\ast$destructor)(void $\ast$), void $\ast$dso\+\_\+handle)}{__aeabi_atexit(void *object, void(*destructor)(void *), void *dso_handle)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+\+\_\+aeabi\+\_\+atexit (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{object, }
+\item[{void($\ast$)(void $\ast$)}]{destructor, }
+\item[{void $\ast$}]{dso\+\_\+handle}
+\end{DoxyParamCaption}
+)}\hypertarget{memory_8cpp_a4651992ec40b9d29fd600de8b54738cd}{}\label{memory_8cpp_a4651992ec40b9d29fd600de8b54738cd}
+\index{memory.\+cpp@{memory.\+cpp}!\+\_\+sbrk@{\+\_\+sbrk}}
+\index{\+\_\+sbrk@{\+\_\+sbrk}!memory.\+cpp@{memory.\+cpp}}
+\subsubsection[{\texorpdfstring{\+\_\+sbrk(size\+\_\+t req\+\_\+bytes)}{_sbrk(size_t req_bytes)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \+\_\+sbrk (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{req\+\_\+bytes}
+\end{DoxyParamCaption}
+)}\hypertarget{memory_8cpp_a0fbe15c348715584fbef757cec8053de}{}\label{memory_8cpp_a0fbe15c348715584fbef757cec8053de}
+Check if we gave out too much memory beyond the ram\+\_\+region\+\_\+1. We have more R\+AM in ram region \#2 but some of it is used by global variable space.
+
+\begin{DoxyNote}{Note}
+If next heap pointer is exactly at ram\+\_\+region\+\_\+1\+\_\+end, then we\textquotesingle{}ve got perfectly aligned ret\+\_\+mem to the end of S\+R\+A\+M1. If it is greater, then we\textquotesingle{}ve been asked for too much so try to return from S\+R\+A\+M2.
+\end{DoxyNote}
+\index{memory.\+cpp@{memory.\+cpp}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!memory.\+cpp@{memory.\+cpp}}
+\subsubsection[{\texorpdfstring{operator delete(void $\ast$p)}{operator delete(void *p)}}]{\setlength{\rightskip}{0pt plus 5cm}void operator delete (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{memory_8cpp_a86107594327f3a001230df9802cd4422}{}\label{memory_8cpp_a86107594327f3a001230df9802cd4422}
+\index{memory.\+cpp@{memory.\+cpp}!operator delete\mbox{[}$\,$\mbox{]}@{operator delete[]}}
+\index{operator delete\mbox{[}$\,$\mbox{]}@{operator delete[]}!memory.\+cpp@{memory.\+cpp}}
+\subsubsection[{\texorpdfstring{operator delete[](void $\ast$p)}{operator delete[](void *p)}}]{\setlength{\rightskip}{0pt plus 5cm}void operator delete\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{memory_8cpp_aaa8d8403dca7d813a59dd1f07728349d}{}\label{memory_8cpp_aaa8d8403dca7d813a59dd1f07728349d}
+\index{memory.\+cpp@{memory.\+cpp}!operator new@{operator new}}
+\index{operator new@{operator new}!memory.\+cpp@{memory.\+cpp}}
+\subsubsection[{\texorpdfstring{operator new(size\+\_\+t size)}{operator new(size_t size)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ operator new (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{memory_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}{}\label{memory_8cpp_a205ed048fdf5259c2e8e0cb60ee8f719}
+Redirect C++ memory functions to C \index{memory.\+cpp@{memory.\+cpp}!operator new\mbox{[}$\,$\mbox{]}@{operator new[]}}
+\index{operator new\mbox{[}$\,$\mbox{]}@{operator new[]}!memory.\+cpp@{memory.\+cpp}}
+\subsubsection[{\texorpdfstring{operator new[](size\+\_\+t size)}{operator new[](size_t size)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ operator new\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{memory_8cpp_a63ce4f64887b9307317aee5baae6b18f}{}\label{memory_8cpp_a63ce4f64887b9307317aee5baae6b18f}
+\index{memory.\+cpp@{memory.\+cpp}!sys\+\_\+get\+\_\+mem\+\_\+info@{sys\+\_\+get\+\_\+mem\+\_\+info}}
+\index{sys\+\_\+get\+\_\+mem\+\_\+info@{sys\+\_\+get\+\_\+mem\+\_\+info}!memory.\+cpp@{memory.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+mem\+\_\+info()}{sys_get_mem_info()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sys\+\_\+mem\+\_\+t} sys\+\_\+get\+\_\+mem\+\_\+info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{memory_8cpp_afc535b417b46f909b8d70f1d2559f6f4}{}\label{memory_8cpp_afc535b417b46f909b8d70f1d2559f6f4}
+Gets System Memory information The information includes Global Memory usage, and dynamic memory usage. This function is defined at \hyperlink{memory_8cpp}{memory.\+cpp} \begin{DoxyReturn}{Returns}
+Memory\+Info\+Type structure 
+\end{DoxyReturn}

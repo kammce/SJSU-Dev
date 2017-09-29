@@ -1,0 +1,494 @@
+\hypertarget{can_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/can.h File Reference}
+\label{can_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/can.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/can.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+Include dependency graph for can.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{d2/d9f/can_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{d4/d18/can_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unioncan__data__t}{can\+\_\+data\+\_\+t}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\item 
+struct \hyperlink{structcan__std__grp__id__t}{can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\item 
+struct \hyperlink{structcan__ext__grp__id__t}{can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{can_8h_a70166a12001edeee7860a1257037be44}{can\+\_\+void\+\_\+func\+\_\+t}) (uint32\+\_\+t)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} \{ \hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdda5d6d98ee073edc2321bb51b10db12888}{can1}, 
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdda23699735f0e1c354cceae24f5c2cd9fe}{can2}, 
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bddab38d40c499b095adf4aca181ecb10d59}{can\+\_\+max}
+ \}\begin{DoxyCompactList}\small\item\em The C\+AN B\+US type. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{can_8h_a0e186b576e535b32e6a884a89a4dcb0e}{C\+A\+N\+\_\+init} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, uint32\+\_\+t baudrate\+\_\+kbps, uint16\+\_\+t rxq\+\_\+size, uint16\+\_\+t txq\+\_\+size, \hyperlink{can_8h_a70166a12001edeee7860a1257037be44}{can\+\_\+void\+\_\+func\+\_\+t} bus\+\_\+off\+\_\+cb, \hyperlink{can_8h_a70166a12001edeee7860a1257037be44}{can\+\_\+void\+\_\+func\+\_\+t} data\+\_\+ovr\+\_\+cb)
+\item 
+bool \hyperlink{can_8h_a6f27267c493bfefca258bb24d5c17704}{C\+A\+N\+\_\+rx} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, can\+\_\+msg\+\_\+t $\ast$msg, uint32\+\_\+t timeout\+\_\+ms)
+\item 
+bool \hyperlink{can_8h_a595ba2fcfcdfff25071aed5a361f4b72}{C\+A\+N\+\_\+tx} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, can\+\_\+msg\+\_\+t $\ast$msg, uint32\+\_\+t timeout\+\_\+ms)
+\item 
+uint16\+\_\+t \hyperlink{can_8h_aec1872008530bb84d39166c7b71642e3}{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\item 
+void \hyperlink{can_8h_ac687dc476e43a3f176e2211716f30594}{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs} (void)
+\item 
+bool \hyperlink{can_8h_a498bc7e462028ced7dcfde20eb3dddb9}{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, can\+\_\+std\+\_\+id\+\_\+t id1, can\+\_\+std\+\_\+id\+\_\+t id2)
+\item 
+can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$ \hyperlink{can_8h_a0f952dda1eba7495cb922c168d5dfd3b}{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr} (can\+\_\+std\+\_\+id\+\_\+t fc\+\_\+id)
+\item 
+bool \hyperlink{can_8h_a4a564a174fbed82486e0a4d5a1fce94a}{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy} (can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$fc\+\_\+msg\+\_\+ptr, can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$msg\+\_\+copy\+\_\+ptr)
+\item 
+uint8\+\_\+t \hyperlink{can_8h_af6d6c7ddef6d04f48e307845726156d2}{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries} (void)
+\item 
+bool \hyperlink{can_8h_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter} (const can\+\_\+std\+\_\+id\+\_\+t $\ast$std\+\_\+id\+\_\+list, uint16\+\_\+t sid\+\_\+cnt, const \hyperlink{structcan__std__grp__id__t}{can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} $\ast$std\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t sgp\+\_\+cnt, const can\+\_\+ext\+\_\+id\+\_\+t $\ast$ext\+\_\+id\+\_\+list, uint16\+\_\+t eid\+\_\+cnt, const \hyperlink{structcan__ext__grp__id__t}{can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} $\ast$ext\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t egp\+\_\+cnt)
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{can_8h_a5d99e1adce27fe7d0dc61885cf60b109}{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\item 
+void \hyperlink{can_8h_a33ace748a245e229fd9fa3733b6647e7}{C\+A\+N\+\_\+reset\+\_\+bus} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{can_8h_ab234b183927d70dcf2c931ce4371e66d}{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em RX Free\+R\+T\+OS Queue watermark. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{can_8h_a815c96adb4e5754e999ce4ce702456b4}{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em TX Free\+R\+T\+OS Queue watermark. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{can_8h_aa506373e0e6f9f6e3d46af9a9ebc3c53}{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em Number of messages written to the C\+AN HW. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{can_8h_aea2b93db51a964df358a8611d850a2d2}{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can)
+\begin{DoxyCompactList}\small\item\em Number of messages successfully queued from C\+AN interrupt (not including dropped) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+can\+\_\+std\+\_\+id\+\_\+t \hyperlink{can_8h_aca546899ecc207b8b3c78fa9dcd8c5a3}{C\+A\+N\+\_\+gen\+\_\+sid} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, uint16\+\_\+t id)
+\item 
+can\+\_\+ext\+\_\+id\+\_\+t \hyperlink{can_8h_a5d9156b784b67997345a29aa52d33838}{C\+A\+N\+\_\+gen\+\_\+eid} (\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} can, uint32\+\_\+t id)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+This is a simple C\+AN driver that optionally utilizes the Full\+C\+AN capability. Full\+C\+AN is hardware filtering of the C\+AN messages and the configured messages are stored directly into the C\+AN R\+AM (separate 2K R\+AM) without C\+PU intervention.
+
+Full\+C\+AN feature summary \+:
+\begin{DoxyItemize}
+\item Messages go straight into dedicated R\+AM, SW never needs to be interrupted
+\item Each Full\+C\+AN entry can generate an interrupt (up to 64 messages)
+\item Full\+C\+AN entry can only be 11-\/bit N\+OT 29-\/bit type.
+\item Note that Full\+C\+AN is for B\+O\+TH C\+A\+Ns. If you wish to have separate message reads of individual C\+A\+Ns, you can enable non Full\+C\+AN filters because the implementation provides queues of separate C\+AN channels.
+\end{DoxyItemize}
+
+When the C\+AN bus is initialized, we initially configure it to not accept any messages until filtering or bypass option is used. For the filtering, in addition to the Full\+C\+AN, you can configure explicit 11-\/bit and 29-\/bit I\+Ds (including groups) and only these messages will be accepted.
+
+Note that if you send a message, and no other node acknowledges the message sent, then the C\+AN B\+US may enter \char`\"{}\+Bus off\char`\"{} state due to error(s). You must correct this situation and reset the C\+AN B\+US. 
+
+\subsection{Typedef Documentation}
+\index{can.\+h@{can.\+h}!can\+\_\+void\+\_\+func\+\_\+t@{can\+\_\+void\+\_\+func\+\_\+t}}
+\index{can\+\_\+void\+\_\+func\+\_\+t@{can\+\_\+void\+\_\+func\+\_\+t}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{can\+\_\+void\+\_\+func\+\_\+t}{can_void_func_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ can\+\_\+void\+\_\+func\+\_\+t) (uint32\+\_\+t)}\hypertarget{can_8h_a70166a12001edeee7860a1257037be44}{}\label{can_8h_a70166a12001edeee7860a1257037be44}
+C\+AN function pointer type The 32-\/bit parameter is the value of the I\+CR register of C\+A\+Nbus 
+
+\subsection{Enumeration Type Documentation}
+\index{can.\+h@{can.\+h}!can\+\_\+t@{can\+\_\+t}}
+\index{can\+\_\+t@{can\+\_\+t}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{can\+\_\+t}{can_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf can\+\_\+t}}\hypertarget{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{}\label{can_8h_ac94be130a7809f09346c1b89b3d44bdd}
+
+
+The C\+AN B\+US type. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{can1@{can1}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!can1@{can1}}\item[{\em 
+can1\hypertarget{can_8h_ac94be130a7809f09346c1b89b3d44bdda5d6d98ee073edc2321bb51b10db12888}{}\label{can_8h_ac94be130a7809f09346c1b89b3d44bdda5d6d98ee073edc2321bb51b10db12888}
+}]C\+AN \#1. \index{can2@{can2}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!can2@{can2}}\item[{\em 
+can2\hypertarget{can_8h_ac94be130a7809f09346c1b89b3d44bdda23699735f0e1c354cceae24f5c2cd9fe}{}\label{can_8h_ac94be130a7809f09346c1b89b3d44bdda23699735f0e1c354cceae24f5c2cd9fe}
+}]C\+AN \#2. \index{can\+\_\+max@{can\+\_\+max}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!can\+\_\+max@{can\+\_\+max}}\item[{\em 
+can\+\_\+max\hypertarget{can_8h_ac94be130a7809f09346c1b89b3d44bddab38d40c499b095adf4aca181ecb10d59}{}\label{can_8h_ac94be130a7809f09346c1b89b3d44bddab38d40c499b095adf4aca181ecb10d59}
+}]Do not use or change. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs@{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs}}
+\index{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs@{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs(void)}{CAN_bypass_filter_accept_all_msgs(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_ac687dc476e43a3f176e2211716f30594}{}\label{can_8h_ac687dc476e43a3f176e2211716f30594}
+Enables C\+AN bypass mode to accept all messages on the bus. Either C\+AN filters need to be setup or this method should be called to accept C\+AN messages otherwise no messages will be capture at the C\+AN HW registers.
+
+\begin{DoxyNote}{Note}
+The filter is for B\+O\+TH C\+A\+Ns 
+\end{DoxyNote}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry@{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry@{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry(can\+\_\+t can, can\+\_\+std\+\_\+id\+\_\+t id1, can\+\_\+std\+\_\+id\+\_\+t id2)}{CAN_fullcan_add_entry(can_t can, can_std_id_t id1, can_std_id_t id2)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{can\+\_\+std\+\_\+id\+\_\+t}]{id1, }
+\item[{can\+\_\+std\+\_\+id\+\_\+t}]{id2}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a498bc7e462028ced7dcfde20eb3dddb9}{}\label{can_8h_a498bc7e462028ced7dcfde20eb3dddb9}
+Adds two Full\+C\+AN entries to the acceptance filter and enables the Full\+C\+AN reception. The entries must be added in groups of 2. If the second entry is not needed, simply pass 0x\+F\+F\+FF to \hyperlink{can_8h_aca546899ecc207b8b3c78fa9dcd8c5a3}{C\+A\+N\+\_\+gen\+\_\+sid()} to generate a disabled entry.
+
+\begin{DoxyReturn}{Returns}
+true if successful. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Only 11-\/bit I\+Ds can use Full\+C\+AN.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This must be done B\+E\+F\+O\+RE setting up other filters using \hyperlink{can_8h_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter()} 
+
+C\+AN B\+US should not be enabled to do this because the C\+AN Filter is put to O\+FF mode while the entry is added.
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+TO DO\+: Enabling fc\+\_\+intr bit (Full\+C\+AN interrupts) is not yet supported 
+\end{DoxyNote}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr(can\+\_\+std\+\_\+id\+\_\+t fc\+\_\+id)}{CAN_fullcan_get_entry_ptr(can_std_id_t fc_id)}}]{\setlength{\rightskip}{0pt plus 5cm}can\+\_\+fullcan\+\_\+msg\+\_\+t$\ast$ C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr (
+\begin{DoxyParamCaption}
+\item[{can\+\_\+std\+\_\+id\+\_\+t}]{fc\+\_\+id}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a0f952dda1eba7495cb922c168d5dfd3b}{}\label{can_8h_a0f952dda1eba7495cb922c168d5dfd3b}
+Once all the Ful\+L\+C\+AN entries are added, and C\+AN filters are setup, you can get the pointer in memory where the actual C\+AN message (Full\+C\+AN entry) is stored in memory. 
+\begin{DoxyParams}{Parameters}
+{\em fc\+\_\+id} & The Full\+C\+AN entry originally passed to \hyperlink{can_8h_a498bc7e462028ced7dcfde20eb3dddb9}{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry()} \\
+\hline
+\end{DoxyParams}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries@{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries(void)}{CAN_fullcan_get_num_entries(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+num\+\_\+entries (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_af6d6c7ddef6d04f48e307845726156d2}{}\label{can_8h_af6d6c7ddef6d04f48e307845726156d2}
+\begin{DoxyReturn}{Returns}
+the number of Full\+C\+AN entries being used 
+\end{DoxyReturn}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy@{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy}}
+\index{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy@{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy(can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$fc\+\_\+msg\+\_\+ptr, can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$msg\+\_\+copy\+\_\+ptr)}{CAN_fullcan_read_msg_copy(can_fullcan_msg_t *fc_msg_ptr, can_fullcan_msg_t *msg_copy_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+fullcan\+\_\+read\+\_\+msg\+\_\+copy (
+\begin{DoxyParamCaption}
+\item[{can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$}]{fc\+\_\+msg\+\_\+ptr, }
+\item[{can\+\_\+fullcan\+\_\+msg\+\_\+t $\ast$}]{msg\+\_\+copy\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a4a564a174fbed82486e0a4d5a1fce94a}{}\label{can_8h_a4a564a174fbed82486e0a4d5a1fce94a}
+Full\+C\+AN entries may update at any time by the HW, so this method provides a means to safely read the copy of the Full\+C\+AN message. 
+\begin{DoxyParams}{Parameters}
+{\em msg\+\_\+copy\+\_\+ptr} & The same message returned from \hyperlink{can_8h_a0f952dda1eba7495cb922c168d5dfd3b}{C\+A\+N\+\_\+fullcan\+\_\+get\+\_\+entry\+\_\+ptr()} \\
+\hline
+{\em fc\+\_\+msg\+\_\+ptr} & The copy of the message you wish to read the data to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a N\+EW message has been captured since the last call to this method. false if HW did not receive a new message 
+\end{DoxyReturn}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+gen\+\_\+eid@{C\+A\+N\+\_\+gen\+\_\+eid}}
+\index{C\+A\+N\+\_\+gen\+\_\+eid@{C\+A\+N\+\_\+gen\+\_\+eid}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+gen\+\_\+eid(can\+\_\+t can, uint32\+\_\+t id)}{CAN_gen_eid(can_t can, uint32_t id)}}]{\setlength{\rightskip}{0pt plus 5cm}can\+\_\+ext\+\_\+id\+\_\+t C\+A\+N\+\_\+gen\+\_\+eid (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{uint32\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a5d9156b784b67997345a29aa52d33838}{}\label{can_8h_a5d9156b784b67997345a29aa52d33838}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+gen\+\_\+sid@{C\+A\+N\+\_\+gen\+\_\+sid}}
+\index{C\+A\+N\+\_\+gen\+\_\+sid@{C\+A\+N\+\_\+gen\+\_\+sid}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+gen\+\_\+sid(can\+\_\+t can, uint16\+\_\+t id)}{CAN_gen_sid(can_t can, uint16_t id)}}]{\setlength{\rightskip}{0pt plus 5cm}can\+\_\+std\+\_\+id\+\_\+t C\+A\+N\+\_\+gen\+\_\+sid (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{uint16\+\_\+t}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_aca546899ecc207b8b3c78fa9dcd8c5a3}{}\label{can_8h_aca546899ecc207b8b3c78fa9dcd8c5a3}
+Generate and return the ID used to create the standard and extended id list member. \begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter()}
+\end{DoxySeeAlso}
+To generate a disabled slot, just pass 0x\+F\+F\+FF (id) as the message id, which will disable the message. This is used to generate an empty slot to make an even number of entries as required by the standard id filter. \index{can.\+h@{can.\+h}!C\+A\+N\+\_\+get\+\_\+rx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count}}
+\index{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+rx\+\_\+count(can\+\_\+t can)}{CAN_get_rx_count(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+rx\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_aea2b93db51a964df358a8611d850a2d2}{}\label{can_8h_aea2b93db51a964df358a8611d850a2d2}
+
+
+Number of messages successfully queued from C\+AN interrupt (not including dropped) 
+
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count}}
+\index{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count(can\+\_\+t can)}{CAN_get_rx_dropped_count(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+rx\+\_\+dropped\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_aec1872008530bb84d39166c7b71642e3}{}\label{can_8h_aec1872008530bb84d39166c7b71642e3}
+\begin{DoxyReturn}{Returns}
+The number of C\+AN messages dropped Messages can be dropped out either if the receive queue is too small, or if there is no consumer or task that dequeues the received messages quickly enough from the \hyperlink{can_8h_a6f27267c493bfefca258bb24d5c17704}{C\+A\+N\+\_\+rx()} A\+PI 
+\end{DoxyReturn}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark}}
+\index{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark(can\+\_\+t can)}{CAN_get_rx_watermark(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+rx\+\_\+watermark (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_ab234b183927d70dcf2c931ce4371e66d}{}\label{can_8h_ab234b183927d70dcf2c931ce4371e66d}
+
+
+RX Free\+R\+T\+OS Queue watermark. 
+
+Watermark and counter A\+PI \index{can.\+h@{can.\+h}!C\+A\+N\+\_\+get\+\_\+tx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count}}
+\index{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+tx\+\_\+count(can\+\_\+t can)}{CAN_get_tx_count(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+tx\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_aa506373e0e6f9f6e3d46af9a9ebc3c53}{}\label{can_8h_aa506373e0e6f9f6e3d46af9a9ebc3c53}
+
+
+Number of messages written to the C\+AN HW. 
+
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark}}
+\index{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark@{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark(can\+\_\+t can)}{CAN_get_tx_watermark(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t C\+A\+N\+\_\+get\+\_\+tx\+\_\+watermark (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a815c96adb4e5754e999ce4ce702456b4}{}\label{can_8h_a815c96adb4e5754e999ce4ce702456b4}
+
+
+TX Free\+R\+T\+OS Queue watermark. 
+
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+init@{C\+A\+N\+\_\+init}}
+\index{C\+A\+N\+\_\+init@{C\+A\+N\+\_\+init}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+init(can\+\_\+t can, uint32\+\_\+t baudrate\+\_\+kbps, uint16\+\_\+t rxq\+\_\+size, uint16\+\_\+t txq\+\_\+size, can\+\_\+void\+\_\+func\+\_\+t bus\+\_\+off\+\_\+cb, can\+\_\+void\+\_\+func\+\_\+t data\+\_\+ovr\+\_\+cb)}{CAN_init(can_t can, uint32_t baudrate_kbps, uint16_t rxq_size, uint16_t txq_size, can_void_func_t bus_off_cb, can_void_func_t data_ovr_cb)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{uint32\+\_\+t}]{baudrate\+\_\+kbps, }
+\item[{uint16\+\_\+t}]{rxq\+\_\+size, }
+\item[{uint16\+\_\+t}]{txq\+\_\+size, }
+\item[{{\bf can\+\_\+void\+\_\+func\+\_\+t}}]{bus\+\_\+off\+\_\+cb, }
+\item[{{\bf can\+\_\+void\+\_\+func\+\_\+t}}]{data\+\_\+ovr\+\_\+cb}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a0e186b576e535b32e6a884a89a4dcb0e}{}\label{can_8h_a0e186b576e535b32e6a884a89a4dcb0e}
+Initializes the C\+AN controller with the given baud-\/rate. \begin{DoxyWarning}{Warning}
+This leaves the C\+AN B\+US D\+I\+S\+A\+B\+L\+E\+D!!! The next steps are \+:
+\begin{DoxyItemize}
+\item Optionally, configure the Full\+C\+AN. 
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_a498bc7e462028ced7dcfde20eb3dddb9}{C\+A\+N\+\_\+fullcan\+\_\+add\+\_\+entry()}
+\begin{DoxyItemize}
+\item Optionally, configure C\+AN filters. 
+\end{DoxyItemize}
+
+\hyperlink{can_8h_af86011b37f4fb306df4a79a962a39e86}{C\+A\+N\+\_\+setup\+\_\+filter()}
+\begin{DoxyItemize}
+\item If filters are not configured, and you wish to accept all messages, call \hyperlink{can_8h_ac687dc476e43a3f176e2211716f30594}{C\+A\+N\+\_\+bypass\+\_\+filter\+\_\+accept\+\_\+all\+\_\+msgs()}
+\item Call \hyperlink{can_8h_a33ace748a245e229fd9fa3733b6647e7}{C\+A\+N\+\_\+reset\+\_\+bus()} to enable the C\+AN B\+US
+\end{DoxyItemize}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em can} & The can bus type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em baudrate\+\_\+kbps} & The C\+AN Bus baud-\/rate, such as 100, 250, 500, 1000 Precise, external crystal should be used for higher than 100kbps \\
+\hline
+{\em rxq\+\_\+size} & The size of the received messages queue \\
+\hline
+{\em txq\+\_\+size} & The size of the transmit messages queue\\
+\hline
+{\em bus\+\_\+off\+\_\+cb} & The callback function when C\+AN B\+US enters B\+US error state \\
+\hline
+{\em data\+\_\+ovr\+\_\+cb} & The callback function when C\+AN B\+US encounters data-\/overrun \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Both bus\+\_\+off\+\_\+cb and data\+\_\+ovr\+\_\+cb are optional. B\+US overrun callback should be used because if user doesn\textquotesingle{}t correct this, the C\+AN B\+US will never recover once the B\+US error state is entered.
+
+Each C\+AN B\+US has separate receive and transmit queues 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Postcondition}
+The C\+AN bus is initialized, and by default, no messages are accepted until C\+AN filter is setup, and \hyperlink{can_8h_a33ace748a245e229fd9fa3733b6647e7}{C\+A\+N\+\_\+reset\+\_\+bus()} is called. 
+\end{DoxyPostcond}
+About the A\+F\+MR register \+: B0 B1 Filter Mode $\vert$ Acc\+Off bit $\vert$ Acc\+BP bit $\vert$ C\+AN Rx interrupt Off Mode 1 0 No messages accepted Bypass Mode X 1 All messages accepted Full\+C\+AN 0 0 HW acceptance filtering\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+is\+\_\+bus\+\_\+off@{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off}}
+\index{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off@{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+is\+\_\+bus\+\_\+off(can\+\_\+t can)}{CAN_is_bus_off(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+is\+\_\+bus\+\_\+off (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a5d99e1adce27fe7d0dc61885cf60b109}{}\label{can_8h_a5d99e1adce27fe7d0dc61885cf60b109}
+C\+AN Bus Error and Reset A\+PI If the C\+AN B\+US encounters error(s), it may turn off, in which case no more transmissions will take place. This must be corrected by the user. \index{can.\+h@{can.\+h}!C\+A\+N\+\_\+reset\+\_\+bus@{C\+A\+N\+\_\+reset\+\_\+bus}}
+\index{C\+A\+N\+\_\+reset\+\_\+bus@{C\+A\+N\+\_\+reset\+\_\+bus}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+reset\+\_\+bus(can\+\_\+t can)}{CAN_reset_bus(can_t can)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+A\+N\+\_\+reset\+\_\+bus (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a33ace748a245e229fd9fa3733b6647e7}{}\label{can_8h_a33ace748a245e229fd9fa3733b6647e7}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+rx@{C\+A\+N\+\_\+rx}}
+\index{C\+A\+N\+\_\+rx@{C\+A\+N\+\_\+rx}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+rx(can\+\_\+t can, can\+\_\+msg\+\_\+t $\ast$msg, uint32\+\_\+t timeout\+\_\+ms)}{CAN_rx(can_t can, can_msg_t *msg, uint32_t timeout_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+rx (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{can\+\_\+msg\+\_\+t $\ast$}]{msg, }
+\item[{uint32\+\_\+t}]{timeout\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a6f27267c493bfefca258bb24d5c17704}{}\label{can_8h_a6f27267c493bfefca258bb24d5c17704}
+Receive a message of the given C\+AN B\+US. 
+\begin{DoxyParams}{Parameters}
+{\em can} & The can bus type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The C\+AN message \\
+\hline
+{\em timeout\+\_\+ms} & If Free\+R\+T\+OS is running, the task will block until a message arrives. Otherwise we will poll and wait this timeout to receive a message. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if message was captured within the given timeout. 
+\end{DoxyReturn}
+\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+setup\+\_\+filter@{C\+A\+N\+\_\+setup\+\_\+filter}}
+\index{C\+A\+N\+\_\+setup\+\_\+filter@{C\+A\+N\+\_\+setup\+\_\+filter}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+setup\+\_\+filter(const can\+\_\+std\+\_\+id\+\_\+t $\ast$std\+\_\+id\+\_\+list, uint16\+\_\+t sid\+\_\+cnt, const can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t $\ast$std\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t sgp\+\_\+cnt, const can\+\_\+ext\+\_\+id\+\_\+t $\ast$ext\+\_\+id\+\_\+list, uint16\+\_\+t eid\+\_\+cnt, const can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t $\ast$ext\+\_\+group\+\_\+id\+\_\+list, uint16\+\_\+t egp\+\_\+cnt)}{CAN_setup_filter(const can_std_id_t *std_id_list, uint16_t sid_cnt, const can_std_grp_id_t *std_group_id_list, uint16_t sgp_cnt, const can_ext_id_t *ext_id_list, uint16_t eid_cnt, const can_ext_grp_id_t *ext_group_id_list, uint16_t egp_cnt)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+setup\+\_\+filter (
+\begin{DoxyParamCaption}
+\item[{const can\+\_\+std\+\_\+id\+\_\+t $\ast$}]{std\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{sid\+\_\+cnt, }
+\item[{const {\bf can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} $\ast$}]{std\+\_\+group\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{sgp\+\_\+cnt, }
+\item[{const can\+\_\+ext\+\_\+id\+\_\+t $\ast$}]{ext\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{eid\+\_\+cnt, }
+\item[{const {\bf can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} $\ast$}]{ext\+\_\+group\+\_\+id\+\_\+list, }
+\item[{uint16\+\_\+t}]{egp\+\_\+cnt}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_af86011b37f4fb306df4a79a962a39e86}{}\label{can_8h_af86011b37f4fb306df4a79a962a39e86}
+Enable C\+AN filter for B\+O\+TH C\+A\+Ns; hardware doesn\textquotesingle{}t allow to enable for just O\+NE C\+AN controller. 
+\begin{DoxyParams}{Parameters}
+{\em std\+\_\+id\+\_\+list} & List of 11-\/bit I\+Ds to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em sid\+\_\+cnt} & The size of the can\+\_\+std\+\_\+id\+\_\+t array\\
+\hline
+{\em std\+\_\+group\+\_\+id\+\_\+list} & List of 11-\/bit ID groups to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em sgp\+\_\+cnt} & The size of the \hyperlink{structcan__std__grp__id__t}{can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} array\\
+\hline
+{\em ext\+\_\+id\+\_\+list} & List of 29-\/bit I\+Ds to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em eid\+\_\+cnt} & The size of the can\+\_\+ext\+\_\+id\+\_\+t array\\
+\hline
+{\em ext\+\_\+group\+\_\+id\+\_\+list} & List of 29-\/bit ID groups to generate an A\+CK for (can be N\+U\+LL) \\
+\hline
+{\em egp\+\_\+cnt} & The size of the \hyperlink{structcan__ext__grp__id__t}{can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The list must be in A\+S\+C\+E\+N\+D\+I\+NG order (lowest first, then highest). The hardware carries out its search taking for granted that the I\+Ds are ordered from lowest to highest. If filters are wrong, C\+AN I\+SR will enter a loop and your board will restart (due to watchdog).
+
+C\+AN B\+US should not be enabled to do this because the C\+AN Filter is put to O\+FF mode while the entry is added.
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+The C\+AN filter must be setup after the C\+AN controller(s) is initialized. 
+
+The size entries is limited to 2K bytes. Each entry size in bytes is \+:
+\begin{DoxyItemize}
+\item can\+\_\+std\+\_\+id\+\_\+t \+: 2
+\item \hyperlink{structcan__std__grp__id__t}{can\+\_\+std\+\_\+grp\+\_\+id\+\_\+t} \+: 4
+\item can\+\_\+ext\+\_\+id\+\_\+t \+: 4
+\item \hyperlink{structcan__ext__grp__id__t}{can\+\_\+ext\+\_\+grp\+\_\+id\+\_\+t} \+: 8
+\end{DoxyItemize}
+\end{DoxyNote}
+Here is sample code that enables HW filtering of selected C\+AN messages. Note that some messages are for C\+A\+N2 while most are for C\+A\+N1 
+\begin{DoxyCode}
+1 const can\_std\_id\_t slist[]      = \{ CAN\_gen\_sid(can1, 0x100), CAN\_gen\_sid(can1, 0x110),   // 2 entries
+2                                     CAN\_gen\_sid(can1, 0x120), CAN\_gen\_sid(can1, 0x130)    // 2 entries
+3                                   \};
+4 const can\_std\_grp\_id\_t sglist[] = \{ \{CAN\_gen\_sid(can1, 0x150), CAN\_gen\_sid(can1, 0x200)\}, // Group 1
+5                                     \{CAN\_gen\_sid(can2, 0x300), CAN\_gen\_sid(can2, 0x400)\}  // Group 2
+6                                   \};
+7 const can\_ext\_id\_t *elist       = NULL; // Not used, so set it to NULL
+8 const can\_ext\_grp\_id\_t eglist[] = \{ \{CAN\_gen\_eid(can1, 0x3500), CAN\_gen\_eid(can1, 0x4500)\} \}; // Group 1
+9 
+10 CAN\_setup\_filter(slist, 4, sglist, 2,
+11                  elist, 0, eglist, 1);
+\end{DoxyCode}
+ Standard ID list and group list need to swapped otherwise setting the wrong filter will make the C\+AN I\+SR go into a loop for no apparent reason. It looks like the filter data is motorolla big-\/endian format. See \char`\"{}configuration example 5\char`\"{} in C\+AN chapter.\index{can.\+h@{can.\+h}!C\+A\+N\+\_\+tx@{C\+A\+N\+\_\+tx}}
+\index{C\+A\+N\+\_\+tx@{C\+A\+N\+\_\+tx}!can.\+h@{can.\+h}}
+\subsubsection[{\texorpdfstring{C\+A\+N\+\_\+tx(can\+\_\+t can, can\+\_\+msg\+\_\+t $\ast$msg, uint32\+\_\+t timeout\+\_\+ms)}{CAN_tx(can_t can, can_msg_t *msg, uint32_t timeout_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+A\+N\+\_\+tx (
+\begin{DoxyParamCaption}
+\item[{{\bf can\+\_\+t}}]{can, }
+\item[{can\+\_\+msg\+\_\+t $\ast$}]{msg, }
+\item[{uint32\+\_\+t}]{timeout\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{can_8h_a595ba2fcfcdfff25071aed5a361f4b72}{}\label{can_8h_a595ba2fcfcdfff25071aed5a361f4b72}
+Send a C\+AN message over the C\+AN B\+US 
+\begin{DoxyParams}{Parameters}
+{\em can} & The can bus type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{can_8h_ac94be130a7809f09346c1b89b3d44bdd}{can\+\_\+t} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The C\+AN message \\
+\hline
+{\em timeout\+\_\+ms} & If Free\+R\+T\+OS is running, the task will block for timeout\+\_\+ms if HW buffers and the transmit queue is full. If Free\+R\+T\+OS is not running the timeout is simply, ignored, and false is returned if all three HW buffers are full.\\
+\hline
+\end{DoxyParams}
+The transmit queue is only used if all three buffers of the C\+AN hardware are busy, in which case, the transmission complete interrupt will later send the queued msg. \begin{DoxyReturn}{Returns}
+If C\+AN message was either sent, or queued, true is returned. If all the hardware buffers are full, and the queue is full, then false is returned if timeout occurs waiting for the queue to empty.
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 can\_msg\_t msg;
+2 msg.msg\_id = 0x123;
+3 msg.frame\_fields.is\_29bit = 1;
+4 msg.frame\_fields.data\_len = 8;       // Send 8 bytes
+5 msg.data.qword = 0x1122334455667788; // Write all 8 bytes of data at once
+6 CAN\_tx(can\_1, &msg, portMAX\_DELAY);
+\end{DoxyCode}
+ 

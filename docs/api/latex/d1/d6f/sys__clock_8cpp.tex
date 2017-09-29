@@ -1,0 +1,45 @@
+\hypertarget{sys__clock_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/sys\+\_\+clock.cpp File Reference}
+\label{sys__clock_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/sys\+\_\+clock.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/source/sys\+\_\+clock.\+cpp}}
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for sys\+\_\+clock.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d77/sys__clock_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sys__clock_8cpp_ac43117d508e35aaed35ccf37b7f91b85}{sys\+\_\+clock\+\_\+configure} ()
+\item 
+unsigned int \hyperlink{sys__clock_8cpp_a6ac4b492b79ce75125ae13fd7715873b}{sys\+\_\+get\+\_\+cpu\+\_\+clock} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{sys\+\_\+clock.\+cpp@{sys\+\_\+clock.\+cpp}!sys\+\_\+clock\+\_\+configure@{sys\+\_\+clock\+\_\+configure}}
+\index{sys\+\_\+clock\+\_\+configure@{sys\+\_\+clock\+\_\+configure}!sys\+\_\+clock.\+cpp@{sys\+\_\+clock.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+clock\+\_\+configure()}{sys_clock_configure()}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+clock\+\_\+configure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{sys__clock_8cpp_ac43117d508e35aaed35ccf37b7f91b85}{}\label{sys__clock_8cpp_ac43117d508e35aaed35ccf37b7f91b85}
+$<$ Not used (reserved)
+
+Disconnect P\+L\+L0 (in case bootloader uses P\+L\+L0) Choose internal oscillator going forward (for now)
+
+Connect P\+L\+L0 as our clock source. Right before we make the P\+LL clock as C\+PU clock, set our divider so our C\+PU clock doesn\textquotesingle{}t go out of range once the faster P\+LL clock is established.\index{sys\+\_\+clock.\+cpp@{sys\+\_\+clock.\+cpp}!sys\+\_\+get\+\_\+cpu\+\_\+clock@{sys\+\_\+get\+\_\+cpu\+\_\+clock}}
+\index{sys\+\_\+get\+\_\+cpu\+\_\+clock@{sys\+\_\+get\+\_\+cpu\+\_\+clock}!sys\+\_\+clock.\+cpp@{sys\+\_\+clock.\+cpp}}
+\subsubsection[{\texorpdfstring{sys\+\_\+get\+\_\+cpu\+\_\+clock()}{sys_get_cpu_clock()}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int sys\+\_\+get\+\_\+cpu\+\_\+clock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{sys__clock_8cpp_a6ac4b492b79ce75125ae13fd7715873b}{}\label{sys__clock_8cpp_a6ac4b492b79ce75125ae13fd7715873b}
+\begin{DoxyReturn}{Returns}
+actual System clock as calculated from P\+LL and Oscillator selection 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK macro defines \char`\"{}\+Desired\char`\"{} C\+PU clock, and doesn\textquotesingle{}t guarantee this clock rate. This function returns actual C\+PU clock of the system. 
+\end{DoxyNote}

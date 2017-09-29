@@ -1,0 +1,266 @@
+\hypertarget{port_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/portable/no\+\_\+mpu/port.c File Reference}
+\label{port_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/portable/no\+\_\+mpu/port.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/portable/no\+\_\+mpu/port.\+c}}
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+Include dependency graph for port.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d88/port_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{port_8c_ac42cff506ad61d4174fa23e952e3225e}{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}~255
+\item 
+\#define \hyperlink{port_8c_aa6c52b1b434ca2a708c56fdee02e7946}{config\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}~\hyperlink{FreeRTOSConfig_8h_aa68082df879e6fc96bcb9b26513639e7}{config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}
+\item 
+\#define \hyperlink{port_8c_a94a387a85f1ebbd3d23feceb63d995c5}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+K\+\_\+\+B\+IT}~( 1\+U\+L $<$$<$ 2\+U\+L )
+\item 
+\#define \hyperlink{port_8c_adad03b75dbce86018cd8f77724f5f89a}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+T\+R\+L\+\_\+\+R\+EG}~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000e010 ) )
+\item 
+\#define \hyperlink{port_8c_a6fb185b6f87a37fcb11be7f5f7f74c3c}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+L\+O\+A\+D\+\_\+\+R\+EG}~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000e014 ) )
+\item 
+\#define \hyperlink{port_8c_a840264c4ada33651c41921488329f127}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+U\+E\+\_\+\+R\+EG}~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000e018 ) )
+\item 
+\#define \hyperlink{port_8c_a9d076b8b45d4ab187668bb7b0c1f8d31}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+P\+R\+I2\+\_\+\+R\+EG}~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000ed20 ) )
+\item 
+\#define \hyperlink{port_8c_aeb00c00ae5a1b5c39ef0d008cdc2aabe}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+B\+IT}~( 1\+U\+L $<$$<$ 1\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a4c9342fc3940bcd756f344e3489a030e}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+B\+IT}~( 1\+U\+L $<$$<$ 0\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a1774a206db4e93668b7508965338893f}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+L\+A\+G\+\_\+\+B\+IT}~( 1\+U\+L $<$$<$ 16\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a786050ea368d9645ca097b3b8a51af2e}{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+C\+L\+E\+A\+R\+\_\+\+B\+IT}~( 1\+U\+L $<$$<$ 27\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a8c6cabffb5fdea8c959c2025f1e0488f}{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+E\+A\+R\+\_\+\+B\+IT}~( 1\+U\+L $<$$<$ 25\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a71a0b2492ed73217b5864c1e3ba8c9be}{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+\_\+\+P\+RI}~( ( ( uint32\+\_\+t ) \hyperlink{port_8c_ac42cff506ad61d4174fa23e952e3225e}{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY} ) $<$$<$ 16\+U\+L )
+\item 
+\#define \hyperlink{port_8c_ae4ddaa528bc05260d1a5a607c8a00d9f}{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+P\+RI}~( ( ( uint32\+\_\+t ) \hyperlink{port_8c_ac42cff506ad61d4174fa23e952e3225e}{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY} ) $<$$<$ 24\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a9bf7ad0c574222fbbf0ad6ac5a387a11}{port\+F\+I\+R\+S\+T\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+N\+U\+M\+B\+ER}~( 16 )
+\item 
+\#define \hyperlink{port_8c_a72b5f375744da7a3ec890dd573dddc77}{port\+N\+V\+I\+C\+\_\+\+I\+P\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+16}~( 0x\+E000\+E3\+F0 )
+\item 
+\#define \hyperlink{port_8c_ad4e191d3886fa6ba91bb7cd11cdc665e}{port\+A\+I\+R\+C\+R\+\_\+\+R\+EG}~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0x\+E000\+E\+D0\+C ) )
+\item 
+\#define \hyperlink{port_8c_a6a8cc3be38f6a681ffcf3a895970853f}{port\+M\+A\+X\+\_\+8\+\_\+\+B\+I\+T\+\_\+\+V\+A\+L\+UE}~( ( uint8\+\_\+t ) 0xff )
+\item 
+\#define \hyperlink{port_8c_a046cc13f73dad0c8a9cdd0504bc35a88}{port\+T\+O\+P\+\_\+\+B\+I\+T\+\_\+\+O\+F\+\_\+\+B\+Y\+TE}~( ( uint8\+\_\+t ) 0x80 )
+\item 
+\#define \hyperlink{port_8c_abbfa60faa2116dee71c1923a4ec3aa4a}{port\+M\+A\+X\+\_\+\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+B\+I\+TS}~( ( uint8\+\_\+t ) 7 )
+\item 
+\#define \hyperlink{port_8c_a3de9530f5de675c37a0195cda9e272d0}{port\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+A\+SK}~( 0x07\+U\+L $<$$<$ 8\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a31e85c2138ccee8dc7a8397f0c5cf44c}{port\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+S\+H\+I\+FT}~( 8\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a9a481ef8434703c3834dd1e701805853}{port\+V\+E\+C\+T\+A\+C\+T\+I\+V\+E\+\_\+\+M\+A\+SK}~( 0x\+F\+F\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a062d03aca8ae932b4552a2aa19853b44}{port\+I\+N\+I\+T\+I\+A\+L\+\_\+\+X\+P\+SR}~( 0x01000000\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a14e81b7d3d94bf8d192c05c06f82c8d8}{port\+M\+A\+X\+\_\+24\+\_\+\+B\+I\+T\+\_\+\+N\+U\+M\+B\+ER}~( 0xffffff\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a5ee932503b5ba9d5a6125df7e7fc459b}{port\+M\+I\+S\+S\+E\+D\+\_\+\+C\+O\+U\+N\+T\+S\+\_\+\+F\+A\+C\+T\+OR}~( 45\+U\+L )
+\item 
+\#define \hyperlink{port_8c_ac4d0dccf5f3a96cf955bd2cf5ff987a2}{port\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+M\+A\+SK}~( ( \hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{Stack\+Type\+\_\+t} ) 0xfffffffe\+U\+L )
+\item 
+\#define \hyperlink{port_8c_a254a1ddd7499c6ec36b38e2fc3486b80}{port\+T\+A\+S\+K\+\_\+\+R\+E\+T\+U\+R\+N\+\_\+\+A\+D\+D\+R\+E\+SS}~prv\+Task\+Exit\+Error
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{port_8c_a4649001ea4d29b80759e6eca4bba58eb}{v\+Port\+Setup\+Timer\+Interrupt} (void)
+\item 
+void \hyperlink{port_8c_a3ab2189d6599a9eb1b1f235c87e8616d}{x\+Port\+Pend\+S\+V\+Handler} (void \hyperlink{port_8c_a78100b2d36913d0b45565be8975e5de8}{x\+Port\+Sys\+Tick\+Handler} void)
+\item 
+void \hyperlink{port_8c_a859e86b6143d6bc4cf96b2867f408c75}{v\+Port\+S\+V\+C\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em OS \char`\"{}supervisor\char`\"{} call to start first Free\+R\+T\+OS task. \end{DoxyCompactList}\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{port_8c_ade5a8c6666e7413a0355cc252029c5c6}{x\+Port\+Start\+Scheduler} (void)
+\item 
+void \hyperlink{port_8c_af76f3c0b44c5b5c06fc046a4ee1a6423}{v\+Port\+End\+Scheduler} (void)
+\item 
+void \hyperlink{port_8c_a2ed3554a3de09a3bd09d396ee081ab69}{v\+Port\+Enter\+Critical} (void)
+\item 
+void \hyperlink{port_8c_aed20ada05b957181a0de042802a82a5b}{v\+Port\+Exit\+Critical} (void)
+\item 
+void \hyperlink{port_8c_a4e6b17b7b6e1a92564afdeff7e9dba91}{x\+Port\+Pend\+S\+V\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Context switch is performed using this interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{port_8c_a78100b2d36913d0b45565be8975e5de8}{x\+Port\+Sys\+Tick\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em OS timer or tick interrupt (for time slicing tasks) \end{DoxyCompactList}\item 
+\hyperlink{port_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((weak))
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{port.\+c@{port.\+c}!config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{configKERNEL_INTERRUPT_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY~255}\hypertarget{port_8c_ac42cff506ad61d4174fa23e952e3225e}{}\label{port_8c_ac42cff506ad61d4174fa23e952e3225e}
+\index{port.\+c@{port.\+c}!config\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ@{config\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}}
+\index{config\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ@{config\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{config\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}{configSYSTICK_CLOCK_HZ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ~{\bf config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}}\hypertarget{port_8c_aa6c52b1b434ca2a708c56fdee02e7946}{}\label{port_8c_aa6c52b1b434ca2a708c56fdee02e7946}
+\index{port.\+c@{port.\+c}!port\+A\+I\+R\+C\+R\+\_\+\+R\+EG@{port\+A\+I\+R\+C\+R\+\_\+\+R\+EG}}
+\index{port\+A\+I\+R\+C\+R\+\_\+\+R\+EG@{port\+A\+I\+R\+C\+R\+\_\+\+R\+EG}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+A\+I\+R\+C\+R\+\_\+\+R\+EG}{portAIRCR_REG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+A\+I\+R\+C\+R\+\_\+\+R\+EG~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0x\+E000\+E\+D0\+C ) )}\hypertarget{port_8c_ad4e191d3886fa6ba91bb7cd11cdc665e}{}\label{port_8c_ad4e191d3886fa6ba91bb7cd11cdc665e}
+\index{port.\+c@{port.\+c}!port\+F\+I\+R\+S\+T\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+N\+U\+M\+B\+ER@{port\+F\+I\+R\+S\+T\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+N\+U\+M\+B\+ER}}
+\index{port\+F\+I\+R\+S\+T\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+N\+U\+M\+B\+ER@{port\+F\+I\+R\+S\+T\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+N\+U\+M\+B\+ER}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+F\+I\+R\+S\+T\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+N\+U\+M\+B\+ER}{portFIRST_USER_INTERRUPT_NUMBER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+F\+I\+R\+S\+T\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+N\+U\+M\+B\+ER~( 16 )}\hypertarget{port_8c_a9bf7ad0c574222fbbf0ad6ac5a387a11}{}\label{port_8c_a9bf7ad0c574222fbbf0ad6ac5a387a11}
+\index{port.\+c@{port.\+c}!port\+I\+N\+I\+T\+I\+A\+L\+\_\+\+X\+P\+SR@{port\+I\+N\+I\+T\+I\+A\+L\+\_\+\+X\+P\+SR}}
+\index{port\+I\+N\+I\+T\+I\+A\+L\+\_\+\+X\+P\+SR@{port\+I\+N\+I\+T\+I\+A\+L\+\_\+\+X\+P\+SR}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+I\+N\+I\+T\+I\+A\+L\+\_\+\+X\+P\+SR}{portINITIAL_XPSR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+I\+N\+I\+T\+I\+A\+L\+\_\+\+X\+P\+SR~( 0x01000000\+U\+L )}\hypertarget{port_8c_a062d03aca8ae932b4552a2aa19853b44}{}\label{port_8c_a062d03aca8ae932b4552a2aa19853b44}
+\index{port.\+c@{port.\+c}!port\+M\+A\+X\+\_\+24\+\_\+\+B\+I\+T\+\_\+\+N\+U\+M\+B\+ER@{port\+M\+A\+X\+\_\+24\+\_\+\+B\+I\+T\+\_\+\+N\+U\+M\+B\+ER}}
+\index{port\+M\+A\+X\+\_\+24\+\_\+\+B\+I\+T\+\_\+\+N\+U\+M\+B\+ER@{port\+M\+A\+X\+\_\+24\+\_\+\+B\+I\+T\+\_\+\+N\+U\+M\+B\+ER}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+M\+A\+X\+\_\+24\+\_\+\+B\+I\+T\+\_\+\+N\+U\+M\+B\+ER}{portMAX_24_BIT_NUMBER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+M\+A\+X\+\_\+24\+\_\+\+B\+I\+T\+\_\+\+N\+U\+M\+B\+ER~( 0xffffff\+U\+L )}\hypertarget{port_8c_a14e81b7d3d94bf8d192c05c06f82c8d8}{}\label{port_8c_a14e81b7d3d94bf8d192c05c06f82c8d8}
+\index{port.\+c@{port.\+c}!port\+M\+A\+X\+\_\+8\+\_\+\+B\+I\+T\+\_\+\+V\+A\+L\+UE@{port\+M\+A\+X\+\_\+8\+\_\+\+B\+I\+T\+\_\+\+V\+A\+L\+UE}}
+\index{port\+M\+A\+X\+\_\+8\+\_\+\+B\+I\+T\+\_\+\+V\+A\+L\+UE@{port\+M\+A\+X\+\_\+8\+\_\+\+B\+I\+T\+\_\+\+V\+A\+L\+UE}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+M\+A\+X\+\_\+8\+\_\+\+B\+I\+T\+\_\+\+V\+A\+L\+UE}{portMAX_8_BIT_VALUE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+M\+A\+X\+\_\+8\+\_\+\+B\+I\+T\+\_\+\+V\+A\+L\+UE~( ( uint8\+\_\+t ) 0xff )}\hypertarget{port_8c_a6a8cc3be38f6a681ffcf3a895970853f}{}\label{port_8c_a6a8cc3be38f6a681ffcf3a895970853f}
+\index{port.\+c@{port.\+c}!port\+M\+A\+X\+\_\+\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+B\+I\+TS@{port\+M\+A\+X\+\_\+\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+B\+I\+TS}}
+\index{port\+M\+A\+X\+\_\+\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+B\+I\+TS@{port\+M\+A\+X\+\_\+\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+B\+I\+TS}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+M\+A\+X\+\_\+\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+B\+I\+TS}{portMAX_PRIGROUP_BITS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+M\+A\+X\+\_\+\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+B\+I\+TS~( ( uint8\+\_\+t ) 7 )}\hypertarget{port_8c_abbfa60faa2116dee71c1923a4ec3aa4a}{}\label{port_8c_abbfa60faa2116dee71c1923a4ec3aa4a}
+\index{port.\+c@{port.\+c}!port\+M\+I\+S\+S\+E\+D\+\_\+\+C\+O\+U\+N\+T\+S\+\_\+\+F\+A\+C\+T\+OR@{port\+M\+I\+S\+S\+E\+D\+\_\+\+C\+O\+U\+N\+T\+S\+\_\+\+F\+A\+C\+T\+OR}}
+\index{port\+M\+I\+S\+S\+E\+D\+\_\+\+C\+O\+U\+N\+T\+S\+\_\+\+F\+A\+C\+T\+OR@{port\+M\+I\+S\+S\+E\+D\+\_\+\+C\+O\+U\+N\+T\+S\+\_\+\+F\+A\+C\+T\+OR}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+M\+I\+S\+S\+E\+D\+\_\+\+C\+O\+U\+N\+T\+S\+\_\+\+F\+A\+C\+T\+OR}{portMISSED_COUNTS_FACTOR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+M\+I\+S\+S\+E\+D\+\_\+\+C\+O\+U\+N\+T\+S\+\_\+\+F\+A\+C\+T\+OR~( 45\+U\+L )}\hypertarget{port_8c_a5ee932503b5ba9d5a6125df7e7fc459b}{}\label{port_8c_a5ee932503b5ba9d5a6125df7e7fc459b}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+I\+P\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+16@{port\+N\+V\+I\+C\+\_\+\+I\+P\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+16}}
+\index{port\+N\+V\+I\+C\+\_\+\+I\+P\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+16@{port\+N\+V\+I\+C\+\_\+\+I\+P\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+16}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+I\+P\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+16}{portNVIC_IP_REGISTERS_OFFSET_16}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+I\+P\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+16~( 0x\+E000\+E3\+F0 )}\hypertarget{port_8c_a72b5f375744da7a3ec890dd573dddc77}{}\label{port_8c_a72b5f375744da7a3ec890dd573dddc77}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+E\+A\+R\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+E\+A\+R\+\_\+\+B\+IT}}
+\index{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+E\+A\+R\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+E\+A\+R\+\_\+\+B\+IT}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+E\+A\+R\+\_\+\+B\+IT}{portNVIC_PEND_SYSTICK_CLEAR_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+E\+A\+R\+\_\+\+B\+IT~( 1\+U\+L $<$$<$ 25\+U\+L )}\hypertarget{port_8c_a8c6cabffb5fdea8c959c2025f1e0488f}{}\label{port_8c_a8c6cabffb5fdea8c959c2025f1e0488f}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+\_\+\+P\+RI@{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+\_\+\+P\+RI}}
+\index{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+\_\+\+P\+RI@{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+\_\+\+P\+RI}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+\_\+\+P\+RI}{portNVIC_PENDSV_PRI}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+\_\+\+P\+RI~( ( ( uint32\+\_\+t ) {\bf config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY} ) $<$$<$ 16\+U\+L )}\hypertarget{port_8c_a71a0b2492ed73217b5864c1e3ba8c9be}{}\label{port_8c_a71a0b2492ed73217b5864c1e3ba8c9be}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+C\+L\+E\+A\+R\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+C\+L\+E\+A\+R\+\_\+\+B\+IT}}
+\index{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+C\+L\+E\+A\+R\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+C\+L\+E\+A\+R\+\_\+\+B\+IT}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+C\+L\+E\+A\+R\+\_\+\+B\+IT}{portNVIC_PENDSVCLEAR_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+P\+E\+N\+D\+S\+V\+C\+L\+E\+A\+R\+\_\+\+B\+IT~( 1\+U\+L $<$$<$ 27\+U\+L )}\hypertarget{port_8c_a786050ea368d9645ca097b3b8a51af2e}{}\label{port_8c_a786050ea368d9645ca097b3b8a51af2e}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+P\+R\+I2\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+P\+R\+I2\+\_\+\+R\+EG}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+P\+R\+I2\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+P\+R\+I2\+\_\+\+R\+EG}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+P\+R\+I2\+\_\+\+R\+EG}{portNVIC_SYSPRI2_REG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+P\+R\+I2\+\_\+\+R\+EG~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000ed20 ) )}\hypertarget{port_8c_a9d076b8b45d4ab187668bb7b0c1f8d31}{}\label{port_8c_a9d076b8b45d4ab187668bb7b0c1f8d31}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+K\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+K\+\_\+\+B\+IT}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+K\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+K\+\_\+\+B\+IT}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+K\+\_\+\+B\+IT}{portNVIC_SYSTICK_CLK_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+L\+K\+\_\+\+B\+IT~( 1\+U\+L $<$$<$ 2\+U\+L )}\hypertarget{port_8c_a94a387a85f1ebbd3d23feceb63d995c5}{}\label{port_8c_a94a387a85f1ebbd3d23feceb63d995c5}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+L\+A\+G\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+L\+A\+G\+\_\+\+B\+IT}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+L\+A\+G\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+L\+A\+G\+\_\+\+B\+IT}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+L\+A\+G\+\_\+\+B\+IT}{portNVIC_SYSTICK_COUNT_FLAG_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+L\+A\+G\+\_\+\+B\+IT~( 1\+U\+L $<$$<$ 16\+U\+L )}\hypertarget{port_8c_a1774a206db4e93668b7508965338893f}{}\label{port_8c_a1774a206db4e93668b7508965338893f}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+T\+R\+L\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+T\+R\+L\+\_\+\+R\+EG}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+T\+R\+L\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+T\+R\+L\+\_\+\+R\+EG}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+T\+R\+L\+\_\+\+R\+EG}{portNVIC_SYSTICK_CTRL_REG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+T\+R\+L\+\_\+\+R\+EG~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000e010 ) )}\hypertarget{port_8c_adad03b75dbce86018cd8f77724f5f89a}{}\label{port_8c_adad03b75dbce86018cd8f77724f5f89a}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+U\+E\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+U\+E\+\_\+\+R\+EG}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+U\+E\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+U\+E\+\_\+\+R\+EG}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+U\+E\+\_\+\+R\+EG}{portNVIC_SYSTICK_CURRENT_VALUE_REG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+V\+A\+L\+U\+E\+\_\+\+R\+EG~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000e018 ) )}\hypertarget{port_8c_a840264c4ada33651c41921488329f127}{}\label{port_8c_a840264c4ada33651c41921488329f127}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+B\+IT}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+B\+IT}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+B\+IT}{portNVIC_SYSTICK_ENABLE_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+B\+IT~( 1\+U\+L $<$$<$ 0\+U\+L )}\hypertarget{port_8c_a4c9342fc3940bcd756f344e3489a030e}{}\label{port_8c_a4c9342fc3940bcd756f344e3489a030e}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+B\+IT}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+B\+IT@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+B\+IT}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+B\+IT}{portNVIC_SYSTICK_INT_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+I\+N\+T\+\_\+\+B\+IT~( 1\+U\+L $<$$<$ 1\+U\+L )}\hypertarget{port_8c_aeb00c00ae5a1b5c39ef0d008cdc2aabe}{}\label{port_8c_aeb00c00ae5a1b5c39ef0d008cdc2aabe}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+L\+O\+A\+D\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+L\+O\+A\+D\+\_\+\+R\+EG}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+L\+O\+A\+D\+\_\+\+R\+EG@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+L\+O\+A\+D\+\_\+\+R\+EG}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+L\+O\+A\+D\+\_\+\+R\+EG}{portNVIC_SYSTICK_LOAD_REG}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+L\+O\+A\+D\+\_\+\+R\+EG~( $\ast$ ( ( volatile uint32\+\_\+t $\ast$ ) 0xe000e014 ) )}\hypertarget{port_8c_a6fb185b6f87a37fcb11be7f5f7f74c3c}{}\label{port_8c_a6fb185b6f87a37fcb11be7f5f7f74c3c}
+\index{port.\+c@{port.\+c}!port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+P\+RI@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+P\+RI}}
+\index{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+P\+RI@{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+P\+RI}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+P\+RI}{portNVIC_SYSTICK_PRI}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+N\+V\+I\+C\+\_\+\+S\+Y\+S\+T\+I\+C\+K\+\_\+\+P\+RI~( ( ( uint32\+\_\+t ) {\bf config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY} ) $<$$<$ 24\+U\+L )}\hypertarget{port_8c_ae4ddaa528bc05260d1a5a607c8a00d9f}{}\label{port_8c_ae4ddaa528bc05260d1a5a607c8a00d9f}
+\index{port.\+c@{port.\+c}!port\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+S\+H\+I\+FT@{port\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+S\+H\+I\+FT}}
+\index{port\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+S\+H\+I\+FT@{port\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+S\+H\+I\+FT}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+S\+H\+I\+FT}{portPRIGROUP_SHIFT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+P\+R\+I\+G\+R\+O\+U\+P\+\_\+\+S\+H\+I\+FT~( 8\+U\+L )}\hypertarget{port_8c_a31e85c2138ccee8dc7a8397f0c5cf44c}{}\label{port_8c_a31e85c2138ccee8dc7a8397f0c5cf44c}
+\index{port.\+c@{port.\+c}!port\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+A\+SK@{port\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+A\+SK}}
+\index{port\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+A\+SK@{port\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+A\+SK}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+A\+SK}{portPRIORITY_GROUP_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+G\+R\+O\+U\+P\+\_\+\+M\+A\+SK~( 0x07\+U\+L $<$$<$ 8\+U\+L )}\hypertarget{port_8c_a3de9530f5de675c37a0195cda9e272d0}{}\label{port_8c_a3de9530f5de675c37a0195cda9e272d0}
+\index{port.\+c@{port.\+c}!port\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+M\+A\+SK@{port\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+M\+A\+SK}}
+\index{port\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+M\+A\+SK@{port\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+M\+A\+SK}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+M\+A\+SK}{portSTART_ADDRESS_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+M\+A\+SK~( ( {\bf Stack\+Type\+\_\+t} ) 0xfffffffe\+U\+L )}\hypertarget{port_8c_ac4d0dccf5f3a96cf955bd2cf5ff987a2}{}\label{port_8c_ac4d0dccf5f3a96cf955bd2cf5ff987a2}
+\index{port.\+c@{port.\+c}!port\+T\+A\+S\+K\+\_\+\+R\+E\+T\+U\+R\+N\+\_\+\+A\+D\+D\+R\+E\+SS@{port\+T\+A\+S\+K\+\_\+\+R\+E\+T\+U\+R\+N\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\index{port\+T\+A\+S\+K\+\_\+\+R\+E\+T\+U\+R\+N\+\_\+\+A\+D\+D\+R\+E\+SS@{port\+T\+A\+S\+K\+\_\+\+R\+E\+T\+U\+R\+N\+\_\+\+A\+D\+D\+R\+E\+SS}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+T\+A\+S\+K\+\_\+\+R\+E\+T\+U\+R\+N\+\_\+\+A\+D\+D\+R\+E\+SS}{portTASK_RETURN_ADDRESS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+T\+A\+S\+K\+\_\+\+R\+E\+T\+U\+R\+N\+\_\+\+A\+D\+D\+R\+E\+SS~prv\+Task\+Exit\+Error}\hypertarget{port_8c_a254a1ddd7499c6ec36b38e2fc3486b80}{}\label{port_8c_a254a1ddd7499c6ec36b38e2fc3486b80}
+\index{port.\+c@{port.\+c}!port\+T\+O\+P\+\_\+\+B\+I\+T\+\_\+\+O\+F\+\_\+\+B\+Y\+TE@{port\+T\+O\+P\+\_\+\+B\+I\+T\+\_\+\+O\+F\+\_\+\+B\+Y\+TE}}
+\index{port\+T\+O\+P\+\_\+\+B\+I\+T\+\_\+\+O\+F\+\_\+\+B\+Y\+TE@{port\+T\+O\+P\+\_\+\+B\+I\+T\+\_\+\+O\+F\+\_\+\+B\+Y\+TE}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+T\+O\+P\+\_\+\+B\+I\+T\+\_\+\+O\+F\+\_\+\+B\+Y\+TE}{portTOP_BIT_OF_BYTE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+T\+O\+P\+\_\+\+B\+I\+T\+\_\+\+O\+F\+\_\+\+B\+Y\+TE~( ( uint8\+\_\+t ) 0x80 )}\hypertarget{port_8c_a046cc13f73dad0c8a9cdd0504bc35a88}{}\label{port_8c_a046cc13f73dad0c8a9cdd0504bc35a88}
+\index{port.\+c@{port.\+c}!port\+V\+E\+C\+T\+A\+C\+T\+I\+V\+E\+\_\+\+M\+A\+SK@{port\+V\+E\+C\+T\+A\+C\+T\+I\+V\+E\+\_\+\+M\+A\+SK}}
+\index{port\+V\+E\+C\+T\+A\+C\+T\+I\+V\+E\+\_\+\+M\+A\+SK@{port\+V\+E\+C\+T\+A\+C\+T\+I\+V\+E\+\_\+\+M\+A\+SK}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{port\+V\+E\+C\+T\+A\+C\+T\+I\+V\+E\+\_\+\+M\+A\+SK}{portVECTACTIVE_MASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+V\+E\+C\+T\+A\+C\+T\+I\+V\+E\+\_\+\+M\+A\+SK~( 0x\+F\+F\+U\+L )}\hypertarget{port_8c_a9a481ef8434703c3834dd1e701805853}{}\label{port_8c_a9a481ef8434703c3834dd1e701805853}
+
+
+\subsection{Function Documentation}
+\index{port.\+c@{port.\+c}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+attribute\+\_\+\+\_\+((weak))}{__attribute__((weak))}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+\+\_\+attribute\+\_\+\+\_\+} (
+\begin{DoxyParamCaption}
+\item[{(weak)}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_af9aace1b44b73111e15aa39f06f43456}{}\label{port_8c_af9aace1b44b73111e15aa39f06f43456}
+\index{port.\+c@{port.\+c}!v\+Port\+End\+Scheduler@{v\+Port\+End\+Scheduler}}
+\index{v\+Port\+End\+Scheduler@{v\+Port\+End\+Scheduler}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{v\+Port\+End\+Scheduler(void)}{vPortEndScheduler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+End\+Scheduler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_af76f3c0b44c5b5c06fc046a4ee1a6423}{}\label{port_8c_af76f3c0b44c5b5c06fc046a4ee1a6423}
+\index{port.\+c@{port.\+c}!v\+Port\+Enter\+Critical@{v\+Port\+Enter\+Critical}}
+\index{v\+Port\+Enter\+Critical@{v\+Port\+Enter\+Critical}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{v\+Port\+Enter\+Critical(void)}{vPortEnterCritical(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+Enter\+Critical (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_a2ed3554a3de09a3bd09d396ee081ab69}{}\label{port_8c_a2ed3554a3de09a3bd09d396ee081ab69}
+\index{port.\+c@{port.\+c}!v\+Port\+Exit\+Critical@{v\+Port\+Exit\+Critical}}
+\index{v\+Port\+Exit\+Critical@{v\+Port\+Exit\+Critical}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{v\+Port\+Exit\+Critical(void)}{vPortExitCritical(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+Exit\+Critical (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_aed20ada05b957181a0de042802a82a5b}{}\label{port_8c_aed20ada05b957181a0de042802a82a5b}
+\index{port.\+c@{port.\+c}!v\+Port\+Setup\+Timer\+Interrupt@{v\+Port\+Setup\+Timer\+Interrupt}}
+\index{v\+Port\+Setup\+Timer\+Interrupt@{v\+Port\+Setup\+Timer\+Interrupt}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{v\+Port\+Setup\+Timer\+Interrupt(void)}{vPortSetupTimerInterrupt(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+Setup\+Timer\+Interrupt (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_a4649001ea4d29b80759e6eca4bba58eb}{}\label{port_8c_a4649001ea4d29b80759e6eca4bba58eb}
+\index{port.\+c@{port.\+c}!v\+Port\+S\+V\+C\+Handler@{v\+Port\+S\+V\+C\+Handler}}
+\index{v\+Port\+S\+V\+C\+Handler@{v\+Port\+S\+V\+C\+Handler}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{v\+Port\+S\+V\+C\+Handler(void)}{vPortSVCHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Port\+S\+V\+C\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_a859e86b6143d6bc4cf96b2867f408c75}{}\label{port_8c_a859e86b6143d6bc4cf96b2867f408c75}
+
+
+OS \char`\"{}supervisor\char`\"{} call to start first Free\+R\+T\+OS task. 
+
+\index{port.\+c@{port.\+c}!x\+Port\+Pend\+S\+V\+Handler@{x\+Port\+Pend\+S\+V\+Handler}}
+\index{x\+Port\+Pend\+S\+V\+Handler@{x\+Port\+Pend\+S\+V\+Handler}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{x\+Port\+Pend\+S\+V\+Handler(void x\+Port\+Sys\+Tick\+Handler void)}{xPortPendSVHandler(void xPortSysTickHandler void)}}]{\setlength{\rightskip}{0pt plus 5cm}void x\+Port\+Pend\+S\+V\+Handler (
+\begin{DoxyParamCaption}
+\item[{void {\bf x\+Port\+Sys\+Tick\+Handler}}]{void}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_a3ab2189d6599a9eb1b1f235c87e8616d}{}\label{port_8c_a3ab2189d6599a9eb1b1f235c87e8616d}
+\index{port.\+c@{port.\+c}!x\+Port\+Pend\+S\+V\+Handler@{x\+Port\+Pend\+S\+V\+Handler}}
+\index{x\+Port\+Pend\+S\+V\+Handler@{x\+Port\+Pend\+S\+V\+Handler}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{x\+Port\+Pend\+S\+V\+Handler(void)}{xPortPendSVHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void x\+Port\+Pend\+S\+V\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_a4e6b17b7b6e1a92564afdeff7e9dba91}{}\label{port_8c_a4e6b17b7b6e1a92564afdeff7e9dba91}
+
+
+Context switch is performed using this interrupt. 
+
+\index{port.\+c@{port.\+c}!x\+Port\+Start\+Scheduler@{x\+Port\+Start\+Scheduler}}
+\index{x\+Port\+Start\+Scheduler@{x\+Port\+Start\+Scheduler}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{x\+Port\+Start\+Scheduler(void)}{xPortStartScheduler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Port\+Start\+Scheduler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_ade5a8c6666e7413a0355cc252029c5c6}{}\label{port_8c_ade5a8c6666e7413a0355cc252029c5c6}
+\index{port.\+c@{port.\+c}!x\+Port\+Sys\+Tick\+Handler@{x\+Port\+Sys\+Tick\+Handler}}
+\index{x\+Port\+Sys\+Tick\+Handler@{x\+Port\+Sys\+Tick\+Handler}!port.\+c@{port.\+c}}
+\subsubsection[{\texorpdfstring{x\+Port\+Sys\+Tick\+Handler(void)}{xPortSysTickHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void x\+Port\+Sys\+Tick\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{port_8c_a78100b2d36913d0b45565be8975e5de8}{}\label{port_8c_a78100b2d36913d0b45565be8975e5de8}
+
+
+OS timer or tick interrupt (for time slicing tasks) 
+
+Free\+R\+T\+OS Interrupt Handlers 

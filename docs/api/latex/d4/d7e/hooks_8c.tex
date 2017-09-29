@@ -1,0 +1,40 @@
+\hypertarget{hooks_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/hooks/hooks.c File Reference}
+\label{hooks_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/hooks/hooks.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/hooks/hooks.\+c}}
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}printf\+\_\+lib.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core\+\_\+cm3.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+Include dependency graph for hooks.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d72/hooks_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{hooks_8c_a97fd430f36f8b065226e2bff9bad1de5}{v\+Application\+Idle\+Hook} (void)
+\item 
+void \hyperlink{hooks_8c_a09b9673eda581b6e2447b227c204123b}{v\+Application\+Stack\+Overflow\+Hook} (\hyperlink{task_8h_ae95f44d4cfeb4a599c6cc258d241cb6b}{Task\+Handle\+\_\+t} $\ast$px\+Task, char $\ast$pc\+Task\+Name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{hooks.\+c@{hooks.\+c}!v\+Application\+Idle\+Hook@{v\+Application\+Idle\+Hook}}
+\index{v\+Application\+Idle\+Hook@{v\+Application\+Idle\+Hook}!hooks.\+c@{hooks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Application\+Idle\+Hook(void)}{vApplicationIdleHook(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Application\+Idle\+Hook (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{hooks_8c_a97fd430f36f8b065226e2bff9bad1de5}{}\label{hooks_8c_a97fd430f36f8b065226e2bff9bad1de5}
+\index{hooks.\+c@{hooks.\+c}!v\+Application\+Stack\+Overflow\+Hook@{v\+Application\+Stack\+Overflow\+Hook}}
+\index{v\+Application\+Stack\+Overflow\+Hook@{v\+Application\+Stack\+Overflow\+Hook}!hooks.\+c@{hooks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Application\+Stack\+Overflow\+Hook(\+Task\+Handle\+\_\+t $\ast$px\+Task, char $\ast$pc\+Task\+Name)}{vApplicationStackOverflowHook(TaskHandle_t *pxTask, char *pcTaskName)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Application\+Stack\+Overflow\+Hook (
+\begin{DoxyParamCaption}
+\item[{{\bf Task\+Handle\+\_\+t} $\ast$}]{px\+Task, }
+\item[{char $\ast$}]{pc\+Task\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{hooks_8c_a09b9673eda581b6e2447b227c204123b}{}\label{hooks_8c_a09b9673eda581b6e2447b227c204123b}

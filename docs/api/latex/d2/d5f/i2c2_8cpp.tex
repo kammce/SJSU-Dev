@@ -1,0 +1,27 @@
+\hypertarget{i2c2_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/i2c2.cpp File Reference}
+\label{i2c2_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/i2c2.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/i2c2.\+cpp}}
+{\ttfamily \#include \char`\"{}i2c2.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for i2c2.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d30/i2c2_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{i2c2_8cpp_a08b13312c5d199f9474d97dff87d7d13}{I2\+C2\+\_\+\+I\+R\+Q\+Handler} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{i2c2.\+cpp@{i2c2.\+cpp}!I2\+C2\+\_\+\+I\+R\+Q\+Handler@{I2\+C2\+\_\+\+I\+R\+Q\+Handler}}
+\index{I2\+C2\+\_\+\+I\+R\+Q\+Handler@{I2\+C2\+\_\+\+I\+R\+Q\+Handler}!i2c2.\+cpp@{i2c2.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C2\+\_\+\+I\+R\+Q\+Handler()}{I2C2_IRQHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c2_8cpp_a08b13312c5d199f9474d97dff87d7d13}{}\label{i2c2_8cpp_a08b13312c5d199f9474d97dff87d7d13}
+I\+RQ Handler needs to be enclosed in extern \char`\"{}\+C\char`\"{} because this is C++ file, and we don\textquotesingle{}t want C++ to \char`\"{}mangle\char`\"{} this function name. This I\+SR Function need needs to be named precisely to override \char`\"{}\+W\+E\+A\+K\char`\"{} I\+SR handler defined at \hyperlink{startup_8cpp}{startup.\+cpp} 

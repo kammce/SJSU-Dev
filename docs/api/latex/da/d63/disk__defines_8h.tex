@@ -1,0 +1,75 @@
+\hypertarget{disk__defines_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/disk\+\_\+defines.h File Reference}
+\label{disk__defines_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/disk\+\_\+defines.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/disk\+\_\+defines.\+h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d5e/disk__defines_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{disk__defines_8h_a1b3c492f9aec325f0655941b75256f3c}{C\+T\+R\+L\+\_\+\+S\+Y\+NC}~0   /$\ast$ Flush disk cache (\hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{for} write functions) $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_a570216006f6a8fc4e1698b1bbb2d1dde}{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+C\+O\+U\+NT}~1   /$\ast$ Get media \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size} (\hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{for} only \hyperlink{ff_8h_a799aff9594e708c8be357281cf85428b}{f\+\_\+mkfs}()) $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_ac73b5cf2135cbd459d109b96c9aa346a}{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}~2   /$\ast$ Get sector \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size} (\hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{for} multiple sector \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size} (\hyperlink{ffconf_8h_ac271b697378912f17132cb9c7d0de024}{\+\_\+\+M\+A\+X\+\_\+\+SS} $>$= 1024)) $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_aec3bb4dfe075d0ba2f3b07b300a95500}{G\+E\+T\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE}~3   /$\ast$ Get erase block \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size} (\hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{for} only \hyperlink{ff_8h_a799aff9594e708c8be357281cf85428b}{f\+\_\+mkfs}()) $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_a3b1dc812217ea7ffa118b14a3c1ab151}{C\+T\+R\+L\+\_\+\+E\+R\+A\+S\+E\+\_\+\+S\+E\+C\+T\+OR}~4   /$\ast$ Force erased a block of sectors (\hyperlink{startup_8cpp_a993f84a2c8ed6cb5312e197527a40fa5}{for} only \hyperlink{ffconf_8h_a0e697dc4206d98eac355ae878dcc286e}{\+\_\+\+U\+S\+E\+\_\+\+E\+R\+A\+SE}) $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_a345531a07462afbd999f414708e3b65b}{C\+T\+R\+L\+\_\+\+P\+O\+W\+ER}~5   /$\ast$ Get/Set power status $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_af40e5cf3000553a978ff6e30dae70858}{C\+T\+R\+L\+\_\+\+L\+O\+CK}~6   /$\ast$ Lock/Unlock media removal $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_a5e40e16d2d7ce196858950f070b9ec03}{C\+T\+R\+L\+\_\+\+E\+J\+E\+CT}~7   /$\ast$ Eject media $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_add07021167069f5914211a2f8830fabb}{C\+T\+R\+L\+\_\+\+F\+O\+R\+M\+AT}~8   /$\ast$ Create physical format on the media $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_abd6503c70d862b979a3f7080a59e9acd}{S\+T\+A\+\_\+\+N\+O\+I\+N\+IT}~0x01    /$\ast$ Drive not initialized $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_aec625080763d6cf487e550a6c9a2dd19}{S\+T\+A\+\_\+\+N\+O\+D\+I\+SK}~0x02    /$\ast$ No medium in the drive $\ast$/
+\item 
+\#define \hyperlink{disk__defines_8h_a9ec6dc5f6620a33fabe388d3a111ca8c}{S\+T\+A\+\_\+\+P\+R\+O\+T\+E\+CT}~0x04    /$\ast$ Write protected $\ast$/
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!C\+T\+R\+L\+\_\+\+E\+J\+E\+CT@{C\+T\+R\+L\+\_\+\+E\+J\+E\+CT}}
+\index{C\+T\+R\+L\+\_\+\+E\+J\+E\+CT@{C\+T\+R\+L\+\_\+\+E\+J\+E\+CT}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{C\+T\+R\+L\+\_\+\+E\+J\+E\+CT}{CTRL_EJECT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+T\+R\+L\+\_\+\+E\+J\+E\+CT~7   /$\ast$ Eject media $\ast$/}\hypertarget{disk__defines_8h_a5e40e16d2d7ce196858950f070b9ec03}{}\label{disk__defines_8h_a5e40e16d2d7ce196858950f070b9ec03}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!C\+T\+R\+L\+\_\+\+E\+R\+A\+S\+E\+\_\+\+S\+E\+C\+T\+OR@{C\+T\+R\+L\+\_\+\+E\+R\+A\+S\+E\+\_\+\+S\+E\+C\+T\+OR}}
+\index{C\+T\+R\+L\+\_\+\+E\+R\+A\+S\+E\+\_\+\+S\+E\+C\+T\+OR@{C\+T\+R\+L\+\_\+\+E\+R\+A\+S\+E\+\_\+\+S\+E\+C\+T\+OR}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{C\+T\+R\+L\+\_\+\+E\+R\+A\+S\+E\+\_\+\+S\+E\+C\+T\+OR}{CTRL_ERASE_SECTOR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+T\+R\+L\+\_\+\+E\+R\+A\+S\+E\+\_\+\+S\+E\+C\+T\+OR~4   /$\ast$ Force erased a block of sectors ({\bf for} only {\bf \+\_\+\+U\+S\+E\+\_\+\+E\+R\+A\+SE}) $\ast$/}\hypertarget{disk__defines_8h_a3b1dc812217ea7ffa118b14a3c1ab151}{}\label{disk__defines_8h_a3b1dc812217ea7ffa118b14a3c1ab151}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!C\+T\+R\+L\+\_\+\+F\+O\+R\+M\+AT@{C\+T\+R\+L\+\_\+\+F\+O\+R\+M\+AT}}
+\index{C\+T\+R\+L\+\_\+\+F\+O\+R\+M\+AT@{C\+T\+R\+L\+\_\+\+F\+O\+R\+M\+AT}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{C\+T\+R\+L\+\_\+\+F\+O\+R\+M\+AT}{CTRL_FORMAT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+T\+R\+L\+\_\+\+F\+O\+R\+M\+AT~8   /$\ast$ Create physical format on the media $\ast$/}\hypertarget{disk__defines_8h_add07021167069f5914211a2f8830fabb}{}\label{disk__defines_8h_add07021167069f5914211a2f8830fabb}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!C\+T\+R\+L\+\_\+\+L\+O\+CK@{C\+T\+R\+L\+\_\+\+L\+O\+CK}}
+\index{C\+T\+R\+L\+\_\+\+L\+O\+CK@{C\+T\+R\+L\+\_\+\+L\+O\+CK}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{C\+T\+R\+L\+\_\+\+L\+O\+CK}{CTRL_LOCK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+T\+R\+L\+\_\+\+L\+O\+CK~6   /$\ast$ Lock/Unlock media removal $\ast$/}\hypertarget{disk__defines_8h_af40e5cf3000553a978ff6e30dae70858}{}\label{disk__defines_8h_af40e5cf3000553a978ff6e30dae70858}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!C\+T\+R\+L\+\_\+\+P\+O\+W\+ER@{C\+T\+R\+L\+\_\+\+P\+O\+W\+ER}}
+\index{C\+T\+R\+L\+\_\+\+P\+O\+W\+ER@{C\+T\+R\+L\+\_\+\+P\+O\+W\+ER}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{C\+T\+R\+L\+\_\+\+P\+O\+W\+ER}{CTRL_POWER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+T\+R\+L\+\_\+\+P\+O\+W\+ER~5   /$\ast$ Get/Set power status $\ast$/}\hypertarget{disk__defines_8h_a345531a07462afbd999f414708e3b65b}{}\label{disk__defines_8h_a345531a07462afbd999f414708e3b65b}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!C\+T\+R\+L\+\_\+\+S\+Y\+NC@{C\+T\+R\+L\+\_\+\+S\+Y\+NC}}
+\index{C\+T\+R\+L\+\_\+\+S\+Y\+NC@{C\+T\+R\+L\+\_\+\+S\+Y\+NC}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{C\+T\+R\+L\+\_\+\+S\+Y\+NC}{CTRL_SYNC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+T\+R\+L\+\_\+\+S\+Y\+NC~0   /$\ast$ Flush disk cache ({\bf for} write functions) $\ast$/}\hypertarget{disk__defines_8h_a1b3c492f9aec325f0655941b75256f3c}{}\label{disk__defines_8h_a1b3c492f9aec325f0655941b75256f3c}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!G\+E\+T\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE@{G\+E\+T\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE}}
+\index{G\+E\+T\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE@{G\+E\+T\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{G\+E\+T\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE}{GET_BLOCK_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+T\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE~3   /$\ast$ Get erase block {\bf size} ({\bf for} only {\bf f\+\_\+mkfs}()) $\ast$/}\hypertarget{disk__defines_8h_aec3bb4dfe075d0ba2f3b07b300a95500}{}\label{disk__defines_8h_aec3bb4dfe075d0ba2f3b07b300a95500}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+C\+O\+U\+NT@{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+C\+O\+U\+NT}}
+\index{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+C\+O\+U\+NT@{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+C\+O\+U\+NT}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+C\+O\+U\+NT}{GET_SECTOR_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+C\+O\+U\+NT~1   /$\ast$ Get media {\bf size} ({\bf for} only {\bf f\+\_\+mkfs}()) $\ast$/}\hypertarget{disk__defines_8h_a570216006f6a8fc4e1698b1bbb2d1dde}{}\label{disk__defines_8h_a570216006f6a8fc4e1698b1bbb2d1dde}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE@{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}}
+\index{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE@{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}{GET_SECTOR_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+T\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE~2   /$\ast$ Get sector {\bf size} ({\bf for} multiple sector {\bf size} ({\bf \+\_\+\+M\+A\+X\+\_\+\+SS} $>$= 1024)) $\ast$/}\hypertarget{disk__defines_8h_ac73b5cf2135cbd459d109b96c9aa346a}{}\label{disk__defines_8h_ac73b5cf2135cbd459d109b96c9aa346a}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!S\+T\+A\+\_\+\+N\+O\+D\+I\+SK@{S\+T\+A\+\_\+\+N\+O\+D\+I\+SK}}
+\index{S\+T\+A\+\_\+\+N\+O\+D\+I\+SK@{S\+T\+A\+\_\+\+N\+O\+D\+I\+SK}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{S\+T\+A\+\_\+\+N\+O\+D\+I\+SK}{STA_NODISK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+\_\+\+N\+O\+D\+I\+SK~0x02    /$\ast$ No medium in the drive $\ast$/}\hypertarget{disk__defines_8h_aec625080763d6cf487e550a6c9a2dd19}{}\label{disk__defines_8h_aec625080763d6cf487e550a6c9a2dd19}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!S\+T\+A\+\_\+\+N\+O\+I\+N\+IT@{S\+T\+A\+\_\+\+N\+O\+I\+N\+IT}}
+\index{S\+T\+A\+\_\+\+N\+O\+I\+N\+IT@{S\+T\+A\+\_\+\+N\+O\+I\+N\+IT}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{S\+T\+A\+\_\+\+N\+O\+I\+N\+IT}{STA_NOINIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+\_\+\+N\+O\+I\+N\+IT~0x01    /$\ast$ Drive not initialized $\ast$/}\hypertarget{disk__defines_8h_abd6503c70d862b979a3f7080a59e9acd}{}\label{disk__defines_8h_abd6503c70d862b979a3f7080a59e9acd}
+\index{disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}!S\+T\+A\+\_\+\+P\+R\+O\+T\+E\+CT@{S\+T\+A\+\_\+\+P\+R\+O\+T\+E\+CT}}
+\index{S\+T\+A\+\_\+\+P\+R\+O\+T\+E\+CT@{S\+T\+A\+\_\+\+P\+R\+O\+T\+E\+CT}!disk\+\_\+defines.\+h@{disk\+\_\+defines.\+h}}
+\subsubsection[{\texorpdfstring{S\+T\+A\+\_\+\+P\+R\+O\+T\+E\+CT}{STA_PROTECT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+\_\+\+P\+R\+O\+T\+E\+CT~0x04    /$\ast$ Write protected $\ast$/}\hypertarget{disk__defines_8h_a9ec6dc5f6620a33fabe388d3a111ca8c}{}\label{disk__defines_8h_a9ec6dc5f6620a33fabe388d3a111ca8c}

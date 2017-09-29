@@ -1,0 +1,58 @@
+\hypertarget{i2c2_8hpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/i2c2.hpp File Reference}
+\label{i2c2_8hpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/i2c2.\+hpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/i2c2.\+hpp}}
+
+
+\hyperlink{classI2C2}{I2\+C2} Interrupt driven IO driver.  
+
+
+{\ttfamily \#include \char`\"{}singleton\+\_\+template.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}i2c\+\_\+base.\+hpp\char`\"{}}\\*
+Include dependency graph for i2c2.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dfe/i2c2_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d66/i2c2_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classI2C2}{I2\+C2}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517e}{Board\+\_\+\+I2\+C\+\_\+\+Device\+\_\+\+Addresses} \{ \hyperlink{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea2a3b5fd619500923331e58049adc6b98}{I2\+C\+Addr\+\_\+\+Acceleration\+Sensor} = 0x38, 
+\hyperlink{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea61bbd44e445bdde24417c7341c75e040}{I2\+C\+Addr\+\_\+\+Temperature\+Sensor} = 0x90, 
+\hyperlink{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea3daf9a157eba31339196c56400281f19}{I2\+C\+Addr\+\_\+\+L\+E\+D\+\_\+\+Display} = 0x40
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classI2C2}{I2\+C2} Interrupt driven IO driver. 
+
+20131010 \+: Removed read vs. write mode variable 
+
+\subsection{Enumeration Type Documentation}
+\index{i2c2.\+hpp@{i2c2.\+hpp}!Board\+\_\+\+I2\+C\+\_\+\+Device\+\_\+\+Addresses@{Board\+\_\+\+I2\+C\+\_\+\+Device\+\_\+\+Addresses}}
+\index{Board\+\_\+\+I2\+C\+\_\+\+Device\+\_\+\+Addresses@{Board\+\_\+\+I2\+C\+\_\+\+Device\+\_\+\+Addresses}!i2c2.\+hpp@{i2c2.\+hpp}}
+\subsubsection[{\texorpdfstring{Board\+\_\+\+I2\+C\+\_\+\+Device\+\_\+\+Addresses}{Board_I2C_Device_Addresses}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Board\+\_\+\+I2\+C\+\_\+\+Device\+\_\+\+Addresses}}\hypertarget{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517e}{}\label{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517e}
+I2C Addresses for on-\/board devices attached to I2C Bus \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I2\+C\+Addr\+\_\+\+Acceleration\+Sensor@{I2\+C\+Addr\+\_\+\+Acceleration\+Sensor}!i2c2.\+hpp@{i2c2.\+hpp}}\index{i2c2.\+hpp@{i2c2.\+hpp}!I2\+C\+Addr\+\_\+\+Acceleration\+Sensor@{I2\+C\+Addr\+\_\+\+Acceleration\+Sensor}}\item[{\em 
+I2\+C\+Addr\+\_\+\+Acceleration\+Sensor\hypertarget{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea2a3b5fd619500923331e58049adc6b98}{}\label{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea2a3b5fd619500923331e58049adc6b98}
+}]\index{I2\+C\+Addr\+\_\+\+Temperature\+Sensor@{I2\+C\+Addr\+\_\+\+Temperature\+Sensor}!i2c2.\+hpp@{i2c2.\+hpp}}\index{i2c2.\+hpp@{i2c2.\+hpp}!I2\+C\+Addr\+\_\+\+Temperature\+Sensor@{I2\+C\+Addr\+\_\+\+Temperature\+Sensor}}\item[{\em 
+I2\+C\+Addr\+\_\+\+Temperature\+Sensor\hypertarget{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea61bbd44e445bdde24417c7341c75e040}{}\label{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea61bbd44e445bdde24417c7341c75e040}
+}]\index{I2\+C\+Addr\+\_\+\+L\+E\+D\+\_\+\+Display@{I2\+C\+Addr\+\_\+\+L\+E\+D\+\_\+\+Display}!i2c2.\+hpp@{i2c2.\+hpp}}\index{i2c2.\+hpp@{i2c2.\+hpp}!I2\+C\+Addr\+\_\+\+L\+E\+D\+\_\+\+Display@{I2\+C\+Addr\+\_\+\+L\+E\+D\+\_\+\+Display}}\item[{\em 
+I2\+C\+Addr\+\_\+\+L\+E\+D\+\_\+\+Display\hypertarget{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea3daf9a157eba31339196c56400281f19}{}\label{i2c2_8hpp_a530a9c77519fb84bccb5029e56d5517ea3daf9a157eba31339196c56400281f19}
+}]\end{description}
+\end{Desc}

@@ -1,0 +1,28 @@
+\hypertarget{group__vTaskStartScheduler}{}\section{v\+Task\+Start\+Scheduler}
+\label{group__vTaskStartScheduler}\index{v\+Task\+Start\+Scheduler@{v\+Task\+Start\+Scheduler}}
+task. h 
+\begin{DoxyPre}void \hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{vTaskStartScheduler( void )};\end{DoxyPre}
+
+
+Starts the real time kernel tick processing. After calling the kernel has control over which tasks are executed and when.
+
+See the demo application file main.\+c for an example of creating tasks and starting the kernel.
+
+Example usage\+: 
+\begin{DoxyPre}
+void vAFunction( void )
+\{
+    // Create at least one task before starting the kernel.
+    xTaskCreate( vTaskCode, "NAME", STACK\_SIZE, NULL, tskIDLE\_PRIORITY, NULL );\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    // Start the real time kernel with preemption.
+    vTaskStartScheduler ();\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    // Will not get here unless a task calls vTaskEndScheduler ()
+\}
+  \end{DoxyPre}
+ 

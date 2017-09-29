@@ -1,0 +1,213 @@
+\hypertarget{spi__dma_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/spi\+\_\+dma.c File Reference}
+\label{spi__dma_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/spi\+\_\+dma.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/spi\+\_\+dma.\+c}}
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for spi\+\_\+dma.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d7d/spi__dma_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spi__dma_8c_abd8bc4f3a712db94ecec6e12a8ccc124}{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+N\+UM}~0
+\begin{DoxyCompactList}\small\item\em D\+MA Channel number for S\+SP Tx. \end{DoxyCompactList}\item 
+\#define \hyperlink{spi__dma_8c_affa1b4d8a2ef4b07f0ad4a195af5e1bd}{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+N\+UM}~1
+\begin{DoxyCompactList}\small\item\em D\+MA Channel number for S\+SP Rx. \end{DoxyCompactList}\item 
+\#define \hyperlink{spi__dma_8c_a04daaba37b45d4ebe9287e08bf08dcb6}{S\+S\+P1\+\_\+\+T\+X\+\_\+\+C\+H\+AN}~2\+UL
+\begin{DoxyCompactList}\small\item\em D\+MA source for TX of S\+S\+P1. \end{DoxyCompactList}\item 
+\#define \hyperlink{spi__dma_8c_aaba3953a61a7ab3f9d370bb27574a5c3}{S\+S\+P1\+\_\+\+R\+X\+\_\+\+C\+H\+AN}~3\+UL
+\begin{DoxyCompactList}\small\item\em D\+MA source for RX of S\+S\+P1. \end{DoxyCompactList}\item 
+\#define \hyperlink{spi__dma_8c_a42d33ea96e90578cd6a4ea08e301f2c5}{S\+R\+C\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}~(1 $<$$<$ 26)
+\item 
+\#define \hyperlink{spi__dma_8c_a02fc842ab641f4dd469c63996d499d98}{D\+S\+T\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}~(1 $<$$<$ 27)
+\item 
+\#define \hyperlink{spi__dma_8c_a3450841600b16a72ad0658e5c5685ecc}{T\+C\+I\+E\+\_\+\+B\+IT}~(1 $<$$<$ 31)
+\item 
+\#define \hyperlink{spi__dma_8c_ac4c4710d71f83b503f224bac3050a75b}{S\+R\+C\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}~(1 $<$$<$ 12)
+\item 
+\#define \hyperlink{spi__dma_8c_abe9be3fb5600ac6c2a6bc70c086f849f}{D\+S\+T\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}~(1 $<$$<$ 15)
+\item 
+\#define \hyperlink{spi__dma_8c_a4006cf09fc644133631e26058c96cb11}{S\+R\+C\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}~(1 $<$$<$ 18)
+\item 
+\#define \hyperlink{spi__dma_8c_a4488591007cd85585be0e9f29b2f35b0}{D\+S\+T\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}~(1 $<$$<$ 21)
+\item 
+\#define \hyperlink{spi__dma_8c_a5314df196e5d1b9bc4d461ecf91a7f97}{M\+\_\+\+T\+O\+\_\+\+P\+\_\+\+B\+IT}~(1 $<$$<$ 11)
+\item 
+\#define \hyperlink{spi__dma_8c_a45653125f0d983183f5a8f4aa30fbc22}{P\+\_\+\+T\+O\+\_\+\+M\+\_\+\+B\+IT}~(2 $<$$<$ 11)
+\item 
+\#define \hyperlink{spi__dma_8c_a97413a59ff9f13a6ea5369961935b7cc}{E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}~(1 $<$$<$ 14)
+\item 
+\#define \hyperlink{spi__dma_8c_af7b7e8ed32a3f9be79e45ea5729fcd5d}{T\+C\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}~(1 $<$$<$ 15)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea809956411e1a3235b644ca3ad4df942f}{err\+\_\+\+Dma} = 0, 
+\hyperlink{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea465dfdde792f5b5b9ea49ded20aed802}{err\+\_\+\+Len} = 1, 
+\hyperlink{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea14b64038edb5cda7ee9126599b66ca20}{err\+\_\+busy} = 2, 
+\hyperlink{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea0a37c2d7d94cb38f721f573eee40141c}{err\+\_\+spi\+Fifo} = 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi__dma_8c_ac0c515bbf4e58a9576547b5b0886d38a}{ssp1\+\_\+dma\+\_\+init} ()
+\item 
+unsigned \hyperlink{spi__dma_8c_af6c241463b0936d27a7d72214e6ffd97}{ssp1\+\_\+dma\+\_\+transfer\+\_\+block} (unsigned char $\ast$p\+Buffer, uint32\+\_\+t num\+\_\+bytes, char is\+\_\+write\+\_\+op)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!D\+S\+T\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES@{D\+S\+T\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}}
+\index{D\+S\+T\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES@{D\+S\+T\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{D\+S\+T\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}{DST_BURST_4_BYTES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+S\+T\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES~(1 $<$$<$ 15)}\hypertarget{spi__dma_8c_abe9be3fb5600ac6c2a6bc70c086f849f}{}\label{spi__dma_8c_abe9be3fb5600ac6c2a6bc70c086f849f}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!D\+S\+T\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT@{D\+S\+T\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}}
+\index{D\+S\+T\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT@{D\+S\+T\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{D\+S\+T\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}{DST_INCR_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+S\+T\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT~(1 $<$$<$ 27)}\hypertarget{spi__dma_8c_a02fc842ab641f4dd469c63996d499d98}{}\label{spi__dma_8c_a02fc842ab641f4dd469c63996d499d98}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!D\+S\+T\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES@{D\+S\+T\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}}
+\index{D\+S\+T\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES@{D\+S\+T\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{D\+S\+T\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}{DST_WIDTH_2_BYTES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+S\+T\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES~(1 $<$$<$ 21)}\hypertarget{spi__dma_8c_a4488591007cd85585be0e9f29b2f35b0}{}\label{spi__dma_8c_a4488591007cd85585be0e9f29b2f35b0}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT@{E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}}
+\index{E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT@{E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}{ER_INTR_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT~(1 $<$$<$ 14)}\hypertarget{spi__dma_8c_a97413a59ff9f13a6ea5369961935b7cc}{}\label{spi__dma_8c_a97413a59ff9f13a6ea5369961935b7cc}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!M\+\_\+\+T\+O\+\_\+\+P\+\_\+\+B\+IT@{M\+\_\+\+T\+O\+\_\+\+P\+\_\+\+B\+IT}}
+\index{M\+\_\+\+T\+O\+\_\+\+P\+\_\+\+B\+IT@{M\+\_\+\+T\+O\+\_\+\+P\+\_\+\+B\+IT}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{M\+\_\+\+T\+O\+\_\+\+P\+\_\+\+B\+IT}{M_TO_P_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+\_\+\+T\+O\+\_\+\+P\+\_\+\+B\+IT~(1 $<$$<$ 11)}\hypertarget{spi__dma_8c_a5314df196e5d1b9bc4d461ecf91a7f97}{}\label{spi__dma_8c_a5314df196e5d1b9bc4d461ecf91a7f97}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!P\+\_\+\+T\+O\+\_\+\+M\+\_\+\+B\+IT@{P\+\_\+\+T\+O\+\_\+\+M\+\_\+\+B\+IT}}
+\index{P\+\_\+\+T\+O\+\_\+\+M\+\_\+\+B\+IT@{P\+\_\+\+T\+O\+\_\+\+M\+\_\+\+B\+IT}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{P\+\_\+\+T\+O\+\_\+\+M\+\_\+\+B\+IT}{P_TO_M_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+\_\+\+T\+O\+\_\+\+M\+\_\+\+B\+IT~(2 $<$$<$ 11)}\hypertarget{spi__dma_8c_a45653125f0d983183f5a8f4aa30fbc22}{}\label{spi__dma_8c_a45653125f0d983183f5a8f4aa30fbc22}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+N\+UM@{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+N\+UM}}
+\index{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+N\+UM@{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+N\+UM}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+N\+UM}{SPI_DMA_RX_NUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+N\+UM~1}\hypertarget{spi__dma_8c_affa1b4d8a2ef4b07f0ad4a195af5e1bd}{}\label{spi__dma_8c_affa1b4d8a2ef4b07f0ad4a195af5e1bd}
+
+
+D\+MA Channel number for S\+SP Rx. 
+
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+N\+UM@{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+N\+UM}}
+\index{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+N\+UM@{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+N\+UM}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+N\+UM}{SPI_DMA_TX_NUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+I\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+N\+UM~0}\hypertarget{spi__dma_8c_abd8bc4f3a712db94ecec6e12a8ccc124}{}\label{spi__dma_8c_abd8bc4f3a712db94ecec6e12a8ccc124}
+
+
+D\+MA Channel number for S\+SP Tx. 
+
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!S\+R\+C\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES@{S\+R\+C\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}}
+\index{S\+R\+C\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES@{S\+R\+C\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{S\+R\+C\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES}{SRC_BURST_4_BYTES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+R\+C\+\_\+\+B\+U\+R\+S\+T\+\_\+4\+\_\+\+B\+Y\+T\+ES~(1 $<$$<$ 12)}\hypertarget{spi__dma_8c_ac4c4710d71f83b503f224bac3050a75b}{}\label{spi__dma_8c_ac4c4710d71f83b503f224bac3050a75b}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!S\+R\+C\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT@{S\+R\+C\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}}
+\index{S\+R\+C\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT@{S\+R\+C\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{S\+R\+C\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT}{SRC_INCR_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+R\+C\+\_\+\+I\+N\+C\+R\+\_\+\+B\+IT~(1 $<$$<$ 26)}\hypertarget{spi__dma_8c_a42d33ea96e90578cd6a4ea08e301f2c5}{}\label{spi__dma_8c_a42d33ea96e90578cd6a4ea08e301f2c5}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!S\+R\+C\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES@{S\+R\+C\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}}
+\index{S\+R\+C\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES@{S\+R\+C\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{S\+R\+C\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES}{SRC_WIDTH_2_BYTES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+R\+C\+\_\+\+W\+I\+D\+T\+H\+\_\+2\+\_\+\+B\+Y\+T\+ES~(1 $<$$<$ 18)}\hypertarget{spi__dma_8c_a4006cf09fc644133631e26058c96cb11}{}\label{spi__dma_8c_a4006cf09fc644133631e26058c96cb11}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!S\+S\+P1\+\_\+\+R\+X\+\_\+\+C\+H\+AN@{S\+S\+P1\+\_\+\+R\+X\+\_\+\+C\+H\+AN}}
+\index{S\+S\+P1\+\_\+\+R\+X\+\_\+\+C\+H\+AN@{S\+S\+P1\+\_\+\+R\+X\+\_\+\+C\+H\+AN}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{S\+S\+P1\+\_\+\+R\+X\+\_\+\+C\+H\+AN}{SSP1_RX_CHAN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+S\+P1\+\_\+\+R\+X\+\_\+\+C\+H\+AN~3\+UL}\hypertarget{spi__dma_8c_aaba3953a61a7ab3f9d370bb27574a5c3}{}\label{spi__dma_8c_aaba3953a61a7ab3f9d370bb27574a5c3}
+
+
+D\+MA source for RX of S\+S\+P1. 
+
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!S\+S\+P1\+\_\+\+T\+X\+\_\+\+C\+H\+AN@{S\+S\+P1\+\_\+\+T\+X\+\_\+\+C\+H\+AN}}
+\index{S\+S\+P1\+\_\+\+T\+X\+\_\+\+C\+H\+AN@{S\+S\+P1\+\_\+\+T\+X\+\_\+\+C\+H\+AN}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{S\+S\+P1\+\_\+\+T\+X\+\_\+\+C\+H\+AN}{SSP1_TX_CHAN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+S\+P1\+\_\+\+T\+X\+\_\+\+C\+H\+AN~2\+UL}\hypertarget{spi__dma_8c_a04daaba37b45d4ebe9287e08bf08dcb6}{}\label{spi__dma_8c_a04daaba37b45d4ebe9287e08bf08dcb6}
+
+
+D\+MA source for TX of S\+S\+P1. 
+
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!T\+C\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT@{T\+C\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}}
+\index{T\+C\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT@{T\+C\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT}{TC_INTR_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+C\+\_\+\+I\+N\+T\+R\+\_\+\+B\+IT~(1 $<$$<$ 15)}\hypertarget{spi__dma_8c_af7b7e8ed32a3f9be79e45ea5729fcd5d}{}\label{spi__dma_8c_af7b7e8ed32a3f9be79e45ea5729fcd5d}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!T\+C\+I\+E\+\_\+\+B\+IT@{T\+C\+I\+E\+\_\+\+B\+IT}}
+\index{T\+C\+I\+E\+\_\+\+B\+IT@{T\+C\+I\+E\+\_\+\+B\+IT}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+I\+E\+\_\+\+B\+IT}{TCIE_BIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+C\+I\+E\+\_\+\+B\+IT~(1 $<$$<$ 31)}\hypertarget{spi__dma_8c_a3450841600b16a72ad0658e5c5685ecc}{}\label{spi__dma_8c_a3450841600b16a72ad0658e5c5685ecc}
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8ce}{}\label{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8ce}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{err\+\_\+\+Dma@{err\+\_\+\+Dma}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!err\+\_\+\+Dma@{err\+\_\+\+Dma}}\item[{\em 
+err\+\_\+\+Dma\hypertarget{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea809956411e1a3235b644ca3ad4df942f}{}\label{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea809956411e1a3235b644ca3ad4df942f}
+}]\index{err\+\_\+\+Len@{err\+\_\+\+Len}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!err\+\_\+\+Len@{err\+\_\+\+Len}}\item[{\em 
+err\+\_\+\+Len\hypertarget{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea465dfdde792f5b5b9ea49ded20aed802}{}\label{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea465dfdde792f5b5b9ea49ded20aed802}
+}]\index{err\+\_\+busy@{err\+\_\+busy}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!err\+\_\+busy@{err\+\_\+busy}}\item[{\em 
+err\+\_\+busy\hypertarget{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea14b64038edb5cda7ee9126599b66ca20}{}\label{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea14b64038edb5cda7ee9126599b66ca20}
+}]\index{err\+\_\+spi\+Fifo@{err\+\_\+spi\+Fifo}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!err\+\_\+spi\+Fifo@{err\+\_\+spi\+Fifo}}\item[{\em 
+err\+\_\+spi\+Fifo\hypertarget{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea0a37c2d7d94cb38f721f573eee40141c}{}\label{spi__dma_8c_a83e8bc15645f9d99ab91a152bb3dc8cea0a37c2d7d94cb38f721f573eee40141c}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!ssp1\+\_\+dma\+\_\+init@{ssp1\+\_\+dma\+\_\+init}}
+\index{ssp1\+\_\+dma\+\_\+init@{ssp1\+\_\+dma\+\_\+init}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{ssp1\+\_\+dma\+\_\+init()}{ssp1_dma_init()}}]{\setlength{\rightskip}{0pt plus 5cm}void ssp1\+\_\+dma\+\_\+init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__dma_8c_ac0c515bbf4e58a9576547b5b0886d38a}{}\label{spi__dma_8c_ac0c515bbf4e58a9576547b5b0886d38a}
+\index{spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}!ssp1\+\_\+dma\+\_\+transfer\+\_\+block@{ssp1\+\_\+dma\+\_\+transfer\+\_\+block}}
+\index{ssp1\+\_\+dma\+\_\+transfer\+\_\+block@{ssp1\+\_\+dma\+\_\+transfer\+\_\+block}!spi\+\_\+dma.\+c@{spi\+\_\+dma.\+c}}
+\subsubsection[{\texorpdfstring{ssp1\+\_\+dma\+\_\+transfer\+\_\+block(unsigned char $\ast$p\+Buffer, uint32\+\_\+t num\+\_\+bytes, char is\+\_\+write\+\_\+op)}{ssp1_dma_transfer_block(unsigned char *pBuffer, uint32_t num_bytes, char is_write_op)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned ssp1\+\_\+dma\+\_\+transfer\+\_\+block (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{p\+Buffer, }
+\item[{uint32\+\_\+t}]{num\+\_\+bytes, }
+\item[{char}]{is\+\_\+write\+\_\+op}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__dma_8c_af6c241463b0936d27a7d72214e6ffd97}{}\label{spi__dma_8c_af6c241463b0936d27a7d72214e6ffd97}
+Transfers data over S\+PI (S\+SP\#1) 
+\begin{DoxyParams}{Parameters}
+{\em p\+Buffer} & The read or write buffer \\
+\hline
+{\em num\+\_\+bytes} & The length of the transfer in bytes \\
+\hline
+{\em is\+\_\+write\+\_\+op} & Non-\/zero for Write-\/operation, zero for read operation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If is\+\_\+write\+\_\+op is true\+:
+\begin{DoxyItemize}
+\item S\+PI data is sent from p\+Buffer
+\item S\+PI data is copied from S\+SP DR to dummy buffer and discarded If is\+\_\+write\+\_\+op is false (read operation) \+:
+\item S\+PI data is copied from S\+SP DR to p\+Buffer
+\item 0x\+FF is sent out for each byte transfered
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+0 upon success, or non-\/zero upon failure. 
+\end{DoxyReturn}
+TO DO \+: Optimize S\+S\+P1 D\+MA
+\begin{DoxyItemize}
+\item Try setting source and destination burst size to 4
+\item Try setting 16-\/bit S\+PI, and source and destination width to 1 W\+O\+RD
+\end{DoxyItemize}
+
+L\+P\+C\+\_\+\+S\+S\+P1-\/$>$C\+R0 \+: B3\+:B0. 0b0111 = 8-\/bit and 0b1111 = 16-\/bit L\+P\+C\+\_\+\+S\+S\+P1-\/$>$C\+R0 $\vert$= (1$<$$<$3); // 16-\/bit L\+P\+C\+\_\+\+S\+S\+P1-\/$>$C\+R0 \&= $\sim$(1$<$$<$3); // 8-\/bit
+
+Bits of D\+M\+A\+C\+C\+Control\+: Transfer size\+: B11\+:B0 Source Burst Size\+: B14\+:B12 -\/ 0\+:1, 1\+:4, 2\+:8, 3\+:16 bytes Dest. Burst Size\+: B17\+:B15 -\/ 0\+:1, 1\+:4, 2\+:8, 3\+:16 bytes Source Width\+: B20\+:B18 -\/ 0\+:Byte, 1\+:Word, 2\+:D\+W\+O\+RD Dest. Width\+: B23\+:B21 -\/ 0\+:Byte, 1\+:Word, 2\+:D\+W\+O\+RD Source increment\+: B26 Destination increment\+: B27 Terminal count interrupt enable\+: B31
+
+Bits of D\+M\+A\+C\+C\+Config\+: Enable\+: B0 Source Peripheral\+: B5\+:B1 (ignored if source is memory) Dest. Peripheral\+: B10\+:B6 (ignored if dest. is memory) Transfer type\+: B13\+:B11 -\/ See below Interrupt Error Mask\+: B14 Terminal Count Interrupt \+: B15
+
+Bits for transfer type\+: 000 -\/ Memory to Memory 001 -\/ Memory to Peripheral 010 -\/ Peripheral to Memory 011 -\/ Source peripheral to destination peripheral
+
+Clear existing terminal count and error interrupts otherwise D\+MA will not start.
+
+From S\+PI to buffer\+: For write operation \+:
+\begin{DoxyItemize}
+\item Receive data into dummy buffer
+\item Don\textquotesingle{}t increment destination For read operation\+:
+\item Read data into p\+Buffer
+\item Increment destination
+\end{DoxyItemize}
+
+From buffer to S\+PI \+: For write operation \+:
+\begin{DoxyItemize}
+\item Source data is p\+Buffer
+\item Increment source data For read operation\+:
+\item Source data is buffer with 0x\+FF
+\item Don\textquotesingle{}t increment source data
+\end{DoxyItemize}
+
+Channel must be fully configured and then enabled separately. Setting D\+M\+A\+CR\textquotesingle{}s Rx/\+Tx bits should trigger the D\+MA

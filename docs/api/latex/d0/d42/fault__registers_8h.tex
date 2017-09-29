@@ -1,0 +1,87 @@
+\hypertarget{fault__registers_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/fault\+\_\+registers.h File Reference}
+\label{fault__registers_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/fault\+\_\+registers.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L0\+\_\+\+Low\+Level/fault\+\_\+registers.\+h}}
+
+
+This file simply provides registers that are used to detect faults. These registers should be defined to a R\+AM region not used by the program.  
+
+
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for fault\+\_\+registers.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/dd3/fault__registers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/d01/fault__registers_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fault__registers_8h_a4bf8d64341330ff5f5fded61dd3ad74a}{F\+A\+U\+L\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+V\+AL}~0x\+D\+E\+A\+D\+B\+E\+EF
+\begin{DoxyCompactList}\small\item\em Value loaded to F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS upon a crash. \end{DoxyCompactList}\item 
+\#define \hyperlink{fault__registers_8h_a0743561a0a0e439f37705f5a40b63d06}{F\+A\+U\+L\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+U\+N\+N\+I\+N\+G\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+ME}~\hyperlink{LPC17xx_8h_a8303d3e5135b2a039f0dc5f93c194f78}{L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G0
+\begin{DoxyCompactList}\small\item\em Free\+R\+T\+OS crash info register. \end{DoxyCompactList}\item 
+\#define \hyperlink{fault__registers_8h_a281439bc2f3f846f16a2e7b81f209817}{F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS}~\hyperlink{LPC17xx_8h_a8303d3e5135b2a039f0dc5f93c194f78}{L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G1
+\begin{DoxyCompactList}\small\item\em Fault flag is stored here. \end{DoxyCompactList}\item 
+\#define \hyperlink{fault__registers_8h_a1ec08a7238f01f8e09f7427e93bf0b81}{F\+A\+U\+L\+T\+\_\+\+PC}~\hyperlink{LPC17xx_8h_a8303d3e5135b2a039f0dc5f93c194f78}{L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G2
+\begin{DoxyCompactList}\small\item\em C\+PU PC counter after the crash. \end{DoxyCompactList}\item 
+\#define \hyperlink{fault__registers_8h_ac9f076f3f537f1a8297c8796444043ee}{F\+A\+U\+L\+T\+\_\+\+LR}~\hyperlink{LPC17xx_8h_a8303d3e5135b2a039f0dc5f93c194f78}{L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G3
+\begin{DoxyCompactList}\small\item\em C\+PU Link register after the crash. \end{DoxyCompactList}\item 
+\#define \hyperlink{fault__registers_8h_a67ae8a929ab73a849e3a4f295dcae195}{F\+A\+U\+L\+T\+\_\+\+P\+SR}~\hyperlink{LPC17xx_8h_a8303d3e5135b2a039f0dc5f93c194f78}{L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G4
+\begin{DoxyCompactList}\small\item\em C\+PU P\+SR register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file simply provides registers that are used to detect faults. These registers should be defined to a R\+AM region not used by the program. 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}!F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS@{F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS}}
+\index{F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS@{F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS}!fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}}
+\subsubsection[{\texorpdfstring{F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS}{FAULT_EXISTS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS~{\bf L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G1}\hypertarget{fault__registers_8h_a281439bc2f3f846f16a2e7b81f209817}{}\label{fault__registers_8h_a281439bc2f3f846f16a2e7b81f209817}
+
+
+Fault flag is stored here. 
+
+\index{fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}!F\+A\+U\+L\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+U\+N\+N\+I\+N\+G\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+ME@{F\+A\+U\+L\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+U\+N\+N\+I\+N\+G\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+ME}}
+\index{F\+A\+U\+L\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+U\+N\+N\+I\+N\+G\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+ME@{F\+A\+U\+L\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+U\+N\+N\+I\+N\+G\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+ME}!fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}}
+\subsubsection[{\texorpdfstring{F\+A\+U\+L\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+U\+N\+N\+I\+N\+G\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+ME}{FAULT_LAST_RUNNING_TASK_NAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+U\+L\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+U\+N\+N\+I\+N\+G\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+ME~{\bf L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G0}\hypertarget{fault__registers_8h_a0743561a0a0e439f37705f5a40b63d06}{}\label{fault__registers_8h_a0743561a0a0e439f37705f5a40b63d06}
+
+
+Free\+R\+T\+OS crash info register. 
+
+\index{fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}!F\+A\+U\+L\+T\+\_\+\+LR@{F\+A\+U\+L\+T\+\_\+\+LR}}
+\index{F\+A\+U\+L\+T\+\_\+\+LR@{F\+A\+U\+L\+T\+\_\+\+LR}!fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}}
+\subsubsection[{\texorpdfstring{F\+A\+U\+L\+T\+\_\+\+LR}{FAULT_LR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+U\+L\+T\+\_\+\+LR~{\bf L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G3}\hypertarget{fault__registers_8h_ac9f076f3f537f1a8297c8796444043ee}{}\label{fault__registers_8h_ac9f076f3f537f1a8297c8796444043ee}
+
+
+C\+PU Link register after the crash. 
+
+\index{fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}!F\+A\+U\+L\+T\+\_\+\+PC@{F\+A\+U\+L\+T\+\_\+\+PC}}
+\index{F\+A\+U\+L\+T\+\_\+\+PC@{F\+A\+U\+L\+T\+\_\+\+PC}!fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}}
+\subsubsection[{\texorpdfstring{F\+A\+U\+L\+T\+\_\+\+PC}{FAULT_PC}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+U\+L\+T\+\_\+\+PC~{\bf L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G2}\hypertarget{fault__registers_8h_a1ec08a7238f01f8e09f7427e93bf0b81}{}\label{fault__registers_8h_a1ec08a7238f01f8e09f7427e93bf0b81}
+
+
+C\+PU PC counter after the crash. 
+
+\index{fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}!F\+A\+U\+L\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+V\+AL@{F\+A\+U\+L\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+V\+AL}}
+\index{F\+A\+U\+L\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+V\+AL@{F\+A\+U\+L\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+V\+AL}!fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}}
+\subsubsection[{\texorpdfstring{F\+A\+U\+L\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+V\+AL}{FAULT_PRESENT_VAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+U\+L\+T\+\_\+\+P\+R\+E\+S\+E\+N\+T\+\_\+\+V\+AL~0x\+D\+E\+A\+D\+B\+E\+EF}\hypertarget{fault__registers_8h_a4bf8d64341330ff5f5fded61dd3ad74a}{}\label{fault__registers_8h_a4bf8d64341330ff5f5fded61dd3ad74a}
+
+
+Value loaded to F\+A\+U\+L\+T\+\_\+\+E\+X\+I\+S\+TS upon a crash. 
+
+\index{fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}!F\+A\+U\+L\+T\+\_\+\+P\+SR@{F\+A\+U\+L\+T\+\_\+\+P\+SR}}
+\index{F\+A\+U\+L\+T\+\_\+\+P\+SR@{F\+A\+U\+L\+T\+\_\+\+P\+SR}!fault\+\_\+registers.\+h@{fault\+\_\+registers.\+h}}
+\subsubsection[{\texorpdfstring{F\+A\+U\+L\+T\+\_\+\+P\+SR}{FAULT_PSR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+U\+L\+T\+\_\+\+P\+SR~{\bf L\+P\+C\+\_\+\+R\+TC}-\/$>$G\+P\+R\+E\+G4}\hypertarget{fault__registers_8h_a67ae8a929ab73a849e3a4f295dcae195}{}\label{fault__registers_8h_a67ae8a929ab73a849e3a4f295dcae195}
+
+
+C\+PU P\+SR register. 
+

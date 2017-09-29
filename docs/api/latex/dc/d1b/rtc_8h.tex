@@ -1,0 +1,131 @@
+\hypertarget{rtc_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/rtc.h File Reference}
+\label{rtc_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/rtc.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/rtc.\+h}}
+
+
+This file provides access to the System\textquotesingle{}s Real-\/time Clock that maintains time even through power-\/loss granted that the R\+TC Backup battery is installed.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+Include dependency graph for rtc.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{db/d1e/rtc_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d6c/rtc_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} \{ \\*
+\hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a05ae4fe36d965a49f27a3d3e45c3c136}{dow\+\_\+sun} = 0, 
+\hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4ac4520c5dd235c7bff28a342a7bb8558c}{dow\+\_\+mon}, 
+\hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a1b8fe5b024b4bcc199bf944698949870}{dow\+\_\+tue}, 
+\hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a4f9fd1c0db1e18d8374b4b53ffa2ee94}{dow\+\_\+wed}, 
+\\*
+\hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a073a806a17edc9cbd35140544fe19ada}{dow\+\_\+thu}, 
+\hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4acbde6bdc491dd0a20e47a3ca080482fe}{dow\+\_\+fri}, 
+\hyperlink{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4acc76151782f4e9eb4de1f2451380c8af}{dow\+\_\+sat}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rtc_8h_acf9024748b942a7ae375cf75951afa9c}{rtc\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the R\+TC. \end{DoxyCompactList}\item 
+rtc\+\_\+t \hyperlink{rtc_8h_ada234d8c4e843bbdcdd2e2eb594f6e39}{rtc\+\_\+gettime} (void)
+\item 
+void \hyperlink{rtc_8h_ac45eb85b7854324e8c02f43207602a86}{rtc\+\_\+settime} (const rtc\+\_\+t $\ast$rtcstruct)
+\item 
+const char $\ast$ \hyperlink{rtc_8h_a09f5c02f335ab8426ebde4383644012b}{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file provides access to the System\textquotesingle{}s Real-\/time Clock that maintains time even through power-\/loss granted that the R\+TC Backup battery is installed. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{rtc.\+h@{rtc.\+h}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!rtc.\+h@{rtc.\+h}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+attribute\+\_\+\+\_\+}{__attribute__}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \+\_\+\+\_\+attribute\+\_\+\+\_\+}}\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4}
+Enumeration of the R\+T\+C.\+dow \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{dow\+\_\+sun@{dow\+\_\+sun}!rtc.\+h@{rtc.\+h}}\index{rtc.\+h@{rtc.\+h}!dow\+\_\+sun@{dow\+\_\+sun}}\item[{\em 
+dow\+\_\+sun\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a05ae4fe36d965a49f27a3d3e45c3c136}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a05ae4fe36d965a49f27a3d3e45c3c136}
+}]\index{dow\+\_\+mon@{dow\+\_\+mon}!rtc.\+h@{rtc.\+h}}\index{rtc.\+h@{rtc.\+h}!dow\+\_\+mon@{dow\+\_\+mon}}\item[{\em 
+dow\+\_\+mon\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4ac4520c5dd235c7bff28a342a7bb8558c}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4ac4520c5dd235c7bff28a342a7bb8558c}
+}]\index{dow\+\_\+tue@{dow\+\_\+tue}!rtc.\+h@{rtc.\+h}}\index{rtc.\+h@{rtc.\+h}!dow\+\_\+tue@{dow\+\_\+tue}}\item[{\em 
+dow\+\_\+tue\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a1b8fe5b024b4bcc199bf944698949870}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a1b8fe5b024b4bcc199bf944698949870}
+}]\index{dow\+\_\+wed@{dow\+\_\+wed}!rtc.\+h@{rtc.\+h}}\index{rtc.\+h@{rtc.\+h}!dow\+\_\+wed@{dow\+\_\+wed}}\item[{\em 
+dow\+\_\+wed\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a4f9fd1c0db1e18d8374b4b53ffa2ee94}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a4f9fd1c0db1e18d8374b4b53ffa2ee94}
+}]\index{dow\+\_\+thu@{dow\+\_\+thu}!rtc.\+h@{rtc.\+h}}\index{rtc.\+h@{rtc.\+h}!dow\+\_\+thu@{dow\+\_\+thu}}\item[{\em 
+dow\+\_\+thu\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a073a806a17edc9cbd35140544fe19ada}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4a073a806a17edc9cbd35140544fe19ada}
+}]\index{dow\+\_\+fri@{dow\+\_\+fri}!rtc.\+h@{rtc.\+h}}\index{rtc.\+h@{rtc.\+h}!dow\+\_\+fri@{dow\+\_\+fri}}\item[{\em 
+dow\+\_\+fri\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4acbde6bdc491dd0a20e47a3ca080482fe}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4acbde6bdc491dd0a20e47a3ca080482fe}
+}]\index{dow\+\_\+sat@{dow\+\_\+sat}!rtc.\+h@{rtc.\+h}}\index{rtc.\+h@{rtc.\+h}!dow\+\_\+sat@{dow\+\_\+sat}}\item[{\em 
+dow\+\_\+sat\hypertarget{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4acc76151782f4e9eb4de1f2451380c8af}{}\label{rtc_8h_a8c1dfc1ccf00a08192611433ee7f17b4acc76151782f4e9eb4de1f2451380c8af}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{rtc.\+h@{rtc.\+h}!rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str@{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str}}
+\index{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str@{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str}!rtc.\+h@{rtc.\+h}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str(void)}{rtc_get_date_time_str(void)}}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ rtc\+\_\+get\+\_\+date\+\_\+time\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8h_a09f5c02f335ab8426ebde4383644012b}{}\label{rtc_8h_a09f5c02f335ab8426ebde4383644012b}
+Get the R\+TC time as string in the format\+: \char`\"{}\+Wed Feb 13 15\+:46\+:11 2013\char`\"{} \begin{DoxyReturn}{Returns}
+the pointer to the time string (do not modify it) 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This method is not thread safe 
+\end{DoxyWarning}
+\index{rtc.\+h@{rtc.\+h}!rtc\+\_\+gettime@{rtc\+\_\+gettime}}
+\index{rtc\+\_\+gettime@{rtc\+\_\+gettime}!rtc.\+h@{rtc.\+h}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+gettime(void)}{rtc_gettime(void)}}]{\setlength{\rightskip}{0pt plus 5cm}rtc\+\_\+t rtc\+\_\+gettime (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8h_ada234d8c4e843bbdcdd2e2eb594f6e39}{}\label{rtc_8h_ada234d8c4e843bbdcdd2e2eb594f6e39}
+\begin{DoxyReturn}{Returns}
+the latest time in R\+TC structure 
+\end{DoxyReturn}
+\index{rtc.\+h@{rtc.\+h}!rtc\+\_\+init@{rtc\+\_\+init}}
+\index{rtc\+\_\+init@{rtc\+\_\+init}!rtc.\+h@{rtc.\+h}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+init(void)}{rtc_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtc\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8h_acf9024748b942a7ae375cf75951afa9c}{}\label{rtc_8h_acf9024748b942a7ae375cf75951afa9c}
+
+
+Initialize the R\+TC. 
+
+\index{rtc.\+h@{rtc.\+h}!rtc\+\_\+settime@{rtc\+\_\+settime}}
+\index{rtc\+\_\+settime@{rtc\+\_\+settime}!rtc.\+h@{rtc.\+h}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+settime(const rtc\+\_\+t $\ast$rtcstruct)}{rtc_settime(const rtc_t *rtcstruct)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtc\+\_\+settime (
+\begin{DoxyParamCaption}
+\item[{const rtc\+\_\+t $\ast$}]{rtcstruct}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc_8h_ac45eb85b7854324e8c02f43207602a86}{}\label{rtc_8h_ac45eb85b7854324e8c02f43207602a86}
+Sets the R\+TC time 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em rtcstruct} & The rtc time structure pointer \\
+\hline
+\end{DoxyParams}

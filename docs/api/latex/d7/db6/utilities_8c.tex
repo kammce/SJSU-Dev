@@ -1,0 +1,67 @@
+\hypertarget{utilities_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/utilities.c File Reference}
+\label{utilities_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/utilities.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/utilities.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ff.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fault\+\_\+registers.\+h\char`\"{}}\\*
+Include dependency graph for utilities.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d66/utilities_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{utilities_8c_aa43c73d8be7eb210407d04ce9567d64b}{delay\+\_\+us} (unsigned int microsec)
+\item 
+void \hyperlink{utilities_8c_acf3978baebc9957183e235b11471ebf6}{delay\+\_\+ms} (unsigned int millisec)
+\item 
+char \hyperlink{utilities_8c_a99330da093a7786aacca2a92a1f77931}{is\+\_\+freertos\+\_\+running} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{utilities.\+c@{utilities.\+c}!delay\+\_\+ms@{delay\+\_\+ms}}
+\index{delay\+\_\+ms@{delay\+\_\+ms}!utilities.\+c@{utilities.\+c}}
+\subsubsection[{\texorpdfstring{delay\+\_\+ms(unsigned int millisec)}{delay_ms(unsigned int millisec)}}]{\setlength{\rightskip}{0pt plus 5cm}void delay\+\_\+ms (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{milli\+\_\+sec}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8c_acf3978baebc9957183e235b11471ebf6}{}\label{utilities_8c_acf3978baebc9957183e235b11471ebf6}
+Delays in milliseconds 
+\begin{DoxyParams}{Parameters}
+{\em milli\+\_\+sec} & The delay in milliseconds. \\
+\hline
+\end{DoxyParams}
+If Free\+R\+T\+OS is running, we should sleep the calling task instead of polling using the full C\+PU.\index{utilities.\+c@{utilities.\+c}!delay\+\_\+us@{delay\+\_\+us}}
+\index{delay\+\_\+us@{delay\+\_\+us}!utilities.\+c@{utilities.\+c}}
+\subsubsection[{\texorpdfstring{delay\+\_\+us(unsigned int microsec)}{delay_us(unsigned int microsec)}}]{\setlength{\rightskip}{0pt plus 5cm}void delay\+\_\+us (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{micro\+\_\+sec}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8c_aa43c73d8be7eb210407d04ce9567d64b}{}\label{utilities_8c_aa43c73d8be7eb210407d04ce9567d64b}
+Delays in microseconds 
+\begin{DoxyParams}{Parameters}
+{\em micro\+\_\+sec} & The delay in microseconds \\
+\hline
+\end{DoxyParams}
+\index{utilities.\+c@{utilities.\+c}!is\+\_\+freertos\+\_\+running@{is\+\_\+freertos\+\_\+running}}
+\index{is\+\_\+freertos\+\_\+running@{is\+\_\+freertos\+\_\+running}!utilities.\+c@{utilities.\+c}}
+\subsubsection[{\texorpdfstring{is\+\_\+freertos\+\_\+running()}{is_freertos_running()}}]{\setlength{\rightskip}{0pt plus 5cm}char is\+\_\+freertos\+\_\+running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{utilities_8c_a99330da093a7786aacca2a92a1f77931}{}\label{utilities_8c_a99330da093a7786aacca2a92a1f77931}
+\begin{DoxyReturn}{Returns}
+non-\/zero result if Free\+R\+T\+OS is running 
+\end{DoxyReturn}

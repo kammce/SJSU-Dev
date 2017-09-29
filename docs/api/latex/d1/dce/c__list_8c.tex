@@ -1,0 +1,221 @@
+\hypertarget{c__list_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/c\+\_\+list.c File Reference}
+\label{c__list_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/c\+\_\+list.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/c\+\_\+list.\+c}}
+{\ttfamily \#include \char`\"{}c\+\_\+list.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+Include dependency graph for c\+\_\+list.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{d1/d8e/c__list_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structc__data__node}{c\+\_\+data\+\_\+node}
+\item 
+struct \hyperlink{structc__list__type}{c\+\_\+list\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structc__data__node}{c\+\_\+data\+\_\+node} \hyperlink{c__list_8c_af1e98c9027b506e1370ed9692f78152c}{c\+\_\+data\+\_\+node\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} \hyperlink{c__list_8c_a8f3e8ae175438abdb851576412efda27}{c\+\_\+list\+\_\+create} (void)
+\item 
+bool \hyperlink{c__list_8c_aeff53d720255ea2b074be3c06f63d159}{c\+\_\+list\+\_\+delete} (\hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p, \hyperlink{c__list_8h_ac9cc03184c02e0056f2081da3a1d6e84}{c\+\_\+list\+\_\+callback\+\_\+t} delete\+\_\+callback)
+\item 
+uint32\+\_\+t \hyperlink{c__list_8c_af453082f68b8fa73e1ce25b3968f9bb7}{c\+\_\+list\+\_\+node\+\_\+count} (const \hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p)
+\item 
+bool \hyperlink{c__list_8c_aa434502dcff0663624b839714288105d}{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+end} (\hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p, const void $\ast$elm\+\_\+ptr)
+\item 
+bool \hyperlink{c__list_8c_a6455bd6757c8ac1c3658b5c55fe8a31c}{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+beg} (\hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p, const void $\ast$elm\+\_\+ptr)
+\item 
+void $\ast$ \hyperlink{c__list_8c_a53da681fdb47eb63e15ffabb61d03bcc}{c\+\_\+list\+\_\+get\+\_\+elm\+\_\+at} (\hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p, uint32\+\_\+t index, void $\ast$$\ast$hint)
+\item 
+void $\ast$ \hyperlink{c__list_8c_a3b2051f7c69e4ca08787122e1cbd7b5e}{c\+\_\+list\+\_\+find\+\_\+elm} (\hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p, \hyperlink{c__list_8h_ac9cc03184c02e0056f2081da3a1d6e84}{c\+\_\+list\+\_\+callback\+\_\+t} callback, void $\ast$arg1, void $\ast$arg2, void $\ast$arg3)
+\item 
+bool \hyperlink{c__list_8c_a63b0c5cfc46ce4ff724e27aa7eb5cfbe}{c\+\_\+list\+\_\+delete\+\_\+elm} (\hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p, const void $\ast$elm\+\_\+ptr)
+\item 
+bool \hyperlink{c__list_8c_a27a50d25d6254e5f8242d79e9696f8d8}{c\+\_\+list\+\_\+for\+\_\+each\+\_\+elm} (const \hyperlink{c__list_8h_ac1348a934d8de3fb323ae00056260665}{c\+\_\+list\+\_\+ptr} p, \hyperlink{c__list_8h_ac9cc03184c02e0056f2081da3a1d6e84}{c\+\_\+list\+\_\+callback\+\_\+t} func, void $\ast$arg1, void $\ast$arg2, void $\ast$arg3)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+data\+\_\+node\+\_\+type@{c\+\_\+data\+\_\+node\+\_\+type}}
+\index{c\+\_\+data\+\_\+node\+\_\+type@{c\+\_\+data\+\_\+node\+\_\+type}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+data\+\_\+node\+\_\+type}{c_data_node_type}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf c\+\_\+data\+\_\+node}  {\bf c\+\_\+data\+\_\+node\+\_\+type}}\hypertarget{c__list_8c_af1e98c9027b506e1370ed9692f78152c}{}\label{c__list_8c_af1e98c9027b506e1370ed9692f78152c}
+Data for each linked list node 
+
+\subsection{Function Documentation}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+create@{c\+\_\+list\+\_\+create}}
+\index{c\+\_\+list\+\_\+create@{c\+\_\+list\+\_\+create}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+create(void)}{c_list_create(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf c\+\_\+list\+\_\+ptr} c\+\_\+list\+\_\+create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_a8f3e8ae175438abdb851576412efda27}{}\label{c__list_8c_a8f3e8ae175438abdb851576412efda27}
+Creates a linked list structure \begin{DoxyReturn}{Returns}
+Heap allocated list pointer. 
+\end{DoxyReturn}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+delete@{c\+\_\+list\+\_\+delete}}
+\index{c\+\_\+list\+\_\+delete@{c\+\_\+list\+\_\+delete}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+delete(c\+\_\+list\+\_\+ptr p, c\+\_\+list\+\_\+callback\+\_\+t delete\+\_\+callback)}{c_list_delete(c_list_ptr p, c_list_callback_t delete_callback)}}]{\setlength{\rightskip}{0pt plus 5cm}bool c\+\_\+list\+\_\+delete (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+list\+\_\+ptr}}]{list, }
+\item[{{\bf c\+\_\+list\+\_\+callback\+\_\+t}}]{delete\+\_\+callback}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_aeff53d720255ea2b074be3c06f63d159}{}\label{c__list_8c_aeff53d720255ea2b074be3c06f63d159}
+Deletes the linked list and calls your del() function for each element. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The linked list pointer. \\
+\hline
+{\em delete\+\_\+callback} & This can be N\+U\+LL if you just want to free up the list and its nodes and you don\textquotesingle{}t want to use the delete callback. If you provide this callback, then you will receive a callback with the elm\+\_\+ptr and you decide what to do with the pointers you added to the list. \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+delete\+\_\+elm@{c\+\_\+list\+\_\+delete\+\_\+elm}}
+\index{c\+\_\+list\+\_\+delete\+\_\+elm@{c\+\_\+list\+\_\+delete\+\_\+elm}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+delete\+\_\+elm(c\+\_\+list\+\_\+ptr p, const void $\ast$elm\+\_\+ptr)}{c_list_delete_elm(c_list_ptr p, const void *elm_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool c\+\_\+list\+\_\+delete\+\_\+elm (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+list\+\_\+ptr}}]{list, }
+\item[{const void $\ast$}]{elm\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_a63b0c5cfc46ce4ff724e27aa7eb5cfbe}{}\label{c__list_8c_a63b0c5cfc46ce4ff724e27aa7eb5cfbe}
+Deletes an element by the pointer 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to delete the node from \\
+\hline
+{\em elm\+\_\+ptr} & Pointer to the element that should be deleted. Note that this will delete the first element it finds and will not remove all instances if duplicate elements were added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if element was found and was deleted. 
+\end{DoxyReturn}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+find\+\_\+elm@{c\+\_\+list\+\_\+find\+\_\+elm}}
+\index{c\+\_\+list\+\_\+find\+\_\+elm@{c\+\_\+list\+\_\+find\+\_\+elm}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+find\+\_\+elm(c\+\_\+list\+\_\+ptr p, c\+\_\+list\+\_\+callback\+\_\+t callback, void $\ast$arg1, void $\ast$arg2, void $\ast$arg3)}{c_list_find_elm(c_list_ptr p, c_list_callback_t callback, void *arg1, void *arg2, void *arg3)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ c\+\_\+list\+\_\+find\+\_\+elm (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+list\+\_\+ptr}}]{list, }
+\item[{{\bf c\+\_\+list\+\_\+callback\+\_\+t}}]{callback, }
+\item[{void $\ast$}]{arg1, }
+\item[{void $\ast$}]{arg2, }
+\item[{void $\ast$}]{arg3}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_a3b2051f7c69e4ca08787122e1cbd7b5e}{}\label{c__list_8c_a3b2051f7c69e4ca08787122e1cbd7b5e}
+Finds an element in the list. When your callback returns false, this function will return that element back. If your callback returns true and list iteration finishes, N\+U\+LL pointer is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to iterate \\
+\hline
+{\em callback} & The callback function. \\
+\hline
+{\em arg1} & arg2 arg3 The arguments to pass to your call-\/back function. \\
+\hline
+\end{DoxyParams}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+for\+\_\+each\+\_\+elm@{c\+\_\+list\+\_\+for\+\_\+each\+\_\+elm}}
+\index{c\+\_\+list\+\_\+for\+\_\+each\+\_\+elm@{c\+\_\+list\+\_\+for\+\_\+each\+\_\+elm}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+for\+\_\+each\+\_\+elm(const c\+\_\+list\+\_\+ptr p, c\+\_\+list\+\_\+callback\+\_\+t func, void $\ast$arg1, void $\ast$arg2, void $\ast$arg3)}{c_list_for_each_elm(const c_list_ptr p, c_list_callback_t func, void *arg1, void *arg2, void *arg3)}}]{\setlength{\rightskip}{0pt plus 5cm}bool c\+\_\+list\+\_\+for\+\_\+each\+\_\+elm (
+\begin{DoxyParamCaption}
+\item[{const {\bf c\+\_\+list\+\_\+ptr}}]{list, }
+\item[{{\bf c\+\_\+list\+\_\+callback\+\_\+t}}]{func, }
+\item[{void $\ast$}]{arg1, }
+\item[{void $\ast$}]{arg2, }
+\item[{void $\ast$}]{arg3}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_a27a50d25d6254e5f8242d79e9696f8d8}{}\label{c__list_8c_a27a50d25d6254e5f8242d79e9696f8d8}
+Iterates your list\textquotesingle{}s element(s) 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to iterate \\
+\hline
+{\em func} & The callback function. The list will iterate as long as this callback function returns true. When the callback function returns false, the iteration stops and immediately returns false. If iteration finished and your callback always returned true, then this function will also return true.\\
+\hline
+{\em arg1} & arg2 arg3 The arguments to pass to your call-\/back function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entire list was iterate without your callback returning false
+\end{DoxyReturn}
+If your list contains integers, you can use the following to check for duplicates \+: 
+\begin{DoxyCode}
+1 static bool check\_dup(void *elm, void *new\_int, void *arg2\_unused, void *arg3\_unused)
+2 \{
+3     // Return true when we want c\_list\_for\_each\_elm() to continue
+4     return( *(int*)elm != *(int*)new\_int);
+5 \}
+6 
+7 if (!c\_list\_for\_each\_elm(list, check\_dup, (void*)new\_var\_ptr, NULL, NULL))
+8 \{
+9     // Duplicate insertion when c\_list\_for\_each\_elm() returns false
+10 \}
+\end{DoxyCode}
+ \index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+get\+\_\+elm\+\_\+at@{c\+\_\+list\+\_\+get\+\_\+elm\+\_\+at}}
+\index{c\+\_\+list\+\_\+get\+\_\+elm\+\_\+at@{c\+\_\+list\+\_\+get\+\_\+elm\+\_\+at}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+get\+\_\+elm\+\_\+at(c\+\_\+list\+\_\+ptr p, uint32\+\_\+t index, void $\ast$$\ast$hint)}{c_list_get_elm_at(c_list_ptr p, uint32_t index, void **hint)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ c\+\_\+list\+\_\+get\+\_\+elm\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+list\+\_\+ptr}}]{list, }
+\item[{uint32\+\_\+t}]{index, }
+\item[{void $\ast$$\ast$}]{hint}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_a53da681fdb47eb63e15ffabb61d03bcc}{}\label{c__list_8c_a53da681fdb47eb63e15ffabb61d03bcc}
+Gets the linked list element at the given index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list pointer \\
+\hline
+{\em index} & The index location with bounds of 0 to \hyperlink{c__list_8h_af1695cc46eb817bdccb09413a5c0c903}{c\+\_\+list\+\_\+node\+\_\+count()} \\
+\hline
+{\em hint} & Can be N\+U\+LL if you don\textquotesingle{}t want to use it. You can use the hint to iterate through the elements faster if you are using a for loop. See example below \+: 
+\begin{DoxyCode}
+1 void *hint = 0;
+2 for(int i=0; i < c\_list\_node\_count(my\_list); i++) \{
+3     void *my\_elm = c\_list\_get\_elm\_at(my\_list, i, &hint);
+4 \}
+\end{DoxyCode}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element pointer or N\+U\+LL if out of bound element is accessed 
+\end{DoxyReturn}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+beg@{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+beg}}
+\index{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+beg@{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+beg}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+beg(c\+\_\+list\+\_\+ptr p, const void $\ast$elm\+\_\+ptr)}{c_list_insert_elm_beg(c_list_ptr p, const void *elm_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+beg (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+list\+\_\+ptr}}]{list, }
+\item[{const void $\ast$}]{elm\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_a6455bd6757c8ac1c3658b5c55fe8a31c}{}\label{c__list_8c_a6455bd6757c8ac1c3658b5c55fe8a31c}
+List insertion functions Inserts your data pointer to the list 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to insert a new node \\
+\hline
+{\em elm\+\_\+ptr} & Pointer to your data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The data at elm is not copied internally, only the pointer is copied. This pointer thus, should not go out of scope after you add to the list. 
+\end{DoxyNote}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+end@{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+end}}
+\index{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+end@{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+end}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+end(c\+\_\+list\+\_\+ptr p, const void $\ast$elm\+\_\+ptr)}{c_list_insert_elm_end(c_list_ptr p, const void *elm_ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}bool c\+\_\+list\+\_\+insert\+\_\+elm\+\_\+end (
+\begin{DoxyParamCaption}
+\item[{{\bf c\+\_\+list\+\_\+ptr}}]{p, }
+\item[{const void $\ast$}]{elm\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_aa434502dcff0663624b839714288105d}{}\label{c__list_8c_aa434502dcff0663624b839714288105d}
+\index{c\+\_\+list.\+c@{c\+\_\+list.\+c}!c\+\_\+list\+\_\+node\+\_\+count@{c\+\_\+list\+\_\+node\+\_\+count}}
+\index{c\+\_\+list\+\_\+node\+\_\+count@{c\+\_\+list\+\_\+node\+\_\+count}!c\+\_\+list.\+c@{c\+\_\+list.\+c}}
+\subsubsection[{\texorpdfstring{c\+\_\+list\+\_\+node\+\_\+count(const c\+\_\+list\+\_\+ptr p)}{c_list_node_count(const c_list_ptr p)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t c\+\_\+list\+\_\+node\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{const {\bf c\+\_\+list\+\_\+ptr}}]{list}
+\end{DoxyParamCaption}
+)}\hypertarget{c__list_8c_af453082f68b8fa73e1ce25b3968f9bb7}{}\label{c__list_8c_af453082f68b8fa73e1ce25b3968f9bb7}
+\begin{DoxyReturn}{Returns}
+the number of items in the list. 
+\end{DoxyReturn}

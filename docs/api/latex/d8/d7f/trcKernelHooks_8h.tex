@@ -1,0 +1,25 @@
+\hypertarget{trcKernelHooks_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/trace/trc\+Kernel\+Hooks.h File Reference}
+\label{trcKernelHooks_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/trace/trc\+Kernel\+Hooks.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/trace/trc\+Kernel\+Hooks.\+h}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{trcKernelHooks_8h_a14058870ab984f57429aa8a9cd47b6fe}{trc\+K\+E\+R\+N\+E\+L\+\_\+\+H\+O\+O\+K\+S\+\_\+\+T\+I\+M\+E\+R\+\_\+\+D\+E\+L\+E\+TE}(S\+E\+R\+V\+I\+CE,  px\+Timer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{trc\+Kernel\+Hooks.\+h@{trc\+Kernel\+Hooks.\+h}!trc\+K\+E\+R\+N\+E\+L\+\_\+\+H\+O\+O\+K\+S\+\_\+\+T\+I\+M\+E\+R\+\_\+\+D\+E\+L\+E\+TE@{trc\+K\+E\+R\+N\+E\+L\+\_\+\+H\+O\+O\+K\+S\+\_\+\+T\+I\+M\+E\+R\+\_\+\+D\+E\+L\+E\+TE}}
+\index{trc\+K\+E\+R\+N\+E\+L\+\_\+\+H\+O\+O\+K\+S\+\_\+\+T\+I\+M\+E\+R\+\_\+\+D\+E\+L\+E\+TE@{trc\+K\+E\+R\+N\+E\+L\+\_\+\+H\+O\+O\+K\+S\+\_\+\+T\+I\+M\+E\+R\+\_\+\+D\+E\+L\+E\+TE}!trc\+Kernel\+Hooks.\+h@{trc\+Kernel\+Hooks.\+h}}
+\subsubsection[{\texorpdfstring{trc\+K\+E\+R\+N\+E\+L\+\_\+\+H\+O\+O\+K\+S\+\_\+\+T\+I\+M\+E\+R\+\_\+\+D\+E\+L\+E\+TE}{trcKERNEL_HOOKS_TIMER_DELETE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define trc\+K\+E\+R\+N\+E\+L\+\_\+\+H\+O\+O\+K\+S\+\_\+\+T\+I\+M\+E\+R\+\_\+\+D\+E\+L\+E\+TE(
+\begin{DoxyParamCaption}
+\item[{}]{S\+E\+R\+V\+I\+CE, }
+\item[{}]{px\+Timer}
+\end{DoxyParamCaption}
+)}\hypertarget{trcKernelHooks_8h_a14058870ab984f57429aa8a9cd47b6fe}{}\label{trcKernelHooks_8h_a14058870ab984f57429aa8a9cd47b6fe}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+vTraceStoreKernelCall(SERVICE, TRACE\_CLASS\_TIMER, TRACE\_GET\_TIMER\_NUMBER(pxTimer)); \(\backslash\)
+vTraceStoreObjectNameOnCloseEvent(TRACE\_GET\_TIMER\_NUMBER(pxTimer), TRACE\_CLASS\_TIMER); \(\backslash\)
+vTraceStoreObjectPropertiesOnCloseEvent(TRACE\_GET\_TIMER\_NUMBER(pxTimer), TRACE\_CLASS\_TIMER); \(\backslash\)
+vTraceFreeObjectHandle(TRACE\_CLASS\_TIMER, TRACE\_GET\_TIMER\_NUMBER(pxTimer));
+\end{DoxyCode}

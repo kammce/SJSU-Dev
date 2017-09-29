@@ -1,0 +1,91 @@
+\hypertarget{rtc__alarm_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/rtc\+\_\+alarm.c File Reference}
+\label{rtc__alarm_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/rtc\+\_\+alarm.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/rtc\+\_\+alarm.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}rtc\+\_\+alarm.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+list.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+Include dependency graph for rtc\+\_\+alarm.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d60/rtc__alarm_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsem__alarm__t}{sem\+\_\+alarm\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rtc__alarm_8c_acf0153607782781d05d2e2d0fd068c21}{rtc\+\_\+alarm\+\_\+create\+\_\+recurring} (\hyperlink{rtc__alarm_8h_a799dab0ced2013899a18dff02d91c3fe}{alarm\+\_\+freq\+\_\+t} freq, \hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t} $\ast$p\+Alarm)
+\item 
+\hyperlink{structalarm__time__t}{alarm\+\_\+time\+\_\+t} $\ast$ \hyperlink{rtc__alarm_8c_a887b55296bc21c983fa01dff378634ae}{rtc\+\_\+alarm\+\_\+create} (\hyperlink{structalarm__time__t}{alarm\+\_\+time\+\_\+t} time, \hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t} $\ast$p\+Alarm)
+\item 
+void \hyperlink{rtc__alarm_8c_ab86b9dd0d7b4eacfe38086e1fa4c2312}{R\+T\+C\+\_\+\+I\+R\+Q\+Handler} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{rtc\+\_\+alarm.\+c@{rtc\+\_\+alarm.\+c}!rtc\+\_\+alarm\+\_\+create@{rtc\+\_\+alarm\+\_\+create}}
+\index{rtc\+\_\+alarm\+\_\+create@{rtc\+\_\+alarm\+\_\+create}!rtc\+\_\+alarm.\+c@{rtc\+\_\+alarm.\+c}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+alarm\+\_\+create(alarm\+\_\+time\+\_\+t time, Semaphore\+Handle\+\_\+t $\ast$p\+Alarm)}{rtc_alarm_create(alarm_time_t time, SemaphoreHandle_t *pAlarm)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf alarm\+\_\+time\+\_\+t}$\ast$ rtc\+\_\+alarm\+\_\+create (
+\begin{DoxyParamCaption}
+\item[{{\bf alarm\+\_\+time\+\_\+t}}]{time, }
+\item[{{\bf Semaphore\+Handle\+\_\+t} $\ast$}]{p\+Alarm}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc__alarm_8c_a887b55296bc21c983fa01dff378634ae}{}\label{rtc__alarm_8c_a887b55296bc21c983fa01dff378634ae}
+Enables alarm at the given 
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+p\+Alarm semaphore will be given when R\+TC time matches the given time. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+\hyperlink{structalarm__time__t}{alarm\+\_\+time\+\_\+t} that can be used to modify alarm time
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+1 alarm\_time\_t my\_time = \{ 12, 30, 0 \}; // Alarm at 12:30 PM
+2 alarm\_time\_t *my\_alarm\_time = rtc\_alarm\_create(my\_time, &my\_sem);
+3 
+4 // Check for alarm trigger :
+5 if (xSemaphoreTask(my\_sem, portMAX\_DELAY)) \{
+6     // Do something
+7 \}
+8 
+9 // You can change the time any time :
+10 my\_alarm\_time->hour = 13
+\end{DoxyCode}
+ \index{rtc\+\_\+alarm.\+c@{rtc\+\_\+alarm.\+c}!rtc\+\_\+alarm\+\_\+create\+\_\+recurring@{rtc\+\_\+alarm\+\_\+create\+\_\+recurring}}
+\index{rtc\+\_\+alarm\+\_\+create\+\_\+recurring@{rtc\+\_\+alarm\+\_\+create\+\_\+recurring}!rtc\+\_\+alarm.\+c@{rtc\+\_\+alarm.\+c}}
+\subsubsection[{\texorpdfstring{rtc\+\_\+alarm\+\_\+create\+\_\+recurring(alarm\+\_\+freq\+\_\+t freq, Semaphore\+Handle\+\_\+t $\ast$p\+Alarm)}{rtc_alarm_create_recurring(alarm_freq_t freq, SemaphoreHandle_t *pAlarm)}}]{\setlength{\rightskip}{0pt plus 5cm}void rtc\+\_\+alarm\+\_\+create\+\_\+recurring (
+\begin{DoxyParamCaption}
+\item[{{\bf alarm\+\_\+freq\+\_\+t}}]{freq, }
+\item[{{\bf Semaphore\+Handle\+\_\+t} $\ast$}]{p\+Alarm}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc__alarm_8c_acf0153607782781d05d2e2d0fd068c21}{}\label{rtc__alarm_8c_acf0153607782781d05d2e2d0fd068c21}
+Enables a permanent recurring alarm every second, minute, or hour 
+\begin{DoxyParams}{Parameters}
+{\em p\+Alarm} & The signal (semaphore) to give when the alarm triggers \\
+\hline
+{\em freq} & The frequency of the alarm \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{rtc__alarm_8h_a799dab0ced2013899a18dff02d91c3fe}{alarm\+\_\+freq\+\_\+t} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+This is different from \hyperlink{rtc__alarm_8h_a887b55296bc21c983fa01dff378634ae}{rtc\+\_\+alarm\+\_\+create()} because once you enable this recurring alarm, there is no way to disable it or change it later. 
+\end{DoxyNote}
+\index{rtc\+\_\+alarm.\+c@{rtc\+\_\+alarm.\+c}!R\+T\+C\+\_\+\+I\+R\+Q\+Handler@{R\+T\+C\+\_\+\+I\+R\+Q\+Handler}}
+\index{R\+T\+C\+\_\+\+I\+R\+Q\+Handler@{R\+T\+C\+\_\+\+I\+R\+Q\+Handler}!rtc\+\_\+alarm.\+c@{rtc\+\_\+alarm.\+c}}
+\subsubsection[{\texorpdfstring{R\+T\+C\+\_\+\+I\+R\+Q\+Handler(void)}{RTC_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void R\+T\+C\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{rtc__alarm_8c_ab86b9dd0d7b4eacfe38086e1fa4c2312}{}\label{rtc__alarm_8c_ab86b9dd0d7b4eacfe38086e1fa4c2312}

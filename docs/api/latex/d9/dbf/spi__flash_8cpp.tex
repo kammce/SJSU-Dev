@@ -1,0 +1,353 @@
+\hypertarget{spi__flash_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/spi\+\_\+flash.cpp File Reference}
+\label{spi__flash_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/spi\+\_\+flash.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/spi\+\_\+flash.\+cpp}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}spi\+\_\+flash.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ssp1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}disk\+\_\+defines.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fat/ff.\+h\char`\"{}}\\*
+Include dependency graph for spi\+\_\+flash.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/df0/spi__flash_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spi__flash_8cpp_a30c7fac1fd70d77890262303dbcf684a}{C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+OP}()
+\item 
+\#define \hyperlink{spi__flash_8cpp_a1987a13e4489f2bf6add7deba50d347b}{F\+L\+A\+S\+H\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+ID}~(0x1\+F)
+\begin{DoxyCompactList}\small\item\em This should match B\+Y\+TE \#1 of manufacturer and device ID information. \end{DoxyCompactList}\item 
+\#define \hyperlink{spi__flash_8cpp_ae9560b79ebc5c7d96bea3c0821a0373a}{F\+L\+A\+S\+H\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}~(512)
+\begin{DoxyCompactList}\small\item\em Minimum sector size that works with \hyperlink{structFATFS}{F\+A\+T\+FS} (do not change this) \end{DoxyCompactList}\item 
+\#define \hyperlink{spi__flash_8cpp_a69603456776979a47c4f69733cfaf436}{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+N\+U\+M\+\_\+\+B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}~9
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spi__flash_8cpp_ad8d7ad838585640c80def27167aecb82}{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+256}~256
+\begin{DoxyCompactList}\small\item\em Page size defines. We support 256-\/528 byte page size. Do not change these. \end{DoxyCompactList}\item 
+\#define \hyperlink{spi__flash_8cpp_a0b4f18490493b9c8eff585fb4f0b20e1}{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+512}~512
+\item 
+\#define \hyperlink{spi__flash_8cpp_acf4ba98aedb7226598db23fba8548ba8}{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+264}~264
+\item 
+\#define \hyperlink{spi__flash_8cpp_a357c1c46ef017a598d27adcdc77a1eeb}{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+528}~528
+\end{DoxyCompactItemize}
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{spi__flash_8cpp_a90fc9f6e687703fbc60019627a7781f6}{flash\+\_\+io\+\_\+func\+\_\+t}) (uint8\+\_\+t $\ast$data, const uint32\+\_\+t addr, const uint32\+\_\+t \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size})
+\begin{DoxyCompactList}\small\item\em Function pointer of I/O operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bc}{flash\+\_\+opcode\+\_\+t} \{ \\*
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca27dd0b071c007ef115b6b0d7c92aad39}{opcode\+\_\+status\+\_\+reg} = 0x\+D7, 
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcacb0b056db452f82fe42e6f766aec88d8}{opcode\+\_\+get\+\_\+sig} = 0x9F, 
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcad69b535e7dd339a00c29176f56d419a5}{opcode\+\_\+read\+\_\+continous} = 0x\+E8, 
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaeac2264dd13c0bb6eb6962b6e0c2df58}{opcode\+\_\+read\+\_\+cont\+\_\+lowfreq} = 0x03, 
+\\*
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca1e5edb1794fa96267b30cd3cb11dc0e7}{opcode\+\_\+page\+\_\+erase} = 0x81, 
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca9b31157627dd3604e48bfa4068b3e521}{opcode\+\_\+prog\+\_\+thru\+\_\+buffer1} = 0x82, 
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaf912b434104ac2859e546cb2729d3e5f}{opcode\+\_\+write\+\_\+buffer1} = 0x84, 
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaee5514bfac229ebb0c271c76ee9e27c2}{opcode\+\_\+buffer1\+\_\+to\+\_\+mem\+\_\+no\+\_\+builtin\+\_\+erase} = 0x88, 
+\\*
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca7eef2128a76ff25f9cce49a473919269}{opcode\+\_\+read\+\_\+security\+\_\+reg} = 0x77, 
+\hyperlink{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca55d0d286dd0cf4b9e22f5437cf2aac42}{opcode\+\_\+write\+\_\+security\+\_\+reg} = 0x9B
+ \}\begin{DoxyCompactList}\small\item\em Flash device opcodes. \end{DoxyCompactList}
+\item 
+enum \hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0a}{flash\+\_\+cap\+\_\+t} \{ \\*
+\hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa472e653dc37b4500ea115bbd46955659}{flash\+\_\+cap\+\_\+invalid} = 0, 
+\hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa1a9d6a0d8689d408906b469db20bb47d}{flash\+\_\+cap\+\_\+8mbit} = 0x25, 
+\hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa8688317a4d034be77e961a608dd1fd7e}{flash\+\_\+cap\+\_\+16mbit} = 0x26, 
+\hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aaeee2f74aedeb2bddc1988ddbd47b836e}{flash\+\_\+cap\+\_\+32mbit} = 0x27, 
+\\*
+\hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa7272e517c39172408ef48e622bafa512}{flash\+\_\+cap\+\_\+64mbit} = 0x28, 
+\hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa38c9c8ac10ab73bd86a0b36acb8411ff}{flash\+\_\+cap\+\_\+first\+\_\+valid} = flash\+\_\+cap\+\_\+8mbit, 
+\hyperlink{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa9ca99000682e80d8a247952e7a5fd0a1}{flash\+\_\+cap\+\_\+last\+\_\+valid} = flash\+\_\+cap\+\_\+64mbit
+ \}\begin{DoxyCompactList}\small\item\em This should match B\+Y\+TE \#2 of manufacturer and device ID information. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{diskioStructs_8h_a07c784581cfcc6d1192300c3071c8919}{D\+S\+T\+A\+T\+US} \hyperlink{spi__flash_8cpp_a7220f3029aa6fb493c1ffd0141adea18}{flash\+\_\+initialize} ()
+\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{spi__flash_8cpp_a818e9a41d37f17b72ca7325cee5d6b3d}{flash\+\_\+read\+\_\+sectors} (unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)
+\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{spi__flash_8cpp_a85136478c3d564814404d5fcafa516a8}{flash\+\_\+write\+\_\+sectors} (unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)
+\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{spi__flash_8cpp_ae5b09550234867ef1293f870a29778ce}{flash\+\_\+ioctl} (\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} ctrl, void $\ast$buff)
+\item 
+void \hyperlink{spi__flash_8cpp_a38482d5bf5bc5ae3ab2c4f0ef4d72083}{flash\+\_\+write\+\_\+permanent\+\_\+id} (char $\ast$id\+\_\+64bytes)
+\item 
+void \hyperlink{spi__flash_8cpp_a538ab8a29aed106a63609fbf87e92b71}{flash\+\_\+read\+\_\+permanent\+\_\+id} (char $\ast$id\+\_\+64bytes)
+\item 
+uint32\+\_\+t \hyperlink{spi__flash_8cpp_af52a678f41c83cf9837caf22342521bf}{flash\+\_\+get\+\_\+page\+\_\+count} (void)
+\item 
+uint32\+\_\+t \hyperlink{spi__flash_8cpp_a52bc2fdb076bdf584a97154a214ab95e}{flash\+\_\+get\+\_\+page\+\_\+size} (void)
+\item 
+bool \hyperlink{spi__flash_8cpp_a50d3ac98a58b880b2d3f9a5d47c4daa1}{flash\+\_\+supports\+\_\+metadata} (void)
+\item 
+uint32\+\_\+t \hyperlink{spi__flash_8cpp_a161da4b84ea37b1d82a8c810ac8f59a6}{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count} (uint32\+\_\+t page\+\_\+number)
+\item 
+void \hyperlink{spi__flash_8cpp_a0ce68906b1d682b10fc0445d41a09930}{flash\+\_\+chip\+\_\+erase} (void)
+\end{DoxyCompactItemize}
+{\bf }\par
+
+{\bf }\par
+
+
+
+\subsection{Detailed Description}
+This file supports Adesto Flash (formerly Atmel data flash) It should work with the following part numbers \+: 8mbit \+: A\+T45\+D\+B081E 16mbit \+: A\+T45\+D\+B161E 32mbit \+: A\+T45\+D\+B321E 64mbit \+: A\+T45\+D\+B641E
+
+Any other model will also work as long as the page size or the minimum size we can program is between 256 -\/ 528 inclusively. 
+
+\subsection{Macro Definition Documentation}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+OP@{C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+OP}}
+\index{C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+OP@{C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+OP}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+OP}{CHIP_SELECT_OP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+H\+I\+P\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+OP(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a30c7fac1fd70d77890262303dbcf684a}{}\label{spi__flash_8cpp_a30c7fac1fd70d77890262303dbcf684a}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(uint8\_t \_\_\_i = board\_io\_flash\_cs();\(\backslash\)
+                                         \_\_\_i; \(\backslash\)
+                                         \_\_\_i = (board\_io\_flash\_ds() || board\_io\_flash\_ds() || 
+      board\_io\_flash\_ds()))
+\end{DoxyCode}
+Macro to select and deselect S\+PI device during an operation. When we run in high frequency (fast C\+PU clock), we need to make sure there is at least 50ns difference between chip-\/selects, so we issue board\+\_\+io\+\_\+flash\+\_\+ds() multiple times on purpose \index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!F\+L\+A\+S\+H\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+ID@{F\+L\+A\+S\+H\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+ID}}
+\index{F\+L\+A\+S\+H\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+ID@{F\+L\+A\+S\+H\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+ID}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{F\+L\+A\+S\+H\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+ID}{FLASH_MANUFACTURER_ID}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+A\+S\+H\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+ID~(0x1\+F)}\hypertarget{spi__flash_8cpp_a1987a13e4489f2bf6add7deba50d347b}{}\label{spi__flash_8cpp_a1987a13e4489f2bf6add7deba50d347b}
+
+
+This should match B\+Y\+TE \#1 of manufacturer and device ID information. 
+
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+N\+U\+M\+\_\+\+B\+I\+T\+\_\+\+O\+F\+F\+S\+ET@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+N\+U\+M\+\_\+\+B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}}
+\index{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+N\+U\+M\+\_\+\+B\+I\+T\+\_\+\+O\+F\+F\+S\+ET@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+N\+U\+M\+\_\+\+B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+N\+U\+M\+\_\+\+B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}{FLASH_PAGENUM_BIT_OFFSET}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+N\+U\+M\+\_\+\+B\+I\+T\+\_\+\+O\+F\+F\+S\+ET~9}\hypertarget{spi__flash_8cpp_a69603456776979a47c4f69733cfaf436}{}\label{spi__flash_8cpp_a69603456776979a47c4f69733cfaf436}
+Bit number for specifying flash page offset when using non-\/standard page-\/size
+
+Example Page read/write with 264 bytes or 528 bytes\+: 3 address bytes \+: $\vert$ 23\+:16 $\vert$ 15\+:8 $\vert$ 7\+:0 $\vert$
+
+First 3 bits are don\textquotesingle{}t care. Next 12-\/bits specify page number. Last 9 specify byte offset. \index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+256@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+256}}
+\index{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+256@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+256}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+256}{FLASH_PAGESIZE_256}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+256~256}\hypertarget{spi__flash_8cpp_ad8d7ad838585640c80def27167aecb82}{}\label{spi__flash_8cpp_ad8d7ad838585640c80def27167aecb82}
+
+
+Page size defines. We support 256-\/528 byte page size. Do not change these. 
+
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+264@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+264}}
+\index{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+264@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+264}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+264}{FLASH_PAGESIZE_264}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+264~264}\hypertarget{spi__flash_8cpp_acf4ba98aedb7226598db23fba8548ba8}{}\label{spi__flash_8cpp_acf4ba98aedb7226598db23fba8548ba8}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+512@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+512}}
+\index{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+512@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+512}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+512}{FLASH_PAGESIZE_512}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+512~512}\hypertarget{spi__flash_8cpp_a0b4f18490493b9c8eff585fb4f0b20e1}{}\label{spi__flash_8cpp_a0b4f18490493b9c8eff585fb4f0b20e1}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+528@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+528}}
+\index{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+528@{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+528}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+528}{FLASH_PAGESIZE_528}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+A\+S\+H\+\_\+\+P\+A\+G\+E\+S\+I\+Z\+E\+\_\+528~528}\hypertarget{spi__flash_8cpp_a357c1c46ef017a598d27adcdc77a1eeb}{}\label{spi__flash_8cpp_a357c1c46ef017a598d27adcdc77a1eeb}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!F\+L\+A\+S\+H\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE@{F\+L\+A\+S\+H\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}}
+\index{F\+L\+A\+S\+H\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE@{F\+L\+A\+S\+H\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{F\+L\+A\+S\+H\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE}{FLASH_SECTOR_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+L\+A\+S\+H\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+S\+I\+ZE~(512)}\hypertarget{spi__flash_8cpp_ae9560b79ebc5c7d96bea3c0821a0373a}{}\label{spi__flash_8cpp_ae9560b79ebc5c7d96bea3c0821a0373a}
+
+
+Minimum sector size that works with \hyperlink{structFATFS}{F\+A\+T\+FS} (do not change this) 
+
+
+
+\subsection{Typedef Documentation}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+io\+\_\+func\+\_\+t@{flash\+\_\+io\+\_\+func\+\_\+t}}
+\index{flash\+\_\+io\+\_\+func\+\_\+t@{flash\+\_\+io\+\_\+func\+\_\+t}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+io\+\_\+func\+\_\+t}{flash_io_func_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ flash\+\_\+io\+\_\+func\+\_\+t) (uint8\+\_\+t $\ast$data, const uint32\+\_\+t addr, const uint32\+\_\+t {\bf size})}\hypertarget{spi__flash_8cpp_a90fc9f6e687703fbc60019627a7781f6}{}\label{spi__flash_8cpp_a90fc9f6e687703fbc60019627a7781f6}
+
+
+Function pointer of I/O operation. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+t@{flash\+\_\+cap\+\_\+t}}
+\index{flash\+\_\+cap\+\_\+t@{flash\+\_\+cap\+\_\+t}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+cap\+\_\+t}{flash_cap_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf flash\+\_\+cap\+\_\+t}}\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0a}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0a}
+
+
+This should match B\+Y\+TE \#2 of manufacturer and device ID information. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{flash\+\_\+cap\+\_\+invalid@{flash\+\_\+cap\+\_\+invalid}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+invalid@{flash\+\_\+cap\+\_\+invalid}}\item[{\em 
+flash\+\_\+cap\+\_\+invalid\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa472e653dc37b4500ea115bbd46955659}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa472e653dc37b4500ea115bbd46955659}
+}]\index{flash\+\_\+cap\+\_\+8mbit@{flash\+\_\+cap\+\_\+8mbit}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+8mbit@{flash\+\_\+cap\+\_\+8mbit}}\item[{\em 
+flash\+\_\+cap\+\_\+8mbit\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa1a9d6a0d8689d408906b469db20bb47d}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa1a9d6a0d8689d408906b469db20bb47d}
+}]\index{flash\+\_\+cap\+\_\+16mbit@{flash\+\_\+cap\+\_\+16mbit}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+16mbit@{flash\+\_\+cap\+\_\+16mbit}}\item[{\em 
+flash\+\_\+cap\+\_\+16mbit\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa8688317a4d034be77e961a608dd1fd7e}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa8688317a4d034be77e961a608dd1fd7e}
+}]\index{flash\+\_\+cap\+\_\+32mbit@{flash\+\_\+cap\+\_\+32mbit}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+32mbit@{flash\+\_\+cap\+\_\+32mbit}}\item[{\em 
+flash\+\_\+cap\+\_\+32mbit\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aaeee2f74aedeb2bddc1988ddbd47b836e}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aaeee2f74aedeb2bddc1988ddbd47b836e}
+}]\index{flash\+\_\+cap\+\_\+64mbit@{flash\+\_\+cap\+\_\+64mbit}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+64mbit@{flash\+\_\+cap\+\_\+64mbit}}\item[{\em 
+flash\+\_\+cap\+\_\+64mbit\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa7272e517c39172408ef48e622bafa512}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa7272e517c39172408ef48e622bafa512}
+}]\index{flash\+\_\+cap\+\_\+first\+\_\+valid@{flash\+\_\+cap\+\_\+first\+\_\+valid}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+first\+\_\+valid@{flash\+\_\+cap\+\_\+first\+\_\+valid}}\item[{\em 
+flash\+\_\+cap\+\_\+first\+\_\+valid\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa38c9c8ac10ab73bd86a0b36acb8411ff}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa38c9c8ac10ab73bd86a0b36acb8411ff}
+}]S\+PI Flash signature must fall in between the capacity I\+Ds for the initialization to be considered successful \index{flash\+\_\+cap\+\_\+last\+\_\+valid@{flash\+\_\+cap\+\_\+last\+\_\+valid}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+cap\+\_\+last\+\_\+valid@{flash\+\_\+cap\+\_\+last\+\_\+valid}}\item[{\em 
+flash\+\_\+cap\+\_\+last\+\_\+valid\hypertarget{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa9ca99000682e80d8a247952e7a5fd0a1}{}\label{spi__flash_8cpp_a491bb566a67490c6b28716155fdb3d0aa9ca99000682e80d8a247952e7a5fd0a1}
+}]\end{description}
+\end{Desc}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+opcode\+\_\+t@{flash\+\_\+opcode\+\_\+t}}
+\index{flash\+\_\+opcode\+\_\+t@{flash\+\_\+opcode\+\_\+t}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+opcode\+\_\+t}{flash_opcode_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf flash\+\_\+opcode\+\_\+t}}\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bc}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bc}
+
+
+Flash device opcodes. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{opcode\+\_\+status\+\_\+reg@{opcode\+\_\+status\+\_\+reg}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+status\+\_\+reg@{opcode\+\_\+status\+\_\+reg}}\item[{\em 
+opcode\+\_\+status\+\_\+reg\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca27dd0b071c007ef115b6b0d7c92aad39}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca27dd0b071c007ef115b6b0d7c92aad39}
+}]\index{opcode\+\_\+get\+\_\+sig@{opcode\+\_\+get\+\_\+sig}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+get\+\_\+sig@{opcode\+\_\+get\+\_\+sig}}\item[{\em 
+opcode\+\_\+get\+\_\+sig\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcacb0b056db452f82fe42e6f766aec88d8}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcacb0b056db452f82fe42e6f766aec88d8}
+}]\index{opcode\+\_\+read\+\_\+continous@{opcode\+\_\+read\+\_\+continous}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+read\+\_\+continous@{opcode\+\_\+read\+\_\+continous}}\item[{\em 
+opcode\+\_\+read\+\_\+continous\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcad69b535e7dd339a00c29176f56d419a5}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcad69b535e7dd339a00c29176f56d419a5}
+}]Works up to 66\+Mhz but requires 4 dummy bytes. \index{opcode\+\_\+read\+\_\+cont\+\_\+lowfreq@{opcode\+\_\+read\+\_\+cont\+\_\+lowfreq}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+read\+\_\+cont\+\_\+lowfreq@{opcode\+\_\+read\+\_\+cont\+\_\+lowfreq}}\item[{\em 
+opcode\+\_\+read\+\_\+cont\+\_\+lowfreq\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaeac2264dd13c0bb6eb6962b6e0c2df58}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaeac2264dd13c0bb6eb6962b6e0c2df58}
+}]Works up to 33\+Mhz. \index{opcode\+\_\+page\+\_\+erase@{opcode\+\_\+page\+\_\+erase}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+page\+\_\+erase@{opcode\+\_\+page\+\_\+erase}}\item[{\em 
+opcode\+\_\+page\+\_\+erase\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca1e5edb1794fa96267b30cd3cb11dc0e7}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca1e5edb1794fa96267b30cd3cb11dc0e7}
+}]Memory write options\+: Easiest way to write a page is using opcode\+\_\+prog\+\_\+thru\+\_\+buffer1. Efficient way to write a page (if flash is busy) is to write buffer 1 (while busy) then perform page erase and buffer1 to memory without built-\/in-\/erase \index{opcode\+\_\+prog\+\_\+thru\+\_\+buffer1@{opcode\+\_\+prog\+\_\+thru\+\_\+buffer1}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+prog\+\_\+thru\+\_\+buffer1@{opcode\+\_\+prog\+\_\+thru\+\_\+buffer1}}\item[{\em 
+opcode\+\_\+prog\+\_\+thru\+\_\+buffer1\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca9b31157627dd3604e48bfa4068b3e521}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca9b31157627dd3604e48bfa4068b3e521}
+}]\index{opcode\+\_\+write\+\_\+buffer1@{opcode\+\_\+write\+\_\+buffer1}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+write\+\_\+buffer1@{opcode\+\_\+write\+\_\+buffer1}}\item[{\em 
+opcode\+\_\+write\+\_\+buffer1\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaf912b434104ac2859e546cb2729d3e5f}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaf912b434104ac2859e546cb2729d3e5f}
+}]\index{opcode\+\_\+buffer1\+\_\+to\+\_\+mem\+\_\+no\+\_\+builtin\+\_\+erase@{opcode\+\_\+buffer1\+\_\+to\+\_\+mem\+\_\+no\+\_\+builtin\+\_\+erase}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+buffer1\+\_\+to\+\_\+mem\+\_\+no\+\_\+builtin\+\_\+erase@{opcode\+\_\+buffer1\+\_\+to\+\_\+mem\+\_\+no\+\_\+builtin\+\_\+erase}}\item[{\em 
+opcode\+\_\+buffer1\+\_\+to\+\_\+mem\+\_\+no\+\_\+builtin\+\_\+erase\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaee5514bfac229ebb0c271c76ee9e27c2}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bcaee5514bfac229ebb0c271c76ee9e27c2}
+}]\index{opcode\+\_\+read\+\_\+security\+\_\+reg@{opcode\+\_\+read\+\_\+security\+\_\+reg}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+read\+\_\+security\+\_\+reg@{opcode\+\_\+read\+\_\+security\+\_\+reg}}\item[{\em 
+opcode\+\_\+read\+\_\+security\+\_\+reg\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca7eef2128a76ff25f9cce49a473919269}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca7eef2128a76ff25f9cce49a473919269}
+}]\index{opcode\+\_\+write\+\_\+security\+\_\+reg@{opcode\+\_\+write\+\_\+security\+\_\+reg}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!opcode\+\_\+write\+\_\+security\+\_\+reg@{opcode\+\_\+write\+\_\+security\+\_\+reg}}\item[{\em 
+opcode\+\_\+write\+\_\+security\+\_\+reg\hypertarget{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca55d0d286dd0cf4b9e22f5437cf2aac42}{}\label{spi__flash_8cpp_ab67c88f008e05e0948fd6a33d2a292bca55d0d286dd0cf4b9e22f5437cf2aac42}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+chip\+\_\+erase@{flash\+\_\+chip\+\_\+erase}}
+\index{flash\+\_\+chip\+\_\+erase@{flash\+\_\+chip\+\_\+erase}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+chip\+\_\+erase(void)}{flash_chip_erase(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void flash\+\_\+chip\+\_\+erase (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a0ce68906b1d682b10fc0445d41a09930}{}\label{spi__flash_8cpp_a0ce68906b1d682b10fc0445d41a09930}
+This will E\+R\+A\+SE the entire chip, including the meta-\/data!! This can take several seconds to perform the chip erase... \index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+get\+\_\+page\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+count}}
+\index{flash\+\_\+get\+\_\+page\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+count}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+get\+\_\+page\+\_\+count(void)}{flash_get_page_count(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flash\+\_\+get\+\_\+page\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_af52a678f41c83cf9837caf22342521bf}{}\label{spi__flash_8cpp_af52a678f41c83cf9837caf22342521bf}
+Flash memory metadata functions If the flash memory contains additional space for each page, then each time a page is written, we also write its write-\/counter value. You can then retrieve the page write count values by the page number. \index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+get\+\_\+page\+\_\+size@{flash\+\_\+get\+\_\+page\+\_\+size}}
+\index{flash\+\_\+get\+\_\+page\+\_\+size@{flash\+\_\+get\+\_\+page\+\_\+size}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+get\+\_\+page\+\_\+size(void)}{flash_get_page_size(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flash\+\_\+get\+\_\+page\+\_\+size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a52bc2fdb076bdf584a97154a214ab95e}{}\label{spi__flash_8cpp_a52bc2fdb076bdf584a97154a214ab95e}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count}}
+\index{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count(uint32\+\_\+t page\+\_\+number)}{flash_get_page_write_count(uint32_t page_number)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{page\+\_\+number}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a161da4b84ea37b1d82a8c810ac8f59a6}{}\label{spi__flash_8cpp_a161da4b84ea37b1d82a8c810ac8f59a6}
+\begin{DoxyWarning}{Warning}
+DO N\+OT U\+SE T\+H\+IS F\+U\+N\+C\+T\+I\+ON W\+I\+T\+H\+O\+UT T\+HE S\+PI S\+E\+M\+A\+P\+H\+O\+R\+E!!! 
+\end{DoxyWarning}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+initialize@{flash\+\_\+initialize}}
+\index{flash\+\_\+initialize@{flash\+\_\+initialize}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+initialize()}{flash_initialize()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+S\+T\+A\+T\+US} flash\+\_\+initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a7220f3029aa6fb493c1ffd0141adea18}{}\label{spi__flash_8cpp_a7220f3029aa6fb493c1ffd0141adea18}
+Initializes the Flash Memory \index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+ioctl@{flash\+\_\+ioctl}}
+\index{flash\+\_\+ioctl@{flash\+\_\+ioctl}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+ioctl(\+B\+Y\+T\+E ctrl, void $\ast$buff)}{flash_ioctl(BYTE ctrl, void *buff)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} flash\+\_\+ioctl (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Y\+TE}}]{ctrl, }
+\item[{void $\ast$}]{buff}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_ae5b09550234867ef1293f870a29778ce}{}\label{spi__flash_8cpp_ae5b09550234867ef1293f870a29778ce}
+Gets control information from this flash memory drive, such as sector count, sector size 
+\begin{DoxyParams}{Parameters}
+{\em ctrl} & The type of information to get \\
+\hline
+{\em buff} & The pointer to save the requested information to \\
+\hline
+\end{DoxyParams}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+read\+\_\+permanent\+\_\+id@{flash\+\_\+read\+\_\+permanent\+\_\+id}}
+\index{flash\+\_\+read\+\_\+permanent\+\_\+id@{flash\+\_\+read\+\_\+permanent\+\_\+id}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+read\+\_\+permanent\+\_\+id(char $\ast$id\+\_\+64bytes)}{flash_read_permanent_id(char *id_64bytes)}}]{\setlength{\rightskip}{0pt plus 5cm}void flash\+\_\+read\+\_\+permanent\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{id\+\_\+64bytes}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a538ab8a29aed106a63609fbf87e92b71}{}\label{spi__flash_8cpp_a538ab8a29aed106a63609fbf87e92b71}
+Reads the permanent ID programmed into the S\+PI flash \begin{DoxyWarning}{Warning}
+DO N\+OT U\+SE T\+H\+IS F\+U\+N\+C\+T\+I\+ON W\+I\+T\+H\+O\+UT T\+HE S\+PI S\+E\+M\+A\+P\+H\+O\+R\+E!!! 
+\end{DoxyWarning}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+read\+\_\+sectors@{flash\+\_\+read\+\_\+sectors}}
+\index{flash\+\_\+read\+\_\+sectors@{flash\+\_\+read\+\_\+sectors}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+read\+\_\+sectors(unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)}{flash_read_sectors(unsigned char *pData, int sectorNum, int sectorCount)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} flash\+\_\+read\+\_\+sectors (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{p\+Data, }
+\item[{int}]{sector\+Num, }
+\item[{int}]{sector\+Count}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a818e9a41d37f17b72ca7325cee5d6b3d}{}\label{spi__flash_8cpp_a818e9a41d37f17b72ca7325cee5d6b3d}
+Reads a sector from the Flash Memory 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & The pointer to the data to save the read \\
+\hline
+{\em sector\+Num} & The sector number to read with each sector being 512 bytes \\
+\hline
+{\em sector\+Count} & The number of sectors to read \\
+\hline
+\end{DoxyParams}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+supports\+\_\+metadata@{flash\+\_\+supports\+\_\+metadata}}
+\index{flash\+\_\+supports\+\_\+metadata@{flash\+\_\+supports\+\_\+metadata}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+supports\+\_\+metadata(void)}{flash_supports_metadata(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool flash\+\_\+supports\+\_\+metadata (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a50d3ac98a58b880b2d3f9a5d47c4daa1}{}\label{spi__flash_8cpp_a50d3ac98a58b880b2d3f9a5d47c4daa1}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+write\+\_\+permanent\+\_\+id@{flash\+\_\+write\+\_\+permanent\+\_\+id}}
+\index{flash\+\_\+write\+\_\+permanent\+\_\+id@{flash\+\_\+write\+\_\+permanent\+\_\+id}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+write\+\_\+permanent\+\_\+id(char $\ast$id\+\_\+64bytes)}{flash_write_permanent_id(char *id_64bytes)}}]{\setlength{\rightskip}{0pt plus 5cm}void flash\+\_\+write\+\_\+permanent\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{id\+\_\+64bytes}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a38482d5bf5bc5ae3ab2c4f0ef4d72083}{}\label{spi__flash_8cpp_a38482d5bf5bc5ae3ab2c4f0ef4d72083}
+Writes a permanent ID on the S\+PI Flash \begin{DoxyWarning}{Warning}
+T\+H\+IS C\+AN O\+N\+LY BE D\+O\+NE O\+N\+CE IN A L\+I\+F\+E\+T\+I\+ME OF T\+HE S\+PI F\+L\+A\+SH 
+
+DO N\+OT U\+SE T\+H\+IS F\+U\+N\+C\+T\+I\+ON W\+I\+T\+H\+O\+UT T\+HE S\+PI S\+E\+M\+A\+P\+H\+O\+R\+E!!! 
+\end{DoxyWarning}
+\index{spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}!flash\+\_\+write\+\_\+sectors@{flash\+\_\+write\+\_\+sectors}}
+\index{flash\+\_\+write\+\_\+sectors@{flash\+\_\+write\+\_\+sectors}!spi\+\_\+flash.\+cpp@{spi\+\_\+flash.\+cpp}}
+\subsubsection[{\texorpdfstring{flash\+\_\+write\+\_\+sectors(unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)}{flash_write_sectors(unsigned char *pData, int sectorNum, int sectorCount)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} flash\+\_\+write\+\_\+sectors (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{p\+Data, }
+\item[{int}]{sector\+Num, }
+\item[{int}]{sector\+Count}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8cpp_a85136478c3d564814404d5fcafa516a8}{}\label{spi__flash_8cpp_a85136478c3d564814404d5fcafa516a8}
+Writes a sector to the Flash Memory 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & The pointer to the data to write \\
+\hline
+{\em sector\+Num} & The sector number to write with each sector being 512 bytes \\
+\hline
+{\em sector\+Count} & The number of sectors to write \\
+\hline
+\end{DoxyParams}

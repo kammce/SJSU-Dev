@@ -1,0 +1,44 @@
+\hypertarget{io__source_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/io\+\_\+source.cpp File Reference}
+\label{io__source_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/io\+\_\+source.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/io\+\_\+source.\+cpp}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}io.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}adc0.\+h\char`\"{}}\\*
+Include dependency graph for io\+\_\+source.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dfa/io__source_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{io__source_8cpp_afbad296922d3d42f2bee7d961f317a72}{M\+A\+X\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+I\+R\+\_\+\+F\+R\+A\+ME}~32
+\item 
+\#define \hyperlink{io__source_8cpp_a58b6e458952a0b26d7f0baf224265160}{led\+\_\+set}(num,  realbit)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{io\+\_\+source.\+cpp@{io\+\_\+source.\+cpp}!led\+\_\+set@{led\+\_\+set}}
+\index{led\+\_\+set@{led\+\_\+set}!io\+\_\+source.\+cpp@{io\+\_\+source.\+cpp}}
+\subsubsection[{\texorpdfstring{led\+\_\+set}{led_set}}]{\setlength{\rightskip}{0pt plus 5cm}\#define led\+\_\+set(
+\begin{DoxyParamCaption}
+\item[{}]{num, }
+\item[{}]{realbit}
+\end{DoxyParamCaption}
+)}\hypertarget{io__source_8cpp_a58b6e458952a0b26d7f0baf224265160}{}\label{io__source_8cpp_a58b6e458952a0b26d7f0baf224265160}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (mLedValue & (1 << num))             \hyperlink{LPC17xx_8h_a335587dad4e6d0da56c1f3ad1c087d10}{\(\backslash\)}
+\hyperlink{LPC17xx_8h_a335587dad4e6d0da56c1f3ad1c087d10}{                LPC\_GPIO1}->FIOCLR = (1 << realbit); \hyperlink{LPC17xx_8h_a335587dad4e6d0da56c1f3ad1c087d10}{\(\backslash\)}
+\hyperlink{LPC17xx_8h_a335587dad4e6d0da56c1f3ad1c087d10}{            else                                    \(\backslash\)}
+\hyperlink{LPC17xx_8h_a335587dad4e6d0da56c1f3ad1c087d10}{                LPC\_GPIO1}->FIOSET = (1 << realbit)
+\end{DoxyCode}
+\index{io\+\_\+source.\+cpp@{io\+\_\+source.\+cpp}!M\+A\+X\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+I\+R\+\_\+\+F\+R\+A\+ME@{M\+A\+X\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+I\+R\+\_\+\+F\+R\+A\+ME}}
+\index{M\+A\+X\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+I\+R\+\_\+\+F\+R\+A\+ME@{M\+A\+X\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+I\+R\+\_\+\+F\+R\+A\+ME}!io\+\_\+source.\+cpp@{io\+\_\+source.\+cpp}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+I\+R\+\_\+\+F\+R\+A\+ME}{MAX_FALLING_EDGES_PER_IR_FRAME}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+I\+R\+\_\+\+F\+R\+A\+ME~32}\hypertarget{io__source_8cpp_afbad296922d3d42f2bee7d961f317a72}{}\label{io__source_8cpp_afbad296922d3d42f2bee7d961f317a72}
+The design of the IR Sensor is as follows\+: Timer1 captures falling edges of C\+A\+P1.\+0 and timestamps are saved when this happens. Every time capture happens, a 20ms match interrupt is setup/reset. When no more signals arrive, the 20ms match interrupt will decode the timestamps and convert timestamps into binary signal.
+
+Note that this doesn\textquotesingle{}t decode into real data sent through the IR, but nevertheless, the decoded signal will be unique per button pressed on an IR remote. 

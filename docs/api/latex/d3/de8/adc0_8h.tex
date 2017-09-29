@@ -1,0 +1,45 @@
+\hypertarget{adc0_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/adc0.h File Reference}
+\label{adc0_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/adc0.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/adc0.\+h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{d0/d52/adc0_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{adc0_8h_a2e9942dc6a4d8ceb05cc54beeadd037c}{adc0\+\_\+init} (void)
+\item 
+uint16\+\_\+t \hyperlink{adc0_8h_a71f4c45d19fecea3090ef24bb985d158}{adc0\+\_\+get\+\_\+reading} (uint8\+\_\+t channel\+\_\+num)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+20131202 \+: Enclosed adc conversion inside critical section 20131101 \+: Fix possible divide by zero. i was set to 0 during loop init 
+
+\subsection{Function Documentation}
+\index{adc0.\+h@{adc0.\+h}!adc0\+\_\+get\+\_\+reading@{adc0\+\_\+get\+\_\+reading}}
+\index{adc0\+\_\+get\+\_\+reading@{adc0\+\_\+get\+\_\+reading}!adc0.\+h@{adc0.\+h}}
+\subsubsection[{\texorpdfstring{adc0\+\_\+get\+\_\+reading(uint8\+\_\+t channel\+\_\+num)}{adc0_get_reading(uint8_t channel_num)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t adc0\+\_\+get\+\_\+reading (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel\+\_\+num}
+\end{DoxyParamCaption}
+)}\hypertarget{adc0_8h_a71f4c45d19fecea3090ef24bb985d158}{}\label{adc0_8h_a71f4c45d19fecea3090ef24bb985d158}
+Gets an A\+DC reading from a channel number between 0 -\/ 7 \begin{DoxyReturn}{Returns}
+12-\/bit A\+DC value read from the A\+DC. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If Free\+R\+T\+OS is running, adc conversion will use interrupts and not poll for the result. 
+\end{DoxyNote}
+\index{adc0.\+h@{adc0.\+h}!adc0\+\_\+init@{adc0\+\_\+init}}
+\index{adc0\+\_\+init@{adc0\+\_\+init}!adc0.\+h@{adc0.\+h}}
+\subsubsection[{\texorpdfstring{adc0\+\_\+init(void)}{adc0_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void adc0\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{adc0_8h_a2e9942dc6a4d8ceb05cc54beeadd037c}{}\label{adc0_8h_a2e9942dc6a4d8ceb05cc54beeadd037c}
+Initializes the A\+DC Peripheral \begin{DoxyNote}{Note}
+The P\+IN that will be used by A\+DC needs to be selected using P\+I\+N\+S\+EL externally 
+\end{DoxyNote}

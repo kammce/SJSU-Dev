@@ -1,0 +1,113 @@
+\hypertarget{classPWM}{}\section{P\+WM Class Reference}
+\label{classPWM}\index{P\+WM@{P\+WM}}
+
+
+{\ttfamily \#include $<$lpc\+\_\+pwm.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7}{pwm\+Type} \{ \\*
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7ae9204765ea1148a6e9e5ae736dd5125c}{pwm1} =0, 
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6915379c35fd961109595bfc851e881c}{pwm2} =1, 
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7aa24887ef4639816c895fc2b9636a3df5}{pwm3} =2, 
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a700468106205ca486064cdfe85b7a48a}{pwm4} =3, 
+\\*
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6292df88727966ee9ee6236750ea985e}{pwm5} =4, 
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7aa08486b79f7e12af820716dff6c00465}{pwm6} =5
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPWM_a0ace6fd5ae366113bcffba8972e394dc}{P\+WM} (\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7}{pwm\+Type} pwm, unsigned int frequency\+Hz=50)
+\item 
+\hyperlink{classPWM_a903377c1da3618530f999d77297406af}{$\sim$\+P\+WM} ()
+\begin{DoxyCompactList}\small\item\em Destructor that will destroy \hyperlink{classPWM}{P\+WM} configuration. \end{DoxyCompactList}\item 
+bool \hyperlink{classPWM_a441dfa585452ddd6f8f47b661bafddb2}{set} (float percent)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+PC \hyperlink{classPWM}{P\+WM} class. Example\+: 
+\begin{DoxyCode}
+\hyperlink{classPWM}{PWM} \hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6915379c35fd961109595bfc851e881c}{pwm2}(\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6915379c35fd961109595bfc851e881c}{PWM::pwm2}, 50);
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6915379c35fd961109595bfc851e881c}{pwm2}.set(10);
+\hyperlink{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6915379c35fd961109595bfc851e881c}{pwm2}.set(5.0);
+\end{DoxyCode}
+ 
+
+\subsection{Member Enumeration Documentation}
+\index{P\+WM@{P\+WM}!pwm\+Type@{pwm\+Type}}
+\index{pwm\+Type@{pwm\+Type}!P\+WM@{P\+WM}}
+\subsubsection[{\texorpdfstring{pwm\+Type}{pwmType}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+W\+M\+::pwm\+Type}}\hypertarget{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7}{}\label{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{pwm1@{pwm1}!P\+WM@{P\+WM}}\index{P\+WM@{P\+WM}!pwm1@{pwm1}}\item[{\em 
+pwm1\hypertarget{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7ae9204765ea1148a6e9e5ae736dd5125c}{}\label{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7ae9204765ea1148a6e9e5ae736dd5125c}
+}]P2.\+0. \index{pwm2@{pwm2}!P\+WM@{P\+WM}}\index{P\+WM@{P\+WM}!pwm2@{pwm2}}\item[{\em 
+pwm2\hypertarget{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6915379c35fd961109595bfc851e881c}{}\label{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6915379c35fd961109595bfc851e881c}
+}]P2.\+1. \index{pwm3@{pwm3}!P\+WM@{P\+WM}}\index{P\+WM@{P\+WM}!pwm3@{pwm3}}\item[{\em 
+pwm3\hypertarget{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7aa24887ef4639816c895fc2b9636a3df5}{}\label{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7aa24887ef4639816c895fc2b9636a3df5}
+}]P2.\+2. \index{pwm4@{pwm4}!P\+WM@{P\+WM}}\index{P\+WM@{P\+WM}!pwm4@{pwm4}}\item[{\em 
+pwm4\hypertarget{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a700468106205ca486064cdfe85b7a48a}{}\label{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a700468106205ca486064cdfe85b7a48a}
+}]P2.\+3. \index{pwm5@{pwm5}!P\+WM@{P\+WM}}\index{P\+WM@{P\+WM}!pwm5@{pwm5}}\item[{\em 
+pwm5\hypertarget{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6292df88727966ee9ee6236750ea985e}{}\label{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7a6292df88727966ee9ee6236750ea985e}
+}]P2.\+4. \index{pwm6@{pwm6}!P\+WM@{P\+WM}}\index{P\+WM@{P\+WM}!pwm6@{pwm6}}\item[{\em 
+pwm6\hypertarget{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7aa08486b79f7e12af820716dff6c00465}{}\label{classPWM_a4a7c14d2027c2cc508d4ff7abfe79ae7aa08486b79f7e12af820716dff6c00465}
+}]P2.\+5. \end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{P\+WM@{P\+WM}!P\+WM@{P\+WM}}
+\index{P\+WM@{P\+WM}!P\+WM@{P\+WM}}
+\subsubsection[{\texorpdfstring{P\+W\+M(pwm\+Type pwm, unsigned int frequency\+Hz=50)}{PWM(pwmType pwm, unsigned int frequencyHz=50)}}]{\setlength{\rightskip}{0pt plus 5cm}P\+W\+M\+::\+P\+WM (
+\begin{DoxyParamCaption}
+\item[{{\bf pwm\+Type}}]{pwm, }
+\item[{unsigned int}]{frequency\+Hz = {\ttfamily 50}}
+\end{DoxyParamCaption}
+)}\hypertarget{classPWM_a0ace6fd5ae366113bcffba8972e394dc}{}\label{classPWM_a0ace6fd5ae366113bcffba8972e394dc}
+Initialize a \hyperlink{classPWM}{P\+WM} 
+\begin{DoxyParams}{Parameters}
+{\em frequency\+Hz} & The frequency of the \hyperlink{classPWM}{P\+WM} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Frequency is only initialized the first time this class is constructed. Once it is initialized, it cannot be set or changed when more objects are constructed. 
+\end{DoxyNote}
+\index{P\+WM@{P\+WM}!````~P\+WM@{$\sim$\+P\+WM}}
+\index{````~P\+WM@{$\sim$\+P\+WM}!P\+WM@{P\+WM}}
+\subsubsection[{\texorpdfstring{$\sim$\+P\+W\+M()}{~PWM()}}]{\setlength{\rightskip}{0pt plus 5cm}P\+W\+M\+::$\sim$\+P\+WM (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classPWM_a903377c1da3618530f999d77297406af}{}\label{classPWM_a903377c1da3618530f999d77297406af}
+
+
+Destructor that will destroy \hyperlink{classPWM}{P\+WM} configuration. 
+
+
+
+\subsection{Member Function Documentation}
+\index{P\+WM@{P\+WM}!set@{set}}
+\index{set@{set}!P\+WM@{P\+WM}}
+\subsubsection[{\texorpdfstring{set(float percent)}{set(float percent)}}]{\setlength{\rightskip}{0pt plus 5cm}bool P\+W\+M\+::set (
+\begin{DoxyParamCaption}
+\item[{float}]{percent}
+\end{DoxyParamCaption}
+)}\hypertarget{classPWM_a441dfa585452ddd6f8f47b661bafddb2}{}\label{classPWM_a441dfa585452ddd6f8f47b661bafddb2}
+Sets the \hyperlink{classPWM}{P\+WM} based on the percentage. If 50\+Hz Servo \hyperlink{classPWM}{P\+WM} was setup, then you can use the following \+:
+\begin{DoxyItemize}
+\item Left \+: set(5.\+0); // 5.\+0 \% of 20ms = 1.\+0ms
+\item Neutral \+: set(7.\+5); // 7.\+5 \% of 20ms = 1.\+5ms
+\item Right \+: set(10.\+0); // 10 \% of 20ms = 2.\+0ms
+\end{DoxyItemize}
+
+You can use micro-\/steps to position the servo motor by using set(5.\+1), set(5.\+2) ... set(7.\+4) etc. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/\hyperlink{lpc__pwm_8hpp}{lpc\+\_\+pwm.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/\hyperlink{lpc__pwm_8cpp}{lpc\+\_\+pwm.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,53 @@
+\hypertarget{str_8hpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/str.hpp File Reference}
+\label{str_8hpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/str.\+hpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/str.\+hpp}}
+
+
+Provides string class with a small foot-\/print
+
+Version\+: 01102013 Added erase\+First\+Words() Version\+: 05052013 Added tokenize() to get char$\ast$ tokens. Added clear\+All(). Fixed \hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{str\+::printf()} Version\+: 02122013 Added support for str memory on a stack (external memory). Fix remove\+All\+Special\+Chars() Version\+: 12082012 Remove encryption functions, fix begins\+With\+Ignore\+Case(). Added operators for str Version\+: 10062012 Added scanf() Version\+: 06192012 Initial.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{d2/d1d/str_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classstr}{str}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{str_8hpp_a5f26d0262c31138699b96bf74296e8e7}{S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+CK}(name,  \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides string class with a small foot-\/print
+
+Version\+: 01102013 Added erase\+First\+Words() Version\+: 05052013 Added tokenize() to get char$\ast$ tokens. Added clear\+All(). Fixed \hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{str\+::printf()} Version\+: 02122013 Added support for str memory on a stack (external memory). Fix remove\+All\+Special\+Chars() Version\+: 12082012 Remove encryption functions, fix begins\+With\+Ignore\+Case(). Added operators for str Version\+: 10062012 Added scanf() Version\+: 06192012 Initial. 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{str.\+hpp@{str.\+hpp}!S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+CK@{S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+CK}}
+\index{S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+CK@{S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+CK}!str.\+hpp@{str.\+hpp}}
+\subsubsection[{\texorpdfstring{S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+CK}{STR_ON_STACK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+CK(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf size}}
+\end{DoxyParamCaption}
+)}\hypertarget{str_8hpp_a5f26d0262c31138699b96bf74296e8e7}{}\label{str_8hpp_a5f26d0262c31138699b96bf74296e8e7}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{char} \_\_##name##\hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer}[\hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size}];    \(\backslash\)
+    str name((\_\_##name##\hyperlink{trace_2readme_8txt_a957c4a9f1964467acd0f88955116b588}{buffer}), \textcolor{keyword}{sizeof}(\_\_##name##buffer))
+\end{DoxyCode}
+Declare the str object on stack, no memory allocation is performed. \begin{DoxyNote}{Note}
+str object on stack cannot grow, so insertion, printf beyond the memory available will fail.
+\end{DoxyNote}
+This provides easy way to declare the string on stack. \hyperlink{str_8hpp_a5f26d0262c31138699b96bf74296e8e7}{S\+T\+R\+\_\+\+O\+N\+\_\+\+S\+T\+A\+C\+K(my\+\_\+str, 128)} turns into \+: char \+\_\+\+\_\+my\+\_\+strbuffer\mbox{[}128\mbox{]}; str my\+\_\+str(\+\_\+\+\_\+my\+\_\+strbuffer, sizeof(\+\_\+\+\_\+my\+\_\+strbuffer)); 

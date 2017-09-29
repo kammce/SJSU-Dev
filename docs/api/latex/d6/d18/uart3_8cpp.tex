@@ -1,0 +1,28 @@
+\hypertarget{uart3_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/uart3.cpp File Reference}
+\label{uart3_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/uart3.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/src/uart3.\+cpp}}
+{\ttfamily \#include \char`\"{}uart3.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\+P\+C17xx.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+Include dependency graph for uart3.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dec/uart3_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart3_8cpp_a5412e69919b678a6b75ef535f6314a37}{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{uart3.\+cpp@{uart3.\+cpp}!U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler}!uart3.\+cpp@{uart3.\+cpp}}
+\subsubsection[{\texorpdfstring{U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler()}{UART3_IRQHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T3\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{uart3_8cpp_a5412e69919b678a6b75ef535f6314a37}{}\label{uart3_8cpp_a5412e69919b678a6b75ef535f6314a37}
+I\+RQ Handler needs to be enclosed in extern \char`\"{}\+C\char`\"{} because this is C++ file, and we don\textquotesingle{}t want C++ to \char`\"{}mangle\char`\"{} our function name. This I\+SR Function need needs to be named precisely to override \char`\"{}\+W\+E\+A\+K\char`\"{} I\+SR handler defined at \hyperlink{startup_8cpp}{startup.\+cpp} 

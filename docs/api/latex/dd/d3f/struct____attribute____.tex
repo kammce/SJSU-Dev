@@ -1,0 +1,550 @@
+\hypertarget{struct____attribute____}{}\section{\+\_\+\+\_\+attribute\+\_\+\+\_\+ Struct Reference}
+\label{struct____attribute____}\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+
+
+Collaboration diagram for \+\_\+\+\_\+attribute\+\_\+\+\_\+\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{dd/d0e/struct____attribute______coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \hyperlink{struct____attribute_____a1c5c34a070f4e1a8c388cc990166125a}{frame}\\
+\>\>{\em 32-\/bit CAN frame aligned with frame\_fields (bit members) }\\
+\>struct \{\\
+\>\>uint32\_t \hyperlink{struct____attribute_____a02ee404618bb2bb7a588a4ad5927894d}{\_\_pad0\_\_}: 16\\
+\>\>\>{\em Unused space. }\\
+\>\>uint32\_t \hyperlink{struct____attribute_____ae6f628b8af2722362b91666d5cff6041}{data\_len}: 4\\
+\>\>\>{\em Data length. }\\
+\>\>uint32\_t \hyperlink{struct____attribute_____a0c4e6e1eb99bec0a27a70420f40ac211}{\_\_pad1\_\_}: 10\\
+\>\>\>{\em Unused space. }\\
+\>\>uint32\_t \hyperlink{struct____attribute_____afa1cea6cf94468a29ce2ad1b62a3de11}{is\_rtr}: 1\\
+\>\>\>{\em Message is an RTR type. }\\
+\>\>uint32\_t \hyperlink{struct____attribute_____a745166911ddda34c6f9e95e22d423207}{is\_29bit}: 1\\
+\>\>\>{\em If message ID is 29-\/bit type. }\\
+\>\} \hyperlink{struct____attribute_____acfc363edc99eccae8f7e0f523821305e}{frame\_fields}\\
+\}; \\
+
+\end{tabbing}\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a676a49f79047392e2bac357a55bb74ed}{msg\+\_\+id}
+\begin{DoxyCompactList}\small\item\em C\+AN Message ID (11-\/bit or 29-\/bit) \end{DoxyCompactList}\item 
+\hyperlink{unioncan__data__t}{can\+\_\+data\+\_\+t} \hyperlink{struct____attribute_____a671d4cb674b1287a89ab3dd93d8d36e2}{data}
+\begin{DoxyCompactList}\small\item\em C\+AN data. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint32\_t \hyperlink{struct____attribute_____a676a49f79047392e2bac357a55bb74ed}{msg\_id}: 11\\
+\>\>{\em 11-\/bit message-\/id }\\
+\>uint32\_t \hyperlink{struct____attribute_____a02ee404618bb2bb7a588a4ad5927894d}{\_\_pad0\_\_}: 5\\
+\>\>{\em Unused. }\\
+\>uint32\_t \hyperlink{struct____attribute_____ae6f628b8af2722362b91666d5cff6041}{data\_len}: 4\\
+\>\>{\em Message length. }\\
+\>uint32\_t \hyperlink{struct____attribute_____a0c4e6e1eb99bec0a27a70420f40ac211}{\_\_pad1\_\_}: 4\\
+\>\>{\em Unused. }\\
+\>uint32\_t \hyperlink{struct____attribute_____a093c08572a86d14158d4ad2b8d526557}{semphr}: 2\\
+\>\>{\em Semaphore bits. }\\
+\>uint32\_t \hyperlink{struct____attribute_____a2d8f39dfa819e39b227d2790c26409d2}{\_\_pad2\_\_}: 4\\
+\>\>{\em Unused. }\\
+\>uint32\_t \hyperlink{struct____attribute_____aee214ea38d7e1f8c3dc6e84f3993fdec}{rtr}: 1\\
+\>\>{\em RTR message. }\\
+\>uint32\_t \hyperlink{struct____attribute_____a898a0c6c6d94ece9275b1379d2d24f60}{\_\_pad3\_\_}: 1\\
+\>\>{\em Unused (FF bit, not applicable to FullCAN) }\\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint16\_t \hyperlink{struct____attribute_____ad3ca970dad0c3c0dde583a1916245292}{id}: 11\\
+\>\>{\em Standard 11-\/bit CAN ID. }\\
+\>uint16\_t \hyperlink{struct____attribute_____a3f327bada8b15b44b9a37ec975800f57}{fc\_intr}: 1\\
+\>\>{\em Message interrupt bit: ONLY USED FOR FULLCAN. }\\
+\>uint16\_t \hyperlink{struct____attribute_____a7c608f1e67305379d24b3b770be44994}{disable}: 1\\
+\>\>{\em Set to 1 to disable the slot. }\\
+\>uint16\_t \hyperlink{struct____attribute_____a3030b7aabe9418f3a7dcd682fe34fadc}{can\_num}: 3\\
+\>\>{\em CAN controller number (0=CAN1, 1=CAN2) }\\
+\}; \\
+
+\end{tabbing}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a6002c78ca3d2dd7e495cb96babc3c2f6}{raw}
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a87df1990d2a726a8feb9ee5d5fd158d2}{id}\+: 29
+\begin{DoxyCompactList}\small\item\em Extended 29-\/bit C\+AN ID. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a7d526d3c59c97be7b5ef1924151f7de8}{can\+\_\+num}\+: 3
+\begin{DoxyCompactList}\small\item\em C\+AN controller number (0=C\+A\+N1, 1=C\+A\+N2) \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a84c6baaec3dc2429942a79d7de07b939}{sec}\+: 6
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a1620baad6e662539c31b4a82eb5d2bc1}{min}\+: 6
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a226a28214916e63e3be8b34a904a6fe5}{hour}\+: 5
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____ab9df98376610faf8995ee0f3d7ddd7c3}{dow}\+: 3
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a4ce9f037a40bdf6b6d6b694790afa28c}{day}\+: 5
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____ad8f8cfaece8486cec76e21cf956d7646}{\+\_\+\+\_\+pad4\+\_\+\+\_\+}\+: 3
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a59b2a1f42969a6800f7cd16b75ec328f}{month}\+: 4
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____ac9e7d251f898df011d7cc73a8a2559d2}{\+\_\+\+\_\+pad5\+\_\+\+\_\+}\+: 4
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____afb5fa3b09ae735aea92d1a6fa1c6c1c6}{year}\+:12
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a7f675f9a9d7b33e510c50add172c4108}{\+\_\+\+\_\+pad6\+\_\+\+\_\+}\+: 4
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____ac556a14ae593d1f3d46e166263313c75}{doy}\+:12
+\item 
+uint32\+\_\+t \hyperlink{struct____attribute_____a41bb8f240ea90dcb866b722bac4b7496}{\+\_\+\+\_\+pad7\+\_\+\+\_\+}\+: 20
+\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a3269a81ad93d0affbeabf284e63829aa}{src}
+\begin{DoxyCompactList}\small\item\em Sender address. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a498bfd7c451026ed73b80a3e0a4169fc}{pkt\+\_\+id}
+\begin{DoxyCompactList}\small\item\em Sender\textquotesingle{}s packet id (sequence) \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a70bb4d640fb24d470e94698c04440d1e}{retries}
+\begin{DoxyCompactList}\small\item\em Packet retry count. \end{DoxyCompactList}\item 
+mesh\+\_\+packet\+\_\+t \hyperlink{struct____attribute_____a09b2479a59537aae24561247294fa398}{pkt}
+\begin{DoxyCompactList}\small\item\em The packet itself. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a029c6f0fb55fdad96770454f90e12ce1}{timer\+\_\+ms}
+\begin{DoxyCompactList}\small\item\em Running time. M\+U\+ST BE U\+I\+N\+T16 due to hard-\/coded usage of U\+I\+N\+T16\+\_\+\+M\+AX. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a9f3aa35286aea8d6a20a5358b3730361}{timeout\+\_\+ms}\+: 15
+\begin{DoxyCompactList}\small\item\em Target time when timer expires. We don\textquotesingle{}t need a lot of bits for this. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____aaf5ef4d6e36b400b9a6d01cd5d84a6fe}{disc\+\_\+pkt}\+: 1
+\begin{DoxyCompactList}\small\item\em Flag if this is a route discovery packet. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a1cfd2d5a79aed9120f40669b04e6f649}{pkts\+\_\+sent}
+\begin{DoxyCompactList}\small\item\em Packets we sent out with our address. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a8483976361231cd091d9f0138fef1e47}{pkts\+\_\+intercepted}
+\begin{DoxyCompactList}\small\item\em Packets we receipted within our mesh network. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a209e5ba4478f5776ee65788d276d5f2c}{pkts\+\_\+repeated}
+\begin{DoxyCompactList}\small\item\em Packets we repeated for others. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____a01cdbd0aa173d415d86566adef6775a3}{pkts\+\_\+retried}
+\begin{DoxyCompactList}\small\item\em Packets we retried with our address. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{struct____attribute_____ae79aae50e9255af8fc03b6988c7d5e12}{pkts\+\_\+retried\+\_\+others}
+\begin{DoxyCompactList}\small\item\em Packets retried for others. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____adbc91f28865d1eae6895599dc900465b}{rte\+\_\+entries}
+\begin{DoxyCompactList}\small\item\em Current number of routing entries. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a9ea2df6bafe8f3ef1c124a962b028bcb}{rte\+\_\+overwritten}
+\begin{DoxyCompactList}\small\item\em Number of times a routing entry over-\/wrote an existing entry. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a2e226654212aebfb764a8df90d66b006}{version}\+: 3
+\begin{DoxyCompactList}\small\item\em Mesh Version (1-\/7) -- M\+U\+ST BE 1st member of this struct. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____aebb84f16b4d46a3b2ea267e8b77c8774}{retries\+\_\+rem}\+: 3
+\begin{DoxyCompactList}\small\item\em Packet retries remaining (pad to 8 bits) \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____ae19c7dcebf79b994d537fecf3cc931c9}{pkt\+\_\+type}\+: 2
+\begin{DoxyCompactList}\small\item\em The type of mesh packet. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a80f0ddbd42fa6974b08feea40867db68}{hop\+\_\+count}\+: 4
+\begin{DoxyCompactList}\small\item\em Hop count of packet (1st packet counts as 0 hops) \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a73ca3679f26c67143ed190411c8347c6}{hop\+\_\+count\+\_\+max}\+: 4
+\begin{DoxyCompactList}\small\item\em Max hop count limit. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____acb75fb96c08ce6b43afc75f54e0d6a32}{pkt\+\_\+seq\+\_\+num}
+\begin{DoxyCompactList}\small\item\em Sequence number of the packet. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a963d3c197770f024e680a0d0a774c99e}{data\+\_\+len}
+\begin{DoxyCompactList}\small\item\em Length of the packet data. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a3522c1d748831637cd29787e401f670b}{dst}
+\begin{DoxyCompactList}\small\item\em Destination address. \end{DoxyCompactList}\item 
+mesh\+\_\+pkt\+\_\+addr\+\_\+t \hyperlink{struct____attribute_____acca30e839928f53cd58dad5de67e9179}{nwk}
+\begin{DoxyCompactList}\small\item\em Packet network address. \end{DoxyCompactList}\item 
+mesh\+\_\+pkt\+\_\+addr\+\_\+t \hyperlink{struct____attribute_____ab98af19336ed7ec3ca480cb93d16e106}{mac}
+\begin{DoxyCompactList}\small\item\em Packet physical address. \end{DoxyCompactList}\item 
+mesh\+\_\+pkt\+\_\+info\+\_\+t \hyperlink{struct____attribute_____a12c2cc9433afd67e97b7de65d9d58735}{info}
+\begin{DoxyCompactList}\small\item\em Packet header. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct____attribute_____a0bb6bcfb06a69a501d1dfd0a0f1b1222}{data} \mbox{[}\hyperlink{mesh__typedefs_8h_a3a202f51bca7a0dbd86db707179fe827}{M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Actual data within the payload. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Type definition of a C\+AN message with bit-\/fields (assuming little-\/endian machine) DO N\+OT C\+H\+A\+N\+GE T\+H\+IS S\+T\+R\+U\+C\+T\+U\+RE -\/ it maps to the hardware
+
+Typedef of a Full\+C\+AN message stored in memory DO N\+OT C\+H\+A\+N\+GE T\+H\+IS S\+T\+R\+U\+C\+T\+U\+RE -\/ it maps to the hardware
+
+Standard ID HW filtering structure. The single entries (not group) must be an even number count, so a second entry can be used and should be marked disabled (disable bit set to 1) to make the count an even number. DO N\+OT C\+H\+A\+N\+GE T\+H\+IS S\+T\+R\+U\+C\+T\+U\+RE -\/ it maps to the hardware
+
+Extended ID entry is just the ID and the C\+AN B\+US number DO N\+OT C\+H\+A\+N\+GE T\+H\+IS S\+T\+R\+U\+C\+T\+U\+RE -\/ it maps to the hardware
+
+This struct aligns with the L\+PC Hardware\textquotesingle{}s consolidated R\+TC registers. The un-\/named chars are just for padding according to L\+PC C\+T\+I\+ME registers.
+
+Fields that make a packet unique are kept in history to avoid duplicate packet handling.
+
+Mesh Pending packet type Only 16-\/bit timer is needed which can supply up to 65,535ms value, which is far above a useful mesh packet retry value
+
+Statistics structure that is sent if M\+E\+S\+H\+\_\+\+U\+S\+E\+\_\+\+S\+T\+A\+T\+I\+S\+T\+I\+CS is set to non-\/zero value. This data is sent by the node sending ack response packet. Current size is 12 bytes, and this should be kept to a minimum such that an A\+CK response packet can accommodate this data into the payload.
+
+Mesh packet header type 4-\/bit hop-\/count gets us 15 hops max, good enough for simple mesh.
+
+Mesh packet address type
+
+The structure of a single packet. 
+
+\subsection{Field Documentation}
+\subsubsection[{\texorpdfstring{"@61}{@61}}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }\hypertarget{struct____attribute_____a508ec0f55791b0b9597cd76c90350628}{}\label{struct____attribute_____a508ec0f55791b0b9597cd76c90350628}
+\subsubsection[{\texorpdfstring{"@64}{@64}}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \} }\hypertarget{struct____attribute_____abe87e0591ebdd65a429a6b6c95f1439b}{}\label{struct____attribute_____abe87e0591ebdd65a429a6b6c95f1439b}
+\subsubsection[{\texorpdfstring{"@66}{@66}}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \} }\hypertarget{struct____attribute_____ad7a1d9ea5fa4ffe405adf790c173b67a}{}\label{struct____attribute_____ad7a1d9ea5fa4ffe405adf790c173b67a}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad0\+\_\+\+\_\+}{__pad0__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}\hypertarget{struct____attribute_____a02ee404618bb2bb7a588a4ad5927894d}{}\label{struct____attribute_____a02ee404618bb2bb7a588a4ad5927894d}
+
+
+Unused space. 
+
+Unused. \index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad1\+\_\+\+\_\+@{\+\_\+\+\_\+pad1\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad1\+\_\+\+\_\+@{\+\_\+\+\_\+pad1\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad1\+\_\+\+\_\+}{__pad1__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}\hypertarget{struct____attribute_____a0c4e6e1eb99bec0a27a70420f40ac211}{}\label{struct____attribute_____a0c4e6e1eb99bec0a27a70420f40ac211}
+
+
+Unused space. 
+
+Unused. \index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad2\+\_\+\+\_\+@{\+\_\+\+\_\+pad2\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad2\+\_\+\+\_\+@{\+\_\+\+\_\+pad2\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad2\+\_\+\+\_\+}{__pad2__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad2\+\_\+\+\_\+}\hypertarget{struct____attribute_____a2d8f39dfa819e39b227d2790c26409d2}{}\label{struct____attribute_____a2d8f39dfa819e39b227d2790c26409d2}
+
+
+Unused. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad3\+\_\+\+\_\+@{\+\_\+\+\_\+pad3\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad3\+\_\+\+\_\+@{\+\_\+\+\_\+pad3\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad3\+\_\+\+\_\+}{__pad3__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad3\+\_\+\+\_\+}\hypertarget{struct____attribute_____a898a0c6c6d94ece9275b1379d2d24f60}{}\label{struct____attribute_____a898a0c6c6d94ece9275b1379d2d24f60}
+
+
+Unused (FF bit, not applicable to Full\+C\+AN) 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad4\+\_\+\+\_\+@{\+\_\+\+\_\+pad4\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad4\+\_\+\+\_\+@{\+\_\+\+\_\+pad4\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad4\+\_\+\+\_\+}{__pad4__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad4\+\_\+\+\_\+}\hypertarget{struct____attribute_____ad8f8cfaece8486cec76e21cf956d7646}{}\label{struct____attribute_____ad8f8cfaece8486cec76e21cf956d7646}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad5\+\_\+\+\_\+@{\+\_\+\+\_\+pad5\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad5\+\_\+\+\_\+@{\+\_\+\+\_\+pad5\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad5\+\_\+\+\_\+}{__pad5__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad5\+\_\+\+\_\+}\hypertarget{struct____attribute_____ac9e7d251f898df011d7cc73a8a2559d2}{}\label{struct____attribute_____ac9e7d251f898df011d7cc73a8a2559d2}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad6\+\_\+\+\_\+@{\+\_\+\+\_\+pad6\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad6\+\_\+\+\_\+@{\+\_\+\+\_\+pad6\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad6\+\_\+\+\_\+}{__pad6__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad6\+\_\+\+\_\+}\hypertarget{struct____attribute_____a7f675f9a9d7b33e510c50add172c4108}{}\label{struct____attribute_____a7f675f9a9d7b33e510c50add172c4108}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!\+\_\+\+\_\+pad7\+\_\+\+\_\+@{\+\_\+\+\_\+pad7\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad7\+\_\+\+\_\+@{\+\_\+\+\_\+pad7\+\_\+\+\_\+}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+pad7\+\_\+\+\_\+}{__pad7__}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::\+\_\+\+\_\+pad7\+\_\+\+\_\+}\hypertarget{struct____attribute_____a41bb8f240ea90dcb866b722bac4b7496}{}\label{struct____attribute_____a41bb8f240ea90dcb866b722bac4b7496}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!can\+\_\+num@{can\+\_\+num}}
+\index{can\+\_\+num@{can\+\_\+num}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{can\+\_\+num}{can_num}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::can\+\_\+num}\hypertarget{struct____attribute_____a3030b7aabe9418f3a7dcd682fe34fadc}{}\label{struct____attribute_____a3030b7aabe9418f3a7dcd682fe34fadc}
+
+
+C\+AN controller number (0=C\+A\+N1, 1=C\+A\+N2) 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!can\+\_\+num@{can\+\_\+num}}
+\index{can\+\_\+num@{can\+\_\+num}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{can\+\_\+num}{can_num}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::can\+\_\+num}\hypertarget{struct____attribute_____a7d526d3c59c97be7b5ef1924151f7de8}{}\label{struct____attribute_____a7d526d3c59c97be7b5ef1924151f7de8}
+
+
+C\+AN controller number (0=C\+A\+N1, 1=C\+A\+N2) 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!data@{data}}
+\index{data@{data}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{data}{data}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf can\+\_\+data\+\_\+t} \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::data}\hypertarget{struct____attribute_____a671d4cb674b1287a89ab3dd93d8d36e2}{}\label{struct____attribute_____a671d4cb674b1287a89ab3dd93d8d36e2}
+
+
+C\+AN data. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!data@{data}}
+\index{data@{data}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{data}{data}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::data\mbox{[}{\bf M\+E\+S\+H\+\_\+\+D\+A\+T\+A\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}\mbox{]}}\hypertarget{struct____attribute_____a0bb6bcfb06a69a501d1dfd0a0f1b1222}{}\label{struct____attribute_____a0bb6bcfb06a69a501d1dfd0a0f1b1222}
+
+
+Actual data within the payload. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!data\+\_\+len@{data\+\_\+len}}
+\index{data\+\_\+len@{data\+\_\+len}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{data\+\_\+len}{data_len}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::data\+\_\+len}\hypertarget{struct____attribute_____ae6f628b8af2722362b91666d5cff6041}{}\label{struct____attribute_____ae6f628b8af2722362b91666d5cff6041}
+
+
+Data length. 
+
+Message length. \index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!data\+\_\+len@{data\+\_\+len}}
+\index{data\+\_\+len@{data\+\_\+len}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{data\+\_\+len}{data_len}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::data\+\_\+len}\hypertarget{struct____attribute_____a963d3c197770f024e680a0d0a774c99e}{}\label{struct____attribute_____a963d3c197770f024e680a0d0a774c99e}
+
+
+Length of the packet data. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!day@{day}}
+\index{day@{day}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{day}{day}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::day}\hypertarget{struct____attribute_____a4ce9f037a40bdf6b6d6b694790afa28c}{}\label{struct____attribute_____a4ce9f037a40bdf6b6d6b694790afa28c}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!disable@{disable}}
+\index{disable@{disable}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{disable}{disable}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::disable}\hypertarget{struct____attribute_____a7c608f1e67305379d24b3b770be44994}{}\label{struct____attribute_____a7c608f1e67305379d24b3b770be44994}
+
+
+Set to 1 to disable the slot. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!disc\+\_\+pkt@{disc\+\_\+pkt}}
+\index{disc\+\_\+pkt@{disc\+\_\+pkt}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{disc\+\_\+pkt}{disc_pkt}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::disc\+\_\+pkt}\hypertarget{struct____attribute_____aaf5ef4d6e36b400b9a6d01cd5d84a6fe}{}\label{struct____attribute_____aaf5ef4d6e36b400b9a6d01cd5d84a6fe}
+
+
+Flag if this is a route discovery packet. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!dow@{dow}}
+\index{dow@{dow}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{dow}{dow}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::dow}\hypertarget{struct____attribute_____ab9df98376610faf8995ee0f3d7ddd7c3}{}\label{struct____attribute_____ab9df98376610faf8995ee0f3d7ddd7c3}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!doy@{doy}}
+\index{doy@{doy}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{doy}{doy}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::doy}\hypertarget{struct____attribute_____ac556a14ae593d1f3d46e166263313c75}{}\label{struct____attribute_____ac556a14ae593d1f3d46e166263313c75}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!dst@{dst}}
+\index{dst@{dst}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{dst}{dst}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::dst}\hypertarget{struct____attribute_____a3522c1d748831637cd29787e401f670b}{}\label{struct____attribute_____a3522c1d748831637cd29787e401f670b}
+
+
+Destination address. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!fc\+\_\+intr@{fc\+\_\+intr}}
+\index{fc\+\_\+intr@{fc\+\_\+intr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{fc\+\_\+intr}{fc_intr}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::fc\+\_\+intr}\hypertarget{struct____attribute_____a3f327bada8b15b44b9a37ec975800f57}{}\label{struct____attribute_____a3f327bada8b15b44b9a37ec975800f57}
+
+
+Message interrupt bit\+: O\+N\+LY U\+S\+ED F\+OR F\+U\+L\+L\+C\+AN. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!frame@{frame}}
+\index{frame@{frame}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{frame}{frame}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::frame}\hypertarget{struct____attribute_____a1c5c34a070f4e1a8c388cc990166125a}{}\label{struct____attribute_____a1c5c34a070f4e1a8c388cc990166125a}
+
+
+32-\/bit C\+AN frame aligned with frame\+\_\+fields (bit members) 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!frame\+\_\+fields@{frame\+\_\+fields}}
+\index{frame\+\_\+fields@{frame\+\_\+fields}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{frame\+\_\+fields}{frame_fields}}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::frame\+\_\+fields}\hypertarget{struct____attribute_____acfc363edc99eccae8f7e0f523821305e}{}\label{struct____attribute_____acfc363edc99eccae8f7e0f523821305e}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!hop\+\_\+count@{hop\+\_\+count}}
+\index{hop\+\_\+count@{hop\+\_\+count}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{hop\+\_\+count}{hop_count}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::hop\+\_\+count}\hypertarget{struct____attribute_____a80f0ddbd42fa6974b08feea40867db68}{}\label{struct____attribute_____a80f0ddbd42fa6974b08feea40867db68}
+
+
+Hop count of packet (1st packet counts as 0 hops) 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!hop\+\_\+count\+\_\+max@{hop\+\_\+count\+\_\+max}}
+\index{hop\+\_\+count\+\_\+max@{hop\+\_\+count\+\_\+max}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{hop\+\_\+count\+\_\+max}{hop_count_max}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::hop\+\_\+count\+\_\+max}\hypertarget{struct____attribute_____a73ca3679f26c67143ed190411c8347c6}{}\label{struct____attribute_____a73ca3679f26c67143ed190411c8347c6}
+
+
+Max hop count limit. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!hour@{hour}}
+\index{hour@{hour}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{hour}{hour}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::hour}\hypertarget{struct____attribute_____a226a28214916e63e3be8b34a904a6fe5}{}\label{struct____attribute_____a226a28214916e63e3be8b34a904a6fe5}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!id@{id}}
+\index{id@{id}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{id}{id}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::id}\hypertarget{struct____attribute_____ad3ca970dad0c3c0dde583a1916245292}{}\label{struct____attribute_____ad3ca970dad0c3c0dde583a1916245292}
+
+
+Standard 11-\/bit C\+AN ID. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!id@{id}}
+\index{id@{id}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{id}{id}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::id}\hypertarget{struct____attribute_____a87df1990d2a726a8feb9ee5d5fd158d2}{}\label{struct____attribute_____a87df1990d2a726a8feb9ee5d5fd158d2}
+
+
+Extended 29-\/bit C\+AN ID. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!info@{info}}
+\index{info@{info}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{info}{info}}]{\setlength{\rightskip}{0pt plus 5cm}mesh\+\_\+pkt\+\_\+info\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::info}\hypertarget{struct____attribute_____a12c2cc9433afd67e97b7de65d9d58735}{}\label{struct____attribute_____a12c2cc9433afd67e97b7de65d9d58735}
+
+
+Packet header. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!is\+\_\+29bit@{is\+\_\+29bit}}
+\index{is\+\_\+29bit@{is\+\_\+29bit}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{is\+\_\+29bit}{is_29bit}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::is\+\_\+29bit}\hypertarget{struct____attribute_____a745166911ddda34c6f9e95e22d423207}{}\label{struct____attribute_____a745166911ddda34c6f9e95e22d423207}
+
+
+If message ID is 29-\/bit type. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!is\+\_\+rtr@{is\+\_\+rtr}}
+\index{is\+\_\+rtr@{is\+\_\+rtr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{is\+\_\+rtr}{is_rtr}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::is\+\_\+rtr}\hypertarget{struct____attribute_____afa1cea6cf94468a29ce2ad1b62a3de11}{}\label{struct____attribute_____afa1cea6cf94468a29ce2ad1b62a3de11}
+
+
+Message is an R\+TR type. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!mac@{mac}}
+\index{mac@{mac}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{mac}{mac}}]{\setlength{\rightskip}{0pt plus 5cm}mesh\+\_\+pkt\+\_\+addr\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::mac}\hypertarget{struct____attribute_____ab98af19336ed7ec3ca480cb93d16e106}{}\label{struct____attribute_____ab98af19336ed7ec3ca480cb93d16e106}
+
+
+Packet physical address. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!min@{min}}
+\index{min@{min}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{min}{min}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::min}\hypertarget{struct____attribute_____a1620baad6e662539c31b4a82eb5d2bc1}{}\label{struct____attribute_____a1620baad6e662539c31b4a82eb5d2bc1}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!month@{month}}
+\index{month@{month}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{month}{month}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::month}\hypertarget{struct____attribute_____a59b2a1f42969a6800f7cd16b75ec328f}{}\label{struct____attribute_____a59b2a1f42969a6800f7cd16b75ec328f}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!msg\+\_\+id@{msg\+\_\+id}}
+\index{msg\+\_\+id@{msg\+\_\+id}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{msg\+\_\+id}{msg_id}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::msg\+\_\+id}\hypertarget{struct____attribute_____a676a49f79047392e2bac357a55bb74ed}{}\label{struct____attribute_____a676a49f79047392e2bac357a55bb74ed}
+
+
+C\+AN Message ID (11-\/bit or 29-\/bit) 
+
+11-\/bit message-\/id \index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!nwk@{nwk}}
+\index{nwk@{nwk}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{nwk}{nwk}}]{\setlength{\rightskip}{0pt plus 5cm}mesh\+\_\+pkt\+\_\+addr\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::nwk}\hypertarget{struct____attribute_____acca30e839928f53cd58dad5de67e9179}{}\label{struct____attribute_____acca30e839928f53cd58dad5de67e9179}
+
+
+Packet network address. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkt@{pkt}}
+\index{pkt@{pkt}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkt}{pkt}}]{\setlength{\rightskip}{0pt plus 5cm}mesh\+\_\+packet\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkt}\hypertarget{struct____attribute_____a09b2479a59537aae24561247294fa398}{}\label{struct____attribute_____a09b2479a59537aae24561247294fa398}
+
+
+The packet itself. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkt\+\_\+id@{pkt\+\_\+id}}
+\index{pkt\+\_\+id@{pkt\+\_\+id}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkt\+\_\+id}{pkt_id}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkt\+\_\+id}\hypertarget{struct____attribute_____a498bfd7c451026ed73b80a3e0a4169fc}{}\label{struct____attribute_____a498bfd7c451026ed73b80a3e0a4169fc}
+
+
+Sender\textquotesingle{}s packet id (sequence) 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkt\+\_\+seq\+\_\+num@{pkt\+\_\+seq\+\_\+num}}
+\index{pkt\+\_\+seq\+\_\+num@{pkt\+\_\+seq\+\_\+num}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkt\+\_\+seq\+\_\+num}{pkt_seq_num}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkt\+\_\+seq\+\_\+num}\hypertarget{struct____attribute_____acb75fb96c08ce6b43afc75f54e0d6a32}{}\label{struct____attribute_____acb75fb96c08ce6b43afc75f54e0d6a32}
+
+
+Sequence number of the packet. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkt\+\_\+type@{pkt\+\_\+type}}
+\index{pkt\+\_\+type@{pkt\+\_\+type}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkt\+\_\+type}{pkt_type}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkt\+\_\+type}\hypertarget{struct____attribute_____ae19c7dcebf79b994d537fecf3cc931c9}{}\label{struct____attribute_____ae19c7dcebf79b994d537fecf3cc931c9}
+
+
+The type of mesh packet. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{mesh__typedefs_8h_a4e50257f904223b4cb6473811f8f709f}{mesh\+\_\+protocol\+\_\+t} 
+\end{DoxySeeAlso}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkts\+\_\+intercepted@{pkts\+\_\+intercepted}}
+\index{pkts\+\_\+intercepted@{pkts\+\_\+intercepted}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkts\+\_\+intercepted}{pkts_intercepted}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkts\+\_\+intercepted}\hypertarget{struct____attribute_____a8483976361231cd091d9f0138fef1e47}{}\label{struct____attribute_____a8483976361231cd091d9f0138fef1e47}
+
+
+Packets we receipted within our mesh network. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkts\+\_\+repeated@{pkts\+\_\+repeated}}
+\index{pkts\+\_\+repeated@{pkts\+\_\+repeated}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkts\+\_\+repeated}{pkts_repeated}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkts\+\_\+repeated}\hypertarget{struct____attribute_____a209e5ba4478f5776ee65788d276d5f2c}{}\label{struct____attribute_____a209e5ba4478f5776ee65788d276d5f2c}
+
+
+Packets we repeated for others. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkts\+\_\+retried@{pkts\+\_\+retried}}
+\index{pkts\+\_\+retried@{pkts\+\_\+retried}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkts\+\_\+retried}{pkts_retried}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkts\+\_\+retried}\hypertarget{struct____attribute_____a01cdbd0aa173d415d86566adef6775a3}{}\label{struct____attribute_____a01cdbd0aa173d415d86566adef6775a3}
+
+
+Packets we retried with our address. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkts\+\_\+retried\+\_\+others@{pkts\+\_\+retried\+\_\+others}}
+\index{pkts\+\_\+retried\+\_\+others@{pkts\+\_\+retried\+\_\+others}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkts\+\_\+retried\+\_\+others}{pkts_retried_others}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkts\+\_\+retried\+\_\+others}\hypertarget{struct____attribute_____ae79aae50e9255af8fc03b6988c7d5e12}{}\label{struct____attribute_____ae79aae50e9255af8fc03b6988c7d5e12}
+
+
+Packets retried for others. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!pkts\+\_\+sent@{pkts\+\_\+sent}}
+\index{pkts\+\_\+sent@{pkts\+\_\+sent}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{pkts\+\_\+sent}{pkts_sent}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::pkts\+\_\+sent}\hypertarget{struct____attribute_____a1cfd2d5a79aed9120f40669b04e6f649}{}\label{struct____attribute_____a1cfd2d5a79aed9120f40669b04e6f649}
+
+
+Packets we sent out with our address. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!raw@{raw}}
+\index{raw@{raw}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{raw}{raw}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::raw}\hypertarget{struct____attribute_____a6002c78ca3d2dd7e495cb96babc3c2f6}{}\label{struct____attribute_____a6002c78ca3d2dd7e495cb96babc3c2f6}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!retries@{retries}}
+\index{retries@{retries}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{retries}{retries}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::retries}\hypertarget{struct____attribute_____a70bb4d640fb24d470e94698c04440d1e}{}\label{struct____attribute_____a70bb4d640fb24d470e94698c04440d1e}
+
+
+Packet retry count. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!retries\+\_\+rem@{retries\+\_\+rem}}
+\index{retries\+\_\+rem@{retries\+\_\+rem}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{retries\+\_\+rem}{retries_rem}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::retries\+\_\+rem}\hypertarget{struct____attribute_____aebb84f16b4d46a3b2ea267e8b77c8774}{}\label{struct____attribute_____aebb84f16b4d46a3b2ea267e8b77c8774}
+
+
+Packet retries remaining (pad to 8 bits) 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!rte\+\_\+entries@{rte\+\_\+entries}}
+\index{rte\+\_\+entries@{rte\+\_\+entries}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{rte\+\_\+entries}{rte_entries}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::rte\+\_\+entries}\hypertarget{struct____attribute_____adbc91f28865d1eae6895599dc900465b}{}\label{struct____attribute_____adbc91f28865d1eae6895599dc900465b}
+
+
+Current number of routing entries. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!rte\+\_\+overwritten@{rte\+\_\+overwritten}}
+\index{rte\+\_\+overwritten@{rte\+\_\+overwritten}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{rte\+\_\+overwritten}{rte_overwritten}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::rte\+\_\+overwritten}\hypertarget{struct____attribute_____a9ea2df6bafe8f3ef1c124a962b028bcb}{}\label{struct____attribute_____a9ea2df6bafe8f3ef1c124a962b028bcb}
+
+
+Number of times a routing entry over-\/wrote an existing entry. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!rtr@{rtr}}
+\index{rtr@{rtr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{rtr}{rtr}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::rtr}\hypertarget{struct____attribute_____aee214ea38d7e1f8c3dc6e84f3993fdec}{}\label{struct____attribute_____aee214ea38d7e1f8c3dc6e84f3993fdec}
+
+
+R\+TR message. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!sec@{sec}}
+\index{sec@{sec}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{sec}{sec}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::sec}\hypertarget{struct____attribute_____a84c6baaec3dc2429942a79d7de07b939}{}\label{struct____attribute_____a84c6baaec3dc2429942a79d7de07b939}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!semphr@{semphr}}
+\index{semphr@{semphr}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{semphr}{semphr}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::semphr}\hypertarget{struct____attribute_____a093c08572a86d14158d4ad2b8d526557}{}\label{struct____attribute_____a093c08572a86d14158d4ad2b8d526557}
+
+
+Semaphore bits. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!src@{src}}
+\index{src@{src}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{src}{src}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::src}\hypertarget{struct____attribute_____a3269a81ad93d0affbeabf284e63829aa}{}\label{struct____attribute_____a3269a81ad93d0affbeabf284e63829aa}
+
+
+Sender address. 
+
+Source address. \index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!timeout\+\_\+ms@{timeout\+\_\+ms}}
+\index{timeout\+\_\+ms@{timeout\+\_\+ms}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{timeout\+\_\+ms}{timeout_ms}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::timeout\+\_\+ms}\hypertarget{struct____attribute_____a9f3aa35286aea8d6a20a5358b3730361}{}\label{struct____attribute_____a9f3aa35286aea8d6a20a5358b3730361}
+
+
+Target time when timer expires. We don\textquotesingle{}t need a lot of bits for this. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!timer\+\_\+ms@{timer\+\_\+ms}}
+\index{timer\+\_\+ms@{timer\+\_\+ms}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{timer\+\_\+ms}{timer_ms}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::timer\+\_\+ms}\hypertarget{struct____attribute_____a029c6f0fb55fdad96770454f90e12ce1}{}\label{struct____attribute_____a029c6f0fb55fdad96770454f90e12ce1}
+
+
+Running time. M\+U\+ST BE U\+I\+N\+T16 due to hard-\/coded usage of U\+I\+N\+T16\+\_\+\+M\+AX. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!version@{version}}
+\index{version@{version}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{version}{version}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::version}\hypertarget{struct____attribute_____a2e226654212aebfb764a8df90d66b006}{}\label{struct____attribute_____a2e226654212aebfb764a8df90d66b006}
+
+
+Mesh Version (1-\/7) -- M\+U\+ST BE 1st member of this struct. 
+
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!year@{year}}
+\index{year@{year}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\subsubsection[{\texorpdfstring{year}{year}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+\+::year}\hypertarget{struct____attribute_____afb5fa3b09ae735aea92d1a6fa1c6c1c6}{}\label{struct____attribute_____afb5fa3b09ae735aea92d1a6fa1c6c1c6}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/\hyperlink{can_8h}{can.\+h}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/\hyperlink{rtc_8h}{rtc.\+h}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/\hyperlink{mesh_8c}{mesh.\+c}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/\hyperlink{mesh__typedefs_8h}{mesh\+\_\+typedefs.\+h}\end{DoxyCompactItemize}

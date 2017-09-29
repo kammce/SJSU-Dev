@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Debugging with OpenOCD and GDB &mdash; RoverCore-S 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="RoverCore-S 0.0.1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RoverCore-S
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting-a-new-application.html">Starting a New Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting-a-new-project.html">Starting a new Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unit-testing-with-unity.html">Unit Testing with Unity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyrights.html">Copyrights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">API References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RoverCore-S</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Debugging with OpenOCD and GDB</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst/debugging-with-openocd.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="debugging-with-openocd-and-gdb">
+<h1>Debugging with OpenOCD and GDB<a class="headerlink" href="#debugging-with-openocd-and-gdb" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="unit-testing-tools">
+<h2>Unit Testing Tools<a class="headerlink" href="#unit-testing-tools" title="Permalink to this headline">¶</a></h2>
+<p>RoverCore-S uses the following the libraries:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://mochajs.org/">Mocha</a> as a unit testing framework</li>
+<li><a class="reference external" href="http://chaijs.com/">Chai</a> as an assertion library</li>
+<li><a class="reference external" href="http://sinonjs.org/">Sinon</a> as a stubs library.</li>
+<li><a class="reference external" href="http://jshint.com/">JSHint</a> as a JS linter</li>
+<li><a class="reference external" href="https://istanbul.js.org/">Istanbul</a> as the test coverage library.</li>
+<li><a class="reference external" href="https://gruntjs.com/">Grunt</a> to run the tests, linter, and coverage</li>
+</ol>
+<p>These libraries are installed when you run the <code class="docutils literal"><span class="pre">./install.sh</span></code> file.</p>
+</div>
+<div class="section" id="creating-a-unit-test">
+<h2>Creating a Unit Test<a class="headerlink" href="#creating-a-unit-test" title="Permalink to this headline">¶</a></h2>
+<p>To create a new unit test, copy the <code class="docutils literal"><span class="pre">Example.js</span></code> file in <code class="docutils literal"><span class="pre">/test/modules/</span></code> into another file and name it the same name as your lobe. The following is the contents of the example unit test.</p>
+<div class="highlight-JavaScript"><div class="highlight"><pre><span></span><span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">INSERT_LOBE_NAME_HERE</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;Protolobe/Protolobe&quot;</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Testing INSERT_LOBE_NAME_HERE Class&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;test_lobe_utilities&quot;</span><span class="p">);</span>
+
+        <span class="kd">var</span> <span class="nx">test_unit</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">INSERT_LOBE_NAME_HERE</span><span class="p">(</span><span class="nx">util</span><span class="p">);</span>
+
+        <span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Testing Lobe Methods&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;#react() test here&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+                <span class="p">{</span>
+                        <span class="nx">test_unit</span><span class="p">.</span><span class="nx">react</span><span class="p">();</span>
+                        <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">true</span><span class="p">;</span>
+                <span class="p">});</span>
+                <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;#halt() test here&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+                <span class="p">{</span>
+                        <span class="nx">test_unit</span><span class="p">.</span><span class="nx">halt</span><span class="p">();</span>
+                        <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">true</span><span class="p">;</span>
+                <span class="p">});</span>
+                <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;#resume() test here&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+                <span class="p">{</span>
+                        <span class="nx">test_unit</span><span class="p">.</span><span class="nx">resume</span><span class="p">();</span>
+                        <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">true</span><span class="p">;</span>
+                <span class="p">});</span>
+                <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;#idle() test here&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+                <span class="p">{</span>
+                        <span class="nx">test_unit</span><span class="p">.</span><span class="nx">idle</span><span class="p">();</span>
+                        <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">true</span><span class="p">;</span>
+                <span class="p">});</span>
+                <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;#additionalMethod() test here&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span>
+                <span class="p">{</span>
+                        <span class="nx">expect</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">true</span><span class="p">;</span>
+                <span class="p">});</span>
+        <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Sinon, Chai, and Mocha are all global when you test your program. The folders <code class="docutils literal"><span class="pre">core</span></code>, <code class="docutils literal"><span class="pre">modules</span></code>, <code class="docutils literal"><span class="pre">utilities</span></code>, and <code class="docutils literal"><span class="pre">test</span></code> have all been added to the require path. So requiring them does not require the whole relative path to the files.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Make sure to always include tests for the <code class="docutils literal"><span class="pre">react</span></code>, <code class="docutils literal"><span class="pre">halt</span></code>, <code class="docutils literal"><span class="pre">resume</span></code>, and <code class="docutils literal"><span class="pre">idle</span></code> methods of your lobe.</p>
+</div>
+<p>For more information for on unit testing using mocha, chai and sinon see the following:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://mochajs.org/">https://mochajs.org/</a></li>
+<li><a class="reference external" href="http://sinonjs.org/">http://sinonjs.org/</a></li>
+<li><a class="reference external" href="http://chaijs.com/guide/styles/#expect">http://chaijs.com/guide/styles/#expect</a></li>
+</ul>
+</div>
+<div class="section" id="testing-commands">
+<h2>Testing Commands<a class="headerlink" href="#testing-commands" title="Permalink to this headline">¶</a></h2>
+<p>To run a single and specific unit test is the following command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mocha test/modules/&lt;unit <span class="nb">test</span> file&gt;.js
+</pre></div>
+</div>
+<p>To run all unit tests (but not the linter)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grunt unittest
+</pre></div>
+</div>
+<p>To run just the linter</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grunt lint
+</pre></div>
+</div>
+<p>Run everything except for istanbul code coverage</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>grunt --force
+</pre></div>
+</div>
+<p>To run everything, just use</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>npm <span class="nb">test</span>
+</pre></div>
+</div>
+<p>To generate a code coverage report, run this in the root of the project</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bash &lt;<span class="o">(</span>curl -s https://codecov.io/bash<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Khalil A. Estell.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

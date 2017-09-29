@@ -1,0 +1,121 @@
+\hypertarget{classIR__Sensor}{}\section{I\+R\+\_\+\+Sensor Class Reference}
+\label{classIR__Sensor}\index{I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}}
+
+
+{\ttfamily \#include $<$I\+R\+\_\+sensor.\+hpp$>$}
+
+
+
+Inheritance diagram for I\+R\+\_\+\+Sensor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{d5/d2d/classIR__Sensor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for I\+R\+\_\+\+Sensor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{d7/d76/classIR__Sensor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classIR__Sensor_aed070b378b1a8434dc4ef697367b24aa}{init} ()
+\begin{DoxyCompactList}\small\item\em Initializes this device,. \end{DoxyCompactList}\item 
+bool \hyperlink{classIR__Sensor_a9ab8df4474ccdbf246f2a36aef42afa8}{is\+I\+R\+Code\+Received} ()
+\item 
+uint32\+\_\+t \hyperlink{classIR__Sensor_a73909031861c829b42eda33aafe330ed}{get\+Last\+I\+R\+Code} ()
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classIR__Sensor_a4cb79e3f711d2d374aeb49c601f4a61e}{store\+Ir\+Code} (uint32\+\_\+t)
+\item 
+void \hyperlink{classIR__Sensor_ade378c1c94b66513c862733b7bb8c163}{decode\+Ir\+Code} (void)
+\end{DoxyCompactItemize}
+
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classIR__Sensor_ab53cf421ebbd5018a3e945bb6368f90e}{Singleton\+Template$<$ I\+R\+\_\+\+Sensor $>$}
+\begin{DoxyCompactList}\small\item\em Friend class used for Singleton Template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+IR Sensor class used to get signals from the on-\/board IR Sensor This sensor can decode a remote\textquotesingle{}s IR signals, such as a TV remote control.
+
+To make sure no decoded signals are over-\/written, or you do not get a decoded signal that is very obsolete, the user should periodically check \hyperlink{classIR__Sensor_a9ab8df4474ccdbf246f2a36aef42afa8}{is\+I\+R\+Code\+Received()} every 50ms, and buffer signals externally.
+
+If a signal is decoded, \hyperlink{classIR__Sensor_a73909031861c829b42eda33aafe330ed}{get\+Last\+I\+R\+Code()} will provide it, and clear out the buffer to receive future signal. If \hyperlink{classIR__Sensor_a73909031861c829b42eda33aafe330ed}{get\+Last\+I\+R\+Code()} is not called regularly, it is possible that this may return an older signal, even if it was many hours ago. 
+
+\subsection{Member Function Documentation}
+\index{I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}!decode\+Ir\+Code@{decode\+Ir\+Code}}
+\index{decode\+Ir\+Code@{decode\+Ir\+Code}!I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}}
+\subsubsection[{\texorpdfstring{decode\+Ir\+Code(void)}{decodeIrCode(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void I\+R\+\_\+\+Sensor\+::decode\+Ir\+Code (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIR__Sensor_ade378c1c94b66513c862733b7bb8c163}{}\label{classIR__Sensor_ade378c1c94b66513c862733b7bb8c163}
+First falling edge value should indicate binary 0. So anything higher than 50\% of this value is considered binary 1.\index{I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}!get\+Last\+I\+R\+Code@{get\+Last\+I\+R\+Code}}
+\index{get\+Last\+I\+R\+Code@{get\+Last\+I\+R\+Code}!I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}}
+\subsubsection[{\texorpdfstring{get\+Last\+I\+R\+Code()}{getLastIRCode()}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t I\+R\+\_\+\+Sensor\+::get\+Last\+I\+R\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIR__Sensor_a73909031861c829b42eda33aafe330ed}{}\label{classIR__Sensor_a73909031861c829b42eda33aafe330ed}
+\begin{DoxyReturn}{Returns}
+The last IR signal that was decoded or 0 if nothing was decoded 
+\end{DoxyReturn}
+\index{I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}!init@{init}}
+\index{init@{init}!I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}bool I\+R\+\_\+\+Sensor\+::init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIR__Sensor_aed070b378b1a8434dc4ef697367b24aa}{}\label{classIR__Sensor_aed070b378b1a8434dc4ef697367b24aa}
+
+
+Initializes this device,. 
+
+\begin{DoxyReturn}{Returns}
+true if successful
+\end{DoxyReturn}
+IR Sensor is attached to P1.\+18 -\/ C\+A\+P1.\+0, so it needs T\+I\+M\+E\+R1 to capture the times on P1.\+18 \index{I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}!is\+I\+R\+Code\+Received@{is\+I\+R\+Code\+Received}}
+\index{is\+I\+R\+Code\+Received@{is\+I\+R\+Code\+Received}!I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}}
+\subsubsection[{\texorpdfstring{is\+I\+R\+Code\+Received()}{isIRCodeReceived()}}]{\setlength{\rightskip}{0pt plus 5cm}bool I\+R\+\_\+\+Sensor\+::is\+I\+R\+Code\+Received (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classIR__Sensor_a9ab8df4474ccdbf246f2a36aef42afa8}{}\label{classIR__Sensor_a9ab8df4474ccdbf246f2a36aef42afa8}
+\begin{DoxyReturn}{Returns}
+true if an IR signal was decoded and is available to read 
+\end{DoxyReturn}
+\index{I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}!store\+Ir\+Code@{store\+Ir\+Code}}
+\index{store\+Ir\+Code@{store\+Ir\+Code}!I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}}
+\subsubsection[{\texorpdfstring{store\+Ir\+Code(uint32\+\_\+t)}{storeIrCode(uint32_t)}}]{\setlength{\rightskip}{0pt plus 5cm}void I\+R\+\_\+\+Sensor\+::store\+Ir\+Code (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classIR__Sensor_a4cb79e3f711d2d374aeb49c601f4a61e}{}\label{classIR__Sensor_a4cb79e3f711d2d374aeb49c601f4a61e}
+Don\textquotesingle{}t use these functions 
+
+\subsection{Friends And Related Function Documentation}
+\index{I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}!Singleton\+Template$<$ I\+R\+\_\+\+Sensor $>$@{Singleton\+Template$<$ I\+R\+\_\+\+Sensor $>$}}
+\index{Singleton\+Template$<$ I\+R\+\_\+\+Sensor $>$@{Singleton\+Template$<$ I\+R\+\_\+\+Sensor $>$}!I\+R\+\_\+\+Sensor@{I\+R\+\_\+\+Sensor}}
+\subsubsection[{\texorpdfstring{Singleton\+Template$<$ I\+R\+\_\+\+Sensor $>$}{SingletonTemplate< IR_Sensor >}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Singleton\+Template}$<$ {\bf I\+R\+\_\+\+Sensor} $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classIR__Sensor_ab53cf421ebbd5018a3e945bb6368f90e}{}\label{classIR__Sensor_ab53cf421ebbd5018a3e945bb6368f90e}
+
+
+Friend class used for Singleton Template. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/\hyperlink{IR__sensor_8hpp}{I\+R\+\_\+sensor.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/\hyperlink{io__source_8cpp}{io\+\_\+source.\+cpp}\end{DoxyCompactItemize}

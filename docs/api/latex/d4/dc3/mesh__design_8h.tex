@@ -1,0 +1,84 @@
+\hypertarget{mesh__design_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/mesh\+\_\+design.h File Reference}
+\label{mesh__design_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/mesh\+\_\+design.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/wireless/src/mesh\+\_\+design.\+h}}
+
+
+This is a documentation only file for the mesh algorithm.  
+
+
+
+
+\subsection{Detailed Description}
+This is a documentation only file for the mesh algorithm. 
+
+/$\ast$ Social\+Ledge.\+com -\/ Copyright (C) 2013
+
+This file is part of free software framework for embedded processors. You can use it and/or distribute it as long as this copyright header remains unmodified. The code is free for personal use and requires permission to use in a commercial product.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{}. NO W\+A\+R\+R\+A\+N\+T\+I\+ES, W\+H\+E\+T\+H\+ER E\+X\+P\+R\+E\+SS, I\+M\+P\+L\+I\+ED OR S\+T\+A\+T\+U\+T\+O\+RY, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+P\+P\+LY TO T\+H\+IS S\+O\+F\+T\+W\+A\+RE. I S\+H\+A\+LL N\+OT, IN A\+NY C\+I\+R\+C\+U\+M\+S\+T\+A\+N\+C\+ES, BE L\+I\+A\+B\+LE F\+OR S\+P\+E\+C\+I\+AL, I\+N\+C\+I\+D\+E\+N\+T\+AL, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES, F\+OR A\+NY R\+E\+A\+S\+ON W\+H\+A\+T\+S\+O\+E\+V\+ER.
+
+You can reach the author of this software at \+: p r e e t . w i k i @ g m a i l . c o m
+
+\begin{DoxyParagraph}{Features}
+This mesh algorithm features \+:
+\begin{DoxyItemize}
+\item Addressed nodes with auto-\/retries, and auto-\/acknowledge.
+\item Minimal R\+AM footprint with no H\+E\+AP usage.
+\item Each node contains routing table and can act like a repeater node.
+\item Each packet contains its retry counts, and maximum hops it can take.
+\end{DoxyItemize}
+\end{DoxyParagraph}
+Detailed features \+:
+\begin{DoxyItemize}
+\item Each packet sent can use existing route, and if route has changed, a new route is automatically discovered using a special retry packet.
+\item Each node\textquotesingle{}s A\+CK contains some piggy-\/back data about the node itself.
+\item Duplicate packets are absorbed but an A\+CK is still replied if its a duplicate, but a retry packet.
+\item An A\+CK packet or a response to an A\+CK all use retries; even the repeating nodes participate to make sure the packet is delivered.
+\end{DoxyItemize}
+
+\begin{DoxyParagraph}{Example use case}
+Suppose there are 4 nodes in your network, and the nodes only know about their neighbors (ie\+: N1 only knows N2, but doesn\textquotesingle{}t know where is N3 and N4)\+: \begin{DoxyVerb} N1      N2      N3      N4
+\end{DoxyVerb}
+
+\end{DoxyParagraph}
+Each node maintains a routing table of 3 fields \+:
+\begin{DoxyItemize}
+\item Destination Node
+\item Next Destination
+\item Hop count to destination node
+\end{DoxyItemize}
+
+Here is how the mesh algorithm works step-\/by-\/step when N1 sends data to N4 \+: D=Destination, S=Source, MD=Mesh Destination, MS=Mesh Source Table\+: X$\vert$\+Y$\vert$Z where X=TO, Y=Next destination, Z=Hops 
+
+ \subsection*{Here is how a packet is sent to unknown node N4 }
+
+N1 N2 N3 N4 Route Table \+: $<$\+Empty$>$ $<$\+Empty$>$ $<$\+Empty$>$ $<$\+Empty$>$ Packet \+: D(4), S(1) M\+D(0),M\+S(1)
+
+N1 N2 N3 N4 Route Table \+: $<$\+Empty$>$ D1$\vert$\+D1$\vert$0 $<$\+Empty$>$ $<$\+Empty$>$ Packet \+: D(4), S(1) M\+D(0),M\+S(2)
+
+N1 N2 N3 N4 Route Table \+: $<$\+Empty$>$ D1$\vert$\+D1$\vert$0 D2$\vert$\+D2$\vert$0 $<$\+Empty$>$ D1$\vert$\+D2$\vert$1 Packet \+: D(4), S(1) M\+D(0),M\+S(3)
+
+N1 N2 N3 N4 Route Table \+: $<$\+Empty$>$ D1$\vert$\+D1$\vert$0 D2$\vert$\+D2$\vert$0 D3$\vert$\+D3$\vert$0 D1$\vert$\+D2$\vert$1 D1$\vert$\+D3$\vert$2 Packet \+: D(4), S(1) M\+D(0),M\+S(3) 
+
+ \subsection*{Now let\textquotesingle{}s take a look at how the packet travels back \+: }
+
+T\+O\+DO
+
+
+
+ Future work and improvement possibilities \+:
+\begin{DoxyItemize}
+\item R\+SS (Received Signal Strength) should be factored into the routing table for those radios that support it.
+\item If routing table is full, the route least used should be removed, therefore we need to add a \char`\"{}score\char`\"{} variable to the routing table structure.
+\item Implement \char`\"{}packet\+\_\+status\char`\"{} for each packet sent? ie\+: \char`\"{}\+B\+U\+S\+Y\char`\"{}, \char`\"{}\+R\+E\+T\+R\+Y\+I\+N\+G\char`\"{}, \char`\"{}\+D\+E\+L\+I\+V\+E\+R\+E\+D\char`\"{}, \char`\"{}\+T\+I\+M\+E\+O\+U\+T\char`\"{}, or \char`\"{}\+E\+R\+R\+O\+R\char`\"{}
+\item Implement special packet to query N-\/th routing entry of a node.
+\item An A\+CK packet should contain what sequence number the A\+CK is for \subsection*{such that more than one packet with an A\+CK can be out at a time. }
+\end{DoxyItemize}
+
+How some scenarios are handled \+:
+
+Scenario 1 \+: N1 --$>$ N2 --$>$ N3 N1 knows N3, but what if N3 disappears, and is now directly reachable without any intermediate node ? N1 will send packet with MD being N2, but instead, N3 will directly respond back, and now N1 will update its routing table.
+
+Scenario 2 \+: N1 --$>$ N2 --$>$ N3 N1 knows N3, but N2 has disappeared and a new node N2b has replaced N2. N1 will retry its packets, and eventually realize after retry count-\/down that N3 no longer has a good route entry, so that route entry will be removed, and when N1 resends the packet again, new route discovery will be performed through N2b.
+
+Scenario 3 \+: N1 --$>$ N2 --$>$ N3 N1 knows N3, but say that N2 can no longer reach N3. After some retries, N2 will give up on N3 destined packet because N3 would not have sent an A\+CK back. Option 1 (not implemented) \+: N2 can send a special packet to N1 telling it to remove its route of N3 through N2. Option 2 (simpler) \+: N1 will send retries through N2, and after N3 is not reachable, its route will be removed, and when a packet is sent again, new route discovery will be performed. 
+

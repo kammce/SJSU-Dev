@@ -1,0 +1,1634 @@
+\hypertarget{classstr}{}\section{str Class Reference}
+\label{classstr}\index{str@{str}}
+
+
+{\ttfamily \#include $<$str.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classstr_aa6eaeec5cd9c24333efc20ebb16ba80a}{get\+Len} () const 
+\item 
+int \hyperlink{classstr_a53be075052a94f9f390acdeca847ed5e}{get\+Capacity} () const 
+\item 
+bool \hyperlink{classstr_a972e4c7826a4fb3936cf65d66014d4f3}{reserve} (int n)
+\begin{DoxyCompactList}\small\item\em reserves memory to hold n characters \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a48e106cad646fc0e6596a42938a34733}{clear} ()
+\begin{DoxyCompactList}\small\item\em Clears the string by putting N\+U\+LL terminator at 1st char. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a5bd53e4206fc8c5ed568e62e567d7055}{clear\+All} ()
+\begin{DoxyCompactList}\small\item\em Zeroes out A\+LL memory that belongs to this str. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_ae8e9f70258ea0c05c46f33befec2d176}{to\+Lower} ()
+\begin{DoxyCompactList}\small\item\em Make every alphabet character lowercase. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_abeb089bcf2c3457e993239aeba54bcf6}{to\+Upper} ()
+\begin{DoxyCompactList}\small\item\em Make every alphabet character uppercase. \end{DoxyCompactList}\item 
+int \hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{printf} (const char $\ast$p\+Format,...)
+\item 
+int \hyperlink{classstr_ae2d29bc4d8f0945aeb83abf6a11d08f5}{scanf} (const char $\ast$p\+Format,...)
+\item 
+int \hyperlink{classstr_ad9db6da1cda4feb99ccda4ce46220e01}{tokenize} (const char $\ast$delimators, int char\+\_\+ptr\+\_\+count,...)
+\item 
+const \hyperlink{classstr}{str} $\ast$ \hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{get\+Token} (const char $\ast$p\+Splitter=\char`\"{} \char`\"{}, bool restart=false)
+\item 
+void \hyperlink{classstr_aac62bf43eaa1ed364283202b89afadbe}{operator+=} (const char single\+Char)
+\begin{DoxyCompactList}\small\item\em Append char using += Operator. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_ab8065080e455e15a5f24818298b3993e}{operator+=} (const char $\ast$p\+String)
+\begin{DoxyCompactList}\small\item\em Append String using += Operator. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a49b9a96f116ba180a7e7294eac6539f7}{operator+=} (const \hyperlink{classstr}{str} \&s)
+\begin{DoxyCompactList}\small\item\em Append str to us. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_ae5aa9f33de7145f93320558b8be54f28}{operator+=} (int n)
+\begin{DoxyCompactList}\small\item\em Subtract Integer using += Operator if string is an integer value. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a2ada3fdc9a272d0f03cc34c17e7da288}{operator-\/=} (const char $\ast$p\+String)
+\begin{DoxyCompactList}\small\item\em Remove all instances of p\+String using -\/= Operator. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a590cead40b3abfb16ff93c3e97a67197}{operator-\/=} (const \hyperlink{classstr}{str} \&s)
+\begin{DoxyCompactList}\small\item\em Remove (erase) str from us. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a197df4840051ffb56230401a4ab10053}{operator-\/=} (int n)
+\begin{DoxyCompactList}\small\item\em Subtract Integer String using if string is an integer value. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a7f9bcfbb170343601835d0f7e626b0ac}{operator+=} (float n)
+\begin{DoxyCompactList}\small\item\em Subtract Float using += Operator if string is an float value. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a71248f109c79176b83bc81b53223b72f}{operator-\/=} (float n)
+\begin{DoxyCompactList}\small\item\em Subtract Float String using -\/= Operator if string is an float value. \end{DoxyCompactList}\item 
+const char $\ast$ \hyperlink{classstr_a9b463b5f9774ba576201d8afa9618663}{operator()} () const 
+\begin{DoxyCompactList}\small\item\em () Operator (without a name)\+: Ex\+: puts(my\+C\+Str()); \end{DoxyCompactList}\item 
+const char $\ast$ \hyperlink{classstr_a6b85bf260120c1d2b78e7ed0c81df25f}{c\+\_\+str} () const 
+\item 
+\hyperlink{classstr_a598459fbf321bbe6a3bc04c2db71d49d}{operator float} () const 
+\begin{DoxyCompactList}\small\item\em Get c-\/string pointer (calls operator above) \end{DoxyCompactList}\item 
+\hyperlink{classstr_af1c1bff1c65968a0a34c26c61cbc3994}{operator int} () const 
+\begin{DoxyCompactList}\small\item\em (int) Cast Operator\+: Ex\+: int x = (int)my\+C\+Str; \end{DoxyCompactList}\item 
+char \& \hyperlink{classstr_a24b71c212793ade7dea8ce542878f132}{operator\mbox{[}$\,$\mbox{]}} (int pos)
+\begin{DoxyCompactList}\small\item\em Index Operator to get and set value @ Index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Constructors (and destructor)}\par
+{\em External memory constructor will be unable to allocate more memory and will fail to grow the string greater than the size }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstr_a48b4d5a786a4b82767baefdeff09723a}{str} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classstr_a3e4992b25c2be2ed5f6fb8fa28c96a9a}{str} (int capacity)
+\begin{DoxyCompactList}\small\item\em Constructor with initial capacity. \end{DoxyCompactList}\item 
+\hyperlink{classstr_a5c9d2ff8ffea93ac4ae9abad9e994575}{str} (const char $\ast$p\+String)
+\begin{DoxyCompactList}\small\item\em Construct from char$\ast$ pointer. \end{DoxyCompactList}\item 
+\hyperlink{classstr_a5933ae5984cd111ad5d3d70595fa9602}{str} (char $\ast$buff, int \hyperlink{trace_2readme_8txt_a5b63272b2fdc1bee3a5c822dfc08d754}{size})
+\begin{DoxyCompactList}\small\item\em Construct to use external memory. \end{DoxyCompactList}\item 
+\hyperlink{classstr_a51a0f3dc96c628e4ae48a78569a47706}{str} (const \hyperlink{classstr}{str} \&s)
+\begin{DoxyCompactList}\small\item\em Copy Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classstr_ab39a45bef59383ad406b1faae81a73e1}{$\sim$str} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Insertion functions}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_a8da84af112900c290abc20bb324e4240}{insert\+At\+Beg} (const char $\ast$p\+String)
+\item 
+bool \hyperlink{classstr_af7b64f0188256efb265adfc6896a7e25}{insert\+At\+Beg} (const \hyperlink{classstr}{str} \&s)
+\item 
+bool \hyperlink{classstr_a037d2e699471f477ea90cec667d9a5ca}{insert\+At\+End} (const char $\ast$p\+String)
+\item 
+bool \hyperlink{classstr_ab6bc89eb2001089fe145a12ae4aaa7a3}{insert\+At\+End} (const \hyperlink{classstr}{str} \&s)
+\item 
+bool \hyperlink{classstr_a9d52ab226d50edcf5fe99602ed93132c}{insert\+At} (const int index, const char $\ast$p\+String)
+\item 
+bool \hyperlink{classstr_a40ffe612b691f4ec8d8adbdc7242265b}{insert\+At} (const int index, const \hyperlink{classstr}{str} \&s)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Append functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classstr_a6751896c500b0c6cc736fad69b30f3cb}{append} (const char $\ast$p\+String)
+\begin{DoxyCompactList}\small\item\em Appends constant string pointer. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_afc29ccabbccbe846c714941a01d76d66}{append} (const \hyperlink{classstr}{str} \&s)
+\begin{DoxyCompactList}\small\item\em Appends another str. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_afee6bd511f9cb4473dbe6c69cb8d4dd5}{append} (int x)
+\begin{DoxyCompactList}\small\item\em Appends integer as characters. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a2344a62090eae156a170d1198be4cfe2}{append} (float x)
+\begin{DoxyCompactList}\small\item\em Appends float as characters. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a7993ba8b23ebf88764a1d3ac1e69763f}{append\+As\+Hex} (unsigned int num)
+\begin{DoxyCompactList}\small\item\em Appends as hexadecimal ie\+: D\+E\+A\+D\+B\+E\+EF. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Comparison functions}\par
+{\em \begin{DoxySeeAlso}{See also}
+See also the overloaded == and != operators 
+\end{DoxySeeAlso}
+}\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_a979667083c619213210e25fde716de87}{compare\+To} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a17d943c6c264a1acf743947ca2414c9f}{compare\+To} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_af96460c1173485c4b1cbdb0c5ed07476}{compare\+To\+Ignore\+Case} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a787c943c1a60f948cca7a16d198546e3}{compare\+To\+Ignore\+Case} (const \hyperlink{classstr}{str} \&s) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Get Word Index Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classstr_a8c713dcec83d50a71712ac00f5c01ddb}{first\+Index\+Of\+Ignore\+Case} (const char $\ast$p\+String) const 
+\item 
+int \hyperlink{classstr_a7f9fdf6b22d67550c9a9cff84ba60050}{first\+Index\+Of\+Ignore\+Case} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+int \hyperlink{classstr_a9464f0d413646b055993c9b8a855f220}{first\+Index\+Of} (const char $\ast$p\+String) const 
+\item 
+int \hyperlink{classstr_ab6ae0bb7f4c37019357884f27ee4f07a}{first\+Index\+Of} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+int \hyperlink{classstr_ad07c40095a491493ab9aa7ecf6a5b2c2}{last\+Index\+Of} (const char $\ast$p\+String) const 
+\item 
+int \hyperlink{classstr_a7c5e4efd38adf42c0b66e44a250c07ea}{last\+Index\+Of} (const \hyperlink{classstr}{str} \&s) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Functions to check a contained string}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_a2c1bf8e6c10ecd130f24d7d26ccf0f81}{contains} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_ae5cc223e5fd9e9d03c3dc1e6064a845c}{contains} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_ae4f9c0c01233b57385f6a448b7708783}{contains\+Ignore\+Case} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a0f18be2447e595472f5b34b5329ec61a}{contains\+Ignore\+Case} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+int \hyperlink{classstr_aaa38a7cd7e57bbed410d302e4ec9f124}{count\+Of} (const char $\ast$p\+String) const 
+\item 
+int \hyperlink{classstr_a4f221d9c917d95b62f3e958bbea17485}{count\+Of} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_a66222ee89b9ac835be8dc9774c541123}{begins\+With} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_ab39a7adca1baf829a0649bf3aa37d6db}{begins\+With} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_aa7284f785af8aa595921cd2aa0d86305}{begins\+With\+Ignore\+Case} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a20909c6794180d22264d1b7d0d759a1a}{begins\+With\+Ignore\+Case} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_a3120202e47bd08635008f1d21e731498}{begins\+With\+Whole\+Word} (const char $\ast$p\+String, char seperator=\textquotesingle{} \textquotesingle{}) const 
+\item 
+bool \hyperlink{classstr_a3c86eeedc44bcf13688d5d6d509a8e84}{begins\+With\+Whole\+Word\+Ignore\+Case} (const char $\ast$p\+String, char seperator=\textquotesingle{} \textquotesingle{}) const 
+\item 
+bool \hyperlink{classstr_a6c36bc68752467983e2ed0a9d6f9f422}{ends\+With} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_afad629ef65f0066f0a9b4907ccaa8b10}{ends\+With} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_ae2c11acd63b22b4b56c6cb572f6b34a6}{ends\+With\+Ignore\+Case} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a05d82df249072846752cd4350c448f81}{ends\+With\+Ignore\+Case} (const \hyperlink{classstr}{str} \&s) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Erase Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_ac6317ff3358c405969d8321abf57576a}{erase} (const char $\ast$p\+String)
+\item 
+bool \hyperlink{classstr_ac6aa5f1cf689a0517fd7ba1067e29acf}{erase} (const \hyperlink{classstr}{str} \&s)
+\item 
+bool \hyperlink{classstr_aa3f63b8a3c5303826483a3edde52502d}{erase\+First} (int n\+Chars)
+\item 
+bool \hyperlink{classstr_ab538a2b5175d4dce0d6a0293ed75df1e}{erase\+Last} (int n\+Chars)
+\item 
+bool \hyperlink{classstr_afc30c047b80529af3776660afab89746}{erase\+Char\+At} (int index)
+\item 
+bool \hyperlink{classstr_a351218d6e702b94089dc4e022d8eb3c1}{erase\+All\+After} (int index)
+\item 
+bool \hyperlink{classstr_af493a7613ecafae22a43323a9adb0ce4}{erase\+After} (int index, int n\+Chars)
+\item 
+bool \hyperlink{classstr_a7a8f53b6984ad56246e821b7fb2c7e29}{erase\+First\+Words} (int words, char separator= \textquotesingle{} \textquotesingle{})
+\item 
+int \hyperlink{classstr_add83119573c1104fe2729c027cefafe7}{erase\+All\+Special\+Chars} ()
+\begin{DoxyCompactList}\small\item\em Erase all characters except alphabets and numerals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Trimming Functions to remove leading or trailing character sets}\par
+{\em Example\+: str s(\char`\"{}...\+Hello..;;\textquotesingle{}\textquotesingle{}\char`\"{}); s.\+trim\+End(\char`\"{}.;\textquotesingle{}\char`\"{}); --$>$ s is now\+: \char`\"{}...\+Hello\char`\"{} }\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classstr_af39c84a11852795391135b5a321dba68}{trim\+Start} (const char $\ast$p\+Chars)
+\item 
+void \hyperlink{classstr_ace91c437810633e6bc22bd2f2cc775ad}{trim\+Start} (const \hyperlink{classstr}{str} \&s)
+\item 
+void \hyperlink{classstr_ac6cb12c86533878ede9984e50b1a1efb}{trim\+End} (const char $\ast$p\+Chars)
+\item 
+void \hyperlink{classstr_a221427595db8f5ead16db4c6be08313f}{trim\+End} (const \hyperlink{classstr}{str} \&s)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Find \& Replace Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_ad63139de03fe493fefb1982fb0b3bd79}{replace\+First} (const char $\ast$p\+Find, const char $\ast$p\+With)
+\item 
+bool \hyperlink{classstr_a4c0ac970e751612fa010a95d333e2d08}{replace\+Last} (const char $\ast$p\+Find, const char $\ast$p\+With)
+\item 
+int \hyperlink{classstr_aa8906d8f03f01e86fdcfa92f5d18acfd}{replace\+All} (const char $\ast$p\+Find, const char $\ast$p\+With)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Sub-\/string Functions}\par
+{\em \begin{DoxyNote}{Note}
+These sub-\/string functions will allocate an internal str object and each \hyperlink{classstr_aa4c39b3a9fd1691e2cf720216783494d}{sub\+String()} function will return reference to this object to minimize dynamic memory allocation and avoid copy constructors. 
+\end{DoxyNote}
+}\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classstr}{str} \& \hyperlink{classstr_aa4c39b3a9fd1691e2cf720216783494d}{sub\+String} (int from\+Index)
+\item 
+const \hyperlink{classstr}{str} \& \hyperlink{classstr_a9d9c2d51c0f0a62eb1535b608caaa9bf}{sub\+String} (int from\+Index, int char\+Count)
+\item 
+const \hyperlink{classstr}{str} \& \hyperlink{classstr_a45d006c235e6180ce4e8f59ce28b6861}{sub\+String} (char from\+First\+Char)
+\item 
+const \hyperlink{classstr}{str} \& \hyperlink{classstr_a9726aac8bc8c048c0a8de0503bf3fcce}{sub\+String} (const char $\ast$from\+Str)
+\item 
+const \hyperlink{classstr}{str} \& \hyperlink{classstr_a7e07d7c67aab7f07579f253fe847297c}{sub\+String} (char from\+First\+Char, int char\+Count)
+\item 
+const \hyperlink{classstr}{str} \& \hyperlink{classstr_ae92cfd8e2871fe7f4700a63fbbca4175}{sub\+String} (const char $\ast$from\+Str, int char\+Count)
+\item 
+const \hyperlink{classstr}{str} \& \hyperlink{classstr_a5662c90c4102af41a5b4fc6d89dc8837}{sub\+String} (char from\+First\+Char, char to\+Last\+Char)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Datatype detection Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_af4939953c030003d88db9c991424b47d}{is\+All\+Alpha} () const 
+\item 
+bool \hyperlink{classstr_a97bac98da801725f3055a707416ed98c}{is\+Alpha\+Numeric} () const 
+\item 
+bool \hyperlink{classstr_a4a4e93eecb99b759d88e90b5b8958524}{is\+Float} () const 
+\item 
+bool \hyperlink{classstr_aa20e849f31941d57bd5494e0171c9b2a}{is\+Uint} () const 
+\item 
+bool \hyperlink{classstr_ab56b8a487e9663f82d282e95b8c00d3d}{is\+Int} () const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Checksum Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{classstr_a797e6118facc1bb02c6be9f09afe7b52}{checksum\+\_\+\+Get} ()
+\begin{DoxyCompactList}\small\item\em Get integer value of X\+OR checksum of this string. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a1c3a9c9effc83194206f9de663e613ba}{checksum\+\_\+\+Append} ()
+\begin{DoxyCompactList}\small\item\em Appends checksum characters\+: Ex\+: 123 becomes\+: 123\+:0A. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a4e2318050adba9b81eb5381ffddafe62}{checksum\+\_\+\+Remove} ()
+\begin{DoxyCompactList}\small\item\em Removes checksum characters\+: Ex\+: 123\+:0A becomes 123. \end{DoxyCompactList}\item 
+bool \hyperlink{classstr_a3c7621dda5120c1f808fd809676b5cd6}{checksum\+\_\+\+Verify} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Assignment Operators}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classstr_a04bb8d4e673cc83346f6d9de00757929}{operator=} (const char $\ast$p\+String)
+\begin{DoxyCompactList}\small\item\em Assign a string\+: my\+C\+Str = \char`\"{}123\char`\"{};. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a04e0c0be4932ee0ba8715985d489f78d}{operator=} (int num)
+\begin{DoxyCompactList}\small\item\em Assign an int \+: my\+C\+Str = 123;. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a53784815b19184e4e0a9658211347dbf}{operator=} (float num)
+\begin{DoxyCompactList}\small\item\em Assign a float\+: my\+C\+Str = 1.\+23;. \end{DoxyCompactList}\item 
+\hyperlink{classstr}{str} \& \hyperlink{classstr_a9142043f01db80275d3b342a28dc1ee5}{operator=} (const \hyperlink{classstr}{str} \&rhs)
+\begin{DoxyCompactList}\small\item\em Assign Operator for str a = str b. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Increment \& Decrement Operators if the string consist of integer value}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classstr_ad59c73265a45deb506d5d3ebdbc6fc1b}{operator++} ()
+\begin{DoxyCompactList}\small\item\em Pre-\/\+Increment if String is an integer. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a3348bd851c63d3388843d9a2c16925ac}{operator++} (int unused)
+\begin{DoxyCompactList}\small\item\em Post-\/\+Increment if String is an integer. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_ae93a7a134369044d32ae0d508d7801e5}{operator-\/-\/} ()
+\begin{DoxyCompactList}\small\item\em Pre-\/\+Decrement if String is an integer. \end{DoxyCompactList}\item 
+void \hyperlink{classstr_a766fafbafba96030a73c9e27d00b8d30}{operator-\/-\/} (int unused)
+\begin{DoxyCompactList}\small\item\em Post-\/\+Decrement if String is an integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Equality Operators}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_a73bea05d9dd7b126c483fbbe5606e30c}{operator==} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_ad3462670311008c868e6e607a60da85e}{operator==} (const \hyperlink{classstr}{str} \&rhs) const 
+\item 
+bool \hyperlink{classstr_a8e03a63b79d2d4c3a97751c8e001e065}{operator==} (int) const 
+\item 
+bool \hyperlink{classstr_a76154ba2d7fd29befe770d5921ba35c8}{operator!=} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_af60bb0eef0240663294a13b628f46ae0}{operator!=} (const \hyperlink{classstr}{str} \&rhs) const 
+\item 
+bool \hyperlink{classstr_a1f70d269ce72f1325753746714e08a32}{operator!=} (int) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Comparison Operators to perform comparisons, such as\+:}\par
+{\em str s; s = \char`\"{}hello\char`\"{}; if(s $<$ \char`\"{}helloo\char`\"{}) ... s = 123; if(s $<$ 1234) ... s = 1.\+23; if(s $>$= 1.\+22) ... }\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_a818b0b6acb3bb13a14378b1aef3868ae}{operator$<$} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a59eee4785b6107a5f48c44c0d335d66c}{operator$<$} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_ae13ff261c8a9329cc14581b836ca83ce}{operator$<$} (int) const 
+\item 
+bool \hyperlink{classstr_aba022527319f3c6d9959c98d3720fb2c}{operator$>$} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_aec4331bed074d43dec1b6919c984155b}{operator$>$} (int) const 
+\item 
+bool \hyperlink{classstr_a4391d0576500d58c0e51da8c32032dd3}{operator$>$} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_ab8384404397fbb8722f16c11148863de}{operator$<$=} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a56ddeebb2ed5a599faec2db2a24e7102}{operator$<$=} (int) const 
+\item 
+bool \hyperlink{classstr_ab7e30179f4595313e2ae47e31eb8cbbd}{operator$<$=} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_a7c3d3edc8b2736e953097e1123701d6d}{operator$>$=} (const char $\ast$p\+String) const 
+\item 
+bool \hyperlink{classstr_a9589750a5e668b2f9f040babcf440258}{operator$>$=} (int) const 
+\item 
+bool \hyperlink{classstr_ae1f2587698481cf2d7af8c8f9acbacfa}{operator$>$=} (const \hyperlink{classstr}{str} \&s) const 
+\item 
+bool \hyperlink{classstr_a97c96ebd9b5a44b7e776c49a71b9c502}{operator$<$} (float) const 
+\item 
+bool \hyperlink{classstr_a6475d932689a67b53db32b31146bf8bb}{operator$>$=} (float) const 
+\item 
+bool \hyperlink{classstr_a901950cdc3241ce8f9d389c52fda3c9d}{operator$>$} (float) const 
+\item 
+bool \hyperlink{classstr_aa09eb34e781c73d2e8a3be10bb377f75}{operator$<$=} (float) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Static Public Member Functions}
+\begin{Indent}{\bf Static conversion functions from string to int and float}\par
+{\em \begin{DoxyNote}{Note}
+To convert this string to int or float, use cast operator\+: int x = (int)my\+Str; 
+\end{DoxyNote}
+}\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classstr_a8234c2630b21c5e5567010d4ea776daf}{to\+Int} (const char $\ast$p\+String)
+\begin{DoxyCompactList}\small\item\em Static method to convert char$\ast$ string to integer. \end{DoxyCompactList}\item 
+static int \hyperlink{classstr_ab17ef945df990ababe0f4fefbc551e7c}{to\+Int} (\hyperlink{classstr}{str} \&s)
+\item 
+static float \hyperlink{classstr_a1973e2dd48bf39a9d52743f201a5e3fc}{to\+Float} (const char $\ast$p\+String)
+\begin{DoxyCompactList}\small\item\em Static method to convert char$\ast$ string to float. \end{DoxyCompactList}\item 
+static float \hyperlink{classstr_ab388e72409c282225a5bbaa88288e564}{to\+Float} (\hyperlink{classstr}{str} \&s)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstr_a1aeec54df708cf8d8ac70a7ee1a32e52}{test\+\_\+str} (void)
+\begin{DoxyCompactList}\small\item\em For tests \+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Custom string class
+
+str class can provide many string manipulation functions while maintaining internal memory and allocating more memory when needed.
+
+
+\begin{DoxyCode}
+\hyperlink{classstr}{str} s;
+s = \textcolor{stringliteral}{"Hello World..."};
+s.\hyperlink{classstr_ac6cb12c86533878ede9984e50b1a1efb}{trimEnd}(\textcolor{stringliteral}{"."});
+\hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{printf}(\textcolor{stringliteral}{"%s"}, s()); \textcolor{comment}{// str becomes: "Hello World"}
+
+s.\hyperlink{classstr_ac6317ff3358c405969d8321abf57576a}{erase}(\textcolor{stringliteral}{"World"});
+\hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{printf}(\textcolor{stringliteral}{"%s"}, s()); \textcolor{comment}{// str becomes: "Hello "}
+s += \textcolor{stringliteral}{"World"};
+\hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{printf}(\textcolor{stringliteral}{"%s"}, s()); \textcolor{comment}{// str back to: "Hello World"}
+
+\textcolor{comment}{// Use String class as an integer:}
+\hyperlink{classstr}{str} myInt;
+myInt = 123;
+myInt++; \textcolor{keywordflow}{if}(myInt == 124)    \textcolor{comment}{// true}
+myInt--; \textcolor{keywordflow}{if}(myInt == \textcolor{stringliteral}{"123"})  \textcolor{comment}{// true}
+\textcolor{keywordtype}{int} n = (int)myInt;          \textcolor{comment}{// Cast back from string to int, n = 123}
+\end{DoxyCode}
+
+
+You can also printf to this str object\+: 
+\begin{DoxyCode}
+\hyperlink{classstr}{str} s;
+s.\hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{printf}(\textcolor{stringliteral}{"Hello World %u\(\backslash\)n"}, 123);
+\end{DoxyCode}
+
+
+Parsing (Tokenize) Example\+: 
+\begin{DoxyCode}
+\hyperlink{classstr}{str} s;
+s = \textcolor{stringliteral}{"Hello,World.Parse Example!"};
+puts(s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}(\textcolor{stringliteral}{","}, \textcolor{keyword}{true})->\hyperlink{classstr_a6b85bf260120c1d2b78e7ed0c81df25f}{c\_str}()); \textcolor{comment}{// Prints: Hello}
+puts(s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}(\textcolor{stringliteral}{"."})->\hyperlink{classstr_a6b85bf260120c1d2b78e7ed0c81df25f}{c\_str}());       \textcolor{comment}{// Prints: World}
+puts(s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}()->\hyperlink{classstr_a6b85bf260120c1d2b78e7ed0c81df25f}{c\_str}());          \textcolor{comment}{// Prints: Parse}
+puts(s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}()->\hyperlink{classstr_a6b85bf260120c1d2b78e7ed0c81df25f}{c\_str}());          \textcolor{comment}{// Prints Example!}
+assert(0 == s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}());            \textcolor{comment}{// No more tokens -> NULL Pointer}
+\end{DoxyCode}
+ Note that the original str s is not destroyed during tokenize operations 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{str@{str}!str@{str}}
+\index{str@{str}!str@{str}}
+\subsubsection[{\texorpdfstring{str()}{str()}}]{\setlength{\rightskip}{0pt plus 5cm}str\+::str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a48b4d5a786a4b82767baefdeff09723a}{}\label{classstr_a48b4d5a786a4b82767baefdeff09723a}
+
+
+Default constructor. 
+
+\index{str@{str}!str@{str}}
+\index{str@{str}!str@{str}}
+\subsubsection[{\texorpdfstring{str(int capacity)}{str(int capacity)}}]{\setlength{\rightskip}{0pt plus 5cm}str\+::str (
+\begin{DoxyParamCaption}
+\item[{int}]{capacity}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a3e4992b25c2be2ed5f6fb8fa28c96a9a}{}\label{classstr_a3e4992b25c2be2ed5f6fb8fa28c96a9a}
+
+
+Constructor with initial capacity. 
+
+\index{str@{str}!str@{str}}
+\index{str@{str}!str@{str}}
+\subsubsection[{\texorpdfstring{str(const char $\ast$p\+String)}{str(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}str\+::str (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a5c9d2ff8ffea93ac4ae9abad9e994575}{}\label{classstr_a5c9d2ff8ffea93ac4ae9abad9e994575}
+
+
+Construct from char$\ast$ pointer. 
+
+\index{str@{str}!str@{str}}
+\index{str@{str}!str@{str}}
+\subsubsection[{\texorpdfstring{str(char $\ast$buff, int size)}{str(char *buff, int size)}}]{\setlength{\rightskip}{0pt plus 5cm}str\+::str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buff, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a5933ae5984cd111ad5d3d70595fa9602}{}\label{classstr_a5933ae5984cd111ad5d3d70595fa9602}
+
+
+Construct to use external memory. 
+
+Cannot call init() for this constructor. \index{str@{str}!str@{str}}
+\index{str@{str}!str@{str}}
+\subsubsection[{\texorpdfstring{str(const str \&s)}{str(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}str\+::str (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a51a0f3dc96c628e4ae48a78569a47706}{}\label{classstr_a51a0f3dc96c628e4ae48a78569a47706}
+
+
+Copy Constructor. 
+
+\index{str@{str}!````~str@{$\sim$str}}
+\index{````~str@{$\sim$str}!str@{str}}
+\subsubsection[{\texorpdfstring{$\sim$str()}{~str()}}]{\setlength{\rightskip}{0pt plus 5cm}str\+::$\sim$str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ab39a45bef59383ad406b1faae81a73e1}{}\label{classstr_ab39a45bef59383ad406b1faae81a73e1}
+
+
+Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\index{str@{str}!append@{append}}
+\index{append@{append}!str@{str}}
+\subsubsection[{\texorpdfstring{append(const char $\ast$p\+String)}{append(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::append (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a6751896c500b0c6cc736fad69b30f3cb}{}\label{classstr_a6751896c500b0c6cc736fad69b30f3cb}
+
+
+Appends constant string pointer. 
+
+\index{str@{str}!append@{append}}
+\index{append@{append}!str@{str}}
+\subsubsection[{\texorpdfstring{append(const str \&s)}{append(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::append (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_afc29ccabbccbe846c714941a01d76d66}{}\label{classstr_afc29ccabbccbe846c714941a01d76d66}
+
+
+Appends another str. 
+
+\index{str@{str}!append@{append}}
+\index{append@{append}!str@{str}}
+\subsubsection[{\texorpdfstring{append(int x)}{append(int x)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::append (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_afee6bd511f9cb4473dbe6c69cb8d4dd5}{}\label{classstr_afee6bd511f9cb4473dbe6c69cb8d4dd5}
+
+
+Appends integer as characters. 
+
+\index{str@{str}!append@{append}}
+\index{append@{append}!str@{str}}
+\subsubsection[{\texorpdfstring{append(float x)}{append(float x)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::append (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a2344a62090eae156a170d1198be4cfe2}{}\label{classstr_a2344a62090eae156a170d1198be4cfe2}
+
+
+Appends float as characters. 
+
+\index{str@{str}!append\+As\+Hex@{append\+As\+Hex}}
+\index{append\+As\+Hex@{append\+As\+Hex}!str@{str}}
+\subsubsection[{\texorpdfstring{append\+As\+Hex(unsigned int num)}{appendAsHex(unsigned int num)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::append\+As\+Hex (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{num}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a7993ba8b23ebf88764a1d3ac1e69763f}{}\label{classstr_a7993ba8b23ebf88764a1d3ac1e69763f}
+
+
+Appends as hexadecimal ie\+: D\+E\+A\+D\+B\+E\+EF. 
+
+\index{str@{str}!begins\+With@{begins\+With}}
+\index{begins\+With@{begins\+With}!str@{str}}
+\subsubsection[{\texorpdfstring{begins\+With(const char $\ast$p\+String) const }{beginsWith(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::begins\+With (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a66222ee89b9ac835be8dc9774c541123}{}\label{classstr_a66222ee89b9ac835be8dc9774c541123}
+\index{str@{str}!begins\+With@{begins\+With}}
+\index{begins\+With@{begins\+With}!str@{str}}
+\subsubsection[{\texorpdfstring{begins\+With(const str \&s) const }{beginsWith(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::begins\+With (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ab39a7adca1baf829a0649bf3aa37d6db}{}\label{classstr_ab39a7adca1baf829a0649bf3aa37d6db}
+\index{str@{str}!begins\+With\+Ignore\+Case@{begins\+With\+Ignore\+Case}}
+\index{begins\+With\+Ignore\+Case@{begins\+With\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{begins\+With\+Ignore\+Case(const char $\ast$p\+String) const }{beginsWithIgnoreCase(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::begins\+With\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_aa7284f785af8aa595921cd2aa0d86305}{}\label{classstr_aa7284f785af8aa595921cd2aa0d86305}
+\index{str@{str}!begins\+With\+Ignore\+Case@{begins\+With\+Ignore\+Case}}
+\index{begins\+With\+Ignore\+Case@{begins\+With\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{begins\+With\+Ignore\+Case(const str \&s) const }{beginsWithIgnoreCase(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::begins\+With\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a20909c6794180d22264d1b7d0d759a1a}{}\label{classstr_a20909c6794180d22264d1b7d0d759a1a}
+\index{str@{str}!begins\+With\+Whole\+Word@{begins\+With\+Whole\+Word}}
+\index{begins\+With\+Whole\+Word@{begins\+With\+Whole\+Word}!str@{str}}
+\subsubsection[{\texorpdfstring{begins\+With\+Whole\+Word(const char $\ast$p\+String, char seperator=\textquotesingle{} \textquotesingle{}) const }{beginsWithWholeWord(const char *pString, char seperator=' ') const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::begins\+With\+Whole\+Word (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String, }
+\item[{char}]{seperator = {\ttfamily \textquotesingle{}~\textquotesingle{}}}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a3120202e47bd08635008f1d21e731498}{}\label{classstr_a3120202e47bd08635008f1d21e731498}
+Checks if the string begins with a whole word. If str = \char`\"{}\+Hello World\char`\"{}, then str.\+begins\+With\+Whold\+Word(\char`\"{}\+Hello\char`\"{}) will be true But if str = \char`\"{}\+Hello\+World\char`\"{} then this will be false because this function will check whole word separated by space char unless the separator itself is provided. \index{str@{str}!begins\+With\+Whole\+Word\+Ignore\+Case@{begins\+With\+Whole\+Word\+Ignore\+Case}}
+\index{begins\+With\+Whole\+Word\+Ignore\+Case@{begins\+With\+Whole\+Word\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{begins\+With\+Whole\+Word\+Ignore\+Case(const char $\ast$p\+String, char seperator=\textquotesingle{} \textquotesingle{}) const }{beginsWithWholeWordIgnoreCase(const char *pString, char seperator=' ') const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::begins\+With\+Whole\+Word\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String, }
+\item[{char}]{seperator = {\ttfamily \textquotesingle{}~\textquotesingle{}}}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a3c86eeedc44bcf13688d5d6d509a8e84}{}\label{classstr_a3c86eeedc44bcf13688d5d6d509a8e84}
+\index{str@{str}!c\+\_\+str@{c\+\_\+str}}
+\index{c\+\_\+str@{c\+\_\+str}!str@{str}}
+\subsubsection[{\texorpdfstring{c\+\_\+str() const }{c_str() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ str\+::c\+\_\+str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a6b85bf260120c1d2b78e7ed0c81df25f}{}\label{classstr_a6b85bf260120c1d2b78e7ed0c81df25f}
+\index{str@{str}!checksum\+\_\+\+Append@{checksum\+\_\+\+Append}}
+\index{checksum\+\_\+\+Append@{checksum\+\_\+\+Append}!str@{str}}
+\subsubsection[{\texorpdfstring{checksum\+\_\+\+Append()}{checksum_Append()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::checksum\+\_\+\+Append (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a1c3a9c9effc83194206f9de663e613ba}{}\label{classstr_a1c3a9c9effc83194206f9de663e613ba}
+
+
+Appends checksum characters\+: Ex\+: 123 becomes\+: 123\+:0A. 
+
+\index{str@{str}!checksum\+\_\+\+Get@{checksum\+\_\+\+Get}}
+\index{checksum\+\_\+\+Get@{checksum\+\_\+\+Get}!str@{str}}
+\subsubsection[{\texorpdfstring{checksum\+\_\+\+Get()}{checksum_Get()}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int str\+::checksum\+\_\+\+Get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a797e6118facc1bb02c6be9f09afe7b52}{}\label{classstr_a797e6118facc1bb02c6be9f09afe7b52}
+
+
+Get integer value of X\+OR checksum of this string. 
+
+\index{str@{str}!checksum\+\_\+\+Remove@{checksum\+\_\+\+Remove}}
+\index{checksum\+\_\+\+Remove@{checksum\+\_\+\+Remove}!str@{str}}
+\subsubsection[{\texorpdfstring{checksum\+\_\+\+Remove()}{checksum_Remove()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::checksum\+\_\+\+Remove (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a4e2318050adba9b81eb5381ffddafe62}{}\label{classstr_a4e2318050adba9b81eb5381ffddafe62}
+
+
+Removes checksum characters\+: Ex\+: 123\+:0A becomes 123. 
+
+\index{str@{str}!checksum\+\_\+\+Verify@{checksum\+\_\+\+Verify}}
+\index{checksum\+\_\+\+Verify@{checksum\+\_\+\+Verify}!str@{str}}
+\subsubsection[{\texorpdfstring{checksum\+\_\+\+Verify()}{checksum_Verify()}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::checksum\+\_\+\+Verify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a3c7621dda5120c1f808fd809676b5cd6}{}\label{classstr_a3c7621dda5120c1f808fd809676b5cd6}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if for example\+: actual checksum 0A matches calculated 0A of string \char`\"{}123\char`\"{} 
+\end{DoxyReturn}
+\index{str@{str}!clear@{clear}}
+\index{clear@{clear}!str@{str}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a48e106cad646fc0e6596a42938a34733}{}\label{classstr_a48e106cad646fc0e6596a42938a34733}
+
+
+Clears the string by putting N\+U\+LL terminator at 1st char. 
+
+\index{str@{str}!clear\+All@{clear\+All}}
+\index{clear\+All@{clear\+All}!str@{str}}
+\subsubsection[{\texorpdfstring{clear\+All()}{clearAll()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::clear\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a5bd53e4206fc8c5ed568e62e567d7055}{}\label{classstr_a5bd53e4206fc8c5ed568e62e567d7055}
+
+
+Zeroes out A\+LL memory that belongs to this str. 
+
+\index{str@{str}!compare\+To@{compare\+To}}
+\index{compare\+To@{compare\+To}!str@{str}}
+\subsubsection[{\texorpdfstring{compare\+To(const char $\ast$p\+String) const }{compareTo(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::compare\+To (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a979667083c619213210e25fde716de87}{}\label{classstr_a979667083c619213210e25fde716de87}
+\index{str@{str}!compare\+To@{compare\+To}}
+\index{compare\+To@{compare\+To}!str@{str}}
+\subsubsection[{\texorpdfstring{compare\+To(const str \&s) const }{compareTo(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::compare\+To (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a17d943c6c264a1acf743947ca2414c9f}{}\label{classstr_a17d943c6c264a1acf743947ca2414c9f}
+\index{str@{str}!compare\+To\+Ignore\+Case@{compare\+To\+Ignore\+Case}}
+\index{compare\+To\+Ignore\+Case@{compare\+To\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{compare\+To\+Ignore\+Case(const char $\ast$p\+String) const }{compareToIgnoreCase(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::compare\+To\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_af96460c1173485c4b1cbdb0c5ed07476}{}\label{classstr_af96460c1173485c4b1cbdb0c5ed07476}
+\index{str@{str}!compare\+To\+Ignore\+Case@{compare\+To\+Ignore\+Case}}
+\index{compare\+To\+Ignore\+Case@{compare\+To\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{compare\+To\+Ignore\+Case(const str \&s) const }{compareToIgnoreCase(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::compare\+To\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a787c943c1a60f948cca7a16d198546e3}{}\label{classstr_a787c943c1a60f948cca7a16d198546e3}
+\index{str@{str}!contains@{contains}}
+\index{contains@{contains}!str@{str}}
+\subsubsection[{\texorpdfstring{contains(const char $\ast$p\+String) const }{contains(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::contains (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a2c1bf8e6c10ecd130f24d7d26ccf0f81}{}\label{classstr_a2c1bf8e6c10ecd130f24d7d26ccf0f81}
+\index{str@{str}!contains@{contains}}
+\index{contains@{contains}!str@{str}}
+\subsubsection[{\texorpdfstring{contains(const str \&s) const }{contains(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::contains (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ae5cc223e5fd9e9d03c3dc1e6064a845c}{}\label{classstr_ae5cc223e5fd9e9d03c3dc1e6064a845c}
+\index{str@{str}!contains\+Ignore\+Case@{contains\+Ignore\+Case}}
+\index{contains\+Ignore\+Case@{contains\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{contains\+Ignore\+Case(const char $\ast$p\+String) const }{containsIgnoreCase(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::contains\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_ae4f9c0c01233b57385f6a448b7708783}{}\label{classstr_ae4f9c0c01233b57385f6a448b7708783}
+\index{str@{str}!contains\+Ignore\+Case@{contains\+Ignore\+Case}}
+\index{contains\+Ignore\+Case@{contains\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{contains\+Ignore\+Case(const str \&s) const }{containsIgnoreCase(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::contains\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a0f18be2447e595472f5b34b5329ec61a}{}\label{classstr_a0f18be2447e595472f5b34b5329ec61a}
+\index{str@{str}!count\+Of@{count\+Of}}
+\index{count\+Of@{count\+Of}!str@{str}}
+\subsubsection[{\texorpdfstring{count\+Of(const char $\ast$p\+String) const }{countOf(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::count\+Of (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_aaa38a7cd7e57bbed410d302e4ec9f124}{}\label{classstr_aaa38a7cd7e57bbed410d302e4ec9f124}
+\index{str@{str}!count\+Of@{count\+Of}}
+\index{count\+Of@{count\+Of}!str@{str}}
+\subsubsection[{\texorpdfstring{count\+Of(const str \&s) const }{countOf(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::count\+Of (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a4f221d9c917d95b62f3e958bbea17485}{}\label{classstr_a4f221d9c917d95b62f3e958bbea17485}
+\index{str@{str}!ends\+With@{ends\+With}}
+\index{ends\+With@{ends\+With}!str@{str}}
+\subsubsection[{\texorpdfstring{ends\+With(const char $\ast$p\+String) const }{endsWith(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::ends\+With (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a6c36bc68752467983e2ed0a9d6f9f422}{}\label{classstr_a6c36bc68752467983e2ed0a9d6f9f422}
+\index{str@{str}!ends\+With@{ends\+With}}
+\index{ends\+With@{ends\+With}!str@{str}}
+\subsubsection[{\texorpdfstring{ends\+With(const str \&s) const }{endsWith(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::ends\+With (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_afad629ef65f0066f0a9b4907ccaa8b10}{}\label{classstr_afad629ef65f0066f0a9b4907ccaa8b10}
+\index{str@{str}!ends\+With\+Ignore\+Case@{ends\+With\+Ignore\+Case}}
+\index{ends\+With\+Ignore\+Case@{ends\+With\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{ends\+With\+Ignore\+Case(const char $\ast$p\+String) const }{endsWithIgnoreCase(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::ends\+With\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_ae2c11acd63b22b4b56c6cb572f6b34a6}{}\label{classstr_ae2c11acd63b22b4b56c6cb572f6b34a6}
+\index{str@{str}!ends\+With\+Ignore\+Case@{ends\+With\+Ignore\+Case}}
+\index{ends\+With\+Ignore\+Case@{ends\+With\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{ends\+With\+Ignore\+Case(const str \&s) const }{endsWithIgnoreCase(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::ends\+With\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a05d82df249072846752cd4350c448f81}{}\label{classstr_a05d82df249072846752cd4350c448f81}
+\index{str@{str}!erase@{erase}}
+\index{erase@{erase}!str@{str}}
+\subsubsection[{\texorpdfstring{erase(const char $\ast$p\+String)}{erase(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ac6317ff3358c405969d8321abf57576a}{}\label{classstr_ac6317ff3358c405969d8321abf57576a}
+\index{str@{str}!erase@{erase}}
+\index{erase@{erase}!str@{str}}
+\subsubsection[{\texorpdfstring{erase(const str \&s)}{erase(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ac6aa5f1cf689a0517fd7ba1067e29acf}{}\label{classstr_ac6aa5f1cf689a0517fd7ba1067e29acf}
+\index{str@{str}!erase\+After@{erase\+After}}
+\index{erase\+After@{erase\+After}!str@{str}}
+\subsubsection[{\texorpdfstring{erase\+After(int index, int n\+Chars)}{eraseAfter(int index, int nChars)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase\+After (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{int}]{n\+Chars}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_af493a7613ecafae22a43323a9adb0ce4}{}\label{classstr_af493a7613ecafae22a43323a9adb0ce4}
+\index{str@{str}!erase\+All\+After@{erase\+All\+After}}
+\index{erase\+All\+After@{erase\+All\+After}!str@{str}}
+\subsubsection[{\texorpdfstring{erase\+All\+After(int index)}{eraseAllAfter(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase\+All\+After (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a351218d6e702b94089dc4e022d8eb3c1}{}\label{classstr_a351218d6e702b94089dc4e022d8eb3c1}
+\index{str@{str}!erase\+All\+Special\+Chars@{erase\+All\+Special\+Chars}}
+\index{erase\+All\+Special\+Chars@{erase\+All\+Special\+Chars}!str@{str}}
+\subsubsection[{\texorpdfstring{erase\+All\+Special\+Chars()}{eraseAllSpecialChars()}}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::erase\+All\+Special\+Chars (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_add83119573c1104fe2729c027cefafe7}{}\label{classstr_add83119573c1104fe2729c027cefafe7}
+
+
+Erase all characters except alphabets and numerals. 
+
+\index{str@{str}!erase\+Char\+At@{erase\+Char\+At}}
+\index{erase\+Char\+At@{erase\+Char\+At}!str@{str}}
+\subsubsection[{\texorpdfstring{erase\+Char\+At(int index)}{eraseCharAt(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase\+Char\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_afc30c047b80529af3776660afab89746}{}\label{classstr_afc30c047b80529af3776660afab89746}
+\index{str@{str}!erase\+First@{erase\+First}}
+\index{erase\+First@{erase\+First}!str@{str}}
+\subsubsection[{\texorpdfstring{erase\+First(int n\+Chars)}{eraseFirst(int nChars)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase\+First (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+Chars}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_aa3f63b8a3c5303826483a3edde52502d}{}\label{classstr_aa3f63b8a3c5303826483a3edde52502d}
+\index{str@{str}!erase\+First\+Words@{erase\+First\+Words}}
+\index{erase\+First\+Words@{erase\+First\+Words}!str@{str}}
+\subsubsection[{\texorpdfstring{erase\+First\+Words(int words, char separator= \textquotesingle{} \textquotesingle{})}{eraseFirstWords(int words, char separator= ' ')}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase\+First\+Words (
+\begin{DoxyParamCaption}
+\item[{int}]{words, }
+\item[{char}]{separator = {\ttfamily \textquotesingle{}~\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a7a8f53b6984ad56246e821b7fb2c7e29}{}\label{classstr_a7a8f53b6984ad56246e821b7fb2c7e29}
+\index{str@{str}!erase\+Last@{erase\+Last}}
+\index{erase\+Last@{erase\+Last}!str@{str}}
+\subsubsection[{\texorpdfstring{erase\+Last(int n\+Chars)}{eraseLast(int nChars)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::erase\+Last (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+Chars}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ab538a2b5175d4dce0d6a0293ed75df1e}{}\label{classstr_ab538a2b5175d4dce0d6a0293ed75df1e}
+\index{str@{str}!first\+Index\+Of@{first\+Index\+Of}}
+\index{first\+Index\+Of@{first\+Index\+Of}!str@{str}}
+\subsubsection[{\texorpdfstring{first\+Index\+Of(const char $\ast$p\+String) const }{firstIndexOf(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::first\+Index\+Of (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a9464f0d413646b055993c9b8a855f220}{}\label{classstr_a9464f0d413646b055993c9b8a855f220}
+\index{str@{str}!first\+Index\+Of@{first\+Index\+Of}}
+\index{first\+Index\+Of@{first\+Index\+Of}!str@{str}}
+\subsubsection[{\texorpdfstring{first\+Index\+Of(const str \&s) const }{firstIndexOf(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::first\+Index\+Of (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ab6ae0bb7f4c37019357884f27ee4f07a}{}\label{classstr_ab6ae0bb7f4c37019357884f27ee4f07a}
+\index{str@{str}!first\+Index\+Of\+Ignore\+Case@{first\+Index\+Of\+Ignore\+Case}}
+\index{first\+Index\+Of\+Ignore\+Case@{first\+Index\+Of\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{first\+Index\+Of\+Ignore\+Case(const char $\ast$p\+String) const }{firstIndexOfIgnoreCase(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::first\+Index\+Of\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a8c713dcec83d50a71712ac00f5c01ddb}{}\label{classstr_a8c713dcec83d50a71712ac00f5c01ddb}
+\index{str@{str}!first\+Index\+Of\+Ignore\+Case@{first\+Index\+Of\+Ignore\+Case}}
+\index{first\+Index\+Of\+Ignore\+Case@{first\+Index\+Of\+Ignore\+Case}!str@{str}}
+\subsubsection[{\texorpdfstring{first\+Index\+Of\+Ignore\+Case(const str \&s) const }{firstIndexOfIgnoreCase(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::first\+Index\+Of\+Ignore\+Case (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a7f9fdf6b22d67550c9a9cff84ba60050}{}\label{classstr_a7f9fdf6b22d67550c9a9cff84ba60050}
+\index{str@{str}!get\+Capacity@{get\+Capacity}}
+\index{get\+Capacity@{get\+Capacity}!str@{str}}
+\subsubsection[{\texorpdfstring{get\+Capacity() const }{getCapacity() const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::get\+Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a53be075052a94f9f390acdeca847ed5e}{}\label{classstr_a53be075052a94f9f390acdeca847ed5e}
+\begin{DoxyReturn}{Returns}
+the current allocated capacity of str 
+\end{DoxyReturn}
+\index{str@{str}!get\+Len@{get\+Len}}
+\index{get\+Len@{get\+Len}!str@{str}}
+\subsubsection[{\texorpdfstring{get\+Len() const }{getLen() const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::get\+Len (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_aa6eaeec5cd9c24333efc20ebb16ba80a}{}\label{classstr_aa6eaeec5cd9c24333efc20ebb16ba80a}
+\begin{DoxyReturn}{Returns}
+Number of characters in the string 
+\end{DoxyReturn}
+\index{str@{str}!get\+Token@{get\+Token}}
+\index{get\+Token@{get\+Token}!str@{str}}
+\subsubsection[{\texorpdfstring{get\+Token(const char $\ast$p\+Splitter="" "", bool restart=false)}{getToken(const char *pSplitter=" ", bool restart=false)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} $\ast$ str\+::get\+Token (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Splitter = {\ttfamily \char`\"{}~\char`\"{}}, }
+\item[{bool}]{restart = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a2d172c26f610a130a8aa77427de4f9bc}{}\label{classstr_a2d172c26f610a130a8aa77427de4f9bc}
+Tokenize function 
+\begin{DoxyParams}{Parameters}
+{\em p\+Splitter} & The tokens that mark the end of the token to get. \\
+\hline
+{\em restart} & Restarts tokenize operation on contents of this str. This optional parameter is not needed after restarting 1st tokenize operation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to substring, or N\+U\+LL if no more tokens remain 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Unlike strtok(), the contents of this str is not destroyed. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+The returned substring pointer is temporary, and further calls to this function will re-\/use the same substr, so copy the returned substring if it is to be used later.
+\end{DoxyWarning}
+Example\+: 
+\begin{DoxyCode}
+\hyperlink{classstr}{str} s = \textcolor{stringliteral}{"Hello,World tokentest"};
+\hyperlink{classstr}{str}* t1 = s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}(\textcolor{stringliteral}{","}, \textcolor{keyword}{true}); \textcolor{comment}{// t1 == "Hello"}
+\hyperlink{classstr}{str}* t2 = s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}(\textcolor{stringliteral}{" "});       \textcolor{comment}{// t2 == "World"}
+\hyperlink{classstr}{str}* t3 = s.\hyperlink{classstr_a2d172c26f610a130a8aa77427de4f9bc}{getToken}();          \textcolor{comment}{// t3 == "tokentest"}
+\end{DoxyCode}
+ \index{str@{str}!insert\+At@{insert\+At}}
+\index{insert\+At@{insert\+At}!str@{str}}
+\subsubsection[{\texorpdfstring{insert\+At(const int index, const char $\ast$p\+String)}{insertAt(const int index, const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::insert\+At (
+\begin{DoxyParamCaption}
+\item[{const int}]{index, }
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a9d52ab226d50edcf5fe99602ed93132c}{}\label{classstr_a9d52ab226d50edcf5fe99602ed93132c}
+\index{str@{str}!insert\+At@{insert\+At}}
+\index{insert\+At@{insert\+At}!str@{str}}
+\subsubsection[{\texorpdfstring{insert\+At(const int index, const str \&s)}{insertAt(const int index, const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::insert\+At (
+\begin{DoxyParamCaption}
+\item[{const int}]{index, }
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a40ffe612b691f4ec8d8adbdc7242265b}{}\label{classstr_a40ffe612b691f4ec8d8adbdc7242265b}
+\index{str@{str}!insert\+At\+Beg@{insert\+At\+Beg}}
+\index{insert\+At\+Beg@{insert\+At\+Beg}!str@{str}}
+\subsubsection[{\texorpdfstring{insert\+At\+Beg(const char $\ast$p\+String)}{insertAtBeg(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::insert\+At\+Beg (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a8da84af112900c290abc20bb324e4240}{}\label{classstr_a8da84af112900c290abc20bb324e4240}
+\index{str@{str}!insert\+At\+Beg@{insert\+At\+Beg}}
+\index{insert\+At\+Beg@{insert\+At\+Beg}!str@{str}}
+\subsubsection[{\texorpdfstring{insert\+At\+Beg(const str \&s)}{insertAtBeg(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::insert\+At\+Beg (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_af7b64f0188256efb265adfc6896a7e25}{}\label{classstr_af7b64f0188256efb265adfc6896a7e25}
+\index{str@{str}!insert\+At\+End@{insert\+At\+End}}
+\index{insert\+At\+End@{insert\+At\+End}!str@{str}}
+\subsubsection[{\texorpdfstring{insert\+At\+End(const char $\ast$p\+String)}{insertAtEnd(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::insert\+At\+End (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a037d2e699471f477ea90cec667d9a5ca}{}\label{classstr_a037d2e699471f477ea90cec667d9a5ca}
+\index{str@{str}!insert\+At\+End@{insert\+At\+End}}
+\index{insert\+At\+End@{insert\+At\+End}!str@{str}}
+\subsubsection[{\texorpdfstring{insert\+At\+End(const str \&s)}{insertAtEnd(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::insert\+At\+End (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ab6bc89eb2001089fe145a12ae4aaa7a3}{}\label{classstr_ab6bc89eb2001089fe145a12ae4aaa7a3}
+\index{str@{str}!is\+All\+Alpha@{is\+All\+Alpha}}
+\index{is\+All\+Alpha@{is\+All\+Alpha}!str@{str}}
+\subsubsection[{\texorpdfstring{is\+All\+Alpha() const }{isAllAlpha() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::is\+All\+Alpha (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_af4939953c030003d88db9c991424b47d}{}\label{classstr_af4939953c030003d88db9c991424b47d}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the string is all alphabetical characters only 
+\end{DoxyReturn}
+\index{str@{str}!is\+Alpha\+Numeric@{is\+Alpha\+Numeric}}
+\index{is\+Alpha\+Numeric@{is\+Alpha\+Numeric}!str@{str}}
+\subsubsection[{\texorpdfstring{is\+Alpha\+Numeric() const }{isAlphaNumeric() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::is\+Alpha\+Numeric (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a97bac98da801725f3055a707416ed98c}{}\label{classstr_a97bac98da801725f3055a707416ed98c}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the string is all alpha or numerical characters only 
+\end{DoxyReturn}
+\index{str@{str}!is\+Float@{is\+Float}}
+\index{is\+Float@{is\+Float}!str@{str}}
+\subsubsection[{\texorpdfstring{is\+Float() const }{isFloat() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::is\+Float (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a4a4e93eecb99b759d88e90b5b8958524}{}\label{classstr_a4a4e93eecb99b759d88e90b5b8958524}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the string is a floating point number 
+\end{DoxyReturn}
+\index{str@{str}!is\+Int@{is\+Int}}
+\index{is\+Int@{is\+Int}!str@{str}}
+\subsubsection[{\texorpdfstring{is\+Int() const }{isInt() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::is\+Int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_ab56b8a487e9663f82d282e95b8c00d3d}{}\label{classstr_ab56b8a487e9663f82d282e95b8c00d3d}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the string is a number 
+\end{DoxyReturn}
+\index{str@{str}!is\+Uint@{is\+Uint}}
+\index{is\+Uint@{is\+Uint}!str@{str}}
+\subsubsection[{\texorpdfstring{is\+Uint() const }{isUint() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::is\+Uint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_aa20e849f31941d57bd5494e0171c9b2a}{}\label{classstr_aa20e849f31941d57bd5494e0171c9b2a}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the string is an unsigned number 
+\end{DoxyReturn}
+\index{str@{str}!last\+Index\+Of@{last\+Index\+Of}}
+\index{last\+Index\+Of@{last\+Index\+Of}!str@{str}}
+\subsubsection[{\texorpdfstring{last\+Index\+Of(const char $\ast$p\+String) const }{lastIndexOf(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::last\+Index\+Of (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_ad07c40095a491493ab9aa7ecf6a5b2c2}{}\label{classstr_ad07c40095a491493ab9aa7ecf6a5b2c2}
+\index{str@{str}!last\+Index\+Of@{last\+Index\+Of}}
+\index{last\+Index\+Of@{last\+Index\+Of}!str@{str}}
+\subsubsection[{\texorpdfstring{last\+Index\+Of(const str \&s) const }{lastIndexOf(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::last\+Index\+Of (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a7c5e4efd38adf42c0b66e44a250c07ea}{}\label{classstr_a7c5e4efd38adf42c0b66e44a250c07ea}
+\index{str@{str}!operator float@{operator float}}
+\index{operator float@{operator float}!str@{str}}
+\subsubsection[{\texorpdfstring{operator float() const }{operator float() const }}]{\setlength{\rightskip}{0pt plus 5cm}str\+::operator float (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a598459fbf321bbe6a3bc04c2db71d49d}{}\label{classstr_a598459fbf321bbe6a3bc04c2db71d49d}
+
+
+Get c-\/string pointer (calls operator above) 
+
+(float) Cast Operator\+: Ex\+: float x = (float)my\+C\+Str; \index{str@{str}!operator int@{operator int}}
+\index{operator int@{operator int}!str@{str}}
+\subsubsection[{\texorpdfstring{operator int() const }{operator int() const }}]{\setlength{\rightskip}{0pt plus 5cm}str\+::operator int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_af1c1bff1c65968a0a34c26c61cbc3994}{}\label{classstr_af1c1bff1c65968a0a34c26c61cbc3994}
+
+
+(int) Cast Operator\+: Ex\+: int x = (int)my\+C\+Str; 
+
+\index{str@{str}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator"!=(const char $\ast$p\+String) const }{operator!=(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a76154ba2d7fd29befe770d5921ba35c8}{}\label{classstr_a76154ba2d7fd29befe770d5921ba35c8}
+\index{str@{str}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator"!=(const str \&rhs) const }{operator!=(const str &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_af60bb0eef0240663294a13b628f46ae0}{}\label{classstr_af60bb0eef0240663294a13b628f46ae0}
+\index{str@{str}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator"!=(int) const }{operator!=(int) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a1f70d269ce72f1325753746714e08a32}{}\label{classstr_a1f70d269ce72f1325753746714e08a32}
+\index{str@{str}!operator()@{operator()}}
+\index{operator()@{operator()}!str@{str}}
+\subsubsection[{\texorpdfstring{operator()() const }{operator()() const }}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ str\+::operator() (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a9b463b5f9774ba576201d8afa9618663}{}\label{classstr_a9b463b5f9774ba576201d8afa9618663}
+
+
+() Operator (without a name)\+: Ex\+: puts(my\+C\+Str()); 
+
+\index{str@{str}!operator++@{operator++}}
+\index{operator++@{operator++}!str@{str}}
+\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ad59c73265a45deb506d5d3ebdbc6fc1b}{}\label{classstr_ad59c73265a45deb506d5d3ebdbc6fc1b}
+
+
+Pre-\/\+Increment if String is an integer. 
+
+\index{str@{str}!operator++@{operator++}}
+\index{operator++@{operator++}!str@{str}}
+\subsubsection[{\texorpdfstring{operator++(int unused)}{operator++(int unused)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{unused}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a3348bd851c63d3388843d9a2c16925ac}{}\label{classstr_a3348bd851c63d3388843d9a2c16925ac}
+
+
+Post-\/\+Increment if String is an integer. 
+
+\index{str@{str}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator+=(const char single\+Char)}{operator+=(const char singleChar)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const char}]{single\+Char}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_aac62bf43eaa1ed364283202b89afadbe}{}\label{classstr_aac62bf43eaa1ed364283202b89afadbe}
+
+
+Append char using += Operator. 
+
+Add/\+Subtract Operators\+: \index{str@{str}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator+=(const char $\ast$p\+String)}{operator+=(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ab8065080e455e15a5f24818298b3993e}{}\label{classstr_ab8065080e455e15a5f24818298b3993e}
+
+
+Append String using += Operator. 
+
+\index{str@{str}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator+=(const str \&s)}{operator+=(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a49b9a96f116ba180a7e7294eac6539f7}{}\label{classstr_a49b9a96f116ba180a7e7294eac6539f7}
+
+
+Append str to us. 
+
+\index{str@{str}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator+=(int n)}{operator+=(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ae5aa9f33de7145f93320558b8be54f28}{}\label{classstr_ae5aa9f33de7145f93320558b8be54f28}
+
+
+Subtract Integer using += Operator if string is an integer value. 
+
+\index{str@{str}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator+=(float n)}{operator+=(float n)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{float}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a7f9bcfbb170343601835d0f7e626b0ac}{}\label{classstr_a7f9bcfbb170343601835d0f7e626b0ac}
+
+
+Subtract Float using += Operator if string is an float value. 
+
+\index{str@{str}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!str@{str}}
+\subsubsection[{\texorpdfstring{operator-\/-\/()}{operator--()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ae93a7a134369044d32ae0d508d7801e5}{}\label{classstr_ae93a7a134369044d32ae0d508d7801e5}
+
+
+Pre-\/\+Decrement if String is an integer. 
+
+\index{str@{str}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!str@{str}}
+\subsubsection[{\texorpdfstring{operator-\/-\/(int unused)}{operator--(int unused)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+\item[{int}]{unused}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a766fafbafba96030a73c9e27d00b8d30}{}\label{classstr_a766fafbafba96030a73c9e27d00b8d30}
+
+
+Post-\/\+Decrement if String is an integer. 
+
+\index{str@{str}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator-\/=(const char $\ast$p\+String)}{operator-=(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a2ada3fdc9a272d0f03cc34c17e7da288}{}\label{classstr_a2ada3fdc9a272d0f03cc34c17e7da288}
+
+
+Remove all instances of p\+String using -\/= Operator. 
+
+\index{str@{str}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator-\/=(const str \&s)}{operator-=(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a590cead40b3abfb16ff93c3e97a67197}{}\label{classstr_a590cead40b3abfb16ff93c3e97a67197}
+
+
+Remove (erase) str from us. 
+
+\index{str@{str}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator-\/=(int n)}{operator-=(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a197df4840051ffb56230401a4ab10053}{}\label{classstr_a197df4840051ffb56230401a4ab10053}
+
+
+Subtract Integer String using if string is an integer value. 
+
+\index{str@{str}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator-\/=(float n)}{operator-=(float n)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{float}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a71248f109c79176b83bc81b53223b72f}{}\label{classstr_a71248f109c79176b83bc81b53223b72f}
+
+
+Subtract Float String using -\/= Operator if string is an float value. 
+
+\index{str@{str}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$(const char $\ast$p\+String) const }{operator<(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a818b0b6acb3bb13a14378b1aef3868ae}{}\label{classstr_a818b0b6acb3bb13a14378b1aef3868ae}
+\index{str@{str}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$(const str \&s) const }{operator<(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a59eee4785b6107a5f48c44c0d335d66c}{}\label{classstr_a59eee4785b6107a5f48c44c0d335d66c}
+\index{str@{str}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$(int) const }{operator<(int) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_ae13ff261c8a9329cc14581b836ca83ce}{}\label{classstr_ae13ff261c8a9329cc14581b836ca83ce}
+\index{str@{str}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$(float) const }{operator<(float) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a97c96ebd9b5a44b7e776c49a71b9c502}{}\label{classstr_a97c96ebd9b5a44b7e776c49a71b9c502}
+\index{str@{str}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$=(const char $\ast$p\+String) const }{operator<=(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_ab8384404397fbb8722f16c11148863de}{}\label{classstr_ab8384404397fbb8722f16c11148863de}
+\index{str@{str}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$=(int) const }{operator<=(int) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a56ddeebb2ed5a599faec2db2a24e7102}{}\label{classstr_a56ddeebb2ed5a599faec2db2a24e7102}
+\index{str@{str}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$=(const str \&s) const }{operator<=(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ab7e30179f4595313e2ae47e31eb8cbbd}{}\label{classstr_ab7e30179f4595313e2ae47e31eb8cbbd}
+\index{str@{str}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$<$=(float) const }{operator<=(float) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_aa09eb34e781c73d2e8a3be10bb377f75}{}\label{classstr_aa09eb34e781c73d2e8a3be10bb377f75}
+\index{str@{str}!operator=@{operator=}}
+\index{operator=@{operator=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator=(const char $\ast$p\+String)}{operator=(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a04bb8d4e673cc83346f6d9de00757929}{}\label{classstr_a04bb8d4e673cc83346f6d9de00757929}
+
+
+Assign a string\+: my\+C\+Str = \char`\"{}123\char`\"{};. 
+
+\index{str@{str}!operator=@{operator=}}
+\index{operator=@{operator=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator=(int num)}{operator=(int num)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator= (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a04e0c0be4932ee0ba8715985d489f78d}{}\label{classstr_a04e0c0be4932ee0ba8715985d489f78d}
+
+
+Assign an int \+: my\+C\+Str = 123;. 
+
+\index{str@{str}!operator=@{operator=}}
+\index{operator=@{operator=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator=(float num)}{operator=(float num)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::operator= (
+\begin{DoxyParamCaption}
+\item[{float}]{num}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a53784815b19184e4e0a9658211347dbf}{}\label{classstr_a53784815b19184e4e0a9658211347dbf}
+
+
+Assign a float\+: my\+C\+Str = 1.\+23;. 
+
+\index{str@{str}!operator=@{operator=}}
+\index{operator=@{operator=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator=(const str \&rhs)}{operator=(const str &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf str} \& str\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a9142043f01db80275d3b342a28dc1ee5}{}\label{classstr_a9142043f01db80275d3b342a28dc1ee5}
+
+
+Assign Operator for str a = str b. 
+
+\index{str@{str}!operator==@{operator==}}
+\index{operator==@{operator==}!str@{str}}
+\subsubsection[{\texorpdfstring{operator==(const char $\ast$p\+String) const }{operator==(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a73bea05d9dd7b126c483fbbe5606e30c}{}\label{classstr_a73bea05d9dd7b126c483fbbe5606e30c}
+\index{str@{str}!operator==@{operator==}}
+\index{operator==@{operator==}!str@{str}}
+\subsubsection[{\texorpdfstring{operator==(const str \&rhs) const }{operator==(const str &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_ad3462670311008c868e6e607a60da85e}{}\label{classstr_ad3462670311008c868e6e607a60da85e}
+\index{str@{str}!operator==@{operator==}}
+\index{operator==@{operator==}!str@{str}}
+\subsubsection[{\texorpdfstring{operator==(int) const }{operator==(int) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator== (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a8e03a63b79d2d4c3a97751c8e001e065}{}\label{classstr_a8e03a63b79d2d4c3a97751c8e001e065}
+\index{str@{str}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$(const char $\ast$p\+String) const }{operator>(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_aba022527319f3c6d9959c98d3720fb2c}{}\label{classstr_aba022527319f3c6d9959c98d3720fb2c}
+\index{str@{str}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$(int) const }{operator>(int) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_aec4331bed074d43dec1b6919c984155b}{}\label{classstr_aec4331bed074d43dec1b6919c984155b}
+\index{str@{str}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$(const str \&s) const }{operator>(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a4391d0576500d58c0e51da8c32032dd3}{}\label{classstr_a4391d0576500d58c0e51da8c32032dd3}
+\index{str@{str}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$(float) const }{operator>(float) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a901950cdc3241ce8f9d389c52fda3c9d}{}\label{classstr_a901950cdc3241ce8f9d389c52fda3c9d}
+\index{str@{str}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$=(const char $\ast$p\+String) const }{operator>=(const char *pString) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a7c3d3edc8b2736e953097e1123701d6d}{}\label{classstr_a7c3d3edc8b2736e953097e1123701d6d}
+\index{str@{str}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$=(int) const }{operator>=(int) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a9589750a5e668b2f9f040babcf440258}{}\label{classstr_a9589750a5e668b2f9f040babcf440258}
+\index{str@{str}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$=(const str \&s) const }{operator>=(const str &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ae1f2587698481cf2d7af8c8f9acbacfa}{}\label{classstr_ae1f2587698481cf2d7af8c8f9acbacfa}
+\index{str@{str}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!str@{str}}
+\subsubsection[{\texorpdfstring{operator$>$=(float) const }{operator>=(float) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+) const}\hypertarget{classstr_a6475d932689a67b53db32b31146bf8bb}{}\label{classstr_a6475d932689a67b53db32b31146bf8bb}
+\index{str@{str}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!str@{str}}
+\subsubsection[{\texorpdfstring{operator[](int pos)}{operator[](int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}char \& str\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a24b71c212793ade7dea8ce542878f132}{}\label{classstr_a24b71c212793ade7dea8ce542878f132}
+
+
+Index Operator to get and set value @ Index. 
+
+\index{str@{str}!printf@{printf}}
+\index{printf@{printf}!str@{str}}
+\subsubsection[{\texorpdfstring{printf(const char $\ast$p\+Format,...)}{printf(const char *pFormat,...)}}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::printf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_adcca272f043d0d6622019fcf722277b6}{}\label{classstr_adcca272f043d0d6622019fcf722277b6}
+Similar to printf, but will print data into the string \begin{DoxyReturn}{Returns}
+The number of characters printed 
+\end{DoxyReturn}
+\index{str@{str}!replace\+All@{replace\+All}}
+\index{replace\+All@{replace\+All}!str@{str}}
+\subsubsection[{\texorpdfstring{replace\+All(const char $\ast$p\+Find, const char $\ast$p\+With)}{replaceAll(const char *pFind, const char *pWith)}}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::replace\+All (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Find, }
+\item[{const char $\ast$}]{p\+With}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_aa8906d8f03f01e86fdcfa92f5d18acfd}{}\label{classstr_aa8906d8f03f01e86fdcfa92f5d18acfd}
+\index{str@{str}!replace\+First@{replace\+First}}
+\index{replace\+First@{replace\+First}!str@{str}}
+\subsubsection[{\texorpdfstring{replace\+First(const char $\ast$p\+Find, const char $\ast$p\+With)}{replaceFirst(const char *pFind, const char *pWith)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::replace\+First (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Find, }
+\item[{const char $\ast$}]{p\+With}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ad63139de03fe493fefb1982fb0b3bd79}{}\label{classstr_ad63139de03fe493fefb1982fb0b3bd79}
+\index{str@{str}!replace\+Last@{replace\+Last}}
+\index{replace\+Last@{replace\+Last}!str@{str}}
+\subsubsection[{\texorpdfstring{replace\+Last(const char $\ast$p\+Find, const char $\ast$p\+With)}{replaceLast(const char *pFind, const char *pWith)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::replace\+Last (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Find, }
+\item[{const char $\ast$}]{p\+With}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a4c0ac970e751612fa010a95d333e2d08}{}\label{classstr_a4c0ac970e751612fa010a95d333e2d08}
+\index{str@{str}!reserve@{reserve}}
+\index{reserve@{reserve}!str@{str}}
+\subsubsection[{\texorpdfstring{reserve(int n)}{reserve(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}bool str\+::reserve (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a972e4c7826a4fb3936cf65d66014d4f3}{}\label{classstr_a972e4c7826a4fb3936cf65d66014d4f3}
+
+
+reserves memory to hold n characters 
+
+\index{str@{str}!scanf@{scanf}}
+\index{scanf@{scanf}!str@{str}}
+\subsubsection[{\texorpdfstring{scanf(const char $\ast$p\+Format,...)}{scanf(const char *pFormat,...)}}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::scanf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ae2d29bc4d8f0945aeb83abf6a11d08f5}{}\label{classstr_ae2d29bc4d8f0945aeb83abf6a11d08f5}
+Similar to scanf but scans from this str \begin{DoxyReturn}{Returns}
+The number of parameters successfully parsed 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Using \%$\ast$s will scan a string and ignore it. 
+
+Deliminator by default is a space, read \char`\"{}sscanf()\char`\"{} documentation online for more references.
+\end{DoxyNote}
+Example\+: 
+\begin{DoxyCode}
+\hyperlink{classstr}{str} s = \textcolor{stringliteral}{"Something 10:12 pm"};
+\textcolor{keywordtype}{unsigned} hour, min;
+\textcolor{keywordtype}{char} amPm[5] = \{ 0 \};
+\textcolor{keywordtype}{int} parsed = \hyperlink{classstr}{str}.\hyperlink{classstr_ae2d29bc4d8f0945aeb83abf6a11d08f5}{scanf}(\textcolor{stringliteral}{"%*s %u:%u %2s"}, &hour, &min, amPm);
+\end{DoxyCode}
+ \index{str@{str}!sub\+String@{sub\+String}}
+\index{sub\+String@{sub\+String}!str@{str}}
+\subsubsection[{\texorpdfstring{sub\+String(int from\+Index)}{subString(int fromIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} \& str\+::sub\+String (
+\begin{DoxyParamCaption}
+\item[{int}]{from\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_aa4c39b3a9fd1691e2cf720216783494d}{}\label{classstr_aa4c39b3a9fd1691e2cf720216783494d}
+\index{str@{str}!sub\+String@{sub\+String}}
+\index{sub\+String@{sub\+String}!str@{str}}
+\subsubsection[{\texorpdfstring{sub\+String(int from\+Index, int char\+Count)}{subString(int fromIndex, int charCount)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} \& str\+::sub\+String (
+\begin{DoxyParamCaption}
+\item[{int}]{from\+Index, }
+\item[{int}]{char\+Count}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a9d9c2d51c0f0a62eb1535b608caaa9bf}{}\label{classstr_a9d9c2d51c0f0a62eb1535b608caaa9bf}
+\index{str@{str}!sub\+String@{sub\+String}}
+\index{sub\+String@{sub\+String}!str@{str}}
+\subsubsection[{\texorpdfstring{sub\+String(char from\+First\+Char)}{subString(char fromFirstChar)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} \& str\+::sub\+String (
+\begin{DoxyParamCaption}
+\item[{char}]{from\+First\+Char}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a45d006c235e6180ce4e8f59ce28b6861}{}\label{classstr_a45d006c235e6180ce4e8f59ce28b6861}
+\index{str@{str}!sub\+String@{sub\+String}}
+\index{sub\+String@{sub\+String}!str@{str}}
+\subsubsection[{\texorpdfstring{sub\+String(const char $\ast$from\+Str)}{subString(const char *fromStr)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} \& str\+::sub\+String (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{from\+Str}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a9726aac8bc8c048c0a8de0503bf3fcce}{}\label{classstr_a9726aac8bc8c048c0a8de0503bf3fcce}
+\index{str@{str}!sub\+String@{sub\+String}}
+\index{sub\+String@{sub\+String}!str@{str}}
+\subsubsection[{\texorpdfstring{sub\+String(char from\+First\+Char, int char\+Count)}{subString(char fromFirstChar, int charCount)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} \& str\+::sub\+String (
+\begin{DoxyParamCaption}
+\item[{char}]{from\+First\+Char, }
+\item[{int}]{char\+Count}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a7e07d7c67aab7f07579f253fe847297c}{}\label{classstr_a7e07d7c67aab7f07579f253fe847297c}
+\index{str@{str}!sub\+String@{sub\+String}}
+\index{sub\+String@{sub\+String}!str@{str}}
+\subsubsection[{\texorpdfstring{sub\+String(const char $\ast$from\+Str, int char\+Count)}{subString(const char *fromStr, int charCount)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} \& str\+::sub\+String (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{from\+Str, }
+\item[{int}]{char\+Count}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ae92cfd8e2871fe7f4700a63fbbca4175}{}\label{classstr_ae92cfd8e2871fe7f4700a63fbbca4175}
+\index{str@{str}!sub\+String@{sub\+String}}
+\index{sub\+String@{sub\+String}!str@{str}}
+\subsubsection[{\texorpdfstring{sub\+String(char from\+First\+Char, char to\+Last\+Char)}{subString(char fromFirstChar, char toLastChar)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf str} \& str\+::sub\+String (
+\begin{DoxyParamCaption}
+\item[{char}]{from\+First\+Char, }
+\item[{char}]{to\+Last\+Char}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_a5662c90c4102af41a5b4fc6d89dc8837}{}\label{classstr_a5662c90c4102af41a5b4fc6d89dc8837}
+\index{str@{str}!to\+Float@{to\+Float}}
+\index{to\+Float@{to\+Float}!str@{str}}
+\subsubsection[{\texorpdfstring{to\+Float(const char $\ast$p\+String)}{toFloat(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}float str\+::to\+Float (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classstr_a1973e2dd48bf39a9d52743f201a5e3fc}{}\label{classstr_a1973e2dd48bf39a9d52743f201a5e3fc}
+
+
+Static method to convert char$\ast$ string to float. 
+
+\index{str@{str}!to\+Float@{to\+Float}}
+\index{to\+Float@{to\+Float}!str@{str}}
+\subsubsection[{\texorpdfstring{to\+Float(str \&s)}{toFloat(str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}static float str\+::to\+Float (
+\begin{DoxyParamCaption}
+\item[{{\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classstr_ab388e72409c282225a5bbaa88288e564}{}\label{classstr_ab388e72409c282225a5bbaa88288e564}
+\index{str@{str}!to\+Int@{to\+Int}}
+\index{to\+Int@{to\+Int}!str@{str}}
+\subsubsection[{\texorpdfstring{to\+Int(const char $\ast$p\+String)}{toInt(const char *pString)}}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::to\+Int (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+String}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classstr_a8234c2630b21c5e5567010d4ea776daf}{}\label{classstr_a8234c2630b21c5e5567010d4ea776daf}
+
+
+Static method to convert char$\ast$ string to integer. 
+
+\index{str@{str}!to\+Int@{to\+Int}}
+\index{to\+Int@{to\+Int}!str@{str}}
+\subsubsection[{\texorpdfstring{to\+Int(str \&s)}{toInt(str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}static int str\+::to\+Int (
+\begin{DoxyParamCaption}
+\item[{{\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classstr_ab17ef945df990ababe0f4fefbc551e7c}{}\label{classstr_ab17ef945df990ababe0f4fefbc551e7c}
+\index{str@{str}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!str@{str}}
+\subsubsection[{\texorpdfstring{tokenize(const char $\ast$delimators, int char\+\_\+ptr\+\_\+count,...)}{tokenize(const char *delimators, int char_ptr_count,...)}}]{\setlength{\rightskip}{0pt plus 5cm}int str\+::tokenize (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{delimators, }
+\item[{int}]{char\+\_\+ptr\+\_\+count, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ad9db6da1cda4feb99ccda4ce46220e01}{}\label{classstr_ad9db6da1cda4feb99ccda4ce46220e01}
+Perform string tokenization (original copy is destroyed) If you want to get pointers separating the string such as \char`\"{}hello world 123\char`\"{}, then you can use this function, however, your original string will be destroyed. 
+\begin{DoxyCode}
+\hyperlink{classstr}{str} myStr = \textcolor{stringliteral}{"123 45 6789"};
+\textcolor{keywordtype}{char} *one, *two, *three;
+\textcolor{keywordflow}{if} (myStr.\hyperlink{classstr_ad9db6da1cda4feb99ccda4ce46220e01}{tokenize}(\textcolor{stringliteral}{" "}, 3, &one, &two, &three) == 3) \{
+    \textcolor{comment}{// This will print "123 45 6789"}
+    \hyperlink{classstr_adcca272f043d0d6622019fcf722277b6}{printf}(\textcolor{stringliteral}{"%s %s %s\(\backslash\)n"}, one, two, three);
+\}
+\end{DoxyCode}
+ \index{str@{str}!to\+Lower@{to\+Lower}}
+\index{to\+Lower@{to\+Lower}!str@{str}}
+\subsubsection[{\texorpdfstring{to\+Lower()}{toLower()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::to\+Lower (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ae8e9f70258ea0c05c46f33befec2d176}{}\label{classstr_ae8e9f70258ea0c05c46f33befec2d176}
+
+
+Make every alphabet character lowercase. 
+
+\index{str@{str}!to\+Upper@{to\+Upper}}
+\index{to\+Upper@{to\+Upper}!str@{str}}
+\subsubsection[{\texorpdfstring{to\+Upper()}{toUpper()}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::to\+Upper (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_abeb089bcf2c3457e993239aeba54bcf6}{}\label{classstr_abeb089bcf2c3457e993239aeba54bcf6}
+
+
+Make every alphabet character uppercase. 
+
+\index{str@{str}!trim\+End@{trim\+End}}
+\index{trim\+End@{trim\+End}!str@{str}}
+\subsubsection[{\texorpdfstring{trim\+End(const char $\ast$p\+Chars)}{trimEnd(const char *pChars)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::trim\+End (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Chars}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_ac6cb12c86533878ede9984e50b1a1efb}{}\label{classstr_ac6cb12c86533878ede9984e50b1a1efb}
+\index{str@{str}!trim\+End@{trim\+End}}
+\index{trim\+End@{trim\+End}!str@{str}}
+\subsubsection[{\texorpdfstring{trim\+End(const str \&s)}{trimEnd(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::trim\+End (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_a221427595db8f5ead16db4c6be08313f}{}\label{classstr_a221427595db8f5ead16db4c6be08313f}
+\index{str@{str}!trim\+Start@{trim\+Start}}
+\index{trim\+Start@{trim\+Start}!str@{str}}
+\subsubsection[{\texorpdfstring{trim\+Start(const char $\ast$p\+Chars)}{trimStart(const char *pChars)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::trim\+Start (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Chars}
+\end{DoxyParamCaption}
+)}\hypertarget{classstr_af39c84a11852795391135b5a321dba68}{}\label{classstr_af39c84a11852795391135b5a321dba68}
+\index{str@{str}!trim\+Start@{trim\+Start}}
+\index{trim\+Start@{trim\+Start}!str@{str}}
+\subsubsection[{\texorpdfstring{trim\+Start(const str \&s)}{trimStart(const str &s)}}]{\setlength{\rightskip}{0pt plus 5cm}void str\+::trim\+Start (
+\begin{DoxyParamCaption}
+\item[{const {\bf str} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstr_ace91c437810633e6bc22bd2f2cc775ad}{}\label{classstr_ace91c437810633e6bc22bd2f2cc775ad}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{str@{str}!test\+\_\+str@{test\+\_\+str}}
+\index{test\+\_\+str@{test\+\_\+str}!str@{str}}
+\subsubsection[{\texorpdfstring{test\+\_\+str}{test_str}}]{\setlength{\rightskip}{0pt plus 5cm}bool test\+\_\+str (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classstr_a1aeec54df708cf8d8ac70a7ee1a32e52}{}\label{classstr_a1aeec54df708cf8d8ac70a7ee1a32e52}
+
+
+For tests \+: 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/\hyperlink{str_8hpp}{str.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L3\+\_\+\+Utils/src/\hyperlink{str_8cpp}{str.\+cpp}\end{DoxyCompactItemize}

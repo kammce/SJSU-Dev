@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['pctaskgetname',['pcTaskGetName',['../db/da4/task_8h.html#ae2ffb6a591fef808cf10353059b1c2bd',1,'pcTaskGetName(TaskHandle_t xTaskToQuery) PRIVILEGED_FUNCTION:&#160;tasks.c'],['../d8/d36/tasks_8c.html#a2ee63040e19e7c0cd7dbd070b8e1bca5',1,'pcTaskGetName(TaskHandle_t xTaskToQuery):&#160;tasks.c']]],
+  ['pctimergetname',['pcTimerGetName',['../d7/d59/timers_8h.html#a43c9186d441d03fc6f97b542f853bd1a',1,'timers.h']]],
+  ['peek_5ffront',['peek_front',['../db/d57/classCircularBuffer.html#a578d0618578c41b0580466af3d264a5b',1,'CircularBuffer::peek_front(void)'],['../db/d57/classCircularBuffer.html#ac0e89e5c880ef100b5cbb8cbd07ab801',1,'CircularBuffer::peek_front(TYPE *dataPtr)']]],
+  ['pll0_5firqhandler',['PLL0_IRQHandler',['../de/dc0/startup_8cpp.html#a5f768d63471e55b6f73a7d330740dc1a',1,'startup.cpp']]],
+  ['pll1_5firqhandler',['PLL1_IRQHandler',['../de/dc0/startup_8cpp.html#a6b1afcb014f00a57e85e72b5c153dd57',1,'startup.cpp']]],
+  ['pop_5fback',['pop_back',['../d4/d7d/classVECTOR.html#a54d00d59fcf5f76472d5e0d97d9fb5ce',1,'VECTOR']]],
+  ['pop_5ffront',['pop_front',['../db/d57/classCircularBuffer.html#af4aab198b93af59b55a69584ab015c2b',1,'CircularBuffer::pop_front(void)'],['../db/d57/classCircularBuffer.html#ada422a5714f04db84a510d6491b624cd',1,'CircularBuffer::pop_front(TYPE *dataPtr)'],['../d4/d7d/classVECTOR.html#a79ba5d73fa6fc84f32505d789cfb3d38',1,'VECTOR::pop_front()']]],
+  ['power_5foff',['power_off',['../df/d7c/sd_8c.html#a3d22109c1bb9a743e687abed237c4927',1,'sd.c']]],
+  ['power_5fon',['power_on',['../df/d7c/sd_8c.html#a2b07fc4f4a062680410adefb08815d03',1,'sd.c']]],
+  ['printf',['printf',['../d2/dfb/classCharDev.html#a1e567da6600cd8164dcd98e11de8813f',1,'CharDev::printf()'],['../d9/d36/classstr.html#adcca272f043d0d6622019fcf722277b6',1,'str::printf()'],['../d6/db4/trace_2readme_8txt.html#a44aa2eeca69a660d02109d54e99f2dc6',1,'printf(&quot;Recorder started: %s\n&quot;, uiTraceStart()?&quot;OK&quot;:&quot;ERROR&quot;):&#160;readme.txt'],['../d6/db4/trace_2readme_8txt.html#aab6d12e817533a453ac47609299f6779',1,'printf(&quot;%s: %u bytes from %p\n&quot;, ok?&quot;Wrote&quot;:&quot;Failed to write &quot;, buffer_size, buffer):&#160;readme.txt']]],
+  ['push_5fback',['push_back',['../db/d57/classCircularBuffer.html#a874e11e8de40e5d6d478a39087960af8',1,'CircularBuffer::push_back()'],['../d4/d7d/classVECTOR.html#aa86473de53119987158cebdd5a614f1b',1,'VECTOR::push_back()']]],
+  ['push_5ffront',['push_front',['../d4/d7d/classVECTOR.html#a6819896c9719227dff566e4ad3c0cfc9',1,'VECTOR']]],
+  ['put',['put',['../d2/dfb/classCharDev.html#a48d2560ade054a067558a9495c41f109',1,'CharDev']]],
+  ['put_5ffat',['put_fat',['../db/d89/ff_8c.html#abd4b6b071a8d728a88727051c12bc6d7',1,'ff.c']]],
+  ['putchar',['putChar',['../d2/dfb/classCharDev.html#a253e32e0413b98f0af16ad79eb358851',1,'CharDev::putChar()'],['../de/d42/classUartDev.html#a5540a663667da93bc166f81d4f72cd2c',1,'UartDev::putChar()'],['../d2/d7a/classNordicStream.html#aefb871567b4712b2bf52caa656dc1d2a',1,'NordicStream::putChar()']]],
+  ['putcharintrdriven',['putcharIntrDriven',['../de/d86/classUart0.html#a1e8478f57546a54c1d484c8edde037c9',1,'Uart0']]],
+  ['putline',['putline',['../d2/dfb/classCharDev.html#aac938099da1789ac7bf8c0acd7a71624',1,'CharDev']]],
+  ['pvportmalloc',['pvPortMalloc',['../d2/de2/portable_8h.html#a237d63f90b28e0950bd86f76815cd6e3',1,'portable.h']]],
+  ['pvtaskincrementmutexheldcount',['pvTaskIncrementMutexHeldCount',['../db/da4/task_8h.html#aa1a0ae86baba1a7edda940a6ecd4cfb4',1,'task.h']]],
+  ['pvtimergettimerid',['pvTimerGetTimerID',['../d7/d59/timers_8h.html#ae20907a90360107d72283eb9099685ad',1,'timers.h']]],
+  ['pwm',['PWM',['../d8/dec/classPWM.html#a0ace6fd5ae366113bcffba8972e394dc',1,'PWM']]],
+  ['pwm1_5firqhandler',['PWM1_IRQHandler',['../de/dc0/startup_8cpp.html#af665d822ff762a19ab9942a4bf42e9a8',1,'startup.cpp']]],
+  ['pxportinitialisestack',['pxPortInitialiseStack',['../d2/de2/portable_8h.html#abb736501b227deb79f234b30eaf090e3',1,'portable.h']]]
+];

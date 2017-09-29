@@ -1,0 +1,564 @@
+\hypertarget{tasks_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/src/tasks.c File Reference}
+\label{tasks_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/src/tasks.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/src/tasks.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Stack\+Macros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tasks\+\_\+mod.\+c.\+inc\char`\"{}}\\*
+Include dependency graph for tasks.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/de2/tasks_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtskTaskControlBlock}{tsk\+Task\+Control\+Block}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tasks_8c_ab622d8c674f2a417a666a7ed89109e79}{M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+R\+S\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D\+\_\+\+F\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+F\+I\+LE}
+\item 
+\#define \hyperlink{tasks_8c_acd0c920e40647de517ac633965b52273}{task\+Y\+I\+E\+L\+D\+\_\+\+I\+F\+\_\+\+U\+S\+I\+N\+G\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}()
+\item 
+\#define \hyperlink{tasks_8c_a4f2f023143b2cd2367a441e104f8cf2c}{task\+N\+O\+T\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}~( ( uint8\+\_\+t ) 0 )
+\item 
+\#define \hyperlink{tasks_8c_acee66205293e253c13626e74798a0cf0}{task\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}~( ( uint8\+\_\+t ) 1 )
+\item 
+\#define \hyperlink{tasks_8c_aa62ac91d5f644c98b5459c28ae4f689e}{task\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+\+R\+E\+C\+E\+I\+V\+ED}~( ( uint8\+\_\+t ) 2 )
+\item 
+\#define \hyperlink{tasks_8c_ad3b1c99066f14855be098ccca1685fac}{tsk\+S\+T\+A\+C\+K\+\_\+\+F\+I\+L\+L\+\_\+\+B\+Y\+TE}~( 0xa5\+U )
+\item 
+\#define \hyperlink{tasks_8c_a8a6c91b47e762e6302765caf6533d9e9}{tsk\+S\+T\+A\+T\+I\+C\+\_\+\+A\+N\+D\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+P\+O\+S\+S\+I\+B\+LE}~( ( ( \hyperlink{FreeRTOS_8h_a1d6797a53b62d501b095f964036a7ac4}{config\+S\+U\+P\+P\+O\+R\+T\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+ON} == 1 ) \&\& ( \hyperlink{FreeRTOS_8h_afa3f8d6510699d972c9af08fa41f66dc}{config\+S\+U\+P\+P\+O\+R\+T\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+ON} == 1 ) ) $\vert$$\vert$ ( \hyperlink{mpu__wrappers_8h_a63d7ba028eb2432720bb5c7d626a8d7e}{port\+U\+S\+I\+N\+G\+\_\+\+M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+RS} == 1 ) )
+\item 
+\#define \hyperlink{tasks_8c_af06a1633d2fb92f67712e62f3d1c3777}{tsk\+D\+Y\+N\+A\+M\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}~( ( uint8\+\_\+t ) 0 )
+\item 
+\#define \hyperlink{tasks_8c_ad65be2320d426aca4e0e72d29ccd04de}{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+N\+LY}~( ( uint8\+\_\+t ) 1 )
+\item 
+\#define \hyperlink{tasks_8c_a9851e50775136d536fed623e1ac598aa}{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}~( ( uint8\+\_\+t ) 2 )
+\item 
+\#define \hyperlink{tasks_8c_a4cd87df39bdffff557d06f4ff15a30b0}{tsk\+B\+L\+O\+C\+K\+E\+D\+\_\+\+C\+H\+AR}~( \textquotesingle{}B\textquotesingle{} )
+\item 
+\#define \hyperlink{tasks_8c_a2fd6c7a58ad28dd1f2c1e322b1ab3fcb}{tsk\+R\+E\+A\+D\+Y\+\_\+\+C\+H\+AR}~( \textquotesingle{}R\textquotesingle{} )
+\item 
+\#define \hyperlink{tasks_8c_a9aba572191d065741f5a3e94c416d455}{tsk\+D\+E\+L\+E\+T\+E\+D\+\_\+\+C\+H\+AR}~( \textquotesingle{}D\textquotesingle{} )
+\item 
+\#define \hyperlink{tasks_8c_a3613b4b66406c8f6cc73e5c3e9f208db}{tsk\+S\+U\+S\+P\+E\+N\+D\+E\+D\+\_\+\+C\+H\+AR}~( \textquotesingle{}S\textquotesingle{} )
+\item 
+\#define \hyperlink{tasks_8c_a80c883536b1faef436fcd47b16a10f98}{task\+R\+E\+C\+O\+R\+D\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}(ux\+Priority)
+\item 
+\#define \hyperlink{tasks_8c_adace394d56a7fe7a8f8ee83edba3537c}{task\+S\+E\+L\+E\+C\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+A\+SK}()
+\item 
+\#define \hyperlink{tasks_8c_a9517fc40d713aff9dd8182223948f9c8}{task\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}(ux\+Priority)
+\item 
+\#define \hyperlink{tasks_8c_a27f854590fc6fcb8b4c7955b5f13b98e}{port\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}(ux\+Priority,  ux\+Top\+Ready\+Priority)
+\item 
+\#define \hyperlink{tasks_8c_aa604b7713b82e63154a290e21ecf700c}{task\+S\+W\+I\+T\+C\+H\+\_\+\+D\+E\+L\+A\+Y\+E\+D\+\_\+\+L\+I\+S\+TS}()
+\item 
+\#define \hyperlink{tasks_8c_a94afc7269fff7c906c5eb0d9d315624b}{prv\+Add\+Task\+To\+Ready\+List}(px\+T\+CB)
+\item 
+\#define \hyperlink{tasks_8c_ad910f5e908283f1dfabd642fe1b11c6b}{prv\+Get\+T\+C\+B\+From\+Handle}(px\+Handle)~( ( ( px\+Handle ) == N\+U\+LL ) ? ( \hyperlink{tasks_8c_aa3c2dda92a6dc22860bbdb36e42a0453}{T\+C\+B\+\_\+t} $\ast$ ) \hyperlink{tasks_8c_acdecf2afe97343aba42b111bc6df9eea}{px\+Current\+T\+CB} \+: ( \hyperlink{tasks_8c_aa3c2dda92a6dc22860bbdb36e42a0453}{T\+C\+B\+\_\+t} $\ast$ ) ( px\+Handle ) )
+\item 
+\#define \hyperlink{tasks_8c_a3e36f3eda563e810a24ab36ee7c978d4}{task\+E\+V\+E\+N\+T\+\_\+\+L\+I\+S\+T\+\_\+\+I\+T\+E\+M\+\_\+\+V\+A\+L\+U\+E\+\_\+\+I\+N\+\_\+\+U\+SE}~0x80000000\+UL
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structtskTaskControlBlock}{tsk\+Task\+Control\+Block} \hyperlink{tasks_8c_a1e66c51944fbc63a4c7682217174b241}{tsk\+T\+CB}
+\item 
+typedef \hyperlink{tasks_8c_a1e66c51944fbc63a4c7682217174b241}{tsk\+T\+CB} \hyperlink{tasks_8c_aa3c2dda92a6dc22860bbdb36e42a0453}{T\+C\+B\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tasks_8c_a364e424f7bf8efced5738f44803f6580}{v\+Task\+Priority\+Set} (\hyperlink{task_8h_ae95f44d4cfeb4a599c6cc258d241cb6b}{Task\+Handle\+\_\+t} x\+Task, \hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t} ux\+New\+Priority)
+\item 
+void \hyperlink{tasks_8c_a598661cdd2a6af95a077245d11e3d142}{v\+Task\+Start\+Scheduler} (void)
+\item 
+void \hyperlink{tasks_8c_aeadc53d3d0d0ea3a6c7702a9eacbf452}{v\+Task\+End\+Scheduler} (void)
+\item 
+void \hyperlink{tasks_8c_a084d232640bd1d04bcac0b8784417015}{v\+Task\+Suspend\+All} (void)
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{tasks_8c_adf830ea0f150fcdfdaa944667137f080}{x\+Task\+Resume\+All} (void)
+\item 
+\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} \hyperlink{tasks_8c_a5fa24e36d5e1eeb57f5b73b72ea048e7}{x\+Task\+Get\+Tick\+Count} (void)
+\item 
+\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} \hyperlink{tasks_8c_ad58fd766b8f438b5703276f585738762}{x\+Task\+Get\+Tick\+Count\+From\+I\+SR} (void)
+\item 
+\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t} \hyperlink{tasks_8c_a4b660446c721df74158dddb9fc189c1e}{ux\+Task\+Get\+Number\+Of\+Tasks} (void)
+\item 
+char $\ast$ \hyperlink{tasks_8c_a2ee63040e19e7c0cd7dbd070b8e1bca5}{pc\+Task\+Get\+Name} (\hyperlink{task_8h_ae95f44d4cfeb4a599c6cc258d241cb6b}{Task\+Handle\+\_\+t} x\+Task\+To\+Query)
+\item 
+\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t} \hyperlink{tasks_8c_a5bd92b080086390cae790e5bd74bd018}{ux\+Task\+Get\+System\+State} (\hyperlink{task_8h_a34f88ef69814fb27d554e666e9868a9c}{Task\+Status\+\_\+t} $\ast$const px\+Task\+Status\+Array, const \hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{U\+Base\+Type\+\_\+t} ux\+Array\+Size, uint32\+\_\+t $\ast$const pul\+Total\+Run\+Time)
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{tasks_8c_a54f31e9aef0eb7b87e48c7d68ecc84c1}{x\+Task\+Increment\+Tick} (void)
+\item 
+void \hyperlink{tasks_8c_a9c86137bc3c1cbffc39fff22627cb885}{v\+Task\+Switch\+Context} (void)
+\item 
+void \hyperlink{tasks_8c_adc9eb47ceecf7dd7ee325bebff9eafc5}{v\+Task\+Place\+On\+Event\+List} (\hyperlink{list_8h_afd590ef6400071b4d63d65ef90bea7f4}{List\+\_\+t} $\ast$const px\+Event\+List, const \hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} x\+Ticks\+To\+Wait)
+\item 
+void \hyperlink{tasks_8c_a0896d9cd10d789ef8dbb95c4959c3ce5}{v\+Task\+Place\+On\+Unordered\+Event\+List} (\hyperlink{list_8h_afd590ef6400071b4d63d65ef90bea7f4}{List\+\_\+t} $\ast$px\+Event\+List, const \hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} x\+Item\+Value, const \hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} x\+Ticks\+To\+Wait)
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{tasks_8c_a6d21c9054b62d8bc1bfb2724e11578d9}{x\+Task\+Remove\+From\+Event\+List} (const \hyperlink{list_8h_afd590ef6400071b4d63d65ef90bea7f4}{List\+\_\+t} $\ast$const px\+Event\+List)
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{tasks_8c_aa3405f598b765ea7519d6136e2073e46}{x\+Task\+Remove\+From\+Unordered\+Event\+List} (\hyperlink{list_8h_a1a62d469392f9bfe2443e7efab9c8398}{List\+Item\+\_\+t} $\ast$px\+Event\+List\+Item, const \hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} x\+Item\+Value)
+\item 
+void \hyperlink{tasks_8c_a5dfb2b9e41fb002318d9c55452a91c83}{v\+Task\+Set\+Time\+Out\+State} (\hyperlink{task_8h_a5e1a80e591c8c42e2d21a29d70256ea2}{Time\+Out\+\_\+t} $\ast$const px\+Time\+Out)
+\item 
+\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} \hyperlink{tasks_8c_acfc8de487c86355713d0e8546506d9e4}{x\+Task\+Check\+For\+Time\+Out} (\hyperlink{task_8h_a5e1a80e591c8c42e2d21a29d70256ea2}{Time\+Out\+\_\+t} $\ast$const px\+Time\+Out, \hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} $\ast$const px\+Ticks\+To\+Wait)
+\item 
+void \hyperlink{tasks_8c_a33c369f5f08ab96659f94093fdb985af}{v\+Task\+Missed\+Yield} (void)
+\item 
+void \hyperlink{tasks_8c_a24b033eee266bdc8c3de63171a543f65}{v\+Task\+Get\+Info} (\hyperlink{task_8h_ae95f44d4cfeb4a599c6cc258d241cb6b}{Task\+Handle\+\_\+t} x\+Task, \hyperlink{task_8h_a34f88ef69814fb27d554e666e9868a9c}{Task\+Status\+\_\+t} $\ast$px\+Task\+Status, \hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t} x\+Get\+Free\+Stack\+Space, \hyperlink{task_8h_a1749369458e2282a22e862a619a3892c}{e\+Task\+State} e\+State)
+\item 
+\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t} \hyperlink{tasks_8c_a7ffe39eff8b9037b2de04f15a10ba717}{ux\+Task\+Reset\+Event\+Item\+Value} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mpu__wrappers_8h_a56a0b54ca924c56d192d4389ba585ed5}{P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+D\+A\+TA} \hyperlink{tasks_8c_aa3c2dda92a6dc22860bbdb36e42a0453}{T\+C\+B\+\_\+t} $\ast$volatile \hyperlink{tasks_8c_acdecf2afe97343aba42b111bc6df9eea}{px\+Current\+T\+CB} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{tasks.\+c@{tasks.\+c}!M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+R\+S\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D\+\_\+\+F\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+F\+I\+LE@{M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+R\+S\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D\+\_\+\+F\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+F\+I\+LE}}
+\index{M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+R\+S\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D\+\_\+\+F\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+F\+I\+LE@{M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+R\+S\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D\+\_\+\+F\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+F\+I\+LE}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+R\+S\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D\+\_\+\+F\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+F\+I\+LE}{MPU_WRAPPERS_INCLUDED_FROM_API_FILE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+R\+S\+\_\+\+I\+N\+C\+L\+U\+D\+E\+D\+\_\+\+F\+R\+O\+M\+\_\+\+A\+P\+I\+\_\+\+F\+I\+LE}\hypertarget{tasks_8c_ab622d8c674f2a417a666a7ed89109e79}{}\label{tasks_8c_ab622d8c674f2a417a666a7ed89109e79}
+\index{tasks.\+c@{tasks.\+c}!port\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{port\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{port\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{port\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{port\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{portRESET_READY_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY(
+\begin{DoxyParamCaption}
+\item[{}]{ux\+Priority, }
+\item[{}]{ux\+Top\+Ready\+Priority}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a27f854590fc6fcb8b4c7955b5f13b98e}{}\label{tasks_8c_a27f854590fc6fcb8b4c7955b5f13b98e}
+\index{tasks.\+c@{tasks.\+c}!prv\+Add\+Task\+To\+Ready\+List@{prv\+Add\+Task\+To\+Ready\+List}}
+\index{prv\+Add\+Task\+To\+Ready\+List@{prv\+Add\+Task\+To\+Ready\+List}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{prv\+Add\+Task\+To\+Ready\+List}{prvAddTaskToReadyList}}]{\setlength{\rightskip}{0pt plus 5cm}\#define prv\+Add\+Task\+To\+Ready\+List(
+\begin{DoxyParamCaption}
+\item[{}]{px\+T\+CB}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a94afc7269fff7c906c5eb0d9d315624b}{}\label{tasks_8c_a94afc7269fff7c906c5eb0d9d315624b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{FreeRTOS_8h_a8c5050de556ff7e7cdbc7de55f46709d}{traceMOVED\_TASK\_TO\_READY\_STATE}( pxTCB );                                                      
+      \hyperlink{tasks_8c_a80c883536b1faef436fcd47b16a10f98}{\(\backslash\)}
+\hyperlink{tasks_8c_a80c883536b1faef436fcd47b16a10f98}{    taskRECORD\_READY\_PRIORITY}( ( pxTCB )->uxPriority );                                               
+      \hyperlink{list_8h_a71a6a6099b3cbd8f90539aabe5c9e572}{\(\backslash\)}
+\hyperlink{list_8h_a71a6a6099b3cbd8f90539aabe5c9e572}{    vListInsertEnd}( &( pxReadyTasksLists[ ( pxTCB )->uxPriority ] ), &( ( pxTCB )->
+      xStateListItem ) ); \hyperlink{FreeRTOS_8h_a8d70c64cfe141df1bbe25b624405ec37}{\(\backslash\)}
+\hyperlink{FreeRTOS_8h_a8d70c64cfe141df1bbe25b624405ec37}{    tracePOST\_MOVED\_TASK\_TO\_READY\_STATE}( pxTCB )
+\end{DoxyCode}
+\index{tasks.\+c@{tasks.\+c}!prv\+Get\+T\+C\+B\+From\+Handle@{prv\+Get\+T\+C\+B\+From\+Handle}}
+\index{prv\+Get\+T\+C\+B\+From\+Handle@{prv\+Get\+T\+C\+B\+From\+Handle}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{prv\+Get\+T\+C\+B\+From\+Handle}{prvGetTCBFromHandle}}]{\setlength{\rightskip}{0pt plus 5cm}\#define prv\+Get\+T\+C\+B\+From\+Handle(
+\begin{DoxyParamCaption}
+\item[{}]{px\+Handle}
+\end{DoxyParamCaption}
+)~( ( ( px\+Handle ) == N\+U\+LL ) ? ( {\bf T\+C\+B\+\_\+t} $\ast$ ) {\bf px\+Current\+T\+CB} \+: ( {\bf T\+C\+B\+\_\+t} $\ast$ ) ( px\+Handle ) )}\hypertarget{tasks_8c_ad910f5e908283f1dfabd642fe1b11c6b}{}\label{tasks_8c_ad910f5e908283f1dfabd642fe1b11c6b}
+\index{tasks.\+c@{tasks.\+c}!task\+E\+V\+E\+N\+T\+\_\+\+L\+I\+S\+T\+\_\+\+I\+T\+E\+M\+\_\+\+V\+A\+L\+U\+E\+\_\+\+I\+N\+\_\+\+U\+SE@{task\+E\+V\+E\+N\+T\+\_\+\+L\+I\+S\+T\+\_\+\+I\+T\+E\+M\+\_\+\+V\+A\+L\+U\+E\+\_\+\+I\+N\+\_\+\+U\+SE}}
+\index{task\+E\+V\+E\+N\+T\+\_\+\+L\+I\+S\+T\+\_\+\+I\+T\+E\+M\+\_\+\+V\+A\+L\+U\+E\+\_\+\+I\+N\+\_\+\+U\+SE@{task\+E\+V\+E\+N\+T\+\_\+\+L\+I\+S\+T\+\_\+\+I\+T\+E\+M\+\_\+\+V\+A\+L\+U\+E\+\_\+\+I\+N\+\_\+\+U\+SE}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+E\+V\+E\+N\+T\+\_\+\+L\+I\+S\+T\+\_\+\+I\+T\+E\+M\+\_\+\+V\+A\+L\+U\+E\+\_\+\+I\+N\+\_\+\+U\+SE}{taskEVENT_LIST_ITEM_VALUE_IN_USE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+E\+V\+E\+N\+T\+\_\+\+L\+I\+S\+T\+\_\+\+I\+T\+E\+M\+\_\+\+V\+A\+L\+U\+E\+\_\+\+I\+N\+\_\+\+U\+SE~0x80000000\+UL}\hypertarget{tasks_8c_a3e36f3eda563e810a24ab36ee7c978d4}{}\label{tasks_8c_a3e36f3eda563e810a24ab36ee7c978d4}
+\index{tasks.\+c@{tasks.\+c}!task\+N\+O\+T\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON@{task\+N\+O\+T\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}}
+\index{task\+N\+O\+T\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON@{task\+N\+O\+T\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+N\+O\+T\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}{taskNOT_WAITING_NOTIFICATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+N\+O\+T\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON~( ( uint8\+\_\+t ) 0 )}\hypertarget{tasks_8c_a4f2f023143b2cd2367a441e104f8cf2c}{}\label{tasks_8c_a4f2f023143b2cd2367a441e104f8cf2c}
+\index{tasks.\+c@{tasks.\+c}!task\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+\+R\+E\+C\+E\+I\+V\+ED@{task\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+\+R\+E\+C\+E\+I\+V\+ED}}
+\index{task\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+\+R\+E\+C\+E\+I\+V\+ED@{task\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+\+R\+E\+C\+E\+I\+V\+ED}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+\+R\+E\+C\+E\+I\+V\+ED}{taskNOTIFICATION_RECEIVED}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+N\+\_\+\+R\+E\+C\+E\+I\+V\+ED~( ( uint8\+\_\+t ) 2 )}\hypertarget{tasks_8c_aa62ac91d5f644c98b5459c28ae4f689e}{}\label{tasks_8c_aa62ac91d5f644c98b5459c28ae4f689e}
+\index{tasks.\+c@{tasks.\+c}!task\+R\+E\+C\+O\+R\+D\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{task\+R\+E\+C\+O\+R\+D\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{task\+R\+E\+C\+O\+R\+D\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{task\+R\+E\+C\+O\+R\+D\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+R\+E\+C\+O\+R\+D\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{taskRECORD_READY_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+R\+E\+C\+O\+R\+D\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY(
+\begin{DoxyParamCaption}
+\item[{}]{ux\+Priority}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a80c883536b1faef436fcd47b16a10f98}{}\label{tasks_8c_a80c883536b1faef436fcd47b16a10f98}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                   \(\backslash\)
+        if( ( uxPriority ) > uxTopReadyPriority )                                                       \(\backslash\)
+        \{                                                                                               \(\backslash\)
+            uxTopReadyPriority = ( uxPriority );                                                        \(\backslash\)
+        \}                                                                                               \(\backslash\)
+    \} \textcolor{comment}{/* taskRECORD\_READY\_PRIORITY */}
+\end{DoxyCode}
+\index{tasks.\+c@{tasks.\+c}!task\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{task\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{task\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{task\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{taskRESET_READY_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+P\+R\+I\+O\+R\+I\+TY(
+\begin{DoxyParamCaption}
+\item[{}]{ux\+Priority}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a9517fc40d713aff9dd8182223948f9c8}{}\label{tasks_8c_a9517fc40d713aff9dd8182223948f9c8}
+\index{tasks.\+c@{tasks.\+c}!task\+S\+E\+L\+E\+C\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+A\+SK@{task\+S\+E\+L\+E\+C\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+A\+SK}}
+\index{task\+S\+E\+L\+E\+C\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+A\+SK@{task\+S\+E\+L\+E\+C\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+A\+SK}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+S\+E\+L\+E\+C\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+A\+SK}{taskSELECT_HIGHEST_PRIORITY_TASK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+S\+E\+L\+E\+C\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+T\+A\+SK(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_adace394d56a7fe7a8f8ee83edba3537c}{}\label{tasks_8c_adace394d56a7fe7a8f8ee83edba3537c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                   
+      \hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{\(\backslash\)}
+\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{    UBaseType\_t} uxTopPriority = uxTopReadyPriority;                                                     
+      \(\backslash\)
+                                                                                                        \(\backslash\)
+        \textcolor{comment}{/* Find the highest priority queue that contains ready tasks. */}                                \(\backslash\)
+        while( \hyperlink{list_8h_aaba6eb05d67ebc8026bea29193eca28f}{listLIST\_IS\_EMPTY}( &( pxReadyTasksLists[ uxTopPriority ] ) ) )                          
+      \(\backslash\)
+        \{                                                                                               
+      \hyperlink{FreeRTOS_8h_a228c70cd48927d6ab730ed1a6dfbe35f}{\(\backslash\)}
+\hyperlink{FreeRTOS_8h_a228c70cd48927d6ab730ed1a6dfbe35f}{            configASSERT}( uxTopPriority );                                                               
+      \(\backslash\)
+            --uxTopPriority;                                                                            \(\backslash\)
+        \}                                                                                               \(\backslash\)
+                                                                                                        \(\backslash\)
+        \textcolor{comment}{/* listGET\_OWNER\_OF\_NEXT\_ENTRY indexes through the list, so the tasks of                        \(\backslash\)}
+\textcolor{comment}{        the same priority get an equal share of the processor time. */}                                  
+      \hyperlink{list_8h_a275d9855e9b71652e2b8f6e2ed62aadd}{\(\backslash\)}
+\hyperlink{list_8h_a275d9855e9b71652e2b8f6e2ed62aadd}{        listGET\_OWNER\_OF\_NEXT\_ENTRY}( \hyperlink{tasks_8c_acdecf2afe97343aba42b111bc6df9eea}{pxCurrentTCB}, &( 
+      pxReadyTasksLists[ uxTopPriority ] ) );          \(\backslash\)
+        uxTopReadyPriority = uxTopPriority;                                                             \(\backslash\)
+    \} \textcolor{comment}{/* taskSELECT\_HIGHEST\_PRIORITY\_TASK */}
+\end{DoxyCode}
+\index{tasks.\+c@{tasks.\+c}!task\+S\+W\+I\+T\+C\+H\+\_\+\+D\+E\+L\+A\+Y\+E\+D\+\_\+\+L\+I\+S\+TS@{task\+S\+W\+I\+T\+C\+H\+\_\+\+D\+E\+L\+A\+Y\+E\+D\+\_\+\+L\+I\+S\+TS}}
+\index{task\+S\+W\+I\+T\+C\+H\+\_\+\+D\+E\+L\+A\+Y\+E\+D\+\_\+\+L\+I\+S\+TS@{task\+S\+W\+I\+T\+C\+H\+\_\+\+D\+E\+L\+A\+Y\+E\+D\+\_\+\+L\+I\+S\+TS}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+S\+W\+I\+T\+C\+H\+\_\+\+D\+E\+L\+A\+Y\+E\+D\+\_\+\+L\+I\+S\+TS}{taskSWITCH_DELAYED_LISTS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+S\+W\+I\+T\+C\+H\+\_\+\+D\+E\+L\+A\+Y\+E\+D\+\_\+\+L\+I\+S\+TS(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_aa604b7713b82e63154a290e21ecf700c}{}\label{tasks_8c_aa604b7713b82e63154a290e21ecf700c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                   
+      \hyperlink{list_8h_afd590ef6400071b4d63d65ef90bea7f4}{\(\backslash\)}
+\hyperlink{list_8h_afd590ef6400071b4d63d65ef90bea7f4}{    List\_t} *pxTemp;                                                                                  
+      \(\backslash\)
+                                                                                                    \(\backslash\)
+    \textcolor{comment}{/* The delayed tasks list should be empty when the lists are switched. */}                       
+      \hyperlink{FreeRTOS_8h_a228c70cd48927d6ab730ed1a6dfbe35f}{\(\backslash\)}
+\hyperlink{FreeRTOS_8h_a228c70cd48927d6ab730ed1a6dfbe35f}{    configASSERT}( ( \hyperlink{list_8h_aaba6eb05d67ebc8026bea29193eca28f}{listLIST\_IS\_EMPTY}( pxDelayedTaskList ) ) );                                       
+      \(\backslash\)
+                                                                                                    \(\backslash\)
+    pxTemp = pxDelayedTaskList;                                                                     \(\backslash\)
+    pxDelayedTaskList = pxOverflowDelayedTaskList;                                                  \(\backslash\)
+    pxOverflowDelayedTaskList = pxTemp;                                                             \(\backslash\)
+    xNumOfOverflows++;                                                                              \(\backslash\)
+    prvResetNextTaskUnblockTime();                                                                  \(\backslash\)
+\}
+\end{DoxyCode}
+\index{tasks.\+c@{tasks.\+c}!task\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON@{task\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}}
+\index{task\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON@{task\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON}{taskWAITING_NOTIFICATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+W\+A\+I\+T\+I\+N\+G\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON~( ( uint8\+\_\+t ) 1 )}\hypertarget{tasks_8c_acee66205293e253c13626e74798a0cf0}{}\label{tasks_8c_acee66205293e253c13626e74798a0cf0}
+\index{tasks.\+c@{tasks.\+c}!task\+Y\+I\+E\+L\+D\+\_\+\+I\+F\+\_\+\+U\+S\+I\+N\+G\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON@{task\+Y\+I\+E\+L\+D\+\_\+\+I\+F\+\_\+\+U\+S\+I\+N\+G\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}}
+\index{task\+Y\+I\+E\+L\+D\+\_\+\+I\+F\+\_\+\+U\+S\+I\+N\+G\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON@{task\+Y\+I\+E\+L\+D\+\_\+\+I\+F\+\_\+\+U\+S\+I\+N\+G\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{task\+Y\+I\+E\+L\+D\+\_\+\+I\+F\+\_\+\+U\+S\+I\+N\+G\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}{taskYIELD_IF_USING_PREEMPTION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define task\+Y\+I\+E\+L\+D\+\_\+\+I\+F\+\_\+\+U\+S\+I\+N\+G\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_acd0c920e40647de517ac633965b52273}{}\label{tasks_8c_acd0c920e40647de517ac633965b52273}
+\index{tasks.\+c@{tasks.\+c}!tsk\+B\+L\+O\+C\+K\+E\+D\+\_\+\+C\+H\+AR@{tsk\+B\+L\+O\+C\+K\+E\+D\+\_\+\+C\+H\+AR}}
+\index{tsk\+B\+L\+O\+C\+K\+E\+D\+\_\+\+C\+H\+AR@{tsk\+B\+L\+O\+C\+K\+E\+D\+\_\+\+C\+H\+AR}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+B\+L\+O\+C\+K\+E\+D\+\_\+\+C\+H\+AR}{tskBLOCKED_CHAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+B\+L\+O\+C\+K\+E\+D\+\_\+\+C\+H\+AR~( \textquotesingle{}B\textquotesingle{} )}\hypertarget{tasks_8c_a4cd87df39bdffff557d06f4ff15a30b0}{}\label{tasks_8c_a4cd87df39bdffff557d06f4ff15a30b0}
+\index{tasks.\+c@{tasks.\+c}!tsk\+D\+E\+L\+E\+T\+E\+D\+\_\+\+C\+H\+AR@{tsk\+D\+E\+L\+E\+T\+E\+D\+\_\+\+C\+H\+AR}}
+\index{tsk\+D\+E\+L\+E\+T\+E\+D\+\_\+\+C\+H\+AR@{tsk\+D\+E\+L\+E\+T\+E\+D\+\_\+\+C\+H\+AR}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+D\+E\+L\+E\+T\+E\+D\+\_\+\+C\+H\+AR}{tskDELETED_CHAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+D\+E\+L\+E\+T\+E\+D\+\_\+\+C\+H\+AR~( \textquotesingle{}D\textquotesingle{} )}\hypertarget{tasks_8c_a9aba572191d065741f5a3e94c416d455}{}\label{tasks_8c_a9aba572191d065741f5a3e94c416d455}
+\index{tasks.\+c@{tasks.\+c}!tsk\+D\+Y\+N\+A\+M\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB@{tsk\+D\+Y\+N\+A\+M\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}}
+\index{tsk\+D\+Y\+N\+A\+M\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB@{tsk\+D\+Y\+N\+A\+M\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+D\+Y\+N\+A\+M\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}{tskDYNAMICALLY_ALLOCATED_STACK_AND_TCB}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+D\+Y\+N\+A\+M\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB~( ( uint8\+\_\+t ) 0 )}\hypertarget{tasks_8c_af06a1633d2fb92f67712e62f3d1c3777}{}\label{tasks_8c_af06a1633d2fb92f67712e62f3d1c3777}
+\index{tasks.\+c@{tasks.\+c}!tsk\+R\+E\+A\+D\+Y\+\_\+\+C\+H\+AR@{tsk\+R\+E\+A\+D\+Y\+\_\+\+C\+H\+AR}}
+\index{tsk\+R\+E\+A\+D\+Y\+\_\+\+C\+H\+AR@{tsk\+R\+E\+A\+D\+Y\+\_\+\+C\+H\+AR}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+R\+E\+A\+D\+Y\+\_\+\+C\+H\+AR}{tskREADY_CHAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+R\+E\+A\+D\+Y\+\_\+\+C\+H\+AR~( \textquotesingle{}R\textquotesingle{} )}\hypertarget{tasks_8c_a2fd6c7a58ad28dd1f2c1e322b1ab3fcb}{}\label{tasks_8c_a2fd6c7a58ad28dd1f2c1e322b1ab3fcb}
+\index{tasks.\+c@{tasks.\+c}!tsk\+S\+T\+A\+C\+K\+\_\+\+F\+I\+L\+L\+\_\+\+B\+Y\+TE@{tsk\+S\+T\+A\+C\+K\+\_\+\+F\+I\+L\+L\+\_\+\+B\+Y\+TE}}
+\index{tsk\+S\+T\+A\+C\+K\+\_\+\+F\+I\+L\+L\+\_\+\+B\+Y\+TE@{tsk\+S\+T\+A\+C\+K\+\_\+\+F\+I\+L\+L\+\_\+\+B\+Y\+TE}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+S\+T\+A\+C\+K\+\_\+\+F\+I\+L\+L\+\_\+\+B\+Y\+TE}{tskSTACK_FILL_BYTE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+S\+T\+A\+C\+K\+\_\+\+F\+I\+L\+L\+\_\+\+B\+Y\+TE~( 0xa5\+U )}\hypertarget{tasks_8c_ad3b1c99066f14855be098ccca1685fac}{}\label{tasks_8c_ad3b1c99066f14855be098ccca1685fac}
+\index{tasks.\+c@{tasks.\+c}!tsk\+S\+T\+A\+T\+I\+C\+\_\+\+A\+N\+D\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+P\+O\+S\+S\+I\+B\+LE@{tsk\+S\+T\+A\+T\+I\+C\+\_\+\+A\+N\+D\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+P\+O\+S\+S\+I\+B\+LE}}
+\index{tsk\+S\+T\+A\+T\+I\+C\+\_\+\+A\+N\+D\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+P\+O\+S\+S\+I\+B\+LE@{tsk\+S\+T\+A\+T\+I\+C\+\_\+\+A\+N\+D\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+P\+O\+S\+S\+I\+B\+LE}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+S\+T\+A\+T\+I\+C\+\_\+\+A\+N\+D\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+P\+O\+S\+S\+I\+B\+LE}{tskSTATIC_AND_DYNAMIC_ALLOCATION_POSSIBLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+S\+T\+A\+T\+I\+C\+\_\+\+A\+N\+D\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+P\+O\+S\+S\+I\+B\+LE~( ( ( {\bf config\+S\+U\+P\+P\+O\+R\+T\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+ON} == 1 ) \&\& ( {\bf config\+S\+U\+P\+P\+O\+R\+T\+\_\+\+D\+Y\+N\+A\+M\+I\+C\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+ON} == 1 ) ) $\vert$$\vert$ ( {\bf port\+U\+S\+I\+N\+G\+\_\+\+M\+P\+U\+\_\+\+W\+R\+A\+P\+P\+E\+RS} == 1 ) )}\hypertarget{tasks_8c_a8a6c91b47e762e6302765caf6533d9e9}{}\label{tasks_8c_a8a6c91b47e762e6302765caf6533d9e9}
+\index{tasks.\+c@{tasks.\+c}!tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB@{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}}
+\index{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB@{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB}{tskSTATICALLY_ALLOCATED_STACK_AND_TCB}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+A\+N\+D\+\_\+\+T\+CB~( ( uint8\+\_\+t ) 2 )}\hypertarget{tasks_8c_a9851e50775136d536fed623e1ac598aa}{}\label{tasks_8c_a9851e50775136d536fed623e1ac598aa}
+\index{tasks.\+c@{tasks.\+c}!tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+N\+LY@{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+N\+LY}}
+\index{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+N\+LY@{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+N\+LY}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+N\+LY}{tskSTATICALLY_ALLOCATED_STACK_ONLY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+S\+T\+A\+T\+I\+C\+A\+L\+L\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+E\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+N\+LY~( ( uint8\+\_\+t ) 1 )}\hypertarget{tasks_8c_ad65be2320d426aca4e0e72d29ccd04de}{}\label{tasks_8c_ad65be2320d426aca4e0e72d29ccd04de}
+\index{tasks.\+c@{tasks.\+c}!tsk\+S\+U\+S\+P\+E\+N\+D\+E\+D\+\_\+\+C\+H\+AR@{tsk\+S\+U\+S\+P\+E\+N\+D\+E\+D\+\_\+\+C\+H\+AR}}
+\index{tsk\+S\+U\+S\+P\+E\+N\+D\+E\+D\+\_\+\+C\+H\+AR@{tsk\+S\+U\+S\+P\+E\+N\+D\+E\+D\+\_\+\+C\+H\+AR}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+S\+U\+S\+P\+E\+N\+D\+E\+D\+\_\+\+C\+H\+AR}{tskSUSPENDED_CHAR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define tsk\+S\+U\+S\+P\+E\+N\+D\+E\+D\+\_\+\+C\+H\+AR~( \textquotesingle{}S\textquotesingle{} )}\hypertarget{tasks_8c_a3613b4b66406c8f6cc73e5c3e9f208db}{}\label{tasks_8c_a3613b4b66406c8f6cc73e5c3e9f208db}
+
+
+\subsection{Typedef Documentation}
+\index{tasks.\+c@{tasks.\+c}!T\+C\+B\+\_\+t@{T\+C\+B\+\_\+t}}
+\index{T\+C\+B\+\_\+t@{T\+C\+B\+\_\+t}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{T\+C\+B\+\_\+t}{TCB_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf tsk\+T\+CB} {\bf T\+C\+B\+\_\+t}}\hypertarget{tasks_8c_aa3c2dda92a6dc22860bbdb36e42a0453}{}\label{tasks_8c_aa3c2dda92a6dc22860bbdb36e42a0453}
+\index{tasks.\+c@{tasks.\+c}!tsk\+T\+CB@{tsk\+T\+CB}}
+\index{tsk\+T\+CB@{tsk\+T\+CB}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{tsk\+T\+CB}{tskTCB}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf tsk\+Task\+Control\+Block}  {\bf tsk\+T\+CB}}\hypertarget{tasks_8c_a1e66c51944fbc63a4c7682217174b241}{}\label{tasks_8c_a1e66c51944fbc63a4c7682217174b241}
+
+
+\subsection{Function Documentation}
+\index{tasks.\+c@{tasks.\+c}!pc\+Task\+Get\+Name@{pc\+Task\+Get\+Name}}
+\index{pc\+Task\+Get\+Name@{pc\+Task\+Get\+Name}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{pc\+Task\+Get\+Name(\+Task\+Handle\+\_\+t x\+Task\+To\+Query)}{pcTaskGetName(TaskHandle_t xTaskToQuery)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ pc\+Task\+Get\+Name (
+\begin{DoxyParamCaption}
+\item[{{\bf Task\+Handle\+\_\+t}}]{x\+Task\+To\+Query}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a2ee63040e19e7c0cd7dbd070b8e1bca5}{}\label{tasks_8c_a2ee63040e19e7c0cd7dbd070b8e1bca5}
+\index{tasks.\+c@{tasks.\+c}!ux\+Task\+Get\+Number\+Of\+Tasks@{ux\+Task\+Get\+Number\+Of\+Tasks}}
+\index{ux\+Task\+Get\+Number\+Of\+Tasks@{ux\+Task\+Get\+Number\+Of\+Tasks}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{ux\+Task\+Get\+Number\+Of\+Tasks(void)}{uxTaskGetNumberOfTasks(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\+Base\+Type\+\_\+t} ux\+Task\+Get\+Number\+Of\+Tasks (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a4b660446c721df74158dddb9fc189c1e}{}\label{tasks_8c_a4b660446c721df74158dddb9fc189c1e}
+\index{tasks.\+c@{tasks.\+c}!ux\+Task\+Get\+System\+State@{ux\+Task\+Get\+System\+State}}
+\index{ux\+Task\+Get\+System\+State@{ux\+Task\+Get\+System\+State}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{ux\+Task\+Get\+System\+State(\+Task\+Status\+\_\+t $\ast$const px\+Task\+Status\+Array, const U\+Base\+Type\+\_\+t ux\+Array\+Size, uint32\+\_\+t $\ast$const pul\+Total\+Run\+Time)}{uxTaskGetSystemState(TaskStatus_t *const pxTaskStatusArray, const UBaseType_t uxArraySize, uint32_t *const pulTotalRunTime)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\+Base\+Type\+\_\+t} ux\+Task\+Get\+System\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Task\+Status\+\_\+t} $\ast$const}]{px\+Task\+Status\+Array, }
+\item[{const {\bf U\+Base\+Type\+\_\+t}}]{ux\+Array\+Size, }
+\item[{uint32\+\_\+t $\ast$const}]{pul\+Total\+Run\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a5bd92b080086390cae790e5bd74bd018}{}\label{tasks_8c_a5bd92b080086390cae790e5bd74bd018}
+config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY must be defined as 1 in \hyperlink{FreeRTOSConfig_8h}{Free\+R\+T\+O\+S\+Config.\+h} for \hyperlink{task_8h_aa4603f3de3d809e9beb18d10fbac005d}{ux\+Task\+Get\+System\+State()} to be available.
+
+\hyperlink{task_8h_aa4603f3de3d809e9beb18d10fbac005d}{ux\+Task\+Get\+System\+State()} populates an Task\+Status\+\_\+t structure for each task in the system. Task\+Status\+\_\+t structures contain, among other things, members for the task handle, task name, task priority, task state, and total amount of run time consumed by the task. See the Task\+Status\+\_\+t structure definition in this file for the full member list.
+
+N\+O\+TE\+: This function is intended for debugging use only as its use results in the scheduler remaining suspended for an extended period.
+
+
+\begin{DoxyParams}{Parameters}
+{\em px\+Task\+Status\+Array} & A pointer to an array of Task\+Status\+\_\+t structures. The array must contain at least one Task\+Status\+\_\+t structure for each task that is under the control of the R\+T\+OS. The number of tasks under the control of the R\+T\+OS can be determined using the \hyperlink{task_8h_a70a89a0f07c7db5d695707d1f6f44a4a}{ux\+Task\+Get\+Number\+Of\+Tasks()} A\+PI function.\\
+\hline
+{\em ux\+Array\+Size} & The size of the array pointed to by the px\+Task\+Status\+Array parameter. The size is specified as the number of indexes in the array, or the number of Task\+Status\+\_\+t structures contained in the array, not by the number of bytes in the array.\\
+\hline
+{\em pul\+Total\+Run\+Time} & If config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS is set to 1 in \hyperlink{FreeRTOSConfig_8h}{Free\+R\+T\+O\+S\+Config.\+h} then $\ast$pul\+Total\+Run\+Time is set by \hyperlink{task_8h_aa4603f3de3d809e9beb18d10fbac005d}{ux\+Task\+Get\+System\+State()} to the total run time (as defined by the run time stats clock, see \href{http://www.freertos.org/rtos-run-time-stats.html}{\tt http\+://www.\+freertos.\+org/rtos-\/run-\/time-\/stats.\+html}) since the target booted. pul\+Total\+Run\+Time can be set to N\+U\+LL to omit the total run time information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of Task\+Status\+\_\+t structures that were populated by \hyperlink{task_8h_aa4603f3de3d809e9beb18d10fbac005d}{ux\+Task\+Get\+System\+State()}. This should equal the number returned by the \hyperlink{task_8h_a70a89a0f07c7db5d695707d1f6f44a4a}{ux\+Task\+Get\+Number\+Of\+Tasks()} A\+PI function, but will be zero if the value passed in the ux\+Array\+Size parameter was too small.
+\end{DoxyReturn}
+Example usage\+: 
+\begin{DoxyPre}
+ // This example demonstrates how a human readable table of run time stats
+ // information is generated from raw data provided by \hyperlink{task_8h_aa4603f3de3d809e9beb18d10fbac005d}{uxTaskGetSystemState()}.
+ // The human readable table is written to pcWriteBuffer
+ void \hyperlink{task_8h_a52da9b427041a48dc9f6802e10f151d4}{vTaskGetRunTimeStats( char *pcWriteBuffer )}
+ \{
+ TaskStatus\_t *pxTaskStatusArray;
+ volatile UBaseType\_t uxArraySize, x;
+ uint32\_t ulTotalRunTime, ulStatsAsPercentage;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    // Make sure the write buffer does not contain a string.
+    *pcWriteBuffer = 0x00;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    // Take a snapshot of the number of tasks in case it changes while this
+    // function is executing.
+    uxArraySize = \hyperlink{task_8h_a70a89a0f07c7db5d695707d1f6f44a4a}{uxTaskGetNumberOfTasks()};\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    // Allocate a TaskStatus\_t structure for each task.  An array could be
+    // allocated statically at compile time.
+    pxTaskStatusArray = pvPortMalloc( uxArraySize * sizeof( TaskStatus\_t ) );\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    if( pxTaskStatusArray != NULL )
+    \{
+        // Generate raw status information about each task.
+        uxArraySize = uxTaskGetSystemState( pxTaskStatusArray, uxArraySize, &ulTotalRunTime );\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        // For percentage calculations.
+        ulTotalRunTime /= 100UL;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        // Avoid divide by zero errors.
+        if( ulTotalRunTime > 0 )
+        \{
+            // For each populated position in the pxTaskStatusArray array,
+            // format the raw data as human readable ASCII data
+            for( x = 0; x < uxArraySize; x++ )
+            \{
+                // What percentage of the total run time has the task used?
+                // This will always be rounded down to the nearest integer.
+                // ulTotalRunTimeDiv100 has already been divided by 100.
+                ulStatsAsPercentage = pxTaskStatusArray[ x ].ulRunTimeCounter / ulTotalRunTime;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}                if( ulStatsAsPercentage > 0UL )
+                \{
+                    sprintf( pcWriteBuffer, "%s\(\backslash\)t\(\backslash\)t%lu\(\backslash\)t\(\backslash\)t%lu%%\(\backslash\)r\(\backslash\)n", pxTaskStatusArray[ x ].pcTaskName, pxTaskStatusArray[ x ].ulRunTimeCounter, ulStatsAsPercentage );
+                \}
+                else
+                \{
+                    // If the percentage is zero here then the task has
+                    // consumed less than 1\% of the total run time.
+                    sprintf( pcWriteBuffer, "%s\(\backslash\)t\(\backslash\)t%lu\(\backslash\)t\(\backslash\)t<1%%\(\backslash\)r\(\backslash\)n", pxTaskStatusArray[ x ].pcTaskName, pxTaskStatusArray[ x ].ulRunTimeCounter );
+                \}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}                pcWriteBuffer += strlen( ( char * ) pcWriteBuffer );
+            \}
+        \}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        // The array is no longer needed, free the memory it consumes.
+        vPortFree( pxTaskStatusArray );
+    \}
+ \}
+ \end{DoxyPre}
+ \index{tasks.\+c@{tasks.\+c}!ux\+Task\+Reset\+Event\+Item\+Value@{ux\+Task\+Reset\+Event\+Item\+Value}}
+\index{ux\+Task\+Reset\+Event\+Item\+Value@{ux\+Task\+Reset\+Event\+Item\+Value}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{ux\+Task\+Reset\+Event\+Item\+Value(void)}{uxTaskResetEventItemValue(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tick\+Type\+\_\+t} ux\+Task\+Reset\+Event\+Item\+Value (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a7ffe39eff8b9037b2de04f15a10ba717}{}\label{tasks_8c_a7ffe39eff8b9037b2de04f15a10ba717}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+End\+Scheduler@{v\+Task\+End\+Scheduler}}
+\index{v\+Task\+End\+Scheduler@{v\+Task\+End\+Scheduler}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+End\+Scheduler(void)}{vTaskEndScheduler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+End\+Scheduler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_aeadc53d3d0d0ea3a6c7702a9eacbf452}{}\label{tasks_8c_aeadc53d3d0d0ea3a6c7702a9eacbf452}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Get\+Info@{v\+Task\+Get\+Info}}
+\index{v\+Task\+Get\+Info@{v\+Task\+Get\+Info}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Get\+Info(\+Task\+Handle\+\_\+t x\+Task, Task\+Status\+\_\+t $\ast$px\+Task\+Status, Base\+Type\+\_\+t x\+Get\+Free\+Stack\+Space, e\+Task\+State e\+State)}{vTaskGetInfo(TaskHandle_t xTask, TaskStatus_t *pxTaskStatus, BaseType_t xGetFreeStackSpace, eTaskState eState)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Get\+Info (
+\begin{DoxyParamCaption}
+\item[{{\bf Task\+Handle\+\_\+t}}]{x\+Task, }
+\item[{{\bf Task\+Status\+\_\+t} $\ast$}]{px\+Task\+Status, }
+\item[{{\bf Base\+Type\+\_\+t}}]{x\+Get\+Free\+Stack\+Space, }
+\item[{{\bf e\+Task\+State}}]{e\+State}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a24b033eee266bdc8c3de63171a543f65}{}\label{tasks_8c_a24b033eee266bdc8c3de63171a543f65}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Missed\+Yield@{v\+Task\+Missed\+Yield}}
+\index{v\+Task\+Missed\+Yield@{v\+Task\+Missed\+Yield}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Missed\+Yield(void)}{vTaskMissedYield(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Missed\+Yield (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a33c369f5f08ab96659f94093fdb985af}{}\label{tasks_8c_a33c369f5f08ab96659f94093fdb985af}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Place\+On\+Event\+List@{v\+Task\+Place\+On\+Event\+List}}
+\index{v\+Task\+Place\+On\+Event\+List@{v\+Task\+Place\+On\+Event\+List}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Place\+On\+Event\+List(\+List\+\_\+t $\ast$const px\+Event\+List, const Tick\+Type\+\_\+t x\+Ticks\+To\+Wait)}{vTaskPlaceOnEventList(List_t *const pxEventList, const TickType_t xTicksToWait)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Place\+On\+Event\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf List\+\_\+t} $\ast$const}]{px\+Event\+List, }
+\item[{const {\bf Tick\+Type\+\_\+t}}]{x\+Ticks\+To\+Wait}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_adc9eb47ceecf7dd7ee325bebff9eafc5}{}\label{tasks_8c_adc9eb47ceecf7dd7ee325bebff9eafc5}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Place\+On\+Unordered\+Event\+List@{v\+Task\+Place\+On\+Unordered\+Event\+List}}
+\index{v\+Task\+Place\+On\+Unordered\+Event\+List@{v\+Task\+Place\+On\+Unordered\+Event\+List}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Place\+On\+Unordered\+Event\+List(\+List\+\_\+t $\ast$px\+Event\+List, const Tick\+Type\+\_\+t x\+Item\+Value, const Tick\+Type\+\_\+t x\+Ticks\+To\+Wait)}{vTaskPlaceOnUnorderedEventList(List_t *pxEventList, const TickType_t xItemValue, const TickType_t xTicksToWait)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Place\+On\+Unordered\+Event\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf List\+\_\+t} $\ast$}]{px\+Event\+List, }
+\item[{const {\bf Tick\+Type\+\_\+t}}]{x\+Item\+Value, }
+\item[{const {\bf Tick\+Type\+\_\+t}}]{x\+Ticks\+To\+Wait}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a0896d9cd10d789ef8dbb95c4959c3ce5}{}\label{tasks_8c_a0896d9cd10d789ef8dbb95c4959c3ce5}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Priority\+Set@{v\+Task\+Priority\+Set}}
+\index{v\+Task\+Priority\+Set@{v\+Task\+Priority\+Set}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Priority\+Set(\+Task\+Handle\+\_\+t x\+Task, U\+Base\+Type\+\_\+t ux\+New\+Priority)}{vTaskPrioritySet(TaskHandle_t xTask, UBaseType_t uxNewPriority)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Priority\+Set (
+\begin{DoxyParamCaption}
+\item[{{\bf Task\+Handle\+\_\+t}}]{x\+Task, }
+\item[{{\bf U\+Base\+Type\+\_\+t}}]{ux\+New\+Priority}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a364e424f7bf8efced5738f44803f6580}{}\label{tasks_8c_a364e424f7bf8efced5738f44803f6580}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Set\+Time\+Out\+State@{v\+Task\+Set\+Time\+Out\+State}}
+\index{v\+Task\+Set\+Time\+Out\+State@{v\+Task\+Set\+Time\+Out\+State}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Set\+Time\+Out\+State(\+Time\+Out\+\_\+t $\ast$const px\+Time\+Out)}{vTaskSetTimeOutState(TimeOut_t *const pxTimeOut)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Set\+Time\+Out\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\+Out\+\_\+t} $\ast$const}]{px\+Time\+Out}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a5dfb2b9e41fb002318d9c55452a91c83}{}\label{tasks_8c_a5dfb2b9e41fb002318d9c55452a91c83}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Start\+Scheduler@{v\+Task\+Start\+Scheduler}}
+\index{v\+Task\+Start\+Scheduler@{v\+Task\+Start\+Scheduler}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Start\+Scheduler(void)}{vTaskStartScheduler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Start\+Scheduler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a598661cdd2a6af95a077245d11e3d142}{}\label{tasks_8c_a598661cdd2a6af95a077245d11e3d142}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Suspend\+All@{v\+Task\+Suspend\+All}}
+\index{v\+Task\+Suspend\+All@{v\+Task\+Suspend\+All}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Suspend\+All(void)}{vTaskSuspendAll(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Suspend\+All (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a084d232640bd1d04bcac0b8784417015}{}\label{tasks_8c_a084d232640bd1d04bcac0b8784417015}
+\index{tasks.\+c@{tasks.\+c}!v\+Task\+Switch\+Context@{v\+Task\+Switch\+Context}}
+\index{v\+Task\+Switch\+Context@{v\+Task\+Switch\+Context}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{v\+Task\+Switch\+Context(void)}{vTaskSwitchContext(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void v\+Task\+Switch\+Context (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a9c86137bc3c1cbffc39fff22627cb885}{}\label{tasks_8c_a9c86137bc3c1cbffc39fff22627cb885}
+\index{tasks.\+c@{tasks.\+c}!x\+Task\+Check\+For\+Time\+Out@{x\+Task\+Check\+For\+Time\+Out}}
+\index{x\+Task\+Check\+For\+Time\+Out@{x\+Task\+Check\+For\+Time\+Out}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{x\+Task\+Check\+For\+Time\+Out(\+Time\+Out\+\_\+t $\ast$const px\+Time\+Out, Tick\+Type\+\_\+t $\ast$const px\+Ticks\+To\+Wait)}{xTaskCheckForTimeOut(TimeOut_t *const pxTimeOut, TickType_t *const pxTicksToWait)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Task\+Check\+For\+Time\+Out (
+\begin{DoxyParamCaption}
+\item[{{\bf Time\+Out\+\_\+t} $\ast$const}]{px\+Time\+Out, }
+\item[{{\bf Tick\+Type\+\_\+t} $\ast$const}]{px\+Ticks\+To\+Wait}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_acfc8de487c86355713d0e8546506d9e4}{}\label{tasks_8c_acfc8de487c86355713d0e8546506d9e4}
+\index{tasks.\+c@{tasks.\+c}!x\+Task\+Get\+Tick\+Count@{x\+Task\+Get\+Tick\+Count}}
+\index{x\+Task\+Get\+Tick\+Count@{x\+Task\+Get\+Tick\+Count}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{x\+Task\+Get\+Tick\+Count(void)}{xTaskGetTickCount(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tick\+Type\+\_\+t} x\+Task\+Get\+Tick\+Count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a5fa24e36d5e1eeb57f5b73b72ea048e7}{}\label{tasks_8c_a5fa24e36d5e1eeb57f5b73b72ea048e7}
+\index{tasks.\+c@{tasks.\+c}!x\+Task\+Get\+Tick\+Count\+From\+I\+SR@{x\+Task\+Get\+Tick\+Count\+From\+I\+SR}}
+\index{x\+Task\+Get\+Tick\+Count\+From\+I\+SR@{x\+Task\+Get\+Tick\+Count\+From\+I\+SR}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{x\+Task\+Get\+Tick\+Count\+From\+I\+S\+R(void)}{xTaskGetTickCountFromISR(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tick\+Type\+\_\+t} x\+Task\+Get\+Tick\+Count\+From\+I\+SR (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_ad58fd766b8f438b5703276f585738762}{}\label{tasks_8c_ad58fd766b8f438b5703276f585738762}
+\index{tasks.\+c@{tasks.\+c}!x\+Task\+Increment\+Tick@{x\+Task\+Increment\+Tick}}
+\index{x\+Task\+Increment\+Tick@{x\+Task\+Increment\+Tick}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{x\+Task\+Increment\+Tick(void)}{xTaskIncrementTick(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Task\+Increment\+Tick (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a54f31e9aef0eb7b87e48c7d68ecc84c1}{}\label{tasks_8c_a54f31e9aef0eb7b87e48c7d68ecc84c1}
+\index{tasks.\+c@{tasks.\+c}!x\+Task\+Remove\+From\+Event\+List@{x\+Task\+Remove\+From\+Event\+List}}
+\index{x\+Task\+Remove\+From\+Event\+List@{x\+Task\+Remove\+From\+Event\+List}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{x\+Task\+Remove\+From\+Event\+List(const List\+\_\+t $\ast$const px\+Event\+List)}{xTaskRemoveFromEventList(const List_t *const pxEventList)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Task\+Remove\+From\+Event\+List (
+\begin{DoxyParamCaption}
+\item[{const {\bf List\+\_\+t} $\ast$const}]{px\+Event\+List}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_a6d21c9054b62d8bc1bfb2724e11578d9}{}\label{tasks_8c_a6d21c9054b62d8bc1bfb2724e11578d9}
+\index{tasks.\+c@{tasks.\+c}!x\+Task\+Remove\+From\+Unordered\+Event\+List@{x\+Task\+Remove\+From\+Unordered\+Event\+List}}
+\index{x\+Task\+Remove\+From\+Unordered\+Event\+List@{x\+Task\+Remove\+From\+Unordered\+Event\+List}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{x\+Task\+Remove\+From\+Unordered\+Event\+List(\+List\+Item\+\_\+t $\ast$px\+Event\+List\+Item, const Tick\+Type\+\_\+t x\+Item\+Value)}{xTaskRemoveFromUnorderedEventList(ListItem_t *pxEventListItem, const TickType_t xItemValue)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Task\+Remove\+From\+Unordered\+Event\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf List\+Item\+\_\+t} $\ast$}]{px\+Event\+List\+Item, }
+\item[{const {\bf Tick\+Type\+\_\+t}}]{x\+Item\+Value}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_aa3405f598b765ea7519d6136e2073e46}{}\label{tasks_8c_aa3405f598b765ea7519d6136e2073e46}
+\index{tasks.\+c@{tasks.\+c}!x\+Task\+Resume\+All@{x\+Task\+Resume\+All}}
+\index{x\+Task\+Resume\+All@{x\+Task\+Resume\+All}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{x\+Task\+Resume\+All(void)}{xTaskResumeAll(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\+Type\+\_\+t} x\+Task\+Resume\+All (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{tasks_8c_adf830ea0f150fcdfdaa944667137f080}{}\label{tasks_8c_adf830ea0f150fcdfdaa944667137f080}
+
+
+\subsection{Variable Documentation}
+\index{tasks.\+c@{tasks.\+c}!px\+Current\+T\+CB@{px\+Current\+T\+CB}}
+\index{px\+Current\+T\+CB@{px\+Current\+T\+CB}!tasks.\+c@{tasks.\+c}}
+\subsubsection[{\texorpdfstring{px\+Current\+T\+CB}{pxCurrentTCB}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+I\+L\+E\+G\+E\+D\+\_\+\+D\+A\+TA} {\bf T\+C\+B\+\_\+t}$\ast$ volatile px\+Current\+T\+CB = N\+U\+LL}\hypertarget{tasks_8c_acdecf2afe97343aba42b111bc6df9eea}{}\label{tasks_8c_acdecf2afe97343aba42b111bc6df9eea}

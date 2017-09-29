@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['xdummy1',['xDummy1',['../d3/d07/structxSTATIC__LIST__ITEM.html#abdb8e415f1bcfbba19fbf57d8d4e9438',1,'xSTATIC_LIST_ITEM::xDummy1()'],['../d3/d02/structxSTATIC__MINI__LIST__ITEM.html#a43efd282907e8243bca29338d55dbefa',1,'xSTATIC_MINI_LIST_ITEM::xDummy1()'],['../d5/dae/structxSTATIC__EVENT__GROUP.html#a4ed0094f715dd8f79a354f42fd973fc6',1,'xSTATIC_EVENT_GROUP::xDummy1()']]],
+  ['xdummy2',['xDummy2',['../d5/dae/structxSTATIC__EVENT__GROUP.html#a17d070c972ecd0151d7505a539653551',1,'xSTATIC_EVENT_GROUP::xDummy2()'],['../d9/d77/structxSTATIC__TIMER.html#a622e2e596e5829c9197bb44b9009474f',1,'xSTATIC_TIMER::xDummy2()']]],
+  ['xdummy3',['xDummy3',['../d3/d21/structxSTATIC__LIST.html#a232545ebb5629617e0ee6ba286e37788',1,'xSTATIC_LIST::xDummy3()'],['../d7/d29/structxSTATIC__TCB.html#a7f182aa8f5003494f63d975dabcb3ec1',1,'xSTATIC_TCB::xDummy3()'],['../d2/dd3/structxSTATIC__QUEUE.html#add0de93e08b632124122850bcd543597',1,'xSTATIC_QUEUE::xDummy3()'],['../d9/d77/structxSTATIC__TIMER.html#a60d582d1d0b5b9b15e8050d5ae29bc30',1,'xSTATIC_TIMER::xDummy3()']]],
+  ['xeventlistitem',['xEventListItem',['../da/d35/structcorCoRoutineControlBlock.html#a105d316da0069f766acc3b210afed1b9',1,'corCoRoutineControlBlock::xEventListItem()'],['../d3/d7e/structtskTaskControlBlock.html#a1a1612b6081a13683808284d93a9b28f',1,'tskTaskControlBlock::xEventListItem()']]],
+  ['xgenericlistitem',['xGenericListItem',['../da/d35/structcorCoRoutineControlBlock.html#aa2900494db8782eeb8ef12d482501406',1,'corCoRoutineControlBlock']]],
+  ['xhandle',['xHandle',['../d1/d79/structxTASK__STATUS.html#ac57f825f365c3c64bba827285fe3c2a0',1,'xTASK_STATUS']]],
+  ['xitemvalue',['xItemValue',['../d1/d58/structxLIST__ITEM.html#a9b1f26de79f9da1403ca3ebc7a2e653a',1,'xLIST_ITEM::xItemValue()'],['../da/d58/structxMINI__LIST__ITEM.html#aae79c54ac1efa30959e68604cc23b29e',1,'xMINI_LIST_ITEM::xItemValue()']]],
+  ['xlistend',['xListEnd',['../d3/d26/structxLIST.html#a49ad62fa153126e27e273811167b336a',1,'xLIST']]],
+  ['xoverflowcount',['xOverflowCount',['../db/dec/structxTIME__OUT.html#a9289c6f97096a9b3e3fc705d0bc5a160',1,'xTIME_OUT']]],
+  ['xregions',['xRegions',['../dd/d9e/structxTASK__PARAMETERS.html#ae8b97c6b7a344bf09b066b0844844d66',1,'xTASK_PARAMETERS']]],
+  ['xsizeinbytes',['xSizeInBytes',['../d1/dfa/structHeapRegion.html#a5933b0fd422e70a92ceef839b89a757f',1,'HeapRegion']]],
+  ['xstatelistitem',['xStateListItem',['../d3/d7e/structtskTaskControlBlock.html#a16e0d20425d53ac78537e1fdb8834cf6',1,'tskTaskControlBlock']]],
+  ['xtasknumber',['xTaskNumber',['../d1/d79/structxTASK__STATUS.html#acd44468ba37270b04f83d0833c098057',1,'xTASK_STATUS']]],
+  ['xtaskswaitingforbits',['xTasksWaitingForBits',['../dc/d91/structxEventGroupDefinition.html#a6570ba98d93dcba9cb03de0c62df9044',1,'xEventGroupDefinition']]],
+  ['xtaskswaitingtoreceive',['xTasksWaitingToReceive',['../de/d95/structQueueDefinition.html#af6d61526f77beee659cd604a0c473359',1,'QueueDefinition']]],
+  ['xtaskswaitingtosend',['xTasksWaitingToSend',['../de/d95/structQueueDefinition.html#aaab135c4345cb0393d6ff3cd5164c7b2',1,'QueueDefinition']]],
+  ['xtimeonentering',['xTimeOnEntering',['../db/dec/structxTIME__OUT.html#a3464939ca050f7bcc6ffe0d8d3766337',1,'xTIME_OUT']]]
+];

@@ -1,0 +1,194 @@
+\hypertarget{newlib__syscalls_8c}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/newlib/newlib\+\_\+syscalls.c File Reference}
+\label{newlib__syscalls_8c}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/newlib/newlib\+\_\+syscalls.\+c@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/newlib/newlib\+\_\+syscalls.\+c}}
+{\ttfamily \#include $<$stddef.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$\+\_\+ansi.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$sys/times.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$sys/wait.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$reent.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ff.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}uart0\+\_\+min.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+Include dependency graph for newlib\+\_\+syscalls.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d41/newlib__syscalls_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{newlib__syscalls_8c_ac2c574edab982e9b4260ab16355fb2b5}{sys\+\_\+set\+\_\+outchar\+\_\+func} (\hyperlink{lpc__sys_8h_a9e3c0b56d28ef99547782120d0eb112c}{char\+\_\+func\+\_\+t} func)
+\item 
+void \hyperlink{newlib__syscalls_8c_ae3258dbfe0b56946a7f1fda103ef58e6}{sys\+\_\+set\+\_\+inchar\+\_\+func} (\hyperlink{lpc__sys_8h_a9e3c0b56d28ef99547782120d0eb112c}{char\+\_\+func\+\_\+t} func)
+\item 
+int \hyperlink{newlib__syscalls_8c_a6fa862a2b09a8592dd2ee4bb2ef12239}{\+\_\+kill} (int pid \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}((unused)), int sig \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}((unused)))
+\item 
+void \hyperlink{newlib__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}{\+\_\+exit} (int status)
+\item 
+int \hyperlink{newlib__syscalls_8c_ad6106992a9fd68f166d2fe749d457d50}{\+\_\+getpid} (int n)
+\item 
+int \hyperlink{newlib__syscalls_8c_a7e3b5f574f940183146a67a1af05db10}{\+\_\+init} (void)
+\item 
+int \hyperlink{newlib__syscalls_8c_a73756a3a32b163ca5c38af57c1ed7ce5}{\+\_\+write} (int fd, const char $\ast$ptr, int \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len})
+\item 
+int \hyperlink{newlib__syscalls_8c_ab60e5acd5530805f1421802fc0dc1d35}{\+\_\+read} (int fd, char $\ast$ptr, int \hyperlink{startup_8cpp_a77124bd5f7e31e6fffc19f335da0c23f}{len})
+\item 
+void \hyperlink{newlib__syscalls_8c_a396d05aca3b3ba80e38d0516e602013b}{syscalls\+\_\+init} (void)
+\item 
+int \hyperlink{newlib__syscalls_8c_a9a75725502093fdf895b24551414975e}{\+\_\+fstat} (int fd \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}((unused)), struct stat $\ast$st \hyperlink{struct____attribute____}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}((unused)))
+\item 
+int \hyperlink{newlib__syscalls_8c_aa606ef3235786a9660fa38ff69aea092}{\+\_\+isatty} (int n)
+\item 
+int \hyperlink{newlib__syscalls_8c_a883d6c1f92ad3c6f19731e7b57b2c458}{\+\_\+lseek} (int fd, int ptr, int dir)
+\item 
+int \hyperlink{newlib__syscalls_8c_af1a89c2938e4fed229a4a54eb57a96bf}{\+\_\+open} (const char $\ast$path, int flags,...)
+\item 
+int \hyperlink{newlib__syscalls_8c_a58a559c63748012aab165d5f82af766d}{\+\_\+close} (int fd)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{newlib__syscalls_8c_a19df960d2907e9c08a720ae7683e632c}{\+\_\+\+\_\+dso\+\_\+handle} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+close@{\+\_\+close}}
+\index{\+\_\+close@{\+\_\+close}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+close(int fd)}{_close(int fd)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+close (
+\begin{DoxyParamCaption}
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_a58a559c63748012aab165d5f82af766d}{}\label{newlib__syscalls_8c_a58a559c63748012aab165d5f82af766d}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+exit@{\+\_\+exit}}
+\index{\+\_\+exit@{\+\_\+exit}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+exit(int status)}{_exit(int status)}}]{\setlength{\rightskip}{0pt plus 5cm}void \+\_\+exit (
+\begin{DoxyParamCaption}
+\item[{int}]{status}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}{}\label{newlib__syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+fstat@{\+\_\+fstat}}
+\index{\+\_\+fstat@{\+\_\+fstat}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+fstat(int fd \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)), struct stat $\ast$st \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)))}{_fstat(int fd __attribute__((unused)), struct stat *st __attribute__((unused)))}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+fstat (
+\begin{DoxyParamCaption}
+\item[{int fd }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused), }
+\item[{struct stat $\ast$st }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused)}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_a9a75725502093fdf895b24551414975e}{}\label{newlib__syscalls_8c_a9a75725502093fdf895b24551414975e}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+getpid@{\+\_\+getpid}}
+\index{\+\_\+getpid@{\+\_\+getpid}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+getpid(int n)}{_getpid(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+getpid (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_ad6106992a9fd68f166d2fe749d457d50}{}\label{newlib__syscalls_8c_ad6106992a9fd68f166d2fe749d457d50}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+init@{\+\_\+init}}
+\index{\+\_\+init@{\+\_\+init}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+init(void)}{_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_a7e3b5f574f940183146a67a1af05db10}{}\label{newlib__syscalls_8c_a7e3b5f574f940183146a67a1af05db10}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+isatty@{\+\_\+isatty}}
+\index{\+\_\+isatty@{\+\_\+isatty}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+isatty(int n)}{_isatty(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+isatty (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_aa606ef3235786a9660fa38ff69aea092}{}\label{newlib__syscalls_8c_aa606ef3235786a9660fa38ff69aea092}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+kill@{\+\_\+kill}}
+\index{\+\_\+kill@{\+\_\+kill}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+kill(int pid \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)), int sig \+\_\+\+\_\+attribute\+\_\+\+\_\+((unused)))}{_kill(int pid __attribute__((unused)), int sig __attribute__((unused)))}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+kill (
+\begin{DoxyParamCaption}
+\item[{int pid }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused), }
+\item[{int sig }]{\+\_\+\+\_\+attribute\+\_\+\+\_\+(unused)}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_a6fa862a2b09a8592dd2ee4bb2ef12239}{}\label{newlib__syscalls_8c_a6fa862a2b09a8592dd2ee4bb2ef12239}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+lseek@{\+\_\+lseek}}
+\index{\+\_\+lseek@{\+\_\+lseek}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+lseek(int fd, int ptr, int dir)}{_lseek(int fd, int ptr, int dir)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+lseek (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{ptr, }
+\item[{int}]{dir}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_a883d6c1f92ad3c6f19731e7b57b2c458}{}\label{newlib__syscalls_8c_a883d6c1f92ad3c6f19731e7b57b2c458}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+open@{\+\_\+open}}
+\index{\+\_\+open@{\+\_\+open}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+open(const char $\ast$path, int flags,...)}{_open(const char *path, int flags,...)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+open (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path, }
+\item[{int}]{flags, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_af1a89c2938e4fed229a4a54eb57a96bf}{}\label{newlib__syscalls_8c_af1a89c2938e4fed229a4a54eb57a96bf}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+read@{\+\_\+read}}
+\index{\+\_\+read@{\+\_\+read}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+read(int fd, char $\ast$ptr, int len)}{_read(int fd, char *ptr, int len)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+read (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{char $\ast$}]{ptr, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_ab60e5acd5530805f1421802fc0dc1d35}{}\label{newlib__syscalls_8c_ab60e5acd5530805f1421802fc0dc1d35}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+write@{\+\_\+write}}
+\index{\+\_\+write@{\+\_\+write}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+write(int fd, const char $\ast$ptr, int len)}{_write(int fd, const char *ptr, int len)}}]{\setlength{\rightskip}{0pt plus 5cm}int \+\_\+write (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{const char $\ast$}]{ptr, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_a73756a3a32b163ca5c38af57c1ed7ce5}{}\label{newlib__syscalls_8c_a73756a3a32b163ca5c38af57c1ed7ce5}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!sys\+\_\+set\+\_\+inchar\+\_\+func@{sys\+\_\+set\+\_\+inchar\+\_\+func}}
+\index{sys\+\_\+set\+\_\+inchar\+\_\+func@{sys\+\_\+set\+\_\+inchar\+\_\+func}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{sys\+\_\+set\+\_\+inchar\+\_\+func(char\+\_\+func\+\_\+t func)}{sys_set_inchar_func(char_func_t func)}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+set\+\_\+inchar\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+\_\+func\+\_\+t}}]{func}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_ae3258dbfe0b56946a7f1fda103ef58e6}{}\label{newlib__syscalls_8c_ae3258dbfe0b56946a7f1fda103ef58e6}
+Sets the function used to input a char by scanf() or stdio input functions 
+\begin{DoxyParams}{Parameters}
+{\em func} & The function pointer to use to get a char \\
+\hline
+\end{DoxyParams}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!sys\+\_\+set\+\_\+outchar\+\_\+func@{sys\+\_\+set\+\_\+outchar\+\_\+func}}
+\index{sys\+\_\+set\+\_\+outchar\+\_\+func@{sys\+\_\+set\+\_\+outchar\+\_\+func}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{sys\+\_\+set\+\_\+outchar\+\_\+func(char\+\_\+func\+\_\+t func)}{sys_set_outchar_func(char_func_t func)}}]{\setlength{\rightskip}{0pt plus 5cm}void sys\+\_\+set\+\_\+outchar\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+\_\+func\+\_\+t}}]{func}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_ac2c574edab982e9b4260ab16355fb2b5}{}\label{newlib__syscalls_8c_ac2c574edab982e9b4260ab16355fb2b5}
+Defined at syscalls.\+c Sets the function used to output a char by \hyperlink{trace_2readme_8txt_a44aa2eeca69a660d02109d54e99f2dc6}{printf()} or stdio output functions 
+\begin{DoxyParams}{Parameters}
+{\em func} & The function pointer to use to output a char \\
+\hline
+\end{DoxyParams}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!syscalls\+\_\+init@{syscalls\+\_\+init}}
+\index{syscalls\+\_\+init@{syscalls\+\_\+init}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{syscalls\+\_\+init(void)}{syscalls_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void syscalls\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{newlib__syscalls_8c_a396d05aca3b3ba80e38d0516e602013b}{}\label{newlib__syscalls_8c_a396d05aca3b3ba80e38d0516e602013b}
+
+
+\subsection{Variable Documentation}
+\index{newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}!\+\_\+\+\_\+dso\+\_\+handle@{\+\_\+\+\_\+dso\+\_\+handle}}
+\index{\+\_\+\+\_\+dso\+\_\+handle@{\+\_\+\+\_\+dso\+\_\+handle}!newlib\+\_\+syscalls.\+c@{newlib\+\_\+syscalls.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+dso\+\_\+handle}{__dso_handle}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \+\_\+\+\_\+dso\+\_\+handle = 0}\hypertarget{newlib__syscalls_8c_a19df960d2907e9c08a720ae7683e632c}{}\label{newlib__syscalls_8c_a19df960d2907e9c08a720ae7683e632c}

@@ -1,0 +1,148 @@
+\hypertarget{classStorage}{}\section{Storage Class Reference}
+\label{classStorage}\index{Storage@{Storage}}
+
+
+{\ttfamily \#include $<$storage.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classFileSystemObject}{File\+System\+Object} \& \hyperlink{classStorage_a8849735d4f29dfdaa85963910640a2fa}{get\+Flash\+Drive} ()
+\item 
+static \hyperlink{classFileSystemObject}{File\+System\+Object} \& \hyperlink{classStorage_a532c72157ee6a6327626094f874d1794}{get\+S\+D\+Drive} ()
+\item 
+static \hyperlink{ff_8h_a49d0171ecbd362cda5680a0d360db44c}{F\+R\+E\+S\+U\+LT} \hyperlink{classStorage_a0c07e0acbb42e8bca52f08096de5b2eb}{copy} (const char $\ast$p\+Existing\+File, const char $\ast$p\+New\+File, unsigned int $\ast$p\+Read\+Time=0, unsigned int $\ast$p\+Write\+Time=0, unsigned int $\ast$p\+Bytes\+Transferred=0)
+\item 
+static \hyperlink{ff_8h_a49d0171ecbd362cda5680a0d360db44c}{F\+R\+E\+S\+U\+LT} \hyperlink{classStorage_a775d91a943daa23474d6a32ebae1f429}{read} (const char $\ast$p\+Filename, void $\ast$p\+Data, unsigned int bytes\+To\+Read, unsigned int offset=0)
+\item 
+static \hyperlink{ff_8h_a49d0171ecbd362cda5680a0d360db44c}{F\+R\+E\+S\+U\+LT} \hyperlink{classStorage_a0194f1c6e14b23a759685a88c2e1bf0c}{write} (const char $\ast$p\+Filename, void $\ast$p\+Data, unsigned int bytes\+To\+Write, unsigned int offset=0)
+\item 
+static \hyperlink{ff_8h_a49d0171ecbd362cda5680a0d360db44c}{F\+R\+E\+S\+U\+LT} \hyperlink{classStorage_a1f87f7c58c929bede3987fb5cb664fcc}{append} (const char $\ast$p\+Filename, const void $\ast$p\+Data, unsigned int bytes\+To\+Append, unsigned int offset=0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classStorage}{Storage} class contains the File System Objects
+
+This class contains the File System Objects for the SD Card and S\+PI Flash. There are mainly two functionalities provided\+:
+\begin{DoxyItemize}
+\item File IO (Read/\+Write/\+Append)
+\item File System Object manipulation (Mount/\+Format etc).
+\end{DoxyItemize}
+
+The \hyperlink{classFileSystemObject}{File\+System\+Object} can only be obtained from this class that provides further access to the drive system. 
+
+\subsection{Member Function Documentation}
+\index{Storage@{Storage}!append@{append}}
+\index{append@{append}!Storage@{Storage}}
+\subsubsection[{\texorpdfstring{append(const char $\ast$p\+Filename, const void $\ast$p\+Data, unsigned int bytes\+To\+Append, unsigned int offset=0)}{append(const char *pFilename, const void *pData, unsigned int bytesToAppend, unsigned int offset=0)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+R\+E\+S\+U\+LT} Storage\+::append (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Filename, }
+\item[{const void $\ast$}]{p\+Data, }
+\item[{unsigned int}]{bytes\+To\+Append, }
+\item[{unsigned int}]{offset = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classStorage_a1f87f7c58c929bede3987fb5cb664fcc}{}\label{classStorage_a1f87f7c58c929bede3987fb5cb664fcc}
+Appends an existing file (creates a new file if it doesn\textquotesingle{}t exist) 
+\begin{DoxyParams}{Parameters}
+{\em p\+Filename} & The filename to append data to \\
+\hline
+{\em p\+Data} & The buffer to write the file data from \\
+\hline
+{\em bytes\+To\+Append} & Number of bytes to append \\
+\hline
+{\em offset} & If offset is non-\/zero, data is written to this offset. If offset is not specified or zero, data is appended at the end of the file. \\
+\hline
+\end{DoxyParams}
+\index{Storage@{Storage}!copy@{copy}}
+\index{copy@{copy}!Storage@{Storage}}
+\subsubsection[{\texorpdfstring{copy(const char $\ast$p\+Existing\+File, const char $\ast$p\+New\+File, unsigned int $\ast$p\+Read\+Time=0, unsigned int $\ast$p\+Write\+Time=0, unsigned int $\ast$p\+Bytes\+Transferred=0)}{copy(const char *pExistingFile, const char *pNewFile, unsigned int *pReadTime=0, unsigned int *pWriteTime=0, unsigned int *pBytesTransferred=0)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+R\+E\+S\+U\+LT} Storage\+::copy (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Existing\+File, }
+\item[{const char $\ast$}]{p\+New\+File, }
+\item[{unsigned int $\ast$}]{p\+Read\+Time = {\ttfamily 0}, }
+\item[{unsigned int $\ast$}]{p\+Write\+Time = {\ttfamily 0}, }
+\item[{unsigned int $\ast$}]{p\+Bytes\+Transferred = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classStorage_a0c07e0acbb42e8bca52f08096de5b2eb}{}\label{classStorage_a0c07e0acbb42e8bca52f08096de5b2eb}
+Copies a file 
+\begin{DoxyParams}{Parameters}
+{\em p\+Existing\+File} & Existing file name \\
+\hline
+{\em p\+New\+File} & New file name \\
+\hline
+{\em p\+Read\+Time} & Optional\+: Provide pointer to get the time taken to read the file \\
+\hline
+{\em p\+Write\+Time} & Optional\+: Provide pointer to get the time taken to write the file \\
+\hline
+{\em p\+Bytes\+Transferred} & Optional\+: Provide pointer to get number of bytes transferred \\
+\hline
+\end{DoxyParams}
+\index{Storage@{Storage}!get\+Flash\+Drive@{get\+Flash\+Drive}}
+\index{get\+Flash\+Drive@{get\+Flash\+Drive}!Storage@{Storage}}
+\subsubsection[{\texorpdfstring{get\+Flash\+Drive()}{getFlashDrive()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf File\+System\+Object}\& Storage\+::get\+Flash\+Drive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classStorage_a8849735d4f29dfdaa85963910640a2fa}{}\label{classStorage_a8849735d4f29dfdaa85963910640a2fa}
+\begin{DoxyReturn}{Returns}
+Single Flash Drive Object Reference 
+\end{DoxyReturn}
+\index{Storage@{Storage}!get\+S\+D\+Drive@{get\+S\+D\+Drive}}
+\index{get\+S\+D\+Drive@{get\+S\+D\+Drive}!Storage@{Storage}}
+\subsubsection[{\texorpdfstring{get\+S\+D\+Drive()}{getSDDrive()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf File\+System\+Object}\& Storage\+::get\+S\+D\+Drive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classStorage_a532c72157ee6a6327626094f874d1794}{}\label{classStorage_a532c72157ee6a6327626094f874d1794}
+\begin{DoxyReturn}{Returns}
+Single SD Card Drive Object reference 
+\end{DoxyReturn}
+\index{Storage@{Storage}!read@{read}}
+\index{read@{read}!Storage@{Storage}}
+\subsubsection[{\texorpdfstring{read(const char $\ast$p\+Filename, void $\ast$p\+Data, unsigned int bytes\+To\+Read, unsigned int offset=0)}{read(const char *pFilename, void *pData, unsigned int bytesToRead, unsigned int offset=0)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+R\+E\+S\+U\+LT} Storage\+::read (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Filename, }
+\item[{void $\ast$}]{p\+Data, }
+\item[{unsigned int}]{bytes\+To\+Read, }
+\item[{unsigned int}]{offset = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classStorage_a775d91a943daa23474d6a32ebae1f429}{}\label{classStorage_a775d91a943daa23474d6a32ebae1f429}
+Reads an existing file 
+\begin{DoxyParams}{Parameters}
+{\em p\+Filename} & The filename to read \\
+\hline
+{\em p\+Data} & The buffer to save the file data \\
+\hline
+{\em bytes\+To\+Read} & Number of bytes to read \\
+\hline
+{\em offset} & Optional Parameter\+: file offset to read data from \\
+\hline
+\end{DoxyParams}
+\index{Storage@{Storage}!write@{write}}
+\index{write@{write}!Storage@{Storage}}
+\subsubsection[{\texorpdfstring{write(const char $\ast$p\+Filename, void $\ast$p\+Data, unsigned int bytes\+To\+Write, unsigned int offset=0)}{write(const char *pFilename, void *pData, unsigned int bytesToWrite, unsigned int offset=0)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+R\+E\+S\+U\+LT} Storage\+::write (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p\+Filename, }
+\item[{void $\ast$}]{p\+Data, }
+\item[{unsigned int}]{bytes\+To\+Write, }
+\item[{unsigned int}]{offset = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classStorage_a0194f1c6e14b23a759685a88c2e1bf0c}{}\label{classStorage_a0194f1c6e14b23a759685a88c2e1bf0c}
+Writes an existing file. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Filename} & The filename to write \\
+\hline
+{\em p\+Data} & The buffer to write the file data from \\
+\hline
+{\em bytes\+To\+Write} & Number of bytes to write \\
+\hline
+{\em offset} & Optional Parameter\+: file offset to write data to file \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/\hyperlink{storage_8hpp}{storage.\+hpp}\item 
+/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/src/\hyperlink{storage_8cpp}{storage.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,179 @@
+\hypertarget{spi__flash_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/spi\+\_\+flash.h File Reference}
+\label{spi__flash_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/spi\+\_\+flash.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L4\+\_\+\+I\+O/fat/disk/spi\+\_\+flash.\+h}}
+
+
+S\+PI Flash Driver complaint with F\+A\+T-\/\+FS System.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}diskio\+Structs.\+h\char`\"{}}\\*
+Include dependency graph for spi\+\_\+flash.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{d7/dbf/spi__flash_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{d5/d98/spi__flash_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{diskioStructs_8h_a07c784581cfcc6d1192300c3071c8919}{D\+S\+T\+A\+T\+US} \hyperlink{spi__flash_8h_a7220f3029aa6fb493c1ffd0141adea18}{flash\+\_\+initialize} ()
+\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{spi__flash_8h_a818e9a41d37f17b72ca7325cee5d6b3d}{flash\+\_\+read\+\_\+sectors} (unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)
+\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{spi__flash_8h_a85136478c3d564814404d5fcafa516a8}{flash\+\_\+write\+\_\+sectors} (unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)
+\item 
+\hyperlink{diskioStructs_8h_aacdfef1dad6565f65c26d12fe0ea4b2b}{D\+R\+E\+S\+U\+LT} \hyperlink{spi__flash_8h_ae5b09550234867ef1293f870a29778ce}{flash\+\_\+ioctl} (\hyperlink{integer_8h_a4ae1dab0fb4b072a66584546209e7d58}{B\+Y\+TE} ctrl, void $\ast$buff)
+\item 
+void \hyperlink{spi__flash_8h_a38482d5bf5bc5ae3ab2c4f0ef4d72083}{flash\+\_\+write\+\_\+permanent\+\_\+id} (char $\ast$id\+\_\+64bytes)
+\item 
+void \hyperlink{spi__flash_8h_a538ab8a29aed106a63609fbf87e92b71}{flash\+\_\+read\+\_\+permanent\+\_\+id} (char $\ast$id\+\_\+64bytes)
+\item 
+void \hyperlink{spi__flash_8h_a0ce68906b1d682b10fc0445d41a09930}{flash\+\_\+chip\+\_\+erase} (void)
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{spi__flash_8h_af52a678f41c83cf9837caf22342521bf}{flash\+\_\+get\+\_\+page\+\_\+count} (void)
+\item 
+uint32\+\_\+t \hyperlink{spi__flash_8h_a52bc2fdb076bdf584a97154a214ab95e}{flash\+\_\+get\+\_\+page\+\_\+size} (void)
+\item 
+bool \hyperlink{spi__flash_8h_a50d3ac98a58b880b2d3f9a5d47c4daa1}{flash\+\_\+supports\+\_\+metadata} (void)
+\item 
+uint32\+\_\+t \hyperlink{spi__flash_8h_a161da4b84ea37b1d82a8c810ac8f59a6}{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count} (uint32\+\_\+t page\+\_\+number)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+S\+PI Flash Driver complaint with F\+A\+T-\/\+FS System. 
+
+
+
+\subsection{Function Documentation}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+chip\+\_\+erase@{flash\+\_\+chip\+\_\+erase}}
+\index{flash\+\_\+chip\+\_\+erase@{flash\+\_\+chip\+\_\+erase}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+chip\+\_\+erase(void)}{flash_chip_erase(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void flash\+\_\+chip\+\_\+erase (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a0ce68906b1d682b10fc0445d41a09930}{}\label{spi__flash_8h_a0ce68906b1d682b10fc0445d41a09930}
+This will E\+R\+A\+SE the entire chip, including the meta-\/data!! This can take several seconds to perform the chip erase... \index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+get\+\_\+page\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+count}}
+\index{flash\+\_\+get\+\_\+page\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+count}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+get\+\_\+page\+\_\+count(void)}{flash_get_page_count(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flash\+\_\+get\+\_\+page\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_af52a678f41c83cf9837caf22342521bf}{}\label{spi__flash_8h_af52a678f41c83cf9837caf22342521bf}
+Flash memory metadata functions If the flash memory contains additional space for each page, then each time a page is written, we also write its write-\/counter value. You can then retrieve the page write count values by the page number. \index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+get\+\_\+page\+\_\+size@{flash\+\_\+get\+\_\+page\+\_\+size}}
+\index{flash\+\_\+get\+\_\+page\+\_\+size@{flash\+\_\+get\+\_\+page\+\_\+size}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+get\+\_\+page\+\_\+size(void)}{flash_get_page_size(void)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flash\+\_\+get\+\_\+page\+\_\+size (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a52bc2fdb076bdf584a97154a214ab95e}{}\label{spi__flash_8h_a52bc2fdb076bdf584a97154a214ab95e}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count}}
+\index{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count@{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count(uint32\+\_\+t page\+\_\+number)}{flash_get_page_write_count(uint32_t page_number)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t flash\+\_\+get\+\_\+page\+\_\+write\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{page\+\_\+number}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a161da4b84ea37b1d82a8c810ac8f59a6}{}\label{spi__flash_8h_a161da4b84ea37b1d82a8c810ac8f59a6}
+\begin{DoxyWarning}{Warning}
+DO N\+OT U\+SE T\+H\+IS F\+U\+N\+C\+T\+I\+ON W\+I\+T\+H\+O\+UT T\+HE S\+PI S\+E\+M\+A\+P\+H\+O\+R\+E!!! 
+\end{DoxyWarning}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+initialize@{flash\+\_\+initialize}}
+\index{flash\+\_\+initialize@{flash\+\_\+initialize}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+initialize()}{flash_initialize()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+S\+T\+A\+T\+US} flash\+\_\+initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a7220f3029aa6fb493c1ffd0141adea18}{}\label{spi__flash_8h_a7220f3029aa6fb493c1ffd0141adea18}
+Initializes the Flash Memory \index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+ioctl@{flash\+\_\+ioctl}}
+\index{flash\+\_\+ioctl@{flash\+\_\+ioctl}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+ioctl(\+B\+Y\+T\+E ctrl, void $\ast$buff)}{flash_ioctl(BYTE ctrl, void *buff)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} flash\+\_\+ioctl (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Y\+TE}}]{ctrl, }
+\item[{void $\ast$}]{buff}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_ae5b09550234867ef1293f870a29778ce}{}\label{spi__flash_8h_ae5b09550234867ef1293f870a29778ce}
+Gets control information from this flash memory drive, such as sector count, sector size 
+\begin{DoxyParams}{Parameters}
+{\em ctrl} & The type of information to get \\
+\hline
+{\em buff} & The pointer to save the requested information to \\
+\hline
+\end{DoxyParams}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+read\+\_\+permanent\+\_\+id@{flash\+\_\+read\+\_\+permanent\+\_\+id}}
+\index{flash\+\_\+read\+\_\+permanent\+\_\+id@{flash\+\_\+read\+\_\+permanent\+\_\+id}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+read\+\_\+permanent\+\_\+id(char $\ast$id\+\_\+64bytes)}{flash_read_permanent_id(char *id_64bytes)}}]{\setlength{\rightskip}{0pt plus 5cm}void flash\+\_\+read\+\_\+permanent\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{id\+\_\+64bytes}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a538ab8a29aed106a63609fbf87e92b71}{}\label{spi__flash_8h_a538ab8a29aed106a63609fbf87e92b71}
+Reads the permanent ID programmed into the S\+PI flash \begin{DoxyWarning}{Warning}
+DO N\+OT U\+SE T\+H\+IS F\+U\+N\+C\+T\+I\+ON W\+I\+T\+H\+O\+UT T\+HE S\+PI S\+E\+M\+A\+P\+H\+O\+R\+E!!! 
+\end{DoxyWarning}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+read\+\_\+sectors@{flash\+\_\+read\+\_\+sectors}}
+\index{flash\+\_\+read\+\_\+sectors@{flash\+\_\+read\+\_\+sectors}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+read\+\_\+sectors(unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)}{flash_read_sectors(unsigned char *pData, int sectorNum, int sectorCount)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} flash\+\_\+read\+\_\+sectors (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{p\+Data, }
+\item[{int}]{sector\+Num, }
+\item[{int}]{sector\+Count}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a818e9a41d37f17b72ca7325cee5d6b3d}{}\label{spi__flash_8h_a818e9a41d37f17b72ca7325cee5d6b3d}
+Reads a sector from the Flash Memory 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & The pointer to the data to save the read \\
+\hline
+{\em sector\+Num} & The sector number to read with each sector being 512 bytes \\
+\hline
+{\em sector\+Count} & The number of sectors to read \\
+\hline
+\end{DoxyParams}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+supports\+\_\+metadata@{flash\+\_\+supports\+\_\+metadata}}
+\index{flash\+\_\+supports\+\_\+metadata@{flash\+\_\+supports\+\_\+metadata}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+supports\+\_\+metadata(void)}{flash_supports_metadata(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool flash\+\_\+supports\+\_\+metadata (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a50d3ac98a58b880b2d3f9a5d47c4daa1}{}\label{spi__flash_8h_a50d3ac98a58b880b2d3f9a5d47c4daa1}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+write\+\_\+permanent\+\_\+id@{flash\+\_\+write\+\_\+permanent\+\_\+id}}
+\index{flash\+\_\+write\+\_\+permanent\+\_\+id@{flash\+\_\+write\+\_\+permanent\+\_\+id}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+write\+\_\+permanent\+\_\+id(char $\ast$id\+\_\+64bytes)}{flash_write_permanent_id(char *id_64bytes)}}]{\setlength{\rightskip}{0pt plus 5cm}void flash\+\_\+write\+\_\+permanent\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{id\+\_\+64bytes}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a38482d5bf5bc5ae3ab2c4f0ef4d72083}{}\label{spi__flash_8h_a38482d5bf5bc5ae3ab2c4f0ef4d72083}
+Writes a permanent ID on the S\+PI Flash \begin{DoxyWarning}{Warning}
+T\+H\+IS C\+AN O\+N\+LY BE D\+O\+NE O\+N\+CE IN A L\+I\+F\+E\+T\+I\+ME OF T\+HE S\+PI F\+L\+A\+SH 
+
+DO N\+OT U\+SE T\+H\+IS F\+U\+N\+C\+T\+I\+ON W\+I\+T\+H\+O\+UT T\+HE S\+PI S\+E\+M\+A\+P\+H\+O\+R\+E!!! 
+\end{DoxyWarning}
+\index{spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}!flash\+\_\+write\+\_\+sectors@{flash\+\_\+write\+\_\+sectors}}
+\index{flash\+\_\+write\+\_\+sectors@{flash\+\_\+write\+\_\+sectors}!spi\+\_\+flash.\+h@{spi\+\_\+flash.\+h}}
+\subsubsection[{\texorpdfstring{flash\+\_\+write\+\_\+sectors(unsigned char $\ast$p\+Data, int sector\+Num, int sector\+Count)}{flash_write_sectors(unsigned char *pData, int sectorNum, int sectorCount)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+R\+E\+S\+U\+LT} flash\+\_\+write\+\_\+sectors (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{p\+Data, }
+\item[{int}]{sector\+Num, }
+\item[{int}]{sector\+Count}
+\end{DoxyParamCaption}
+)}\hypertarget{spi__flash_8h_a85136478c3d564814404d5fcafa516a8}{}\label{spi__flash_8h_a85136478c3d564814404d5fcafa516a8}
+Writes a sector to the Flash Memory 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & The pointer to the data to write \\
+\hline
+{\em sector\+Num} & The sector number to write with each sector being 512 bytes \\
+\hline
+{\em sector\+Count} & The number of sectors to write \\
+\hline
+\end{DoxyParams}

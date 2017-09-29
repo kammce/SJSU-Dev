@@ -1,0 +1,149 @@
+\hypertarget{i2c__base_8cpp}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/i2c\+\_\+base.cpp File Reference}
+\label{i2c__base_8cpp}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/i2c\+\_\+base.\+cpp@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L2\+\_\+\+Drivers/base/i2c\+\_\+base.\+cpp}}
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}i2c\+\_\+base.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+sys.\+h\char`\"{}}\\*
+Include dependency graph for i2c\+\_\+base.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d5f/i2c__base_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{i2c__base_8cpp_a6cc9ced4b451ce47f668cd061659b824}{I2\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}(addr)~(addr $\vert$= 1)
+\begin{DoxyCompactList}\small\item\em Set the L\+SB to indicate read-\/mode. \end{DoxyCompactList}\item 
+\#define \hyperlink{i2c__base_8cpp_a46bad7651745b05e0f98f6300f3a8dc2}{I2\+C\+\_\+\+S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+O\+DE}(addr)~(addr \&= 0x\+F\+E)
+\begin{DoxyCompactList}\small\item\em Reset the L\+SB to indicate write-\/mode. \end{DoxyCompactList}\item 
+\#define \hyperlink{i2c__base_8cpp_a9cd2e5d6d01a0b8d3da26dd693a334ee}{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}(addr)~(addr \& 1)
+\begin{DoxyCompactList}\small\item\em Read address is O\+DD. \end{DoxyCompactList}\item 
+\#define \hyperlink{i2c__base_8cpp_ac886b4f39266568cc548758a03feeb7e}{I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+DR}(addr)~(addr \& 0x\+F\+E)
+\begin{DoxyCompactList}\small\item\em Write address is E\+V\+EN. \end{DoxyCompactList}\item 
+\#define \hyperlink{i2c__base_8cpp_ad66cc35ece1d24380ee1a8f3a2e861b1}{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+DR}(addr)~(addr $\vert$ 1)
+\begin{DoxyCompactList}\small\item\em Read address is O\+DD. \end{DoxyCompactList}\item 
+\#define \hyperlink{i2c__base_8cpp_aebfdbca7bcb6fb040ac1310a3415e110}{clear\+S\+I\+Flag}()~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+C\+LR = (1$<$$<$3)
+\item 
+\#define \hyperlink{i2c__base_8cpp_a5a420b4fe6afd48f53463ac45b88b25d}{set\+S\+T\+A\+R\+T\+Flag}()~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+S\+ET = (1$<$$<$5)
+\item 
+\#define \hyperlink{i2c__base_8cpp_a4443de6eea1b726661feaf6539fa3afb}{clear\+S\+T\+A\+R\+T\+Flag}()~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+C\+LR = (1$<$$<$5)
+\item 
+\#define \hyperlink{i2c__base_8cpp_a7adf013936bd1d50fcbf0fefa626821d}{set\+Ack\+Flag}()~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+S\+ET = (1$<$$<$2)
+\item 
+\#define \hyperlink{i2c__base_8cpp_a083b7d672a66185cb6a49758d49cbd8e}{set\+Nack\+Flag}()~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+C\+LR = (1$<$$<$2)
+\item 
+\#define \hyperlink{i2c__base_8cpp_aacc12d56ee6a277a608539a0e672edae}{set\+Stop}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!clear\+S\+I\+Flag@{clear\+S\+I\+Flag}}
+\index{clear\+S\+I\+Flag@{clear\+S\+I\+Flag}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{clear\+S\+I\+Flag}{clearSIFlag}}]{\setlength{\rightskip}{0pt plus 5cm}\#define clear\+S\+I\+Flag(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+C\+LR = (1$<$$<$3)}\hypertarget{i2c__base_8cpp_aebfdbca7bcb6fb040ac1310a3415e110}{}\label{i2c__base_8cpp_aebfdbca7bcb6fb040ac1310a3415e110}
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!clear\+S\+T\+A\+R\+T\+Flag@{clear\+S\+T\+A\+R\+T\+Flag}}
+\index{clear\+S\+T\+A\+R\+T\+Flag@{clear\+S\+T\+A\+R\+T\+Flag}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{clear\+S\+T\+A\+R\+T\+Flag}{clearSTARTFlag}}]{\setlength{\rightskip}{0pt plus 5cm}\#define clear\+S\+T\+A\+R\+T\+Flag(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+C\+LR = (1$<$$<$5)}\hypertarget{i2c__base_8cpp_a4443de6eea1b726661feaf6539fa3afb}{}\label{i2c__base_8cpp_a4443de6eea1b726661feaf6539fa3afb}
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+DR@{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+DR}}
+\index{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+DR@{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+DR}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+DR}{I2C_READ_ADDR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+DR(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~(addr $\vert$ 1)}\hypertarget{i2c__base_8cpp_ad66cc35ece1d24380ee1a8f3a2e861b1}{}\label{i2c__base_8cpp_ad66cc35ece1d24380ee1a8f3a2e861b1}
+
+
+Read address is O\+DD. 
+
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE@{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}}
+\index{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE@{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}{I2C_READ_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~(addr \& 1)}\hypertarget{i2c__base_8cpp_a9cd2e5d6d01a0b8d3da26dd693a334ee}{}\label{i2c__base_8cpp_a9cd2e5d6d01a0b8d3da26dd693a334ee}
+
+
+Read address is O\+DD. 
+
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!I2\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE@{I2\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}}
+\index{I2\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE@{I2\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE}{I2C_SET_READ_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+O\+DE(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~(addr $\vert$= 1)}\hypertarget{i2c__base_8cpp_a6cc9ced4b451ce47f668cd061659b824}{}\label{i2c__base_8cpp_a6cc9ced4b451ce47f668cd061659b824}
+
+
+Set the L\+SB to indicate read-\/mode. 
+
+Instead of using a dedicated variable for read vs. write, we just use the L\+SB of the user address to indicate read or write mode. \index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!I2\+C\+\_\+\+S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+O\+DE@{I2\+C\+\_\+\+S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+O\+DE}}
+\index{I2\+C\+\_\+\+S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+O\+DE@{I2\+C\+\_\+\+S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+O\+DE}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+O\+DE}{I2C_SET_WRITE_MODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+O\+DE(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~(addr \&= 0x\+F\+E)}\hypertarget{i2c__base_8cpp_a46bad7651745b05e0f98f6300f3a8dc2}{}\label{i2c__base_8cpp_a46bad7651745b05e0f98f6300f3a8dc2}
+
+
+Reset the L\+SB to indicate write-\/mode. 
+
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+DR@{I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+DR}}
+\index{I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+DR@{I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+DR}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+DR}{I2C_WRITE_ADDR}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+DR(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~(addr \& 0x\+F\+E)}\hypertarget{i2c__base_8cpp_ac886b4f39266568cc548758a03feeb7e}{}\label{i2c__base_8cpp_ac886b4f39266568cc548758a03feeb7e}
+
+
+Write address is E\+V\+EN. 
+
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!set\+Ack\+Flag@{set\+Ack\+Flag}}
+\index{set\+Ack\+Flag@{set\+Ack\+Flag}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{set\+Ack\+Flag}{setAckFlag}}]{\setlength{\rightskip}{0pt plus 5cm}\#define set\+Ack\+Flag(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+S\+ET = (1$<$$<$2)}\hypertarget{i2c__base_8cpp_a7adf013936bd1d50fcbf0fefa626821d}{}\label{i2c__base_8cpp_a7adf013936bd1d50fcbf0fefa626821d}
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!set\+Nack\+Flag@{set\+Nack\+Flag}}
+\index{set\+Nack\+Flag@{set\+Nack\+Flag}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{set\+Nack\+Flag}{setNackFlag}}]{\setlength{\rightskip}{0pt plus 5cm}\#define set\+Nack\+Flag(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+C\+LR = (1$<$$<$2)}\hypertarget{i2c__base_8cpp_a083b7d672a66185cb6a49758d49cbd8e}{}\label{i2c__base_8cpp_a083b7d672a66185cb6a49758d49cbd8e}
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!set\+S\+T\+A\+R\+T\+Flag@{set\+S\+T\+A\+R\+T\+Flag}}
+\index{set\+S\+T\+A\+R\+T\+Flag@{set\+S\+T\+A\+R\+T\+Flag}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{set\+S\+T\+A\+R\+T\+Flag}{setSTARTFlag}}]{\setlength{\rightskip}{0pt plus 5cm}\#define set\+S\+T\+A\+R\+T\+Flag(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~mp\+I2\+C\+Regs-\/$>$I2\+C\+O\+N\+S\+ET = (1$<$$<$5)}\hypertarget{i2c__base_8cpp_a5a420b4fe6afd48f53463ac45b88b25d}{}\label{i2c__base_8cpp_a5a420b4fe6afd48f53463ac45b88b25d}
+\index{i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}!set\+Stop@{set\+Stop}}
+\index{set\+Stop@{set\+Stop}!i2c\+\_\+base.\+cpp@{i2c\+\_\+base.\+cpp}}
+\subsubsection[{\texorpdfstring{set\+Stop}{setStop}}]{\setlength{\rightskip}{0pt plus 5cm}\#define set\+Stop(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{i2c__base_8cpp_aacc12d56ee6a277a608539a0e672edae}{}\label{i2c__base_8cpp_aacc12d56ee6a277a608539a0e672edae}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{i2c__base_8cpp_a4443de6eea1b726661feaf6539fa3afb}{clearSTARTFlag}();                           \(\backslash\)
+                                mpI2CRegs->I2CONSET = (1<<4);               \hyperlink{i2c__base_8cpp_aebfdbca7bcb6fb040ac1310a3415e110}{\(\backslash\)}
+\hyperlink{i2c__base_8cpp_aebfdbca7bcb6fb040ac1310a3415e110}{                                clearSIFlag}();                  
+                  \(\backslash\)
+                                while((mpI2CRegs->I2CONSET&(1<<4)));        \(\backslash\)
+                                if(\hyperlink{i2c__base_8cpp_a9cd2e5d6d01a0b8d3da26dd693a334ee}{I2C\_READ\_MODE}(mTransaction.slaveAddr))   \(\backslash\)
+                                    state = readComplete;                   \(\backslash\)
+                                else                                        \(\backslash\)
+                                    state = writeComplete;
+\end{DoxyCode}

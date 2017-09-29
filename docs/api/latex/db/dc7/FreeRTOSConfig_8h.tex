@@ -1,0 +1,518 @@
+\hypertarget{FreeRTOSConfig_8h}{}\section{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/\+Free\+R\+T\+O\+S\+Config.h File Reference}
+\label{FreeRTOSConfig_8h}\index{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/\+Free\+R\+T\+O\+S\+Config.\+h@{/var/www/html/\+S\+J\+S\+U-\/\+D\+E\+V-\/\+Linux/firmware/default/lib/\+L1\+\_\+\+Free\+R\+T\+O\+S/\+Free\+R\+T\+O\+S\+Config.\+h}}
+{\ttfamily \#include \char`\"{}sys\+\_\+config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lpc\+\_\+isr.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fault\+\_\+registers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}trace/trc\+User.\+h\char`\"{}}\\*
+Include dependency graph for Free\+R\+T\+O\+S\+Config.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d20/FreeRTOSConfig_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/d42/FreeRTOSConfig_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_adde83486022745409c40605922b0bdd6}{config\+U\+S\+E\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}~1
+\begin{DoxyCompactList}\small\item\em One task can preempt another task (if equal or higher priority) \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ac637ae45863c19fa2e919db0ed49301f}{config\+U\+S\+E\+\_\+\+I\+D\+L\+E\+\_\+\+H\+O\+OK}~1
+\begin{DoxyCompactList}\small\item\em Using I\+D\+LE task can put C\+PU to low power mode. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a23c5922c077106fad3f70b54d9071466}{config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+\_\+\+H\+O\+OK}~0
+\begin{DoxyCompactList}\small\item\em Every timer interrupt calls the tick function. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_abdf48e7c9cf513f083aa9cbed0dd7cd7}{config\+U\+S\+E\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+E\+D\+\_\+\+H\+O\+OK}~1
+\begin{DoxyCompactList}\small\item\em If memory runs out, the hook function is called. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aa68082df879e6fc96bcb9b26513639e7}{config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}~(\hyperlink{sys__config_8h_a196fd6f47648165361de087bf37f27c1}{S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK})
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ}~( 1000 )
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a815d63f3e973f88335f639b03786e37f}{config\+E\+N\+A\+B\+L\+E\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+I\+L\+I\+TY}~0
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a011182398ab221c615b540cfe3ec7ade}{P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}~(5)
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a9a78f5ac61e6cb172dadf2a51f11db38}{config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}~(1 + 4 + \hyperlink{FreeRTOSConfig_8h_a011182398ab221c615b540cfe3ec7ade}{P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES})
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_af9877767f734190a66ec73e03252e1ce}{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+OW}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a676d1a39b0be995ee18e6e45ff96ba4c}{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+E\+D\+I\+UM}~2
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aaca04d3893d808496a90f8f0d0b8fcaa}{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH}~3
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aa2b63ea1e2631e81e03ad1a0883bf679}{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+R\+I\+T\+I\+C\+AL}~(\hyperlink{FreeRTOSConfig_8h_a9a78f5ac61e6cb172dadf2a51f11db38}{config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES} -\/ \hyperlink{FreeRTOSConfig_8h_a011182398ab221c615b540cfe3ec7ade}{P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES} -\/ 1)
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a6c534a6cf8a00528fe0be42083484f9a}{config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}~( ( unsigned short ) 128 )
+\begin{DoxyCompactList}\small\item\em Do not change this. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a703154c04efb3926f77be1ad05e779e2}{S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES}(x)~((x)/4)
+\begin{DoxyCompactList}\small\item\em 32-\/bit C\+PU use 4 bytes per stack unit \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a090df863baed0c5502776d48777c2fed}{M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}()~( 1000 / \hyperlink{FreeRTOSConfig_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ})
+\begin{DoxyCompactList}\small\item\em tick to millisecond factor \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ab743eff669ae3062b0885a8e0315b641}{O\+S\+\_\+\+MS}(x)~( x / \hyperlink{FreeRTOSConfig_8h_a090df863baed0c5502776d48777c2fed}{M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}() )
+\begin{DoxyCompactList}\small\item\em Ticks to millisecond conversion. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_acac9d8596f97b8d09b5ba990faf542bc}{v\+Task\+Delay\+Ms}(x)~\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{v\+Task\+Delay}(\hyperlink{FreeRTOSConfig_8h_ab743eff669ae3062b0885a8e0315b641}{O\+S\+\_\+\+MS}((x)))
+\begin{DoxyCompactList}\small\item\em Sleep for ms instead of ticks. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a04fe9d1b156664e4907587ce48ff59d5}{x\+Task\+Get\+Ms\+Count}()~(\hyperlink{tasks_8c_a5fa24e36d5e1eeb57f5b73b72ea048e7}{x\+Task\+Get\+Tick\+Count}() $\ast$ \hyperlink{FreeRTOSConfig_8h_a090df863baed0c5502776d48777c2fed}{M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}())
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ac388dc4041aab6997348828eb27fc1a8}{config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN}~( 8 )
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aac311ed9b9e5ae4d2d9648b33a24acce}{config\+U\+S\+E\+\_\+16\+\_\+\+B\+I\+T\+\_\+\+T\+I\+C\+KS}~0
+\begin{DoxyCompactList}\small\item\em Use 16-\/bit ticks vs. 32-\/bits. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ad6a5061a742fee450ac455e4ad0f4b6c}{config\+I\+D\+L\+E\+\_\+\+S\+H\+O\+U\+L\+D\+\_\+\+Y\+I\+E\+LD}~1
+\begin{DoxyCompactList}\small\item\em See Free\+R\+T\+OS documentation. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a847511ee433494b1e32c90602c967ae7}{config\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+V\+E\+R\+F\+L\+OW}~2
+\begin{DoxyCompactList}\small\item\em 0=O\+FF, 1=Simple, 2=Complex \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aefc70099423a764e4ae37a5c46ab6457}{config\+U\+S\+E\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E\+\_\+\+A\+PI}~0
+\begin{DoxyCompactList}\small\item\em No need to use deprecated A\+PI. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aa4b5138c4e42a180f0abd4f2455f90fb}{config\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+S\+I\+ZE}~0
+\begin{DoxyCompactList}\small\item\em See Free\+R\+T\+OS documentation. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a57990715eb06402474b8b47e1d562616}{config\+U\+S\+E\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+ES}~0
+\begin{DoxyCompactList}\small\item\em No need for co-\/routines, just use tasks. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ae8f3fd645e6e78dfeb8a6e874af6195a}{config\+M\+A\+X\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+E\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}~( 1 )
+\begin{DoxyCompactList}\small\item\em No need if not using co-\/routines. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ad8081822f3ebc7c917b63bd7bdd7bc58}{config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}~1
+\begin{DoxyCompactList}\small\item\em C\+PU usage utilities. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a27f5ee137dc9f125681a31f0b0a4b3be}{config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY}~0
+\begin{DoxyCompactList}\small\item\em Free\+R\+T\+OS + Percepio Tracealyzer trace facility. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a5b7fae1e2f6d4fe42104ed8d28a0569d}{config\+U\+S\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+F\+O\+R\+M\+A\+T\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS}~0
+\begin{DoxyCompactList}\small\item\em Older Free\+R\+T\+OS functions. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a4fd1d67d54044ac86e8ffc890180f9f6}{I\+N\+C\+L\+U\+D\+E\+\_\+e\+Task\+Get\+State}~1
+\begin{DoxyCompactList}\small\item\em Was needed by the \char`\"{}info\char`\"{} command-\/line handler. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a543bf3c79008974cc1d36bab51d94fbf}{config\+U\+S\+E\+\_\+\+M\+U\+T\+E\+X\+ES}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a9fe02d866cb1c4fbaa0c3de79f53d42d}{config\+U\+S\+E\+\_\+\+R\+E\+C\+U\+R\+S\+I\+V\+E\+\_\+\+M\+U\+T\+E\+X\+ES}~0
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a55778995203c57369d2fbfb10224943d}{config\+U\+S\+E\+\_\+\+C\+O\+U\+N\+T\+I\+N\+G\+\_\+\+S\+E\+M\+A\+P\+H\+O\+R\+ES}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a7bfbcca89aaa971f59fe9233772cc33d}{config\+U\+S\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+TS}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ad6858ac8aaf726007fd19752956ef1bd}{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Priority\+Set}~0
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a1279eb797355460aeeec06aa524e91df}{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Priority\+Get}~0
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a5ae1434fdf995108dc749ff9329f53bd}{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delete}~0
+\begin{DoxyCompactList}\small\item\em A task should never be deleted in an R\+T\+OS (why create it only to delete it later?) \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a7ee138825e57f243c8ee5fd4207b9e26}{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Clean\+Up\+Resources}~0
+\begin{DoxyCompactList}\small\item\em Ditto $^\wedge$$^\wedge$. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aef8fbb97819ad3d962f334ac298206d1}{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Suspend}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ae8459bfd5b428319bb10de9f504a53aa}{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay\+Until}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a24361a6eb816a965f1ee4e2e08e364f8}{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a23c7b4b41fe9b575cf2329c7cbe78b86}{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a9ed60ede556830584e6bfd4a3ab4f9de}{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Scheduler\+State}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ae8811def4dd6983011fed9ef8686f18f}{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Idle\+Task\+Handle}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ac342ae309b0c53828d2ecad3e6de355b}{config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS}~0
+\begin{DoxyCompactList}\small\item\em Enable or disable the Free\+R\+T\+OS timer task. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a05c75ff9029ba3f0ab5bde9196f1e873}{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}~\hyperlink{FreeRTOSConfig_8h_aaca04d3893d808496a90f8f0d0b8fcaa}{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH}
+\begin{DoxyCompactList}\small\item\em Priority at which the timer task should run (use highest) \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_abb9aa0f31c1f3b14a15083a3c6120918}{config\+T\+I\+M\+E\+R\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+TH}~10
+\begin{DoxyCompactList}\small\item\em See Free\+R\+T\+OS documentation. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aed7c7ebcdee603583a55e8ce04e55841}{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+P\+TH}~\hyperlink{FreeRTOSConfig_8h_a703154c04efb3926f77be1ad05e779e2}{S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES}(2048)
+\begin{DoxyCompactList}\small\item\em Stack size for the timer task. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a4b4336acd61a8e513ca2376be84326b5}{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Timer\+Pend\+Function\+Call}~0
+\begin{DoxyCompactList}\small\item\em Uses timer daemon task, so needs config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS to 1. \end{DoxyCompactList}\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a5796db11ec6f9aa38d017d2ac393c5ba}{config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}~5        /$\ast$ 32 priority levels $\ast$/
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_ac42cff506ad61d4174fa23e952e3225e}{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}~( \hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11a5bef8716b1cdc9127bc2dbba456f2f55}{I\+P\+\_\+\+K\+E\+R\+N\+EL} $<$$<$   (8 -\/ \hyperlink{FreeRTOSConfig_8h_a5796db11ec6f9aa38d017d2ac393c5ba}{config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}) )
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a54bfc31c410ee452577a25a4552c3704}{config\+M\+A\+X\+\_\+\+S\+Y\+S\+C\+A\+L\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}~( \hyperlink{lpc__isr_8h_aa87c3feca472e99d08b8ea9d9dbebb11ab70f7174651e8ca04c273169c8acaba3}{I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL} $<$$<$  (8 -\/ \hyperlink{FreeRTOSConfig_8h_a5796db11ec6f9aa38d017d2ac393c5ba}{config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}) )
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aebb8c3a87d591f60f974772be0ee798d}{config\+U\+S\+E\+\_\+\+P\+O\+R\+T\+\_\+\+O\+P\+T\+I\+M\+I\+S\+E\+D\+\_\+\+T\+A\+S\+K\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON}~1
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a2f813fe80d3519a396a9f2bb7cc7e820}{trace\+T\+A\+S\+K\+\_\+\+S\+W\+I\+T\+C\+H\+E\+D\+\_\+\+IN}()
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a727939bcdb98501e0eba0ec8a1841e1b}{port\+C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}()~\hyperlink{FreeRTOSConfig_8h_a1f046a229fe08afbaf405a092377559a}{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init}()
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aa7cb8c79fb40bf2d4caccf5ba9ae6737}{port\+G\+E\+T\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+C\+O\+U\+N\+T\+E\+R\+\_\+\+V\+A\+L\+UE}()~\hyperlink{FreeRTOSConfig_8h_a2be471dcdf7a7ddd168c8221fb3c6be4}{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get}()
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_aeba467eb131f2101afc807ff91d425ad}{port\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}()~\hyperlink{FreeRTOSConfig_8h_a2e32183152b89f937c12a60e0ce21b48}{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset}()
+\end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a5bff328d9625a3e568e8930cde5a3838}{config\+M\+E\+M\+\_\+\+M\+A\+N\+G\+\_\+\+T\+Y\+PE}~3
+\item 
+\#define \hyperlink{FreeRTOSConfig_8h_a9f213227674effff0122a75d94d87938}{config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}~( ( size\+\_\+t ) ( 24 $\ast$ 1024 ) )
+\end{DoxyCompactItemize}
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{FreeRTOSConfig_8h_a1f046a229fe08afbaf405a092377559a}{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init} (void)
+\item 
+unsigned int \hyperlink{FreeRTOSConfig_8h_a2be471dcdf7a7ddd168c8221fb3c6be4}{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get} ()
+\item 
+void \hyperlink{FreeRTOSConfig_8h_a2e32183152b89f937c12a60e0ce21b48}{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{config\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}
+\index{config\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{config\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+V\+E\+R\+F\+L\+OW}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+V\+E\+R\+F\+L\+OW}{configCHECK_FOR_STACK_OVERFLOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+V\+E\+R\+F\+L\+OW~2}\hypertarget{FreeRTOSConfig_8h_a847511ee433494b1e32c90602c967ae7}{}\label{FreeRTOSConfig_8h_a847511ee433494b1e32c90602c967ae7}
+
+
+0=O\+FF, 1=Simple, 2=Complex 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ@{config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}}
+\index{config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ@{config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ}{configCPU_CLOCK_HZ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+C\+P\+U\+\_\+\+C\+L\+O\+C\+K\+\_\+\+HZ~({\bf S\+Y\+S\+\_\+\+C\+F\+G\+\_\+\+D\+E\+S\+I\+R\+E\+D\+\_\+\+C\+P\+U\+\_\+\+C\+LK})}\hypertarget{FreeRTOSConfig_8h_aa68082df879e6fc96bcb9b26513639e7}{}\label{FreeRTOSConfig_8h_aa68082df879e6fc96bcb9b26513639e7}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+E\+N\+A\+B\+L\+E\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+I\+L\+I\+TY@{config\+E\+N\+A\+B\+L\+E\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+I\+L\+I\+TY}}
+\index{config\+E\+N\+A\+B\+L\+E\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+I\+L\+I\+TY@{config\+E\+N\+A\+B\+L\+E\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+I\+L\+I\+TY}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+E\+N\+A\+B\+L\+E\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+I\+L\+I\+TY}{configENABLE_BACKWARD_COMPATIBILITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+E\+N\+A\+B\+L\+E\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+I\+L\+I\+TY~0}\hypertarget{FreeRTOSConfig_8h_a815d63f3e973f88335f639b03786e37f}{}\label{FreeRTOSConfig_8h_a815d63f3e973f88335f639b03786e37f}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS@{config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}}
+\index{config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS@{config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}{configGENERATE_RUN_TIME_STATS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS~1}\hypertarget{FreeRTOSConfig_8h_ad8081822f3ebc7c917b63bd7bdd7bc58}{}\label{FreeRTOSConfig_8h_ad8081822f3ebc7c917b63bd7bdd7bc58}
+
+
+C\+PU usage utilities. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+I\+D\+L\+E\+\_\+\+S\+H\+O\+U\+L\+D\+\_\+\+Y\+I\+E\+LD@{config\+I\+D\+L\+E\+\_\+\+S\+H\+O\+U\+L\+D\+\_\+\+Y\+I\+E\+LD}}
+\index{config\+I\+D\+L\+E\+\_\+\+S\+H\+O\+U\+L\+D\+\_\+\+Y\+I\+E\+LD@{config\+I\+D\+L\+E\+\_\+\+S\+H\+O\+U\+L\+D\+\_\+\+Y\+I\+E\+LD}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+I\+D\+L\+E\+\_\+\+S\+H\+O\+U\+L\+D\+\_\+\+Y\+I\+E\+LD}{configIDLE_SHOULD_YIELD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+I\+D\+L\+E\+\_\+\+S\+H\+O\+U\+L\+D\+\_\+\+Y\+I\+E\+LD~1}\hypertarget{FreeRTOSConfig_8h_ad6a5061a742fee450ac455e4ad0f4b6c}{}\label{FreeRTOSConfig_8h_ad6a5061a742fee450ac455e4ad0f4b6c}
+
+
+See Free\+R\+T\+OS documentation. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{configKERNEL_INTERRUPT_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+K\+E\+R\+N\+E\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY~( {\bf I\+P\+\_\+\+K\+E\+R\+N\+EL} $<$$<$   (8 -\/ {\bf config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}) )}\hypertarget{FreeRTOSConfig_8h_ac42cff506ad61d4174fa23e952e3225e}{}\label{FreeRTOSConfig_8h_ac42cff506ad61d4174fa23e952e3225e}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+M\+A\+X\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+E\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES@{config\+M\+A\+X\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+E\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}}
+\index{config\+M\+A\+X\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+E\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES@{config\+M\+A\+X\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+E\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+M\+A\+X\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+E\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}{configMAX_CO_ROUTINE_PRIORITIES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+M\+A\+X\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+E\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES~( 1 )}\hypertarget{FreeRTOSConfig_8h_ae8f3fd645e6e78dfeb8a6e874af6195a}{}\label{FreeRTOSConfig_8h_ae8f3fd645e6e78dfeb8a6e874af6195a}
+
+
+No need if not using co-\/routines. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES@{config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}}
+\index{config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES@{config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}{configMAX_PRIORITIES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES~(1 + 4 + {\bf P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES})}\hypertarget{FreeRTOSConfig_8h_a9a78f5ac61e6cb172dadf2a51f11db38}{}\label{FreeRTOSConfig_8h_a9a78f5ac61e6cb172dadf2a51f11db38}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+M\+A\+X\+\_\+\+S\+Y\+S\+C\+A\+L\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+M\+A\+X\+\_\+\+S\+Y\+S\+C\+A\+L\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{config\+M\+A\+X\+\_\+\+S\+Y\+S\+C\+A\+L\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+M\+A\+X\+\_\+\+S\+Y\+S\+C\+A\+L\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+M\+A\+X\+\_\+\+S\+Y\+S\+C\+A\+L\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{configMAX_SYSCALL_INTERRUPT_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+M\+A\+X\+\_\+\+S\+Y\+S\+C\+A\+L\+L\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+P\+R\+I\+O\+R\+I\+TY~( {\bf I\+P\+\_\+\+S\+Y\+S\+C\+A\+LL} $<$$<$  (8 -\/ {\bf config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}) )}\hypertarget{FreeRTOSConfig_8h_a54bfc31c410ee452577a25a4552c3704}{}\label{FreeRTOSConfig_8h_a54bfc31c410ee452577a25a4552c3704}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN@{config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN}}
+\index{config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN@{config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN}{configMAX_TASK_NAME_LEN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+M\+A\+X\+\_\+\+T\+A\+S\+K\+\_\+\+N\+A\+M\+E\+\_\+\+L\+EN~( 8 )}\hypertarget{FreeRTOSConfig_8h_ac388dc4041aab6997348828eb27fc1a8}{}\label{FreeRTOSConfig_8h_ac388dc4041aab6997348828eb27fc1a8}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+M\+E\+M\+\_\+\+M\+A\+N\+G\+\_\+\+T\+Y\+PE@{config\+M\+E\+M\+\_\+\+M\+A\+N\+G\+\_\+\+T\+Y\+PE}}
+\index{config\+M\+E\+M\+\_\+\+M\+A\+N\+G\+\_\+\+T\+Y\+PE@{config\+M\+E\+M\+\_\+\+M\+A\+N\+G\+\_\+\+T\+Y\+PE}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+M\+E\+M\+\_\+\+M\+A\+N\+G\+\_\+\+T\+Y\+PE}{configMEM_MANG_TYPE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+M\+E\+M\+\_\+\+M\+A\+N\+G\+\_\+\+T\+Y\+PE~3}\hypertarget{FreeRTOSConfig_8h_a5bff328d9625a3e568e8930cde5a3838}{}\label{FreeRTOSConfig_8h_a5bff328d9625a3e568e8930cde5a3838}
+Free\+R\+T\+OS Memory configuration 1 -\/ Get from the pool defined by config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE. No free() 2 -\/ Get from the pool defined by config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE with free() 3 -\/ Just redirect Free\+R\+T\+OS memory to malloc() and free() 4 -\/ Same as 2, but coalescencent blocks can be combined.
+
+config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE only matters when scheme 1, 2 or 4 is used above. \index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}}
+\index{config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}{configMINIMAL_STACK_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+M\+I\+N\+I\+M\+A\+L\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE~( ( unsigned short ) 128 )}\hypertarget{FreeRTOSConfig_8h_a6c534a6cf8a00528fe0be42083484f9a}{}\label{FreeRTOSConfig_8h_a6c534a6cf8a00528fe0be42083484f9a}
+
+
+Do not change this. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+P\+R\+I\+O\+\_\+\+B\+I\+TS@{config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}}
+\index{config\+P\+R\+I\+O\+\_\+\+B\+I\+TS@{config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+P\+R\+I\+O\+\_\+\+B\+I\+TS}{configPRIO_BITS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+P\+R\+I\+O\+\_\+\+B\+I\+TS~5        /$\ast$ 32 priority levels $\ast$/}\hypertarget{FreeRTOSConfig_8h_a5796db11ec6f9aa38d017d2ac393c5ba}{}\label{FreeRTOSConfig_8h_a5796db11ec6f9aa38d017d2ac393c5ba}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+S\+I\+ZE@{config\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+S\+I\+ZE}}
+\index{config\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+S\+I\+ZE@{config\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+S\+I\+ZE}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+S\+I\+ZE}{configQUEUE_REGISTRY_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+Q\+U\+E\+U\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+S\+I\+ZE~0}\hypertarget{FreeRTOSConfig_8h_aa4b5138c4e42a180f0abd4f2455f90fb}{}\label{FreeRTOSConfig_8h_aa4b5138c4e42a180f0abd4f2455f90fb}
+
+
+See Free\+R\+T\+OS documentation. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ@{config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ}}
+\index{config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ@{config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ}{configTICK_RATE_HZ}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ~( 1000 )}\hypertarget{FreeRTOSConfig_8h_a2f0258dd1e3b877e5bc013be54c2db6a}{}\label{FreeRTOSConfig_8h_a2f0258dd1e3b877e5bc013be54c2db6a}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+T\+I\+M\+E\+R\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+TH@{config\+T\+I\+M\+E\+R\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+TH}}
+\index{config\+T\+I\+M\+E\+R\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+TH@{config\+T\+I\+M\+E\+R\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+TH}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+T\+I\+M\+E\+R\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+TH}{configTIMER_QUEUE_LENGTH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+T\+I\+M\+E\+R\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+TH~10}\hypertarget{FreeRTOSConfig_8h_abb9aa0f31c1f3b14a15083a3c6120918}{}\label{FreeRTOSConfig_8h_abb9aa0f31c1f3b14a15083a3c6120918}
+
+
+See Free\+R\+T\+OS documentation. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}
+\index{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY}{configTIMER_TASK_PRIORITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+R\+I\+TY~{\bf P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH}}\hypertarget{FreeRTOSConfig_8h_a05c75ff9029ba3f0ab5bde9196f1e873}{}\label{FreeRTOSConfig_8h_a05c75ff9029ba3f0ab5bde9196f1e873}
+
+
+Priority at which the timer task should run (use highest) 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+P\+TH@{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+P\+TH}}
+\index{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+P\+TH@{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+P\+TH}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+P\+TH}{configTIMER_TASK_STACK_DEPTH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+\+D\+E\+P\+TH~{\bf S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES}(2048)}\hypertarget{FreeRTOSConfig_8h_aed7c7ebcdee603583a55e8ce04e55841}{}\label{FreeRTOSConfig_8h_aed7c7ebcdee603583a55e8ce04e55841}
+
+
+Stack size for the timer task. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE@{config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}}
+\index{config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE@{config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}{configTOTAL_HEAP_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+T\+O\+T\+A\+L\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE~( ( size\+\_\+t ) ( 24 $\ast$ 1024 ) )}\hypertarget{FreeRTOSConfig_8h_a9f213227674effff0122a75d94d87938}{}\label{FreeRTOSConfig_8h_a9f213227674effff0122a75d94d87938}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+16\+\_\+\+B\+I\+T\+\_\+\+T\+I\+C\+KS@{config\+U\+S\+E\+\_\+16\+\_\+\+B\+I\+T\+\_\+\+T\+I\+C\+KS}}
+\index{config\+U\+S\+E\+\_\+16\+\_\+\+B\+I\+T\+\_\+\+T\+I\+C\+KS@{config\+U\+S\+E\+\_\+16\+\_\+\+B\+I\+T\+\_\+\+T\+I\+C\+KS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+16\+\_\+\+B\+I\+T\+\_\+\+T\+I\+C\+KS}{configUSE_16_BIT_TICKS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+16\+\_\+\+B\+I\+T\+\_\+\+T\+I\+C\+KS~0}\hypertarget{FreeRTOSConfig_8h_aac311ed9b9e5ae4d2d9648b33a24acce}{}\label{FreeRTOSConfig_8h_aac311ed9b9e5ae4d2d9648b33a24acce}
+
+
+Use 16-\/bit ticks vs. 32-\/bits. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E\+\_\+\+A\+PI@{config\+U\+S\+E\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E\+\_\+\+A\+PI}}
+\index{config\+U\+S\+E\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E\+\_\+\+A\+PI@{config\+U\+S\+E\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E\+\_\+\+A\+PI}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E\+\_\+\+A\+PI}{configUSE_ALTERNATIVE_API}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+A\+L\+T\+E\+R\+N\+A\+T\+I\+V\+E\+\_\+\+A\+PI~0}\hypertarget{FreeRTOSConfig_8h_aefc70099423a764e4ae37a5c46ab6457}{}\label{FreeRTOSConfig_8h_aefc70099423a764e4ae37a5c46ab6457}
+
+
+No need to use deprecated A\+PI. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+ES@{config\+U\+S\+E\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+ES}}
+\index{config\+U\+S\+E\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+ES@{config\+U\+S\+E\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+ES}{configUSE_CO_ROUTINES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+C\+O\+\_\+\+R\+O\+U\+T\+I\+N\+ES~0}\hypertarget{FreeRTOSConfig_8h_a57990715eb06402474b8b47e1d562616}{}\label{FreeRTOSConfig_8h_a57990715eb06402474b8b47e1d562616}
+
+
+No need for co-\/routines, just use tasks. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+C\+O\+U\+N\+T\+I\+N\+G\+\_\+\+S\+E\+M\+A\+P\+H\+O\+R\+ES@{config\+U\+S\+E\+\_\+\+C\+O\+U\+N\+T\+I\+N\+G\+\_\+\+S\+E\+M\+A\+P\+H\+O\+R\+ES}}
+\index{config\+U\+S\+E\+\_\+\+C\+O\+U\+N\+T\+I\+N\+G\+\_\+\+S\+E\+M\+A\+P\+H\+O\+R\+ES@{config\+U\+S\+E\+\_\+\+C\+O\+U\+N\+T\+I\+N\+G\+\_\+\+S\+E\+M\+A\+P\+H\+O\+R\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+C\+O\+U\+N\+T\+I\+N\+G\+\_\+\+S\+E\+M\+A\+P\+H\+O\+R\+ES}{configUSE_COUNTING_SEMAPHORES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+C\+O\+U\+N\+T\+I\+N\+G\+\_\+\+S\+E\+M\+A\+P\+H\+O\+R\+ES~1}\hypertarget{FreeRTOSConfig_8h_a55778995203c57369d2fbfb10224943d}{}\label{FreeRTOSConfig_8h_a55778995203c57369d2fbfb10224943d}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+I\+D\+L\+E\+\_\+\+H\+O\+OK@{config\+U\+S\+E\+\_\+\+I\+D\+L\+E\+\_\+\+H\+O\+OK}}
+\index{config\+U\+S\+E\+\_\+\+I\+D\+L\+E\+\_\+\+H\+O\+OK@{config\+U\+S\+E\+\_\+\+I\+D\+L\+E\+\_\+\+H\+O\+OK}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+I\+D\+L\+E\+\_\+\+H\+O\+OK}{configUSE_IDLE_HOOK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+I\+D\+L\+E\+\_\+\+H\+O\+OK~1}\hypertarget{FreeRTOSConfig_8h_ac637ae45863c19fa2e919db0ed49301f}{}\label{FreeRTOSConfig_8h_ac637ae45863c19fa2e919db0ed49301f}
+
+
+Using I\+D\+LE task can put C\+PU to low power mode. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+E\+D\+\_\+\+H\+O\+OK@{config\+U\+S\+E\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+E\+D\+\_\+\+H\+O\+OK}}
+\index{config\+U\+S\+E\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+E\+D\+\_\+\+H\+O\+OK@{config\+U\+S\+E\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+E\+D\+\_\+\+H\+O\+OK}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+E\+D\+\_\+\+H\+O\+OK}{configUSE_MALLOC_FAILED_HOOK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+E\+D\+\_\+\+H\+O\+OK~1}\hypertarget{FreeRTOSConfig_8h_abdf48e7c9cf513f083aa9cbed0dd7cd7}{}\label{FreeRTOSConfig_8h_abdf48e7c9cf513f083aa9cbed0dd7cd7}
+
+
+If memory runs out, the hook function is called. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+M\+U\+T\+E\+X\+ES@{config\+U\+S\+E\+\_\+\+M\+U\+T\+E\+X\+ES}}
+\index{config\+U\+S\+E\+\_\+\+M\+U\+T\+E\+X\+ES@{config\+U\+S\+E\+\_\+\+M\+U\+T\+E\+X\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+M\+U\+T\+E\+X\+ES}{configUSE_MUTEXES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+M\+U\+T\+E\+X\+ES~1}\hypertarget{FreeRTOSConfig_8h_a543bf3c79008974cc1d36bab51d94fbf}{}\label{FreeRTOSConfig_8h_a543bf3c79008974cc1d36bab51d94fbf}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+P\+O\+R\+T\+\_\+\+O\+P\+T\+I\+M\+I\+S\+E\+D\+\_\+\+T\+A\+S\+K\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON@{config\+U\+S\+E\+\_\+\+P\+O\+R\+T\+\_\+\+O\+P\+T\+I\+M\+I\+S\+E\+D\+\_\+\+T\+A\+S\+K\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON}}
+\index{config\+U\+S\+E\+\_\+\+P\+O\+R\+T\+\_\+\+O\+P\+T\+I\+M\+I\+S\+E\+D\+\_\+\+T\+A\+S\+K\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON@{config\+U\+S\+E\+\_\+\+P\+O\+R\+T\+\_\+\+O\+P\+T\+I\+M\+I\+S\+E\+D\+\_\+\+T\+A\+S\+K\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+P\+O\+R\+T\+\_\+\+O\+P\+T\+I\+M\+I\+S\+E\+D\+\_\+\+T\+A\+S\+K\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON}{configUSE_PORT_OPTIMISED_TASK_SELECTION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+P\+O\+R\+T\+\_\+\+O\+P\+T\+I\+M\+I\+S\+E\+D\+\_\+\+T\+A\+S\+K\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON~1}\hypertarget{FreeRTOSConfig_8h_aebb8c3a87d591f60f974772be0ee798d}{}\label{FreeRTOSConfig_8h_aebb8c3a87d591f60f974772be0ee798d}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON@{config\+U\+S\+E\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}}
+\index{config\+U\+S\+E\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON@{config\+U\+S\+E\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON}{configUSE_PREEMPTION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+P\+R\+E\+E\+M\+P\+T\+I\+ON~1}\hypertarget{FreeRTOSConfig_8h_adde83486022745409c40605922b0bdd6}{}\label{FreeRTOSConfig_8h_adde83486022745409c40605922b0bdd6}
+
+
+One task can preempt another task (if equal or higher priority) 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+TS@{config\+U\+S\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+TS}}
+\index{config\+U\+S\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+TS@{config\+U\+S\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+TS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+TS}{configUSE_QUEUE_SETS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+S\+E\+TS~1}\hypertarget{FreeRTOSConfig_8h_a7bfbcca89aaa971f59fe9233772cc33d}{}\label{FreeRTOSConfig_8h_a7bfbcca89aaa971f59fe9233772cc33d}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+R\+E\+C\+U\+R\+S\+I\+V\+E\+\_\+\+M\+U\+T\+E\+X\+ES@{config\+U\+S\+E\+\_\+\+R\+E\+C\+U\+R\+S\+I\+V\+E\+\_\+\+M\+U\+T\+E\+X\+ES}}
+\index{config\+U\+S\+E\+\_\+\+R\+E\+C\+U\+R\+S\+I\+V\+E\+\_\+\+M\+U\+T\+E\+X\+ES@{config\+U\+S\+E\+\_\+\+R\+E\+C\+U\+R\+S\+I\+V\+E\+\_\+\+M\+U\+T\+E\+X\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+R\+E\+C\+U\+R\+S\+I\+V\+E\+\_\+\+M\+U\+T\+E\+X\+ES}{configUSE_RECURSIVE_MUTEXES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+R\+E\+C\+U\+R\+S\+I\+V\+E\+\_\+\+M\+U\+T\+E\+X\+ES~0}\hypertarget{FreeRTOSConfig_8h_a9fe02d866cb1c4fbaa0c3de79f53d42d}{}\label{FreeRTOSConfig_8h_a9fe02d866cb1c4fbaa0c3de79f53d42d}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+F\+O\+R\+M\+A\+T\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS@{config\+U\+S\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+F\+O\+R\+M\+A\+T\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS}}
+\index{config\+U\+S\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+F\+O\+R\+M\+A\+T\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS@{config\+U\+S\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+F\+O\+R\+M\+A\+T\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+F\+O\+R\+M\+A\+T\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS}{configUSE_STATS_FORMATTING_FUNCTIONS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+F\+O\+R\+M\+A\+T\+T\+I\+N\+G\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS~0}\hypertarget{FreeRTOSConfig_8h_a5b7fae1e2f6d4fe42104ed8d28a0569d}{}\label{FreeRTOSConfig_8h_a5b7fae1e2f6d4fe42104ed8d28a0569d}
+
+
+Older Free\+R\+T\+OS functions. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+\_\+\+H\+O\+OK@{config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+\_\+\+H\+O\+OK}}
+\index{config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+\_\+\+H\+O\+OK@{config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+\_\+\+H\+O\+OK}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+\_\+\+H\+O\+OK}{configUSE_TICK_HOOK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+T\+I\+C\+K\+\_\+\+H\+O\+OK~0}\hypertarget{FreeRTOSConfig_8h_a23c5922c077106fad3f70b54d9071466}{}\label{FreeRTOSConfig_8h_a23c5922c077106fad3f70b54d9071466}
+
+
+Every timer interrupt calls the tick function. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS@{config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS}}
+\index{config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS@{config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS}{configUSE_TIMERS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS~0}\hypertarget{FreeRTOSConfig_8h_ac342ae309b0c53828d2ecad3e6de355b}{}\label{FreeRTOSConfig_8h_ac342ae309b0c53828d2ecad3e6de355b}
+
+
+Enable or disable the Free\+R\+T\+OS timer task. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY@{config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY}}
+\index{config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY@{config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY}{configUSE_TRACE_FACILITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define config\+U\+S\+E\+\_\+\+T\+R\+A\+C\+E\+\_\+\+F\+A\+C\+I\+L\+I\+TY~0}\hypertarget{FreeRTOSConfig_8h_a27f5ee137dc9f125681a31f0b0a4b3be}{}\label{FreeRTOSConfig_8h_a27f5ee137dc9f125681a31f0b0a4b3be}
+
+
+Free\+R\+T\+OS + Percepio Tracealyzer trace facility. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+e\+Task\+Get\+State@{I\+N\+C\+L\+U\+D\+E\+\_\+e\+Task\+Get\+State}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+e\+Task\+Get\+State@{I\+N\+C\+L\+U\+D\+E\+\_\+e\+Task\+Get\+State}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+e\+Task\+Get\+State}{INCLUDE_eTaskGetState}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+e\+Task\+Get\+State~1}\hypertarget{FreeRTOSConfig_8h_a4fd1d67d54044ac86e8ffc890180f9f6}{}\label{FreeRTOSConfig_8h_a4fd1d67d54044ac86e8ffc890180f9f6}
+
+
+Was needed by the \char`\"{}info\char`\"{} command-\/line handler. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark@{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark@{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark}{INCLUDE_uxTaskGetStackHighWaterMark}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Get\+Stack\+High\+Water\+Mark~1}\hypertarget{FreeRTOSConfig_8h_a23c7b4b41fe9b575cf2329c7cbe78b86}{}\label{FreeRTOSConfig_8h_a23c7b4b41fe9b575cf2329c7cbe78b86}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Priority\+Get@{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Priority\+Get}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Priority\+Get@{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Priority\+Get}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Priority\+Get}{INCLUDE_uxTaskPriorityGet}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+ux\+Task\+Priority\+Get~0}\hypertarget{FreeRTOSConfig_8h_a1279eb797355460aeeec06aa524e91df}{}\label{FreeRTOSConfig_8h_a1279eb797355460aeeec06aa524e91df}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Clean\+Up\+Resources@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Clean\+Up\+Resources}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Clean\+Up\+Resources@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Clean\+Up\+Resources}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Clean\+Up\+Resources}{INCLUDE_vTaskCleanUpResources}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Clean\+Up\+Resources~0}\hypertarget{FreeRTOSConfig_8h_a7ee138825e57f243c8ee5fd4207b9e26}{}\label{FreeRTOSConfig_8h_a7ee138825e57f243c8ee5fd4207b9e26}
+
+
+Ditto $^\wedge$$^\wedge$. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay}{INCLUDE_vTaskDelay}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay~1}\hypertarget{FreeRTOSConfig_8h_a24361a6eb816a965f1ee4e2e08e364f8}{}\label{FreeRTOSConfig_8h_a24361a6eb816a965f1ee4e2e08e364f8}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay\+Until@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay\+Until}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay\+Until@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay\+Until}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay\+Until}{INCLUDE_vTaskDelayUntil}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delay\+Until~1}\hypertarget{FreeRTOSConfig_8h_ae8459bfd5b428319bb10de9f504a53aa}{}\label{FreeRTOSConfig_8h_ae8459bfd5b428319bb10de9f504a53aa}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delete@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delete}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delete@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delete}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delete}{INCLUDE_vTaskDelete}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Delete~0}\hypertarget{FreeRTOSConfig_8h_a5ae1434fdf995108dc749ff9329f53bd}{}\label{FreeRTOSConfig_8h_a5ae1434fdf995108dc749ff9329f53bd}
+
+
+A task should never be deleted in an R\+T\+OS (why create it only to delete it later?) 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Priority\+Set@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Priority\+Set}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Priority\+Set@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Priority\+Set}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Priority\+Set}{INCLUDE_vTaskPrioritySet}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Priority\+Set~0}\hypertarget{FreeRTOSConfig_8h_ad6858ac8aaf726007fd19752956ef1bd}{}\label{FreeRTOSConfig_8h_ad6858ac8aaf726007fd19752956ef1bd}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Suspend@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Suspend}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Suspend@{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Suspend}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Suspend}{INCLUDE_vTaskSuspend}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+v\+Task\+Suspend~1}\hypertarget{FreeRTOSConfig_8h_aef8fbb97819ad3d962f334ac298206d1}{}\label{FreeRTOSConfig_8h_aef8fbb97819ad3d962f334ac298206d1}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Idle\+Task\+Handle@{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Idle\+Task\+Handle}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Idle\+Task\+Handle@{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Idle\+Task\+Handle}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Idle\+Task\+Handle}{INCLUDE_xTaskGetIdleTaskHandle}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Idle\+Task\+Handle~1}\hypertarget{FreeRTOSConfig_8h_ae8811def4dd6983011fed9ef8686f18f}{}\label{FreeRTOSConfig_8h_ae8811def4dd6983011fed9ef8686f18f}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Scheduler\+State@{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Scheduler\+State}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Scheduler\+State@{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Scheduler\+State}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Scheduler\+State}{INCLUDE_xTaskGetSchedulerState}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+x\+Task\+Get\+Scheduler\+State~1}\hypertarget{FreeRTOSConfig_8h_a9ed60ede556830584e6bfd4a3ab4f9de}{}\label{FreeRTOSConfig_8h_a9ed60ede556830584e6bfd4a3ab4f9de}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!I\+N\+C\+L\+U\+D\+E\+\_\+x\+Timer\+Pend\+Function\+Call@{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Timer\+Pend\+Function\+Call}}
+\index{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Timer\+Pend\+Function\+Call@{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Timer\+Pend\+Function\+Call}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{I\+N\+C\+L\+U\+D\+E\+\_\+x\+Timer\+Pend\+Function\+Call}{INCLUDE_xTimerPendFunctionCall}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+L\+U\+D\+E\+\_\+x\+Timer\+Pend\+Function\+Call~0}\hypertarget{FreeRTOSConfig_8h_a4b4336acd61a8e513ca2376be84326b5}{}\label{FreeRTOSConfig_8h_a4b4336acd61a8e513ca2376be84326b5}
+
+
+Uses timer daemon task, so needs config\+U\+S\+E\+\_\+\+T\+I\+M\+E\+RS to 1. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK@{M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}}
+\index{M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK@{M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}{MS_PER_TICK}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~( 1000 / {\bf config\+T\+I\+C\+K\+\_\+\+R\+A\+T\+E\+\_\+\+HZ})}\hypertarget{FreeRTOSConfig_8h_a090df863baed0c5502776d48777c2fed}{}\label{FreeRTOSConfig_8h_a090df863baed0c5502776d48777c2fed}
+
+
+tick to millisecond factor 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!O\+S\+\_\+\+MS@{O\+S\+\_\+\+MS}}
+\index{O\+S\+\_\+\+MS@{O\+S\+\_\+\+MS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{O\+S\+\_\+\+MS}{OS_MS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+S\+\_\+\+MS(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~( x / {\bf M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}() )}\hypertarget{FreeRTOSConfig_8h_ab743eff669ae3062b0885a8e0315b641}{}\label{FreeRTOSConfig_8h_ab743eff669ae3062b0885a8e0315b641}
+
+
+Ticks to millisecond conversion. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES@{P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}}
+\index{P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES@{P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES}{PERIODIC_SCH_PRIORITIES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES~(5)}\hypertarget{FreeRTOSConfig_8h_a011182398ab221c615b540cfe3ec7ade}{}\label{FreeRTOSConfig_8h_a011182398ab221c615b540cfe3ec7ade}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!port\+C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS@{port\+C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}}
+\index{port\+C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS@{port\+C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{port\+C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}{portCONFIGURE_TIMER_FOR_RUN_TIME_STATS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+C\+O\+N\+F\+I\+G\+U\+R\+E\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init}()}\hypertarget{FreeRTOSConfig_8h_a727939bcdb98501e0eba0ec8a1841e1b}{}\label{FreeRTOSConfig_8h_a727939bcdb98501e0eba0ec8a1841e1b}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!port\+G\+E\+T\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+C\+O\+U\+N\+T\+E\+R\+\_\+\+V\+A\+L\+UE@{port\+G\+E\+T\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+C\+O\+U\+N\+T\+E\+R\+\_\+\+V\+A\+L\+UE}}
+\index{port\+G\+E\+T\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+C\+O\+U\+N\+T\+E\+R\+\_\+\+V\+A\+L\+UE@{port\+G\+E\+T\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+C\+O\+U\+N\+T\+E\+R\+\_\+\+V\+A\+L\+UE}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{port\+G\+E\+T\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+C\+O\+U\+N\+T\+E\+R\+\_\+\+V\+A\+L\+UE}{portGET_RUN_TIME_COUNTER_VALUE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+G\+E\+T\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+C\+O\+U\+N\+T\+E\+R\+\_\+\+V\+A\+L\+UE(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get}()}\hypertarget{FreeRTOSConfig_8h_aa7cb8c79fb40bf2d4caccf5ba9ae6737}{}\label{FreeRTOSConfig_8h_aa7cb8c79fb40bf2d4caccf5ba9ae6737}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!port\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS@{port\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}}
+\index{port\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS@{port\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{port\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS}{portRESET_TIMER_FOR_RUN_TIME_STATS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define port\+R\+E\+S\+E\+T\+\_\+\+T\+I\+M\+E\+R\+\_\+\+F\+O\+R\+\_\+\+R\+U\+N\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+TS(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset}()}\hypertarget{FreeRTOSConfig_8h_aeba467eb131f2101afc807ff91d425ad}{}\label{FreeRTOSConfig_8h_aeba467eb131f2101afc807ff91d425ad}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+R\+I\+T\+I\+C\+AL@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+R\+I\+T\+I\+C\+AL}}
+\index{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+R\+I\+T\+I\+C\+AL@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+R\+I\+T\+I\+C\+AL}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+R\+I\+T\+I\+C\+AL}{PRIORITY_CRITICAL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+C\+R\+I\+T\+I\+C\+AL~({\bf config\+M\+A\+X\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES} -\/ {\bf P\+E\+R\+I\+O\+D\+I\+C\+\_\+\+S\+C\+H\+\_\+\+P\+R\+I\+O\+R\+I\+T\+I\+ES} -\/ 1)}\hypertarget{FreeRTOSConfig_8h_aa2b63ea1e2631e81e03ad1a0883bf679}{}\label{FreeRTOSConfig_8h_aa2b63ea1e2631e81e03ad1a0883bf679}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH}}
+\index{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH}{PRIORITY_HIGH}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+H\+I\+GH~3}\hypertarget{FreeRTOSConfig_8h_aaca04d3893d808496a90f8f0d0b8fcaa}{}\label{FreeRTOSConfig_8h_aaca04d3893d808496a90f8f0d0b8fcaa}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+OW@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+OW}}
+\index{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+OW@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+OW}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+OW}{PRIORITY_LOW}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+OW~1}\hypertarget{FreeRTOSConfig_8h_af9877767f734190a66ec73e03252e1ce}{}\label{FreeRTOSConfig_8h_af9877767f734190a66ec73e03252e1ce}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+E\+D\+I\+UM@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+E\+D\+I\+UM}}
+\index{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+E\+D\+I\+UM@{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+E\+D\+I\+UM}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+E\+D\+I\+UM}{PRIORITY_MEDIUM}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+E\+D\+I\+UM~2}\hypertarget{FreeRTOSConfig_8h_a676d1a39b0be995ee18e6e45ff96ba4c}{}\label{FreeRTOSConfig_8h_a676d1a39b0be995ee18e6e45ff96ba4c}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES@{S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES}}
+\index{S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES@{S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES}{STACK_BYTES}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+C\+K\+\_\+\+B\+Y\+T\+ES(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~((x)/4)}\hypertarget{FreeRTOSConfig_8h_a703154c04efb3926f77be1ad05e779e2}{}\label{FreeRTOSConfig_8h_a703154c04efb3926f77be1ad05e779e2}
+
+
+32-\/bit C\+PU use 4 bytes per stack unit 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!trace\+T\+A\+S\+K\+\_\+\+S\+W\+I\+T\+C\+H\+E\+D\+\_\+\+IN@{trace\+T\+A\+S\+K\+\_\+\+S\+W\+I\+T\+C\+H\+E\+D\+\_\+\+IN}}
+\index{trace\+T\+A\+S\+K\+\_\+\+S\+W\+I\+T\+C\+H\+E\+D\+\_\+\+IN@{trace\+T\+A\+S\+K\+\_\+\+S\+W\+I\+T\+C\+H\+E\+D\+\_\+\+IN}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{trace\+T\+A\+S\+K\+\_\+\+S\+W\+I\+T\+C\+H\+E\+D\+\_\+\+IN}{traceTASK_SWITCHED_IN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define trace\+T\+A\+S\+K\+\_\+\+S\+W\+I\+T\+C\+H\+E\+D\+\_\+\+IN(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{FreeRTOSConfig_8h_a2f813fe80d3519a396a9f2bb7cc7e820}{}\label{FreeRTOSConfig_8h_a2f813fe80d3519a396a9f2bb7cc7e820}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                                \(\backslash\)
+                     uint32\_t *pTaskName = (uint32\_t*)(\hyperlink{tasks_8c_acdecf2afe97343aba42b111bc6df9eea}{pxCurrentTCB}->
+      \hyperlink{structtskTaskControlBlock_a67d61291794f38afb5be5132078bc24f}{pcTaskName});    \hyperlink{fault__registers_8h_a0743561a0a0e439f37705f5a40b63d06}{\(\backslash\)}
+\hyperlink{fault__registers_8h_a0743561a0a0e439f37705f5a40b63d06}{                     FAULT\_LAST\_RUNNING\_TASK\_NAME} = *
+      pTaskName;                      \(\backslash\)
+                 \} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!v\+Task\+Delay\+Ms@{v\+Task\+Delay\+Ms}}
+\index{v\+Task\+Delay\+Ms@{v\+Task\+Delay\+Ms}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{v\+Task\+Delay\+Ms}{vTaskDelayMs}}]{\setlength{\rightskip}{0pt plus 5cm}\#define v\+Task\+Delay\+Ms(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf v\+Task\+Delay}({\bf O\+S\+\_\+\+MS}((x)))}\hypertarget{FreeRTOSConfig_8h_acac9d8596f97b8d09b5ba990faf542bc}{}\label{FreeRTOSConfig_8h_acac9d8596f97b8d09b5ba990faf542bc}
+
+
+Sleep for ms instead of ticks. 
+
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!x\+Task\+Get\+Ms\+Count@{x\+Task\+Get\+Ms\+Count}}
+\index{x\+Task\+Get\+Ms\+Count@{x\+Task\+Get\+Ms\+Count}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{x\+Task\+Get\+Ms\+Count}{xTaskGetMsCount}}]{\setlength{\rightskip}{0pt plus 5cm}\#define x\+Task\+Get\+Ms\+Count(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~({\bf x\+Task\+Get\+Tick\+Count}() $\ast$ {\bf M\+S\+\_\+\+P\+E\+R\+\_\+\+T\+I\+CK}())}\hypertarget{FreeRTOSConfig_8h_a04fe9d1b156664e4907587ce48ff59d5}{}\label{FreeRTOSConfig_8h_a04fe9d1b156664e4907587ce48ff59d5}
+
+
+\subsection{Function Documentation}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get@{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get}}
+\index{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get@{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get()}{rts_not_full_trace_get()}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+get (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{FreeRTOSConfig_8h_a2be471dcdf7a7ddd168c8221fb3c6be4}{}\label{FreeRTOSConfig_8h_a2be471dcdf7a7ddd168c8221fb3c6be4}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init@{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init}}
+\index{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init@{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init(void)}{rts_not_full_trace_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{FreeRTOSConfig_8h_a1f046a229fe08afbaf405a092377559a}{}\label{FreeRTOSConfig_8h_a1f046a229fe08afbaf405a092377559a}
+\index{Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}!rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset@{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset}}
+\index{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset@{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset}!Free\+R\+T\+O\+S\+Config.\+h@{Free\+R\+T\+O\+S\+Config.\+h}}
+\subsubsection[{\texorpdfstring{rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset()}{rts_not_full_trace_reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void rts\+\_\+not\+\_\+full\+\_\+trace\+\_\+reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{FreeRTOSConfig_8h_a2e32183152b89f937c12a60e0ce21b48}{}\label{FreeRTOSConfig_8h_a2e32183152b89f937c12a60e0ce21b48}

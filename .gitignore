@@ -10,6 +10,7 @@ firmware/**/cgreen-test-suite
 !firmware/FreeRTOS
 !firmware/Telemetry
 !firmware/Unittest
+!firmware/Assembly
 
 tools/Hyperload
 tools/Telemetry

@@ -17,14 +17,14 @@ Installation
 
 	.. code-block:: bash
 
-		git clone --recursive https://github.com/kammce/SJSU-DEV-Linux.git
+		git clone https://github.com/kammce/SJSU-Dev.git
 
 **Step 2**
-	Change directory into **SJSU-Dev-Linux**
+	Change directory into **SJSU-Dev**
 
 	.. code-block:: bash
 
-		cd SJSU-DEV-Linux
+		cd SJSU-Dev
 
 **Step 3**
 	Run :code:`setup` script.
@@ -33,29 +33,34 @@ Installation
 
 		./setup
 
-	.. warning::
-
-		Do not run this script using **SUDO**. The script will ask you for **sudo** permissions once it runs.
-
 	.. note::
-		This will install gtkterm, mono-complete, and gcc-arm-embedded packages
+		This will download and install the gcc-arm binaries, hyperload, telemetry locally to the repo.
+		It will also generate the environment variables file and link the makefile and environment file to
+		all of the default folders.
 
 Building and Loading Hello World Application
 ----------------------------------------------
 
-**Step 1**
+**Step 0**
 	From the root of the repository
 
 	.. code-block:: bash
 
-		cd firmware/default
+		cd firmware/HelloWorld
 
-**Step 2**
-	Run :code:`build` script. A HEX file :code:`bin/HelloWorld/HelloWorld.hex` and subsequent folders should have been created after this script finishes.
+**Step 1**
+	Source the :code:`env.sh`. You only need to do this once for each terminal session. After sourcing, the necessary environment variables will be added to your shell.
 
 	.. code-block:: bash
 
-		./build HelloWorld
+		source env.sh
+
+**Step 2**
+	Run :code:`make build` within the HelloWorld folder to compile it into a HEX file located in the :code:`bin` folder.
+
+	.. code-block:: bash
+
+		make build
 
 	.. note::
 		use the :code:`--help` argument to get additional information on how to use the build script.
@@ -65,7 +70,7 @@ Building and Loading Hello World Application
 
 	.. code-block:: bash
 
-		./hyperload.py /dev/ttyUSB0 bin/HelloWorld/HelloWorld.hex
+		make flash
 
 	The first argument is the path to the serial device. The second argument is the hexfile to load into the SJOne board.
 

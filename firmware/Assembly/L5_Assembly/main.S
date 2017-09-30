@@ -25,6 +25,18 @@
 #define FIO1DIR     0x2009C020
 #define FIO1PIN     0x2009C034
 
+.macro bit_map source:req, source_bit_mask:req, destination:req, dest_bit_mask:req
+    @ tmp & 0b1000 to check if 3rd bit is set
+    and     \source, \source, \source_bit_mask
+    @ If tmp
+    cmp     \source, #0
+    @ is equal to 0
+    ite     eq
+    @ then set led bit HIGH/LEDOFF (active low)
+    orreq   \destination, \destination, \dest_bit_mask
+    @ else clear led bit LOW/LEDON
+    bicne   \destination, \destination, \dest_bit_mask
+.endm
 
 .global main
 main:
@@ -51,9 +63,11 @@ loop:
     ldr     r0, =counter_message
     mov     r1, counter
     bl      printf
+    @ ========================================================
     @ Set 7-segment display to counter value
     @ An example of how to run a C++ class method by using an
     @ extern "C" function within a C++ file to run it
+    @ ========================================================
     push    {counter}
     mov     r0, counter
     bl      led_display_set
@@ -66,34 +80,21 @@ loop:
     @ Set pin LEDs
     ldr     ptr, =FIO1PIN
     ldr     variable, [ptr]
+    @ ========================================
     @ Set LED 3 by checking counter_bit[3]
-    mov     tmp, counter
-    and     tmp, tmp, #0b1000
-    cmp     tmp, #0b1000
-    ite     eq
-    biceq   variable, variable, #0b1
-    orrne   variable, variable, #0b1
+    @ ========================================
     @ Set LED 2 by checking counter_bit[2]
     mov     tmp, counter
-    and     tmp, tmp, #0b100
-    cmp     tmp, #0b100
-    ite     eq
-    biceq   variable, variable, #0b10
-    orrne   variable, variable, #0b10
+    bit_map tmp, #0b1000, variable, #0b1
+    @ Set LED 2 by checking counter_bit[2]
+    mov     tmp, counter
+    bit_map tmp, #0b100, variable, #0b10
     @ Set LED 1 by checking counter_bit[1]
     mov     tmp, counter
-    and     tmp, tmp, #0b10
-    cmp     tmp, #0b10
-    ite     eq
-    biceq   variable, variable, #0b10000
-    orrne   variable, variable, #0b10000
+    bit_map tmp, #0b10, variable, #0b10000
     @ Set LED 0 by checking counter_bit[0]
     mov     tmp, counter
-    and     tmp, tmp, #0b1
-    cmp     tmp, #0b1
-    ite     eq
-    biceq   variable, variable, #0b100000000
-    orrne   variable, variable, #0b100000000
+    bit_map tmp, #0b1, variable, #0b100000000
     @ Write port 0 pin register back into memory
     str     variable, [ptr]
     @ Check if counter is == 0xF, if so, set it to 0

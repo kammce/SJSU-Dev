@@ -69,7 +69,7 @@ case $( uname -s ) in
 	    GCC_PKG=$ARM_GCC-linux.tar.bz2
 	    SJSUONEDEV=/dev/ttyUSB0
 
-	    sudo apt-get install git python2
+	    sudo apt-get install git python2 curl
 
 		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
         echo " ──────────────────────────────────────────────────┐"

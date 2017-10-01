@@ -63,13 +63,9 @@ case $( uname -s ) in
 		echo " ──────────────────────────────────────────────────┐"
         echo "           Downloading gcc-arm-embedded             "
         echo "└────────────────────────────────────────────────── "
-
-        #TODO enhancement#1
 		curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-linux.tar.bz2
 	    GCC_PKG=$ARM_GCC-linux.tar.bz2
 	    SJSUONEDEV=/dev/ttyUSB0
-
-	    sudo apt-get install git python2 curl
 
 		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
         echo " ──────────────────────────────────────────────────┐"
@@ -81,6 +77,7 @@ case $( uname -s ) in
 	    echo "                Installing OpenOCD                   "
 	    echo "└─────────────────────────────────────────────────── "
 	    sudo apt -y install openocd
+        sudo apt-get -y install git python curl
 
 	    echo " ───────────────────────────────────────────────────┐"
         echo "        Installing PIP + Python Virtualenv           "
@@ -100,8 +97,6 @@ case $( uname -s ) in
 	    echo " ──────────────────────────────────────────────────┐"
         echo "           Downloading gcc-arm-embedded             "
         echo "└────────────────────────────────────────────────── "
-
-        #TODO enhancement#1
 	    curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-mac.tar.bz2
 	    GCC_PKG=$ARM_GCC-mac.tar.bz2
 	    SJSUONEDEV=/dev/tty.usbserial-A503JOLS
@@ -113,7 +108,6 @@ case $( uname -s ) in
 		;;
 esac
 
-#TODO Need to combine with enhancement#1 for efficiency
 if [[ ! -d "bin" && -f "$GCC_PKG" ]]; then
 	echo " ──────────────────────────────────────────────────┐"
 	echo "            Extracting gcc-arm-embedded             "

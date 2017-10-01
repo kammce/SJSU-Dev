@@ -14,12 +14,12 @@ function programInstalled {
 #Else Displays Red Cross for Missing Programs
 function check {
 	if [ $1 == 1 ]; then
-    	printf "\e[32m✔"
-  		echo $(tput sgr0)
+		printf "\e[32m✔"
+		echo $(tput sgr0)
 	else
-    	printf "\e[31m✘"
-  		echo $(tput sgr0)
-  	fi
+		printf "\e[31m✘"
+		echo $(tput sgr0)
+	fi
 }
 
 # Make sure only non-root users can run our script
@@ -64,49 +64,49 @@ case $( uname -s ) in
 		echo Operating System: Linux
 		cd $TOOLDIR
 		echo " ──────────────────────────────────────────────────┐"
-        echo "           Downloading gcc-arm-embedded             "
-        echo "└────────────────────────────────────────────────── "
+		echo "           Downloading gcc-arm-embedded             "
+		echo "└────────────────────────────────────────────────── "
 		curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-linux.tar.bz2
-	    GCC_PKG=$ARM_GCC-linux.tar.bz2
-	    SJSUONEDEV=/dev/ttyUSB0
+		GCC_PKG=$ARM_GCC-linux.tar.bz2
+		SJSUONEDEV=/dev/ttyUSB0
 
 		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
-        echo " ──────────────────────────────────────────────────┐"
-        echo "      Adding current user to '$GROUP' group"
-        echo "└────────────────────────────────────────────────── "
-        sudo adduser $USER $THE_GROUP
+		echo " ──────────────────────────────────────────────────┐"
+		echo "      Adding current user to '$GROUP' group"
+		echo "└────────────────────────────────────────────────── "
+		sudo adduser $USER $THE_GROUP
 
 		echo " ───────────────────────────────────────────────────┐"
-	    echo "     Installing OpenOCD, Git, Python, Curl           "
-	    echo "└─────────────────────────────────────────────────── "
-	    sudo apt -y install openocd
-        sudo apt-get -y install git python curl
+		echo "     Installing OpenOCD, Git, Python, Curl           "
+		echo "└─────────────────────────────────────────────────── "
+		sudo apt -y install openocd
+		sudo apt-get -y install git python curl
 
-	    echo " ───────────────────────────────────────────────────┐"
-        echo "        Installing PIP + Python Virtualenv           "
-        echo "└─────────────────────────────────────────────────── "
-        sudo -H pip install --upgrade pip
-        sudo -H pip install --upgrade virtualenv
+		echo " ───────────────────────────────────────────────────┐"
+		echo "        Installing PIP + Python Virtualenv           "
+		echo "└─────────────────────────────────────────────────── "
+		sudo -H pip install --upgrade pip
+		sudo -H pip install --upgrade virtualenv
 
-        echo " ───────────────────────────────────────────────────┐"
-        echo "                 Installing GDBGUI                   "
-        echo "└─────────────────────────────────────────────────── "
-        sudo -H pip install --upgrade gdbgui
+		echo " ───────────────────────────────────────────────────┐"
+		echo "                 Installing GDBGUI                   "
+		echo "└─────────────────────────────────────────────────── "
+		sudo -H pip install --upgrade gdbgui
 		;;
 
 	Darwin)	#Mac Case
-	    echo "Operating System Kernel: Mac OSX Darvin"
-	    cd $TOOLDIR
-	    echo " ──────────────────────────────────────────────────┐"
-        echo "           Downloading gcc-arm-embedded             "
-        echo "└────────────────────────────────────────────────── "
-	    curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-mac.tar.bz2
-	    GCC_PKG=$ARM_GCC-mac.tar.bz2
-	    SJSUONEDEV=/dev/tty.usbserial-A503JOLS
+		echo "Operating System Kernel: Mac OSX Darvin"
+		cd $TOOLDIR
+		echo " ──────────────────────────────────────────────────┐"
+		echo "           Downloading gcc-arm-embedded             "
+		echo "└────────────────────────────────────────────────── "
+		curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-mac.tar.bz2
+		GCC_PKG=$ARM_GCC-mac.tar.bz2
+		SJSUONEDEV=/dev/tty.usbserial-A503JOLS
 
-        #                        ========= Xcode ==========                           #
-        xcode-select --install &> /dev/null	#Install cli tools
-        sudo xcodebuild -license #Accept User Agreement
+		#                        ========= Xcode ==========                           #
+		xcode-select --install &> /dev/null	#Install cli tools
+		sudo xcodebuild -license #Accept User Agreement
 		;;
 
 	*)	#Default if Operating System other than Mac or Linux

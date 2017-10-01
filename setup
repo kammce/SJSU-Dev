@@ -157,6 +157,7 @@ SJSUONEBAUD=38400
 # Project Target Settings:
 # Sets the binary name, defaults to "firmware" (Optional)
 PROJ=firmware
+
 # Sets which DBC to generate, defaults to "DBG"
 ENTITY=DBG
 
@@ -181,7 +182,7 @@ export MAKEFLAGS
 EOL
 
 echo " ──────────────────────────────────────────────────────────────────┐"
-echo "   Linking Makefile and Environment Scripts into Firmware projects  "
+echo "               Linking Files into Firmware projects                 "
 echo "└────────────────────────────────────────────────────────────────── "
 
 ln -s -f $BASE/env.sh firmware/FreeRTOS/env.sh
@@ -191,6 +192,22 @@ ln -s -f $BASE/env.sh firmware/Telemetry/env.sh
 ln -s -f $BASE/makefile firmware/FreeRTOS/makefile
 ln -s -f $BASE/makefile firmware/HelloWorld/makefile
 ln -s -f $BASE/makefile firmware/Telemetry/makefile
+
+ln -s -f $BASE/tools/Unittest-Template/README.md firmware/FreeRTOS/test/README.md
+ln -s -f $BASE/tools/Unittest-Template/README.md firmware/HelloWorld/test/README.md
+ln -s -f $BASE/tools/Unittest-Template/README.md firmware/Telemetry/test/README.md
+
+# rm -rf firmware/HelloWorld/test/simple_test
+# rm -rf firmware/FreeRTOS/test/simple_test
+# rm -rf firmware/HelloWorld/test/simple_test
+
+cp -rf tools/Unittest-Template/simple-test/ firmware/FreeRTOS/test/
+cp -rf tools/Unittest-Template/simple-test/ firmware/HelloWorld/test/
+cp -rf tools/Unittest-Template/simple-test/ firmware/Telemetry/test/
+
+ln -s -f $BASE/makefile.test firmware/FreeRTOS/test/simple-test/makefile
+ln -s -f $BASE/makefile.test firmware/HelloWorld/test/simple-test/makefile
+ln -s -f $BASE/makefile.test firmware/Telemetry/test/simple-test/makefile
 
 echo
 echo " ──────────────────────────────────────────────────────────────┐"

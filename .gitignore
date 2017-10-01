@@ -20,3 +20,4 @@ tools/gcc-arm-none-eabi-*
 **/flash.txt
 **/env.sh
 .idea/
+firmware/**/test

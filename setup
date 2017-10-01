@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#
+# Utils
+#
 #Checks for installed programs on machine
 function programInstalled {
   local returning=1
@@ -7,7 +10,7 @@ function programInstalled {
   echo "$returning"
 }
 
-#Fucntion Displays Green Check for installed programs
+#Function Displays Green Check for installed programs
 #Else Displays Red Cross for Missing Programs
 function check {
 	if [ $1 == 1 ]; then
@@ -21,7 +24,7 @@ function check {
 
 # Make sure only non-root users can run our script
 if [[ $EUID -eq 0 ]]; then
-   echo "SJSU-DEV-Linux installer script must NOT be run as root! " 1>&2
+   echo "SJSU-DEV installer script must NOT be run as root! " 1>&2
    exit 1
 fi
 
@@ -74,7 +77,7 @@ case $( uname -s ) in
         sudo adduser $USER $THE_GROUP
 
 		echo " ───────────────────────────────────────────────────┐"
-	    echo "                Installing OpenOCD                   "
+	    echo "     Installing OpenOCD, Git, Python, Curl           "
 	    echo "└─────────────────────────────────────────────────── "
 	    sudo apt -y install openocd
         sudo apt-get -y install git python curl
@@ -100,6 +103,10 @@ case $( uname -s ) in
 	    curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-mac.tar.bz2
 	    GCC_PKG=$ARM_GCC-mac.tar.bz2
 	    SJSUONEDEV=/dev/tty.usbserial-A503JOLS
+
+        #                        ========= Xcode ==========                           #
+        xcode-select --install &> /dev/null	#Install cli tools
+        sudo xcodebuild -license #Accept User Agreement
 		;;
 
 	*)	#Default if Operating System other than Mac or Linux

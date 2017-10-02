@@ -19,7 +19,7 @@ Built for **Debian** based systems, **Mac OSX** (beta), and **Windows 10** using
 
 ## Tutorial
 
-See **[documentation](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=latest)** for a full tutorial.
+See **[documentation](http://sjsu-dev.readthedocs.io/en/latest/?badge=latest)** for a full tutorial.
 
 ## Contrib
 * [Preet Kang](http://www.socialledge.com/sjsu/index.php?title=Main_Page): Original creator of the SJDev development framework.

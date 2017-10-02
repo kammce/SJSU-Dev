@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.2. Unit Testing with CGreen &mdash; SJSU-Dev-Linux 1.0.0 documentation</title>
+  <title>2.2. Unit Testing &mdash; SJSU-Dev 1.0.0 documentation</title>
   
 
   
@@ -37,9 +37,9 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="SJSU-Dev-Linux 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="SJSU-Dev 1.0.0 documentation" href="../../index.html"/>
         <link rel="up" title="2. Guides" href="../guides-toc.html"/>
-        <link rel="next" title="2.3. Telemetry: Embedded Runtime Monitoring and Tuning" href="telemetry-runtime-monitoring-and-tuning.html"/>
+        <link rel="next" title="3. About" href="../../about.html"/>
         <link rel="prev" title="2.1. Debugging with OpenOCD and GDB" href="debugging-with-openocd-gdb.html"/> 
 
   
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> SJSU-Dev-Linux
+            <a href="../../index.html" class="icon icon-home"> SJSU-Dev
           
 
           
@@ -98,12 +98,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started-toc.html">1. Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides-toc.html">2. Guides</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="debugging-with-openocd-gdb.html">2.1. Debugging with OpenOCD and GDB</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Unit Testing with CGreen</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Unit Testing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#unit-testing-tools">2.2.1. Unit Testing Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-in-test-folder">2.2.2. Files in test folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-and-running-tests">2.2.3. Compiling and Running Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#created-additional-unit-tests">2.2.4. Created additional unit tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stubbing-out-and-spying-on-function-calls-using-fff-h-framework">2.2.5. Stubbing out and Spying on Function calls using FFF.h framework</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="telemetry-runtime-monitoring-and-tuning.html">2.3. Telemetry: Embedded Runtime Monitoring and Tuning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides-toc.html#press-next-to-get-started">2.4. Press Next To Get Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides-toc.html#press-next-to-get-started">2.3. Press Next To Get Started</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">3. About</a></li>
@@ -122,7 +125,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">SJSU-Dev-Linux</a>
+          <a href="../../index.html">SJSU-Dev</a>
         
       </nav>
 
@@ -154,7 +157,7 @@
         
           <li><a href="../guides-toc.html">2. Guides</a> &raquo;</li>
         
-      <li>2.2. Unit Testing with CGreen</li>
+      <li>2.2. Unit Testing</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -173,15 +176,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="unit-testing-with-cgreen">
-<h1>2.2. Unit Testing with CGreen<a class="headerlink" href="#unit-testing-with-cgreen" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="unit-testing">
+<h1>2.2. Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="unit-testing-tools">
 <h2>2.2.1. Unit Testing Tools<a class="headerlink" href="#unit-testing-tools" title="Permalink to this headline">¶</a></h2>
-<p>To unit test we use CGreen.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This section is not complete</p>
+<p>To unit test we support CGreens and Catch along with the FFF.h (fake function framework). CGreen must be installed globally your system for the makefile to work.</p>
 </div>
+<div class="section" id="files-in-test-folder">
+<h2>2.2.2. Files in test folder<a class="headerlink" href="#files-in-test-folder" title="Permalink to this headline">¶</a></h2>
+<p>Within the test folder, there will be a folder named <strong>simple-test</strong> which contains the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>makefile</strong>: for building the tests</li>
+<li><strong>test.cpp</strong>: a Catch unit test example.</li>
+<li><strong>cgreen-test.cpp</strong>: is a CGreen test example.</li>
+<li><strong>test-files.list</strong>: a new line delimited list of files to be included in your test.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="compiling-and-running-tests">
+<h2>2.2.3. Compiling and Running Tests<a class="headerlink" href="#compiling-and-running-tests" title="Permalink to this headline">¶</a></h2>
+<p>Enter the <strong>simple-test</strong> folder and run <code class="code docutils literal"><span class="pre">make</span></code> to compile and run the Catch unit test and <code class="code docutils literal"><span class="pre">make</span> <span class="pre">cgreen</span></code> to compile and run the CGreen unit test file.</p>
+</div>
+<div class="section" id="created-additional-unit-tests">
+<h2>2.2.4. Created additional unit tests<a class="headerlink" href="#created-additional-unit-tests" title="Permalink to this headline">¶</a></h2>
+<p>Copy the <strong>simple-test</strong> folder and edit the files within to make a new test. Do not move the folder out of the test directory of the application.</p>
+</div>
+<div class="section" id="stubbing-out-and-spying-on-function-calls-using-fff-h-framework">
+<h2>2.2.5. Stubbing out and Spying on Function calls using FFF.h framework<a class="headerlink" href="#stubbing-out-and-spying-on-function-calls-using-fff-h-framework" title="Permalink to this headline">¶</a></h2>
+<p>In your source, prefix the function you want to test with the following <code class="code docutils literal"><span class="pre">__attribute__((weak))</span></code>. This will make it a weak function that can be overridden with another definition of the same function. Within your test files you can include the following to create a function stub/spy:</p>
+<blockquote>
+<div><div class="highlight-C++"><div class="highlight"><pre><span></span><span class="n">FAKE_VOID_FUNC</span><span class="p">(</span><span class="n">functionToStubAndSpyOn</span><span class="p">,</span> <span class="kt">bool</span><span class="p">);</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="n">functionToStubAndSpyOn</span><span class="p">.</span><span class="n">custom_fake</span> <span class="o">=</span> <span class="p">[]()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Custom function&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>See more here <a class="reference external" href="https://github.com/meekrosoft/fff">https://github.com/meekrosoft/fff</a>.</p>
 </div>
 </div>
 
@@ -195,7 +231,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="telemetry-runtime-monitoring-and-tuning.html" class="btn btn-neutral float-right" title="2.3. Telemetry: Embedded Runtime Monitoring and Tuning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../about.html" class="btn btn-neutral float-right" title="3. About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="debugging-with-openocd-gdb.html" class="btn btn-neutral" title="2.1. Debugging with OpenOCD and GDB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

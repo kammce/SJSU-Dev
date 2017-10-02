@@ -53,7 +53,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'SJSU-Dev-Linux'
+project = u'SJSU-Dev'
 copyright = u'2017, Khalil A. Estell'
 author = u'Khalil A. Estell'
 

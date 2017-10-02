@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.1. Getting Started &mdash; SJSU-Dev-Linux 1.0.0 documentation</title>
+  <title>1.1. Getting Started &mdash; SJSU-Dev 1.0.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="SJSU-Dev-Linux 1.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="SJSU-Dev 1.0.0 documentation" href="../../index.html"/>
         <link rel="up" title="1. Getting Started" href="../getting-started-toc.html"/>
         <link rel="next" title="1.2. Understanding The Framework Layout" href="understanding-the-framework-layout.html"/>
         <link rel="prev" title="1. Getting Started" href="../getting-started-toc.html"/> 
@@ -59,7 +59,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> SJSU-Dev-Linux
+            <a href="../../index.html" class="icon icon-home"> SJSU-Dev
           
 
           
@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#installation">1.1.2. Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-and-loading-hello-world-application">1.1.3. Building and Loading Hello World Application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-and-loading-freertos-project">1.1.4. Building and Loading FreeRTOS Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-your-own-project">1.1.5. Building Your own Project</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="understanding-the-framework-layout.html">1.2. Understanding The Framework Layout</a></li>
@@ -123,7 +124,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">SJSU-Dev-Linux</a>
+          <a href="../../index.html">SJSU-Dev</a>
         
       </nav>
 
@@ -189,13 +190,13 @@
 <dl class="docutils">
 <dt><strong>Step 1</strong></dt>
 <dd><p class="first">Clone the repository</p>
-<div class="last highlight-bash"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/kammce/SJSU-DEV-Linux.git
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/kammce/SJSU-Dev.git
 </pre></div>
 </div>
 </dd>
 <dt><strong>Step 2</strong></dt>
-<dd><p class="first">Change directory into <strong>SJSU-Dev-Linux</strong></p>
-<div class="last highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> SJSU-DEV-Linux
+<dd><p class="first">Change directory into <strong>SJSU-Dev</strong></p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> SJSU-Dev
 </pre></div>
 </div>
 </dd>
@@ -204,29 +205,52 @@
 <div class="highlight-bash"><div class="highlight"><pre><span></span>./setup
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Do not run this script using <strong>SUDO</strong>. The script will ask you for <strong>sudo</strong> permissions once it runs.</p>
-</div>
 <div class="last admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This will install gtkterm, mono-complete, and gcc-arm-embedded packages</p>
+<p class="last">This will download and install the gcc-arm binaries, hyperload, telemetry locally to the repo.
+It will also generate the environment variables file and link the makefile and environment file to
+all of the default folders.</p>
 </div>
+</dd>
+<dt><strong>Step 4</strong></dt>
+<dd><p class="first">Edit the <code class="code docutils literal"><span class="pre">env.sh</span></code> script. Change the line <code class="code docutils literal"><span class="pre">SJSUONEDEV=/dev/ttyUSB0</span></code> to equal what you have on your system.</p>
+<p><strong>How to find your serial device on Ubuntu</strong></p>
+<p>You probably do not have to change anything.</p>
+<p>If no other devices are connected to your machine, then it will be <code class="code docutils literal"><span class="pre">/dev/ttyUSB0</span></code>. It is recommended to keep it at this value, because when you add more devices, it will increment to <code class="code docutils literal"><span class="pre">/dev/ttyUSB1</span></code>. Once you remove your devices and replace them, the value will reset.</p>
+<p><strong>How to find your serial device on Mac OS X</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Remove the SJ-One from your computer if it is connected.</li>
+<li>List the files in the <code class="code docutils literal"><span class="pre">/dev</span></code> folder by running the following <code class="code docutils literal"><span class="pre">ls</span> <span class="pre">/dev/</span></code>.</li>
+<li>Plug it into your computer and run <code class="code docutils literal"><span class="pre">ls</span> <span class="pre">/dev/</span></code>.</li>
+<li>Observe the new file that was created.</li>
+<li>On mac, the path should look something like the following <code class="code docutils literal"><span class="pre">/dev/tty.cumodemfd1337</span></code>.</li>
+<li>If so, change the line in env.sh to that file path from <code class="code docutils literal"><span class="pre">SJSUONEDEV=/dev/ttyUSB0</span></code> -&gt; <code class="code docutils literal"><span class="pre">SJSUONEDEV=/dev/tty.</span></code></li>
+</ol>
+</div></blockquote>
+<p><strong>How to find your serial device on Windows Linux Subsystem</strong></p>
+<p class="last">On Windows it should be <code class="code docutils literal"><span class="pre">/dev/ttyS3</span></code>. Check your device manager to see what number COM device your device. The number after COM is the number after the <strong>S</strong> in the <code class="code docutils literal"><span class="pre">/dev/ttyS</span></code> string. That is your device. Replace the line <code class="code docutils literal"><span class="pre">SJSUONEDEV=/dev/ttyUSB0</span></code> -&gt; <code class="code docutils literal"><span class="pre">SJSUONEDEV=/dev/ttyS</span></code></p>
 </dd>
 </dl>
 </div>
 <div class="section" id="building-and-loading-hello-world-application">
 <h2>1.1.3. Building and Loading Hello World Application<a class="headerlink" href="#building-and-loading-hello-world-application" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><strong>Step 1</strong></dt>
+<dt><strong>Step 0</strong></dt>
 <dd><p class="first">From the root of the repository</p>
-<div class="last highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> firmware/default
+<div class="last highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> firmware/HelloWorld
+</pre></div>
+</div>
+</dd>
+<dt><strong>Step 1</strong></dt>
+<dd><p class="first">Source the <code class="code docutils literal"><span class="pre">env.sh</span></code>. You only need to do this once for each terminal session. After sourcing, the necessary environment variables will be added to your shell.</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> env.sh
 </pre></div>
 </div>
 </dd>
 <dt><strong>Step 2</strong></dt>
-<dd><p class="first">Run <code class="code docutils literal"><span class="pre">build</span></code> script. A HEX file <code class="code docutils literal"><span class="pre">bin/HelloWorld/HelloWorld.hex</span></code> and subsequent folders should have been created after this script finishes.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>./build HelloWorld
+<dd><p class="first">Run <code class="code docutils literal"><span class="pre">make</span> <span class="pre">build</span></code> within the HelloWorld folder to compile it into a HEX file located in the <code class="code docutils literal"><span class="pre">bin</span></code> folder.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make build
 </pre></div>
 </div>
 <div class="last admonition note">
@@ -235,26 +259,24 @@
 </div>
 </dd>
 <dt><strong>Step 3</strong></dt>
-<dd><p class="first">To load the hex file into your SJOne file you will use the <code class="code docutils literal"><span class="pre">hyperload.py</span></code> file. Run the following:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>./hyperload.py /dev/ttyUSB0 bin/HelloWorld/HelloWorld.hex
+<dd><p class="first">To load the hex file into your SJ-One, run the following make command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>make flash
 </pre></div>
 </div>
-<p class="last">The first argument is the path to the serial device. The second argument is the hexfile to load into the SJOne board.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you run this command without first building, this command will build your project and then flash it. So you can skip the step above if you like.</p>
+</div>
+<div class="last admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you are running this on Windows using the Linux subsystem, you will need to modify the <code class="code docutils literal"><span class="pre">env.sh</span></code> file</p>
+</div>
 </dd>
 <dt><strong>Step 4</strong></dt>
-<dd><p class="first">To view serial output, run GTKTerm by using the following command:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>gtkterm -p /dev/ttyUSB0 -s <span class="m">38400</span>
+<dd><p class="first">To view serial output, and interact with the board, run the following make command:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>make telemetry
 </pre></div>
 </div>
-<dl class="last docutils">
-<dt><em>How to use GTKTerm</em></dt>
-<dd><ol class="first last arabic simple">
-<li>Set <em>CR LF Auto</em> to true by going to the <code class="code docutils literal"><span class="pre">Main</span> <span class="pre">Menu</span> <span class="pre">&gt;</span> <span class="pre">Configuration</span> <span class="pre">&gt;</span> <span class="pre">CR</span> <span class="pre">LF</span> <span class="pre">Auto</span></code> and click on it.</li>
-<li>Press <code class="code docutils literal"><span class="pre">F8</span></code> (Clears RTS signal), then press <code class="code docutils literal"><span class="pre">F7</span></code> (Clears DTR signal) to start SJOne.</li>
-<li>You should see the board counting up on the 7-Segment display and in binary on the LEDs.</li>
-</ol>
-</dd>
-</dl>
 </dd>
 <dt><strong>Step 5</strong></dt>
 <dd>Done!!</dd>
@@ -262,7 +284,11 @@
 </div>
 <div class="section" id="building-and-loading-freertos-project">
 <h2>1.1.4. Building and Loading FreeRTOS Project<a class="headerlink" href="#building-and-loading-freertos-project" title="Permalink to this headline">¶</a></h2>
-<p>Instructions are the same as HelloWorld, but you need to change the run the build script’s last argument to <em>FreeRTOS</em> rather than HelloWorld.</p>
+<p>Instructions are the same as HelloWorld, but you need to enter the firmware/FreeRTOS folder and run make from there.</p>
+</div>
+<div class="section" id="building-your-own-project">
+<h2>1.1.5. Building Your own Project<a class="headerlink" href="#building-your-own-project" title="Permalink to this headline">¶</a></h2>
+<p>Copy and rename the FreeRTOS or HelloWorld template folders to any place in your computer to make a new project.</p>
 </div>
 </div>
 

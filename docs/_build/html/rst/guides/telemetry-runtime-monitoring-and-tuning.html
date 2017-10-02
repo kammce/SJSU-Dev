@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.3. Telemetry: Embedded Runtime Monitoring and Tuning &mdash; SJSU-Dev-Linux 1.0.0 documentation</title>
+  <title>Telemetry: Embedded Runtime Monitoring and Tuning &mdash; SJSU-Dev 1.0.0 documentation</title>
   
 
   
@@ -37,10 +37,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="SJSU-Dev-Linux 1.0.0 documentation" href="../../index.html"/>
-        <link rel="up" title="2. Guides" href="../guides-toc.html"/>
-        <link rel="next" title="3. About" href="../../about.html"/>
-        <link rel="prev" title="2.2. Unit Testing with CGreen" href="unit-testing.html"/> 
+    <link rel="top" title="SJSU-Dev 1.0.0 documentation" href="../../index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -59,7 +56,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> SJSU-Dev-Linux
+            <a href="../../index.html" class="icon icon-home"> SJSU-Dev
           
 
           
@@ -93,20 +90,10 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started-toc.html">1. Getting Started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides-toc.html">2. Guides</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="debugging-with-openocd-gdb.html">2.1. Debugging with OpenOCD and GDB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unit-testing.html">2.2. Unit Testing with CGreen</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Telemetry: Embedded Runtime Monitoring and Tuning</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#setting-up-telemetry">2.3.1. Setting up Telemetry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-telemetry">2.3.2. Using Telemetry</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../guides-toc.html#press-next-to-get-started">2.4. Press Next To Get Started</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides-toc.html">2. Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">3. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../copyrights.html">4. Copyright</a></li>
 </ul>
@@ -123,7 +110,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">SJSU-Dev-Linux</a>
+          <a href="../../index.html">SJSU-Dev</a>
         
       </nav>
 
@@ -153,9 +140,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../guides-toc.html">2. Guides</a> &raquo;</li>
-        
-      <li>2.3. Telemetry: Embedded Runtime Monitoring and Tuning</li>
+      <li>Telemetry: Embedded Runtime Monitoring and Tuning</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -175,17 +160,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="telemetry-embedded-runtime-monitoring-and-tuning">
-<h1>2.3. Telemetry: Embedded Runtime Monitoring and Tuning<a class="headerlink" href="#telemetry-embedded-runtime-monitoring-and-tuning" title="Permalink to this headline">¶</a></h1>
+<h1>Telemetry: Embedded Runtime Monitoring and Tuning<a class="headerlink" href="#telemetry-embedded-runtime-monitoring-and-tuning" title="Permalink to this headline">¶</a></h1>
 <p>Wikipedia:</p>
 <blockquote>
 <div><strong>Telemetry</strong> is an automated communications process by which measurements and other data are collected at remote or inaccessible points and transmitted to receiving equipment for monitoring.</div></blockquote>
 <p>Telemetry is another means of testing your firmware. Unit test are useful for testing your code’s logic and making sure the behavior of your code operates as intended. A debugger allows you step through your code one line at a time, inspecting variables to see when adverse behavior arises in your firmware. Telemetry, more or less, is a means of feeding back information to the user about the current state of the firmware during runtime.</p>
 <div class="section" id="setting-up-telemetry">
-<h2>2.3.1. Setting up Telemetry<a class="headerlink" href="#setting-up-telemetry" title="Permalink to this headline">¶</a></h2>
+<h2>Setting up Telemetry<a class="headerlink" href="#setting-up-telemetry" title="Permalink to this headline">¶</a></h2>
 <p>Telemetry was setup when you ran the initial <code class="code docutils literal"><span class="pre">./setup</span></code> script.</p>
 </div>
 <div class="section" id="using-telemetry">
-<h2>2.3.2. Using Telemetry<a class="headerlink" href="#using-telemetry" title="Permalink to this headline">¶</a></h2>
+<h2>Using Telemetry<a class="headerlink" href="#using-telemetry" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><strong>Step 1</strong></dt>
 <dd><p class="first">Run <code class="code docutils literal"><span class="pre">./start</span></code> script. It should open up a webpage in your browser.</p>
@@ -217,15 +202,6 @@ If Telemetry is running on the SJOne, then a table will be generated in the Tele
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../about.html" class="btn btn-neutral float-right" title="3. About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="unit-testing.html" class="btn btn-neutral" title="2.2. Unit Testing with CGreen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

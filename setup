@@ -123,7 +123,7 @@ cat > env.sh <<EOL
 BASE=$BASE
 
 # SJSUOne Board Settings:
-SJSUONEDEV="$SJSUONEDEV" # Set this to your board ID
+SJSUONEDEV=$SJSUONEDEV # Set this to your board ID
 SJSUONEBAUD=38400
 
 # Project Target Settings:
@@ -136,11 +136,6 @@ ENTITY=DBG
 # Selects compiler version to use
 PATH=\$PATH:\$BASE/tools/$ARM_GCC/bin:\$BASE/tools/Hyperload:\$BASE/tools/Telemetry
 LIB_DIR="\$BASE/firmware/lib"
-
-# Make system settings:
-# Number of jobs = 4
-# Tune this to nthreads (f.eks. my system has a quad core with two threads per core = 4 threads)
-MAKEFLAGS=" -j 4"
 
 # Export everything to the environment
 export PATH

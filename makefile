@@ -13,14 +13,25 @@ CPPC            = arm-none-eabi-g++
 OBJDUMP         = arm-none-eabi-objdump
 SIZEC           = arm-none-eabi-size
 OBJCOPY         = arm-none-eabi-objcopy
+NM 		        = arm-none-eabi-nm
 
 # Internal build directories
 OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
 
+define n
+
+
+endef
+
+ifndef SJSUONEDEV
+$(error $n$n=============================================$nSJSUOne environment variables not set.$nPLEASE run "source env.sh"$n=============================================$n$n)
+endif
+
 CFLAGS = -mcpu=cortex-m3 \
-    -mthumb -Os -fmessage-length=0 \
+	-D DISABLE_WATCHDOG\
+    -mthumb -g -Os -fmessage-length=0 \
     -ffunction-sections -fdata-sections \
     -Wall -Wshadow -Wlogical-op \
     -Wfloat-equal -DBUILD_CFG_MPU=0 \
@@ -30,6 +41,7 @@ CFLAGS = -mcpu=cortex-m3 \
     -I"$(LIB_DIR)/newlib" \
     -I"$(LIB_DIR)/L0_LowLevel" \
     -I"$(LIB_DIR)/L1_FreeRTOS" \
+    -I"$(LIB_DIR)/L1_FreeRTOS/trace" \
     -I"$(LIB_DIR)/L1_FreeRTOS/include" \
     -I"$(LIB_DIR)/L1_FreeRTOS/portable" \
     -I"$(LIB_DIR)/L1_FreeRTOS/portable/no_mpu" \
@@ -73,14 +85,29 @@ HEX					= $(EXECUTABLE:.elf=.hex)
 LIST				= $(EXECUTABLE:.elf=.lst)
 SIZE				= $(EXECUTABLE:.elf=.siz)
 MAP					= $(EXECUTABLE:.elf=.map)
+SYMBOLS				= $(EXECUTABLE:.elf=.sym)
 
-.PHONY: build clean flash telemetry monitor
+.PHONY: default build clean flash telemetry cleaninstall
 
-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX)
+default:
+	@echo "List of available targets:"
+	@echo "    build        - builds firmware project"
+	@echo "    flash        - builds and installs firmware on to SJOne board"
+	@echo "    telemetry    - will launch telemetry interface"
+	@echo "    clean        - cleans project folder"
+	@echo "    cleaninstall - cleans, builds and installs firmware"
 
-# cleaninstall: clean build flash
+build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX) $(SYMBOLS)
+
+cleaninstall: clean build flash
 
 print-%  : ; @echo $* = $($*)
+
+$(SYMBOLS): $(EXECUTABLE)
+	@echo 'Invoking: Cross ARM GNU NM Generate Symbol Table'
+	@$(NM) -C "$<" > "$@"
+	@echo 'Finished building: $@'
+	@echo ' '
 
 $(HEX): $(EXECUTABLE)
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
@@ -140,7 +167,7 @@ $(OBJ_DIR)/%.o: $(LIB_DIR)/%.c
 	@echo ' '
 
 $(DBCBUILD):
-	python "$(LIB_DIR)/_can_dbc/dbc_parse.py" -i "$(LIB_DIR)/_can_dbc/243.dbc" -s $(ENTITY) > $(DBCBUILD)
+	python "$(LIB_DIR)/$(DBC_DIR)/dbc_parse.py" -i "$(LIB_DIR)/$(DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBCBUILD)
 
 $(DBC_DIR):
 	mkdir -p $(DBC_DIR)
@@ -160,7 +187,4 @@ flash: build
 	hyperload $(SJSUONEDEV) $(HEX)
 
 telemetry:
-	telemetry
-
-monitor:
-	telemetry
+	@telemetry

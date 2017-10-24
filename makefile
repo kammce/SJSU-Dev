@@ -2,8 +2,6 @@
 # Only affects the name of the generated binary.
 # TODO: Set this from the directory this makefile is stored in
 PROJ 			?= firmware
-# Points where the SJSUOne libraries sources are located
-SJDEV_LIB_DIR 	?= lib
 # Affects what DBC is generated for SJSUOne board
 ENTITY 			?= DBG
 

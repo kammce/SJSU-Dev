@@ -15,7 +15,7 @@
 <img src="https://cdn.worldvectorlogo.com/logos/microsoft-windows-22.svg" height="100px" />
 </p>
 
-Built for **Debian** based systems, **Mac OSX** (beta), and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
+Built for **Debian** based systems, **Mac OSX**, and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
 
 ## Tutorial
 

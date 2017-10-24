@@ -98,11 +98,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting-started-toc.html">1. Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides-toc.html">2. Guides</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Debugging with OpenOCD and GDB</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-0-installing-openocd">2.1.1. Step 0: Installing OpenOCD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-1-rebuild-application-with-debug-flag">2.1.2. Step 1: Rebuild Application with Debug flag</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-2-solder-jtag-headers-to-sjone">2.1.3. Step 2: Solder JTAG Headers to SJOne</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-3-connecting-busblasterv3-to-sjone">2.1.4. Step 3: Connecting BusBlasterv3 to SJOne</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-4-run-openocd">2.1.5. Step 4: Run OpenOCD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">2.1.1. Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-0-installing-openocd">2.1.2. Step 0: Installing OpenOCD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-solder-jtag-headers-to-sjone">2.1.3. Step 1: Solder JTAG Headers to SJOne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-connecting-j-link-to-sjone">2.1.4. Step 2: Connecting J-Link to SJOne</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-run-openocd">2.1.5. Step 3: Run OpenOCD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#step-5-run-gdb">2.1.6. Step 5: Run GDB</a></li>
 </ul>
 </li>
@@ -180,36 +180,28 @@
   <div class="section" id="debugging-with-openocd-and-gdb">
 <h1>2.1. Debugging with OpenOCD and GDB<a class="headerlink" href="#debugging-with-openocd-and-gdb" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial will use <strong>HelloWorld</strong> as an example. But this will work for any application you build.</p>
+<div class="section" id="prerequisites">
+<h2>2.1.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The official supported JTAG probes for the SJOne board is the SEGGER J-LINK mini EDU. Any other J-Link device will work with no modifications to the <code class="code docutils literal"><span class="pre">sjone.cfg</span></code> file. Otherwise, change the interface/source to the appropriate adapter.</p>
+</div>
 <div class="section" id="step-0-installing-openocd">
-<h2>2.1.1. Step 0: Installing OpenOCD<a class="headerlink" href="#step-0-installing-openocd" title="Permalink to this headline">¶</a></h2>
-<p>OpenOCD was installed when you ran the initial <code class="code docutils literal"><span class="pre">./setup</span></code> script.</p>
+<h2>2.1.2. Step 0: Installing OpenOCD<a class="headerlink" href="#step-0-installing-openocd" title="Permalink to this headline">¶</a></h2>
+<p>OpenOCD was installed when you ran the initial <code class="code docutils literal"><span class="pre">./setup</span></code> script if you are running Linux or WSL. If you are running OS X, install manually.</p>
 </div>
-<div class="section" id="step-1-rebuild-application-with-debug-flag">
-<h2>2.1.2. Step 1: Rebuild Application with Debug flag<a class="headerlink" href="#step-1-rebuild-application-with-debug-flag" title="Permalink to this headline">¶</a></h2>
-<p>Run:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>./build spotless
-./build -d HelloWorld
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><code class="code docutils literal"><span class="pre">./build</span> <span class="pre">spotless</span></code> will delete all of the files in the <code class="code docutils literal"><span class="pre">obj</span></code> and <code class="code docutils literal"><span class="pre">bin</span></code> folder. This is necessary because some files in the lib folder need to be updated with the new -d (debug) flag.</p>
-</div>
-</div>
-<div class="section" id="step-2-solder-jtag-headers-to-sjone">
-<h2>2.1.3. Step 2: Solder JTAG Headers to SJOne<a class="headerlink" href="#step-2-solder-jtag-headers-to-sjone" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-1-solder-jtag-headers-to-sjone">
+<h2>2.1.3. Step 1: Solder JTAG Headers to SJOne<a class="headerlink" href="#step-1-solder-jtag-headers-to-sjone" title="Permalink to this headline">¶</a></h2>
 <p>Do as the title says if you haven’t already.</p>
 </div>
-<div class="section" id="step-3-connecting-busblasterv3-to-sjone">
-<h2>2.1.4. Step 3: Connecting BusBlasterv3 to SJOne<a class="headerlink" href="#step-3-connecting-busblasterv3-to-sjone" title="Permalink to this headline">¶</a></h2>
-<p>Connect jumpers from the <code class="code docutils literal"><span class="pre">GND</span></code>, <code class="code docutils literal"><span class="pre">TRST</span></code>, <code class="code docutils literal"><span class="pre">TDI</span></code>, <code class="code docutils literal"><span class="pre">TMS</span></code>, <code class="code docutils literal"><span class="pre">TCK</span></code>, and <code class="code docutils literal"><span class="pre">TDO</span></code> pins on the <strong>BusBlasterv3</strong> to the SJOne’s JTAG headers.</p>
+<div class="section" id="step-2-connecting-j-link-to-sjone">
+<h2>2.1.4. Step 2: Connecting J-Link to SJOne<a class="headerlink" href="#step-2-connecting-j-link-to-sjone" title="Permalink to this headline">¶</a></h2>
+<p>Connect jumpers from the <code class="code docutils literal"><span class="pre">GND</span></code>, <code class="code docutils literal"><span class="pre">TDI</span></code>, <code class="code docutils literal"><span class="pre">TMS</span></code>, <code class="code docutils literal"><span class="pre">TCK</span></code>, and <code class="code docutils literal"><span class="pre">TDO</span></code> pins on the <strong>J-Link</strong> to the SJOne’s JTAG headers.</p>
 <div class="admonition danger">
 <p class="first admonition-title">Danger</p>
 <p class="last">DOUBLE AND TRIPLE CHECK THAT YOUR CONNECTIONS! The SJOne costs $80 and the BusBaster costs $35! Thats $115 down the drain if your burn them out!</p>
 </div>
 </div>
-<div class="section" id="step-4-run-openocd">
-<h2>2.1.5. Step 4: Run OpenOCD<a class="headerlink" href="#step-4-run-openocd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-3-run-openocd">
+<h2>2.1.5. Step 3: Run OpenOCD<a class="headerlink" href="#step-3-run-openocd" title="Permalink to this headline">¶</a></h2>
 <p>Run:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># If you used make install</span>
 openocd -f ./tools/OpenOCD/sjone.cfg
@@ -250,13 +242,13 @@ Error: Could not initialize the debug port
 <div class="section" id="step-5-run-gdb">
 <h2>2.1.6. Step 5: Run GDB<a class="headerlink" href="#step-5-run-gdb" title="Permalink to this headline">¶</a></h2>
 <p>Open another terminal and run the following command in the <code class="code docutils literal"><span class="pre">firmware/default/</span></code> folder.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>arm-none-eabi-gdb -ex <span class="s2">&quot;target remote :3333&quot;</span> bin/HelloWorld/HelloWorld.elf
+<div class="highlight-bash"><div class="highlight"><pre><span></span>arm-none-eabi-gdb -ex <span class="s2">&quot;target remote :3333&quot;</span> bin/firmware.elf
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">You can run arm-none-eabi-gdb without arguments and use the following gdb commands
-<code class="code docutils literal"><span class="pre">file</span> <span class="pre">bin/HelloWorld/HelloWorld.elf</span></code>
+<code class="code docutils literal"><span class="pre">file</span> <span class="pre">bin/firmware.elf</span></code>
 then
 <code class="code docutils literal"><span class="pre">target</span> <span class="pre">remote</span> <span class="pre">:3333</span></code>
 in the gdb command line interface to get the same effect as the above command.</p>
@@ -269,7 +261,7 @@ in the gdb command line interface to get the same effect as the above command.</
 </div>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
-<p class="last">Don’t use the typical run command to “start” the code. It is already… kinda started. Also, run does not exist when using <code class="code docutils literal"><span class="pre">target</span> <span class="pre">remote</span> <span class="pre">:3333</span></code> to OpenOCD. It exists with <code class="code docutils literal"><span class="pre">target</span> <span class="pre">extended-remote</span> <span class="pre">:3333</span></code>, but causes issues… just don’t use it OK.</p>
+<p class="last">Don’t use the typical “run” command to start the code. It is already started in the firmware. Also, run does not exist when using <code class="code docutils literal"><span class="pre">target</span> <span class="pre">remote</span> <span class="pre">:3333</span></code> to OpenOCD. It exists with <code class="code docutils literal"><span class="pre">target</span> <span class="pre">extended-remote</span> <span class="pre">:3333</span></code>, but causes issues… just don’t use it OK.</p>
 </div>
 <p>At this point you should see the source code of your <code class="code docutils literal"><span class="pre">main.cpp</span></code> show up. Now you can step through your code and set breakpoints using <code class="code docutils literal"><span class="pre">step</span></code>, <code class="code docutils literal"><span class="pre">next</span></code>, <code class="code docutils literal"><span class="pre">finish</span></code> and <code class="code docutils literal"><span class="pre">continue</span></code>, <code class="code docutils literal"><span class="pre">break</span></code>, etc.</p>
 <p>For a gdb cheat sheet, see this PDF:</p>

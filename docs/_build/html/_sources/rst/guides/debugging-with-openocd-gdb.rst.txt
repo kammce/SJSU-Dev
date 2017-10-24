@@ -3,36 +3,26 @@ Debugging with OpenOCD and GDB
 
 This tutorial will use **HelloWorld** as an example. But this will work for any application you build.
 
+Prerequisites
+---------------
+The official supported JTAG probes for the SJOne board is the SEGGER J-LINK mini EDU. Any other J-Link device will work with no modifications to the :code:`sjone.cfg` file. Otherwise, change the interface/source to the appropriate adapter.
 
 Step 0: Installing OpenOCD
 ----------------------------
-OpenOCD was installed when you ran the initial :code:`./setup` script.
+OpenOCD was installed when you ran the initial :code:`./setup` script if you are running Linux or WSL. If you are running OS X, install manually.
 
-Step 1: Rebuild Application with Debug flag
----------------------------------------------
-Run:
-
-.. code-block:: bash
-
-	./build spotless
-	./build -d HelloWorld
-
-.. note::
-
-	:code:`./build spotless` will delete all of the files in the :code:`obj` and :code:`bin` folder. This is necessary because some files in the lib folder need to be updated with the new -d (debug) flag.
-
-Step 2: Solder JTAG Headers to SJOne
+Step 1: Solder JTAG Headers to SJOne
 --------------------------------------
 Do as the title says if you haven't already.
 
-Step 3: Connecting BusBlasterv3 to SJOne
+Step 2: Connecting J-Link to SJOne
 ------------------------------------------
-Connect jumpers from the :code:`GND`, :code:`TRST`, :code:`TDI`, :code:`TMS`, :code:`TCK`, and :code:`TDO` pins on the **BusBlasterv3** to the SJOne's JTAG headers.
+Connect jumpers from the :code:`GND`, :code:`TDI`, :code:`TMS`, :code:`TCK`, and :code:`TDO` pins on the **J-Link** to the SJOne's JTAG headers.
 
 .. danger::
 	DOUBLE AND TRIPLE CHECK THAT YOUR CONNECTIONS! The SJOne costs $80 and the BusBaster costs $35! Thats $115 down the drain if your burn them out!
 
-Step 4: Run OpenOCD
+Step 3: Run OpenOCD
 ---------------------
 Run:
 
@@ -83,12 +73,12 @@ Open another terminal and run the following command in the :code:`firmware/defau
 
 .. code-block:: bash
 
-	arm-none-eabi-gdb -ex "target remote :3333" bin/HelloWorld/HelloWorld.elf
+	arm-none-eabi-gdb -ex "target remote :3333" bin/firmware.elf
 
 .. tip::
 
 	You can run arm-none-eabi-gdb without arguments and use the following gdb commands
-	:code:`file bin/HelloWorld/HelloWorld.elf`
+	:code:`file bin/firmware.elf`
 	then
 	:code:`target remote :3333`
 	in the gdb command line interface to get the same effect as the above command.
@@ -104,7 +94,7 @@ At this point you will not see any source code. Do the following in the gdb comm
 
 .. tip::
 
-	Don't use the typical run command to "start" the code. It is already... kinda started. Also, run does not exist when using :code:`target remote :3333` to OpenOCD. It exists with :code:`target extended-remote :3333`, but causes issues... just don't use it OK.
+	Don't use the typical "run" command to start the code. It is already started in the firmware. Also, run does not exist when using :code:`target remote :3333` to OpenOCD. It exists with :code:`target extended-remote :3333`, but causes issues... just don't use it OK.
 
 At this point you should see the source code of your :code:`main.cpp` show up. Now you can step through your code and set breakpoints using :code:`step`, :code:`next`, :code:`finish` and :code:`continue`, :code:`break`, etc.
 

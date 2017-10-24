@@ -35,7 +35,6 @@
 #include "utilities.h"
 #include "tlm/c_tlm_var.h"
 #include "io.hpp"
-#include "trcRecorder.h"
 
 class vChangerTask : public scheduler_task
 {
@@ -125,7 +124,6 @@ int main(void)
     /* Consumes very little CPU, but need highest priority to handle mesh network ACKs */
     scheduler_add_task(new wirelessTask(PRIORITY_CRITICAL));
     scheduler_add_task(new vChangerTask(PRIORITY_LOW));
-    vTraceEnable(TRC_START);
     scheduler_start(); ///< This shouldn't return
     return -1;
 }

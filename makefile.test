@@ -23,7 +23,7 @@ $(error $n$n=============================================$nSJSUOne environment v
 endif
 
 CFLAGS = -Wall -Wshadow -Wlogical-op -Wfloat-equal \
-    -fabi-version=0 -fno-exceptions \
+    -fno-exceptions \
     -std=gnu++11 \
     -I"$(LIB_DIR)/" \
     -I"$(LIB_DIR)/newlib" \

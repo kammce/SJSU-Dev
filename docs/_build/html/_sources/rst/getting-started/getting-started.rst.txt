@@ -3,30 +3,32 @@ Getting Started
 
 Prerequisites
 ---------------
-Need a running version of Ubuntu 14.04 LTS or above. Ubuntu in a virtual machine such as VirtualBox or VMPlayer will work as well.
+Need a running version of Ubuntu 16.04 LTS or above, or OS X, or Windows 10 with WSL with insider builds installed.
 
-.. note::
+You must also have the following pre-installed:
 
-	The it is possible to get SJSU-Dev-Linux to work completely on Windows and Mac OSX if you have all of the necessary PATH dependencies installed, but that is not covered here. You will need to manually install all of the necessary components in the installer script.
+	* Python 2.7+
+	* Pip
+	* Git
 
 Installation
 -------------
 
-**Step 1**
+**Step 0**
 	Clone the repository
 
 	.. code-block:: bash
 
 		git clone https://github.com/kammce/SJSU-Dev.git
 
-**Step 2**
+**Step 1**
 	Change directory into **SJSU-Dev**
 
 	.. code-block:: bash
 
 		cd SJSU-Dev
 
-**Step 3**
+**Step 2**
 	Run :code:`setup` script.
 
 	.. code-block:: bash
@@ -38,7 +40,7 @@ Installation
 		It will also generate the environment variables file and link the makefile and environment file to
 		all of the default folders.
 
-**Step 4**
+**Step 3**
 	Edit the :code:`env.sh` script. Change the line :code:`SJSUONEDEV=/dev/ttyUSB0` to equal what you have on your system.
 
 	**How to find your serial device on Ubuntu**
@@ -97,15 +99,15 @@ Building and Loading Hello World Application
 	.. note::
 		If you run this command without first building, this command will build your project and then flash it. So you can skip the step above if you like.
 
-	.. warning::
-		If you are running this on Windows using the Linux subsystem, you will need to modify the :code:`env.sh` file
-
 **Step 4**
 	To view serial output, and interact with the board, run the following make command:
 
 	.. code-block:: bash
 
 		make telemetry
+
+	.. note::
+		The interface will pop up in your default browser on launch, except on Windows. You will need to enter the IP address and port manually.
 
 **Step 5**
 	Done!!
@@ -114,6 +116,6 @@ Building and Loading FreeRTOS Project
 ---------------------------------------
 Instructions are the same as HelloWorld, but you need to enter the firmware/FreeRTOS folder and run make from there.
 
-Building Your own Project
+Creating your own Project
 ---------------------------------------
 Copy and rename the FreeRTOS or HelloWorld template folders to any place in your computer to make a new project.

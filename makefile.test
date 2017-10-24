@@ -2,8 +2,6 @@
 # Only affects the name of the generated binary.
 # TODO: Set this from the directory this makefile is stored in
 PROJ 			?= firmware
-# Points where the SJSUOne libraries sources are located
-SJDEV_LIB_DIR 	?= lib
 # Affects what DBC is generated for SJSUOne board
 ENTITY 			?= DBG
 
@@ -15,8 +13,17 @@ OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
 
+define n
+
+
+endef
+
+ifndef LIB_DIR
+$(error $n$n=============================================$nSJSUOne environment variables not set.$nPLEASE run "source env.sh"$n=============================================$n$n)
+endif
+
 CFLAGS = -Wall -Wshadow -Wlogical-op -Wfloat-equal \
-    -fabi-version=0 -fno-exceptions \
+    -fno-exceptions \
     -std=gnu++11 \
     -I"$(LIB_DIR)/" \
     -I"$(LIB_DIR)/newlib" \
@@ -55,15 +62,15 @@ cgreen: $(CGREEN_TEST_EXEC)
 	@$(CGREEN_TEST_EXEC) -s
 
 $(TEST_EXEC): clean
-	@echo " \\───────────────────────────────────────/"
-	@echo "  \\      Generating test executable     /"
+	@echo " \\──────────────────────────────/"
+	@echo "  \\ Generating test executable /"
 	@$(CPPC) $(CFLAGS) -fexceptions -o $(TEST_EXEC) $(COMPILABLES)
-	@echo "   \\───────────────────────────────────/"
-	@echo "    \\            Finished             /"
+	@echo "   \\──────────────────────────/"
+	@echo "    \\       Finished         /"
 	@sleep .25
-	@echo "     \\───────────────────────────────/"
-	@echo "      \\        Running Test         /"
-	@echo "       \\───────────────────────────/"
+	@echo "     \\──────────────────────/"
+	@echo "      \\    Running Test    /"
+	@echo "       \\──────────────────/"
 	@sleep .25
 
 $(CGREEN_TEST_EXEC): clean

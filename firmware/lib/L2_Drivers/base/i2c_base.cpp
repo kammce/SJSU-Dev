@@ -219,7 +219,7 @@ void I2C_Base::i2cKickOffTransfer(uint8_t devAddr, uint8_t regStart, uint8_t* pB
  * 0x20 START
  * 0x40 ENABLE
  */
-I2C_Base::mStateMachineStatus_t I2C_Base::i2cStateMachine()
+__attribute__ ((weak)) I2C_Base::mStateMachineStatus_t I2C_Base::i2cStateMachine()
 {
     enum {
         // General states :

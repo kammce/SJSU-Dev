@@ -8,14 +8,14 @@
 ## Operating System Supported
 
 <p align="center">
-<img src="http://design.ubuntu.com/wp-content/uploads/ubuntu-logo32.png" height="100px"/>
+<img src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png" height="100px"/>
 &nbsp;&nbsp;
 <img src="http://cdn.osxdaily.com/wp-content/uploads/2010/10/giant-apple-logo-bw.png" height="100px" />
 &nbsp;&nbsp;
 <img src="https://cdn.worldvectorlogo.com/logos/microsoft-windows-22.svg" height="100px" />
 </p>
 
-Built for **Debian** based systems, **Mac OSX** (beta), and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
+Built for **Debian** based systems, **Mac OSX**, and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
 
 ## Tutorial
 
@@ -25,6 +25,7 @@ See **[documentation](http://sjsu-dev.readthedocs.io/en/latest/?badge=latest)** 
 * [Preet Kang](http://www.socialledge.com/sjsu/index.php?title=Main_Page): Original creator of the SJDev development framework.
 * [Khalil Estell](http://kammce.io): Creator of the Linux port of SJDev and maintainer of this repo.
 * [Kai Wetlesen](https://github.com/kaiwetlesen): Contributed Mac OS X port and development environment improvements.
+* [Anahit Sarao](https://github.com/s3nu): Major updates to initial Mac and Linux ports.
 
 ### Special Credits
 * **Mikko Bayabo**: Windows surface destructive testing
@@ -45,6 +46,11 @@ See **[documentation](http://sjsu-dev.readthedocs.io/en/latest/?badge=latest)** 
 ### Update 09.11.2017
 
 * Added **SJOne_lpc1758_rev4.pdf**
+
+### Update 09.30.2017
+
+* Operating system detection.
+* Setup checks for dependencies and installs needed packages.
 
 
 <!--

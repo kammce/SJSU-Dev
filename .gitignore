@@ -19,3 +19,5 @@ tools/gcc-arm-none-eabi-*
 **/.DS_Store
 **/flash.txt
 **/env.sh
+.idea/
+firmware/**/test

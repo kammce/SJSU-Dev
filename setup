@@ -1,64 +1,119 @@
 #!/bin/bash
 
+#
+# Utils
+#
+#Checks for installed programs on machine
+function programInstalled {
+  local returning=1
+  type $1 >/dev/null 2>&1 || { local returning=0; }
+  echo "$returning"
+}
+
+#Function Displays Green Check for installed programs
+#Else Displays Red Cross for Missing Programs
+function check {
+	if [ $1 == 1 ]; then
+		printf "\e[32m✔"
+		echo $(tput sgr0)
+	else
+		printf "\e[31m✘"
+		echo $(tput sgr0)
+	fi
+}
+
 # Make sure only non-root users can run our script
 if [[ $EUID -eq 0 ]]; then
-   echo "SJSU-DEV-Linux installer script must NOT be run as root! " 1>&2
+   echo "SJSU-DEV installer script must NOT be run as root! " 1>&2
    exit 1
 fi
-
-# Check if git exists
-if ! which git > /dev/null; then
-	echo " ───────────────────────────────────────────────────┐"
-	echo "         GIT NOT FOUND: Please install GIT           "
-	echo "└─────────────────────────────────────────────────── "
-    exit 1
-fi
-
-# Stash the tool directory
-TOOLDIR=$(dirname "$0")/tools
-ARCH=$(uname -m)
-SYS=$(uname -s)
-BASE=`pwd`
-ARM_GCC=gcc-arm-none-eabi-6-2017-q2-update
 
 echo " ──────────────────────────────────────────────────┐"
 echo "            Acquiring sudo privileges               "
 echo "└────────────────────────────────────────────────── "
 sudo echo "" || SystemExit
 
+# Stash the tool directory
+TOOLDIR=$(dirname "$0")/tools
+ARCH=$(uname -m)
+BASE=`pwd`
+ARM_GCC=gcc-arm-none-eabi-6-2017-q2-update
 
 echo " ──────────────────────────────────────────────────┐"
 echo "  Starting SJSU-DEV-Linux Environment Setup Script  "
 echo "└────────────────────────────────────────────────── "
 sleep 1
+echo " ──────────────────────────────────────────────────┐"
+echo "              Basic Dependencies                    "
+echo "└────────────────────────────────────────────────── "
+#TODO Install missing dependencies after check
+echo "python        $(check $(programInstalled python))"
+echo "pip           $(check $(programInstalled pip))"
+echo "git           $(check $(programInstalled git))"
 
 echo " ──────────────────────────────────────────────────┐"
 echo "              Detecting your platform               "
 echo "└────────────────────────────────────────────────── "
-
 if [[ "$ARCH" != 'x86_64' || "$ARCH" == "amd64" ]]; then
 	echo 'Your system is not supported! Only 64-bit Linux and OSX systems are supported.'
 	SystemExit
 fi
 
-echo " ──────────────────────────────────────────────────┐"
-echo "           Downloading gcc-arm-embedded             "
-echo "└────────────────────────────────────────────────── "
+case $( uname -s ) in
+	Linux)	#Linux Case
+		echo Operating System: Linux
+		cd $TOOLDIR
+		echo " ──────────────────────────────────────────────────┐"
+		echo "           Downloading gcc-arm-embedded             "
+		echo "└────────────────────────────────────────────────── "
+		curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-linux.tar.bz2
+		GCC_PKG=$ARM_GCC-linux.tar.bz2
+		SJSUONEDEV=/dev/ttyUSB0
 
-# Enter Tools directory
-cd $TOOLDIR
+		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
+		echo " ──────────────────────────────────────────────────┐"
+		echo "      Adding current user to '$GROUP' group"
+		echo "└────────────────────────────────────────────────── "
+		sudo adduser $USER $THE_GROUP
 
-if [ "$SYS" == "Darwin" ]; then
-	echo "Downloading MAC OSX ARM-GCC Files"
-	curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-mac.tar.bz2
-	GCC_PKG=$ARM_GCC-mac.tar.bz2
-	SJSUONEDEV=/dev/tty.usbserial-A503JOLS
-else
-	echo "Downloading Linux ARM-GCC Files"
-	curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-linux.tar.bz2
-	GCC_PKG=$ARM_GCC-linux.tar.bz2
-	SJSUONEDEV=/dev/ttyUSB0
-fi
+		echo " ───────────────────────────────────────────────────┐"
+		echo "     Installing OpenOCD, Git, Python, Curl           "
+		echo "└─────────────────────────────────────────────────── "
+		sudo apt -y install openocd
+		sudo apt-get -y install git python curl
+
+		echo " ───────────────────────────────────────────────────┐"
+		echo "        Installing PIP + Python Virtualenv           "
+		echo "└─────────────────────────────────────────────────── "
+		sudo -H pip install --upgrade pip
+		sudo -H pip install --upgrade virtualenv
+
+		echo " ───────────────────────────────────────────────────┐"
+		echo "                 Installing GDBGUI                   "
+		echo "└─────────────────────────────────────────────────── "
+		sudo -H pip install --upgrade gdbgui
+		;;
+
+	Darwin)	#Mac Case
+		echo "Operating System Kernel: Mac OSX Darvin"
+		cd $TOOLDIR
+		echo " ──────────────────────────────────────────────────┐"
+		echo "           Downloading gcc-arm-embedded             "
+		echo "└────────────────────────────────────────────────── "
+		curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-mac.tar.bz2
+		GCC_PKG=$ARM_GCC-mac.tar.bz2
+		SJSUONEDEV=/dev/tty.usbserial-A503JOLS
+
+		#                        ========= Xcode ==========                           #
+		xcode-select --install &> /dev/null	#Install cli tools
+		sudo xcodebuild -license #Accept User Agreement
+		;;
+
+	*)	#Default if Operating System other than Mac or Linux
+		echo Other
+		exit 1
+		;;
+esac
 
 if [[ ! -d "bin" && -f "$GCC_PKG" ]]; then
 	echo " ──────────────────────────────────────────────────┐"
@@ -70,34 +125,7 @@ if [[ ! -d "bin" && -f "$GCC_PKG" ]]; then
 		--file=$GCC_PKG 2> /dev/null
 fi
 
-cd ..
-# Exited Tools Directory
-
-if which getent > /dev/null; then
-	THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
-	echo " ──────────────────────────────────────────────────┐"
-	echo "      Adding current user to '$GROUP' group"
-	echo "└────────────────────────────────────────────────── "
-	sudo adduser $USER $THE_GROUP
-fi
-
-if which apt > /dev/null; then
-	echo " ───────────────────────────────────────────────────┐"
-	echo "                Installing OpenOCD                   "
-	echo "└─────────────────────────────────────────────────── "
-	sudo apt -y install openocd
-fi
-
-echo " ───────────────────────────────────────────────────┐"
-echo "        Installing PIP + Python Virtualenv           "
-echo "└─────────────────────────────────────────────────── "
-sudo -H pip install --upgrade pip
-sudo -H pip install --upgrade virtualenv
-
-echo " ───────────────────────────────────────────────────┐"
-echo "                 Installing GDBGUI                   "
-echo "└─────────────────────────────────────────────────── "
-sudo -H pip install --upgrade gdbgui
+cd ..   # Exiting Tools Directory
 
 echo " ───────────────────────────────────────────────────┐"
 echo "                Installing Hyperload                 "
@@ -129,6 +157,7 @@ SJSUONEBAUD=38400
 # Project Target Settings:
 # Sets the binary name, defaults to "firmware" (Optional)
 PROJ=firmware
+
 # Sets which DBC to generate, defaults to "DBG"
 ENTITY=DBG
 

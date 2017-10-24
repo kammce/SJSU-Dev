@@ -25,6 +25,7 @@ See **[documentation](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=late
 * [Preet Kang](http://www.socialledge.com/sjsu/index.php?title=Main_Page): Original creator of the SJDev development framework.
 * [Khalil Estell](http://kammce.io): Creator of the Linux port of SJDev and maintainer of this repo.
 * [Kai Wetlesen](https://github.com/kaiwetlesen): Contributed Mac OS X port and development environment improvements.
+* [Anahit Sarao](https://github.com/s3nu): Major updates to initial Mac and Linux ports.
 
 ### Special Credits
 * **Mikko Bayabo**: Windows surface destructive testing
@@ -45,6 +46,11 @@ See **[documentation](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=late
 ### Update 09.11.2017
 
 * Added **SJOne_lpc1758_rev4.pdf**
+
+### Update 09.30.2017
+
+* Operating system detection.
+* Setup checks for dependencies and installs needed packages.  
 
 
 <!--

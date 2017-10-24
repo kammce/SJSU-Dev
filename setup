@@ -59,10 +59,10 @@ if [[ "$ARCH" != 'x86_64' || "$ARCH" == "amd64" ]]; then
 	SystemExit
 fi
 
+cd $TOOLDIR
 case $( uname -s ) in
-	Linux)	#Linux Case
-		echo Operating System: Linux
-		cd $TOOLDIR
+	Linux) # Linux Case
+		echo "Operating System: Linux"
 		echo " ──────────────────────────────────────────────────┐"
 		echo "           Downloading gcc-arm-embedded             "
 		echo "└────────────────────────────────────────────────── "
@@ -94,9 +94,8 @@ case $( uname -s ) in
 		sudo -H pip install --upgrade gdbgui
 		;;
 
-	Darwin)	#Mac Case
+	Darwin) # OS X Case
 		echo "Operating System Kernel: Mac OSX Darvin"
-		cd $TOOLDIR
 		echo " ──────────────────────────────────────────────────┐"
 		echo "           Downloading gcc-arm-embedded             "
 		echo "└────────────────────────────────────────────────── "
@@ -104,7 +103,7 @@ case $( uname -s ) in
 		GCC_PKG=$ARM_GCC-mac.tar.bz2
 		SJSUONEDEV=/dev/tty.usbserial-A503JOLS
 
-		#                        ========= Xcode ==========                           #
+		# ========= Xcode ========== #
 		xcode-select --install &> /dev/null	#Install cli tools
 		sudo xcodebuild -license #Accept User Agreement
 		;;
@@ -115,31 +114,29 @@ case $( uname -s ) in
 		;;
 esac
 
-if [[ ! -d "bin" && -f "$GCC_PKG" ]]; then
-	echo " ──────────────────────────────────────────────────┐"
-	echo "            Extracting gcc-arm-embedded             "
-	echo "└────────────────────────────────────────────────── "
-	tar --extract \
-		--verbose \
-		--bzip2 \
-		--file=$GCC_PKG 2> /dev/null
-fi
+echo " ──────────────────────────────────────────────────┐"
+echo "            Extracting gcc-arm-embedded             "
+echo "└────────────────────────────────────────────────── "
+tar --extract \
+	--verbose \
+	--bzip2 \
+	--file=$GCC_PKG 2> /dev/null
 
-cd ..   # Exiting Tools Directory
+cd $BASE
 
 echo " ───────────────────────────────────────────────────┐"
 echo "                Installing Hyperload                 "
 echo "└─────────────────────────────────────────────────── "
 git clone --depth=1 https://github.com/kammce/Hyperload.git $TOOLDIR/Hyperload/
 cd $TOOLDIR/Hyperload/ && ./setup
-cd ../../
+cd $BASE
 
 echo " ───────────────────────────────────────────────────┐"
 echo "                Installing Telemetry                 "
 echo "└─────────────────────────────────────────────────── "
 git clone --depth=1 https://github.com/kammce/Telemetry.git $TOOLDIR/Telemetry
 cd $TOOLDIR/Telemetry/ && ./setup
-cd ../../
+cd $BASE
 
 echo " ───────────────────────────────────────────────────┐"
 echo "          Generating Environment Variables           "
@@ -151,7 +148,7 @@ cat > env.sh <<EOL
 BASE=$BASE
 
 # SJSUOne Board Settings:
-SJSUONEDEV="$SJSUONEDEV" # Set this to your board ID
+SJSUONEDEV=$SJSUONEDEV # Set this to your board ID
 SJSUONEBAUD=38400
 
 # Project Target Settings:
@@ -166,11 +163,6 @@ ENTITY=DBG
 PATH=\$PATH:\$BASE/tools/$ARM_GCC/bin:\$BASE/tools/Hyperload:\$BASE/tools/Telemetry
 LIB_DIR="\$BASE/firmware/lib"
 
-# Make system settings:
-# Number of jobs = 4
-# Tune this to nthreads (f.eks. my system has a quad core with two threads per core = 4 threads)
-MAKEFLAGS=" -j 4"
-
 # Export everything to the environment
 export PATH
 export PROJ
@@ -181,38 +173,27 @@ export SJSUONEBAUD
 export MAKEFLAGS
 EOL
 
-echo " ──────────────────────────────────────────────────────────────────┐"
-echo "               Linking Files into Firmware projects                 "
-echo "└────────────────────────────────────────────────────────────────── "
+echo " ───────────────────────────────────────────────────┐"
+echo "        Linking Files into Firmware projects         "
+echo "└─────────────────────────────────────────────────── "
 
-ln -s -f $BASE/env.sh firmware/FreeRTOS/env.sh
-ln -s -f $BASE/env.sh firmware/HelloWorld/env.sh
-ln -s -f $BASE/env.sh firmware/Telemetry/env.sh
+for PROJECT in HelloWorld FreeRTOS Telemetry Unittest
+do
+	# Place env.sh link into project folder
+	ln -s -f $BASE/env.sh firmware/$PROJECT/env.sh
+	# Place makefile link into project folder
+	ln -s -f $BASE/makefile firmware/$PROJECT/makefile
+	# Place Unit test template folder into project folder
+	ln -s -f $BASE/tools/Unittest-Template/README.md firmware/$PROJECT/test/README.md
+	# Copy simple tests into project folder
+	cp -rf tools/Unittest-Template/simple-test/ firmware/$PROJECT/test/
+	# Place the unit test makefile link into project folder
+	ln -s -f $BASE/makefile.test firmware/$PROJECT/test/simple-test/makefile
+done
 
-ln -s -f $BASE/makefile firmware/FreeRTOS/makefile
-ln -s -f $BASE/makefile firmware/HelloWorld/makefile
-ln -s -f $BASE/makefile firmware/Telemetry/makefile
-
-ln -s -f $BASE/tools/Unittest-Template/README.md firmware/FreeRTOS/test/README.md
-ln -s -f $BASE/tools/Unittest-Template/README.md firmware/HelloWorld/test/README.md
-ln -s -f $BASE/tools/Unittest-Template/README.md firmware/Telemetry/test/README.md
-
-# rm -rf firmware/HelloWorld/test/simple_test
-# rm -rf firmware/FreeRTOS/test/simple_test
-# rm -rf firmware/HelloWorld/test/simple_test
-
-cp -rf tools/Unittest-Template/simple-test/ firmware/FreeRTOS/test/
-cp -rf tools/Unittest-Template/simple-test/ firmware/HelloWorld/test/
-cp -rf tools/Unittest-Template/simple-test/ firmware/Telemetry/test/
-
-ln -s -f $BASE/makefile.test firmware/FreeRTOS/test/simple-test/makefile
-ln -s -f $BASE/makefile.test firmware/HelloWorld/test/simple-test/makefile
-ln -s -f $BASE/makefile.test firmware/Telemetry/test/simple-test/makefile
-
-echo
-echo " ──────────────────────────────────────────────────────────────┐"
-echo "                      Setup complete!                           "
-echo "                                                                "
-echo "  PLEASE LOGOUT AND BACK IN to load code into your SJOne Board  "
-echo "└────────────────────────────────────────────────────────────── "
-echo
+echo " ───────────────────────────────────────────────────┐"
+echo "                   SETUP COMPLETE!                   "
+echo "                                                     "
+echo "              PLEASE RESTART YOUR SYSTEM             "
+echo "         TO LOAD CODE INTO YOUR SJONE BOARD          "
+echo "└─────────────────────────────────────────────────── "

@@ -42,6 +42,8 @@ class I2C2 : public I2C_Base, public SingletonTemplate<I2C2>
     public:
         /// Initializes I2C2 at the given @param speedInKhz
         bool init(unsigned int speedInKhz);
+        /// Initializes I2C2 at the given @param speedInKhz but as a Slave
+        bool initSlave(const uint8_t slaveAddr, uint8_t * buffer, uint32_t buffer_size);
 
     private:
         I2C2(); ///< Private constructor for this singleton class

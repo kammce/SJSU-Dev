@@ -205,8 +205,10 @@ void low_level_init(void)
     /* Initialize newlib fopen() fread() calls support */
     syscalls_init();
 
+    #ifndef DISABLE_WATCHDOG
     /* Enable the watchdog to allow us to recover in an event of system crash */
     sys_watchdog_enable();
+    #endif
 
     /* Uart and printf() are initialized, so print our boot-up message */
     print_boot_info();

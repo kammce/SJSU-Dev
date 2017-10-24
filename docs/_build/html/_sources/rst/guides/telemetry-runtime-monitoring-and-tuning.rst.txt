@@ -14,11 +14,12 @@ Telemetry was setup when you ran the initial :code:`./setup` script.
 Using Telemetry
 -----------------
 **Step 1**
-	Run :code:`./start` script. It should open up a webpage in your browser.
+	Run :code:`make telemetry` in your firmware project directory.
+	It should open up a webpage in your browser.
 
 	You should see the following:
 
-		.. image:: ../../_static/telemetry-default.png
+		.. image:: ../../_static/telemetry-disconnected.png
 
 **Step 2**
 	Connect your SJOne Board to your computer.
@@ -31,4 +32,6 @@ Using Telemetry
 	At this point, you should see the serial output of the SJOne board being written to the Serial Output textarea.
 	If Telemetry is running on the SJOne, then a table will be generated in the Telemetry Feedback area.
 
-		.. image:: ../../_static/telemetry-connected.png
+		.. image:: ../../_static/telemetry-connected-table.png
+
+	.. image:: ../../_static/telemetry-connected-graph.png

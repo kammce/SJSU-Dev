@@ -1,25 +1,25 @@
-# SJSU-DEV-Linux
+# SJSU-Dev
 
 [![SJSU-Dev-Linux Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/kammce/SJSU-DEV-Linux)
-[![GNU General Public License v2.0 Badge](https://img.shields.io/badge/license-GNUv2.0-blue.svg)](https://github.com/kammce/SJSU-DEV-Linux)
-[![Documentation Status](https://readthedocs.org/projects/sjsu-dev-linux/badge/?version=latest)](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=latest)
-[![Build Status](https://travis-ci.org/kammce/SJSU-DEV-Linux.svg?branch=master)](https://travis-ci.org/kammce/SJSU-DEV-Linux)
+[![GNU General Public License v2.0 Badge](https://img.shields.io/badge/license-GNUv2.0-blue.svg)](https://github.com/kammce/SJSU-Dev)
+[![Documentation Status](https://readthedocs.org/projects/sjsu-dev/badge/?version=latest)](http://sjsu-dev.readthedocs.io/en/latest)
+[![Build Status](https://travis-ci.org/kammce/SJSU-Dev.svg?branch=master)](https://travis-ci.org/kammce/SJSU-Dev)
 
 ## Operating System Supported
 
 <p align="center">
-<img src="http://design.ubuntu.com/wp-content/uploads/ubuntu-logo32.png" height="100px"/>
+<img src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png" height="100px"/>
 &nbsp;&nbsp;
 <img src="http://cdn.osxdaily.com/wp-content/uploads/2010/10/giant-apple-logo-bw.png" height="100px" />
 &nbsp;&nbsp;
 <img src="https://cdn.worldvectorlogo.com/logos/microsoft-windows-22.svg" height="100px" />
 </p>
 
-Built for **Debian** based systems, **Mac OSX** (beta), and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
+Built for **Debian** based systems, **Mac OSX**, and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
 
 ## Tutorial
 
-See **[documentation](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=latest)** for a full tutorial.
+See **[documentation](http://sjsu-dev.readthedocs.io/en/latest/?badge=latest)** for a full tutorial.
 
 ## Contrib
 * [Preet Kang](http://www.socialledge.com/sjsu/index.php?title=Main_Page): Original creator of the SJDev development framework.
@@ -50,7 +50,7 @@ See **[documentation](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=late
 ### Update 09.30.2017
 
 * Operating system detection.
-* Setup checks for dependencies and installs needed packages.  
+* Setup checks for dependencies and installs needed packages.
 
 
 <!--

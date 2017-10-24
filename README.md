@@ -33,6 +33,12 @@ See **[documentation](http://sjsu-dev.readthedocs.io/en/latest/?badge=latest)** 
 
 ## Change Log
 
+### Update 10.23.2017
+
+* Closes #10 : Makefile threading causing problems bug
+* Closes #9 : Output warning if you user does not source env.sh file problem
+* Closes #1 : Docs do not fit current repo problem
+
 ### Update 09.28.2017
 
 * Added support for Windows 10 WLS and Mac OS X (beta)

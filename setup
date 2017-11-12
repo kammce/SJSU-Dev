@@ -19,6 +19,8 @@ function check {
 	else
 		printf "\e[31m✘"
 		echo $(tput sgr0)
+		echo "Missing requirement. Please install manually. Setup exiting."
+		exit 1
 	fi
 }
 
@@ -186,7 +188,7 @@ do
 	# Place Unit test template folder into project folder
 	ln -s -f $BASE/tools/Unittest-Template/README.md firmware/$PROJECT/test/README.md
 	# Copy simple tests into project folder
-	cp -rf tools/Unittest-Template/simple-test/ firmware/$PROJECT/test/
+	cp -rf $BASE/tools/Unittest-Template/simple-test/ firmware/$PROJECT/test/
 	# Place the unit test makefile link into project folder
 	ln -s -f $BASE/makefile.test firmware/$PROJECT/test/simple-test/makefile
 done

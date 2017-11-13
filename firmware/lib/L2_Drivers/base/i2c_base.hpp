@@ -91,11 +91,17 @@ class I2C_Base
          */
         bool writeReg(uint8_t deviceAddress, uint8_t registerAddress, uint8_t value);
 
+        bool writeRegisterThenRead(uint8_t address, uint8_t * wdata, int32_t wlength, uint8_t * rdata, int32_t rlength);
+
         /// @copydoc transfer()
         bool readRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize);
 
         /// @copydoc transfer()
         bool writeRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize);
+
+        bool writeRegisters(uint8_t address, uint8_t * wdata, int32_t wlength);
+
+        bool readRegisters(uint8_t address, uint8_t * rdata, int32_t rlength);
 
         /**
          * This function can be used to check if an I2C device responds to its address,
@@ -111,6 +117,7 @@ class I2C_Base
 
 
     protected:
+        uint8_t writeBuffer[256];
         /**
          * Protected constructor that requires parent class to provide I2C
          * base register address for which to operate this I2C driver
@@ -153,11 +160,12 @@ class I2C_Base
          */
         typedef struct
         {
-            uint32_t trxSize;   ///< # of bytes to transfer.
-            uint8_t slaveAddr;  ///< Slave Device Address
-            uint8_t firstReg;   ///< 1st Register to Read or Write
-            uint8_t error;      ///< Error if any occurred within I2C
-            uint8_t *pMasterData;  ///< Buffer of the I2C Read or Write
+            uint8_t         slaveAddr;      ///< Slave Device Address
+            uint8_t         error;          ///< Error if any occurred within I2C
+            uint8_t         *dataWrite;     ///< Buffer of the I2C Write
+            int32_t         writeLength;    ///< # of bytes to write
+            uint8_t         *dataRead;      ///< Buffer of the I2C Read
+            int32_t         readLength;     ///< # of bytes to read
         } mI2CTransaction_t;
 
         /// The I2C Input Output frame that contains I2C transaction information
@@ -171,6 +179,14 @@ class I2C_Base
          *              - Read  is complete
          */
         mStateMachineStatus_t i2cStateMachine();
+        mStateMachineStatus_t state;
+
+        void clearSIFlag();
+        void setSTARTFlag();
+        void clearSTARTFlag();
+        void setAckFlag();
+        void setNackFlag();
+        void setStop();
 
         /**
          * Read/writes multiple bytes to an I2C device starting from the first register
@@ -182,7 +198,8 @@ class I2C_Base
          * @param transferSize      The number of bytes to read/write
          * @returns true if the transfer was successful
          */
-        bool transfer(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize);
+        // bool transfer(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize);
+        bool transfer(uint8_t address, uint8_t * wdata, int32_t wlength, uint8_t * rdata, int32_t rlength);
 
         /**
          * This is the entry point for an I2C transaction
@@ -191,7 +208,8 @@ class I2C_Base
          * @param pBytes    The pointer to one or more data bytes to read or write
          * @param len       The length of the I2C transaction
          */
-        void i2cKickOffTransfer(uint8_t devAddr, uint8_t regStart, uint8_t* pBytes, uint32_t len);
+        // void i2cKickOffTransfer(uint8_t devAddr, uint8_t regStart, uint8_t* pBytes, uint32_t len);
+        void i2cKickOffTransfer(uint8_t addr, uint8_t * wbytes, int32_t wlength, uint8_t * rbytes, int32_t rlength);
 };
 
 

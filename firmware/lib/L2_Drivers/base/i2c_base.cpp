@@ -58,7 +58,7 @@ bool I2C_Base::writeReg(uint8_t deviceAddress, uint8_t registerAddress, uint8_t 
     return writeRegisters(deviceAddress, writeBytes, 2);
 }
 
-bool I2C_Base::writeRegisterThenRead(uint8_t address, uint8_t * wdata, int32_t wlength, uint8_t * rdata, int32_t rlength)
+bool I2C_Base::writeRegisterThenRead(uint8_t address, uint8_t * wdata, uint32_t wlength, uint8_t * rdata, uint32_t rlength)
 {
     I2C_SET_READ_MODE(address);
     return transfer(address, wdata, wlength, rdata, rlength);
@@ -71,7 +71,7 @@ bool I2C_Base::writeRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* 
     memcpy(writeBuffer, &pData[1], transferSize);
     return writeRegisters(deviceAddress, writeBuffer, transferSize+1);
 }
-bool I2C_Base::writeRegisters(uint8_t address, uint8_t * wdata, int32_t wlength)
+bool I2C_Base::writeRegisters(uint8_t address, uint8_t * wdata, uint32_t wlength)
 {
     I2C_SET_WRITE_MODE(address);
     return transfer(address, wdata, wlength, NULL, 0);
@@ -80,13 +80,13 @@ bool I2C_Base::readRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* p
 {
     return writeRegisterThenRead(deviceAddress, &firstReg, 1, pData, transferSize);
 }
-bool I2C_Base::readRegisters(uint8_t address, uint8_t * rdata, int32_t rlength)
+bool I2C_Base::readRegisters(uint8_t address, uint8_t * rdata, uint32_t rlength)
 {
     I2C_SET_READ_MODE(address);
     return transfer(address, NULL, 0, rdata, rlength);
 }
 
-bool I2C_Base::transfer(uint8_t address, uint8_t * wdata, int32_t wlength, uint8_t * rdata, int32_t rlength)
+bool I2C_Base::transfer(uint8_t address, uint8_t * wdata, uint32_t wlength, uint8_t * rdata, uint32_t rlength)
 {
     bool status = false;
     if (mDisableOperation || (wdata == NULL && rdata == NULL))
@@ -212,7 +212,7 @@ bool I2C_Base::init(uint32_t pclk, uint32_t busRateInKhz)
 
 /// Private ///
 
-void I2C_Base::i2cKickOffTransfer(uint8_t addr, uint8_t * wbytes, int32_t wlength, uint8_t * rbytes, int32_t rlength)
+void I2C_Base::i2cKickOffTransfer(uint8_t addr, uint8_t * wbytes, uint32_t wlength, uint8_t * rbytes, uint32_t rlength)
 {
     mTransaction.slaveAddr      = addr;
     mTransaction.error          = 0;

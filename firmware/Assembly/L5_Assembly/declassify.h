@@ -18,50 +18,15 @@
 
 /**
  * @file
- * @brief This is the application entry point.
+ * @brief Use this file to "declassify" or convert C++ method calls into global C functions that can be run in assembly code.
  */
 
-#include <stdio.h>
-#include "utilities.h"
-#include "io.hpp"
+#include <stdint.h>
 
-const bool CHECK_BIT(var, pos)
-{
-    return (bool)(var & (1 << pos));
-}
+#ifndef DECLASSIFY_H_
+#define DECLASSIFY_H_
 
-void ctoba(char * arr, char num)
-{
-    arr[4] = 0;
-    for(int i = 3; i >= 0; i--)
-    {
-        if(num & (8 >> i))
-        {
-            arr[i] = '1';
-        }
-        else
-        {
-            arr[i] = '0';
-        }
-    }
-}
+void ctoba(char * arr, char num);
+extern "C" void led_display_set(uint32_t num);
 
-int main (void)
-{
-    char buff[5] = {0};
-    while(1)
-    {
-        for(int i = 0; i < 16; i++)
-        {
-            ctoba(buff, (char)i);
-            for(int j = 1; j < 5; j++)
-            {
-                LE.set((5-j), CHECK_BIT(i,j-1));
-            }
-            LD.setNumber(i);
-            printf("Hello Preet 0x%X\n", i);
-            delay_ms(1000);
-        }
-    }
-    return 0;
-}
+#endif

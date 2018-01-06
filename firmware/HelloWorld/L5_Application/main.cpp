@@ -40,7 +40,7 @@ void ctoba(char * arr, char num) {
 
 int main (void)
 {
-    char buff[5] = {0};
+    char buff[5];
     while(1)
     {
         for(int i = 0; i < 16; i++)
@@ -51,7 +51,7 @@ int main (void)
                 LE.set((5-j), CHECK_BIT(i,j-1));
             }
             LD.setNumber(i);
-            printf("Hello Preet 0x%X\n", i);
+            printf("Hello World 0x%X\n", i);
             delay_ms(1000);
         }
     }

@@ -10,7 +10,7 @@ matrix:
           install:
             - sudo easy_install pip
             - sudo pip install --upgrade pip
-            - travis_wait 2 ./setup
+            - travis_wait 5 ./setup
 script:
   - cd ./firmware/FreeRTOS/
   - source env.sh

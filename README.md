@@ -1,9 +1,9 @@
 # SJSU-Dev
 
 [![SJSU-Dev-Linux Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/kammce/SJSU-DEV-Linux)
-[![GNU General Public License v2.0 Badge](https://img.shields.io/badge/license-GNUv2.0-blue.svg)](https://github.com/kammce/SJSU-DEV-Linux)
-[![Documentation Status](https://readthedocs.org/projects/sjsu-dev-linux/badge/?version=latest)](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=latest)
-[![Build Status](https://travis-ci.org/kammce/SJSU-DEV-Linux.svg?branch=master)](https://travis-ci.org/kammce/SJSU-DEV-Linux)
+[![GNU General Public License v2.0 Badge](https://img.shields.io/badge/license-GNUv2.0-blue.svg)](https://github.com/kammce/SJSU-Dev)
+[![Documentation Status](https://readthedocs.org/projects/sjsu-dev/badge/?version=latest)](http://sjsu-dev.readthedocs.io/en/latest)
+[![Build Status](https://travis-ci.org/kammce/SJSU-Dev.svg?branch=master)](https://travis-ci.org/kammce/SJSU-Dev)
 
 ## Operating System Supported
 
@@ -15,16 +15,17 @@
 <img src="https://cdn.worldvectorlogo.com/logos/microsoft-windows-22.svg" height="100px" />
 </p>
 
-Built for **Debian** based systems, **Mac OSX** (beta), and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
+Built for **Debian** based systems, **Mac OSX**, and **Windows 10** using the latest Windows Linux Subsystem (WLS) Insider Builds. The instructions to install on Windows BASH are the same as in Linux.
 
 ## Tutorial
 
-See **[documentation](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=latest)** for a full tutorial.
+See **[documentation](http://sjsu-dev.readthedocs.io/en/latest/?badge=latest)** for a full tutorial.
 
 ## Contrib
 * [Preet Kang](http://www.socialledge.com/sjsu/index.php?title=Main_Page): Original creator of the SJDev development framework.
 * [Khalil Estell](http://kammce.io): Creator of the Linux port of SJDev and maintainer of this repo.
 * [Kai Wetlesen](https://github.com/kaiwetlesen): Contributed Mac OS X port and development environment improvements.
+* [Anahit Sarao](https://github.com/s3nu): Major updates to initial Mac and Linux ports.
 
 ### Special Credits
 * **Mikko Bayabo**: Windows surface destructive testing
@@ -51,6 +52,11 @@ See **[documentation](http://sjsu-dev-linux.readthedocs.io/en/latest/?badge=late
 ### Update 09.11.2017
 
 * Added **SJOne_lpc1758_rev4.pdf**
+
+### Update 09.30.2017
+
+* Operating system detection.
+* Setup checks for dependencies and installs needed packages.
 
 
 <!--

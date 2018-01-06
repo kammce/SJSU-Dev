@@ -2,8 +2,6 @@
 # Only affects the name of the generated binary.
 # TODO: Set this from the directory this makefile is stored in
 PROJ 			?= firmware
-# Points where the SJSUOne libraries sources are located
-SJDEV_LIB_DIR 	?= lib
 # Affects what DBC is generated for SJSUOne board
 ENTITY 			?= DBG
 
@@ -13,14 +11,25 @@ CPPC            = arm-none-eabi-g++
 OBJDUMP         = arm-none-eabi-objdump
 SIZEC           = arm-none-eabi-size
 OBJCOPY         = arm-none-eabi-objcopy
+NM 		        = arm-none-eabi-nm
 
 # Internal build directories
 OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
 
+define n
+
+
+endef
+
+ifndef SJSUONEDEV
+$(error $n$n=============================================$nSJSUOne environment variables not set.$nPLEASE run "source env.sh"$n=============================================$n$n)
+endif
+
 CFLAGS = -mcpu=cortex-m3 \
-    -mthumb -Os -fmessage-length=0 \
+	-D DISABLE_WATCHDOG\
+    -mthumb -g -Os -fmessage-length=0 \
     -ffunction-sections -fdata-sections \
     -Wall -Wshadow -Wlogical-op \
     -Wfloat-equal -DBUILD_CFG_MPU=0 \
@@ -30,6 +39,7 @@ CFLAGS = -mcpu=cortex-m3 \
     -I"$(LIB_DIR)/newlib" \
     -I"$(LIB_DIR)/L0_LowLevel" \
     -I"$(LIB_DIR)/L1_FreeRTOS" \
+    -I"$(LIB_DIR)/L1_FreeRTOS/trace" \
     -I"$(LIB_DIR)/L1_FreeRTOS/include" \
     -I"$(LIB_DIR)/L1_FreeRTOS/portable" \
     -I"$(LIB_DIR)/L1_FreeRTOS/portable/no_mpu" \
@@ -41,7 +51,7 @@ CFLAGS = -mcpu=cortex-m3 \
     -I"$(LIB_DIR)/L4_IO/fat" \
     -I"$(LIB_DIR)/L4_IO/wireless" \
     -I"$(LIB_DIR)/L5_Application" \
-    -I"$(LIB_DIR)/L5_Assembl"y \
+    -I"$(LIB_DIR)/L5_Assembly" \
     -I"L2_Drivers" \
     -I"L3_Utils" \
     -I"L4_IO" \
@@ -90,16 +100,32 @@ HEX					= $(EXECUTABLE:.elf=.hex)
 LIST				= $(EXECUTABLE:.elf=.lst)
 SIZE				= $(EXECUTABLE:.elf=.siz)
 MAP					= $(EXECUTABLE:.elf=.map)
+SYMBOLS				= $(EXECUTABLE:.elf=.sym)
 
-.PHONY: build build-asm clean flash telemetry monitor debug-make
+.PHONY: build clean cleaninstall flash telemetry monitor show-object-list
 
-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX)
+default:
+	@echo "List of available targets:"
+	@echo "    build        - builds firmware project"
+	@echo "    flash        - builds and installs firmware on to SJOne board"
+	@echo "    telemetry    - will launch telemetry interface"
+	@echo "    clean        - cleans project folder"
+	@echo "    cleaninstall - cleans, builds and installs firmware"
 
-# cleaninstall: clean build flash
-debug-make:
+build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX) $(SYMBOLS)
+
+cleaninstall: clean build flash
+
+show-object-list:
 	@echo $(OBJECT_FILES)
 
 print-%  : ; @echo $* = $($*)
+
+$(SYMBOLS): $(EXECUTABLE)
+	@echo 'Invoking: Cross ARM GNU NM Generate Symbol Table'
+	@$(NM) -C "$<" > "$@"
+	@echo 'Finished building: $@'
+	@echo ' '
 
 $(HEX): $(EXECUTABLE)
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
@@ -175,7 +201,7 @@ $(OBJ_DIR)/%.o: $(LIB_DIR)/%.c
 	@echo ' '
 
 $(DBC_BUILD):
-	python "$(LIB_DIR)/_can_dbc/dbc_parse.py" -i "$(LIB_DIR)/_can_dbc/243.dbc" -s $(ENTITY) > $(DBC_BUILD)
+	python "$(LIB_DIR)/$(DBC_DIR)/dbc_parse.py" -i "$(LIB_DIR)/$(DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBC_BUILD)
 
 $(DBC_DIR):
 	mkdir -p $(DBC_DIR)
@@ -195,7 +221,4 @@ flash: build
 	hyperload $(SJSUONEDEV) $(HEX)
 
 telemetry:
-	telemetry
-
-monitor:
-	telemetry
+	@telemetry

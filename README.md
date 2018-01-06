@@ -8,7 +8,7 @@
 ## Operating System Supported
 
 <p align="center">
-<img src="http://design.ubuntu.com/wp-content/uploads/ubuntu-logo32.png" height="100px"/>
+<img src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png" height="100px"/>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <img src="http://cdn.osxdaily.com/wp-content/uploads/2010/10/giant-apple-logo-bw.png" height="100px" />
 &nbsp;&nbsp;&nbsp;&nbsp;

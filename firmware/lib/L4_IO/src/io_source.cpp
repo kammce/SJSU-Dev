@@ -221,8 +221,6 @@ uint32_t IR_Sensor::getLastIRCode()
     return signal;
 }
 
-
-
 bool LED_Display::init()
 {
     bool devicePresent = checkDeviceResponse();
@@ -263,8 +261,6 @@ void LED_Display::setRightDigit(char alpha)
     mNumAtDisplay[1] = alpha;
     writeReg(outputPort0, LED_DISPLAY_CHARMAP[(unsigned) (alpha & 0x7F) ]);
 }
-
-
 
 
 bool LED::init()

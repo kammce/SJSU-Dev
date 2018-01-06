@@ -1,11 +1,10 @@
-language: cpp
 matrix:
     include:
         - os: linux
-          sudo: required
+          sudo: true
           dist: trusty
-          install:
-            - ./setup
+          group: edge
+          install: ./setup
         - os: osx
           install:
             - sudo easy_install pip
@@ -15,17 +14,9 @@ script:
   - cd ./firmware/FreeRTOS/
   - source env.sh
   - make build
-  - ls ./bin/firmware.symbols.elf
-  - ls ./bin/firmware.symbols.hex
-  - ls ./bin/firmware.symbols.lst
-  - ls ./bin/firmware.map
-  - ls ./bin/firmware.sym
-  - ls ./bin/symbol-table.c
-  - make nosym-build
   - ls ./bin/firmware.elf
   - ls ./bin/firmware.hex
   - ls ./bin/firmware.lst
   - ls ./bin/firmware.map
-  - ls ./bin/firmware.sym
   - cd test/simple-test/
   - make

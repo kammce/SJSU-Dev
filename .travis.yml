@@ -4,9 +4,12 @@ matrix:
           sudo: true
           dist: trusty
           group: edge
+          install: ./setup
         - os: osx
-install:
-  - ./setup
+          install:
+            - sudo easy_install pip
+            - sudo pip install --upgrade pip
+            - ./setup
 script:
   - cd ./firmware/FreeRTOS/
   - source env.sh

@@ -3,7 +3,7 @@ firmware/**/bin
 firmware/**/obj
 firmware/**/makefile
 firmware/**/test-suite
-firmware/**/_can_dbc/generated_can.h
+firmware/**/_can_dbc/*
 firmware/**/cgreen-test-suite
 
 !firmware/lib
@@ -11,6 +11,7 @@ firmware/**/cgreen-test-suite
 !firmware/FreeRTOS
 !firmware/Telemetry
 !firmware/Unittest
+!firmware/Assembly
 
 tools/Hyperload
 tools/Telemetry

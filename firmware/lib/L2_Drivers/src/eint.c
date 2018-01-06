@@ -45,7 +45,7 @@ static eint3_entry_t *gp_port2_falling_list = NULL;
  * Goes through the linked list to find out which interrupt triggered, and makes the callback
  * @param [in] isr_bits_ptr   The pointer to the variable that contains interrupt status
  * @param [in] int_clr_ptr    The pointer to the register to clear the real interrupt
- * @param [in[ list_head_ptr  The linked list head pointer of the configured interrupts
+ * @param [in] list_head_ptr  The linked list head pointer of the configured interrupts
  *
  * @note isr_bits_ptr are cleared if the callback was made.  If the bits are not cleared then
  *       the interrupt was set, and no callback was found.  This shouldn't happen though :)

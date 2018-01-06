@@ -128,63 +128,61 @@ extern void (* const g_pfnVectors[])(void);
 __attribute__ ((section(".isr_vector")))
 void (* const g_pfnVectors[])(void) =
 {
-        // Core Level - CM3
-        &_vStackTop,        // The initial stack pointer
-        isr_reset,          // The reset handler
-        isr_nmi,            // The NMI handler
-        isr_hard_fault,     // The hard fault handler
-        isr_mem_fault,      // The MPU fault handler
-        isr_bus_fault,      // The bus fault handler
-        isr_usage_fault,    // The usage fault handler
-        0,                  // Reserved
-        0,                  // Reserved
-        0,                  // Reserved
-        0,                  // Reserved
-        vPortSVCHandler,    // FreeRTOS SVC-call handler (naked function so needs direct call - not a wrapper)
-        isr_debug_mon,      // Debug monitor handler
-        0,                  // Reserved
-        xPortPendSVHandler, // FreeRTOS PendSV handler (naked function so needs direct call - not a wrapper)
-        isr_sys_tick,       // FreeRTOS SysTick handler (we enclose inside a wrapper to track OS overhead)
+    // Core Level - CM3
+    &_vStackTop,        // The initial stack pointer
+    isr_reset,          // The reset handler
+    isr_nmi,            // The NMI handler
+    isr_hard_fault,     // The hard fault handler
+    isr_mem_fault,      // The MPU fault handler
+    isr_bus_fault,      // The bus fault handler
+    isr_usage_fault,    // The usage fault handler
+    0,                  // Reserved
+    0,                  // Reserved
+    0,                  // Reserved
+    0,                  // Reserved
+    vPortSVCHandler,    // FreeRTOS SVC-call handler (naked function so needs direct call - not a wrapper)
+    isr_debug_mon,      // Debug monitor handler
+    0,                  // Reserved
+    xPortPendSVHandler, // FreeRTOS PendSV handler (naked function so needs direct call - not a wrapper)
+    isr_sys_tick,       // FreeRTOS SysTick handler (we enclose inside a wrapper to track OS overhead)
 
-        // Chip Level - LPC17xx - common ISR that will call the real ISR
-        isr_forwarder_routine,      // 16, 0x40 - WDT
-        isr_forwarder_routine,      // 17, 0x44 - TIMER0
-        isr_forwarder_routine,      // 18, 0x48 - TIMER1
-        isr_forwarder_routine,      // 19, 0x4c - TIMER2
-        isr_forwarder_routine,      // 20, 0x50 - TIMER3
-        isr_forwarder_routine,      // 21, 0x54 - UART0
-        isr_forwarder_routine,      // 22, 0x58 - UART1
-        isr_forwarder_routine,      // 23, 0x5c - UART2
-        isr_forwarder_routine,      // 24, 0x60 - UART3
-        isr_forwarder_routine,      // 25, 0x64 - PWM1
-        isr_forwarder_routine,      // 26, 0x68 - I2C0
-        isr_forwarder_routine,      // 27, 0x6c - I2C1
-        isr_forwarder_routine,      // 28, 0x70 - I2C2
-        isr_forwarder_routine,      // 29, 0x74 - SPI
-        isr_forwarder_routine,      // 30, 0x78 - SSP0
-        isr_forwarder_routine,      // 31, 0x7c - SSP1
-        isr_forwarder_routine,      // 32, 0x80 - PLL0 (Main PLL)
-        isr_forwarder_routine,      // 33, 0x84 - RTC
-        isr_forwarder_routine,      // 34, 0x88 - EINT0
-        isr_forwarder_routine,      // 35, 0x8c - EINT1
-        isr_forwarder_routine,      // 36, 0x90 - EINT2
-        isr_forwarder_routine,      // 37, 0x94 - EINT3
-        isr_forwarder_routine,      // 38, 0x98 - ADC
-        isr_forwarder_routine,      // 39, 0x9c - BOD
-        isr_forwarder_routine,      // 40, 0xA0 - USB
-        isr_forwarder_routine,      // 41, 0xa4 - CAN
-        isr_forwarder_routine,      // 42, 0xa8 - GP DMA
-        isr_forwarder_routine,      // 43, 0xac - I2S
-        isr_forwarder_routine,      // 44, 0xb0 - Ethernet
-        isr_forwarder_routine,      // 45, 0xb4 - RITINT
-        isr_forwarder_routine,      // 46, 0xb8 - Motor Control PWM
-        isr_forwarder_routine,      // 47, 0xbc - Quadrature Encoder
-        isr_forwarder_routine,      // 48, 0xc0 - PLL1 (USB PLL)
-        isr_forwarder_routine,      // 49, 0xc4 - USB Activity interrupt to wakeup
-        isr_forwarder_routine,      // 50, 0xc8 - CAN Activity interrupt to wakeup
-    };
-
-
+    // Chip Level - LPC17xx - common ISR that will call the real ISR
+    isr_forwarder_routine,      // 16, 0x40 - WDT
+    isr_forwarder_routine,      // 17, 0x44 - TIMER0
+    isr_forwarder_routine,      // 18, 0x48 - TIMER1
+    isr_forwarder_routine,      // 19, 0x4c - TIMER2
+    isr_forwarder_routine,      // 20, 0x50 - TIMER3
+    isr_forwarder_routine,      // 21, 0x54 - UART0
+    isr_forwarder_routine,      // 22, 0x58 - UART1
+    isr_forwarder_routine,      // 23, 0x5c - UART2
+    isr_forwarder_routine,      // 24, 0x60 - UART3
+    isr_forwarder_routine,      // 25, 0x64 - PWM1
+    isr_forwarder_routine,      // 26, 0x68 - I2C0
+    isr_forwarder_routine,      // 27, 0x6c - I2C1
+    isr_forwarder_routine,      // 28, 0x70 - I2C2
+    isr_forwarder_routine,      // 29, 0x74 - SPI
+    isr_forwarder_routine,      // 30, 0x78 - SSP0
+    isr_forwarder_routine,      // 31, 0x7c - SSP1
+    isr_forwarder_routine,      // 32, 0x80 - PLL0 (Main PLL)
+    isr_forwarder_routine,      // 33, 0x84 - RTC
+    isr_forwarder_routine,      // 34, 0x88 - EINT0
+    isr_forwarder_routine,      // 35, 0x8c - EINT1
+    isr_forwarder_routine,      // 36, 0x90 - EINT2
+    isr_forwarder_routine,      // 37, 0x94 - EINT3
+    isr_forwarder_routine,      // 38, 0x98 - ADC
+    isr_forwarder_routine,      // 39, 0x9c - BOD
+    isr_forwarder_routine,      // 40, 0xA0 - USB
+    isr_forwarder_routine,      // 41, 0xa4 - CAN
+    isr_forwarder_routine,      // 42, 0xa8 - GP DMA
+    isr_forwarder_routine,      // 43, 0xac - I2S
+    isr_forwarder_routine,      // 44, 0xb0 - Ethernet
+    isr_forwarder_routine,      // 45, 0xb4 - RITINT
+    isr_forwarder_routine,      // 46, 0xb8 - Motor Control PWM
+    isr_forwarder_routine,      // 47, 0xbc - Quadrature Encoder
+    isr_forwarder_routine,      // 48, 0xc0 - PLL1 (USB PLL)
+    isr_forwarder_routine,      // 49, 0xc4 - USB Activity interrupt to wakeup
+    isr_forwarder_routine,      // 50, 0xc8 - CAN Activity interrupt to wakeup
+};
 
 //*****************************************************************************
 // Functions to carry out the initialization of RW and BSS data sections. These

@@ -95,13 +95,13 @@ class I2C_Base
 
         /// @copydoc transfer()
         bool readRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize);
+        bool readRegisters(uint8_t address, uint8_t * rdata, uint32_t rlength);
 
         /// @copydoc transfer()
         bool writeRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize);
 
         bool writeRegisters(uint8_t address, uint8_t * wdata, uint32_t wlength);
 
-        bool readRegisters(uint8_t address, uint8_t * rdata, uint32_t rlength);
 
         /**
          * This function can be used to check if an I2C device responds to its address,

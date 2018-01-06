@@ -4,9 +4,12 @@ matrix:
           sudo: true
           dist: trusty
           group: edge
-          install: ./setup
+          install:
+            - travis_wait 1 mvn
+            - ./setup
         - os: osx
           install:
+            - travis_wait 1 mvn
             - sudo easy_install pip
             - sudo pip install --upgrade pip
             - ./setup

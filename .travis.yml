@@ -5,14 +5,12 @@ matrix:
           dist: trusty
           group: edge
           install:
-            - travis_wait 1 mvn
-            - ./setup
+            - travis_wait 2 ./setup
         - os: osx
           install:
-            - travis_wait 1 mvn
             - sudo easy_install pip
             - sudo pip install --upgrade pip
-            - ./setup
+            - travis_wait 5 ./setup
 script:
   - cd ./firmware/FreeRTOS/
   - source env.sh

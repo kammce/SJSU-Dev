@@ -20,8 +20,7 @@
 
 #include "i2c_base.hpp"
 #include "lpc_sys.h"
-
-
+#include "printf_lib.h"
 
 /**
  * Instead of using a dedicated variable for read vs. write, we just use the LSB of
@@ -29,16 +28,15 @@
  */
 #define I2C_SET_READ_MODE(addr)     (addr |= 1)     ///< Set the LSB to indicate read-mode
 #define I2C_SET_WRITE_MODE(addr)    (addr &= 0xFE)  ///< Reset the LSB to indicate write-mode
-#define I2C_READ_MODE(addr)         (addr & 1)      ///< Read address is ODD
+#define I2C_CHECK_READ_MODE(addr)         (addr & 1)      ///< Read address is ODD
 #define I2C_WRITE_ADDR(addr)        (addr & 0xFE)   ///< Write address is EVEN
 #define I2C_READ_ADDR(addr)         (addr | 1)      ///< Read address is ODD
-
-
 
 void I2C_Base::handleInterrupt()
 {
     /* If transfer finished (not busy), then give the signal */
-    if (busy != i2cStateMachine()) {
+    if (busy != i2cStateMachine())
+    {
         long higherPriorityTaskWaiting = 0;
         xSemaphoreGiveFromISR(mTransferCompleteSignal, &higherPriorityTaskWaiting);
         portEND_SWITCHING_ISR(higherPriorityTaskWaiting);
@@ -47,44 +45,66 @@ void I2C_Base::handleInterrupt()
 
 uint8_t I2C_Base::readReg(uint8_t deviceAddress, uint8_t registerAddress)
 {
-    uint8_t byte = 0;
-    readRegisters(deviceAddress, registerAddress, &byte, 1);
-    return byte;
+    uint8_t register_return = 0;
+    writeRegisterThenRead(deviceAddress, &registerAddress, 1, &register_return, 1);
+    return register_return;
 }
-
-bool I2C_Base::readRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t bytesToRead)
-{
-    I2C_SET_READ_MODE(deviceAddress);
-    return transfer(deviceAddress, firstReg, pData, bytesToRead);
-}
-
 bool I2C_Base::writeReg(uint8_t deviceAddress, uint8_t registerAddress, uint8_t value)
 {
-    return writeRegisters(deviceAddress, registerAddress, &value, 1);
+    uint8_t writeBytes[2];
+    writeBytes[0] = registerAddress;
+    writeBytes[1] = value;
+    //u0_dbg_printf("0x%X-0x%X\n", writeBytes[0], writeBytes[1]);
+    return writeRegisters(deviceAddress, writeBytes, 2);
 }
 
-bool I2C_Base::writeRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t bytesToWrite)
+bool I2C_Base::writeRegisterThenRead(uint8_t address, uint8_t * wdata, uint32_t wlength, uint8_t * rdata, uint32_t rlength)
 {
-    I2C_SET_WRITE_MODE(deviceAddress);
-    return transfer(deviceAddress, firstReg, pData, bytesToWrite);
+    I2C_SET_READ_MODE(address);
+    return transfer(address, wdata, wlength, rdata, rlength);
 }
 
-bool I2C_Base::transfer(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize)
+bool I2C_Base::writeRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize)
+{
+
+    transferSize = (transferSize > 254) ? 254 : transferSize;
+    memcpy(writeBuffer, &pData[1], transferSize);
+    return writeRegisters(deviceAddress, writeBuffer, transferSize+1);
+}
+bool I2C_Base::writeRegisters(uint8_t address, uint8_t * wdata, uint32_t wlength)
+{
+    I2C_SET_WRITE_MODE(address);
+    return transfer(address, wdata, wlength, NULL, 0);
+}
+bool I2C_Base::readRegisters(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData, uint32_t transferSize)
+{
+    return writeRegisterThenRead(deviceAddress, &firstReg, 1, pData, transferSize);
+}
+bool I2C_Base::readRegisters(uint8_t address, uint8_t * rdata, uint32_t rlength)
+{
+    I2C_SET_READ_MODE(address);
+    return transfer(address, NULL, 0, rdata, rlength);
+}
+
+bool I2C_Base::transfer(uint8_t address, uint8_t * wdata, uint32_t wlength, uint8_t * rdata, uint32_t rlength)
 {
     bool status = false;
-    if(mDisableOperation || !pData) {
+    if (mDisableOperation || (wdata == NULL && rdata == NULL))
+    {
         return status;
     }
 
     // If scheduler not running, perform polling transaction
-    if(taskSCHEDULER_RUNNING != xTaskGetSchedulerState())
+    if (taskSCHEDULER_RUNNING != xTaskGetSchedulerState())
     {
-        i2cKickOffTransfer(deviceAddress, firstReg, pData, transferSize);
+        i2cKickOffTransfer(address, wdata, wlength, rdata, rlength);
 
         // Wait for transfer to finish
         const uint64_t timeout = sys_get_uptime_ms() + I2C_TIMEOUT_MS;
-        while (!xSemaphoreTake(mTransferCompleteSignal, 0)) {
-            if (sys_get_uptime_ms() > timeout) {
+        while (!xSemaphoreTake(mTransferCompleteSignal, 0))
+        {
+            if (sys_get_uptime_ms() > timeout)
+            {
                 break;
             }
         }
@@ -95,10 +115,11 @@ bool I2C_Base::transfer(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData,
     {
         // Clear potential stale signal and start the transfer
         xSemaphoreTake(mTransferCompleteSignal, 0);
-        i2cKickOffTransfer(deviceAddress, firstReg, pData, transferSize);
+        i2cKickOffTransfer(address, wdata, wlength, rdata, rlength);
 
         // Wait for transfer to finish and copy the data if it was read mode
-        if (xSemaphoreTake(mTransferCompleteSignal, OS_MS(I2C_TIMEOUT_MS))) {
+        if (xSemaphoreTake(mTransferCompleteSignal, OS_MS(I2C_TIMEOUT_MS)))
+        {
             status = (0 == mTransaction.error);
         }
 
@@ -108,20 +129,19 @@ bool I2C_Base::transfer(uint8_t deviceAddress, uint8_t firstReg, uint8_t* pData,
     return status;
 }
 
-bool I2C_Base::checkDeviceResponse(uint8_t deviceAddress)
+bool I2C_Base::checkDeviceResponse(uint8_t address)
 {
-    uint8_t dummyReg = 0;
     uint8_t notUsed = 0;
 
     // The I2C State machine will not continue after 1st state when length is set to 0
     uint32_t lenZeroToTestDeviceReady = 0;
 
-    return readRegisters(deviceAddress, dummyReg, &notUsed, lenZeroToTestDeviceReady);
+    return readRegisters(address, &notUsed, lenZeroToTestDeviceReady);
 }
 
-I2C_Base::I2C_Base(LPC_I2C_TypeDef* pI2CBaseAddr) :
-        mpI2CRegs(pI2CBaseAddr),
-        mDisableOperation(false)
+I2C_Base::I2C_Base(LPC_I2C_TypeDef* pI2CBaseAddr):
+    mpI2CRegs(pI2CBaseAddr),
+    mDisableOperation(false)
 {
     mI2CMutex = xSemaphoreCreateMutex();
     mTransferCompleteSignal = xSemaphoreCreateBinary();
@@ -130,27 +150,28 @@ I2C_Base::I2C_Base(LPC_I2C_TypeDef* pI2CBaseAddr) :
     vTraceSetMutexName(mI2CMutex, "I2C Mutex");
     vTraceSetSemaphoreName(mTransferCompleteSignal, "I2C Finish Sem");
 
-    if((unsigned int)mpI2CRegs == LPC_I2C0_BASE)
+    switch((unsigned int)mpI2CRegs)
     {
-        mIRQ = I2C0_IRQn;
-    }
-    else if((unsigned int)mpI2CRegs == LPC_I2C1_BASE)
-    {
-        mIRQ = I2C1_IRQn;
-    }
-    else if((unsigned int)mpI2CRegs == LPC_I2C2_BASE)
-    {
-        mIRQ = I2C2_IRQn;
-    }
-    else {
-        mIRQ = (IRQn_Type)99; // Using invalid IRQ on purpose
+        case LPC_I2C0_BASE:
+            mIRQ = I2C0_IRQn;
+            break;
+        case LPC_I2C1_BASE:
+            mIRQ = I2C1_IRQn;
+            break;
+        case LPC_I2C2_BASE:
+            mIRQ = I2C2_IRQn;
+            break;
+        default:
+            mIRQ = (IRQn_Type)(99); // Using invalid IRQ on purpose
+            break;
     }
 }
 
 bool I2C_Base::init(uint32_t pclk, uint32_t busRateInKhz)
 {
     // Power on I2C
-    switch(mIRQ) {
+    switch (mIRQ)
+    {
         case I2C0_IRQn: lpc_pconp(pconp_i2c0, true);  break;
         case I2C1_IRQn: lpc_pconp(pconp_i2c1, true);  break;
         case I2C2_IRQn: lpc_pconp(pconp_i2c2, true);  break;
@@ -189,20 +210,54 @@ bool I2C_Base::init(uint32_t pclk, uint32_t busRateInKhz)
     return true;
 }
 
-
-
 /// Private ///
 
-void I2C_Base::i2cKickOffTransfer(uint8_t devAddr, uint8_t regStart, uint8_t* pBytes, uint32_t len)
+void I2C_Base::i2cKickOffTransfer(uint8_t addr, uint8_t * wbytes, uint32_t wlength, uint8_t * rbytes, uint32_t rlength)
 {
-    mTransaction.error     = 0;
-    mTransaction.slaveAddr = devAddr;
-    mTransaction.firstReg  = regStart;
-    mTransaction.trxSize   = len;
-    mTransaction.pMasterData   = pBytes;
-
+    mTransaction.slaveAddr      = addr;
+    mTransaction.error          = 0;
+    mTransaction.dataWrite      = wbytes;
+    mTransaction.writeLength    = wlength;
+    mTransaction.dataRead       = rbytes;
+    mTransaction.readLength     = rlength;
     // Send START, I2C State Machine will finish the rest.
     mpI2CRegs->I2CONSET = 0x20;
+}
+
+inline void I2C_Base::clearSIFlag()
+{
+    mpI2CRegs->I2CONCLR = (1 << 3);
+}
+inline void I2C_Base::setSTARTFlag()
+{
+    mpI2CRegs->I2CONSET = (1 << 5);
+}
+inline void I2C_Base::clearSTARTFlag()
+{
+    mpI2CRegs->I2CONCLR = (1 << 5);
+}
+inline void I2C_Base::setAckFlag()
+{
+    mpI2CRegs->I2CONSET = (1 << 2);
+}
+inline void I2C_Base::setNackFlag()
+{
+    mpI2CRegs->I2CONCLR = (1 << 2);
+}
+inline void I2C_Base::setStop()
+{
+    clearSTARTFlag();
+    mpI2CRegs->I2CONSET = (1 << 4);
+    clearSIFlag();
+    while ((mpI2CRegs->I2CONSET & (1 << 4)));
+    if (I2C_CHECK_READ_MODE(mTransaction.slaveAddr))
+    {
+        state = readComplete;
+    }
+    else
+    {
+        state = writeComplete;
+    }
 }
 
 /*
@@ -221,7 +276,8 @@ void I2C_Base::i2cKickOffTransfer(uint8_t devAddr, uint8_t regStart, uint8_t* pB
  */
 __attribute__ ((weak)) I2C_Base::mStateMachineStatus_t I2C_Base::i2cStateMachine()
 {
-    enum {
+    enum
+    {
         // General states :
         busError        = 0x00,
         start           = 0x08,
@@ -241,7 +297,7 @@ __attribute__ ((weak)) I2C_Base::mStateMachineStatus_t I2C_Base::i2cStateMachine
         dataAvailableNackSent = 0x58,
     };
 
-    mStateMachineStatus_t state = busy;
+    state = busy;
 
     /*
      ***********************************************************************************************************
@@ -255,61 +311,71 @@ __attribute__ ((weak)) I2C_Base::mStateMachineStatus_t I2C_Base::i2cStateMachine
      ***********************************************************************************************************
      */
 
-    /* Me being lazy and using #defines instead of inline functions :( */
-    #define clearSIFlag()       mpI2CRegs->I2CONCLR = (1<<3)
-    #define setSTARTFlag()      mpI2CRegs->I2CONSET = (1<<5)
-    #define clearSTARTFlag()    mpI2CRegs->I2CONCLR = (1<<5)
-    #define setAckFlag()        mpI2CRegs->I2CONSET = (1<<2)
-    #define setNackFlag()       mpI2CRegs->I2CONCLR = (1<<2)
-
-    /* yep ... lazy again */
-    #define setStop()           clearSTARTFlag();                           \
-                                mpI2CRegs->I2CONSET = (1<<4);               \
-                                clearSIFlag();                              \
-                                while((mpI2CRegs->I2CONSET&(1<<4)));        \
-                                if(I2C_READ_MODE(mTransaction.slaveAddr))   \
-                                    state = readComplete;                   \
-                                else                                        \
-                                    state = writeComplete;
-
     switch (mpI2CRegs->I2STAT)
     {
         case start:
-            mpI2CRegs->I2DAT = I2C_WRITE_ADDR(mTransaction.slaveAddr);
+            //u0_dbg_printf("sta\n");
+            if(mTransaction.writeLength == 0)
+            {
+                //u0_dbg_printf("ard-%X\n", I2C_READ_ADDR(mTransaction.slaveAddr));
+                mpI2CRegs->I2DAT = I2C_READ_ADDR(mTransaction.slaveAddr);
+            }
+            else
+            {
+                //u0_dbg_printf("awr-%X\n", I2C_WRITE_ADDR(mTransaction.slaveAddr));
+                mpI2CRegs->I2DAT = I2C_WRITE_ADDR(mTransaction.slaveAddr);
+            }
             clearSIFlag();
             break;
         case repeatStart:
+            //u0_dbg_printf("rsta-%X\n", I2C_READ_ADDR(mTransaction.slaveAddr));
             mpI2CRegs->I2DAT = I2C_READ_ADDR(mTransaction.slaveAddr);
             clearSIFlag();
             break;
 
         case slaveAddressAcked:
+            //u0_dbg_printf("sack\n");
             clearSTARTFlag();
             // No data to transfer, this is used just to test if the slave responds
-            if(0 == mTransaction.trxSize) {
+            if (0 == mTransaction.readLength && 0 == mTransaction.writeLength)
+            {
+                //u0_dbg_printf("sto\n");
                 setStop();
             }
-            else {
-                mpI2CRegs->I2DAT = mTransaction.firstReg;
+            else if(0 != mTransaction.writeLength)
+            {
+                mpI2CRegs->I2DAT = *(mTransaction.dataWrite);
+                ++mTransaction.dataWrite;
+                --mTransaction.writeLength;
                 clearSIFlag();
+
+                //u0_dbg_printf("1st-%X\n", mpI2CRegs->I2DAT);
             }
             break;
 
         case dataAckedBySlave:
-            if (I2C_READ_MODE(mTransaction.slaveAddr)) {
-                setSTARTFlag(); // Send Repeat-start for read-mode
-                clearSIFlag();
-            }
-            else {
-                if(0 == mTransaction.trxSize) {
-                    setStop();
-                }
-                else {
-                    mpI2CRegs->I2DAT = *(mTransaction.pMasterData);
-                    ++mTransaction.pMasterData;
-                    --mTransaction.trxSize;
+            if (0 == mTransaction.writeLength)
+            {
+                //u0_dbg_printf("wend\n");
+                if (I2C_CHECK_READ_MODE(mTransaction.slaveAddr))
+                {
+                    //u0_dbg_printf("rread\n");
+                    setSTARTFlag(); // Send Repeat-start for read-mode
                     clearSIFlag();
                 }
+                else
+                {
+                    //u0_dbg_printf("sto\n");
+                    setStop();
+                }
+            }
+            else
+            {
+                mpI2CRegs->I2DAT = *(mTransaction.dataWrite);
+                ++mTransaction.dataWrite;
+                --mTransaction.writeLength;
+                clearSIFlag();
+                //u0_dbg_printf("wlo-%X\n", mpI2CRegs->I2DAT);
             }
             break;
 
@@ -318,36 +384,47 @@ __attribute__ ((weak)) I2C_Base::mStateMachineStatus_t I2C_Base::i2cStateMachine
          */
         case readAckedBySlave:
             clearSTARTFlag();
-            if(mTransaction.trxSize > 1) {
+            if (mTransaction.readLength > 1)
+            {
+                //u0_dbg_printf("ack\n");
                 setAckFlag();  // 1+ bytes: Send ACK to receive a byte and transition to dataAvailableAckSent
             }
-            else {
+            else
+            {
+                //u0_dbg_printf("nack\n");
                 setNackFlag();  //  1 byte : NACK next byte to go to dataAvailableNackSent for 1-byte read.
             }
             clearSIFlag();
             break;
         case dataAvailableAckSent:
-            *mTransaction.pMasterData = mpI2CRegs->I2DAT;
-            ++mTransaction.pMasterData;
-            --mTransaction.trxSize;
+            *mTransaction.dataRead = mpI2CRegs->I2DAT;
+            ++mTransaction.dataRead;
+            --mTransaction.readLength;
 
-            if(1 == mTransaction.trxSize) { // Only 1 more byte remaining
+            //u0_dbg_printf("rdat-%X\n", mpI2CRegs->I2DAT);
+
+            if (1 == mTransaction.readLength)  // Only 1 more byte remaining
+            {
+                //u0_dbg_printf("nack\n");
                 setNackFlag();// NACK next byte --> Next state: dataAvailableNackSent
             }
-            else {
+            else
+            {
+                //u0_dbg_printf("ack\n");
                 setAckFlag(); // ACK next byte --> Next state: dataAvailableAckSent(back to this state)
             }
 
             clearSIFlag();
             break;
         case dataAvailableNackSent: // Read last-byte from Slave
-            *mTransaction.pMasterData = mpI2CRegs->I2DAT;
+            //u0_dbg_printf("nack-sto-%X\n", mpI2CRegs->I2DAT);
+            *mTransaction.dataRead = mpI2CRegs->I2DAT;
             setStop();
             break;
 
         case arbitrationLost:
             // We should not issue stop() in this condition, but we still need to end our  transaction.
-            state = I2C_READ_MODE(mTransaction.slaveAddr) ? readComplete : writeComplete;
+            state = I2C_CHECK_READ_MODE(mTransaction.slaveAddr) ? readComplete : writeComplete;
             mTransaction.error = mpI2CRegs->I2STAT;
             break;
 

@@ -51,10 +51,12 @@ CFLAGS = -mcpu=cortex-m3 \
     -I"$(LIB_DIR)/L4_IO/fat" \
     -I"$(LIB_DIR)/L4_IO/wireless" \
     -I"$(LIB_DIR)/L5_Application" \
+    -I"$(LIB_DIR)/L5_Assembly" \
     -I"L2_Drivers" \
     -I"L3_Utils" \
     -I"L4_IO" \
     -I"L5_Application" \
+    -I"L5_Assembly" \
     -I"$(DBC_DIR)" \
     -MMD -MP -c
 
@@ -68,16 +70,31 @@ LINKFLAGS = -mcpu=cortex-m3 \
 	--gc-sections -Wl,-Map,"$(MAP)" \
 	-specs=nano.specs
 
-DBCBUILD        	= $(DBC_DIR)/generated_can.h
+DBC_BUILD        	= $(DBC_DIR)/generated_can.h
 LIBRARIES			= $(shell find "$(LIB_DIR)" -name '*.c' -o -name '*.cpp')
-SOURCES				= $(shell find . -name '*.c' -o -name '*.cpp' -not -path './test/*')
+SOURCES				= $(shell find . \
+ 						 -name '*.c' -o\
+						 -name '*.s' -o \
+						 -name '*.S' -o \
+						 -name '*.cpp' \
+						 -not -path './test/*')
 COMPILABLES 		= $(LIBRARIES) $(SOURCES)
 
 # $(patsubst %.cpp,%.o, LIST) 		: Replace .cpp -> .o
 # $(patsubst %.c,%.o, LIST)			: Replace .c -> .o
 # $(patsubst src/%,%, LIST) 		: Replace src/path/file.o -> path/file.o
 # $(addprefix $(OBJ_DIR)/, LIST) 	: Add OBJ DIR to path (path/file.o -> obj/path/file.o)
-OBJECT_FILES 		= $(addprefix $(OBJ_DIR)/, $(patsubst %.c,%.o, $(patsubst %.cpp,%.o, $(COMPILABLES))))
+OBJECT_FILES 		= $(addprefix $(OBJ_DIR)/, \
+						$(patsubst %.S,%.o, \
+							$(patsubst %.s,%.o, \
+								$(patsubst %.c,%.o, \
+									$(patsubst %.cpp,%.o, \
+										$(COMPILABLES) \
+									) \
+								) \
+							) \
+						) \
+					)
 EXECUTABLE			= $(BIN_DIR)/$(PROJ).elf
 HEX					= $(EXECUTABLE:.elf=.hex)
 LIST				= $(EXECUTABLE:.elf=.lst)
@@ -85,7 +102,7 @@ SIZE				= $(EXECUTABLE:.elf=.siz)
 MAP					= $(EXECUTABLE:.elf=.map)
 SYMBOLS				= $(EXECUTABLE:.elf=.sym)
 
-.PHONY: default build clean flash telemetry cleaninstall
+.PHONY: build clean cleaninstall flash telemetry monitor show-object-list
 
 default:
 	@echo "List of available targets:"
@@ -98,6 +115,9 @@ default:
 build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX) $(SYMBOLS)
 
 cleaninstall: clean build flash
+
+show-object-list:
+	@echo $(OBJECT_FILES)
 
 print-%  : ; @echo $* = $($*)
 
@@ -125,7 +145,7 @@ $(LIST): $(EXECUTABLE)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(EXECUTABLE): $(DBCBUILD) $(OBJECT_FILES)
+$(EXECUTABLE): $(DBC_BUILD) $(OBJECT_FILES)
 	@echo 'Invoking: Cross ARM C++ Linker'
 	@mkdir -p "$(dir $@)"
 	@$(CPPC) $(LINKFLAGS) -o "$@" $(OBJECT_FILES)
@@ -148,8 +168,24 @@ $(OBJ_DIR)/%.o: %.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
+$(OBJ_DIR)/%.o: %.s
+	@echo 'Building Assembly file: $<'
+	@echo 'Invoking: Cross ARM C Compiler'
+	@mkdir -p "$(dir $@)"
+	@$(CC) $(CFLAGS) -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+$(OBJ_DIR)/%.o: %.S
+	@echo 'Building Assembly file: $<'
+	@echo 'Invoking: Cross ARM C Compiler'
+	@mkdir -p "$(dir $@)"
+	@$(CC) $(CFLAGS) -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 $(OBJ_DIR)/%.o: $(LIB_DIR)/%.cpp
-	@echo 'Building file: $<'
+	@echo 'Building C++ file: $<'
 	@echo 'Invoking: Cross ARM C++ Compiler'
 	@mkdir -p "$(dir $@)"
 	@$(CPPC) $(CFLAGS) -std=gnu++17 -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
@@ -157,15 +193,15 @@ $(OBJ_DIR)/%.o: $(LIB_DIR)/%.cpp
 	@echo ' '
 
 $(OBJ_DIR)/%.o: $(LIB_DIR)/%.c
-	@echo 'Building file: $<'
+	@echo 'Building C file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
 	@mkdir -p "$(dir $@)"
 	@$(CC) $(CFLAGS) -std=gnu11 -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
-$(DBCBUILD):
-	python "$(LIB_DIR)/$(DBC_DIR)/dbc_parse.py" -i "$(LIB_DIR)/$(DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBCBUILD)
+$(DBC_BUILD):
+	python "$(LIB_DIR)/$(DBC_DIR)/dbc_parse.py" -i "$(LIB_DIR)/$(DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBC_BUILD)
 
 $(DBC_DIR):
 	mkdir -p $(DBC_DIR)

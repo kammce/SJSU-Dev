@@ -101,6 +101,9 @@ LIST				= $(EXECUTABLE:.elf=.lst)
 SIZE				= $(EXECUTABLE:.elf=.siz)
 MAP					= $(EXECUTABLE:.elf=.map)
 SYMBOLS				= $(EXECUTABLE:.elf=.sym)
+SYMBOLS_OBJECT 		= $(SYMBOLS).o
+SYMBOLS_EXECUTABLE	= $(EXECUTABLE:.elf=.symbols.elf)
+SYMBOLS_HEX			= $(SYMBOLS_EXECUTABLE:.elf=.hex)
 
 .PHONY: build clean cleaninstall flash telemetry monitor show-object-list
 
@@ -112,7 +115,7 @@ default:
 	@echo "    clean        - cleans project folder"
 	@echo "    cleaninstall - cleans, builds and installs firmware"
 
-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX) $(SYMBOLS)
+build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX) $(SYMBOLS_HEX)
 
 cleaninstall: clean build flash
 
@@ -121,9 +124,10 @@ show-object-list:
 
 print-%  : ; @echo $* = $($*)
 
-$(SYMBOLS): $(EXECUTABLE)
-	@echo 'Invoking: Cross ARM GNU NM Generate Symbol Table'
-	@$(NM) -C "$<" > "$@"
+
+$(SYMBOLS_HEX): $(SYMBOLS_EXECUTABLE)
+	@echo 'Invoking: Cross ARM GNU Create Flash Image'
+	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -133,15 +137,34 @@ $(HEX): $(EXECUTABLE)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(SIZE): $(EXECUTABLE)
+$(SIZE): $(SYMBOLS_EXECUTABLE)
 	@echo 'Invoking: Cross ARM GNU Print Size'
 	@$(SIZEC) --format=berkeley "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(LIST): $(EXECUTABLE)
-	@echo 'Invoking: Cross ARM GNU Create Listing'
+$(LIST): $(SYMBOLS_EXECUTABLE)
+	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
 	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
+	@echo 'Linking: FINAL Symbol Table Linked EXECUTABLE'
+	@mkdir -p "$(dir $@)"
+	@$(CPPC) $(LINKFLAGS) -o "$@" $(SYMBOLS_OBJECT) $(OBJECT_FILES)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+$(SYMBOLS_OBJECT): $(SYMBOLS)
+	@echo 'Invoking: Cross ARM GNU Generating Symbol Table Object File'
+	@$(OBJCOPY) -I binary -O elf32-littlearm -B arm bin/firmware.sym bin/firmware.sym.o
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(SYMBOLS): $(EXECUTABLE)
+	@echo 'Generating: Cross ARM GNU NM Generate Symbol Table'
+	@$(NM) -C "$<" > "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -150,7 +173,6 @@ $(EXECUTABLE): $(DBC_BUILD) $(OBJECT_FILES)
 	@mkdir -p "$(dir $@)"
 	@$(CPPC) $(LINKFLAGS) -o "$@" $(OBJECT_FILES)
 	@echo 'Finished building target: $@'
-	@echo ' '
 
 $(OBJ_DIR)/%.o: %.cpp
 	@echo 'Building file: $<'
@@ -219,6 +241,9 @@ clean:
 
 flash: build
 	hyperload $(SJSUONEDEV) $(HEX)
+
+sym-flash: build
+	hyperload $(SJSUONEDEV) $(SYMBOLS_HEX)
 
 telemetry:
 	@telemetry

@@ -72,7 +72,7 @@ LINKFLAGS = -mcpu=cortex-m3 \
 
 DBC_BUILD        	= $(DBC_DIR)/generated_can.h
 LIBRARIES			= $(shell find "$(LIB_DIR)" -name '*.c' -o -name '*.cpp')
-SOURCES				= $(shell find . \
+SOURCES				= $(shell find L5_Application L5_Assembly \
  						 -name '*.c' -o\
 						 -name '*.s' -o \
 						 -name '*.S' -o \
@@ -157,8 +157,11 @@ $(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
 	@echo ' '
 
 $(SYMBOLS_OBJECT): $(SYMBOLS)
+	./symbol-converter.sh
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Generating Symbol Table Object File'
-	@$(OBJCOPY) -I binary -O elf32-littlearm -B arm bin/firmware.sym bin/firmware.sym.o
+	# @$(OBJCOPY) -I binary -O elf32-littlearm -B arm bin/symbols.c bin/firmware.sym.o
+	@$(CC) $(CFLAGS) -std=gnu11 -MF"$(@:%.o=%.d)" -MT"$(@)" -o bin/firmware.sym.o bin/symbols.c
 	@echo 'Finished building: $@'
 	@echo ' '
 

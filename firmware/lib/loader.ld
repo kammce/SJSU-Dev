@@ -15,6 +15,7 @@ MEMORY
      * So we start heap from SRAM, and then move it up to SRAM_AHB if SRAM
      * portion runs out completely.
      */
+
      /* Symbol Table */
      FLASH_SYMBOL_TABLE : ORIGIN = 0x1000, LENGTH = 32K
 }
@@ -44,6 +45,10 @@ SECTIONS
 		__bss_section_table_end = .;
 		__section_table_end = . ;
 		/* End of Global Section Table */
+		. = ALIGN(4) ;
+		__symbol_table_start = .;
+        KEEP(*(.symbol_table))
+        __symbol_table_end = .;
 
         /* Functions that are placed after the interrupt vector */
 		*(.after_vectors*)
@@ -83,12 +88,12 @@ SECTIONS
 		/* End C++ */
 	} > FLASH
 
-	.symbol_table :
+	/*.symbol_table : ALIGN(4);
     {
         __symbol_table_start = .;
         KEEP(*(.symbol_table))
         __symbol_table_end = .;
-    } > FLASH_SYMBOL_TABLE
+    }*/
 
 	/*
 	 * for exception handling/unwind - some Newlib functions (in common

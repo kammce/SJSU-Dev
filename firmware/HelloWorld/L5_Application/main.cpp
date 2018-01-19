@@ -25,7 +25,7 @@
 #include "utilities.h"
 #include "io.hpp"
 
-const bool CHECK_BIT(var, pos)
+inline bool CHECK_BIT(int var, int pos)
 {
     return (bool)(var & (1 << pos));
 }
@@ -59,7 +59,7 @@ int main (void)
                 LE.set((5-j), CHECK_BIT(i,j-1));
             }
             LD.setNumber(i);
-            printf("Hello Preet 0x%X\n", i);
+            printf("Hello World 0x%X\n", i);
             delay_ms(1000);
         }
     }

@@ -17,7 +17,7 @@ MEMORY
      */
 
      /* Symbol Table */
-     FLASH_SYMBOL_TABLE : ORIGIN = 0x1000, LENGTH = 32K
+     /*FLASH_SYMBOL_TABLE : ORIGIN = 0x1000, LENGTH = 32K*/
 }
 
 /* Program entry point */
@@ -36,7 +36,7 @@ SECTIONS
 		__section_table_start = .;
 		__data_section_table = .;
 		LONG(LOADADDR(.data));
-		LONG(    ADDR(.data)) ;
+		LONG(    ADDR(.data));
 		LONG(  SIZEOF(.data));
 		__data_section_table_end = .;
 		__bss_section_table = .;
@@ -45,10 +45,6 @@ SECTIONS
 		__bss_section_table_end = .;
 		__section_table_end = . ;
 		/* End of Global Section Table */
-		. = ALIGN(4) ;
-		__symbol_table_start = .;
-        KEEP(*(.symbol_table))
-        __symbol_table_end = .;
 
         /* Functions that are placed after the interrupt vector */
 		*(.after_vectors*)
@@ -74,26 +70,24 @@ SECTIONS
 
 		KEEP(*(.fini));
 
-		. = ALIGN(0x4);
+		. = ALIGN(4);
 		KEEP (*crtbegin.o(.ctors))
 		KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
 		KEEP (*(SORT(.ctors.*)))
 		KEEP (*crtend.o(.ctors))
 
-		. = ALIGN(0x4);
+		. = ALIGN(4);
 		KEEP (*crtbegin.o(.dtors))
 		KEEP (*(EXCLUDE_FILE (*crtend.o) .dtors))
 		KEEP (*(SORT(.dtors.*)))
 		KEEP (*crtend.o(.dtors))
-		/* End C++ */
-	} > FLASH
 
-	/*.symbol_table : ALIGN(4);
-    {
-        __symbol_table_start = .;
+		. = ALIGN(4) ;
+		__symbol_table_start = .;
         KEEP(*(.symbol_table))
         __symbol_table_end = .;
-    }*/
+		/* End C++ */
+	} > FLASH
 
 	/*
 	 * for exception handling/unwind - some Newlib functions (in common
@@ -151,6 +145,15 @@ SECTIONS
 		_ebss = .;
 		PROVIDE(end = .);
 	} > SRAM_AHB
+
+	/*
+	.symbol_table : ALIGN(4)
+    {
+        __symbol_table_start = .;
+        KEEP(*(.symbol_table))
+        __symbol_table_end = .;
+    } > FLASH_SYMBOL_TABLE
+	*/
 
 	/* Provide a symbol of the heap pointer to C/C++ code */
 	PROVIDE(_pvHeapStart = .);

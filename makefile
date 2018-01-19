@@ -96,37 +96,45 @@ OBJECT_FILES 		= $(addprefix $(OBJ_DIR)/, \
 						) \
 					)
 EXECUTABLE			= $(BIN_DIR)/$(PROJ).elf
+SYMBOL_TABLE 		= $(BIN_DIR)/symbol-table.c
 HEX					= $(EXECUTABLE:.elf=.hex)
+SYMBOLS_HEX			= $(EXECUTABLE:.elf=.symbols.hex)
 LIST				= $(EXECUTABLE:.elf=.lst)
+SYMBOLS_LIST		= $(EXECUTABLE:.elf=.symbols.lst)
 SIZE				= $(EXECUTABLE:.elf=.siz)
+SYMBOLS_SIZE		= $(EXECUTABLE:.elf=.symbols.siz)
 MAP					= $(EXECUTABLE:.elf=.map)
+SYMBOLS_MAP			= $(EXECUTABLE:.elf=.symbols.map)
 SYMBOLS				= $(EXECUTABLE:.elf=.sym)
-SYMBOLS_OBJECT 		= $(SYMBOLS).o
 SYMBOLS_EXECUTABLE	= $(EXECUTABLE:.elf=.symbols.elf)
-SYMBOLS_HEX			= $(SYMBOLS_EXECUTABLE:.elf=.hex)
+SYMBOLS_OBJECT 		= $(SYMBOLS).o
 
-.PHONY: build clean cleaninstall flash telemetry monitor show-object-list
+.PHONY: build clean cleaninstall flash telemetry monitor show-obj-list
 
 default:
 	@echo "List of available targets:"
-	@echo "    build        - builds firmware project"
-	@echo "    flash        - builds and installs firmware on to SJOne board"
-	@echo "    telemetry    - will launch telemetry interface"
-	@echo "    clean        - cleans project folder"
-	@echo "    cleaninstall - cleans, builds and installs firmware"
+	@echo "    build         - builds firmware project"
+	@echo "    nosym-build   - builds firmware project without embeddeding symbol table"
+	@echo "    flash         - builds and installs firmware on to SJOne board"
+	@echo "    nosym-flash   - builds and installs firmware on to SJOne board without embeddeding symbol table"
+	@echo "    telemetry     - will launch telemetry interface"
+	@echo "    clean         - cleans project folder"
+	@echo "    cleaninstall  - cleans, builds and installs firmware"
+	@echo "    show-obj-list - Shows all object files that will be compiled"
 
-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX) $(SYMBOLS_HEX)
+nosym-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX)
+
+build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SYMBOLS_SIZE) $(SYMBOLS_LIST) $(SYMBOLS_HEX)
 
 cleaninstall: clean build flash
 
-show-object-list:
+show-obj-list:
 	@echo $(OBJECT_FILES)
 
 print-%  : ; @echo $* = $($*)
 
-
 $(SYMBOLS_HEX): $(SYMBOLS_EXECUTABLE)
-	@echo 'Invoking: Cross ARM GNU Create Flash Image'
+	@echo 'Invoking: Cross ARM GNU Create Symbol Linked Flash Image'
 	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
@@ -137,13 +145,25 @@ $(HEX): $(EXECUTABLE)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(SIZE): $(SYMBOLS_EXECUTABLE)
+$(SYMBOLS_SIZE): $(SYMBOLS_EXECUTABLE)
 	@echo 'Invoking: Cross ARM GNU Print Size'
 	@$(SIZEC) --format=berkeley "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(LIST): $(SYMBOLS_EXECUTABLE)
+$(SIZE): $(EXECUTABLE)
+	@echo 'Invoking: Cross ARM GNU Print Size'
+	@$(SIZEC) --format=berkeley "$<"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(SYMBOLS_LIST): $(SYMBOLS_EXECUTABLE)
+	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
+	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(LIST): $(EXECUTABLE)
 	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
 	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
 	@echo 'Finished building: $@'
@@ -156,13 +176,36 @@ $(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-$(SYMBOLS_OBJECT): $(SYMBOLS)
-	./symbol-converter.sh
+$(SYMBOLS_OBJECT): $(SYMBOL_TABLE)
 	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Generating Symbol Table Object File'
-	# @$(OBJCOPY) -I binary -O elf32-littlearm -B arm bin/symbols.c bin/firmware.sym.o
-	@$(CC) $(CFLAGS) -std=gnu11 -MF"$(@:%.o=%.d)" -MT"$(@)" -o bin/firmware.sym.o bin/symbols.c
+	@$(CC) $(CFLAGS) -std=gnu11 -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $@'
+	@echo ' '
+
+$(SYMBOL_TABLE): $(SYMBOLS)
+	@echo ' '
+	@echo 'Generating: Symbol Table C file'
+	@# Copying firmware.sym to .c file
+	@cat "$<" > "$@"
+	@# Remove everything that is not a function (text/code) symbols
+	@sed -i '/ T /!d' "$@"
+	@sed -i '/ T __/d' "$@"
+	@sed -i '/ T _/d' "$@"
+	@sed -i '/ T operator /d' "$@"
+	@sed -i '/ T typeinfo for/d' "$@"
+	@sed -i '/ T typeinfo name for /d' "$@"
+	@sed -i '/ T typeinfo name for /d' "$@"
+	@sed -i '/ T vtable for /d' "$@"
+	@sed -i '/ T vtable for /d' "$@"
+	@# Prepend " to each line
+	@sed -i 's/^/\t"/' "$@"
+	@# Append " to each line
+	@sed -i 's/$$/\\n\"/' "$@"
+	@# Append variable declaration
+	@sed -i '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
+	@# append it with a curly brace and semicolon
+	@echo "\n};" >> "$@"
 	@echo ' '
 
 $(SYMBOLS): $(EXECUTABLE)
@@ -242,10 +285,10 @@ $(BIN_DIR):
 clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
-flash: build
+nosym-flash: build
 	hyperload $(SJSUONEDEV) $(HEX)
 
-sym-flash: build
+flash: build
 	hyperload $(SJSUONEDEV) $(SYMBOLS_HEX)
 
 telemetry:

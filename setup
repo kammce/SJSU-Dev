@@ -141,7 +141,8 @@ echo "└───────────────────────�
 tar --extract \
 	--verbose \
 	--bzip2 \
-	--file=$GCC_PKG 2> /dev/null
+	--file=$GCC_PKG\
+	--exclude='share/doc' 2> /dev/null
 
 cd $BASE
 

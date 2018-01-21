@@ -194,9 +194,9 @@ $(SYMBOLS_OBJECT): $(SYMBOL_TABLE)
 $(SYMBOL_TABLE): $(SYMBOLS)
 	@echo ' '
 	@echo 'Generating: Symbol Table C file'
-	@# Copying firmware.sym to .c file
+	# Copying firmware.sym to .c file
 	@cat "$<" > "$@"
-	@# Remove everything that is not a function (text/code) symbols
+	# Remove everything that is not a function (text/code) symbols
 	@sed -i '/ T /!d' "$@"
 	@sed -i '/ T __/d' "$@"
 	@sed -i '/ T _/d' "$@"
@@ -206,13 +206,13 @@ $(SYMBOL_TABLE): $(SYMBOLS)
 	@sed -i '/ T typeinfo name for /d' "$@"
 	@sed -i '/ T vtable for /d' "$@"
 	@sed -i '/ T vtable for /d' "$@"
-	@# Prepend " to each line
+	# Prepend " to each line
 	@sed -i 's/^/\t"/' "$@"
-	@# Append " to each line
+	# Append " to each line
 	@sed -i 's/$$/\\n\"/' "$@"
-	@# Append variable declaration
+	# Append variable declaration
 	@sed -i '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
-	@# append it with a curly brace and semicolon
+	# append it with a curly brace and semicolon
 	@echo "\n};" >> "$@"
 	@echo ' '
 

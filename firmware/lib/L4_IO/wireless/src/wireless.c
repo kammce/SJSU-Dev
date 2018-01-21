@@ -75,8 +75,6 @@ static void nrf_irq_callback(void)
     portEND_SWITCHING_ISR(yieldRequired);
 }
 
-
-
 bool wireless_init(void)
 {
     mesh_driver_t driver;

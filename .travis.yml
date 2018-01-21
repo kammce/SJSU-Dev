@@ -1,16 +1,15 @@
 matrix:
     include:
         - os: linux
-          sudo: true
+          sudo: required
           dist: trusty
-          group: edge
           install:
-            - travis_wait 2 ./setup
+            - ./setup
         - os: osx
           install:
             - sudo easy_install pip
             - sudo pip install --upgrade pip
-            - travis_wait 5 ./setup
+            - ./setup
 script:
   - cd ./firmware/FreeRTOS/
   - source env.sh

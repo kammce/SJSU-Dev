@@ -4,28 +4,30 @@
 # Utils
 #
 #Checks for installed programs on machine
-function programInstalled {
-  local returning=1
-  type $1 >/dev/null 2>&1 || { local returning=0; }
-  echo "$returning"
+function programInstalled
+{
+	local returning=1
+	type $1 >/dev/null 2>&1 || { local returning=0; }
+	echo "$returning"
 }
 
-#Function Displays Green Check for installed programs
-#Else Displays Red Cross for Missing Programs
-function check {
-	if [ $1 == 1 ]; then
+# Function Displays Green Check for installed programs
+# Else Displays Red Cross for Missing Programs
+function check
+{
+	if [ $1 == 1 ]
+	then
 		printf "\e[32m✔"
 		echo $(tput sgr0)
 	else
 		printf "\e[31m✘"
 		echo $(tput sgr0)
-		echo "Missing requirement. Please install manually. Setup exiting."
-		exit 1
 	fi
 }
 
 # Make sure only non-root users can run our script
-if [[ $EUID -eq 0 ]]; then
+if [[ $EUID -eq 0 ]]
+then
    echo "SJSU-DEV installer script must NOT be run as root! " 1>&2
    exit 1
 fi
@@ -33,63 +35,81 @@ fi
 echo " ──────────────────────────────────────────────────┐"
 echo "            Acquiring sudo privileges               "
 echo "└────────────────────────────────────────────────── "
-sudo echo "" || SystemExit
+sudo echo "" || exit 1
 
 # Stash the tool directory
 TOOLDIR=$(dirname "$0")/tools
+# Get System Architecture
 ARCH=$(uname -m)
+# Get System Operating System
+OS=$(uname -s)
+# Get base path
 BASE=`pwd`
+# Define name of the arm version we are downloading
 ARM_GCC=gcc-arm-none-eabi-6-2017-q2-update
 
 echo " ──────────────────────────────────────────────────┐"
+echo ""
 echo "  Starting SJSU-DEV-Linux Environment Setup Script  "
+echo ""
 echo "└────────────────────────────────────────────────── "
 sleep 1
 echo " ──────────────────────────────────────────────────┐"
-echo "              Basic Dependencies                    "
-echo "└────────────────────────────────────────────────── "
-#TODO Install missing dependencies after check
-echo "python        $(check $(programInstalled python))"
-echo "pip           $(check $(programInstalled pip))"
-echo "git           $(check $(programInstalled git))"
-
-echo " ──────────────────────────────────────────────────┐"
 echo "              Detecting your platform               "
 echo "└────────────────────────────────────────────────── "
-if [[ "$ARCH" != 'x86_64' || "$ARCH" == "amd64" ]]; then
-	echo 'Your system is not supported! Only 64-bit Linux and OSX systems are supported.'
-	SystemExit
+if [[ "$ARCH" != 'x86_64' || "$ARCH" == "amd64" ]]
+then
+	echo 'Only 64-bit architecture systems are supported!'
+	exit 1
+fi
+echo " ──────────────────────────────────────────────────┐"
+echo "            Checking Basic Dependencies             "
+echo "└────────────────────────────────────────────────── "
+PYTHON_INSTALLED=$(check $(programInstalled python))
+PIP_INSTALLED=$(check $(programInstalled pip))
+GIT_INSTALLED=$(check $(programInstalled git))
+# Output results of dependencies
+echo "python        $PYTHON_INSTALLED"
+echo "pip           $PIP_INSTALLED"
+echo "git           $GIT_INSTALLED"
+# Concat results
+REQUIREMENTS_MET="$PYTHON_INSTALLED $PIP_INSTALLED $GIT_INSTALLED"
+# This lines uses wildcards to check if there exists a ✘ in the
+# Concatenated string above. If it does, terminate setup
+if [[ $REQUIREMENTS_MET == *"✘"* ]]
+then
+	echo "Missing requirement(s). Please install manually. Setup exiting."
+	exit 1
 fi
 
+echo " ──────────────────────────────────────────────────┐"
+echo "               System Dependent Setup               "
+echo "└────────────────────────────────────────────────── "
 cd $TOOLDIR
-case $( uname -s ) in
+case "$OS" in
 	Linux) # Linux Case
 		echo "Operating System: Linux"
+		SJSUONEDEV=/dev/ttyUSB0
+		echo " ───────────────────────────────────────────────────┐"
+		echo "     Installing OpenOCD, Git, Python, Curl           "
+		echo "└─────────────────────────────────────────────────── "
+		sudo apt -y install openocd
+		sudo apt -y install git python curl
 		echo " ──────────────────────────────────────────────────┐"
 		echo "           Downloading gcc-arm-embedded             "
 		echo "└────────────────────────────────────────────────── "
 		curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-linux.tar.bz2
 		GCC_PKG=$ARM_GCC-linux.tar.bz2
-		SJSUONEDEV=/dev/ttyUSB0
-
-		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
 		echo " ──────────────────────────────────────────────────┐"
 		echo "      Adding current user to '$GROUP' group"
 		echo "└────────────────────────────────────────────────── "
+		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
 		sudo adduser $USER $THE_GROUP
-
 		echo " ───────────────────────────────────────────────────┐"
-		echo "     Installing OpenOCD, Git, Python, Curl           "
-		echo "└─────────────────────────────────────────────────── "
-		sudo apt -y install openocd
-		sudo apt-get -y install git python curl
-
-		echo " ───────────────────────────────────────────────────┐"
-		echo "        Installing PIP + Python Virtualenv           "
+		echo "        Upgrading PIP & Python's Virtualenv          "
 		echo "└─────────────────────────────────────────────────── "
 		sudo -H pip install --upgrade pip
 		sudo -H pip install --upgrade virtualenv
-
 		echo " ───────────────────────────────────────────────────┐"
 		echo "                 Installing GDBGUI                   "
 		echo "└─────────────────────────────────────────────────── "
@@ -97,21 +117,20 @@ case $( uname -s ) in
 		;;
 
 	Darwin) # OS X Case
-		echo "Operating System Kernel: Mac OSX Darvin"
+		echo "Operating System: Mac OSX Darvin"
 		echo " ──────────────────────────────────────────────────┐"
 		echo "           Downloading gcc-arm-embedded             "
 		echo "└────────────────────────────────────────────────── "
 		curl -C - -LO https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/$ARM_GCC-mac.tar.bz2
 		GCC_PKG=$ARM_GCC-mac.tar.bz2
 		SJSUONEDEV=/dev/tty.usbserial-A503JOLS
-
 		# ========= Xcode ========== #
-		xcode-select --install &> /dev/null	#Install cli tools
-		sudo xcodebuild -license #Accept User Agreement
+		xcode-select --install &> /dev/null	# Install cli tools
+		sudo xcodebuild -license # Accept User Agreement
 		;;
 
 	*)	#Default if Operating System other than Mac or Linux
-		echo Other
+		echo "Only Linux, OSX, and WSL (Windows Subsystem Linux) systems are supported! Exiting..."
 		exit 1
 		;;
 esac
@@ -127,14 +146,14 @@ tar --extract \
 cd $BASE
 
 echo " ───────────────────────────────────────────────────┐"
-echo "                Installing Hyperload                 "
+echo "                Setting Up Hyperload                 "
 echo "└─────────────────────────────────────────────────── "
 git clone --depth=1 https://github.com/kammce/Hyperload.git $TOOLDIR/Hyperload/
 cd $TOOLDIR/Hyperload/ && ./setup
 cd $BASE
 
 echo " ───────────────────────────────────────────────────┐"
-echo "                Installing Telemetry                 "
+echo "                Setting Up Telemetry                 "
 echo "└─────────────────────────────────────────────────── "
 git clone --depth=1 https://github.com/kammce/Telemetry.git $TOOLDIR/Telemetry
 cd $TOOLDIR/Telemetry/ && ./setup
@@ -196,6 +215,7 @@ done
 echo " ───────────────────────────────────────────────────┐"
 echo "                   SETUP COMPLETE!                   "
 echo "                                                     "
-echo "              PLEASE RESTART YOUR SYSTEM             "
+echo " IF THIS IS YOUR FIRST TIME RUNNING THE SETUP SCRIPT "
+echo "             PLEASE RESTART YOUR SYSTEM              "
 echo "         TO LOAD CODE INTO YOUR SJONE BOARD          "
 echo "└─────────────────────────────────────────────────── "

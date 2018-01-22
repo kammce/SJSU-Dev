@@ -77,7 +77,8 @@ SOURCES				= $(shell find L5_Application L5_Assembly \
 						 -name '*.s' -o \
 						 -name '*.S' -o \
 						 -name '*.cpp' \
-						 -not -path './test/*')
+						 -not -path './test/*' \
+						 2> /dev/null)
 COMPILABLES 		= $(LIBRARIES) $(SOURCES)
 
 # $(patsubst %.cpp,%.o, LIST) 		: Replace .cpp -> .o
@@ -177,33 +178,31 @@ $(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
 	@echo ' '
 
 $(SYMBOLS_OBJECT): $(SYMBOL_TABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Generating Symbol Table Object File'
 	@$(CC) $(CFLAGS) -std=gnu11 -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOL_TABLE): $(SYMBOLS)
-	@echo ' '
 	@echo 'Generating: Symbol Table C file'
 	@# Copying firmware.sym to .c file
 	@cat "$<" > "$@"
 	@# Remove everything that is not a function (text/code) symbols
-	@sed -i '' '/ T /!d' "$@"
-	@sed -i '' '/ T __/d' "$@"
-	@sed -i '' '/ T _/d' "$@"
-	@sed -i '' '/ T operator /d' "$@"
-	@sed -i '' '/ T typeinfo for/d' "$@"
-	@sed -i '' '/ T typeinfo name for /d' "$@"
-	@sed -i '' '/ T typeinfo name for /d' "$@"
-	@sed -i '' '/ T vtable for /d' "$@"
-	@sed -i '' '/ T vtable for /d' "$@"
+	@sed --in-place='' '/ T /!d' "$@"
+	@sed --in-place='' '/ T __/d' "$@"
+	@sed --in-place='' '/ T _/d' "$@"
+	@sed --in-place='' '/ T operator /d' "$@"
+	@sed --in-place='' '/ T typeinfo for/d' "$@"
+	@sed --in-place='' '/ T typeinfo name for /d' "$@"
+	@sed --in-place='' '/ T typeinfo name for /d' "$@"
+	@sed --in-place='' '/ T vtable for /d' "$@"
+	@sed --in-place='' '/ T vtable for /d' "$@"
 	@# Prepend " to each line
-	@sed -i '' 's/^/\t"/' "$@"
+	@sed --in-place='' 's/^/\t"/' "$@"
 	@# Append " to each line
-	@sed -i '' 's/$$/\\n\"/' "$@"
+	@sed --in-place='' 's/$$/\\n\"/' "$@"
 	@# Append variable declaration
-	@sed -i '' '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
+	@sed --in-place='' '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
 	@# append it with a curly brace and semicolon
 	@echo "\n};" >> "$@"
 	@echo ' '

@@ -1,21 +1,20 @@
     .syntax unified
-
-    @ --------------------------------
-
-@ char buff[5] = {0};
+@ --------------------------------
+@ printf("Hello, World from Assembly Code World!\n");
+@
 @ while(1)
 @ {
 @     for(int i = 0; i < 16; i++)
 @     {
-@         ctoba(buff, (char)i);
 @         for(int j = 1; j < 5; j++)
 @         {
 @             LE.set((5-j), CHECK_BIT(i,j-1));
 @         }
 @         LD.setNumber(i);
-@         printf("Hello Preet 0x%X\n", i);
+@         printf("Counter = 0x%X\n", i);
 @         delay_ms(1000);
 @     }
+@     printf("Resetting Counter\n");
 @ }
 
 #define counter     r12

@@ -33,36 +33,39 @@ void uart0_init(unsigned int baud_rate)
     lpc_pconp(pconp_uart0, true);
     lpc_pclk(pclk_uart0, clkdiv_1);
 
-	LPC_PINCON->PINSEL0 &= ~(0xF << 4); // Clear values
-	LPC_PINCON->PINSEL0 |= (0x5 << 4);  // Set values for UART0 Rx/Tx
+    LPC_PINCON->PINSEL0 &= ~(0xF << 4); // Clear values
+    LPC_PINCON->PINSEL0 |= (0x5 << 4);  // Set values for UART0 Rx/Tx
 
-	LPC_UART0->LCR = dlab_bit;          // Set DLAB bit to access DLM & DLL
-	LPC_UART0->DLM = (divider >> 8);
-	LPC_UART0->DLL = (divider >> 0);
-	LPC_UART0->LCR = eight_bit_datalen; // DLAB is reset back to zero
+    LPC_UART0->LCR = dlab_bit;          // Set DLAB bit to access DLM & DLL
+    LPC_UART0->DLM = (divider >> 8);
+    LPC_UART0->DLL = (divider >> 0);
+    LPC_UART0->LCR = eight_bit_datalen; // DLAB is reset back to zero
 }
 
 char uart0_getchar(char notused)
 {
     while(! BIT(LPC_UART0->LSR).b0);
+
     return LPC_UART0->RBR;
 }
 
 char uart0_putchar(char out)
 {
-	//while(! (LPC_UART0->LSR & (1 << 6)));
-	LPC_UART0->THR = out;
+    //while(! (LPC_UART0->LSR & (1 << 6)));
+    LPC_UART0->THR = out;
+
     while(! BIT(LPC_UART0->LSR).b6);
-	return 1;
+
+    return 1;
 }
 
 void uart0_puts(const char* c_string)
 {
-	char* p = (char*) c_string;
-	while(*p)
-	{
-		uart0_putchar(*p);
-		p++;
-	}
-	uart0_putchar('\n');
+    char* p = (char*) c_string;
+    while(*p)
+    {
+        uart0_putchar(*p);
+        p++;
+    }
+    uart0_putchar('\n');
 }

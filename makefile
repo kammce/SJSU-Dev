@@ -189,21 +189,21 @@ $(SYMBOL_TABLE): $(SYMBOLS)
 	@# Copying firmware.sym to .c file
 	@cat "$<" > "$@"
 	@# Remove everything that is not a function (text/code) symbols
-	@sed -i '/ T /!d' "$@"
-	@sed -i '/ T __/d' "$@"
-	@sed -i '/ T _/d' "$@"
-	@sed -i '/ T operator /d' "$@"
-	@sed -i '/ T typeinfo for/d' "$@"
-	@sed -i '/ T typeinfo name for /d' "$@"
-	@sed -i '/ T typeinfo name for /d' "$@"
-	@sed -i '/ T vtable for /d' "$@"
-	@sed -i '/ T vtable for /d' "$@"
+	@sed -i '' '/ T /!d' "$@"
+	@sed -i '' '/ T __/d' "$@"
+	@sed -i '' '/ T _/d' "$@"
+	@sed -i '' '/ T operator /d' "$@"
+	@sed -i '' '/ T typeinfo for/d' "$@"
+	@sed -i '' '/ T typeinfo name for /d' "$@"
+	@sed -i '' '/ T typeinfo name for /d' "$@"
+	@sed -i '' '/ T vtable for /d' "$@"
+	@sed -i '' '/ T vtable for /d' "$@"
 	@# Prepend " to each line
-	@sed -i 's/^/\t"/' "$@"
+	@sed -i '' 's/^/\t"/' "$@"
 	@# Append " to each line
-	@sed -i 's/$$/\\n\"/' "$@"
+	@sed -i '' 's/$$/\\n\"/' "$@"
 	@# Append variable declaration
-	@sed -i '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
+	@sed -i '' '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
 	@# append it with a curly brace and semicolon
 	@echo "\n};" >> "$@"
 	@echo ' '

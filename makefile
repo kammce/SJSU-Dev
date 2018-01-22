@@ -77,8 +77,7 @@ SOURCES				= $(shell find L5_Application L5_Assembly \
 						 -name '*.s' -o \
 						 -name '*.S' -o \
 						 -name '*.cpp' \
-						 -not -path './test/*' \
-						 2> /dev/null)
+						 -not -path './test/*')
 COMPILABLES 		= $(LIBRARIES) $(SOURCES)
 
 # $(patsubst %.cpp,%.o, LIST) 		: Replace .cpp -> .o
@@ -135,49 +134,42 @@ show-obj-list:
 print-%  : ; @echo $* = $($*)
 
 $(SYMBOLS_HEX): $(SYMBOLS_EXECUTABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Symbol Linked Flash Image'
 	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(HEX): $(EXECUTABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
 	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOLS_SIZE): $(SYMBOLS_EXECUTABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Print Size'
 	@$(SIZEC) --format=berkeley "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SIZE): $(EXECUTABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Print Size'
 	@$(SIZEC) --format=berkeley "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOLS_LIST): $(SYMBOLS_EXECUTABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
 	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(LIST): $(EXECUTABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
 	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
-	@echo ' '
 	@echo 'Linking: FINAL Symbol Table Linked EXECUTABLE'
 	@mkdir -p "$(dir $@)"
 	@$(CPPC) $(LINKFLAGS) -o "$@" $(SYMBOLS_OBJECT) $(OBJECT_FILES)
@@ -194,25 +186,25 @@ $(SYMBOLS_OBJECT): $(SYMBOL_TABLE)
 $(SYMBOL_TABLE): $(SYMBOLS)
 	@echo ' '
 	@echo 'Generating: Symbol Table C file'
-	# Copying firmware.sym to .c file
+	@# Copying firmware.sym to .c file
 	@cat "$<" > "$@"
-	# Remove everything that is not a function (text/code) symbols
-	@sed -i '/ T /!d' "$@"
-	@sed -i '/ T __/d' "$@"
-	@sed -i '/ T _/d' "$@"
-	@sed -i '/ T operator /d' "$@"
-	@sed -i '/ T typeinfo for/d' "$@"
-	@sed -i '/ T typeinfo name for /d' "$@"
-	@sed -i '/ T typeinfo name for /d' "$@"
-	@sed -i '/ T vtable for /d' "$@"
-	@sed -i '/ T vtable for /d' "$@"
-	# Prepend " to each line
-	@sed -i 's/^/\t"/' "$@"
-	# Append " to each line
-	@sed -i 's/$$/\\n\"/' "$@"
-	# Append variable declaration
-	@sed -i '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
-	# append it with a curly brace and semicolon
+	@# Remove everything that is not a function (text/code) symbols
+	@sed -i '' '/ T /!d' "$@"
+	@sed -i '' '/ T __/d' "$@"
+	@sed -i '' '/ T _/d' "$@"
+	@sed -i '' '/ T operator /d' "$@"
+	@sed -i '' '/ T typeinfo for/d' "$@"
+	@sed -i '' '/ T typeinfo name for /d' "$@"
+	@sed -i '' '/ T typeinfo name for /d' "$@"
+	@sed -i '' '/ T vtable for /d' "$@"
+	@sed -i '' '/ T vtable for /d' "$@"
+	@# Prepend " to each line
+	@sed -i '' 's/^/\t"/' "$@"
+	@# Append " to each line
+	@sed -i '' 's/$$/\\n\"/' "$@"
+	@# Append variable declaration
+	@sed -i '' '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
+	@# append it with a curly brace and semicolon
 	@echo "\n};" >> "$@"
 	@echo ' '
 

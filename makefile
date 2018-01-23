@@ -213,9 +213,9 @@ $(SYMBOL_TABLE): $(SYMBOLS)
 	# Append " to each line
 	@sed $(SED_FLAGS) 's/$$/\\n\"/' "$@"
 	# Append variable declaration
-	@sed $(SED_FLAGS) '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
+	@sed $(SED_FLAGS) '1s/^/__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] = /' "$@"
 	# append it with a curly brace and semicolon
-	@echo "\n};" >> "$@"
+	@echo ";" >> "$@"
 	@echo ' '
 
 $(SYMBOLS): $(EXECUTABLE)

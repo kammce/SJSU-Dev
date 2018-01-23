@@ -197,23 +197,24 @@ $(SYMBOLS_OBJECT): $(SYMBOL_TABLE)
 $(SYMBOL_TABLE): $(SYMBOLS)
 	@echo 'Generating: Symbol Table C file'
 	# Copying firmware.sym to .c file
-	@cat "$<" > "$@"
+	@echo '________' > "$@"
+	@cat "$<" >> "$@"
 	# Remove everything that is not a function (text/code) symbols
-	@sed $(SED_FLAGS) '/ T /!d' "$@"
-	@sed $(SED_FLAGS) '/ T __/d' "$@"
-	@sed $(SED_FLAGS) '/ T _/d' "$@"
-	@sed $(SED_FLAGS) '/ T operator /d' "$@"
-	@sed $(SED_FLAGS) '/ T typeinfo for/d' "$@"
-	@sed $(SED_FLAGS) '/ T typeinfo name for /d' "$@"
-	@sed $(SED_FLAGS) '/ T typeinfo name for /d' "$@"
-	@sed $(SED_FLAGS) '/ T vtable for /d' "$@"
-	@sed $(SED_FLAGS) '/ T vtable for /d' "$@"
+	@perl -p -i -e 's;^.* [^T] .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T __.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T _.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T operator .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo for.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo name for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo name for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T vtable for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T vtable for .*\n;;' "$@"
 	# Prepend " to each line
-	@sed $(SED_FLAGS) 's/^/"/' "$@"
+	@perl -p -i -e 's;^;\t";' "$@"
 	# Append " to each line
-	@sed $(SED_FLAGS) 's/$$/\\n\"/' "$@"
+	@perl -p -i -e 's;$$;\\n\";' "$@"
 	# Append variable declaration
-	@sed $(SED_FLAGS) '1s/^/__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] = /' "$@"
+	@perl -p -i -e 's;^.*________.*;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =;' "$@"
 	# append it with a curly brace and semicolon
 	@echo ";" >> "$@"
 	@echo ' '

@@ -23,17 +23,39 @@
  * 			@see L0_LowLevel/lpc_sys.h if you wish to override printf/scanf functions.
  *
  */
+#include <stdio.h>
 #include "tasks.hpp"
-#include "examples.hpp"
-#include "periodic_callback.h"
-#include "uart2.hpp"
-#include "uart3.hpp"
 #include "utilities.h"
+#include "io.hpp"
+
+inline bool CHECK_BIT(int var, int pos)
+{
+    return (bool)(var & (1 << pos));
+}
+
+void vTaskCode(void * pvParameters)
+{
+    char c = (char)((uint32_t)pvParameters);
+    while(1)
+    {
+        for(int i = 0; i < 16; i++)
+        {
+            for(int j = 1; j < 5; j++)
+            {
+                LE.set((5-j), CHECK_BIT(i,j-1));
+            }
+            LD.setNumber(i);
+            // printf("(%c) Hello World 0x%X\n", c, i);
+	    	vTaskDelay(1000);
+        }
+    }
+}
 
 int main(void)
 {
     scheduler_add_task(new terminalTask(PRIORITY_HIGH));
-
-    scheduler_start(); ///< This shouldn't return
+	xTaskCreate(vTaskCode, "vTaskCode", 512, ( void * ) 'A', tskIDLE_PRIORITY, NULL );
+    // Alias to vSchedulerStart();
+    scheduler_start();
     return -1;
 }

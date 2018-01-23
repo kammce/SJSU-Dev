@@ -68,12 +68,14 @@ echo "└───────────────────────�
 PYTHON_INSTALLED=$(check $(programInstalled python))
 PIP_INSTALLED=$(check $(programInstalled pip))
 GIT_INSTALLED=$(check $(programInstalled git))
+PERL_INSTALLED=$(check $(programInstalled perl))
 # Output results of dependencies
 echo "python        $PYTHON_INSTALLED"
 echo "pip           $PIP_INSTALLED"
 echo "git           $GIT_INSTALLED"
+echo "perl          $PERL_INSTALLED"
 # Concat results
-REQUIREMENTS_MET="$PYTHON_INSTALLED $PIP_INSTALLED $GIT_INSTALLED"
+REQUIREMENTS_MET="$PYTHON_INSTALLED $PIP_INSTALLED $GIT_INSTALLED $PERL_INSTALLED"
 # This lines uses wildcards to check if there exists a ✘ in the
 # Concatenated string above. If it does, terminate setup
 if [[ $REQUIREMENTS_MET == *"✘"* ]]
@@ -91,9 +93,12 @@ case "$OS" in
 		echo "Operating System: Linux"
 		SJSUONEDEV=/dev/ttyUSB0
 		echo " ───────────────────────────────────────────────────┐"
-		echo "     Installing OpenOCD, Git, Python, Curl           "
+		echo "                Installing OpenOCD                   "
 		echo "└─────────────────────────────────────────────────── "
 		sudo apt -y install openocd
+		echo " ───────────────────────────────────────────────────┐"
+		echo "            Updating Git, Python, Curl               "
+		echo "└─────────────────────────────────────────────────── "
 		sudo apt -y install git python curl
 		echo " ──────────────────────────────────────────────────┐"
 		echo "           Downloading gcc-arm-embedded             "
@@ -106,9 +111,12 @@ case "$OS" in
 		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
 		sudo adduser $USER $THE_GROUP
 		echo " ───────────────────────────────────────────────────┐"
-		echo "        Upgrading PIP & Python's Virtualenv          "
+		echo "                   Upgrading PIP                     "
 		echo "└─────────────────────────────────────────────────── "
 		sudo -H pip install --upgrade pip
+		echo " ───────────────────────────────────────────────────┐"
+		echo "            Upgrading Python's Virtualenv            "
+		echo "└─────────────────────────────────────────────────── "
 		sudo -H pip install --upgrade virtualenv
 		echo " ───────────────────────────────────────────────────┐"
 		echo "                 Installing GDBGUI                   "
@@ -125,8 +133,8 @@ case "$OS" in
 		GCC_PKG=$ARM_GCC-mac.tar.bz2
 		SJSUONEDEV=/dev/tty.usbserial-A503JOLS
 		# ========= Xcode ========== #
-		# xcode-select --install &> /dev/null	# Install cli tools
-		# sudo xcodebuild -license # Accept User Agreement
+		xcode-select --install &> /dev/null	# Install Command Line tools (make etc...)
+		sudo xcodebuild -license # Accept User Agreement
 		;;
 
 	*)	#Default if Operating System other than Mac or Linux

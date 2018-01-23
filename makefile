@@ -18,15 +18,6 @@ OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
 
-UNAME := $(shell uname)
-
-ifeq ($(UNAME), Linux)
-SED_FLAGS = -i
-endif
-ifeq ($(UNAME), Darwin)
-SED_FLAGS = -i "" -e
-endif
-
 define n
 
 

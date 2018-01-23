@@ -209,7 +209,7 @@ $(SYMBOL_TABLE): $(SYMBOLS)
 	@sed $(SED_FLAGS) '/ T vtable for /d' "$@"
 	@sed $(SED_FLAGS) '/ T vtable for /d' "$@"
 	# Prepend " to each line
-	@sed $(SED_FLAGS) 's/^/\t"/' "$@"
+	@sed $(SED_FLAGS) 's/^/"/' "$@"
 	# Append " to each line
 	@sed $(SED_FLAGS) 's/$$/\\n\"/' "$@"
 	# Append variable declaration

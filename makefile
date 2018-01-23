@@ -137,42 +137,49 @@ show-obj-list:
 print-%  : ; @echo $* = $($*)
 
 $(SYMBOLS_HEX): $(SYMBOLS_EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Symbol Linked Flash Image'
 	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(HEX): $(EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
 	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOLS_SIZE): $(SYMBOLS_EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Print Size'
 	@$(SIZEC) --format=berkeley "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SIZE): $(EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Print Size'
 	@$(SIZEC) --format=berkeley "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOLS_LIST): $(SYMBOLS_EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
 	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(LIST): $(EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
 	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
+	@echo ' '
 	@echo 'Linking: FINAL Symbol Table Linked EXECUTABLE'
 	@mkdir -p "$(dir $@)"
 	@$(CPPC) $(LINKFLAGS) -o "$@" $(SYMBOLS_OBJECT) $(OBJECT_FILES)

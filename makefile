@@ -17,13 +17,14 @@ NM 		        = arm-none-eabi-nm
 OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
+LIB_DIR 		= $(SJLIBDIR)
 
 define n
 
 
 endef
 
-ifndef SJSUONEDEV
+ifndef SJDEV
 $(error $n$n=============================================$nSJSUOne environment variables not set.$nPLEASE run "source env.sh"$n=============================================$n$n)
 endif
 
@@ -112,7 +113,7 @@ SYMBOLS_EXECUTABLE	= $(EXECUTABLE:.elf=.symbols.elf)
 SYMBOLS_OBJECT 		= $(SYMBOLS).o
 
 .DELETE_ON_ERROR:
-.PHONY: build clean cleaninstall flash telemetry monitor show-obj-list
+.PHONY: nosym-build build cleaninstall telemetry monitor show-obj-list clean nosym-flash flash telemetry
 
 default:
 	@echo "List of available targets:"
@@ -294,11 +295,17 @@ $(BIN_DIR):
 clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
-nosym-flash: build
-	hyperload $(SJSUONEDEV) $(HEX)
+nosym-flash: nosym-build
+	bash -c "\
+	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
 
 flash: build
-	hyperload $(SJSUONEDEV) $(SYMBOLS_HEX)
+	bash -c "\
+	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
 
 telemetry:
-	@telemetry
+	bash -c "\
+	source $(SJBASE)/tools/Telemetry/modules/bin/activate && \
+	python $(SJBASE)/tools/Telemetry/telemetry.py"

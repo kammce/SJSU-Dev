@@ -296,16 +296,16 @@ clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
 nosym-flash: nosym-build
-	bash -c "\
+	@bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
 	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
 
 flash: build
-	bash -c "\
+	@bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
 	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
 
 telemetry:
-	bash -c "\
+	@bash -c "\
 	source $(SJBASE)/tools/Telemetry/modules/bin/activate && \
 	python $(SJBASE)/tools/Telemetry/telemetry.py"

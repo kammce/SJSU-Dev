@@ -173,32 +173,32 @@ echo "└───────────────────────�
 cat > env.sh <<EOL
 #!/bin/bash
 # Setup a base directory:
-BASE=$BASE
+SJBASE=$BASE
 
 # SJSUOne Board Settings:
-SJSUONEDEV=$SJSUONEDEV # Set this to your board ID
-SJSUONEBAUD=38400
+SJDEV=$SJSUONEDEV # Set this to your board ID
+SJBAUD=38400
 
 # Project Target Settings:
 # Sets the binary name, defaults to "firmware" (Optional)
-PROJ=firmware
+SJPROJ=firmware
 
 # Sets which DBC to generate, defaults to "DBG"
 ENTITY=DBG
 
 # Compiler and library settings:
 # Selects compiler version to use
-PATH=\$PATH:\$BASE/tools/$ARM_GCC/bin:\$BASE/tools/Hyperload:\$BASE/tools/Telemetry
-LIB_DIR="\$BASE/firmware/lib"
+PATH=\$PATH:\$SJBASE/tools/gcc-arm-none-eabi-6-2017-q2-update/bin
+SJLIBDIR="\$SJBASE/firmware/lib"
 
 # Export everything to the environment
-export PATH
-export PROJ
+export SJBASE
+export SJDEV
+export SJBAUD
+export SJPROJ
 export ENTITY
-export LIB_DIR
-export SJSUONEDEV
-export SJSUONEBAUD
-export MAKEFLAGS
+export PATH
+export SJLIBDIR
 EOL
 
 echo " ───────────────────────────────────────────────────┐"

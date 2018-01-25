@@ -3,20 +3,14 @@ Getting Started
 
 Prerequisites
 ---------------
-Need a running version of Ubuntu 16.04 LTS or above, or Mac OS X (OS X Yosemite and above), or Windows 10 with WSL installed.
+Need a running version of Ubuntu 16.04 LTS or above, or OS X, or Windows 10 with WSL installed.
 
 You must also have the following pre-installed:
 
 	* Python 2.7+
-		* Default installed on WSL, Ubuntu 16.04 and Mac OS X
+	* Pip
 	* Git
-		* Default installed on Mac OS X
-		* To install on WSL & Ubuntu 16.04 run :code:`sudo apt install git-all`
-	* make
-		* Default installed on WSL, Ubuntu 16.04
-		* On Mac OSX this is installed after you run :code:`xcode-select --install`
-
-If you are running Mac OS X you will need to install the xcode command line tools prior to running the setup. :code:`xcode-select --install`. After the xcode tools are finished installing, follow the instructions below.
+	* Perl
 
 Installation
 -------------

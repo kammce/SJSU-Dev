@@ -17,13 +17,14 @@ NM 		        = arm-none-eabi-nm
 OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
+LIB_DIR 		= $(SJLIBDIR)
 
 define n
 
 
 endef
 
-ifndef SJSUONEDEV
+ifndef SJDEV
 $(error $n$n=============================================$nSJSUOne environment variables not set.$nPLEASE run "source env.sh"$n=============================================$n$n)
 endif
 
@@ -50,6 +51,7 @@ CFLAGS = -mcpu=cortex-m3 \
     -I"$(LIB_DIR)/L4_IO" \
     -I"$(LIB_DIR)/L4_IO/fat" \
     -I"$(LIB_DIR)/L4_IO/wireless" \
+    -I"$(LIB_DIR)/L5_HighLevel" \
     -I"$(LIB_DIR)/L5_Application" \
     -I"$(LIB_DIR)/L5_Assembly" \
     -I"L2_Drivers" \
@@ -72,12 +74,13 @@ LINKFLAGS = -mcpu=cortex-m3 \
 
 DBC_BUILD        	= $(DBC_DIR)/generated_can.h
 LIBRARIES			= $(shell find "$(LIB_DIR)" -name '*.c' -o -name '*.cpp')
-SOURCES				= $(shell find . \
+SOURCES				= $(shell find L5_Application L5_Assembly \
  						 -name '*.c' -o\
 						 -name '*.s' -o \
 						 -name '*.S' -o \
 						 -name '*.cpp' \
-						 -not -path './test/*')
+						 -not -path './test/*' \
+						 2> /dev/null)
 COMPILABLES 		= $(LIBRARIES) $(SOURCES)
 
 # $(patsubst %.cpp,%.o, LIST) 		: Replace .cpp -> .o
@@ -96,52 +99,128 @@ OBJECT_FILES 		= $(addprefix $(OBJ_DIR)/, \
 						) \
 					)
 EXECUTABLE			= $(BIN_DIR)/$(PROJ).elf
+SYMBOL_TABLE 		= $(BIN_DIR)/symbol-table.c
 HEX					= $(EXECUTABLE:.elf=.hex)
+SYMBOLS_HEX			= $(EXECUTABLE:.elf=.symbols.hex)
 LIST				= $(EXECUTABLE:.elf=.lst)
+SYMBOLS_LIST		= $(EXECUTABLE:.elf=.symbols.lst)
 SIZE				= $(EXECUTABLE:.elf=.siz)
+SYMBOLS_SIZE		= $(EXECUTABLE:.elf=.symbols.siz)
 MAP					= $(EXECUTABLE:.elf=.map)
+SYMBOLS_MAP			= $(EXECUTABLE:.elf=.symbols.map)
 SYMBOLS				= $(EXECUTABLE:.elf=.sym)
+SYMBOLS_EXECUTABLE	= $(EXECUTABLE:.elf=.symbols.elf)
+SYMBOLS_OBJECT 		= $(SYMBOLS).o
 
-.PHONY: build clean cleaninstall flash telemetry monitor show-object-list
+.DELETE_ON_ERROR:
+.PHONY: nosym-build build cleaninstall telemetry monitor show-obj-list clean nosym-flash flash telemetry
 
 default:
 	@echo "List of available targets:"
-	@echo "    build        - builds firmware project"
-	@echo "    flash        - builds and installs firmware on to SJOne board"
-	@echo "    telemetry    - will launch telemetry interface"
-	@echo "    clean        - cleans project folder"
-	@echo "    cleaninstall - cleans, builds and installs firmware"
+	@echo "    build         - builds firmware project"
+	@echo "    nosym-build   - builds firmware project without embeddeding symbol table"
+	@echo "    flash         - builds and installs firmware on to SJOne board"
+	@echo "    nosym-flash   - builds and installs firmware on to SJOne board without embeddeding symbol table"
+	@echo "    telemetry     - will launch telemetry interface"
+	@echo "    clean         - cleans project folder"
+	@echo "    cleaninstall  - cleans, builds and installs firmware"
+	@echo "    show-obj-list - Shows all object files that will be compiled"
 
-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX) $(SYMBOLS)
+nosym-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX)
+
+build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SYMBOLS_SIZE) $(SYMBOLS_LIST) $(SYMBOLS_HEX)
 
 cleaninstall: clean build flash
 
-show-object-list:
+show-obj-list:
 	@echo $(OBJECT_FILES)
 
 print-%  : ; @echo $* = $($*)
 
-$(SYMBOLS): $(EXECUTABLE)
-	@echo 'Invoking: Cross ARM GNU NM Generate Symbol Table'
-	@$(NM) -C "$<" > "$@"
+$(SYMBOLS_HEX): $(SYMBOLS_EXECUTABLE)
+	@echo ' '
+	@echo 'Invoking: Cross ARM GNU Create Symbol Linked Flash Image'
+	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(HEX): $(EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Create Flash Image'
 	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(SIZE): $(EXECUTABLE)
+$(SYMBOLS_SIZE): $(SYMBOLS_EXECUTABLE)
+	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Print Size'
 	@$(SIZEC) --format=berkeley "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-$(LIST): $(EXECUTABLE)
-	@echo 'Invoking: Cross ARM GNU Create Listing'
+$(SIZE): $(EXECUTABLE)
+	@echo ' '
+	@echo 'Invoking: Cross ARM GNU Print Size'
+	@$(SIZEC) --format=berkeley "$<"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(SYMBOLS_LIST): $(SYMBOLS_EXECUTABLE)
+	@echo ' '
+	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
 	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(LIST): $(EXECUTABLE)
+	@echo ' '
+	@echo 'Invoking: Cross ARM GNU Create Assembly Listing'
+	@$(OBJDUMP) --source --all-headers --demangle --line-numbers --wide "$<" > "$@"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
+	@echo ' '
+	@echo 'Linking: FINAL Symbol Table Linked EXECUTABLE'
+	@mkdir -p "$(dir $@)"
+	@$(CPPC) $(LINKFLAGS) -o "$@" $(SYMBOLS_OBJECT) $(OBJECT_FILES)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+$(SYMBOLS_OBJECT): $(SYMBOL_TABLE)
+	@echo 'Invoking: Cross ARM GNU Generating Symbol Table Object File'
+	@$(CC) $(CFLAGS) -std=gnu11 -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+$(SYMBOL_TABLE): $(SYMBOLS)
+	@echo 'Generating: Symbol Table C file'
+	# Copying firmware.sym to .c file
+	@echo '________' > "$@"
+	@cat "$<" >> "$@"
+	# Remove everything that is not a function (text/code) symbols
+	@perl -p -i -e 's;^.* [^T] .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T __.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T _.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T operator .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo for.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo name for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo name for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T vtable for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T vtable for .*\n;;' "$@"
+	# Prepend " to each line
+	@perl -p -i -e 's;^;\t";' "$@"
+	# Append " to each line
+	@perl -p -i -e 's;$$;\\n\";' "$@"
+	# Append variable declaration
+	@perl -p -i -e 's;^.*________.*;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =;' "$@"
+	# append it with a curly brace and semicolon
+	@echo ";" >> "$@"
+	@echo ' '
+
+$(SYMBOLS): $(EXECUTABLE)
+	@echo 'Generating: Cross ARM GNU NM Generate Symbol Table'
+	@$(NM) -C "$<" > "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -150,7 +229,6 @@ $(EXECUTABLE): $(DBC_BUILD) $(OBJECT_FILES)
 	@mkdir -p "$(dir $@)"
 	@$(CPPC) $(LINKFLAGS) -o "$@" $(OBJECT_FILES)
 	@echo 'Finished building target: $@'
-	@echo ' '
 
 $(OBJ_DIR)/%.o: %.cpp
 	@echo 'Building file: $<'
@@ -217,8 +295,17 @@ $(BIN_DIR):
 clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
+nosym-flash: nosym-build
+	@bash -c "\
+	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
+
 flash: build
-	hyperload $(SJSUONEDEV) $(HEX)
+	@bash -c "\
+	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
 
 telemetry:
-	@telemetry
+	@bash -c "\
+	source $(SJBASE)/tools/Telemetry/modules/bin/activate && \
+	python $(SJBASE)/tools/Telemetry/telemetry.py"

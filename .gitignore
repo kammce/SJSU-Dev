@@ -9,6 +9,7 @@ firmware/**/cgreen-test-suite
 !firmware/lib
 !firmware/HelloWorld
 !firmware/FreeRTOS
+!firmware/CPPFreeRTOS
 !firmware/Telemetry
 !firmware/Unittest
 !firmware/Assembly

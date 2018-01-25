@@ -12,13 +12,14 @@ CPPC            = g++
 OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
+LIB_DIR 		= $(SJLIBDIR)
 
 define n
 
 
 endef
 
-ifndef LIB_DIR
+ifndef SJLIBDIR
 $(error $n$n=============================================$nSJSUOne environment variables not set.$nPLEASE run "source env.sh"$n=============================================$n$n)
 endif
 

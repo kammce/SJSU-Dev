@@ -28,8 +28,8 @@
 #define PI 3.14159265
 
 #include "tasks.hpp"
-#include "examples/examples.hpp"
-#include "periodic_scheduler/periodic_callback.h"
+#include "examples.hpp"
+#include "periodic_callback.h"
 #include "uart2.hpp"
 #include "uart3.hpp"
 #include "utilities.h"

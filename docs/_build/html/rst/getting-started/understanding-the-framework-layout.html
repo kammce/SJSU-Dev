@@ -191,34 +191,31 @@
 │   └── <span class="nb">test</span>
 │       └── simple-test
 ├── FreeRTOS
-│   ├── bin
 │   ├── _can_dbc
 │   ├── L5_Application
-│   │   ├── examples
-│   │   ├── periodic_scheduler
-│   │   └── <span class="nb">source</span>
-│   ├── obj
 │   └── <span class="nb">test</span>
 │       └── simple-test
 ├── Telemetry
 │   ├── _can_dbc
 │   ├── L5_Application
-│   │   ├── examples
-│   │   ├── periodic_scheduler
-│   │   └── <span class="nb">source</span>
+│   │   └── periodic_scheduler
 │   └── <span class="nb">test</span>
 │       └── simple-test
 ├── Assembly
-│   ├── bin
-│   ├── obj
+│   ├── L5_Assembly
 │   └── <span class="nb">test</span>
 │       └── simple-test
 ├── Unittest
 │   ├── _can_dbc
 │   ├── L5_Application
-│   │   ├── examples
 │   │   ├── periodic_scheduler
 │   │   └── <span class="nb">source</span>
+│   └── <span class="nb">test</span>
+│        └── Function-Stubbing
+├── CPPFreeRTOS
+│   ├── _can_dbc
+│   ├── L5_Application
+│   │   └── periodic_scheduler
 │   └── <span class="nb">test</span>
 │        └── Function-Stubbing
 └── lib
@@ -242,6 +239,10 @@
     │   ├── fat
     │   ├── src
     │   └── wireless
+    ├── L5_HighLevel
+    │   ├── examples
+    │   ├── periodic_scheduler
+    │   └── <span class="nb">source</span>
     ├── L6_Testing
     └── newlib
 </pre></div>
@@ -255,6 +256,7 @@ The default applications are:</p>
 <div><ul class="simple">
 <li><strong>HelloWorld</strong>: Template for simple single-threaded applications. (CMPE 30)</li>
 <li><strong>FreeRTOS</strong>: templatT FreeRTOS application. (CMPE 127/146/243/244)</li>
+<li><strong>CPPFreeRTOS</strong>: templatT FreeRTOS application. (CMPE 127/146/243/244)</li>
 <li><strong>Telemetry</strong>: Template program to demonstrate usage of Telemetry and FreeRTOS. (CMPE 127/146/243/244)</li>
 <li><strong>Assembly</strong>: Template application for building simple ARM assembly programs (CMPE 102)</li>
 <li><strong>Unittest</strong>: Template unit testing application. (CMPE 146/146/243/244)</li>

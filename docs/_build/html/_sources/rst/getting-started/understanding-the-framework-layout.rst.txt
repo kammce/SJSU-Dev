@@ -13,34 +13,31 @@ File Hierarchy
 	│   └── test
 	│       └── simple-test
 	├── FreeRTOS
-	│   ├── bin
 	│   ├── _can_dbc
 	│   ├── L5_Application
-	│   │   ├── examples
-	│   │   ├── periodic_scheduler
-	│   │   └── source
-	│   ├── obj
 	│   └── test
 	│       └── simple-test
 	├── Telemetry
 	│   ├── _can_dbc
 	│   ├── L5_Application
-	│   │   ├── examples
-	│   │   ├── periodic_scheduler
-	│   │   └── source
+	│   │   └── periodic_scheduler
 	│   └── test
 	│       └── simple-test
 	├── Assembly
-	│   ├── bin
-	│   ├── obj
+	│   ├── L5_Assembly
 	│   └── test
 	│       └── simple-test
 	├── Unittest
 	│   ├── _can_dbc
 	│   ├── L5_Application
-	│   │   ├── examples
 	│   │   ├── periodic_scheduler
 	│   │   └── source
+	│   └── test
+	│        └── Function-Stubbing
+	├── CPPFreeRTOS
+	│   ├── _can_dbc
+	│   ├── L5_Application
+	│   │   └── periodic_scheduler
 	│   └── test
 	│        └── Function-Stubbing
 	└── lib
@@ -64,6 +61,10 @@ File Hierarchy
 	    │   ├── fat
 	    │   ├── src
 	    │   └── wireless
+	    ├── L5_HighLevel
+	    │   ├── examples
+	    │   ├── periodic_scheduler
+	    │   └── source
 	    ├── L6_Testing
 	    └── newlib
 
@@ -74,6 +75,7 @@ The default applications are:
 
 	* **HelloWorld**: Template for simple single-threaded applications. (CMPE 30)
 	* **FreeRTOS**: templatT FreeRTOS application. (CMPE 127/146/243/244)
+	* **CPPFreeRTOS**: templatT FreeRTOS application. (CMPE 127/146/243/244)
 	* **Telemetry**: Template program to demonstrate usage of Telemetry and FreeRTOS. (CMPE 127/146/243/244)
 	* **Assembly**: Template application for building simple ARM assembly programs (CMPE 102)
 	* **Unittest**: Template unit testing application. (CMPE 146/146/243/244)

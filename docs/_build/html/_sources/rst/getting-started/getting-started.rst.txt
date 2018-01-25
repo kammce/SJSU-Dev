@@ -3,13 +3,14 @@ Getting Started
 
 Prerequisites
 ---------------
-Need a running version of Ubuntu 16.04 LTS or above, or OS X, or Windows 10 with WSL with insider builds installed.
+Need a running version of Ubuntu 16.04 LTS or above, or OS X, or Windows 10 with WSL installed.
 
 You must also have the following pre-installed:
 
 	* Python 2.7+
 	* Pip
 	* Git
+	* Perl
 
 Installation
 -------------
@@ -41,7 +42,7 @@ Installation
 		all of the default folders.
 
 **Step 3**
-	Edit the :code:`env.sh` script. Change the line :code:`SJSUONEDEV=/dev/ttyUSB0` to equal what you have on your system.
+	Edit the :code:`env.sh` script. Change the line :code:`SJDEV=/dev/ttyUSB0` to equal what you have on your system.
 
 	**How to find your serial device on Ubuntu**
 
@@ -56,11 +57,11 @@ Installation
 		3. Plug it into your computer and run :code:`ls /dev/`.
 		4. Observe the new file that was created.
 		5. On mac, the path should look something like the following :code:`/dev/tty.cumodemfd1337`.
-		6. If so, change the line in env.sh to that file path from :code:`SJSUONEDEV=/dev/ttyUSB0` -> :code:`SJSUONEDEV=/dev/tty.`
+		6. If so, change the line in :code:`env.sh` to that file path from :code:`SJDEV=/dev/ttyUSB0` -> :code:`SJDEV=/dev/tty.`
 
 	**How to find your serial device on Windows Linux Subsystem**
 
-	On Windows it should be :code:`/dev/ttyS3`. Check your device manager to see what number COM device your device. The number after COM is the number after the **S** in the :code:`/dev/ttyS` string. That is your device. Replace the line :code:`SJSUONEDEV=/dev/ttyUSB0` -> :code:`SJSUONEDEV=/dev/ttyS`
+	On Windows it should be :code:`/dev/ttyS3`. Check your device manager to see what number COM device your device. The number after COM is the number after the **S** in the :code:`/dev/ttyS` string. That is your device. Replace the line :code:`SJDEV=/dev/ttyUSB0` -> :code:`SJDEV=/dev/ttyS`
 
 Building and Loading Hello World Application
 ----------------------------------------------
@@ -99,6 +100,11 @@ Building and Loading Hello World Application
 	.. note::
 		If you run this command without first building, this command will build your project and then flash it. So you can skip the step above if you like.
 
+	.. note::
+		If the device port of your SJOne did not appear as the device set in your :code:`env.sh` file, then run
+		:code:`make flash SJDEV=<PATH-TO-YOUR-PORT>`
+		and that will change your port path for that instant.
+
 **Step 4**
 	To view serial output, and interact with the board, run the following make command:
 
@@ -107,7 +113,7 @@ Building and Loading Hello World Application
 		make telemetry
 
 	.. note::
-		The interface will pop up in your default browser on launch, except on Windows. You will need to enter the IP address and port manually.
+		The interface will pop up in your default browser on launch. If this does not occur you will need to enter the :code:`http://localhost:5001` web address into your browser's address bar and load it.
 
 **Step 5**
 	Done!!
@@ -118,4 +124,4 @@ Instructions are the same as HelloWorld, but you need to enter the firmware/Free
 
 Creating your own Project
 ---------------------------------------
-Copy and rename the FreeRTOS or HelloWorld template folders to any place in your computer to make a new project.
+Copy and rename the FreeRTOS, HelloWorld or any of the other template folders to any place in your computer to make a new project.

@@ -17,13 +17,14 @@ NM 		        = arm-none-eabi-nm
 OBJ_DIR			= obj
 BIN_DIR			= bin
 DBC_DIR			= _can_dbc
+LIB_DIR 		= $(SJLIBDIR)
 
 define n
 
 
 endef
 
-ifndef SJSUONEDEV
+ifndef SJDEV
 $(error $n$n=============================================$nSJSUOne environment variables not set.$nPLEASE run "source env.sh"$n=============================================$n$n)
 endif
 
@@ -50,6 +51,7 @@ CFLAGS = -mcpu=cortex-m3 \
     -I"$(LIB_DIR)/L4_IO" \
     -I"$(LIB_DIR)/L4_IO/fat" \
     -I"$(LIB_DIR)/L4_IO/wireless" \
+    -I"$(LIB_DIR)/L5_HighLevel" \
     -I"$(LIB_DIR)/L5_Application" \
     -I"$(LIB_DIR)/L5_Assembly" \
     -I"L2_Drivers" \
@@ -110,7 +112,8 @@ SYMBOLS				= $(EXECUTABLE:.elf=.sym)
 SYMBOLS_EXECUTABLE	= $(EXECUTABLE:.elf=.symbols.elf)
 SYMBOLS_OBJECT 		= $(SYMBOLS).o
 
-.PHONY: build clean cleaninstall flash telemetry monitor show-obj-list
+.DELETE_ON_ERROR:
+.PHONY: nosym-build build cleaninstall telemetry monitor show-obj-list clean nosym-flash flash telemetry
 
 default:
 	@echo "List of available targets:"
@@ -185,35 +188,34 @@ $(SYMBOLS_EXECUTABLE): $(SYMBOLS_OBJECT)
 	@echo ' '
 
 $(SYMBOLS_OBJECT): $(SYMBOL_TABLE)
-	@echo ' '
 	@echo 'Invoking: Cross ARM GNU Generating Symbol Table Object File'
 	@$(CC) $(CFLAGS) -std=gnu11 -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 $(SYMBOL_TABLE): $(SYMBOLS)
-	@echo ' '
 	@echo 'Generating: Symbol Table C file'
-	@# Copying firmware.sym to .c file
-	@cat "$<" > "$@"
-	@# Remove everything that is not a function (text/code) symbols
-	@sed -i '/ T /!d' "$@"
-	@sed -i '/ T __/d' "$@"
-	@sed -i '/ T _/d' "$@"
-	@sed -i '/ T operator /d' "$@"
-	@sed -i '/ T typeinfo for/d' "$@"
-	@sed -i '/ T typeinfo name for /d' "$@"
-	@sed -i '/ T typeinfo name for /d' "$@"
-	@sed -i '/ T vtable for /d' "$@"
-	@sed -i '/ T vtable for /d' "$@"
-	@# Prepend " to each line
-	@sed -i 's/^/\t"/' "$@"
-	@# Append " to each line
-	@sed -i 's/$$/\\n\"/' "$@"
-	@# Append variable declaration
-	@sed -i '1s;^;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =\n{\n;' "$@"
-	@# append it with a curly brace and semicolon
-	@echo "\n};" >> "$@"
+	# Copying firmware.sym to .c file
+	@echo '________' > "$@"
+	@cat "$<" >> "$@"
+	# Remove everything that is not a function (text/code) symbols
+	@perl -p -i -e 's;^.* [^T] .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T __.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T _.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T operator .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo for.*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo name for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T typeinfo name for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T vtable for .*\n;;' "$@"
+	@perl -p -i -e 's;^.* T vtable for .*\n;;' "$@"
+	# Prepend " to each line
+	@perl -p -i -e 's;^;\t";' "$@"
+	# Append " to each line
+	@perl -p -i -e 's;$$;\\n\";' "$@"
+	# Append variable declaration
+	@perl -p -i -e 's;^.*________.*;__attribute__((section(".symbol_table"))) const char APP_SYM_TABLE[] =;' "$@"
+	# append it with a curly brace and semicolon
+	@echo ";" >> "$@"
 	@echo ' '
 
 $(SYMBOLS): $(EXECUTABLE)
@@ -293,11 +295,17 @@ $(BIN_DIR):
 clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
-nosym-flash: build
-	hyperload $(SJSUONEDEV) $(HEX)
+nosym-flash: nosym-build
+	@bash -c "\
+	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
 
 flash: build
-	hyperload $(SJSUONEDEV) $(SYMBOLS_HEX)
+	@bash -c "\
+	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
 
 telemetry:
-	@telemetry
+	@bash -c "\
+	source $(SJBASE)/tools/Telemetry/modules/bin/activate && \
+	python $(SJBASE)/tools/Telemetry/telemetry.py"

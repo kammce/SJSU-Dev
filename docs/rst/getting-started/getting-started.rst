@@ -14,7 +14,7 @@ You must also have the following pre-installed:
 		* To install on WSL & Ubuntu 16.04 run :code:`sudo apt install git-all`
 	* make
 		* Default installed on WSL, Ubuntu 16.04
-		* This is installed after you run :code:`xcode-select --install`
+		* On Mac OSX this is installed after you run :code:`xcode-select --install`
 
 If you are running Mac OS X you will need to install the xcode command line tools prior to running the setup. :code:`xcode-select --install`. After the xcode tools are finished installing, follow the instructions below.
 

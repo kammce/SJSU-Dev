@@ -115,12 +115,12 @@ case "$OS" in
 		echo "Operating System: Mac OSX Darvin"
 		SJSUONEDEV=/dev/tty.usbserial-A503JOLS
 		# ========= Xcode ========== #
-		xcode-select --install &> /dev/null	# Install Command Line tools (make etc...)
-		sudo xcodebuild -license # Accept User Agreement
+		# xcode-select --install &> /dev/null	# Install Command Line tools (make etc...)
+		# sudo xcodebuild -license # Accept User Agreement
 		echo " ───────────────────────────────────────────────────┐"
 		echo "           Using EASY_INSTALL to install PIP         "
 		echo "└─────────────────────────────────────────────────── "
-		# sudo easy_install pip
+		sudo easy_install pip
 		echo " ──────────────────────────────────────────────────┐"
 		echo "           Downloading gcc-arm-embedded             "
 		echo "└────────────────────────────────────────────────── "

@@ -12,6 +12,31 @@ You must also have the following pre-installed:
 	* Git
 	* Perl
 
+Prerequisites For Windows
+---------------------------
+**Note:** this is for Windows build 16215 or later
+
+1. Open PowerShell as Administrator and run
+
+    :code:`Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+
+2. Restart computer when prompted.
+
+3. Open Windows Store and choose **Ubuntu** as Linux distro
+
+    Ubuntu (https://www.microsoft.com/store/p/ubuntu/9nblggh4msv6)
+
+4. Select "Get"
+
+    If you get any errors go here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+5. After download completes select “Launch”
+
+    1. Create UNIX user account
+    2. If you get any errors go here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+After this point, you should be able to run :code:`bash` from the start menu.
+
 Installation
 -------------
 

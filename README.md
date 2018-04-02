@@ -26,12 +26,17 @@ See **[documentation](http://sjsu-dev.readthedocs.io/en/latest/?badge=latest)** 
 * [Khalil Estell](http://kammce.io): Creator of the Linux port of SJDev and maintainer of this repo.
 * [Kai Wetlesen](https://github.com/kaiwetlesen): Contributed Mac OS X port and development environment improvements.
 * [Anahit Sarao](https://github.com/s3nu): Major updates to initial Mac and Linux ports.
+* [Onyema Ude](https://github.com/Yomz): Windows Installation Documentation
 
 ### Special Credits
 * **Mikko Bayabo**: Windows surface destructive testing
 * **WSL testing**: Sameer Azer, Aaron Moffit, Ryan Lucus
 
 ## Change Log
+
+### Update 04.01.2018
+
+* Added Windows WSL prerequisite steps to documentation.
 
 ### Update 01.05.2018
 

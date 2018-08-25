@@ -12,20 +12,19 @@ matrix:
             - sudo pip install --upgrade pip
             - ./setup
 script:
-  - cd ./firmware/FreeRTOS/
+  - cd ./firmware/Starter/
   - source env.sh
   - make build
-  - ls ./bin/firmware.symbols.elf
-  - ls ./bin/firmware.symbols.hex
-  - ls ./bin/firmware.symbols.lst
-  - ls ./bin/firmware.map
-  - ls ./bin/firmware.sym
-  - ls ./bin/symbol-table.c
-  - make nosym-build
-  - ls ./bin/firmware.elf
-  - ls ./bin/firmware.hex
-  - ls ./bin/firmware.lst
-  - ls ./bin/firmware.map
-  - ls ./bin/firmware.sym
-  - cd test/simple-test/
-  - make
+  - ls ./build/bin/firmware.elf
+  - ls ./build/bin/firmware.hex
+  - ls ./build/bin/firmware.lst
+  - ls ./build/bin/firmware.map
+  - ls ./build/bin/firmware.sym
+  - cd ../examples/FreeRTOS/
+  - source env.sh
+  - make build
+  - ls ./build/bin/firmware.elf
+  - ls ./build/bin/firmware.hex
+  - ls ./build/bin/firmware.lst
+  - ls ./build/bin/firmware.map
+  - ls ./build/bin/firmware.sym

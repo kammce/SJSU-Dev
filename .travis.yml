@@ -19,7 +19,6 @@ script:
   - ls ./build/bin/firmware.hex
   - ls ./build/bin/firmware.lst
   - ls ./build/bin/firmware.map
-  - ls ./build/bin/firmware.sym
   - cd ../examples/FreeRTOS/
   - source env.sh
   - make build
@@ -27,4 +26,3 @@ script:
   - ls ./build/bin/firmware.hex
   - ls ./build/bin/firmware.lst
   - ls ./build/bin/firmware.map
-  - ls ./build/bin/firmware.sym

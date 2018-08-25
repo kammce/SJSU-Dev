@@ -167,10 +167,10 @@ export PATH
 export SJLIBDIR
 EOL
 
-
 echo " ───────────────────────────────────────────────────┐"
 echo "      Linking Files to Firmware Project Folder       "
 echo "└─────────────────────────────────────────────────── "
+source env.sh
 ./tools/link_projects.sh
 echo " ───────────────────────────────────────────────────┐"
 echo "                   SETUP COMPLETE!                   "

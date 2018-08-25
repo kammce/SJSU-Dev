@@ -5,7 +5,7 @@ then
     SOURCE_FILE_STRING='\e[1;31msource env.sh\e[0;31m'
     printf "\n"
     printf "\e[0;31m ========================================= \n"
-    printf "\e[0;31m| SJSU-Dev2 environment variables not set |\n"
+    printf "\e[0;31m|  SJSU-Dev environment variables not set |\n"
     printf "\e[0;31m|      PLEASE run '%b'         |\n" "$SOURCE_FILE_STRING"
     printf "\e[0;31m|                                         |\n"
     printf "\e[0;31m|  'env.sh' can be found at the root of   |\n"
@@ -17,7 +17,6 @@ then
     printf "\e[0m\n"
     exit 1
 fi
-
 # DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )
 PROJECTS=(${SJBASE}/firmware/Starter/ ${SJBASE}/firmware/examples/*/)
 for PROJECT in ${PROJECTS[@]}

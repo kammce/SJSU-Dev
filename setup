@@ -4,28 +4,6 @@
 # Utils #
 #########
 
-# Checks for installed programs on machine
-function programInstalled
-{
-	local returning=1
-	type $1 >/dev/null 2>&1 || { local returning=0; }
-	echo "$returning"
-}
-
-# Function Displays Green Check for installed programs
-# Else Displays Red Cross for Missing Programs
-function check
-{
-	if [ $1 == 1 ]
-	then
-		printf "\e[32m✔"
-		echo $(tput sgr0)
-	else
-		printf "\e[31m✘"
-		echo $(tput sgr0)
-	fi
-}
-
 # Make sure only non-root users can run our script
 if [[ $EUID -eq 0 ]]
 then
@@ -63,27 +41,6 @@ then
 	exit 1
 fi
 echo " ──────────────────────────────────────────────────┐"
-echo "               Checking Dependencies                "
-echo "└────────────────────────────────────────────────── "
-PYTHON_INSTALLED=$(check $(programInstalled python))
-PIP_INSTALLED=$(check $(programInstalled pip))
-GIT_INSTALLED=$(check $(programInstalled git))
-PERL_INSTALLED=$(check $(programInstalled perl))
-# Output results of dependencies
-echo "python        $PYTHON_INSTALLED"
-echo "pip           $PIP_INSTALLED"
-echo "git           $GIT_INSTALLED"
-echo "perl          $PERL_INSTALLED"
-# Concat results
-REQUIREMENTS_MET="$PYTHON_INSTALLED $PIP_INSTALLED $GIT_INSTALLED $PERL_INSTALLED"
-# This lines uses wildcards to check if there exists a ✘ in the
-# Concatenated string above. If it does, terminate setup
-if [[ $REQUIREMENTS_MET == *"✘"* ]]
-then
-	echo "Missing requirement(s). Please install manually. Setup exiting."
-	exit 1
-fi
-echo " ──────────────────────────────────────────────────┐"
 echo "               System Dependent Setup               "
 echo "└────────────────────────────────────────────────── "
 cd $TOOLDIR
@@ -91,16 +48,29 @@ case "$OS" in
 	Linux) # Linux Case
 		echo "Operating System: Linux"
 		SJSUONEDEV=/dev/ttyUSB0
-		echo " ───────────────────────────────────────────────────┐"
-		echo "                Installing OpenOCD                   "
-		echo "└─────────────────────────────────────────────────── "
-		sudo apt -y install openocd
+        echo " ───────────────────────────────────────────────────┐"
+        echo "               Updating Apt listings                 "
+        echo "└─────────────────────────────────────────────────── "
+        sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+        sudo apt update
+        echo " ───────────────────────────────────────────────────┐"
+        echo "                Installing OpenOCD                   "
+        echo "└─────────────────────────────────────────────────── "
+        sudo apt -y install openocd
+        echo " ───────────────────────────────────────────────────┐"
+        echo "        Installing build-essentials (make)           "
+        echo "└─────────────────────────────────────────────────── "
+        sudo apt -y install build-essential
 		echo " ───────────────────────────────────────────────────┐"
 		echo "         Updating Git, Python, PIP, and Curl         "
 		echo "└─────────────────────────────────────────────────── "
 		sudo apt -y install git python python-pip curl
+		echo " ───────────────────────────────────────────────────┐"
+		echo "                Installing OpenOCD                   "
+		echo "└─────────────────────────────────────────────────── "
+		sudo apt -y install openocd
 		echo " ──────────────────────────────────────────────────┐"
-		echo "      Adding current user to '$GROUP' group"
+		echo "      Adding current user to '$GROUP' group         "
 		echo "└────────────────────────────────────────────────── "
 		THE_GROUP=$(getent group | grep 'dial' | cut -d: -f1)
 		sudo adduser $USER $THE_GROUP
@@ -152,10 +122,6 @@ echo "            Upgrading Python's Virtualenv            "
 echo "└─────────────────────────────────────────────────── "
 sudo -H pip install --upgrade virtualenv
 echo " ───────────────────────────────────────────────────┐"
-echo "                 Installing GDBGUI                   "
-echo "└─────────────────────────────────────────────────── "
-sudo -H pip install --upgrade gdbgui
-echo " ───────────────────────────────────────────────────┐"
 echo "                Setting Up Hyperload                 "
 echo "└─────────────────────────────────────────────────── "
 git clone --depth=1 https://github.com/kammce/Hyperload.git $TOOLDIR/Hyperload/
@@ -201,22 +167,11 @@ export PATH
 export SJLIBDIR
 EOL
 
+
 echo " ───────────────────────────────────────────────────┐"
-echo "        Linking Files into Firmware projects         "
+echo "      Linking Files to Firmware Project Folder       "
 echo "└─────────────────────────────────────────────────── "
-for PROJECT in HelloWorld FreeRTOS Telemetry Unittest
-do
-	# Place env.sh link into project folder
-	ln -s -f $BASE/env.sh firmware/$PROJECT/env.sh
-	# Place makefile link into project folder
-	ln -s -f $BASE/makefile firmware/$PROJECT/makefile
-	# Place Unit test template folder into project folder
-	ln -s -f $BASE/tools/Unittest-Template/README.md firmware/$PROJECT/test/README.md
-	# Copy simple tests into project folder
-	cp -rf $BASE/tools/Unittest-Template/simple-test/ firmware/$PROJECT/test/
-	# Place the unit test makefile link into project folder
-	ln -s -f $BASE/makefile.test firmware/$PROJECT/test/simple-test/makefile
-done
+./tools/link_projects.sh
 echo " ───────────────────────────────────────────────────┐"
 echo "                   SETUP COMPLETE!                   "
 echo "                                                     "

@@ -69,7 +69,7 @@ Folder: :code:`firmware/<application>/L5_Assembly`
 The :code:`L5_Assembly` folder holds the :code:`main.S` ARM assembly template program.
 
 Folder: :code:`<applications>/build/bin`
--------------------------------------
+-----------------------------------------
 This folder holds the executables that can be loaded into the SJOne board :code:`.hex`. It also holds the disassembly file :code:`.lst`, linker file :code:`.map` and the Executable and Linkable Format :code:`.elf` file.
 
 Folder: :code:`<application>/build/_can_dbc`
@@ -77,7 +77,7 @@ Folder: :code:`<application>/build/_can_dbc`
 The :code:`_can_dbc` folder holds the CAN message description files and header generator.
 
 Folder: :code:`<application>/build/obj`
--------------------------------------
+----------------------------------------
 This folder holds object files created during the compilation stage of building. They are then all linked together to create an :code:`.elf` file afterwards. The last phase converts the :code:`.elf` to a :code:`.hex` file to be loaded into SJ-One's flash memory.
 
 Folder: :code:`firmware/lib`

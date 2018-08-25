@@ -102,7 +102,7 @@ Building and Loading Hello World Application
 
 	.. code-block:: bash
 
-		cd firmware/HelloWorld
+		cd firmware/Starter
 
 **Step 1**
 	Source the :code:`env.sh`. You only need to do this once for each terminal session. After sourcing, the necessary environment variables will be added to your shell.
@@ -112,7 +112,7 @@ Building and Loading Hello World Application
 		source env.sh
 
 **Step 2**
-	Run :code:`make build` within the HelloWorld folder to compile it into a HEX file located in the :code:`bin` folder.
+	Run :code:`make build` within the Starter folder to compile it into a HEX file located in the :code:`bin` folder.
 
 	.. code-block:: bash
 
@@ -151,8 +151,8 @@ Building and Loading Hello World Application
 
 Building and Loading FreeRTOS Project
 ---------------------------------------
-Instructions are the same as HelloWorld, but you need to enter the firmware/FreeRTOS folder and run make from there.
+Instructions are the same as Starter, but you need to enter the firmware/FreeRTOS folder and run make from there.
 
 Creating your own Project
 ---------------------------------------
-Copy and rename the FreeRTOS, HelloWorld or any of the other template folders to any place in your computer to make a new project.
+Copy and rename the FreeRTOS, Starter or any of the other template folders to any place in your computer to make a new project.

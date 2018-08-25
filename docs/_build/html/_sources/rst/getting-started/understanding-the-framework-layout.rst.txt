@@ -7,39 +7,19 @@ File Hierarchy
 .. code-block:: bash
 
 	firmware
-	├── HelloWorld
-	│   ├── _can_dbc
-	│   ├── L5_Application
-	│   └── test
-	│       └── simple-test
-	├── FreeRTOS
-	│   ├── _can_dbc
-	│   ├── L5_Application
-	│   └── test
-	│       └── simple-test
-	├── Telemetry
-	│   ├── _can_dbc
-	│   ├── L5_Application
-	│   │   └── periodic_scheduler
-	│   └── test
-	│       └── simple-test
-	├── Assembly
-	│   ├── L5_Assembly
-	│   └── test
-	│       └── simple-test
-	├── Unittest
-	│   ├── _can_dbc
-	│   ├── L5_Application
-	│   │   ├── periodic_scheduler
-	│   │   └── source
-	│   └── test
-	│        └── Function-Stubbing
-	├── CPPFreeRTOS
-	│   ├── _can_dbc
-	│   ├── L5_Application
-	│   │   └── periodic_scheduler
-	│   └── test
-	│        └── Function-Stubbing
+	├── Starter
+	│   └── L5_Application
+	├── examples	
+	│	├── FreeRTOS
+	│	│   └── L5_Application
+	│	├── Telemetry
+	│	│   └── L5_Application
+	│	│       └── periodic_scheduler
+	│	├── Assembly
+	│	│   └── L5_Assembly
+	│	└── CPPFreeRTOS
+	│	    └── L5_Application
+	│	        └── periodic_scheduler
 	└── lib
 	    ├── _can_dbc
 	    ├── L0_LowLevel
@@ -73,9 +53,9 @@ Folder: :code:`firmware`
 This folder is meant to hold the firmware **applications** you make.
 The default applications are:
 
-	* **HelloWorld**: Template for simple single-threaded applications. (CMPE 30)
-	* **FreeRTOS**: templatT FreeRTOS application. (CMPE 127/146/243/244)
-	* **CPPFreeRTOS**: templatT FreeRTOS application. (CMPE 127/146/243/244)
+	* **Starter**: Template for simple single-threaded applications. (CMPE 30)
+	* **FreeRTOS**: Template FreeRTOS application. (CMPE 127/146/243/244)
+	* **CPPFreeRTOS**: Template FreeRTOS application. (CMPE 127/146/243/244)
 	* **Telemetry**: Template program to demonstrate usage of Telemetry and FreeRTOS. (CMPE 127/146/243/244)
 	* **Assembly**: Template application for building simple ARM assembly programs (CMPE 102)
 	* **Unittest**: Template unit testing application. (CMPE 146/146/243/244)
@@ -88,20 +68,16 @@ Folder: :code:`firmware/<application>/L5_Assembly`
 --------------------------------------------------------------------------
 The :code:`L5_Assembly` folder holds the :code:`main.S` ARM assembly template program.
 
-Folder: :code:`<applications>/bin`
--------------------------------------
+Folder: :code:`<applications>/build/bin`
+-----------------------------------------
 This folder holds the executables that can be loaded into the SJOne board :code:`.hex`. It also holds the disassembly file :code:`.lst`, linker file :code:`.map` and the Executable and Linkable Format :code:`.elf` file.
 
-Folder: :code:`<application>/_can_dbc`
+Folder: :code:`<application>/build/_can_dbc`
 --------------------------------------------------------------------
 The :code:`_can_dbc` folder holds the CAN message description files and header generator.
 
-Folder: :code:`<application>/obj`
--------------------------------------
-This folder holds object files created during the compilation stage of building. They are then all linked together to create an :code:`.elf` file afterwards. The last phase converts the :code:`.elf` to a :code:`.hex` file to be loaded into SJ-One's flash memory.
-
-Folder: :code:`<application>/test`
--------------------------------------
+Folder: :code:`<application>/build/obj`
+----------------------------------------
 This folder holds object files created during the compilation stage of building. They are then all linked together to create an :code:`.elf` file afterwards. The last phase converts the :code:`.elf` to a :code:`.hex` file to be loaded into SJ-One's flash memory.
 
 Folder: :code:`firmware/lib`

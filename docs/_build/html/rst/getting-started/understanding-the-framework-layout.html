@@ -92,12 +92,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#folder-firmware">1.2.2. Folder: <code class="code docutils literal"><span class="pre">firmware</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#folder-firmware-application-l5-application">1.2.3. Folder: <code class="code docutils literal"><span class="pre">firmware/&lt;application&gt;/L5_Application</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#folder-firmware-application-l5-assembly">1.2.4. Folder: <code class="code docutils literal"><span class="pre">firmware/&lt;application&gt;/L5_Assembly</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#folder-applications-bin">1.2.5. Folder: <code class="code docutils literal"><span class="pre">&lt;applications&gt;/bin</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#folder-application-can-dbc">1.2.6. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/_can_dbc</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#folder-application-obj">1.2.7. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/obj</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#folder-application-test">1.2.8. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/test</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-lib">1.2.9. Folder: <code class="code docutils literal"><span class="pre">firmware/lib</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-lib-l-d-s">1.2.10. Folder: <code class="code docutils literal"><span class="pre">firmware/lib/L%d_%s</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-applications-build-bin">1.2.5. Folder: <code class="code docutils literal"><span class="pre">&lt;applications&gt;/build/bin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-application-build-can-dbc">1.2.6. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/build/_can_dbc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-application-build-obj">1.2.7. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/build/obj</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-lib">1.2.8. Folder: <code class="code docutils literal"><span class="pre">firmware/lib</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#folder-firmware-lib-l-d-s">1.2.9. Folder: <code class="code docutils literal"><span class="pre">firmware/lib/L%d_%s</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -176,39 +175,19 @@
 <div class="section" id="file-hierarchy">
 <h2>1.2.1. File Hierarchy<a class="headerlink" href="#file-hierarchy" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>firmware
-├── HelloWorld
-│   ├── _can_dbc
-│   ├── L5_Application
-│   └── <span class="nb">test</span>
-│       └── simple-test
-├── FreeRTOS
-│   ├── _can_dbc
-│   ├── L5_Application
-│   └── <span class="nb">test</span>
-│       └── simple-test
-├── Telemetry
-│   ├── _can_dbc
-│   ├── L5_Application
-│   │   └── periodic_scheduler
-│   └── <span class="nb">test</span>
-│       └── simple-test
-├── Assembly
-│   ├── L5_Assembly
-│   └── <span class="nb">test</span>
-│       └── simple-test
-├── Unittest
-│   ├── _can_dbc
-│   ├── L5_Application
-│   │   ├── periodic_scheduler
-│   │   └── <span class="nb">source</span>
-│   └── <span class="nb">test</span>
-│        └── Function-Stubbing
-├── CPPFreeRTOS
-│   ├── _can_dbc
-│   ├── L5_Application
-│   │   └── periodic_scheduler
-│   └── <span class="nb">test</span>
-│        └── Function-Stubbing
+├── Starter
+│   └── L5_Application
+├── examples
+│       ├── FreeRTOS
+│       │   └── L5_Application
+│       ├── Telemetry
+│       │   └── L5_Application
+│       │       └── periodic_scheduler
+│       ├── Assembly
+│       │   └── L5_Assembly
+│       └── CPPFreeRTOS
+│           └── L5_Application
+│               └── periodic_scheduler
 └── lib
     ├── _can_dbc
     ├── L0_LowLevel
@@ -245,9 +224,9 @@
 The default applications are:</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>HelloWorld</strong>: Template for simple single-threaded applications. (CMPE 30)</li>
-<li><strong>FreeRTOS</strong>: templatT FreeRTOS application. (CMPE 127/146/243/244)</li>
-<li><strong>CPPFreeRTOS</strong>: templatT FreeRTOS application. (CMPE 127/146/243/244)</li>
+<li><strong>Starter</strong>: Template for simple single-threaded applications. (CMPE 30)</li>
+<li><strong>FreeRTOS</strong>: Template FreeRTOS application. (CMPE 127/146/243/244)</li>
+<li><strong>CPPFreeRTOS</strong>: Template FreeRTOS application. (CMPE 127/146/243/244)</li>
 <li><strong>Telemetry</strong>: Template program to demonstrate usage of Telemetry and FreeRTOS. (CMPE 127/146/243/244)</li>
 <li><strong>Assembly</strong>: Template application for building simple ARM assembly programs (CMPE 102)</li>
 <li><strong>Unittest</strong>: Template unit testing application. (CMPE 146/146/243/244)</li>
@@ -262,28 +241,24 @@ The default applications are:</p>
 <h2>1.2.4. Folder: <code class="code docutils literal"><span class="pre">firmware/&lt;application&gt;/L5_Assembly</span></code><a class="headerlink" href="#folder-firmware-application-l5-assembly" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code docutils literal"><span class="pre">L5_Assembly</span></code> folder holds the <code class="code docutils literal"><span class="pre">main.S</span></code> ARM assembly template program.</p>
 </div>
-<div class="section" id="folder-applications-bin">
-<h2>1.2.5. Folder: <code class="code docutils literal"><span class="pre">&lt;applications&gt;/bin</span></code><a class="headerlink" href="#folder-applications-bin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="folder-applications-build-bin">
+<h2>1.2.5. Folder: <code class="code docutils literal"><span class="pre">&lt;applications&gt;/build/bin</span></code><a class="headerlink" href="#folder-applications-build-bin" title="Permalink to this headline">¶</a></h2>
 <p>This folder holds the executables that can be loaded into the SJOne board <code class="code docutils literal"><span class="pre">.hex</span></code>. It also holds the disassembly file <code class="code docutils literal"><span class="pre">.lst</span></code>, linker file <code class="code docutils literal"><span class="pre">.map</span></code> and the Executable and Linkable Format <code class="code docutils literal"><span class="pre">.elf</span></code> file.</p>
 </div>
-<div class="section" id="folder-application-can-dbc">
-<h2>1.2.6. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/_can_dbc</span></code><a class="headerlink" href="#folder-application-can-dbc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="folder-application-build-can-dbc">
+<h2>1.2.6. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/build/_can_dbc</span></code><a class="headerlink" href="#folder-application-build-can-dbc" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="code docutils literal"><span class="pre">_can_dbc</span></code> folder holds the CAN message description files and header generator.</p>
 </div>
-<div class="section" id="folder-application-obj">
-<h2>1.2.7. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/obj</span></code><a class="headerlink" href="#folder-application-obj" title="Permalink to this headline">¶</a></h2>
-<p>This folder holds object files created during the compilation stage of building. They are then all linked together to create an <code class="code docutils literal"><span class="pre">.elf</span></code> file afterwards. The last phase converts the <code class="code docutils literal"><span class="pre">.elf</span></code> to a <code class="code docutils literal"><span class="pre">.hex</span></code> file to be loaded into SJ-One’s flash memory.</p>
-</div>
-<div class="section" id="folder-application-test">
-<h2>1.2.8. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/test</span></code><a class="headerlink" href="#folder-application-test" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="folder-application-build-obj">
+<h2>1.2.7. Folder: <code class="code docutils literal"><span class="pre">&lt;application&gt;/build/obj</span></code><a class="headerlink" href="#folder-application-build-obj" title="Permalink to this headline">¶</a></h2>
 <p>This folder holds object files created during the compilation stage of building. They are then all linked together to create an <code class="code docutils literal"><span class="pre">.elf</span></code> file afterwards. The last phase converts the <code class="code docutils literal"><span class="pre">.elf</span></code> to a <code class="code docutils literal"><span class="pre">.hex</span></code> file to be loaded into SJ-One’s flash memory.</p>
 </div>
 <div class="section" id="folder-firmware-lib">
-<h2>1.2.9. Folder: <code class="code docutils literal"><span class="pre">firmware/lib</span></code><a class="headerlink" href="#folder-firmware-lib" title="Permalink to this headline">¶</a></h2>
+<h2>1.2.8. Folder: <code class="code docutils literal"><span class="pre">firmware/lib</span></code><a class="headerlink" href="#folder-firmware-lib" title="Permalink to this headline">¶</a></h2>
 <p>This folder holds the core firmware files for the SJ-One file, such as abstractions for using GPIO, I2C, UART, Interrupts, etc.</p>
 </div>
 <div class="section" id="folder-firmware-lib-l-d-s">
-<h2>1.2.10. Folder: <code class="code docutils literal"><span class="pre">firmware/lib/L%d_%s</span></code><a class="headerlink" href="#folder-firmware-lib-l-d-s" title="Permalink to this headline">¶</a></h2>
+<h2>1.2.9. Folder: <code class="code docutils literal"><span class="pre">firmware/lib/L%d_%s</span></code><a class="headerlink" href="#folder-firmware-lib-l-d-s" title="Permalink to this headline">¶</a></h2>
 <p>The folders that start with <strong>L&lt;some number&gt;_&lt;some folder name&gt;</strong> are kind of self explanatory as to what they hold. For example, <code class="code docutils literal"><span class="pre">L1_FreeRTOS</span></code> holds files pertaining to FreeRTOS and the FreeRTOS port files. <code class="code docutils literal"><span class="pre">L2_Drivers</span></code> are device drivers and so on and so forth.</p>
 </div>
 </div>

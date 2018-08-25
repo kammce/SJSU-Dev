@@ -14,10 +14,11 @@ OBJCOPY         = arm-none-eabi-objcopy
 NM 		        = arm-none-eabi-nm
 
 # Internal build directories
-OBJ_DIR			= obj
-BIN_DIR			= bin
-DBC_DIR			= _can_dbc
+OBJ_DIR			= build/obj
+BIN_DIR			= build/bin
+DBC_DIR			= build/_can_dbc
 LIB_DIR 		= $(SJLIBDIR)
+LIB_DBC_DIR		= $(LIB_DIR)/_can_dbc
 
 define n
 
@@ -113,22 +114,22 @@ SYMBOLS_EXECUTABLE	= $(EXECUTABLE:.elf=.symbols.elf)
 SYMBOLS_OBJECT 		= $(SYMBOLS).o
 
 .DELETE_ON_ERROR:
-.PHONY: nosym-build build cleaninstall telemetry monitor show-obj-list clean nosym-flash flash telemetry
+.PHONY: sym-build build cleaninstall telemetry monitor show-obj-list clean sym-flash flash telemetry
 
 default:
 	@echo "List of available targets:"
 	@echo "    build         - builds firmware project"
-	@echo "    nosym-build   - builds firmware project without embeddeding symbol table"
+	@echo "    sym-build     - builds firmware project with embeddeding symbol table"
 	@echo "    flash         - builds and installs firmware on to SJOne board"
-	@echo "    nosym-flash   - builds and installs firmware on to SJOne board without embeddeding symbol table"
+	@echo "    sym-flash     - builds and installs firmware on to SJOne board with embeddeding symbol table"
 	@echo "    telemetry     - will launch telemetry interface"
 	@echo "    clean         - cleans project folder"
 	@echo "    cleaninstall  - cleans, builds and installs firmware"
 	@echo "    show-obj-list - Shows all object files that will be compiled"
 
-nosym-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX)
+build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX)
 
-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SYMBOLS_SIZE) $(SYMBOLS_LIST) $(SYMBOLS_HEX)
+sym-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SYMBOLS_SIZE) $(SYMBOLS_LIST) $(SYMBOLS_HEX)
 
 cleaninstall: clean build flash
 
@@ -279,7 +280,7 @@ $(OBJ_DIR)/%.o: $(LIB_DIR)/%.c
 	@echo ' '
 
 $(DBC_BUILD):
-	python "$(LIB_DIR)/$(DBC_DIR)/dbc_parse.py" -i "$(LIB_DIR)/$(DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBC_BUILD)
+	python "$(LIB_DBC_DIR)/dbc_parse.py" -i "$(LIB_DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBC_BUILD)
 
 $(DBC_DIR):
 	mkdir -p $(DBC_DIR)
@@ -295,15 +296,15 @@ $(BIN_DIR):
 clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
-nosym-flash: nosym-build
+sym-flash: sym-build
 	@bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
-	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
 
 flash: build
 	@bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
-	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
+	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
 
 telemetry:
 	@bash -c "\

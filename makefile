@@ -280,7 +280,7 @@ $(OBJ_DIR)/%.o: $(LIB_DIR)/%.c
 	@echo ' '
 
 $(DBC_BUILD):
-	python "$(LIB_DBC_DIR)/dbc_parse.py" -i "$(LIB_DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBC_BUILD)
+	python2.7 "$(LIB_DBC_DIR)/dbc_parse.py" -i "$(LIB_DBC_DIR)/243.dbc" -s $(ENTITY) > $(DBC_BUILD)
 
 $(DBC_DIR):
 	mkdir -p $(DBC_DIR)
@@ -299,14 +299,14 @@ clean:
 sym-flash: sym-build
 	@bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
-	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
+	python2.7 $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
 
 flash: build
 	@bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
-	python $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
+	python2.7 $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
 
 telemetry:
 	@bash -c "\
 	source $(SJBASE)/tools/Telemetry/modules/bin/activate && \
-	python $(SJBASE)/tools/Telemetry/telemetry.py"
+	python2.7 $(SJBASE)/tools/Telemetry/telemetry.py"

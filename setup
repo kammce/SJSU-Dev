@@ -84,13 +84,15 @@ case "$OS" in
 	Darwin) # OS X Case
 		echo "Operating System: Mac OSX Darwin"
 		SJSUONEDEV=/dev/tty.usbserial-A503JOLS
-		# ========= Xcode ========== #
-		# xcode-select --install &> /dev/null	# Install Command Line tools (make etc...)
-		# sudo xcodebuild -license # Accept User Agreement
-		echo " ───────────────────────────────────────────────────┐"
-		echo "           Using EASY_INSTALL to install PIP         "
-		echo "└─────────────────────────────────────────────────── "
-		sudo easy_install pip
+        echo " ───────────────────────────────────────────────────┐"
+        echo "    Install XCode Command Line Tools (GCC, make)     "
+        echo "└─────────────────────────────────────────────────── "
+        xcode-select --install &> /dev/null	# Install Command Line tools (make etc...)
+        sudo xcodebuild -license accept # Accept User Agreement
+        echo " ───────────────────────────────────────────────────┐"
+        echo "        Installing PIP via bootstrap.pypa.io         "
+        echo "└─────────────────────────────────────────────────── "
+        curl https://bootstrap.pypa.io/get-pip.py | python2.7
 		echo " ──────────────────────────────────────────────────┐"
 		echo "           Downloading gcc-arm-embedded             "
 		echo "└────────────────────────────────────────────────── "

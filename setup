@@ -118,11 +118,11 @@ cd $BASE
 echo " ───────────────────────────────────────────────────┐"
 echo "                   Upgrading PIP                     "
 echo "└─────────────────────────────────────────────────── "
-sudo -H pip2.7 install --upgrade pip
+sudo -H python2.7 -m pip install --upgrade pip
 echo " ───────────────────────────────────────────────────┐"
 echo "            Upgrading Python's Virtualenv            "
 echo "└─────────────────────────────────────────────────── "
-sudo -H pip2.7 install --upgrade virtualenv
+sudo -H python2.7 -m pip install --upgrade virtualenv
 echo " ───────────────────────────────────────────────────┐"
 echo "                Setting Up Hyperload                 "
 echo "└─────────────────────────────────────────────────── "

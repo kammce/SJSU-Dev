@@ -178,7 +178,7 @@ class I2C_Base
          *              - Write is complete
          *              - Read  is complete
          */
-        mStateMachineStatus_t i2cStateMachine();
+        __attribute__ ((weak)) mStateMachineStatus_t i2cStateMachine();
         mStateMachineStatus_t state;
 
         void clearSIFlag();

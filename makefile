@@ -303,7 +303,7 @@ clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
 flash: build
-	@bash -c "\
+	bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
 	python2.7 $(SJBASE)/tools/Hyperload/hyperload.py -b 576000 -c 48000000 -a clocks -d $(SJDEV) $(BINARY)"
 

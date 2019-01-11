@@ -126,7 +126,6 @@ sudo -H pip2.7 install --upgrade virtualenv
 echo " ───────────────────────────────────────────────────┐"
 echo "                Setting Up Hyperload                 "
 echo "└─────────────────────────────────────────────────── "
-git clone --depth=1 https://github.com/kammce/Hyperload.git $TOOLDIR/Hyperload/
 cd $TOOLDIR/Hyperload/ && ./setup
 cd $BASE
 echo " ───────────────────────────────────────────────────┐"

@@ -99,19 +99,20 @@ OBJECT_FILES 		= $(addprefix $(OBJ_DIR)/, \
 							) \
 						) \
 					)
-EXECUTABLE			= $(BIN_DIR)/$(PROJ).elf
-SYMBOL_TABLE 		= $(BIN_DIR)/symbol-table.c
-HEX					= $(EXECUTABLE:.elf=.hex)
-SYMBOLS_HEX			= $(EXECUTABLE:.elf=.symbols.hex)
-LIST				= $(EXECUTABLE:.elf=.lst)
-SYMBOLS_LIST		= $(EXECUTABLE:.elf=.symbols.lst)
-SIZE				= $(EXECUTABLE:.elf=.siz)
-SYMBOLS_SIZE		= $(EXECUTABLE:.elf=.symbols.siz)
-MAP					= $(EXECUTABLE:.elf=.map)
-SYMBOLS_MAP			= $(EXECUTABLE:.elf=.symbols.map)
-SYMBOLS				= $(EXECUTABLE:.elf=.sym)
-SYMBOLS_EXECUTABLE	= $(EXECUTABLE:.elf=.symbols.elf)
-SYMBOLS_OBJECT 		= $(SYMBOLS).o
+EXECUTABLE			    = $(BIN_DIR)/$(PROJ).elf
+SYMBOL_TABLE 		    = $(BIN_DIR)/symbol-table.c
+BINARY              = $(EXECUTABLE:.elf=.bin)
+HEX                 = $(EXECUTABLE:.elf=.hex)
+SYMBOLS_HEX			    = $(EXECUTABLE:.elf=.symbols.hex)
+LIST                = $(EXECUTABLE:.elf=.lst)
+SYMBOLS_LIST        = $(EXECUTABLE:.elf=.symbols.lst)
+SIZE                = $(EXECUTABLE:.elf=.siz)
+SYMBOLS_SIZE        = $(EXECUTABLE:.elf=.symbols.siz)
+MAP                 = $(EXECUTABLE:.elf=.map)
+SYMBOLS_MAP         = $(EXECUTABLE:.elf=.symbols.map)
+SYMBOLS             = $(EXECUTABLE:.elf=.sym)
+SYMBOLS_EXECUTABLE  = $(EXECUTABLE:.elf=.symbols.elf)
+SYMBOLS_OBJECT      = $(SYMBOLS).o
 
 .DELETE_ON_ERROR:
 .PHONY: sym-build build cleaninstall telemetry monitor show-obj-list clean sym-flash flash telemetry
@@ -127,7 +128,7 @@ default:
 	@echo "    cleaninstall  - cleans, builds and installs firmware"
 	@echo "    show-obj-list - Shows all object files that will be compiled"
 
-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(HEX)
+build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SIZE) $(LIST) $(BINARY) $(HEX)
 
 sym-build: $(DBC_DIR) $(OBJ_DIR) $(BIN_DIR) $(SYMBOLS_SIZE) $(SYMBOLS_LIST) $(SYMBOLS_HEX)
 
@@ -144,6 +145,11 @@ $(SYMBOLS_HEX): $(SYMBOLS_EXECUTABLE)
 	@$(OBJCOPY) -O ihex "$<" "$@"
 	@echo 'Finished building: $@'
 	@echo ' '
+
+$(BINARY): $(EXECUTABLE)
+	@printf '$(YELLOW)Generating Binary Image $(RESET): $@ '
+	@$(OBJCOPY) -O binary "$<" "$@"
+	@printf '$(GREEN)Binary Generated!$(RESET)\n'
 
 $(HEX): $(EXECUTABLE)
 	@echo ' '
@@ -296,15 +302,10 @@ $(BIN_DIR):
 clean:
 	rm -fR $(OBJ_DIR) $(BIN_DIR) $(DBC_DIR)
 
-sym-flash: sym-build
-	@bash -c "\
-	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
-	python2.7 $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(SYMBOLS_HEX)"
-
 flash: build
 	@bash -c "\
 	source $(SJBASE)/tools/Hyperload/modules/bin/activate && \
-	python2.7 $(SJBASE)/tools/Hyperload/hyperload.py $(SJDEV) $(HEX)"
+	python2.7 $(SJBASE)/tools/Hyperload/hyperload.py -b 576000 -c 48000000 -a clocks -d $(SJDEV) $(BINARY)"
 
 telemetry:
 	@bash -c "\

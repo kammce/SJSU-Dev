@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Remove modules (virtual environment folder)
+rm -R modules
+# Initialize modules folder as a "virtual environment"
+virtualenv -p `which python2.7` modules
+# Activate virtual environment
+source modules/bin/activate
+# Install all requirements within requirements.txt file
+python2.7 -m pip install -r ./requirements.txt
+# Deactivate virtual environment
+deactivate

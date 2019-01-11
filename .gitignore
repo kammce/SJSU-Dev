@@ -10,7 +10,7 @@ firmware/**/cgreen-test-suite
 !firmware/examples
 !firmware/Starter
 
-tools/Hyperload
+tools/Hyperload/modules/
 tools/Telemetry
 tools/gcc-arm-none-eabi-*
 
